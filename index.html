@@ -4,21 +4,75 @@
   <meta charset="UTF-8">
   <title>Home</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
     .textArea {
       padding: 20px;
-      font-family: Arial, sans-serif;
     }
     .section-title {
       font-size: 24px;
       font-weight: bold;
     }
+    table.menu {
+      width: 250px;
+      border-collapse: collapse;
+    }
+    td.menuout {
+      cursor: pointer;
+      padding: 5px;
+    }
+    td.menuin {
+      background-color: #eef;
+    }
+    a.menu {
+      text-decoration: none;
+      color: black;
+    }
   </style>
+  <script>
+    let parent = {}, childs = {};
+
+    function menuCtrl(id) {
+      const entry = document.getElementById(id);
+      const isHidden = entry.getAttribute('data-expanded') !== 'true';
+      entry.setAttribute('data-expanded', isHidden);
+      if (childs[id]) {
+        childs[id].forEach(childId => {
+          const child = document.getElementById(childId);
+          child.style.display = isHidden ? 'table-row' : 'none';
+        });
+      }
+    }
+
+    function setupMenuStructure() {
+      parent[2] = 1;
+      childs[1] = [2];
+    }
+
+    window.onload = setupMenuStructure;
+  </script>
 </head>
 <body>
+  <table class="menu">
+    <tr id="1" onclick="menuCtrl(this.id)">
+      <td class="menuout" style="padding-left: 0.9em; text-indent: -0.9em; font-weight: bold;"
+          onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+        <img src="images/linkOpaque.gif" border="0">&nbsp;Home
+      </td>
+    </tr>
+    <tr id="2" style="display: none" onclick="menuCtrl(this.id)">
+      <td class="menuout" style="padding-left: 1.8em; text-indent: -0.9em;"
+          onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+        <a class="menu" href="about.html">
+          <img src="images/linkOpaque.gif" border="0">&nbsp;About
+        </a>
+      </td>
+    </tr>
+  </table>
 
   <div class="textArea">
     <p class="section-title">Welcome to the <i>Traffic</i> web site</p>
-
     <p>
       <i><b>Traffic</b></i> is a research group working in the area of computer networks and multimedia,
       with focus on <i>Network Monitoring and Measurements</i>. Our research involves measuring and evaluating
@@ -27,14 +81,11 @@
       input for developing new algorithms, protocols, and systems for the current and future Internet, with a
       specific focus on network management and security.
     </p>
-
     <p>
       Besides teaching activities, it is involved in several national and international research projects.
       Although it is a young group, formed in 2003, it has a significant track record with respect to funding
-      (approx. more than 1.5 Ml euro) and...
+      (approx. more than 1.5 Ml euro)...
     </p>
-
   </div>
-
 </body>
 </html>
