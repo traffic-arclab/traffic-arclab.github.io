@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -47,7 +48,11 @@
 
     function setupMenuStructure() {
       parent[2] = 1;
-      childs[1] = [2];
+      parent[3] = 1;
+      parent[4] = 1;
+      parent[5] = 1;
+      parent[6] = 1;
+      childs[1] = [2, 3, 4, 5, 6];
     }
 
     window.onload = setupMenuStructure;
@@ -64,8 +69,40 @@
     <tr id="2" style="display: none" onclick="menuCtrl(this.id)">
       <td class="menuout" style="padding-left: 1.8em; text-indent: -0.9em;"
           onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-        <a class="menu" href="about.html">
-          <img src="images/linkOpaque.gif" border="0">&nbsp;About
+        <a class="menu" href="people.php">
+          <img src="images/linkOpaque.gif" border="0">&nbsp;People
+        </a>
+      </td>
+    </tr>
+    <tr id="3" style="display: none" onclick="menuCtrl(this.id)">
+      <td class="menuout" style="padding-left: 1.8em; text-indent: -0.9em;"
+          onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+        <a class="menu" href="collaborations.php">
+          <img src="images/linkOpaque.gif" border="0">&nbsp;Collaborations
+        </a>
+      </td>
+    </tr>
+    <tr id="4" style="display: none" onclick="menuCtrl(this.id)">
+      <td class="menuout" style="padding-left: 1.8em; text-indent: -0.9em;"
+          onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+        <a class="menu" href="cloud.php">
+          <img src="images/linkOpaque.gif" border="0">&nbsp;Cloud Research
+        </a>
+      </td>
+    </tr>
+    <tr id="5" style="display: none" onclick="menuCtrl(this.id)">
+      <td class="menuout" style="padding-left: 1.8em; text-indent: -0.9em;"
+          onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+        <a class="menu" href="sdnmonitoring.php">
+          <img src="images/linkOpaque.gif" border="0">&nbsp;SDN Monitoring
+        </a>
+      </td>
+    </tr>
+    <tr id="6" style="display: none" onclick="menuCtrl(this.id)">
+      <td class="menuout" style="padding-left: 1.8em; text-indent: -0.9em;"
+          onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+        <a class="menu" href="publications.php">
+          <img src="images/linkOpaque.gif" border="0">&nbsp;Publications
         </a>
       </td>
     </tr>
