@@ -1,1 +1,40 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Indice Q&A</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Prompts and answers for ChatGPT, Gemini and Copilot</h1>
+    <p>Select a chatbot to visualize prompt and answers
+    .</p>
+  </header>
+
+  <main class="grid">
+    <a class="card" href="chatgpt.html">
+      <h2>ChatGPT</h2>
+      <p>Prompts and answers.</p>
+    </a>
+    <a class="card" href="gemini.html">
+      <h2>Gemini</h2>
+      <p>Prompts and answers.</p>
+    </a>
+    <a class="card" href="copilot.html">
+      <h2>Copilot</h2>
+      <p>Prompts and answers.</p>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Traffic Research Group UniNA</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
