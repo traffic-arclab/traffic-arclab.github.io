@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>People</title>
-  <meta name="description" content="Traffic Research Group Members">
+  <title>Visiting</title>
+
   <link rel="stylesheet" href="css/style.css">
   <script src="menu.js" defer></script>
 
   <style>
-    /* --- People Grid Layout --- */
     .people-section-title {
       text-align: center;
       font-size: 1.6rem;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 25px;
     }
+
     .people-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 25px;
       margin-top: 25px;
     }
+
     .person-card {
       background: #fff;
       padding: 18px;
@@ -30,36 +31,26 @@
       text-align: center;
       font-family: Arial, sans-serif;
     }
-    .person-image {
-      width: 140px;
-      height: 140px;
-      border-radius: 8px;
+
+    .person-photo {
+      width: 120px;
+      height: 120px;
       object-fit: cover;
+      border-radius: 8px;
       margin-bottom: 12px;
-    }
-    .person-name {
-      font-weight: bold;
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-    .person-info p {
-      margin: 3px 0;
-      font-size: 0.9rem;
-      line-height: 1.3rem;
-    }
-    .person-info a {
-      color: #0044cc;
-      text-decoration: none;
-    }
-    .person-info a:hover {
-      text-decoration: underline;
+      border: 1px solid #ddd;
     }
 
-    .alumni-title {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-top: 50px;
+    .person-name {
       font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .person-info p {
+      margin: 3px 0;
+      line-height: 1.3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -76,7 +67,9 @@
       </div>
     </div>
     <h1 class="site-title">
-      <span class="bold-initial">N</span>etwork <span class="bold-initial">M</span>onitoring and <span class="bold-initial">M</span>easurements
+      <span class="bold-initial">N</span>etwork 
+      <span class="bold-initial">M</span>onitoring and 
+      <span class="bold-initial">M</span>easurements
     </h1>
   </header>
 
@@ -85,7 +78,7 @@
     <nav class="sidebar">
       <ul class="main-menu">
         <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
-        <li class="menu-item"><a href="#" class="menu-link active">People</a></li>
+        <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
         
         <li class="menu-item has-submenu">
           <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
@@ -194,136 +187,159 @@
           </ul>
         </li>
         <li class="menu-item"><a href="collaborations.html" class="menu-link">Collaborations</a></li>
-        <li class="menu-item"><a href="visiting.html" class="menu-link">Visiting</a></li>
+        <li class="menu-item"><a href="#" class="menu-link active">Visiting</a></li>
       </ul>
     </nav>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
 
-      <h2 class="people-section-title">Members of our Research Group</h2>
+      <h2 class="people-section-title">Research Internships</h2>
+
+      <p style="text-align:center; max-width:700px; margin:auto;">
+        We strongly believe in collaboration with other research groups.
+      </p>
+
+      <hr>
+
+      <h2 class="people-section-title">Past Internships</h2>
 
       <div class="people-grid">
 
-        <!-- Antonio Pescape -->
+        <!-- 1 -->
         <div class="person-card">
-          <img src="images/pictures/antonio2.jpg" class="person-image" alt="">
-          <div class="person-name">Antonio Pescape', PhD — Full Professor (Principal Investigator)</div>
+          <img src="images/pictures/Julian.jpg" class="person-photo">
+          <div class="person-name">Julian M. Del Fiore</div>
           <div class="person-info">
-            <p>DIETI</p>
-            <p>Via Claudio, 21 - 80125 Napoli</p>
-            <p><i>Tel:</i> +39 081 7683856 • <i>Fax:</i> +39 081 768-3816</p>
-            <p><i>Email:</i> pescape[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/pescape">http://wpage.unina.it/pescape</a></p>
+            <p><b>Organization:</b> University of Strasbourg</p>
+            <p><b>Period:</b> May 2019</p>
+            <p><b>Topic:</b> Routing Inconsistencies</p>
           </div>
         </div>
 
-        <!-- Alessio Botta -->
+        <!-- 2 -->
         <div class="person-card">
-          <img src="images/pictures/alessio.jpg" class="person-image" alt="">
-          <div class="person-name">Alessio Botta, PhD</div>
+          <img src="images/pictures/dima.jpg" class="person-photo">
+          <div class="person-name">Dmitrii Chemodanov</div>
           <div class="person-info">
-            <p>DIETI, CINI (ITeM Lab)</p>
-            <p>Tel: +39 081 7683865</p>
-            <p>Email: a.botta[at]unina.it and alessio.botta[at]consorzio-cini.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/a.botta">http://wpage.unina.it/a.botta</a></p>
+            <p><b>Organization:</b> University of Missouri-Columbia</p>
+            <p><b>Period:</b> September 2018</p>
+            <p><b>Topic:</b> Edge Computing for Distributed Computer Vision Analytics</p>
           </div>
         </div>
 
-        <!-- Walter de Donato -->
+        <!-- 3 -->
         <div class="person-card">
-          <img src="images/pictures/walter.png" class="person-image" alt="">
-          <div class="person-name">Walter de Donato, PhD</div>
+          <img src="images/pictures/hazam.jpg" class="person-photo">
+          <div class="person-name">Ghizlane Hazam</div>
           <div class="person-info">
-            <p>DIETI, CINI (ITeM Lab)</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: walter.dedonato[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/walter.dedonato">http://wpage.unina.it/walter.dedonato</a></p>
+            <p><b>Organization:</b> FSTM- Hassan II University</p>
+            <p><b>Period:</b> April 2018</p>
+            <p><b>Topic:</b> Bioinformatics and Big Data</p>
           </div>
         </div>
 
-        <!-- Giuseppe Aceto -->
+        <!-- 4 -->
         <div class="person-card">
-          <img src="images/pictures/giuseppe.jpg" class="person-image" alt="">
-          <div class="person-name">Giuseppe Aceto, PhD</div>
+          <img src="images/pictures/hdoroud.png" class="person-photo">
+          <div class="person-name">Hossein Doroud</div>
           <div class="person-info">
-            <p>DIETI, CINI (ITeM Lab)</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: giuseppe.aceto[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/giuseppe.aceto">http://wpage.unina.it/giuseppe.aceto</a></p>
+            <p><b>Organization:</b> University Carlos III de Madrid</p>
+            <p><b>Period:</b> November 2014</p>
+            <p><b>Topic:</b> Traffic Classification</p>
           </div>
         </div>
 
-        <!-- Valerio Persico -->
+        <!-- 5 -->
         <div class="person-card">
-          <img src="images/pictures/valerio.jpg" class="person-image" alt="">
-          <div class="person-name">Valerio Persico, PhD</div>
+          <img src="images/pictures/pmegyesi.png" class="person-photo">
+          <div class="person-name">Peter Megyesi</div>
           <div class="person-info">
-            <p>DIETI</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: valerio.persico[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/valerio.persico">http://wpage.unina.it/valerio.persico</a></p>
+            <p><b>Organization:</b> Budapest University of Technology and Economics</p>
+            <p><b>Period:</b> September 2014</p>
+            <p><b>Topic:</b> SDN Monitoring</p>
           </div>
         </div>
 
-        <!-- Antonio Montieri -->
+        <!-- 6 -->
         <div class="person-card">
-          <img src="images/pictures/toni_montieri.jpg" class="person-image" alt="">
-          <div class="person-name">Antonio Montieri, PhD Student</div>
+          <img src="images/pictures/mgrajzer.jpg" class="person-photo">
+          <div class="person-name">Monika Grajzer</div>
           <div class="person-info">
-            <p>DIETI</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: antonio.montieri[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/antonio.montieri">http://wpage.unina.it/antonio.montieri</a></p>
+            <p><b>Organization:</b> Telcordia Poland</p>
+            <p><b>Period:</b> November 2011</p>
+            <p><b>Topic:</b> Traffic Classification</p>
+            <p><b>Project:</b> Cost TMA</p>
           </div>
         </div>
 
-        <!-- Domenico Ciuonzo -->
+        <!-- 7 -->
         <div class="person-card">
-          <img src="images/pictures/ciuonzo.jpg" class="person-image" alt="">
-          <div class="person-name">Domenico Ciuonzo, PhD</div>
+          <img src="images/pictures/xu_tian.jpg" class="person-photo">
+          <div class="person-name">Xu Tian</div>
           <div class="person-info">
-            <p>DIETI</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: domenico.ciuonzo[at]ieee.org</p>
-            <p><i>Homepage:</i> <a href="https://domenicociuonzo.wordpress.com">https://domenicociuonzo.wordpress.com</a></p>
+            <p><b>Organization:</b> Beijing University of Post and Telecommunication</p>
+            <p><b>Period:</b> October 2010 - June 2011</p>
+            <p><b>Topic:</b> Traffic Classification</p>
           </div>
         </div>
 
-      </div>
-
-      <!-- Alumni Section -->
-      <h2 class="alumni-title">Alumni</h2>
-
-      <div class="people-grid">
-
-        <!-- Alberto Dainotti -->
+        <!-- 8 -->
         <div class="person-card">
-          <img src="images/pictures/alberto.jpg" class="person-image" alt="">
-          <div class="person-name">Alberto Dainotti, PhD</div>
+          <img src="images/pictures/vcarela.jpg" class="person-photo">
+          <div class="person-name">Valentin Carela</div>
           <div class="person-info">
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/alberto">http://wpage.unina.it/alberto</a></p>
+            <p><b>Organization:</b> Technical University of Catalonia</p>
+            <p><b>Period:</b> June 2009</p>
+            <p><b>Topic:</b> Traffic classification</p>
+            <p><b>Project:</b> Cost TMA</p>
           </div>
         </div>
 
-        <!-- Pietro Marchetta -->
+        <!-- 9 -->
         <div class="person-card">
-          <img src="images/pictures/pietro.jpg" class="person-image" alt="">
-          <div class="person-name">Pietro Marchetta, PhD</div>
+          <img src="images/pictures/mcrotti.jpg" class="person-photo">
+          <div class="person-name">Manuel Crotti</div>
           <div class="person-info">
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/pietro.marchetta">http://wpage.unina.it/pietro.marchetta</a></p>
+            <p><b>Organization:</b> University of Brescia</p>
+            <p><b>Period:</b> April 2008</p>
+            <p><b>Topic:</b> Traffic classification</p>
+            <p><b>Project:</b> RECIPE</p>
           </div>
         </div>
 
-      </div>
+        <!-- 10 -->
+        <div class="person-card">
+          <img src="images/pictures/ccallegari.jpg" class="person-photo">
+          <div class="person-name">Christian Callegari</div>
+          <div class="person-info">
+            <p><b>Organization:</b> University of Pisa</p>
+            <p><b>Period:</b> July 2007</p>
+            <p><b>Topic:</b> Anomaly Detection</p>
+            <p><b>Project:</b> RECIPE</p>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="person-card">
+          <img src="images/pictures/vinhbui.jpeg" class="person-photo">
+          <div class="person-name">Vinh Bui</div>
+          <div class="person-info">
+            <p><b>Organization:</b> University of New South Wales</p>
+            <p><b>Period:</b> July 2007</p>
+            <p><b>Topic:</b> Multipath Data Transmission over Wireless Networks</p>
+          </div>
+        </div>
+
+      </div> <!-- end grid -->
 
     </main>
   </div>
 
   <footer class="site-footer">
     <p>
-      If you are interested in collaborating with us or in opportunities in Traffic,
-      please send an e-mail to <a href="mailto:pescape%20[at]%20unina.it">Antonio Pescapè</a>.
+      For internship opportunities, please contact 
+      <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.
     </p>
   </footer>
 
