@@ -1,267 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications</title>
 
-  <link rel="stylesheet" href="css/style.css">
-  <script src="menu.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="menu.js" defer></script>
 
-  <style>
-    .news-section-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-top: 25px;
-      margin-bottom: 10px;
-    }
+    <style>
+        .news-section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
 
-    .news-year {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-top: 30px;
-      color: #003366;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 6px;
-    }
+        .news-year {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #003366;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 6px;
+        }
 
-    .news-card {
-      background: #fff;
-      padding: 15px 20px;
-      margin: 15px 0;
-      border-radius: 10px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-      line-height: 1.45rem;
-    }
+        .news-card {
+            background: #fff;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+            line-height: 1.45rem;
+        }
 
-    .news-card ul {
-      margin: 0;
-      padding-left: 20px;
-    }
+        .news-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
 
-    .news-card li {
-      margin-bottom: 6px;
-    }
+        .news-card li {
+            margin-bottom: 6px;
+        }
 
-    .news-highlight {
-      color: red;
-      font-weight: bold;
-    }
+        .news-highlight {
+            color: red;
+            font-weight: bold;
+        }
 
-    .news-announcement.openings {
-      background: #fff4e6;
-      border-left: 6px solid #ff8c2f;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
+        .news-announcement.openings {
+            background: #fff4e6;
+            border-left: 6px solid #ff8c2f;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
 
-    .news-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-  </style>
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
+<header class="site-header">
     <div class="header-content">
-      <img src="images/clip_image002.gif" alt="University Logo" class="header-logo"> 
-      <div class="header-info">
-        <p class="university-name">Universita' degli Studi di Napoli ''Federico II'' (Italy)</p>
-        <p class="department-name">Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
-      </div>
+        <img src="images/clip_image002.gif" alt="University Logo" class="header-logo">
+        <div class="header-info">
+            <p class="university-name">Universita' degli Studi di Napoli ''Federico II'' (Italy)</p>
+            <p class="department-name">Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
     </div>
     <h1 class="site-title">
-      <span class="bold-initial">N</span>etwork 
-      <span class="bold-initial">M</span>onitoring and 
-      <span class="bold-initial">M</span>easurements
+        <span class="bold-initial">N</span>etwork
+        <span class="bold-initial">M</span>onitoring and
+        <span class="bold-initial">M</span>easurements
     </h1>
-  </header>
+</header>
 
-  <div class="page-container">
+<div class="page-container">
 
     <nav class="sidebar">
-      <ul class="main-menu">
-        <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
-        <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
-          <ul class="submenu" id="topics-submenu">
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
-              <ul class="submenu-level-2" id="active-probing">
-                <li><a href="ippolib.php" class="menu-link">IPPO Library</a></li>
-              </ul>
+        <ul class="main-menu">
+            <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+            <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
+
+            <li class="menu-item has-submenu">
+                <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
+                <ul class="submenu" id="topics-submenu">
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
+                        <ul class="submenu-level-2" id="active-probing">
+                            <li><a href="ippolib.php" class="menu-link">IPPO Library</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
+                        <ul class="submenu-level-2" id="alias-resolution">
+                            <li><a href="pythia.php" class="menu-link">PYTHIA</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
+                        <ul class="submenu-level-2" id="app-traffic-gen">
+                            <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
+                        <ul class="submenu-level-2" id="bandwidth-mon">
+                            <li><a href="uanm.php" class="menu-link">UANM</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="bioinformatics.php" class="menu-link">Bioinformatics and E-Health</a></li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
+                        <ul class="submenu-level-2" id="broadband-perf">
+                            <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
+                            <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="cloud.php" class="menu-link">Cloud Monitoring and Control</a></li>
+                    <li><a href="internetcensor.php" class="menu-link">Internet Censorship Detection</a></li>
+                    <li><a href="netdata.php" class="menu-link">Network data management</a></li>
+                    <li><a href="np.php" class="menu-link">High-performance networking</a></li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
+                        <ul class="submenu-level-2" id="network-mapping">
+                            <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
+                            <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
+                        <ul class="submenu-level-2" id="network-perf-improv">
+                            <li><a href="timeDiv.php" class="menu-link">TimeD</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="security.php" class="menu-link">Network security</a></li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
+                        <ul class="submenu-level-2" id="path-tracing">
+                            <li><a href="tpa.php" class="menu-link">Third-Party Addresses</a></li>
+                            <li><a href="tptraceroute.php" class="menu-link">TP-Traceroute</a></li>
+                            <li><a href="drago.php" class="menu-link">Hidden routers</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="sdnmonitoring.php" class="menu-link">Software-Defined Network Monitoring</a></li>
+
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
+                        <ul class="submenu-level-2" id="traffic-analysis">
+                            <li><a href="/software/Plab" class="menu-link">Plab</a></li>
+                            <li><a target="_new" href="http://tie.comics.unina.it" class="menu-link">TIE</a></li>
+                            <li><a href="wwanMonitor.php" class="menu-link">WWAN</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="other.php" class="menu-link">Others</a></li>
+                </ul>
             </li>
 
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
-              <ul class="submenu-level-2" id="alias-resolution">
-                <li><a href="pythia.php" class="menu-link">PYTHIA</a></li>
-              </ul>
+            <li class="menu-item"><a href="#" class="menu-link active">Publications</a></li>
+            <li class="menu-item"><a href="news.html" class="menu-link">News</a></li>
+
+            <li class="menu-item has-submenu">
+                <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
+                <ul class="submenu" id="material-submenu">
+                    <li><a href="Tools/statools.php" class="menu-link">Matlab scripts</a></li>
+                    <li class="menu-item has-submenu-level-2">
+                        <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
+                        <ul class="submenu-level-2" id="traces-data">
+                            <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
+                            <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
+                            <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
+                            <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
-              <ul class="submenu-level-2" id="app-traffic-gen">
-                <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
-              <ul class="submenu-level-2" id="bandwidth-mon">
-                <li><a href="uanm.php" class="menu-link">UANM</a></li>
-              </ul>
-            </li>
-            
-            <li><a href="bioinformatics.php" class="menu-link">Bioinformatics and E-Health</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
-              <ul class="submenu-level-2" id="broadband-perf">
-                <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
-                <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
-              </ul>
-            </li>
-
-            <li><a href="cloud.php" class="menu-link">Cloud Monitoring and Control</a></li>
-            <li><a href="internetcensor.php" class="menu-link">Internet Censorship Detection</a></li>
-            <li><a href="netdata.php" class="menu-link">Network data management</a></li>
-            <li><a href="np.php" class="menu-link">High-performance networking</a></li>
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
-              <ul class="submenu-level-2" id="network-mapping">
-                <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
-                <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
-              <ul class="submenu-level-2" id="network-perf-improv">
-                <li><a href="timeDiv.php" class="menu-link">TimeD</a></li>
-              </ul>
-            </li>
-
-            <li><a href="security.php" class="menu-link">Network security</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
-              <ul class="submenu-level-2" id="path-tracing">
-                <li><a href="tpa.php" class="menu-link">Third-Party Addresses</a></li>
-                <li><a href="tptraceroute.php" class="menu-link">TP-Traceroute</a></li>
-                <li><a href="drago.php" class="menu-link">Hidden routers</a></li>
-              </ul>
-            </li>
-
-            <li><a href="sdnmonitoring.php" class="menu-link">Software-Defined Network Monitoring</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
-              <ul class="submenu-level-2" id="traffic-analysis">
-                <li><a href="/software/Plab" class="menu-link">Plab</a></li>
-                <li><a target="_new" href="http://tie.comics.unina.it" class="menu-link">TIE</a></li>
-                <li><a href="wwanMonitor.php" class="menu-link">WWAN</a></li>
-              </ul>
-            </li>
-
-            <li><a href="other.php" class="menu-link">Others</a></li>
-          </ul>
-        </li>
-
-        <li class="menu-item"><a href="#" class="menu-link active">Publications</a></li>
-        <li class="menu-item"><a href="news.html" class="menu-link">News</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
-          <ul class="submenu" id="material-submenu">
-            <li><a href="Tools/statools.php" class="menu-link">Matlab scripts</a></li>
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
-              <ul class="submenu-level-2" id="traces-data">
-                <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
-                <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
-                <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
-                <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-item"><a href="collaborations.html" class="menu-link">Collaborations</a></li>
-        <li class="menu-item"><a href="visiting.html" class="menu-link">Visiting</a></li>
-      </ul>
+            <li class="menu-item"><a href="collaborations.html" class="menu-link">Collaborations</a></li>
+            <li class="menu-item"><a href="visiting.html" class="menu-link">Visiting</a></li>
+        </ul>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <main class="main-content">
 
-      <h2 class="news-section-title">News</h2>
+        <h2 class="news-section-title">Publications</h2>
 
-      <!-- ⭐ Traffic Openings Banner (kept because original page includes it) ⭐ -->
-      <section class="news-announcement openings">
-        <h3 class="news-title">Traffic openings 2025</h3>
-        <div class="news-box">
-          <p>We are continuously looking for qualified and self-motivated graduate students and Post Docs (both Italian and foreign)...</p>
-          <p>See details <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">here</a>.</p>
-        </div>
-      </section>
-
-      <!-- NEWS TIMELINE -->
-
-      <!-- 2015 -->
-      <div class="news-year">November 2015</div>
-      <div class="news-card">
-        <ul>
-          <li class="news-highlight">
-            Traffic research group seeks qualified and self-motivated graduate students and Post Docs.
-            See details <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">here</a>.
-          </li>
-        </ul>
-      </div>
-
-      <div class="news-year">September 2015</div>
-      <div class="news-card">
-        <ul>
-          <li><a href="http://www.nm-2.com" target="_nm2">NM2</a> released the <a href="http://www.nm-2.com/" target="_ditgbox">DITGBox</a> appliance based on D-ITG.</li>
-          <li><a href="http://www.nm-2.com" target="_nm2">NM2</a> released the <a href="http://www.nm-2.com/smartie/" target="_smartie">SmarTIE</a> platform based on TIE.</li>
-        </ul>
-      </div>
-
-      <!-- All other years follow the same pattern -->
-
-      <!-- 2013 -->
-      <div class="news-year">October 2013</div>
-      <div class="news-card">
-        <ul>
-          <li>
-            Traffic research group seeks for qualified and self-motivated graduate students and Post Docs.
-            See details <a href="http://wpage.unina.it/pescape/doc/traffic_openings_2013_2014.pdf">here</a>.
-          </li>
-        </ul>
-      </div>
-
-      <!-- 2012, 2011, … down to 2006 -->
-      <!-- (All remaining content from your original page goes here in identical structure) -->
-
-      <!-- FOOTER -->
-      <hr>
-      <footer class="site-footer">
-        <p>For more information, please contact 
-          <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.
+        <p>
+            This page contains selected publications based on our
+            <a href="http://www.grid.unina.it/Traffic/Traces/index.php">Traffic and Data Traces</a> or software platforms and tools.
         </p>
-      </footer>
+        <p>(ACM/IEEE and other copyrights where applicable)</p>
+
+        <hr>
+
+        <div class="news-year">Journals, Magazines, and Columns</div>
+        <div class="news-card">
+            <ul>
+                <li>A. Botta, A. Pescap&egrave;,
+                    "<a href="http://www.sciencedirect.com/science/article/pii/S0164121215001673">
+                    IP packet interleaving for UDP bursty losses</a>",
+                    <i>Journal of Systems and Software </i>Volume 109, November 2015, Pages 177-191.
+                </li>
+                <li>G. Aceto, A. Pescap&egrave;
+                    "<a href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2015internet_censorship_detection__a_survey.pdf">
+                    Internet Censorship Detection: a Survey</a>",
+                    <i>Computer Networks</i> (2015), pp. 381-421.
+                </li>
+                <li>A. Dainotti, A. King, K.Claffy, F. Papale, A. Pescap&egrave;
+                    "<a href="http://wpage.unina.it/pescape/doc/06717049.pdf">
+                    Analysis of a "/0" Stealth Scan from aBotnet</a>",
+                    <i>IEEE/ACM Transaction on Networking</i>, pp. 341-354, Volume 23, Number 2, April 2015.
+                </li>
+                <li>L. Angrisani, A. Botta, G. Miele, A. Pescap&egrave;, M. Vadursi
+                    "<a href="http://wpage.unina.it/pescape/doc/06893014.pdf">
+                    Experiment-Driven Modeling of Open-Source Internet Traffic Generator</a>",
+                    <i>IEEE Transaction on Instrumentation and Measurement</i>, Vol. 63, Issue: 11, pp. 2529-2538, 2014.
+                </li>
+                <li>39) A. Dainotti, C. Squarcella, E. Aben, K. C. Claffy, M. Chiesa, M. Russo, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/06678649.pdf">
+                    Analysis of Country-wide Internet Outages Caused by Censorship</a>",
+                    <i>IEEE/ACM Transaction on Networking</i>, Vol. 22, Issue: 6, pp.1964-1977, 2014.
+                </li>
+                <li>A. Botta, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/06829965.pdf">
+                    On the performance of new generation satellite broadband Internet services</a>",
+                    <i>IEEE Communications Magazine</i>, vol. 52, n.6, pp. 202-209, June 2014.
+                </li>
+                <li>A. Dainotti, W. de Donato, A. Pescap&egrave;,
+                    "<a href="http://www.caida.org/publications/papers/2014/traffic_identification_engine/traffic_identification_engine.pdf">
+                    Traffic Identification Engine (TIE): an Open Platform for Traffic Classification</a>",
+                    <i>IEEE Network</i>, vol. 28, n. 2, pp. 56-64, March-April 2014.
+                </li>
+                <li>Cavuoti, S.; Garofalo, M.; Brescia, M.; Paolillo, M.; Pescap&egrave;, A.; Longo, G.; Ventre, G.
+                    "<a href="http://dx.doi.org/10.1016/j.newast.2013.04.004">
+                    Astrophysical data mining with GPU. A case study: genetic classification of globular clusters</a>",
+                    <i>New Astronomy</i>, Volume 26, January 2014, Pages 12&ndash;22.
+                </li>
+                <li>
+                    G. Aceto, W. de Donato, A. Botta, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/CM_final_version.pdf">Cloud Monitoring: A Survey</a>",
+                    <i>Computer Networks 57(9)</i>: 2093-2115 (2013).
+                </li>
+                <li>
+                    G. Aceto, A. Botta, A. Pescap&egrave;, C. Westphal,
+                    "<a href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2013efficient_TNSM.pdf">Efficient Storage and Processing of High-Volume Network Monitoring Data</a>",
+                    <i>IEEE Transactions on Network and Service Management</i> 10(2): 162-175 (2013).
+                </li>
+                <li>
+                    Srikanth Sundaresan, Walter de Donato, Nick Feamster, Renata Teixeira, Sam Crawford, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/p100-sundaresan.pdf">Measuring Broadband Home Performance</a>",
+                    <i>Communications of the ACM</i>, Vol. 55, N. 11, pp. 100-109, November 2012.
+                </li>
+                <li>
+                    A. Dainotti, A. Botta, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/workload_comnet_2012.pdf">A tool for the generation of realistic network workload for emerging networking scenarios</a>",
+                    <i>Computer Networks (Elsevier)</i>, Volume 56, Issue 15, pp 3531&ndash;3547, October 2012.
+                </li>
+                <li>
+                    G. Aceto, A. Botta, A. Pescap&egrave;, M. D'Arienzo,
+                    "<a href="http://wpage.unina.it/a.botta/pub/uanm-jnca.pdf">Unified Architecture for Network Measurement: the case of available bandwidth</a>",
+                    <i>Elsevier Journal of Network and Computer Applications</i>, Volume 35, Issue 5, pp 1402&ndash;1414, September 2012, ISSN 1084-8045.
+                </li>
+                <li>
+                    G. Aceto, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/acm_per2012_si_pescape_letter.pdf">On the recent use of email through traffic and network analysis</a>",
+                    <i>ACM Performance Evaluation Review</i>, Special Issue on Modeling Dynamic Behaviors of Complex Distributed Systems, April 2012
+                </li>
+                <li>
+                    D. Tammaro, S. Valenti, D. Rossi, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/pescape_12ijnm.pdf">Exploiting packet sampling measurements for traffic characterization and classification</a>", <i>International Journal of Network Management</i>, 2012.
+                </li>
+                <li>
+                    A. Dainotti, A. Pescap&egrave;, K. C. Claffy,
+                    "<a href="http://wpage.unina.it/pescape/doc/06135854.pdf">Issues and Future Directions in Traffic Classification</a>", <i>IEEE Network</i>, January 2012.
+                </li>
+                <li>
+                    Alessio Botta, Antonio Pescap&egrave;, Claudio Guerrini, Martin Mangri,
+                    "<a href="http://wpage.unina.it/a.botta/pub/COMMAG_UNINA_ACCANTO_O2.pdf">A customer service assurance platform for mobile broadband networks</a>",
+                    <i>IEEE Communications Magazine</i>, vol.49, no.10, pp.101-109, Oct. 2011.
+                </li>
+                <li>
+                    P. Marchetta, P. M&eacute;rindol, B. Donnet, A. Pescap&eacute; and J-J Pansiot,
+                    "<a href="http://lsiit-cnrs.unistra.fr/Publications/2011/2-MMDP11/Jsac11-Marchetta.pdf">
+                    Topology Discovery at the Router Level: A New Hybrid Tool Targeting ISP Networks</a>",
+                    <i>IEEE Journal on Selected Areas in Communication (JSAC), Special Issue on Measurement of Internet Topologies</i>,
+                    Vol 29 Issue 9, pp 1776 - 1787, October 2011
+                </li>
+                <li>
+                    A. Botta, A. Pescape', V. Bui, W. Zhu,
+                    "<a href="http://wpage.unina.it/a.botta/pub/TPDS_MULTIPATH.pdf">A Markovian Approach to Multi-path Data Transfer in Overlay Networks</a>",
+                    <em>IEEE Transactions on Parallel and Distributed Systems</em>, vol.21, no.10, pp.1398-1411, Oct. 2010
+                </li>
+                <li>
+                    A. Botta, A. Dainotti, A. Pescape',
+                    "<a href="http://wpage.unina.it/alberto/papers/commag.pdf">Do You Trust Your Software-based Traffic Generator?</a>",
+                    <em>IEEE Communications Magazine</em>, vol.48, no.9, pp.158-165, Sept. 2010.
+                </li>
+                <li>
+                    A. Botta, R. Canonico, G. Di Stasi, A. Pescap&egrave;, G. Ventre, S. Fdida.,
+                    "<a href="http://wpage.unina.it/a.botta/pub/monet10.pdf">
+                    Integration of 3G connectivity in PlanetLab Europe - A step of an evolutionary path towards heterogeneous large scale network testbeds</a>",
+                    <em>ACM Springer Mobile Networks and Applications Journal, Special Issue on "Advances In Wireless Test beds and Research Infrastructures"</em>,
+                    Volume 15, Issue 3, June 2010, Pages 344-355.
+                </li>
+                <li>
+                    A. Dainotti, A. Pescap&egrave;, G. Ventre,
+                    "<a href="http://wpage.unina.it/alberto/papers/jocs.pdf">A cascade architecture for DoS attacks detection based on the wavelet transform</a>",
+                    <em> Journal of Computer Security, Volume 17, Number 6/2009, Pages 945-968</em>
+                </li>
+                <li>
+                    M. Mellia, A. Pescap&egrave;, L. Salgarelli,
+                    <a href="http://dx.doi.org/10.1016/j.comnet.2008.12.007">Traffic classification and its applications to modern networks</a>,
+                    <i>Computer Networks</i>, Volume 53, Issue 6, 23 April 2009, Pages 759-760.
+                </li>
+                <li>
+                    A. Thomas Silverston, Olivier Fourmaux, Alessio Botta, Alberto Dainotti, Antonio Pescap&egrave;, Giorgio Ventre, Kav&egrave; Salamatian,
+                    "<a href="http://dx.doi.org/10.1016/j.comnet.2008.09.024">Traffic Analysis of Peer-to-Peer IPTV Communities </a>,"
+                    <i>Computer Networks</i>, Volume 53, Issue 4, 18 March 2009, Pages 470-484.
+                </li>
+                <li>
+                    A. Botta, A. Pescap&egrave;, G. Ventre,
+                    "<a href="http://wpage.unina.it/a.botta/pub/COMNET_BRICKS.pdf">An approach to the identification of network elements composing heterogeneous end-to-end paths</a>",
+                    <i>Computer Networks</i>, Volume 52, Issue 15, 23 October 2008, Pages 2975-2987, Elsevier.
+                </li>
+                <li>
+                    A. Dainotti, A. Pescap&egrave;, P. Salvo Rossi, F. Palmieri, G. Ventre,
+                    "<a href="http://www.sciencedirect.com/science?_ob=MImg&amp;_imagekey=B6VRG-4SM62NK-1-15&amp;_cdi=6234&amp;_user=2607107&amp;_orig=search&amp;_coverDate=05%2F28%2F2008&amp;_sk=999999999&amp;view=c&amp;wchp=dGLbVlb-zSkWA&amp;md5=465fce7e49629e786e0ad7c1f341d66e&amp;ie=/sdarticle.pdf">
+                    Internet Traffic Modeling by means of Hidden Markov Models</a>",
+                    <em>Computer Networks (Elsevier)</em>, Volume 52, Issue 14, 9 October 2008, Pages 2645-2662
+                </li>
+                <li>
+                    A. Botta, A. Pescap&egrave;, G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/jorpescape2007.pdf">
+                    Quality of Service Statistics over Heterogeneous Networks: Analysis and Applications</a>",
+                    <i>Special Issue of Elesevier EJOR on 'Performance Evaluation of QoS-aware Heterogeneous Systems'</i>,
+                    Volume 191, Issue 3, 16 December 2008, Pages 1075-1088
+                </li>
+                <li>
+                    A. Botta, A. Pescap&egrave;, R. Karrer,
+                    "<a href="http://wpage.unina.it/pescape/doc/COMCOM3592.pdf">
+                    High-speed backhaul networks: myth or reality?</a>",
+                    <em><a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/525440/description#description">
+                    Computer Communication Journal</a> (Elsevier)</em>,
+                    Volume 31, Issue 8, 25 May 2008, Pages 1540-1550.
+                </li>
+                <li>
+                    R. Karrer, A. Pescape', T. Huehn,
+                    "<a href="http://downloads.hindawi.com/journals/wcn/2008/274790.pdf">Challenges in Second-Generation Wireless Mesh Networks</a>",
+                    <i>EURASIP JOURNAL ON WIRELESS COMMUNICATIONS AND NETWORKING</i>,
+                    vol. 2008; p. 1-10, ISSN: 1687-1472, doi: 10.1155/2008/274790
+                </li>
+                <li>
+                    L. Angrisani, A. Pescap&egrave;, M. Vadursi, G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/IETCommpescape.pdf">
+                    Performance measurement of IEEE 802.11b-based networks affected by narrowband interference through cross-layer measurements</a>'',
+                    <i>IET Communications (formerly IEEE Proceedings - Communications)</i>,
+                    vol.2, no.1, pp.82-91, January 2008 -
+                    (<span class="news-highlight">This paper has been awarded with the IET Communications Premium Award 2009</span>)
+                </li>
+                <li>
+                    A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/comlet2007pescape.pdf">Entropy-Based Reduction of Traffic Data</a>",
+                    <em><a href="http://www.comsoc.org/pubs/jrnal/commlet.html">IEEE Communications Letters</a></em>,
+                    pp. 191-193, Vol.11, No.2 - February 2007.
+                </li>
+                <li>
+                    A. Dainotti, S. Loreto, A. Pescap&egrave;, G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/sctp2007pescape.pdf">A SCTP performance evaluation over Heterogeneous Networks</a>",
+                    <em><a href="http://www3.interscience.wiley.com/cgi-bin/jhome/5361/">Concurrency and Computation: Practice and Experience</a> (Wiley) -
+                    &ndash; Performance Analysis and Enhancements of Wireless Networks</em>, Volume 19 Issue 8, June 2007
+                </li>
+                <li>
+                    A. Botta, D. Emma, A. Pescap&egrave;, G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/jcss2006pescape.pdf">
+                    Systematic Performance Modeling and Characterization of Heterogeneous IP Networks</a>",
+                    <em><a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/622867/description#description">
+                    Journal of Computer and System Sciences</a> (Elsevier)</em> &ndash; Volume 72, Issue 7 , November 2006, Pages
+                    1134-1143&nbsp; (Selected to appear in a Special Issue dedicated to best papers from IEEE ICPADS 2005
+                    Workshop on Performance Modelling in Wired, Wireless, Mobile Networking and Computing).
+                </li>
+                <li>
+                    S. Avallone, D. Emma, A. Pescap&egrave;,&nbsp;G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/JoS2006pescape.pdf">High Performance Internet Traffic Generators</a>",
+                    <em><a href="http://www.springerlink.com/content/1573-0484/">Journal of Supercomputing</a> (Kluwer)</em>,
+                    Vol.35, pp. 5-26, January &nbsp;2006
+                </li>
+                <li>
+                    A. Pescap&egrave;, G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/jcs2005pescape.pdf">Experimental analysis of attacks against intradomain routing protocols</a>",
+                    <em> <a href="http://www.iospress.nl/loadtop/load.php?isbn=0926227x">Journal of Computer Security</a></em>
+                    - Volume 13, Number 6 / 2005, Pages:877 - 903
+                </li>
+                <li>
+                    A. Pescap&egrave;,
+                    "<a href="http://www.modelingandsimulation.org/pescape.html">Modeling and Simulating Internet Traffic: a real approach</a>",
+                    <em>Modeling and Simulation Magazine (SCS)</em>, Vol. 4, No. 1 (2005)
+                </li>
+                <li>
+                    S. Avallone, D. Emma, A. Pescap&egrave;,&nbsp;G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/pe2005pescape.pdf">
+                    Performance evaluation of an open distributed platform for realistic traffic generation</a>",
+                    <em> <a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/505618/description#description">
+                    Performance Evaluation</a> (Elsevier)</em>,
+                    ISSN: 0166-5316 &ndash; Vol. 60, Issues 1-4, May 2005, pp 359-392
+                </li>
+                <li>
+                    M. Bernaschi, F. Cacace, G. Iannello, A. Pescap&egrave;,&nbsp;S. Za,
+                    "<a href="http://wpage.unina.it/pescape/doc/WCM2005pescape.pdf">
+                    Seamless Internetworking of WLANs and Cellular Networks: architecture and performance issues in a Mobile IPv6 scenario</a>",
+                    <em> <a href="http://www.comsoc.org/livepubs/pci/">IEEE Wireless Communication Magazine</a> (WCM) Journal</em>,
+                    pp. 73-80, June 2005
+                </li>
+                <li>
+                    H. Abrahamsson, S. Balon, S. Bessler, M. D'Arienzo, O. Delcourt, J. Domingo-Pascual, S. C. Erbas, I. Gojmerac,
+                    G. Leduc; A. Pescap&egrave;, S.P. Romano, E. Salvatori, F. Skiv&egrave;e, H.T. Tran, S. Uhlig, H. Umit,
+                    "<a href="http://wpage.unina.it/pescape/doc/CCenext2005pescape.pdf">An Open Source Traffic Engineering Toolbox</a>",
+                    <em> <a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/525440/description#description">
+                    Computer Communication Journal</a> (Elsevier)</em>
+                    &ndash; Vol. 29 (2006) pp. 593&ndash;610
+                    &lt; This paper was rated as the Top 25 downloaded Computer Communications paper as measured by the Computer Communications
+                    website (sciencedirect) - January/March 2006 &gt;
+                </li>
+                <li>
+                    A. Pescape', "<a>Heterogeneous IP Networks</a>",
+                    Guest Editorial on <i>Journal of Internet Technology</i>,
+                    Vol 6 n. 3 (2005)
+                </li>
+                <li>
+                    M. D'Arienzo A. Pescap&egrave;, and G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/JSNM2004pescape.pdf">Dynamic Service Management in Heterogeneous Networks</a>",
+                    <em><a href="http://www.springerlink.com/content/1573-7705/">International Journal of Network and System Management</a> (Springer)</em>,
+                    Vol. 12, No. 3, Sep. 2004, ISSN 1064-7570, pp 349-370
+                </li>
+                <li>
+                    A. Pescap&egrave; and G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/SIMPRA2003pescape.pdf">
+                    A simulation environment for GPRS traffic in an advanced travellers information system (ATIS)</a>",
+                    <em>Journal of <a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/622330/description#description">
+                    Simulation Modelling Practice and Theory</a> (Elsevier</em>), ISSN: 1569-190X
+                </li>
+                <li>
+                    S. Avallone, M. Esposito, M. D&rsquo;Arienzo, A. Pescap&egrave;, S. P. Romano, G. Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/mtools2003pescape.pdf">Mtools</a>",
+                    <em><a href="http://www.comsoc.org/dl/net/">IEEE Network</a></em>
+                    &ndash; The Magazine of Global Internetworking,
+                    <a href="http://www.comsoc.org/ni/Public/2002/Sep/nisoftt.html">Software Tools for Networking, September/October 2002</a>,
+                    Vol. 16 No. 5; p. 3. ISSN 0890-8044
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="news-year">Conferences and Workshops</div>
+        <div class="news-card">
+            <ul>
+                <li>Domenico Grimaldi, Valerio Persico, Antonio Pescap&egrave;, Alessandro Salvi, Stefania Santini
+                    "<a href="http://wpage.unina.it/pescape/doc/GC2015_1.pdf"> A feedback-control approach for resource management in public clouds</a>",
+                    IEEE Global Communication Conference (IEEE GLOBECOM 2015), December 6-10, 2015, San Diego, CA, USA.
+                </li>
+                <li>Valerio Persico, Pietro Marchetta, Alessio Botta, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/valerio.persico/pubs/NetThroughputAzure.pdf"> On Network Throughput Variability in Microsoft Azure Cloud</a>",
+                    IEEE GLOBECOM 2015, San Diego, California, USA, December 2015. To appear.
+                </li>
+                <li>Massimiliano Molinari, Mah-Rukh Fida, Mahesh Marina, Antonio Pescap&egrave;,
+                    "<a href="http://conferences.sigcomm.org/sigcomm/2015/pdf/papers/c2bid/p33.pdf"> Spatial interpolation-based cellular coverage prediction with crowdsourced measurements</a>",
+                    ACM SIGCOMM Workshop on Crowdsourcing and crowdsharing of Big (Internet) Data (C2B(I)D), August 17, 2015, London, UK.
+                </li>
+                <li>Pietro Marchetta, Eduard Natale, Antonio Pescap&egrave;, Alessandro Salvi, Stefania Santini,
+                    "<a href="http://wpage.unina.it/pescape/doc/1570102215.pdf">A Map-Based Platform for Smart Mobility Services</a>",
+                    The 3rd IEEE ISCC 2015 International Workshop on Smart City and Ubiquitous Computing Applications (SCUCA 2015), July, 2015, Cipro.
+                </li>
+                <li>S. Santini, A. Salvi, A.S. Valente, A. Pescap&egrave;, M. Segata, R. Lo Cigno,
+                    "<a href="http://wpage.unina.it/pescape/doc/edas_final_1570010513.pdf">A Consensus-based Approach for Platooning with Inter-Vehicular Communications</a>",
+                    The 34th Annual IEEE International Conference on Computer Communications (IEEE Infocom 2015), 26 April - 1 May 2015.
+                </li>
+                <li>G. Aceto, A. Botta, A. Pescap&egrave;, N. Feamster, T. Ahmad, S. Qaisar
+                    "<a href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2015monitoring_TMA.pdf">Monitoring Internet Censorship with UBICA</a>",
+                    7th International Workshop on Traffic Monitoring and Analysis (TMA'15) Barcelona (Spain), April 2015.
+                </li>
+                <li>A. Botta, W. de Donato, V. Persico, A. Pescap&egrave;
+                    "<a href="http://wpage.unina.it/pescape/doc/ficloud2014_cloudIoT_cr.pdf">On the Integration of Cloud Computing and Internet of Things</a>",
+                    FiCloud 2014, Barcelona, August 2014.
+                </li>
+                <li>A. Botta, W. de Donato, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/TMA2014Hobbit.pdf"> HoBBIT: a Platform for Monitoring Broadband Performance from the User Network</a>",
+                    Sixth International Workshop on Traffic Monitoring and Analysis (TMA) London, UK, 14 April 2014.
+                </li>
+                <li>P. Casoria, D. Rossi, J. Auge, Marc-Olivier Buob, T. Friedman and A. Pescap&egrave;,
+                    "<a href="#"> Distributed active measurement of Internet queuing delays</a>",
+                    In Passive and Active Measurement (PAM) 2014, Extended Abstract, Los Angeles, California (USA), March 2014.
+                </li>
+                <li>Pietro Marchetta, Walter de Donato, Valerio Persico, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pietro.marchetta/pubs/MarchettaISCC2015paper.pdf"> Experimenting with Alternative Path Tracing Solutions</a>",
+                    IEEE ISCC 2015, July 06-09, 2015, Golden Bay, Larnaca, Cyprus.
+                </li>
+                <li>Pietro Marchetta, Alessio Botta, Ethan Katz-Bassett, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pietro.marchetta/pubs/MarchettaPAM14paper.pdf">Dissecting Round Trip Time on the Slow Path Using a One-Packet Approach</a>",
+                    Passive and Active Measurement (PAM) 2014, March, Los Angeles, USA.
+                </li>
+                <li> P. Marchetta, V. Persico, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pietro.marchetta/pubs/MarchettaCns14abstract.pdf">The Greenhouse Effect Attack</a>",
+                    IEEE Conference on Communications and Network Security (CNS), San Francisco, California (USA), October 29-31, 2014.
+                </li>
+                <li> Pietro Marchetta, Valerio Persico, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf">Pythia: Yet Another Active Probing Technique for Alias Resolution</a>",
+                    ACM CoNEXT 2013, Santa Barbara, California (USA), December 9-12, 2013
+                </li>
+                <li>Pietro Marchetta, Valerio Persico, Ethan Katz-Bassett, Antonio Pescap&egrave;,
+                    <a href="http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13abstract.pdf"> Don't Trust Traceroute (Completely) </a>
+                    ACM CoNEXT 2013 Student Workshop, December 9-12, 2013, Santa Barbara, California. <span class="news-highlight">BEST PAPER AWARD ACM CoNEXT 2013 Student Workshop</span>
+                </li>
+                <li>Chiara Chirichella, Dario Rossi, Claudio Testa, Timur Friedman, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/utp_globecom_13.pdf">Passive bufferbloat measurement exploiting transport layer information</a>",
+                    IEEE Globecom 2013 - Symposium on Selected Areas in Communications (GC13 SAC), December 2013, Atlanta, USA.
+                </li>
+                <li>Giuseppe Aceto, Nick Feamster, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_poster.pdf">User-side approach for censorship detection: home-router and client-based platforms (Abstract),</a>",
+                    Connaught Summer Institute on Monitoring Internet Openness and Rights, University of Toronto July 22&ndash;26, 2013.
+                </li>
+                <li>P. Marchetta, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/gi_infocom_2013_ca.pdf">DRAGO: Detecting, Quantifying and Locating Hidden Routers in Traceroute IP Paths</a>",
+                    In Proceedings of the Global Internet Symposium (GI), IEEE Infocom 2013. Turin, Italy, April 2013.
+                </li>
+                <li>A. Botta, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/tma_infocom_2013_ca.pdf">New generation satellite broadband Internet services: should ADSL and 3G worry?</a>",
+                    TMA 2013, co-located with IEEE INFOCOM 2013, April 2013.
+                </li>
+                <li>P. Marchetta, W. de Donato, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pietro.marchetta/pubs/tpa_pam2013.pdf">Detecting Third-party Addresses in Traceroute Traces with IP Timestamp Option</a>",
+                    PAM 2013, Hong Kong, China, March 18-20, 2013.
+                </li>
+                <li>
+                    C. Chirichella, D. Rossi, C. Testa, T. Friedman, A. Pescap&egrave;
+                    "<a href="http://wpage.unina.it/pescape/doc/13pam_utp_short.pdf">Remotely Gauging Upstream Bufferbloat Delays</a>",
+                    In Passive and Active Measurement (PAM) 2013, Poster session, March 2013.
+                </li>
+                <li>
+                    Eduardo Cerqueira, Carlos Quadros, Augusto Jose Venancio Neto, Andr&egrave; Riker, Roger Immich, Marilia Curado, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/ICNC2013.pdf">Quality of Experience Handover System for Heterogeneous Multimedia Wireless Networks</a>",
+                    ICNC 2013, WNA (Wireless Networks Applications) Track, San Diego, CA, USA, January 2013.
+                </li>
+                <li>
+                    P. Marchetta, P. M&eacute;rindol, B. Donnet, A. Pescap&egrave; and J-J Pansiot.,
+                    "<a href="http://orbi.ulg.ac.be/bitstream/2268/130069/1/paper.pdf">Quantifying and Mitigating IGMP Filtering in Topology Discovery</a>",
+                    to appear in IEEE GLOBECOMM 2012, Anaheim, California, USA, December 2012.
+                </li>
+                <li>
+                    G. Aceto, A. Botta, W. de Donato, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/cloudnet2012_cloud_monitoring.pdf">Cloud Monitoring: definitions, issues and future directions</a>",
+                    1st IEEE International Conference on Cloud Networking (IEEE CloudNet'12)", Paris (France), NOVEMBER 28-30, 2012.
+                </li>
+                <li>
+                    Giuseppe Aceto, Alessio Botta, Walter de Donato, Pietro Marchetta, Antonio Pescap&egrave;, Giorgio Ventre,
+                    "<a href="http://wpage.unina.it/pescape/doc/SITIS2012.pdf">Open Source Platforms for Internet Monitoring and Measurement</a>",
+                    2012 IEEE Eighth International Conference on Signal Image Technology and Internet Based Systems (SITIS 2012), 25-29, November 2012 - Sorrento - Naples, Italy
+                </li>
+                <li>
+                    A. Dainotti, A. King, K. Claffy, F. Papale, A. Pescap&egrave;,
+                    "<a href="http://www.caida.org/publications/papers/2012/analysis_slash_zero/analysis_slash_zero.pdf">Analysis of a "/0" Stealth Scan from a Botnet</a>",
+                    ACM SIGCOMM/SIGMETRICS Internet Measurement Conference IMC 2012, November 2012.
+                </li>
+                <li>
+                    Chiara Chirichella, Dario Rossi, Claudio Testa, Timur Friedman, Antonio Pescap&egrave;,
+                    "<a href"http://wpage.unina.it/pescape/doc/rossi12p2p.pdf">Inferring the buffering delay of remote BitTorrent peers under LEDBAT vs TCP</a>",
+                    IEEE International Conference on Peer-to-Peer Computing (P2P), Tarragona (Spain), September 3-5, 2012.
+                </li>
+                <li>
+                    W. de Donato, P. Marchetta, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/p109.pdf">Detecting Third-party Addresses in Traceroute IP Paths</a>",
+                    SIGCOMM'12, Helsinki, August, 2012 - (<span class="news-highlight">Best Poster at Sigcomm 2012</span>).
+                </li>
+                <li>
+                    Monika Grajzer, MichaÅ‚ Koziuk, Piotr Szczechowiak, Antonio Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/1569593505.pdf">A Multi-Classification Approach for the Detection and Identification of eHealth Applications</a>",
+                    ICCCN 2012, 2nd International Workshop on Context-aware QoS Provisioning and Management for Emerging Networks, Applications and Services (ContextQoS), July 30 - August 2, 2012 in Munich, Germany.
+                </li>
+                <li>
+                    S. Cavuoti, M. Garofalo, M. Brescia, A. Pescap&egrave;, G. Longo, G. Ventre, 2012,
+                    "<a href="http://wpage.unina.it/pescape/doc/Brescia_GPUGAME_WIRN2012.pdf">Genetic Algorithm Modeling with GPU Parallel Computing Technology</a>",
+                    22nd WIRN, Italian Workshop on Neural Networks, Vietri sul Mare, Salerno, Italy, May 17-19.
+                </li>
+                <li>
+                    W. de Donato, P. Marchetta, A. Pescap&egrave;,
+                    "<a href="http://wpage.unina.it/pescape/doc/PAM2012paper19.pdf">A Hands-on Look at Active Probing using the IP Prespecified Timestamp Option</a>",
+                    PAM 2012, Vienna (Austria), March 12-14, 2012.
+                </li>
+                <li>
+                    A. Dainotti, A.
+                    Pescap&egrave;, H. Kim, "Traffic
+                    "<a href="http://mmlab.snu.ac.kr/~hkim/Papers/Globecom2011_Alberto.pdf">Classification through Joint Distributions of Packet-level Statistics</a>",
+                    IEEE GLOBECOM 2011 - December 2011, Houston (TX, USA).
+                </li>
+                <li>
+                    A. Dainotti, C.
+                    Squarcella, E. Aben, K. C. Claffy, M.
+                    Chiesa, M. Russo, A. Pescap&egrave;, "<a href="http://conferences.sigcomm.org/imc/2011/docs/p1.pdf">Analysis
+                    of
+                    Country-wide Internet Outages Caused by Censorship</a>",
+                    ACM
+                    SIGCOMM/SIGMETRICS Internet Measurement Conference IMC 2011 - November
+                    2011, Berlin (Germany).
+                </li>
+                <li>G.
+                    Aceto, A. Botta, A. Pescap&egrave;, C. Westphal "<a href="http://wpage.unina.it/pescape/doc/06088479.pdf">An
+                    efficient storage technique for network monitoring data</a>",
+                    IEEE International Workshop on Measurements &amp; Networking
+                    (M&amp;N 2011), Capri, Italy, October 2011.
+                </li>
+                <li>Srikanth
+                    Sundaresan, Walter de Donato, Nick Feamster, Renata Teixeira, Sam
+                    Crawford, Antonio Pescap&egrave;, "<a href="http://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p134.pdf">Broadband
+                    Internet Performance:
+                    A View From the Gateway</a>", to appear in ACM SIGCOMM 2011
+                    proceedings,
+                    Toronto, ON, Canada, August 15-19, 2011.
+                </li>
+                <li>Alessio
+                    Botta, Antonio Pescap&egrave;, "<a href="http://wpage.unina.it/a.botta/pub/iscc2011.pdf">IP
+                    packet interleaving: bridging the gap between theory and practice</a>",
+                    16th IEEE Symposium on Computer and Communications (ISCC), Kerkyra
+                    (Corfu), Greece, June 2011.
+                </li>
+                <li>A. Dainotti, A. Pescap&egrave;, C. Sansone,
+                    A. Quintavalle, "<a href="http://wpage.unina.it/alberto/papers/mcs2011.pdf">Using
+                    a Behaviour Knowledge Space Approach for
+                    Detecting Unknown IP Traffic Flows</a>", 10th International
+                    Workshop on
+                    Multiple Classifier Systems, MCS 2011 - June 2011, Napoli (Italy).
+                </li>
+                <li>
+                    A. Dainotti, A. Pescap&egrave;, C. Sansone, "<a href="http://wpage.unina.it/alberto/papers/tma2011.pdf">Early
+                    Classification of
+                    Network Traffic through Multi-Classification</a>", Third
+                    International
+                    Workshop on Traffic Monitoring and Analysis (TMA'11) - April 2011,
+                    Vienna (Austria).
+                </li>
+                <li>
+                    A. Botta, A. Pescap&egrave;, "<a href="http://wpage.unina.it/a.botta/pub/wons2011.pdf">Monitoring
+                    and measuring wireless network performance in the presence of
+                    middleboxes</a>", The 8th International Conference on Wireless
+                    On-demand Network Systems and Services (WONS), Bardonecchia (TO),
+                    Italy, January 2011. (<a href="http://wpage.unina.it/a.botta/pub/wons2011_poster.pdf">Download
+                    the poster</a>).
+                </li>
+                <li>
+                    A. Pescape', D.Rossi, D. Tammaro, S. Valenti, "<a href="http://www.infres.enst.fr/%7Egagnaire/Workshop-Papers/paper-5.pdf">On
+                    the Impact of Sampling on Traffic Monitoring and Analysis</a>",
+                    22nd International Teletraffic Congress, September 7 - 9, 2010 in
+                    Amsterdam, The Netherlands.
+                </li>
+                <li>
+                    A. Botta, A. Pescape', G.Ventre, E. Biersack,
+                    S. Rugel, "<a href="http://wpage.unina.it/a.botta/pub/winmee2010.pdf">Performance
+                    footprints of heavy users in 3G networks via empirical measurement</a>",
+                    The 6th International workshop on Wireless Network Measurements, May
+                    31st, 2010, Avignon, France.
+                </li>
+                <li>
+                    A. Botta, A. Pescap&egrave;, G. Aceto, M.
+                    D'Arienzo, "<a href="http://wpage.unina.it/a.botta/pub/iscc2010.pdf">UANM:
+                    a platform for experimenting with available bandwidth estimation tools</a>",
+                    15th IEEE Symposium on Computer and Communications, June 2010 Riccione
+                    (ITALY) - <span class="news-highlight">BEST PAPER AWARD (Local Category)</span>
+                </li>
+                <li>
+                    A. Dainotti, F. Gargiulo, L. Kuncheva, A.
+                    Pescap&egrave;, C. Sansone, "<a href="http://wpage.unina.it/alberto/papers/ICC2010.pdf">Identification
+                    of traffic flows hiding behind TCP port 80</a>", IEEE ICC 2010 -
+                    May 2010, Capetown (South Africa)
+                </li>
+                <li>
+                    G. Aceto, A. Dainotti, W. de Donato, A.
+                    Pescap&egrave;, "<a href="http://wpage.unina.it/alberto/papers/portload_infocom2010.pdf">PortLoad:
+                    taking the best of two worlds in traffic classification</a>",
+                    IEEE INFOCOM 2010 - WIP Track - March 2010, San Diego (CA, USA)
+                </li>
+                <li>
+                    V. Carela-Espa&ntilde;ol, P. Barlet-Ros,
+                    M. Sol&egrave;-Sim&ograve;, A. Dainotti, W. de Donato, A.
+                    Pescap&egrave;, "<a href="http://wpage.unina.it/alberto/papers/tma2010.pdf">K-dimensional
+                    trees for continuous traffic classification</a>", 2nd
+                    International Workshop on Traffic Monitoring and Analysis (TMA'10),
+                    Zurich, Switzerland, April 7, 2010.
+                </li>
+                <li>
+                    A. Dainotti, W. De Donato, A.
+                    Pescap&egrave; <a href="http://wpage.unina.it/pescape/doc/TIE_from_TMA_Proceedings.pdf">TIE:
+                    a Community-Oriented Traffic Classification Platform"</a>,
+                    International Workshop on Traffic Monitoring and Analysis (TMA'09)
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <footer class="site-footer">
+            <p>For more information, please contact
+                <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.
+            </p>
+        </footer>
 
     </main>
-  </div>
+</div>
 </body>
 </html>
