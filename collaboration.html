@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborations</title>
+  <meta name="description" content="Research Collaborations">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="menu.js" defer></script>
+
+  <style>
+    /* --- Collaborations Grid Layout --- */
+    .people-section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .person-card {
+      background: #fff;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    .person-name {
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+    .person-info p {
+      margin: 3px 0;
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+    }
+    .person-info a {
+      color: #0044cc;
+      text-decoration: none;
+    }
+    .person-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-content">
+      <img src="images/clip_image002.gif" alt="University Logo" class="header-logo"> 
+      <div class="header-info">
+        <p class="university-name">Universita' degli Studi di Napoli ''Federico II'' (Italy)</p>
+        <p class="department-name">Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+      </div>
+    </div>
+    <h1 class="site-title">
+      <span class="bold-initial">N</span>etwork <span class="bold-initial">M</span>onitoring and <span class="bold-initial">M</span>easurements
+    </h1>
+  </header>
+
+  <div class="page-container">
+
+    <nav class="sidebar">
+      <ul class="main-menu">
+        <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
+        <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
+        
+        <li class="menu-item has-submenu">
+          <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
+          <ul class="submenu" id="topics-submenu">
+            
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
+              <ul class="submenu-level-2" id="active-probing">
+                <li><a href="ippolib.php" class="menu-link">IPPO Library</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
+              <ul class="submenu-level-2" id="alias-resolution">
+                <li><a href="pythia.php" class="menu-link">PYTHIA</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
+              <ul class="submenu-level-2" id="app-traffic-gen">
+                <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
+              <ul class="submenu-level-2" id="bandwidth-mon">
+                <li><a href="uanm.php" class="menu-link">UANM</a></li>
+              </ul>
+            </li>
+            
+            <li><a href="bioinformatics.php" class="menu-link">Bioinformatics and E-Health</a></li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
+              <ul class="submenu-level-2" id="broadband-perf">
+                <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
+                <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
+              </ul>
+            </li>
+
+            <li><a href="cloud.php" class="menu-link">Cloud Monitoring and Control</a></li>
+            <li><a href="internetcensor.php" class="menu-link">Internet Censorship Detection</a></li>
+            <li><a href="netdata.php" class="menu-link">Network data management</a></li>
+            <li><a href="np.php" class="menu-link">High-performance networking</a></li>
+            
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
+              <ul class="submenu-level-2" id="network-mapping">
+                <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
+                <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
+              <ul class="submenu-level-2" id="network-perf-improv">
+                <li><a href="timeDiv.php" class="menu-link">TimeD</a></li>
+              </ul>
+            </li>
+
+            <li><a href="security.php" class="menu-link">Network security</a></li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
+              <ul class="submenu-level-2" id="path-tracing">
+                <li><a href="tpa.php" class="menu-link">Third-Party Addresses</a></li>
+                <li><a href="tptraceroute.php" class="menu-link">TP-Traceroute</a></li>
+                <li><a href="drago.php" class="menu-link">Hidden routers</a></li>
+              </ul>
+            </li>
+
+            <li><a href="sdnmonitoring.php" class="menu-link">Software-Defined Network Monitoring</a></li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
+              <ul class="submenu-level-2" id="traffic-analysis">
+                <li><a href="/software/Plab" class="menu-link">Plab</a></li>
+                <li><a target="_new" href="http://tie.comics.unina.it" class="menu-link">TIE</a></li>
+                <li><a href="wwanMonitor.php" class="menu-link">WWAN</a></li>
+              </ul>
+            </li>
+
+            <li><a href="other.php" class="menu-link">Others</a></li>
+          </ul>
+        </li>
+
+        <li class="menu-item"><a href="publications.php" class="menu-link">Publications</a></li>
+        <li class="menu-item"><a href="news.php" class="menu-link">News</a></li>
+        
+        <li class="menu-item has-submenu">
+          <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
+          <ul class="submenu" id="material-submenu">
+            <li><a href="Tools/statools.php" class="menu-link">Matlab scripts</a></li>
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
+              <ul class="submenu-level-2" id="traces-data">
+                <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
+                <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
+                <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
+                <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="#" class="menu-link active">Collaborations</a></li>
+        <li class="menu-item"><a href="visiting.php" class="menu-link">Visiting</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <h2 class="people-section-title">Current Collaborations</h2>
+      <div class="people-grid">
+        <div class="person-card">
+          <div class="person-name"><a href="http://perso.infres.enst.fr/~drossi/" target="_blank">Dario Rossi</a></div>
+          <div class="person-info">
+            <p>TELECOM ParisTech (formerly ENST), France</p>
+            <p><i>Impact of sampling on traffic monitoring and analysis, Traffic Classification</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.caida.org/home/seniorstaff/kclaffy.xml" target="_blank">KC Claffy</a></div>
+          <div class="person-info">
+            <p>Cooperative Association for Internet Data Analysis (CAIDA), San Diego</p>
+            <p><i>Traffic Classification</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.eurecom.fr/~btroup/erbi_page.html" target="_blank">Ernst Biersack</a></div>
+          <div class="person-info">
+            <p>Eur&eacute;com 06904 Sophia Antipolis, France</p>
+            <p><i>Passive analysis of 3G/4G networks</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://inl.info.ucl.ac.be/donnet" target="_blank">Benoit Donnet</a></div>
+          <div class="person-info">
+            <p>Universit&egrave; Catholique de Louvain, Belgium</p>
+            <p><i>Topology Discovery</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.cs.princeton.edu/~feamster/" target="_blank">Nick Feamster</a></div>
+          <div class="person-info">
+            <p>Princeton University</p>
+            <p><i>Network Neutrality and Broadband Performance Evaluation</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.docomolabsresearchers-usa.com/~cwestphal/" target="_blank">Cedric Westphal</a></div>
+          <div class="person-info">
+            <p>DoCoMo USA Labs - Palo Alto (USA)</p>
+            <p><i>Compression of monitoring data</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.fri.uni-lj.si/en/fabio-ricciato/" target="_blank">Fabio Ricciato</a></div>
+          <div class="person-info">
+            <p>University of Ljubljana</p>
+            <p><i>Traffic monitoring and analysis</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://clarinet.u-strasbg.fr/~merindol/" target="_blank">Pascal Merindol</a></div>
+          <div class="person-info">
+            <p>University of Strasburgo</p>
+            <p><i>Network topologies</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://homepages.inf.ed.ac.uk/mmarina/" target="_blank">Mahesh K. Marina</a></div>
+          <div class="person-info">
+            <p>University of Edinburgh</p>
+            <p><i>Broadband Performance Monitoring</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www-bcf.usc.edu/~katzbass/" target="_blank">Ethan Katz-Bassett</a></div>
+          <div class="person-info">
+            <p>University of Southern California</p>
+            <p><i>Internet Measurement</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://disi.unitn.it/locigno/" target="_blank">Renato Lo Cigno</a></div>
+          <div class="person-info">
+            <p>University of Trento</p>
+            <p><i>Inter-Vehicular Communications</i></p>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2 class="people-section-title">Past Collaborations</h2>
+      <div class="people-grid">
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.cl.cam.ac.uk/~rc277/" target="_blank">Rajiv Chakravorty</a></div>
+          <div class="person-info">
+            <p>Systems Research Group, University of Cambridge Computer Laboratory</p>
+            <p><i>Performance evaluation of GPRS networks</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.deutsche-telekom-laboratories.de/~karrer/" target="_blank">Roger Karrer</a></div>
+          <div class="person-info">
+            <p>Network Group of the Deutsche Telekom Laboratories in Berlin, Germany</p>
+            <p><i>Analysis and performance evaluation of Magnets WiFi Backbone</i></p>
+          </div>
+        </div>
+        <div class="person-card">
+          <div class="person-name"><a href="http://www.ece.osu.edu/~calyama/" target="_blank">Prasad Calyam</a></div>
+          <div class="person-info">
+            <p>The Ohio State University and The Ohio Supercomputer Center</p>
+            <p><i>Mutimedia Traffic Characterization and Modeling</i></p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      If you are interested in collaborating with us or in opportunities in Traffic,
+      please send an e-mail to <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.
+    </p>
+  </footer>
+
+</body>
+</html>
