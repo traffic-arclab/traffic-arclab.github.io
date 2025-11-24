@@ -82,12 +82,120 @@
 
   <div class="page-container">
 
-    <!-- SIDEBAR -->
     <nav class="sidebar">
-      <!-- identical to your template -->
-      <!-- (kept exactly as provided — not repeated here for brevity) -->
-      <!-- PLEASE paste the same <ul class="main-menu"> structure here -->
-      <!-- If you want, I can paste it fully again -->
+      <ul class="main-menu">
+        <li class="menu-item"><a href="#" class="menu-link active">Home</a></li>
+        <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
+        
+        <li class="menu-item has-submenu">
+          <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
+          <ul class="submenu" id="topics-submenu">
+            
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
+              <ul class="submenu-level-2" id="active-probing">
+                <li><a href="ippolib.php" class="menu-link">IPPO Library</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
+              <ul class="submenu-level-2" id="alias-resolution">
+                <li><a href="pythia.php" class="menu-link">PYTHIA</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
+              <ul class="submenu-level-2" id="app-traffic-gen">
+                <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
+              <ul class="submenu-level-2" id="bandwidth-mon">
+                <li><a href="uanm.php" class="menu-link">UANM</a></li>
+              </ul>
+            </li>
+            
+            <li><a href="bioinformatics.php" class="menu-link">Bioinformatics and E-Health</a></li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
+              <ul class="submenu-level-2" id="broadband-perf">
+                <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
+                <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
+              </ul>
+            </li>
+
+            <li><a href="cloud.php" class="menu-link">Cloud Monitoring and Control</a></li>
+            <li><a href="internetcensor.php" class="menu-link">Internet Censorship Detection</a></li>
+            <li><a href="netdata.php" class="menu-link">Network data management</a></li>
+            <li><a href="np.php" class="menu-link">High-performance networking</a></li>
+            
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
+              <ul class="submenu-level-2" id="network-mapping">
+                <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
+                <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
+              <ul class="submenu-level-2" id="network-perf-improv">
+                <li><a href="timeDiv.php" class="menu-link">TimeD</a></li>
+              </ul>
+            </li>
+
+            <li><a href="security.php" class="menu-link">Network security</a></li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
+              <ul class="submenu-level-2" id="path-tracing">
+                <li><a href="tpa.php" class="menu-link">Third-Party Addresses</a></li>
+                <li><a href="tptraceroute.php" class="menu-link">TP-Traceroute</a></li>
+                <li><a href="drago.php" class="menu-link">Hidden routers</a></li>
+              </ul>
+            </li>
+
+            <li><a href="sdnmonitoring.php" class="menu-link">Software-Defined Network Monitoring</a></li>
+
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
+              <ul class="submenu-level-2" id="traffic-analysis">
+                <li><a href="/software/Plab" class="menu-link">Plab</a></li>
+                <li><a target="_new" href="http://tie.comics.unina.it" class="menu-link">TIE</a></li>
+                <li><a href="wwanMonitor.php" class="menu-link">WWAN</a></li>
+              </ul>
+            </li>
+
+            <li><a href="other.php" class="menu-link">Others</a></li>
+          </ul>
+        </li>
+
+        <li class="menu-item"><a href="publications.php" class="menu-link">Publications</a></li>
+        <li class="menu-item"><a href="news.php" class="menu-link">News</a></li>
+        
+        <li class="menu-item has-submenu">
+          <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
+          <ul class="submenu" id="material-submenu">
+            <li><a href="Tools/statools.php" class="menu-link">Matlab scripts</a></li>
+            <li class="menu-item has-submenu-level-2">
+              <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
+              <ul class="submenu-level-2" id="traces-data">
+                <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
+                <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
+                <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
+                <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="collaborations.php" class="menu-link">Collaborations</a></li>
+        <li class="menu-item"><a href="visiting.php" class="menu-link">Visiting</a></li>
+      </ul>
     </nav>
 
     <!-- MAIN CONTENT -->
