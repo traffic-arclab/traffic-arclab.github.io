@@ -1,0 +1,267 @@
+/* MODERN CSS RESET (Simplified) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    color: #333; /* Dark gray for text */
+    background-color: #f4f7f9; /* Light, soft background */
+    min-height: 100vh;
+}
+
+a {
+    color: #0056b3; /* Primary link color (Navy Blue) */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #003d7a;
+    text-decoration: underline;
+}
+
+/* --- HEADER STYLES --- */
+.site-header {
+    background-color: #1f3a5f; /* Deep Navy Blue */
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.header-logo {
+    width: 70px;
+    height: 70px;
+    margin-right: 1.5rem;
+    border-radius: 4px;
+}
+
+.header-info p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.9rem;
+    color: #c4d7e8;
+}
+
+.site-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+.site-title .bold-initial {
+    font-weight: 700;
+    color: #ffcc00; /* Accent color for initials */
+}
+
+/* --- MAIN LAYOUT (Flexbox/Grid) --- */
+.page-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    min-height: calc(100vh - 120px); /* Adjust based on actual header/footer size */
+}
+
+/* --- SIDEBAR NAVIGATION --- */
+.sidebar {
+    width: 280px;
+    padding: 20px 0;
+    border-right: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+.main-menu {
+    list-style: none;
+}
+
+.menu-link, .submenu-toggle {
+    display: block;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    color: #1f3a5f;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection when clicking menu items */
+}
+
+.menu-link:hover, .submenu-toggle:hover {
+    background-color: #e6f0ff;
+    text-decoration: none;
+}
+
+.menu-link.active {
+    background-color: #1f3a5f;
+    color: white;
+    font-weight: bold;
+    border-left: 5px solid #ffcc00;
+    padding-left: 15px;
+}
+
+/* Submenu toggle icon (optional, using CSS triangles/unicode) */
+.submenu-toggle::after, .submenu-toggle-level-2::after {
+    content: '▶';
+    float: right;
+    transition: transform 0.3s ease;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}
+
+.submenu-toggle.expanded::after, .submenu-toggle-level-2.expanded::after {
+    transform: rotate(90deg);
+}
+
+.submenu, .submenu-level-2 {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    overflow: hidden; /* Hide content when closed */
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.submenu.expanded, .submenu-level-2.expanded {
+    max-height: 500px; /* Needs to be large enough to hold all content */
+    border-left: 2px dotted #c4d7e8;
+    margin-left: 20px;
+    padding-top: 5px;
+}
+
+.submenu-level-2 .menu-link {
+    padding-left: 10px;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #1f3a5f;
+    border-bottom: 3px solid #ffcc00;
+    padding-bottom: 5px;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.main-content p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* --- NEWS BOX STYLES --- */
+.news-announcement {
+    margin-top: 2rem;
+    border-radius: 8px;
+    padding: 1px; /* Padding adjustment for border box model */
+}
+
+.news-announcement.new-dataset {
+    border: 1px solid #e04a4a;
+}
+
+.news-title {
+    font-size: 1.25rem;
+    color: #e04a4a;
+    margin: 1rem 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.new-badge::before {
+    content: "🔥";
+    font-size: 1.25rem;
+    margin-right: 8px;
+}
+
+.news-box {
+    padding: 15px;
+    background-color: #fff9f9;
+    border-radius: 6px;
+}
+
+.award-text {
+    font-weight: bold;
+    color: #e04a4a;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.inline-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.opening-list {
+    list-style: disc;
+    margin: 10px 0 10px 20px;
+}
+
+.opening-list ul {
+    list-style: circle;
+    margin: 5px 0 5px 20px;
+}
+
+.email-link {
+    color: #1f3a5f;
+    font-weight: bold;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    padding: 15px 20px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- RESPONSIVENESS (Mobile-first adjustment) --- */
+@media (max-width: 800px) {
+    .page-container {
+        flex-direction: column;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .site-header {
+        padding: 1rem;
+        align-items: center;
+    }
+
+    .site-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+}
