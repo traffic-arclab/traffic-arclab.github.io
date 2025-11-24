@@ -1,66 +1,675 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <style>
-        .textArea {
-            max-width: 800px;
-            margin: auto;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        .section-title {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin-bottom: 1em;
-        }
-    </style>
+  <title>..:: Traffic and Tools ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <META NAME="Author" content="">
+  <META NAME="Description" CONTENT="Network Traffic Tools and Traces">
+  <META NAME="Keywords" CONTENT="traffic,internet,generator,generation,ip,measurement,modeling,monitoring,management,simulation,
+                                 sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,
+                                 DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,
+                                 passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,
+                                 exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,
+                                 statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,
+                                 traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,
+                                 wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,
+                                 traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,
+                                 CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+  <META NAME="revisit" CONTENT="3 days">
+  <META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="style.css" type=text/css rel=stylesheet>
+
+  <script type="text/javascript">
+      function menuCtrl(id) {
+	row = document.getElementById(id);
+
+	for (chidx in childs[id]) {
+	  chid = childs[id][chidx];
+	  chrow = document.getElementById(chid);
+
+	  if (chrow.style.display == '')  {
+	    // Hide
+	    hideEntry(chid);
+	  } else {
+	    // Show
+	    chrow.style.display = '';
+	  }
+	}
+      }
+
+      function hideEntry(id) {
+	row = document.getElementById(id);
+	row.style.display = 'none';
+
+	for (chidx in childs[id]) {
+	  chid = childs[id][chidx];
+	  hideEntry(chid);
+	}
+      }
+
+      childs = new Array();
+      parent = new Array();
+  </script>
+
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-35228304-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
 </head>
+
 <body>
 
-<!-- Placeholder for content originally included via: include("page.php"); -->
-<!-- Insert page.php content here if needed -->
+ <div class=title>
+  <table height="80">
+   <tbody>
+    <tr valign="center">
+     <td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+     <td>
+      <p style="padding-left: 1em; font-family: Verdana; line-height: 16pt">
+       Universita' degli Studi di Napoli ''Federico II'' (Italy)<br>
+       Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)
+      </p>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <div align="right"><font class="title"><b>N</b>etwork <b>M</b>onitoring and <b>M</b>easurements </font>&nbsp;</div>
+ </div>
 
-<div class="textArea">
-    <p class="section-title">Welcome to the <i>Traffic</i> web site</p>
+ <div class=pageArea>
+  <table width="100%">
+   <thead>
+    <tr valign="top">
+     <td width="17%" height="100%"></td>
+     <td width="83%" height="100%"></td>
+    </tr>
+   </thead>
+   <tbody>
+    <tr valign="top">
+     <td height="100%" style="border-right:1px dotted #284279;">
 
-    <p>
-        <i><b>Traffic</b></i> is a research group working in the area of computer networks and multimedia,
-        with focus on <i>Network Monitoring and Measurements</i>. Our research involves measuring and evaluating
-        both experimental and operational systems/networks to derive knowledge and models for network behaviors.
-        Traffic (and this is the main motivation of its name) focuses on monitoring Internet traffic to provide
-        input for developing new algorithms, protocols, and systems for the current and future Internet, with a
-        specific focus on network management and security.
-    </p>
+      <div class=linkArea style="min-height: 600px">
+       <table border="0" width="100%">
+        <tbody>
+	   
+   <tr id=1 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	 font-weight: bold; "
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Home
+    </td>
+   </tr>
+  
+   <tr id=2 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="people.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;People
+	  </a>
+    </td>
+   </tr>
+  
+   <tr id=3 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Topics
+    </td>
+   </tr>
+  
+   <tr id=4 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Active Probing
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[4]=3; childs[3] = new Array(); childs[3][1]=4;</script>
+   <tr id=5 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="ippolib.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;IPPO Library
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[5]=4; childs[4] = new Array(); childs[4][1]=5;</script>  	     
+   <tr id=6 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Alias resolution
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[6]=3; childs[3][2]=6;</script>
+   <tr id=7 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="pythia.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;PYTHIA
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[7]=6; childs[6] = new Array(); childs[6][1]=7;</script>
+   <tr id=8 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Application traffic generation
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[8]=3; childs[3][3]=8;</script>
+   <tr id=9 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="/software/ITG">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[9]=8; childs[8] = new Array(); childs[8][1]=9;</script>
+   <tr id=10 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Bandwidth monitoring
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[10]=3; childs[3][4]=10;</script>
+   <tr id=11 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="uanm.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;UANM
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[11]=10; childs[10] = new Array(); childs[10][1]=11;</script>
+   <tr id=12 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="bioinformatics.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Bioinformatics and E-Health
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[12]=3; childs[3][5]=12;</script>
+   <tr id=13 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Broadband performance monitoring
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[13]=3; childs[3][6]=13;</script>
+   <tr id=14 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a target="_new" class="menu" href="http://projectbismark.net">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;BISmark
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[14]=13; childs[13] = new Array(); childs[13][1]=14;</script>
+   <tr id=15 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a target="_new" class="menu" href="http://hobbit.comics.unina.it">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;HoBBIT
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[15]=13; childs[13][2]=15;</script>
+   <tr id=16 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="cloud.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Cloud Monitoring and Control
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[16]=3; childs[3][7]=16;</script>
+   <tr id=17 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="internetcensor.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Internet Censorship Detection
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[17]=3; childs[3][8]=17;</script>
+   <tr id=18 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="netdata.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Network data management
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[18]=3; childs[3][9]=18;</script>
+   <tr id=19 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="np.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;High-performance networking
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[19]=3; childs[3][10]=19;</script>
+   <tr id=20 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Network mapping
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[20]=3; childs[3][11]=20;</script>
+   <tr id=21 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="/software/TD">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Hynetd
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[21]=20; childs[20] = new Array(); childs[20][1]=21;</script>
+   <tr id=22 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a target="_new" class="menu" href="http://svnet.u-strasbg.fr/merlin">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;MERLIN
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[22]=20; childs[20][2]=22;</script>
+   <tr id=23 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Network performance improvement
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[23]=3; childs[3][12]=23;</script>
+   <tr id=24 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="timeDiv.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;TimeD
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[24]=23; childs[23] = new Array(); childs[23][1]=24;</script>
+   <tr id=25 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="security.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Network security
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[25]=3; childs[3][13]=25;</script>
+   <tr id=26 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Path tracing
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[26]=3; childs[3][14]=26;</script>
+   <tr id=27 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="tpa.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Third-Party Addresses
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[27]=26; childs[26] = new Array(); childs[26][1]=27;</script>
+   <tr id=28 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="tptraceroute.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;TP-Traceroute
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[28]=26; childs[26][2]=28;</script>
+   <tr id=29 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="drago.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Hidden routers
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[29]=26; childs[26][3]=29;</script>
+   <tr id=30 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="sdnmonitoring.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Software-Defined Network Monitoring
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[30]=3; childs[3][15]=30;</script>
+   <tr id=31 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Traffic analysis and classification
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[31]=3; childs[3][16]=31;</script>
+   <tr id=32 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="/software/Plab">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Plab
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[32]=31; childs[31] = new Array(); childs[31][1]=32;</script>
+   <tr id=33 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a target="_new" class="menu" href="http://tie.comics.unina.it">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;TIE
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[33]=31; childs[31][2]=33;</script>
+   <tr id=34 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="wwanMonitor.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;WWAN
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[34]=31; childs[31][3]=34;</script>
+   <tr id=35 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="other.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Others
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[35]=3; childs[3][17]=35;</script>
+   <tr id=36 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="publications.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Publications
+	  </a>
+    </td>
+   </tr>
+  
+   <tr id=37 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="news.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;News
+	  </a>
+    </td>
+   </tr>
+  
+   <tr id=38 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Material
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[38]=37; childs[37] = new Array(); childs[37][1]=38;</script>
+   <tr id=39 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="Tools/statools.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Matlab scripts
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[39]=38; childs[38] = new Array(); childs[38][1]=39;</script>
+   <tr id=40 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 1.8em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="Traces/index.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Traffic and data traces
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[40]=38; childs[38][2]=40;</script>
+   <tr id=41 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="Traces/ttraces.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Traffic traces
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[41]=40; childs[40] = new Array(); childs[40][1]=41;</script>
+   <tr id=42 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="Traces/dtraces.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Heterogenous networks data traces
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[42]=40; childs[40][2]=42;</script>
+   <tr id=43 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="Traces/Magnets.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;MagNets data traces
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[43]=40; childs[40][3]=43;</script>
+   <tr id=44 style="display: none" onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 2.7em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="Traces/hobbit.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Hobbit dataset
+	  </a>
+    </td>
+   </tr>
+  <script type="text/javascript"> parent[44]=40; childs[40][4]=44;</script>
+   <tr id=45 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="collaborations.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Collaborations
+	  </a>
+    </td>
+   </tr>
+  
+   <tr id=46 onclick="menuCtrl(this.id)">
+    <td class="menuout"
+	style="padding-left: 0.9em; text-indent: -0.9em;
+	"
+	onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+	  <a  class="menu" href="visiting.php">
+	    <img src="images/linkOpaque.gif" border="0">&nbsp;Visiting
+	  </a>
+    </td>
+   </tr>
+         
+        </tbody>
+       </table>
+      </div>
+     </td>
+     <td>
 
-    <p>
-        Besides teaching activities, it is involved in several national and international research projects.
-        Although it is a young group, formed in 2003, it has a significant track record with respect to funding
-        (approx. more than 1.5 Ml euro) and publications (e.g. conferences like SIGCOMM, Conext, IMC and journals
-        like JSAC, IEEE Networks, IEEE Communication Magazines, etc). Click on the menu on the left side for links
-        to our main projects, publications and software we have produced.
-    </p>
+<div class=textArea>
+ <p class="section-title">Welcome to the <i>Traffic</i> web site</p>
 
-    <p>
-        <a href="people.php">We</a> are part of the larger Computer Networks group
-        (<a href="http://www.comics.unina.it/">COMICS</a>)
-        at University of Napoli Federico II.
-    </p>
+ <p>
+  <i><b>Traffic</b></i> is a research group working in the area of computer networks and multimedia,
+  with focus on **Network Monitoring and Measurements**. Our research involves measuring and evaluating
+  both experimental and operational systems/networks to derive knowledge and models for network behaviors.
+  Traffic (and this is the main motivation of its name) focuses on monitoring **Internet traffic** to provide
+  input for developing new algorithms, protocols, and systems for the current and future Internet, with a
+  specific focus on network management and security.
+ </p>
 
-    <!-- Placeholder for releases() output -->
-    <!-- Insert releases content here -->
+ <p>
+  Besides teaching activities, it is involved in several national and international research projects.
+  Although it is a young group, formed in 2003, it has a significant track record with respect to funding (approx. more than 1.5 Ml euro)
+  and publications (e.g. conferences like SIGCOMM, Conext, IMC and journals like JSAC, IEEE Networks, IEEE Communication Magazines, etc). Click on the menu on the left side for links to our main projects, publications and software we have produced.
+ </p>
 
-    <!-- Placeholder for openings() output -->
-    <!-- Insert openings content here -->
+ <p>
+  <a href="people.php">We</a> are part of the larger Computer Networks group (<a href="http://www.comics.unina.it/">COMICS</a>)
+  at University of Napoli Federico II.
+ </p>
 
-    <!-- Placeholder for collaborate() output -->
-    <!-- Insert collaborate content here -->
+ 
+    <p style="margin-bottom: 0; font-size: 12pt; color: red; font-weight: bold;"><img src="images/NEWa.gif" border=0> NEW DATASET RELEASED! <img src="images/NEWa.gif" border=0></p>
+    <table border="1" cellspacing="0" cellpadding="12pt" style="border-color: red"><tbody><tr><td style="font-weight: bold;text-align: justify;">
+
+<p>We are happy to announce the release of our new and open dataset to the Internet community. 
+You can find it at the following URL: <a href="http://traffic.comics.unina.it/mirage">http://traffic.comics.unina.it/mirage</a>.</br></p>
+
+<p><img src="images/award.gif" width=7% border=0> The MIRAGE paper has won the <b style="color: red"> Best Paper Award</b> at the 4th IEEE International Conference on Computing, Communications and Security (ICCCS 2019), October 2019, Rome (Italy).</p>
+
+<p>Our MIRAGE-2019 dataset is a human-generated dataset for mobile traffic analysis with associated ground-truth, having the goal of advancing the state-of-the-art in mobile app traffic analysis. 
+MIRAGE-2019 contains data related to 40 Android apps (e.g., Facebook, Spotify, Twitter, etc.) related to 16 different categories (e.g., Social, Communication, Lifestyle, etc.) of Google Play store and collected by more than 280 experimenters, during May 2017- May 2019.</br></p>
+
+<p>Find additional info <a href="http://traffic.comics.unina.it/mirage">HERE</a>!</p>
+
+    </td></tr></tbody></table>
+ 
+
+ 
+    <p style="margin-bottom: 0; font-size: 12pt; color: red; font-weight: bold;">Traffic openings 2025</p>
+    <table border="1" cellspacing="0" cellpadding="12pt" style="border-color: red"><tbody><tr><td style="font-weight: bold;text-align: justify;">
+	We are continuously looking for qualified and self-motivated graduate students and Post Docs (both Italian and foreign) with background in
+	networking, programming, statistical data analysis, in at least one of the following areas:
+	<ul>
+	  <li>Network and Traffic Measurement and Analysis</li>
+	    <ul>
+		<li>Broadband Monitoring and Censorship	Detection (in a project partially funded by Google)</li>
+		<li>High-performance Traffic Generation and Classification (in collaboration with worldwide Industries)	</li>
+		<li>Active Probing and Network Tracerouting</li>
+	    </ul>
+	  <li>Cloud Networking and SDN/NFV</li>
+	  <li>Smart City and Mobility (in collaboration with worldwide Industries)</li>
+	</ul>
+	For those who are interested, please send an email with subject "Traffic Openings" to <span style="color: rgb(51, 102, 255);">pescape AT unina.it</span>, 
+	including a copy of your resume (with photo, link to the research web page and a list of at least two references), transcripts, publications list, 
+	and other closely related credentials.<br>
+	<a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">Here</a> a pdf with detailed information.
+    </td></tr></tbody></table>
+ 
+
+ 
+
+ 
+   <p>
+    If you are interested in collaborating with us or in opportunities in Traffic,
+    please send an e-mail to <a href="mailto:pescape%20[at]%20unina.it">Antonio Pescap&egrave;</a>
+   </p>
+  
 
 </div>
 
-<!-- Placeholder for footer() output -->
-<!-- Insert footer content here -->
-
-</body>
-</html>
+    </td>
+   </tr>
+   </tbody></table>
+   </div></body>
+   <script type="text/javascript">
+     
+       print("menuCtrl(1);");
+       
+     
+   </script>
+   </html>
