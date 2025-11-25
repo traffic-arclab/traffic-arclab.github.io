@@ -1,338 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MIRAGE-2019 Dataset</title>
 
-  <meta name="description" content="MIRAGE-2019 is a human-generated dataset for mobile traffic analysis with associated ground-truth.">
-  <meta name="keywords" content="Mobile app, Traffic dataset, MIRAGE, MIRAGE-2019">
-  <meta name="author" content="Traffic Research Group">
-
-  <link rel="shortcut icon" href="images/ico/cloud_ico.png">
-  <script src="menu.js" defer></script>
-
   <style>
-    /* ---------------- GLOBAL ---------------- */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
+    a { text-decoration: none; color: #003366; }
+    img { max-width: 100%; display: block; }
+    h1,h2,h3 { color: #003366; font-weight: bold; }
 
-    a {
-      text-decoration: none;
-      color: #003366;
-    }
+    .site-header { background: #002244; color: white !important; text-align: center; padding: 18px; }
+    .site-title { margin: 0; font-size: 1.9rem; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    h1, h2, h3 {
-      color: #003366;
-      font-weight: bold;
-    }
-
-    /* ---------------- HEADER ---------------- */
-    .site-header {
-      background: #002244;
-      color: white !important;
-      text-align: center;
-      padding: 18px;
-    }
-
-    .site-header,
-    .site-header h1,
-    .site-header p {
-      color: white !important;
-    }
-
-    .site-title {
-      margin: 0;
-      font-size: 1.9rem;
-    }
-
-    /* ---------------- LAYOUT ---------------- */
-    .page-container {
-      display: flex;
-      min-height: calc(100vh - 120px);
-    }
-
-    /* ---------------- SIDEBAR ---------------- */
+    .page-container { display: flex; min-height: calc(100vh - 120px); }
     .sidebar {
-      width: 260px;
-      background: #fff;
-      border-right: 1px solid #e0e0e0;
-      padding: 20px;
-      overflow-y: auto;
+      width: 260px; background: #fff; border-right: 1px solid #e0e0e0;
+      padding: 20px; overflow-y: auto;
     }
+    .main-menu { list-style: none; padding: 0; margin: 0; }
+    .menu-item { margin-bottom: 12px; }
+    .menu-link { display: block; padding: 10px; border-radius: 6px; color: #003366; }
+    .menu-link:hover, .menu-link.active { background: #003366; color: #fff; }
 
-    .main-menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+    .submenu { display: block; list-style: none; padding-left: 15px; margin-top: 5px; }
+    .submenu li { margin-bottom: 8px; }
+    .submenu li a { display: block; padding: 6px 8px; border-radius: 6px; }
+    .submenu li a:hover { background: #003366; color: white; }
+    .submenu-toggle { cursor: pointer; font-weight: bold; display: block; padding: 8px; border-radius: 6px; color: #003366; background: #003366; color:white; }
 
-    .menu-item {
-      margin-bottom: 12px;
-    }
+    .main-content { flex: 1; padding: 25px; }
 
-    .menu-link {
-      display: block;
-      padding: 10px;
-      border-radius: 6px;
-      color: #003366;
-    }
+    .hero-area { text-align: center; background: #ffffff; padding: 35px 25px; margin-bottom: 30px; border-radius: 12px; box-shadow: 0 3px 6px rgba(0,0,0,0.15); }
+    .hero-image { width: 260px; margin: 20px auto; }
+    .dataset-button { display:inline-block; background:#003366; color:white; padding:12px 16px; border-radius:8px; margin-top:10px; }
 
-    .menu-link:hover,
-    .menu-link.active {
-      background: #003366;
-      color: #fff;
-    }
+    .app-list-compact { background: #fff; padding:25px; border-radius:12px; margin-bottom:30px; box-shadow:0 2px 5px rgba(0,0,0,0.15); }
+    .app-list-item { padding:10px 0; border-bottom:1px solid #e0e0e0; }
+    .app-list-item:last-child { border-bottom:none; }
+    .app-title { font-weight:bold; color:#003366; }
+    .app-meta { font-size:0.9rem; color:#444; }
 
-    /* ---------------- MAIN CONTENT ---------------- */
-    .main-content {
-      flex: 1;
-      padding: 25px;
-    }
+    .row { display:flex; gap:20px; flex-wrap:wrap; margin-top:20px; }
+    .col { flex:1 1 calc(50% - 20px); background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.15); }
+    pre { background:#eee; padding:12px; border-radius:8px; overflow-x:auto; }
 
-    .hero-area {
-      text-align: center;
-      background: #ffffff;
-      padding: 35px 25px;
-      margin-bottom: 30px;
-      border-radius: 12px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-    }
+    .site-footer { text-align:center; background:#003366; color:white; padding:25px; margin-top:40px; }
 
-    .hero-image {
-      width: 260px;
-      margin: 20px auto;
-    }
-
-    /* ---------------- COMPACT APP LIST ---------------- */
-    .app-list-compact {
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
-    .app-list-item {
-      padding: 10px 0;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .app-list-item:last-child {
-      border-bottom: none;
-    }
-
-    .app-title {
-      font-weight: bold;
-      color: #003366;
-    }
-
-    .app-meta {
-      font-size: 0.9rem;
-      color: #444;
-    }
-
-    /* ---------------- DOWNLOAD SECTION ---------------- */
-    .row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .col {
-      flex: 1 1 calc(50% - 20px);
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-
-    pre {
-      background: #eee;
-      padding: 12px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-
-    /* ---------------- FOOTER ---------------- */
-    .site-footer {
-      text-align: center;
-      background: #003366;
-      color: white !important;
-      padding: 25px;
-      margin-top: 40px;
-    }
-
-    /* ---------------- RESPONSIVE ---------------- */
-    @media(max-width: 900px) {
-      .page-container {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-      }
-
-      .col {
-        flex: 1 1 100%;
-      }
-    }
+    @media(max-width:900px){ .page-container{flex-direction:column;} .sidebar{width:100%; border-right:none; border-bottom:1px solid #ddd;} .col{flex:1 1 100%;} }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <h1 class="site-title">MIRAGE-2019 Dataset</h1>
-    <p>Mobile-app Traffic Capture and Ground-Truth Creation</p>
-  </header>
+<header class="site-header">
+  <h1 class="site-title">MIRAGE-2019 Dataset</h1>
+  <p>Mobile-app Traffic Capture and Ground-Truth Creation</p>
+</header>
 
-  <div class="page-container">
+<div class="page-container">
 
-    <!-- SIDEBAR -->
-    <nav class="sidebar">
-      <ul class="main-menu">
-        <li><a href="index.html" class="menu-link">Home</a></li>
-        <li><a href="mirage-2019.html" class="menu-link active">MIRAGE-2019</a></li>
-        <li><a href="app_list_mirage_2019.html" class="menu-link">App List</a></li>
-        <li><a href="#download" class="menu-link">Download</a></li>
-        <li><a href="#footer" class="menu-link">About</a></li>
-      </ul>
-    </nav>
+  <nav class="sidebar">
+    <ul class="main-menu">
+      <li><a href="index.html" class="menu-link">Home</a></li>
+      <li>
+        <span class="submenu-toggle">Mirage-2019 ▼</span>
+        <ul class="submenu">
+          <li><a href="mirage-2019.html" class="menu-link active">Overview</a></li>
+          <li><a href="app_list_mirage_2019.html" class="menu-link">App List</a></li>
+          <li><a href="#download" class="menu-link">Download</a></li>
+          <li><a href="#footer" class="menu-link">About</a></li>
+        </ul>
+      </li>
+      <li><a href="mirage-2024.html" class="menu-link">Mirage-AppAct-2024</a></li>
+      <li><a href="mirage-covid-ccma-2022.html" class="menu-link">Mirage-COVID-CCMA-2022</a></li>
+      <li><a href="mirage-video.html" class="menu-link">Mirage-Video</a></li>
+    </ul>
+  </nav>
 
-    <main class="main-content">
+  <main class="main-content">
+    <section class="hero-area">
+      <h1>MIRAGE-2019 Dataset</h1>
+      <p><b>MIRAGE-2019</b> is a human-generated dataset for mobile traffic analysis with associated ground-truth, aiming to advance the state-of-the-art in mobile app traffic classification.</p>
+      <img src="images/home/slider/smartphone.png" class="hero-image">
+      <a href="#download" class="dataset-button">DOWNLOAD THE MIRAGE-2019 DATASET</a>
+    </section>
 
-      <!-- HERO -->
-      <section class="hero-area">
-        <h1>MIRAGE-2019 Dataset</h1>
-        <p>
-          <b>MIRAGE-2019</b> is a human-generated dataset for mobile traffic analysis with associated ground-truth,
-          aiming to advance the state-of-the-art in mobile app traffic classification.
-        </p>
-        <img src="images/home/slider/smartphone.png" class="hero-image">
-        <a href="#download" class="dataset-button" style="
-          display:inline-block;background:#003366;color:white;
-          padding:12px 16px;border-radius:8px;margin-top:10px;">
-          DOWNLOAD THE MIRAGE-2019 DATASET
-        </a>
-      </section>
+    <section class="app-list-compact">
+      <h2>App List Overview (Compact)</h2>
+      <p>Summary of some apps used in the MIRAGE-2019 dataset. For full list, see <a href="app_list_mirage_2019.html">App List page</a>.</p>
 
-      <!-- NEW COMPACT APP LIST SECTION -->
-      <section class="app-list-compact">
-        <h2>App List Overview (Compact)</h2>
-        <p>This is a summary of some apps used in the MIRAGE-2019 dataset. For the full, searchable list, see the <a href="app_list_mirage_2019.html">App List page</a>.</p>
+      <div class="app-list-item">
+        <span class="app-title">Pinterest</span>
+        <div class="app-meta">Category: Social – <a href="https://play.google.com/store/apps/details?id=com.pinterest" target="_blank">Metadata</a></div>
+      </div>
 
-        <div class="app-list-item">
-          <span class="app-title">Pinterest</span>
-          <div class="app-meta">Category: Social – <a href="https://play.google.com/store/apps/details?id=com.pinterest" target="_blank">Metadata</a></div>
-        </div>
+      <div class="app-list-item">
+        <span class="app-title">Facebook</span>
+        <div class="app-meta">Category: Social – <a href="https://play.google.com/store/apps/details?id=com.facebook.katana" target="_blank">Metadata</a></div>
+      </div>
 
-        <div class="app-list-item">
-          <span class="app-title">Facebook</span>
-          <div class="app-meta">Category: Social – <a href="https://play.google.com/store/apps/details?id=com.facebook.katana" target="_blank">Metadata</a></div>
-        </div>
+      <div class="app-list-item">
+        <span class="app-title">Spotify</span>
+        <div class="app-meta">Category: Music – <a href="https://play.google.com/store/apps/details?id=com.spotify.music" target="_blank">Metadata</a></div>
+      </div>
 
-        <div class="app-list-item">
-          <span class="app-title">Spotify</span>
-          <div class="app-meta">Category: Music – <a href="https://play.google.com/store/apps/details?id=com.spotify.music" target="_blank">Metadata</a></div>
-        </div>
+      <p style="margin-top:15px;"><a href="app_list_mirage_2019.html" style="font-weight:bold;color:#003366;">View the full list →</a></p>
+    </section>
 
-        <div class="app-list-item">
-          <span class="app-title">Wish</span>
-          <div class="app-meta">Category: Shopping – <a href="https://play.google.com/store/apps/details?id=com.contextlogic.wish" target="_blank">Metadata</a></div>
-        </div>
+    <section id="download" class="row">
+      <div class="col">
+        <h2>Download MIRAGE-2019</h2>
+        <p><a href="MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz">Download the latest dataset release</a></p>
+        <a href="MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz"><img src="images/home/download11.png" alt=""></a>
+        <p><b>MIRAGE-2019</b> includes traffic generated by more than 280 experimenters using 40 mobile apps on 3 devices.</p>
+      </div>
 
-        <div class="app-list-item">
-          <span class="app-title">Dropbox</span>
-          <div class="app-meta">Category: Productivity – <a href="https://play.google.com/store/apps/details?id=com.dropbox.android" target="_blank">Metadata</a></div>
-        </div>
-
-        <p style="margin-top:15px;">
-          <a href="app_list_mirage_2019.html" style="font-weight:bold;color:#003366;">View the full list →</a>
-        </p>
-      </section>
-
-      <!-- DOWNLOAD + PAPER -->
-      <section id="download">
-        <div class="row">
-
-          <!-- DOWNLOAD COLUMN -->
-          <div class="col">
-            <h2>Download MIRAGE-2019</h2>
-
-            <p><a href="MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz">Download the latest dataset release</a></p>
-
-            <a href="MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz">
-              <img src="images/home/download11.png" alt="">
-            </a>
-
-            <p>
-              <b>MIRAGE-2019</b> includes traffic generated by more than 280 experimenters using 40 mobile apps on 3 devices.
-            </p>
-
-            <p>
-              The <a href="app_list_mirage_2019.html">App List</a> includes full details of all apps in the dataset.
-            </p>
-
-            <p>
-              <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
-                <img src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" alt="CC License">
-              </a><br>
-              Released under the Creative Commons BY-NC-ND 4.0 License.
-            </p>
-          </div>
-
-          <!-- PAPER COLUMN -->
-          <div class="col">
-            <h2>MIRAGE-2019 Paper</h2>
-            <p>
-              If you use <b>MIRAGE-2019</b> in scientific, academic, or technical work, please cite:
-            </p>
-
-            <pre>
+      <div class="col">
+        <h2>MIRAGE-2019 Paper</h2>
+        <pre>
 Giuseppe Aceto, Domenico Ciuonzo, Antonio Montieri,
 Valerio Persico and Antonio Pescapè,
 "MIRAGE: Mobile-app Traffic Capture and Ground-truth Creation",
 IEEE ICCCS 2019, Rome (Italy).
-            </pre>
+        </pre>
+      </div>
+    </section>
 
-            <p>
-              <a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf" target="_blank">[ARTICLE]</a>
-              &nbsp;
-              <a href="mirage-2019.bib" target="_blank">[BIBTEX]</a>
-            </p>
-          </div>
-        </div>
-      </section>
+    <footer id="footer" class="site-footer">
+      <p>MIRAGE is maintained by <a href="http://traffic.comics.unina.it" style="color:white;text-decoration:underline;">Traffic Research Group</a>.</p>
+      <p>antonio.montieri [at] unina dot it</p>
+      <p>&copy; Traffic 2019</p>
+    </footer>
+  </main>
 
-      <!-- FOOTER -->
-      <footer id="footer" class="site-footer">
-        <p>
-          MIRAGE is maintained by the
-          <a href="http://traffic.comics.unina.it" style="color:white;text-decoration:underline;">
-            Traffic Research Group
-          </a>.
-        </p>
-        <p>antonio.montieri [at] unina dot it</p>
-        <p>&copy; Traffic 2019</p>
-      </footer>
+</div>
 
-    </main>
-
-  </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggles = document.querySelectorAll('.submenu-toggle');
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const submenu = toggle.nextElementSibling;
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      toggle.classList.toggle('active');
+    });
+  });
+});
+</script>
 
 </body>
 </html>
