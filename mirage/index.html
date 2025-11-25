@@ -1,312 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MIRAGE is a reproducible architecture for mobile-app traffic capture and ground-truth creation.">
-    <meta name="keywords" content="Mobile app, Mobile traffic, Traffic classification, Open dataset, MIRAGE, Android app, iOS app">
-    <meta name="author" content="Valerio Persico Traffic unina">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRAGE Project</title>
 
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="menu.js" defer></script>
 
+  <style>
+    /* -------- GLOBAL -------- */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+    }
 
-    <title>MIRAGE Project</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/lightbox.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+    a {
+      text-decoration: none;
+      color: #003366;
+    }
 
-    <!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="images/ico/cloud_ico.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+    img {
+      max-width: 100%;
+    }
+
+    /* -------- HEADER -------- */
+    .site-header {
+      background: #002244;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .site-title {
+      margin: 10px 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    /* -------- LAYOUT -------- */
+    .page-container {
+      display: flex;
+      min-height: calc(100vh - 100px);
+    }
+
+    /* -------- SIDEBAR -------- */
+    .sidebar {
+      width: 260px;
+      background: #ffffff;
+      border-right: 1px solid #ddd;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .main-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-item {
+      margin-bottom: 12px;
+    }
+
+    .menu-link {
+      font-size: 1rem;
+      display: block;
+      padding: 8px;
+      border-radius: 6px;
+    }
+
+    .menu-link.active,
+    .menu-link:hover {
+      background: #003366;
+      color: white;
+    }
+
+    /* Submenus */
+    .submenu,
+    .submenu-level-2 {
+      display: none;
+      list-style: none;
+      padding-left: 15px;
+      margin-top: 5px;
+    }
+
+    .submenu-toggle,
+    .submenu-toggle-level-2 {
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      padding: 8px;
+      border-radius: 6px;
+    }
+
+    /* -------- MAIN CONTENT -------- */
+    .main-content {
+      flex: 1;
+      padding: 25px;
+      background: #f8f8f8;
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+      color: #003366;
+    }
+
+    /* -------- SECTIONS -------- */
+    .slider-img {
+      width: 90%;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .dataset-button {
+      display: inline-block;
+      background: #003366;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    /* Award section */
+    .award-section {
+      text-align: center;
+      background: #fff;
+      padding: 30px 20px;
+      margin: 40px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    /* Service boxes */
+    .service-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .service-box {
+      flex: 1 1 calc(33% - 20px);
+      background: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+
+    /* -------- FOOTER -------- */
+    .site-footer {
+      text-align: center;
+      padding: 20px;
+      background: #003366;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* -------- RESPONSIVE -------- */
+    @media (max-width: 900px) {
+      .page-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .service-box {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
 
 <body>
-	<header id="header">
-        <!--<div class="container">
-            <div class="row">
-                <div class="col-sm-12 overflow">
-                   <div class="social-icons pull-right">
-                        <ul class="nav nav-pills">
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-             </div>
-        </div>-->
-<!--         <div class="navbar navbar-inverse navbar-fixed-top" role="banner"> -->
-        <div class="navbar navbar-inverse" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
-                    <a class="navbar-brand" href="index.html">
-<!--                     <h1><img src="images/logo.png" alt="logo"></h1> -->
-<h1><b>MIRAGE-Project</b></h1>
-<!-- <h2><b>Mobile-app Traffic Capture and Ground-truth Creation</b></h2> -->
-                    </a>
+  <!-- HEADER -->
+  <header class="site-header">
+    <h1 class="site-title">MIRAGE Project</h1>
+    <p>Mobile-App Traffic Capture and Ground-Truth Creation</p>
+  </header>
 
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li class="active"><a href="mirage-2024.html">Mirage-AppAct-2024</a></li>
-                        <li class="active"><a href="mirage-covid-ccma-2022.html">Mirage-Covid-CCMA-2022</a></li>
-                        <li class="active"><a href="mirage-video.html">Mirage-Video</a></li>
-                        <li class="active"><a href="mirage-2019.html">Mirage-2019</a></li>
-<!--                        <li class="active"><a href="app_list.html">App List</a></li>-->
-<!--                        <li class="active"><a href="index.html#download">Download</a></li>-->
-<!--                        <li class="active"><a href="index.html#download">Paper</a></li>-->
-                        <li class="active"><a href="index.html#footer">About</a></li>
-                    </ul>
-                </div>
-            </div>
+  <div class="page-container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+      <ul class="main-menu">
+        <li><a class="menu-link active" href="index.html">Home</a></li>
+        <li><a class="menu-link" href="mirage-2024.html">Mirage-AppAct-2024</a></li>
+        <li><a class="menu-link" href="mirage-covid-ccma-2022.html">Mirage-COVID-CCMA-2022</a></li>
+        <li><a class="menu-link" href="mirage-video.html">Mirage-Video</a></li>
+        <li><a class="menu-link" href="mirage-2019.html">Mirage-2019</a></li>
+        <li><a class="menu-link" href="#footer">About</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <h2>Welcome to the MIRAGE Project</h2>
+      <p><b>MIRAGE</b> is a reproducible architecture for mobile-app traffic capture and ground-truth creation.</p>
+
+      <img src="images/home/slider/mirage_architecture.png" class="slider-img">
+
+      <p><a href="mirage-2024.html" class="dataset-button">MIRAGE-AppAct-2024 Dataset</a></p>
+      <p><a href="mirage-covid-ccma-2022.html" class="dataset-button">MIRAGE-COVID-CCMA-2022 Dataset</a></p>
+      <p><a href="mirage-video.html" class="dataset-button">MIRAGE-Video Dataset</a></p>
+      <p><a href="mirage-2019.html" class="dataset-button">MIRAGE-2019 Dataset</a></p>
+
+      <!-- AWARD -->
+      <section class="award-section">
+        <img src="images/home/medal.png" width="80" alt="Medal">
+        <h2>Best Paper Award</h2>
+        <p>
+          The MIRAGE paper won the <b>Best Paper Award</b> at the
+          4th IEEE ICCCS 2019, Rome.
+        </p>
+      </section>
+
+      <!-- SERVICES -->
+      <h2>How to participate</h2>
+
+      <div class="service-grid">
+
+        <div class="service-box">
+          <img src="images/home/close-envelope.png" width="60">
+          <h3>Subscribe</h3>
+          <p>Join the mailing list for updates.</p>
         </div>
-    </header>
-    <!--/#header-->
 
-    <section id="home-slider">
-        <div class="container">
-            <div class="row">
-                <div class="main-slider">
-                    <div class="slide-text">
-                        <h1>Welcome to </br>the MIRAGE Project</h1>
-                        <p><b>MIRAGE</b> is a reproducible architecture for mobile-app traffic capture and ground-truth creation.
-                        <b>MIRAGE-AppAct-2024</b>, <b>MIRAGE-COVID-CCMA-2022</b>, <b>MIRAGE-Video</b>, and <b>MIRAGE-2019</b> human-generated datasets have been collected by means of MIRAGE.</p>
-                        <p><a href="mirage-2024.html" class="btn btn-common">GO TO THE PAGE OF THE MIRAGE-AppAct-2024 DATASET</a></p>
-                        <p><a href="mirage-covid-ccma-2022.html" class="btn btn-common">GO TO THE PAGE OF THE MIRAGE-COVID-CCMA-2022 DATASET</a></p>
-                        <p><a href="mirage-video.html" class="btn btn-common">GO TO THE PAGE OF THE MIRAGE-Video DATASET</a></p>
-                        <p><a href="mirage-2019.html" class="btn btn-common">GO TO THE PAGE OF THE MIRAGE-2019 DATASET</a></p>
-                    </div>
-                    <!--<img src="images/home/cloud.png" class="slider-birds1" alt="slider image">-->
-                    <!-- <img src="images/home/cloud275.png" class="slider-birds2" alt="slider image"> -->
-                    <!-- <img src="images/home/slider/hill.png" class="slider-hill" alt="slider image"> -->
-                    <!-- <img src="images/home/slider/smartphone.png" class="slider-hill" alt="slider image"> -->
-                    <img src="images/home/slider/mirage_architecture.png" class="slider-hill" alt="slider image">
-                    <!-- <img src="images/home/slider/sun.png" class="slider-sun" alt="slider image"> -->
-                    <!-- <img src="images/home/slider/birds1.png" class="slider-birds1" alt="slider image"> -->
-                    <!-- <img src="images/home/cloud.png" class="slider-birds1" alt="slider image"> -->
-                    <!-- <img src="images/home/cloud311.png" class="slider-birds1" alt="slider image"> -->
-                    <!-- <img src="images/home/slider/birds2.png" class="slider-birds2" alt="slider image"> -->
-                </div>
-            </div>
+        <div class="service-box">
+          <img src="images/home/open-book.png" width="60">
+          <h3>Publication</h3>
+          <p>
+            Read the MIRAGE paper (ICCCS 2019).
+          </p>
         </div>
-        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
-    </section>
-    <!--/#home-slider-->
 
-<section id="award">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div>
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                            </br><img src="images/home/medal.png" width=10% alt="">
-                        </div>
-                        <h2>Best Paper Award</h2>
-                        <h3>We are happy to announce that the MIRAGE paper has won the <b>Best Paper Award</b></br>at the 4th IEEE International Conference on Computing, Communications and Security (ICCCS 2019), October 2019, Rome (Italy).</h3>
-                    </div>
-                </div>
-            </div>
+        <div class="service-box">
+          <img src="images/home/community.png" width="60">
+          <h3>Collaborate</h3>
+          <p>
+            Contact us to collaborate on MIRAGE.
+          </p>
         </div>
-    </section>
-    <!--/#home-slider-->
 
-    <section id="howto" class="chiara">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
-<!--                             <img src="images/home/icon1.png" alt=""> -->
-                            <img src="images/home/close-envelope.png" alt="">
-                        </div>
-                        <a href="https://groups.google.com/forum/#!forum/mirage-project" target="_blank"><h2>Subscribe to the mailing list</h2></a>
-                        <p>We will provide news and updates on the MIRAGE project through its
-                        <a href="https://groups.google.com/forum/#!forum/mirage-project" target="_blank">mailing list</a>. Questions are also welcomed.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
-<!--                             <img src="images/home/icon2.png" alt=""> -->
-                            <img src="images/home/open-book.png" alt="">
-                        </div>
-                        <a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf" target="_blank"><h2>Scientific publication</h2></a>
-                        <p>
-                        The <a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf" target="_blank">MIRAGE paper</a> has been accepted at the 4th IEEE International Conference on Computing, Communications and Security (ICCCS 2019).
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
-                    <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
-<!--                             <img src="images/home/icon3.png" alt=""> -->
-                            <img src="images/home/community.png" alt="">
-                        </div>
-                        <a href="index.html#footer"><h2>Collaborate with us</h2></a>
-                        <p>Please <a href="mailto:antonio.montieri[a-t]unina.it">contact us</a> to receive more information about MIRAGE and set up possible collaborations.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/#howto-->
+      </div>
 
-<!--    <section id="download" class="scura">-->
-<!--        <div class="container">-->
-<!--            </br>-->
+      <footer class="site-footer" id="footer">
+        <p>
+          MIRAGE is maintained by the
+          <a href="http://traffic.comics.unina.it" style="color:white;text-decoration:underline;">Traffic Research Group</a>.
+        </p>
+        <p>Contact: antonio.montieri [at] unina dot it</p>
+        <p>&copy; Traffic Group 2025</p>
+      </footer>
 
-<!--            <div class="row">-->
-<!--                <div class="col-xs-5">-->
-<!--                    <div class="well">-->
-<!--                        <h2>Download MIRAGE-2019</h2>-->
-<!--                        <a href="MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz">Download the latest downloadable release</a>-->
-<!--                        </br></br>-->
-<!--                        <a href="MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz"><img src="images/home/download11.png" class="img-responsive center-block" alt=""></a>-->
-<!--                        </br>-->
-<!--                        <p><b>MIRAGE-2019</b> takes into consideration the traffic generated by more than 280 experimenters using 40 mobile apps via 3 devices.</br>-->
-<!--                        <!--A sampled version of the dataset (one app per category) is readily downloadable, whereas the complete version is available <a href="mailto:pescape[a-t]unina.it">on request</a>.</p> -->
-<!--                        <!-- <p><a href="app_list.html" target="_blank"> APP LIST</a> reports the details on the apps contained in the two versions of the dataset.</p> -->
-<!--                        <p><a href="app_list.html" target="_blank"> APP LIST</a> reports the details on the apps contained in the downloadable version of the dataset.</p>-->
-<!--                        <br/>-->
-<!--                        <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br/>MIRAGE-2019 dataset is released under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-                
-<!--                    <div class="col-xs-7">-->
-<!--                        <div class="well">-->
-<!--                            -->
-<!--                            <h2>Download MIRAGE-COVID-CCMA-2022 <img src="images/home/new.png" width="50"></h2>-->
-<!--                            <a href="MIRAGE/MIRAGE-COVID-CCMA-2022.zip">Download the latest downloadable release</a>-->
-<!--                            </br></br>-->
-<!--                            <a href="MIRAGE/MIRAGE-COVID-CCMA-2022.zip"><img src="images/home/download11.png" class="img-responsive center-block" alt=""></a>-->
-<!--                            </br>-->
-<!--                            <p><b>MIRAGE-COVID-CCMA-2022</b> takes into consideration the traffic generated by more than 150 experimenters using 9 mobile apps for communication and collaboration via 3 devices. Each app was used by the experimenter to perform at most 3 different user activities.</br>-->
-<!--                            <!-- A sampled version of the dataset (one app per category) is readily downloadable, whereas the complete version is available <a href="mailto:pescape[a-t]unina.it">on request</a>.</p> -->
-<!--                            <!-- <p><a href="app_list.html" target="_blank"> APP LIST</a> reports the details on the apps contained in the two versions of the dataset.</p> -->
-<!--                            <p><a href="app_list_cc.html" target="_blank"> APP LIST</a> reports the details on the apps contained in the downloadable version of the dataset.</p>-->
-<!--                            <br/>-->
-<!--                            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br/>MIRAGE-COVID-CCMA-2022 dataset is released under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                <!--<div class="col-xs-4">
+    </main>
 
-                    <div class="well">
-                        <h2>MIRAGE Paper</h2>
-                        <p>
-                        If you are using <b>MIRAGE-2019</b> human-generated dataset for scientific papers, academic lectures, project reports, or technical documents,
-                        please help us increasing its impact by citing the following reference:
-
-                        <pre>
-                        Giuseppe Aceto, Domenico Ciuonzo, Antonio Montieri, Valerio Persico and Antonio Pescapè,
-                        "MIRAGE: Mobile-app Traffic Capture and Ground-truth Creation",
-                        4th IEEE International Conference on Computing, Communications and Security (ICCCS 2019), October 2019, Rome (Italy).
-                        </pre>
-                        <a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf" target="_blank">[ARTICLE]</a> <a href="mirage.bib" target="_blank">[BIBTEX]</a>
-
-                        </p>
-                    </div>
-                </div> -->
-<!--            </div>-->
-<!--            <div class="row">-->
-<!--            <div class="well">-->
-<!--                <h2>MIRAGE Paper</h2>-->
-<!--                <p>-->
-<!--                If you are using <b>MIRAGE-2019</b> human-generated dataset for scientific papers, academic lectures, project reports, or technical documents,-->
-<!--                please help us increasing its impact by citing the following reference:-->
-
-<!--                <pre>-->
-<!--                Giuseppe Aceto, Domenico Ciuonzo, Antonio Montieri, Valerio Persico and Antonio Pescapè,-->
-<!--                "MIRAGE: Mobile-app Traffic Capture and Ground-truth Creation",-->
-<!--                4th IEEE International Conference on Computing, Communications and Security (ICCCS 2019), October 2019, Rome (Italy).-->
-<!--                </pre>-->
-<!--                <a href="http://wpage.unina.it/antonio.montieri/pubs/MIRAGE_ICCCS_2019.pdf" target="_blank">[ARTICLE]</a> <a href="mirage.bib" target="_blank">[BIBTEX]</a>-->
-
-<!--                </p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        </div>-->
-<!--    </section>-->
-
-
-    <footer id="footer" class="scura">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-6 text-center">
-                    <div>
-                        <h2>About</h2>
-                        <h3>MIRAGE is maintained by </br>the <a href="http://traffic.comics.unina.it">Traffic Research Group</a>.</h3>
-                        E-mail: <a href="mailto:antonio.montieri[a-t]unina.it">antonio.montieri[a t]unina dot it</a> <br>
-
-                    </div>
-                </div>
-
-                <div class="col-md-6 ">
-                    <div class="text-center">
-                        <h2>Contacts</h2>
-                        <p>
-                        Traffic Research Group</br>
-                        Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</br>
-                        Universita' degli Studi di Napoli ''Federico II''</br>
-                        (Italy)
-                        </p>
-
-
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-12">
-
-                </div>
-                <div class="col-sm-12">
-                    <div class="copyright-text text-center">
-                        <p>Original template designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
-                        <p>Icons from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> are licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></p>
-                        <p>&copy; Traffic 2019. All Rights Reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--/#footer-->
-
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lightbox.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/prettify.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-
-    <script type="text/javascript">
-(function(jQuery){
-  jQuery( document ).ready( function() {
-    prettyPrint();
-  } );
-}(jQuery))
-</script>
+  </div>
 
 </body>
 </html>
