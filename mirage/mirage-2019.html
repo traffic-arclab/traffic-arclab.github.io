@@ -39,15 +39,9 @@
     /* ---------------- HEADER ---------------- */
     .site-header {
       background: #002244;
-      padding: 18px;
-      text-align: center;
-    }
-
-    /* Force header text to white */
-    .site-header,
-    .site-header h1,
-    .site-header p {
       color: white !important;
+      text-align: center;
+      padding: 18px;
     }
 
     .site-title {
@@ -105,12 +99,40 @@
       padding: 35px 25px;
       margin-bottom: 30px;
       border-radius: 12px;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
     }
 
     .hero-image {
       width: 260px;
       margin: 20px auto;
+    }
+
+    /* ---------------- COMPACT APP LIST ---------------- */
+    .app-list-compact {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .app-list-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .app-list-item:last-child {
+      border-bottom: none;
+    }
+
+    .app-title {
+      font-weight: bold;
+      color: #003366;
+    }
+
+    .app-meta {
+      font-size: 0.9rem;
+      color: #444;
     }
 
     /* ---------------- DOWNLOAD SECTION ---------------- */
@@ -126,7 +148,7 @@
       background: #fff;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
     pre {
@@ -140,7 +162,7 @@
     .site-footer {
       text-align: center;
       background: #003366;
-      color: white;
+      color: white !important;
       padding: 25px;
       margin-top: 40px;
     }
@@ -185,7 +207,6 @@
       </ul>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <main class="main-content">
 
       <!-- HERO -->
@@ -201,6 +222,41 @@
           padding:12px 16px;border-radius:8px;margin-top:10px;">
           DOWNLOAD THE MIRAGE-2019 DATASET
         </a>
+      </section>
+
+      <!-- NEW COMPACT APP LIST SECTION -->
+      <section class="app-list-compact">
+        <h2>App List Overview (Compact)</h2>
+        <p>This is a summary of some apps used in the MIRAGE-2019 dataset. For the full, searchable list, see the <a href="app_list_mirage_2019.html">App List page</a>.</p>
+
+        <div class="app-list-item">
+          <span class="app-title">Pinterest</span>
+          <div class="app-meta">Category: Social – <a href="https://play.google.com/store/apps/details?id=com.pinterest" target="_blank">Metadata</a></div>
+        </div>
+
+        <div class="app-list-item">
+          <span class="app-title">Facebook</span>
+          <div class="app-meta">Category: Social – <a href="https://play.google.com/store/apps/details?id=com.facebook.katana" target="_blank">Metadata</a></div>
+        </div>
+
+        <div class="app-list-item">
+          <span class="app-title">Spotify</span>
+          <div class="app-meta">Category: Music – <a href="https://play.google.com/store/apps/details?id=com.spotify.music" target="_blank">Metadata</a></div>
+        </div>
+
+        <div class="app-list-item">
+          <span class="app-title">Wish</span>
+          <div class="app-meta">Category: Shopping – <a href="https://play.google.com/store/apps/details?id=com.contextlogic.wish" target="_blank">Metadata</a></div>
+        </div>
+
+        <div class="app-list-item">
+          <span class="app-title">Dropbox</span>
+          <div class="app-meta">Category: Productivity – <a href="https://play.google.com/store/apps/details?id=com.dropbox.android" target="_blank">Metadata</a></div>
+        </div>
+
+        <p style="margin-top:15px;">
+          <a href="app_list_mirage_2019.html" style="font-weight:bold;color:#003366;">View the full list →</a>
+        </p>
       </section>
 
       <!-- DOWNLOAD + PAPER -->
@@ -273,5 +329,4 @@ IEEE ICCCS 2019, Rome (Italy).
   </div>
 
 </body>
-
 </html>
