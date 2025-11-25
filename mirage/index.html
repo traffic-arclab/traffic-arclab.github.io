@@ -30,9 +30,15 @@
     /* -------- HEADER -------- */
     .site-header {
       background: #002244;
-      color: white;
       padding: 15px;
       text-align: center;
+    }
+
+    /* Force header text to white */
+    .site-header,
+    .site-header h1,
+    .site-header p {
+      color: white !important;
     }
 
     .site-title {
@@ -237,17 +243,13 @@
         <div class="service-box">
           <img src="images/home/open-book.png" width="60">
           <h3>Publication</h3>
-          <p>
-            Read the MIRAGE paper (ICCCS 2019).
-          </p>
+          <p>Read the MIRAGE paper (ICCCS 2019).</p>
         </div>
 
         <div class="service-box">
           <img src="images/home/community.png" width="60">
           <h3>Collaborate</h3>
-          <p>
-            Contact us to collaborate on MIRAGE.
-          </p>
+          <p>Contact us to collaborate on MIRAGE.</p>
         </div>
 
       </div>
@@ -255,7 +257,9 @@
       <footer class="site-footer" id="footer">
         <p>
           MIRAGE is maintained by the
-          <a href="http://traffic.comics.unina.it" style="color:white;text-decoration:underline;">Traffic Research Group</a>.
+          <a href="http://traffic.comics.unina.it" style="color:white;text-decoration:underline;">
+            Traffic Research Group
+          </a>.
         </p>
         <p>Contact: antonio.montieri [at] unina dot it</p>
         <p>&copy; Traffic Group 2025</p>
