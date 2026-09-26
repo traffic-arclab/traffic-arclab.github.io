@@ -3,328 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>People</title>
-  <meta name="description" content="Traffic Research Group Members">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/menu.js" defer></script>
-
-  <style>
-    /* --- People Grid Layout --- */
-    .people-section-title {
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 25px;
-    }
-    .person-card {
-      background: #fff;
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
-    .person-image {
-      width: 140px;
-      height: 140px;
-      border-radius: 8px;
-      object-fit: cover;
-      margin-bottom: 12px;
-    }
-    .person-name {
-      font-weight: bold;
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-    .person-info p {
-      margin: 3px 0;
-      font-size: 0.9rem;
-      line-height: 1.3rem;
-    }
-    .person-info a {
-      color: #0044cc;
-      text-decoration: none;
-    }
-    .person-info a:hover {
-      text-decoration: underline;
-    }
-
-    .alumni-title {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-top: 50px;
-      font-weight: bold;
-    }
-  </style>
+  <title>People | Traffic</title>
+  <meta name="description" content="Members and alumni of the Traffic research group, University of Napoli Federico II.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-content">
-      <img src="images/clip_image002.gif" alt="University Logo" class="header-logo"> 
-      <div class="header-info">
-        <p class="university-name">Universita' degli Studi di Napoli ''Federico II'' (Italy)</p>
-        <p class="department-name">Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
-      </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
     </div>
-    <h1 class="site-title">
-      <span class="bold-initial">N</span>etwork <span class="bold-initial">M</span>onitoring and <span class="bold-initial">M</span>easurements
-    </h1>
-  </header>
-
-  <div class="page-container">
-
-    <nav class="sidebar">
-      <ul class="main-menu">
-        <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
-        <li class="menu-item"><a href="#" class="menu-link active">People</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
-          <ul class="submenu" id="topics-submenu">
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
-              <ul class="submenu-level-2" id="active-probing">
-                <li><a href="ippolib.html" class="menu-link">IPPO Library</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
-              <ul class="submenu-level-2" id="alias-resolution">
-                <li><a href="pythia.html" class="menu-link">PYTHIA</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
-              <ul class="submenu-level-2" id="app-traffic-gen">
-                <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
-              <ul class="submenu-level-2" id="bandwidth-mon">
-                <li><a href="uanm.html" class="menu-link">UANM</a></li>
-              </ul>
-            </li>
-            
-            <li><a href="bioinformatics.html" class="menu-link">Bioinformatics and E-Health</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
-              <ul class="submenu-level-2" id="broadband-perf">
-                <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
-                <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
-              </ul>
-            </li>
-
-            <li><a href="cloud.html" class="menu-link">Cloud Monitoring and Control</a></li>
-            <li><a href="internetcensor.html" class="menu-link">Internet Censorship Detection</a></li>
-            <li><a href="netdata.html" class="menu-link">Network data management</a></li>
-            <li><a href="np.html" class="menu-link">High-performance networking</a></li>
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
-              <ul class="submenu-level-2" id="network-mapping">
-                <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
-                <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
-              <ul class="submenu-level-2" id="network-perf-improv">
-                <li><a href="timeDiv.html" class="menu-link">TimeD</a></li>
-              </ul>
-            </li>
-
-            <li><a href="security.html" class="menu-link">Network security</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
-              <ul class="submenu-level-2" id="path-tracing">
-                <li><a href="tpa.html" class="menu-link">Third-Party Addresses</a></li>
-                <li><a href="tptraceroute.html" class="menu-link">TP-Traceroute</a></li>
-                <li><a href="drago.html" class="menu-link">Hidden routers</a></li>
-              </ul>
-            </li>
-
-            <li><a href="sdnmonitoring.html" class="menu-link">Software-Defined Network Monitoring</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
-              <ul class="submenu-level-2" id="traffic-analysis">
-                <li><a href="/software/Plab" class="menu-link">Plab</a></li>
-                <li><a target="_new" href="software/tie/start.html" class="menu-link">TIE</a></li>
-                <li><a href="wwanMonitor.html" class="menu-link">WWAN</a></li>
-              </ul>
-            </li>
-
-            <li><a href="other.html" class="menu-link">Others</a></li>
-          </ul>
-        </li>
-
-        <li class="menu-item"><a href="publications.html" class="menu-link">Publications</a></li>
-        <li class="menu-item"><a href="news.html" class="menu-link">News</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
-          <ul class="submenu" id="material-submenu">
-            <li><a href="Tools/statools.html" class="menu-link">Matlab scripts</a></li>
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
-              <ul class="submenu-level-2" id="traces-data">
-                <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
-                <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
-                <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
-                <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-item"><a href="collaborations.html" class="menu-link">Collaborations</a></li>
-        <li class="menu-item"><a href="visiting.html" class="menu-link">Visiting</a></li>
-      </ul>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-      <h2 class="people-section-title">Members of our Research Group</h2>
-
-      <div class="people-grid">
-
-        <!-- Antonio Pescape -->
-        <div class="person-card">
-          <img src="images/pictures/antonio2.jpg" class="person-image" alt="">
-          <div class="person-name">Antonio Pescape', PhD — Full Professor (Principal Investigator)</div>
-          <div class="person-info">
-            <p>DIETI</p>
-            <p>Via Claudio, 21 - 80125 Napoli</p>
-            <p><i>Tel:</i> +39 081 7683856 • <i>Fax:</i> +39 081 768-3816</p>
-            <p><i>Email:</i> pescape[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/pescape">http://wpage.unina.it/pescape</a></p>
-          </div>
-        </div>
-
-        <!-- Alessio Botta -->
-        <div class="person-card">
-          <img src="images/pictures/alessio.jpg" class="person-image" alt="">
-          <div class="person-name">Alessio Botta, PhD</div>
-          <div class="person-info">
-            <p>DIETI, CINI (ITeM Lab)</p>
-            <p>Tel: +39 081 7683865</p>
-            <p>Email: a.botta[at]unina.it and alessio.botta[at]consorzio-cini.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/a.botta">http://wpage.unina.it/a.botta</a></p>
-          </div>
-        </div>
-
-        <!-- Walter de Donato -->
-        <div class="person-card">
-          <img src="images/pictures/walter.png" class="person-image" alt="">
-          <div class="person-name">Walter de Donato, PhD</div>
-          <div class="person-info">
-            <p>DIETI, CINI (ITeM Lab)</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: walter.dedonato[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/walter.dedonato">http://wpage.unina.it/walter.dedonato</a></p>
-          </div>
-        </div>
-
-        <!-- Giuseppe Aceto -->
-        <div class="person-card">
-          <img src="images/pictures/giuseppe.jpg" class="person-image" alt="">
-          <div class="person-name">Giuseppe Aceto, PhD</div>
-          <div class="person-info">
-            <p>DIETI, CINI (ITeM Lab)</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: giuseppe.aceto[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/giuseppe.aceto">http://wpage.unina.it/giuseppe.aceto</a></p>
-          </div>
-        </div>
-
-        <!-- Valerio Persico -->
-        <div class="person-card">
-          <img src="images/pictures/valerio.jpg" class="person-image" alt="">
-          <div class="person-name">Valerio Persico, PhD</div>
-          <div class="person-info">
-            <p>DIETI</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: valerio.persico[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/valerio.persico">http://wpage.unina.it/valerio.persico</a></p>
-          </div>
-        </div>
-
-        <!-- Antonio Montieri -->
-        <div class="person-card">
-          <img src="images/pictures/toni_montieri.jpg" class="person-image" alt="">
-          <div class="person-name">Antonio Montieri, PhD Student</div>
-          <div class="person-info">
-            <p>DIETI</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: antonio.montieri[at]unina.it</p>
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/antonio.montieri">http://wpage.unina.it/antonio.montieri</a></p>
-          </div>
-        </div>
-
-        <!-- Domenico Ciuonzo -->
-        <div class="person-card">
-          <img src="images/pictures/ciuonzo.jpg" class="person-image" alt="">
-          <div class="person-name">Domenico Ciuonzo, PhD</div>
-          <div class="person-info">
-            <p>DIETI</p>
-            <p>Tel: +39 081 7683821</p>
-            <p>Email: domenico.ciuonzo[at]ieee.org</p>
-            <p><i>Homepage:</i> <a href="https://domenicociuonzo.wordpress.com">https://domenicociuonzo.wordpress.com</a></p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Alumni Section -->
-      <h2 class="alumni-title">Alumni</h2>
-
-      <div class="people-grid">
-
-        <!-- Alberto Dainotti -->
-        <div class="person-card">
-          <img src="images/pictures/alberto.jpg" class="person-image" alt="">
-          <div class="person-name">Alberto Dainotti, PhD</div>
-          <div class="person-info">
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/alberto">http://wpage.unina.it/alberto</a></p>
-          </div>
-        </div>
-
-        <!-- Pietro Marchetta -->
-        <div class="person-card">
-          <img src="images/pictures/pietro.jpg" class="person-image" alt="">
-          <div class="person-name">Pietro Marchetta, PhD</div>
-          <div class="person-info">
-            <p><i>Homepage:</i> <a href="http://wpage.unina.it/pietro.marchetta">http://wpage.unina.it/pietro.marchetta</a></p>
-          </div>
-        </div>
-
-      </div>
-
-    </main>
   </div>
 
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Traffic, home">
+        <img src="images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="people.html" class="nav-link" aria-current="page">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="np.html">High-performance networking</a>
+                  <a href="timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="security.html">Network security</a>
+                  <a href="internetcensor.html">Internet censorship detection</a>
+                  <a href="cloud.html">Cloud monitoring and control</a>
+                  <a href="sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="Traces/ttraces.php">Traffic traces</a>
+              <a href="Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="Traces/Magnets.php">MagNets data traces</a>
+              <a href="Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>People</span></nav>
+        <h1 class="page-title">People</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Members</h2>
+          <p class="section-intro">DIETI, Via Claudio 21 — 80125 Napoli, Italy · Fax +39 081 768-3816</p>
+        </div>
+        <ul class="people-grid">
+          <li class="person">
+            <img src="images/pictures/antonio2.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Antonio Pescapè</h3>
+              <p class="person-role">Full Professor · Principal Investigator</p>
+              <ul class="person-meta">
+                <li>DIETI</li>
+                <li><span class="k">Tel</span> +39 081 7683856</li>
+                <li><span class="k">Email</span> pescape[at]unina.it</li>
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/pescape">Homepage →</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/alessio.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Alessio Botta</h3>
+              <p class="person-role">PhD</p>
+              <ul class="person-meta">
+                <li>DIETI · CINI (ITeM Lab)</li>
+                <li><span class="k">Tel</span> +39 081 7683865</li>
+                <li><span class="k">Email</span> a.botta[at]unina.it</li>
+                <li><span class="k">Email</span> alessio.botta[at]consorzio-cini.it</li>
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/a.botta">Homepage →</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/walter.png" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Walter de Donato</h3>
+              <p class="person-role">PhD</p>
+              <ul class="person-meta">
+                <li>DIETI · CINI (ITeM Lab)</li>
+                <li><span class="k">Tel</span> +39 081 7683821</li>
+                <li><span class="k">Email</span> walter.dedonato[at]unina.it</li>
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/walter.dedonato">Homepage →</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/giuseppe.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Giuseppe Aceto</h3>
+              <p class="person-role">PhD</p>
+              <ul class="person-meta">
+                <li>DIETI · CINI (ITeM Lab)</li>
+                <li><span class="k">Tel</span> +39 081 7683821</li>
+                <li><span class="k">Email</span> giuseppe.aceto[at]unina.it</li>
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/giuseppe.aceto">Homepage →</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/valerio.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Valerio Persico</h3>
+              <p class="person-role">PhD</p>
+              <ul class="person-meta">
+                <li>DIETI</li>
+                <li><span class="k">Tel</span> +39 081 7683821</li>
+                <li><span class="k">Email</span> valerio.persico[at]unina.it</li>
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/valerio.persico">Homepage →</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/toni_montieri.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Antonio Montieri</h3>
+              <p class="person-role">PhD Student</p>
+              <ul class="person-meta">
+                <li>DIETI</li>
+                <li><span class="k">Tel</span> +39 081 7683821</li>
+                <li><span class="k">Email</span> antonio.montieri[at]unina.it</li>
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/antonio.montieri">Homepage →</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/ciuonzo.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Domenico Ciuonzo</h3>
+              <p class="person-role">PhD</p>
+              <ul class="person-meta">
+                <li>DIETI</li>
+                <li><span class="k">Tel</span> +39 081 7683821</li>
+                <li><span class="k">Email</span> domenico.ciuonzo[at]ieee.org</li>
+              </ul>
+              <a class="card-link" href="https://domenicociuonzo.wordpress.com">Homepage →</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section page-body section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Alumni</h2>
+        </div>
+        <ul class="people-grid">
+          <li class="person">
+            <img src="images/pictures/alberto.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Alberto Dainotti</h3>
+              <p class="person-role">PhD</p>
+              <ul class="person-meta">
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/alberto">Homepage →</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/pietro.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <h3 class="person-name">Pietro Marchetta</h3>
+              <p class="person-role">PhD</p>
+              <ul class="person-meta">
+              </ul>
+              <a class="card-link" href="http://wpage.unina.it/pietro.marchetta">Homepage →</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
   <footer class="site-footer">
-    <p>
-      If you are interested in collaborating with us or in opportunities in Traffic,
-      please send an e-mail to <a href="mailto:pescape%20[at]%20unina.it">Antonio Pescapè</a>.
-    </p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="collaborations.html">Collaborations</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
   </footer>
 
 </body>

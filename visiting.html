@@ -3,370 +3,324 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visiting</title>
-
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/menu.js" defer></script>
-
-  <style>
-    .people-section-title {
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin-top: 25px;
-    }
-
-    .people-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 25px;
-    }
-
-    .person-card {
-      background: #fff;
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
-
-    .person-photo {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      border: 1px solid #ddd;
-    }
-
-    .person-name {
-      font-weight: bold;
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .person-info p {
-      margin: 3px 0;
-      line-height: 1.3rem;
-      font-size: 0.9rem;
-    }
-  </style>
+  <title>Visiting | Traffic</title>
+  <meta name="description" content="Research internships and visiting researchers at the Traffic research group.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-content">
-      <img src="images/clip_image002.gif" alt="University Logo" class="header-logo"> 
-      <div class="header-info">
-        <p class="university-name">Universita' degli Studi di Napoli ''Federico II'' (Italy)</p>
-        <p class="department-name">Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
-      </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
     </div>
-    <h1 class="site-title">
-      <span class="bold-initial">N</span>etwork 
-      <span class="bold-initial">M</span>onitoring and 
-      <span class="bold-initial">M</span>easurements
-    </h1>
-  </header>
-
-  <div class="page-container">
-
-    <nav class="sidebar">
-      <ul class="main-menu">
-        <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
-        <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
-          <ul class="submenu" id="topics-submenu">
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
-              <ul class="submenu-level-2" id="active-probing">
-                <li><a href="ippolib.html" class="menu-link">IPPO Library</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
-              <ul class="submenu-level-2" id="alias-resolution">
-                <li><a href="pythia.html" class="menu-link">PYTHIA</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
-              <ul class="submenu-level-2" id="app-traffic-gen">
-                <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
-              <ul class="submenu-level-2" id="bandwidth-mon">
-                <li><a href="uanm.html" class="menu-link">UANM</a></li>
-              </ul>
-            </li>
-            
-            <li><a href="bioinformatics.html" class="menu-link">Bioinformatics and E-Health</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
-              <ul class="submenu-level-2" id="broadband-perf">
-                <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
-                <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
-              </ul>
-            </li>
-
-            <li><a href="cloud.html" class="menu-link">Cloud Monitoring and Control</a></li>
-            <li><a href="internetcensor.html" class="menu-link">Internet Censorship Detection</a></li>
-            <li><a href="netdata.html" class="menu-link">Network data management</a></li>
-            <li><a href="np.html" class="menu-link">High-performance networking</a></li>
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
-              <ul class="submenu-level-2" id="network-mapping">
-                <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
-                <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
-              <ul class="submenu-level-2" id="network-perf-improv">
-                <li><a href="timeDiv.html" class="menu-link">TimeD</a></li>
-              </ul>
-            </li>
-
-            <li><a href="security.html" class="menu-link">Network security</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
-              <ul class="submenu-level-2" id="path-tracing">
-                <li><a href="tpa.html" class="menu-link">Third-Party Addresses</a></li>
-                <li><a href="tptraceroute.html" class="menu-link">TP-Traceroute</a></li>
-                <li><a href="drago.html" class="menu-link">Hidden routers</a></li>
-              </ul>
-            </li>
-
-            <li><a href="sdnmonitoring.html" class="menu-link">Software-Defined Network Monitoring</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
-              <ul class="submenu-level-2" id="traffic-analysis">
-                <li><a href="/software/Plab" class="menu-link">Plab</a></li>
-                <li><a target="_new" href="software/tie/start.html" class="menu-link">TIE</a></li>
-                <li><a href="wwanMonitor.html" class="menu-link">WWAN</a></li>
-              </ul>
-            </li>
-
-            <li><a href="other.html" class="menu-link">Others</a></li>
-          </ul>
-        </li>
-
-        <li class="menu-item"><a href="publications.html" class="menu-link">Publications</a></li>
-        <li class="menu-item"><a href="news.html" class="menu-link">News</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
-          <ul class="submenu" id="material-submenu">
-            <li><a href="Tools/statools.html" class="menu-link">Matlab scripts</a></li>
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
-              <ul class="submenu-level-2" id="traces-data">
-                <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
-                <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
-                <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
-                <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-item"><a href="collaborations.html" class="menu-link">Collaborations</a></li>
-        <li class="menu-item"><a href="#" class="menu-link active">Visiting</a></li>
-      </ul>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-      <h2 class="people-section-title">Research Internships</h2>
-
-      <p style="text-align:center; max-width:700px; margin:auto;">
-        We strongly believe in collaboration with other research groups.
-      </p>
-
-      <!-- ⭐ INSERTED TRAFFIC OPENINGS 2025 BANNER ⭐ -->
-      <section class="news-announcement openings">
-        <h3 class="news-title">Traffic openings 2025</h3>
-        <div class="news-box">
-          <p>We are continuously looking for qualified and self-motivated graduate students and Post Docs (both Italian and foreign) with background in
-            networking, programming, statistical data analysis, in at least one of the following areas:</p>
-          <ul class="opening-list">
-            <li>Network and Traffic Measurement and Analysis
-              <ul>
-                <li>Broadband Monitoring and Censorship Detection (in a project partially funded by Google)</li>
-                <li>High-performance Traffic Generation and Classification (in collaboration with worldwide Industries)</li>
-                <li>Active Probing and Network Tracerouting</li>
-              </ul>
-            </li>
-            <li>Cloud Networking and SDN/NFV</li>
-            <li>Smart City and Mobility (in collaboration with worldwide Industries)</li>
-          </ul>
-
-          <p>For those who are interested, please send an email with subject "Traffic Openings" to 
-            <a href="mailto:pescape@unina.it" class="email-link">pescape AT unina.it</a>,
-            including a copy of your resume (with photo, link to the research web page and a list of at least two references), transcripts, publications list,
-            and other closely related credentials.<br>
-            <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">Here</a> a pdf with detailed information.
-          </p>
-        </div>
-      </section>
-      <!-- ⭐ END BANNER ⭐ -->
-
-      <h2 class="people-section-title">Past Internships</h2>
-
-      <div class="people-grid">
-
-        <!-- 1 -->
-        <div class="person-card">
-          <img src="images/pictures/Julian.jpg" class="person-photo">
-          <div class="person-name">Julian M. Del Fiore</div>
-          <div class="person-info">
-            <p><b>Organization:</b> University of Strasbourg</p>
-            <p><b>Period:</b> May 2019</p>
-            <p><b>Topic:</b> Routing Inconsistencies</p>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="person-card">
-          <img src="images/pictures/dima.jpg" class="person-photo">
-          <div class="person-name">Dmitrii Chemodanov</div>
-          <div class="person-info">
-            <p><b>Organization:</b> University of Missouri-Columbia</p>
-            <p><b>Period:</b> September 2018</p>
-            <p><b>Topic:</b> Edge Computing for Distributed Computer Vision Analytics</p>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="person-card">
-          <img src="images/pictures/hazam.jpg" class="person-photo">
-          <div class="person-name">Ghizlane Hazam</div>
-          <div class="person-info">
-            <p><b>Organization:</b> FSTM- Hassan II University</p>
-            <p><b>Period:</b> April 2018</p>
-            <p><b>Topic:</b> Bioinformatics and Big Data</p>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="person-card">
-          <img src="images/pictures/hdoroud.png" class="person-photo">
-          <div class="person-name">Hossein Doroud</div>
-          <div class="person-info">
-            <p><b>Organization:</b> University Carlos III de Madrid</p>
-            <p><b>Period:</b> November 2014</p>
-            <p><b>Topic:</b> Traffic Classification</p>
-          </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="person-card">
-          <img src="images/pictures/pmegyesi.png" class="person-photo">
-          <div class="person-name">Peter Megyesi</div>
-          <div class="person-info">
-            <p><b>Organization:</b> Budapest University of Technology and Economics</p>
-            <p><b>Period:</b> September 2014</p>
-            <p><b>Topic:</b> SDN Monitoring</p>
-          </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="person-card">
-          <img src="images/pictures/mgrajzer.jpg" class="person-photo">
-          <div class="person-name">Monika Grajzer</div>
-          <div class="person-info">
-            <p><b>Organization:</b> Telcordia Poland</p>
-            <p><b>Period:</b> November 2011</p>
-            <p><b>Topic:</b> Traffic Classification</p>
-            <p><b>Project:</b> Cost TMA</p>
-          </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="person-card">
-          <img src="images/pictures/xu_tian.jpg" class="person-photo">
-          <div class="person-name">Xu Tian</div>
-          <div class="person-info">
-            <p><b>Organization:</b> Beijing University of Post and Telecommunication</p>
-            <p><b>Period:</b> October 2010 - June 2011</p>
-            <p><b>Topic:</b> Traffic Classification</p>
-          </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="person-card">
-          <img src="images/pictures/vcarela.jpg" class="person-photo">
-          <div class="person-name">Valentin Carela</div>
-          <div class="person-info">
-            <p><b>Organization:</b> Technical University of Catalonia</p>
-            <p><b>Period:</b> June 2009</p>
-            <p><b>Topic:</b> Traffic classification</p>
-            <p><b>Project:</b> Cost TMA</p>
-          </div>
-        </div>
-
-        <!-- 9 -->
-        <div class="person-card">
-          <img src="images/pictures/mcrotti.jpg" class="person-photo">
-          <div class="person-name">Manuel Crotti</div>
-          <div class="person-info">
-            <p><b>Organization:</b> University of Brescia</p>
-            <p><b>Period:</b> April 2008</p>
-            <p><b>Topic:</b> Traffic classification</p>
-            <p><b>Project:</b> RECIPE</p>
-          </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="person-card">
-          <img src="images/pictures/ccallegari.jpg" class="person-photo">
-          <div class="person-name">Christian Callegari</div>
-          <div class="person-info">
-            <p><b>Organization:</b> University of Pisa</p>
-            <p><b>Period:</b> July 2007</p>
-            <p><b>Topic:</b> Anomaly Detection</p>
-            <p><b>Project:</b> RECIPE</p>
-          </div>
-        </div>
-
-        <!-- 11 -->
-        <div class="person-card">
-          <img src="images/pictures/vinhbui.jpeg" class="person-photo">
-          <div class="person-name">Vinh Bui</div>
-          <div class="person-info">
-            <p><b>Organization:</b> University of New South Wales</p>
-            <p><b>Period:</b> July 2007</p>
-            <p><b>Topic:</b> Multipath Data Transmission over Wireless Networks</p>
-          </div>
-        </div>
-
-      </div> <!-- end grid -->
-
-    </main>
   </div>
 
-  <footer class="site-footer">
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Traffic, home">
+        <img src="images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="np.html">High-performance networking</a>
+                  <a href="timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="security.html">Network security</a>
+                  <a href="internetcensor.html">Internet censorship detection</a>
+                  <a href="cloud.html">Cloud monitoring and control</a>
+                  <a href="sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="Traces/ttraces.php">Traffic traces</a>
+              <a href="Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="Traces/Magnets.php">MagNets data traces</a>
+              <a href="Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="visiting.html" class="nav-link" aria-current="page">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>Visiting</span></nav>
+        <h1 class="page-title">Visiting</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <h2 class="section-title">Research internships</h2>
+            <p>We strongly believe in collaboration with other research groups. Researchers and students from
+            other universities and companies regularly spend research periods with us, working on joint topics
+            in network measurement, traffic analysis and security.</p>
+            <p>If you are interested in visiting us, write to
+            <a href="mailto:pescape@unina.it?subject=Visiting%20Traffic">Antonio Pescapè</a>.</p>
+          </div>
+
+  <aside class="openings" aria-labelledby="openings-title">
+    <p class="card-kicker">Join us</p>
+    <h2 id="openings-title" class="openings-title">Traffic openings 2026</h2>
     <p>
-      For internship opportunities, please contact 
-      <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.
+      We are continuously looking for qualified, self-motivated graduate students and post-docs
+      (Italian and international) with a background in networking, programming or statistical
+      data analysis, in at least one of these areas:
     </p>
+    <ul class="openings-list">
+      <li>Network and traffic measurement and analysis
+        <ul>
+          <li>Broadband monitoring and censorship detection (project partially funded by Google)</li>
+          <li>High-performance traffic generation and classification (with industry partners worldwide)</li>
+          <li>Active probing and network tracerouting</li>
+        </ul>
+      </li>
+      <li>Cloud networking and SDN/NFV</li>
+      <li>Smart city and mobility (with industry partners worldwide)</li>
+    </ul>
+    <p class="openings-how">
+      Send an email with subject <em>“Traffic Openings”</em> to
+      <a href="mailto:pescape@unina.it?subject=Traffic%20Openings">pescape AT unina.it</a>, including your CV
+      (with photo, research web page and at least two references), transcripts, publication list
+      and other related credentials.
+    </p>
+    <div class="openings-actions">
+      <a href="mailto:pescape@unina.it?subject=Traffic%20Openings" class="btn btn-primary">Apply by email</a>
+      <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf" class="btn btn-ghost">Details (PDF)</a>
+    </div>
+  </aside>
+        </div>
+      </div>
+    </section>
+    <section class="section page-body section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Past internships</h2>
+        </div>
+        <ul class="people-grid">
+          <li class="person">
+            <img src="images/pictures/Julian.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">May 2019</p>
+              <h3 class="person-name">Julian M. Del Fiore</h3>
+              <p class="person-role">University of Strasbourg</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Routing inconsistencies</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/dima.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">September 2018</p>
+              <h3 class="person-name">Dmitrii Chemodanov</h3>
+              <p class="person-role">University of Missouri-Columbia</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Edge computing for distributed computer vision analytics</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/hazam.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">April 2018</p>
+              <h3 class="person-name">Ghizlane Hazam</h3>
+              <p class="person-role">FSTM — Hassan II University</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Bioinformatics and big data</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/hdoroud.png" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">November 2014</p>
+              <h3 class="person-name">Hossein Doroud</h3>
+              <p class="person-role">University Carlos III de Madrid</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Traffic classification</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/pmegyesi.png" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">September 2014</p>
+              <h3 class="person-name">Peter Megyesi</h3>
+              <p class="person-role">Budapest University of Technology and Economics</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> SDN monitoring</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/mgrajzer.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">November 2011</p>
+              <h3 class="person-name">Monika Grajzer</h3>
+              <p class="person-role">Telcordia Poland</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Traffic classification</li>
+                <li><span class="k">Project</span> COST TMA</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/xu_tian.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">October 2010 – June 2011</p>
+              <h3 class="person-name">Xu Tian</h3>
+              <p class="person-role">Beijing University of Posts and Telecommunications</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Traffic classification</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/vcarela.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">June 2009</p>
+              <h3 class="person-name">Valentin Carela</h3>
+              <p class="person-role">Technical University of Catalonia</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Traffic classification</li>
+                <li><span class="k">Project</span> COST TMA</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/mcrotti.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">April 2008</p>
+              <h3 class="person-name">Manuel Crotti</h3>
+              <p class="person-role">University of Brescia</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Traffic classification</li>
+                <li><span class="k">Project</span> RECIPE</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/ccallegari.jpg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">July 2007</p>
+              <h3 class="person-name">Christian Callegari</h3>
+              <p class="person-role">University of Pisa</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Anomaly detection</li>
+                <li><span class="k">Project</span> RECIPE</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person">
+            <img src="images/pictures/vinhbui.jpeg" alt="" class="person-photo" loading="lazy">
+            <div class="person-body">
+              <p class="person-kicker">July 2007</p>
+              <h3 class="person-name">Vinh Bui</h3>
+              <p class="person-role">University of New South Wales</p>
+              <ul class="person-meta">
+                <li><span class="k">Topic</span> Multipath data transmission over wireless networks</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="collaborations.html">Collaborations</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
   </footer>
 
 </body>

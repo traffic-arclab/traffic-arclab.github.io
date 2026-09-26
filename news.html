@@ -3,265 +3,413 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News</title>
-
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/menu.js" defer></script>
-
-  <style>
-    .news-section-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-top: 25px;
-      margin-bottom: 10px;
-    }
-
-    .news-year {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-top: 30px;
-      color: #003366;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 6px;
-    }
-
-    .news-card {
-      background: #fff;
-      padding: 15px 20px;
-      margin: 15px 0;
-      border-radius: 10px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-      line-height: 1.45rem;
-    }
-
-    .news-card ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .news-card li {
-      margin-bottom: 6px;
-    }
-
-    .news-highlight {
-      color: red;
-      font-weight: bold;
-    }
-
-    .news-announcement.openings {
-      background: #fff4e6;
-      border-left: 6px solid #ff8c2f;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
-
-    .news-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-  </style>
+  <title>News | Traffic</title>
+  <meta name="description" content="News from the Traffic research group: releases, awards, openings and events.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-content">
-      <img src="images/clip_image002.gif" alt="University Logo" class="header-logo"> 
-      <div class="header-info">
-        <p class="university-name">Universita' degli Studi di Napoli ''Federico II'' (Italy)</p>
-        <p class="department-name">Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
-      </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
     </div>
-    <h1 class="site-title">
-      <span class="bold-initial">N</span>etwork 
-      <span class="bold-initial">M</span>onitoring and 
-      <span class="bold-initial">M</span>easurements
-    </h1>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Traffic, home">
+        <img src="images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="np.html">High-performance networking</a>
+                  <a href="timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="security.html">Network security</a>
+                  <a href="internetcensor.html">Internet censorship detection</a>
+                  <a href="cloud.html">Cloud monitoring and control</a>
+                  <a href="sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="news.html" class="nav-link" aria-current="page">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="Traces/ttraces.php">Traffic traces</a>
+              <a href="Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="Traces/Magnets.php">MagNets data traces</a>
+              <a href="Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <div class="page-container">
+  <main id="main">
 
-    <nav class="sidebar">
-      <ul class="main-menu">
-        <li class="menu-item"><a href="index.html" class="menu-link">Home</a></li>
-        <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
-          <ul class="submenu" id="topics-submenu">
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
-              <ul class="submenu-level-2" id="active-probing">
-                <li><a href="ippolib.html" class="menu-link">IPPO Library</a></li>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>News</span></nav>
+        <h1 class="page-title">News</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <div class="news-layout">
+          <div class="news-timeline">
+        <section class="news-year" aria-labelledby="y2015">
+          <h2 class="news-year-title" id="y2015">2015</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">November</p>
+              <ul class="news-items">
+                <li>Traffic research group seeks for qualified and self-motivated graduate students and Post Docs. See details <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">here</a>.</li>
               </ul>
             </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
-              <ul class="submenu-level-2" id="alias-resolution">
-                <li><a href="pythia.html" class="menu-link">PYTHIA</a></li>
+            <li class="news-entry">
+              <p class="news-month">September</p>
+              <ul class="news-items">
+                <li><a href="http://www.nm-2.com" target="_blank" rel="noopener">NM2</a> released the <a href="http://www.nm-2.com/" target="_blank" rel="noopener">DITGBox</a> appliance based on D-ITG.</li>
+                <li><a href="http://www.nm-2.com" target="_blank" rel="noopener">NM2</a> released the <a href="http://www.nm-2.com/smartie/" target="_blank" rel="noopener">SmarTIE</a> platform based on TIE.</li>
               </ul>
             </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
-              <ul class="submenu-level-2" id="app-traffic-gen">
-                <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
+          </ol>
+        </section>
+        <section class="news-year" aria-labelledby="y2013">
+          <h2 class="news-year-title" id="y2013">2013</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">October</p>
+              <ul class="news-items">
+                <li>Traffic research group seeks for qualified and self-motivated graduate students and Post Docs. See details <a href="http://wpage.unina.it/pescape/doc/traffic_openings_2013_2014.pdf">here</a>.</li>
               </ul>
             </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
-              <ul class="submenu-level-2" id="bandwidth-mon">
-                <li><a href="uanm.html" class="menu-link">UANM</a></li>
+          </ol>
+        </section>
+        <section class="news-year" aria-labelledby="y2012">
+          <h2 class="news-year-title" id="y2012">2012</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">January</p>
+              <ul class="news-items">
+                <li>NVIDIA supported our research by kindly donating us a <a href="http://www.nvidia.com/object/workstation-solutions-tesla.html" target="_blank" rel="noopener">Tesla C2075</a> card.</li>
               </ul>
             </li>
-            
-            <li><a href="bioinformatics.html" class="menu-link">Bioinformatics and E-Health</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
-              <ul class="submenu-level-2" id="broadband-perf">
-                <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
-                <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
+          </ol>
+        </section>
+        <section class="news-year" aria-labelledby="y2011">
+          <h2 class="news-year-title" id="y2011">2011</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">November</p>
+              <ul class="news-items">
+                <li><a href="http://projectbismark.net/" target="_blank" rel="noopener">BISmark</a> wins the <a href="http://www.technologybiz.it/en/events/the-technologybiz-endorsement-award-tea" target="_blank" rel="noopener">TEA, Technologybiz Endorsement Award</a> to recognize outstanding achievements in ICT research from South Italy as demonstrated through international acclaim.</li>
+                <li><a href="http://expo.scte.org/" target="_blank" rel="noopener">BISmark @ SCTE 2011</a></li>
               </ul>
             </li>
-
-            <li><a href="cloud.html" class="menu-link">Cloud Monitoring and Control</a></li>
-            <li><a href="internetcensor.html" class="menu-link">Internet Censorship Detection</a></li>
-            <li><a href="netdata.html" class="menu-link">Network data management</a></li>
-            <li><a href="np.html" class="menu-link">High-performance networking</a></li>
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
-              <ul class="submenu-level-2" id="network-mapping">
-                <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
-                <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
+            <li class="news-entry">
+              <p class="news-month">October</p>
+              <ul class="news-items">
+                <li><a href="http://www.nanog.org/meetings/nanog53/" target="_blank" rel="noopener">BISmark @ NANOG 53</a></li>
               </ul>
             </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
-              <ul class="submenu-level-2" id="network-perf-improv">
-                <li><a href="timeDiv.html" class="menu-link">TimeD</a></li>
+            <li class="news-entry">
+              <p class="news-month">September</p>
+              <ul class="news-items">
+                <li>BISmark "<a href="http://mirrors.projectbismark.net/klatch/final/ar71xx/" target="_blank" rel="noopener">Klatch</a>" released and shipped first batch of routers to beta testers in the USA.</li>
               </ul>
             </li>
-
-            <li><a href="security.html" class="menu-link">Network security</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
-              <ul class="submenu-level-2" id="path-tracing">
-                <li><a href="tpa.html" class="menu-link">Third-Party Addresses</a></li>
-                <li><a href="tptraceroute.html" class="menu-link">TP-Traceroute</a></li>
-                <li><a href="drago.html" class="menu-link">Hidden routers</a></li>
+            <li class="news-entry">
+              <p class="news-month">August</p>
+              <ul class="news-items">
+                <li><a href="software/ITG/">D-ITG</a> version 2.8.0-rc1 has been released.</li>
               </ul>
             </li>
-
-            <li><a href="sdnmonitoring.html" class="menu-link">Software-Defined Network Monitoring</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
-              <ul class="submenu-level-2" id="traffic-analysis">
-                <li><a href="/software/Plab" class="menu-link">Plab</a></li>
-                <li><a target="_new" href="software/tie/start.html" class="menu-link">TIE</a></li>
-                <li><a href="wwanMonitor.html" class="menu-link">WWAN</a></li>
+            <li class="news-entry">
+              <p class="news-month">July</p>
+              <ul class="news-items">
+                <li><a href="http://www.scienzainrete.it/contenuto/articolo/open-internet-america-chiama-napoli-risponde" target="_blank" rel="noopener">BISmark @ Scienzainrete</a></li>
+                <li><a href="http://www.workingcapital.telecomitalia.it/2011/07/votiamo-bismark-progetto-italiano-per-la-liberta-della-rete-in-gara-oltreoceano/" target="_blank" rel="noopener">BISmark @ Working Capital (Telecom Italia)</a></li>
+                <li><a href="http://tech.fanpage.it/bismark-progetto-italo-americano-che-misura-la-banda-larga/" target="_blank" rel="noopener">BISmark @ fanpage</a></li>
+                <li><a href="http://www.news.unina.it/dettagli_area.jsp?area=IN%20ATENEO&amp;ID=10600" target="_blank" rel="noopener">BISmark @ unina news</a></li>
+                <li><a href="https://www.bufferbloat.net/projects/bismark/wiki/Summer-camp-2011" target="_blank" rel="noopener">BISmark Summer Camp</a> hosted @ Georgia Tech.</li>
               </ul>
             </li>
-
-            <li><a href="other.html" class="menu-link">Others</a></li>
+            <li class="news-entry">
+              <p class="news-month">June</p>
+              <ul class="news-items">
+                <li><a href="http://googlepublicpolicy.blogspot.com/2011/07/measurement-lab-introduces-new-hardware.html" target="_blank" rel="noopener">Google Public Policy Blog talks about BISmark</a></li>
+                <li><a href="http://denaro.it/blog/2011/06/18/rete-libera-un-progetto-napoletano-per-gli-usa/" target="_blank" rel="noopener"> Il Denaro talks about BISmark</a> - <a href="http://wpage.unina.it/pescape/doc/Denaro_Bismark_article.jpg" target="_blank" rel="noopener">printed version</a></li>
+                <li>TIE @ <a href="http://www.diee.unica.it/mcs/">MCS 2011 Workshop</a></li>
+                <li>BISmark competes @ <a href="http://openinternetapps.challenge.gov/submissions/3133-bismark-a-broadband-internet-service-benchmark" target="_blank" rel="noopener">FCC Open Internet Apps Challenge</a>.</li>
+                <li>Released <a href="http://svnet.u-strasbg.fr/merlin" target="_blank" rel="noopener">MERLIN</a> platform.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">May</p>
+              <ul class="news-items">
+                <li>BISmark "<a href="https://www.bufferbloat.net/projects/bismark/wiki/Capetown" target="_blank" rel="noopener">Capetown</a>" released and deployed in South Africa.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">April</p>
+              <ul class="news-items">
+                <li>TIE @ <a href="http://www.tma-portal.eu/cost-tma-action/tma-workshops/tma-2011-workshop/" target="_blank" rel="noopener">TMA 2011 Workshop</a></li>
+                <li><a href="http://tie.comics.unina.it/" target="_blank" rel="noopener">TIE</a> v1.0.0-beta3 has been released.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">January</p>
+              <ul class="news-items">
+                <li><a href="software/ITG/">D-ITG</a> officially added to Debian distribution (sid/unstable version).</li>
+                <li>Released <a href="http://hobbit.comics.unina.it" target="_blank" rel="noopener">HoBBIT</a> platform.</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+        <section class="news-year" aria-labelledby="y2010">
+          <h2 class="news-year-title" id="y2010">2010</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">November</p>
+              <ul class="news-items">
+                <li>First NoxBox-based BISmark deployment in Atlanta.</li>
+                <li>TIE @ <a href="http://ripe61.ripe.net/presentations/266-tie-ripe-v5.pdf" target="_blank" rel="noopener">RIPE 61</a>.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">September</p>
+              <ul class="news-items">
+                <li><a href="uanm.html">UANM</a> information page updated.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">July</p>
+              <ul class="news-items">
+                <li><a href="software/ITG/">D-ITG</a> information page updated.</li>
+                <li><a href="http://tie.comics.unina.it/" target="_blank" rel="noopener"> TIE</a> information page updated.</li>
+                <li><a href="timeDiv.html">TimeD</a> information page updated.</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+        <section class="news-year" aria-labelledby="y2009">
+          <h2 class="news-year-title" id="y2009">2009</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">August</p>
+              <ul class="news-items">
+                <li><a href="timeDiv.html">TimeD</a> information page added.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">March</p>
+              <ul class="news-items">
+                <li><a href="uanm.html">UANM</a> information page added.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">January</p>
+              <ul class="news-items">
+                <li><a href="publications.html">Book chapter</a> on Wireless Networks Test-beds has been published <a href="http://books.google.com/books?id=aJLFZiTVhYEC&lpg=PR2&pg=PA439#v=onepage&q=&f=false">A preview</a> is available on google books.</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+        <section class="news-year" aria-labelledby="y2007">
+          <h2 class="news-year-title" id="y2007">2007</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">February</p>
+              <ul class="news-items">
+                <li><a href="Tools/statools.html">HMM Traffic Modeling Library:</a> Added Matlab Library for Internet Traffic Modeling by means of Hidden Markov Models.</li>
+                <li><a href="np.html">Technical Report</a> "How to set up and configure StarEast in Access Point Mode with Intel 2200 Wireless Network Interfaces" has been published.</li>
+                <li><a href="software/TD/">Hynetd (Hybrid Network Topology Discovery)</a> 0.2.3 is on line.</li>
+                <li>The <a href="http://www.grid.unina.it/Traffic/trace.php">TRACE/TIE room</a> has been opened.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">January</p>
+              <ul class="news-items">
+                <li>A TR on Intel IXP425 <a href="np.html">has been released</a></li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+        <section class="news-year" aria-labelledby="y2006">
+          <h2 class="news-year-title" id="y2006">2006</h2>
+          <ol class="news-list">
+            <li class="news-entry">
+              <p class="news-month">October</p>
+              <ul class="news-items">
+                <li>The beta2 version of <a href="software/Plab/">Plab</a> 2.3 has been released.</li>
+                <li>A new beta version of <a href="software/Plab/">Plab</a> with lots of features has been released.</li>
+                <li>Added <a href="Tools/statools.html">Matlab Scripts</a> for Marginal Utility based dataset reduction.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">July</p>
+              <ul class="news-items">
+                <li>A <a href="software/Plab/">minor fix</a> for compilation issues was applied to the distribution of Plab.</li>
+                <li>A <a href="software/ITG/">new release of D-ITG</a> is on line.</li>
+                <li><a href="software/TD/">Hynetd (Hybrid Network Topology Discovery)</a> is on line.</li>
+                <li>A bugfix to bitrate.m and a new script (bitrate2.m) in the <a href="Tools/statools.html">Matlab Scripts</a> section.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">May</p>
+              <ul class="news-items">
+                <li><a href="http://www.grid.unina.it/Traffic/Traces/ttraces.php">Instant Messaging traffic traces</a> are on line.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">March</p>
+              <ul class="news-items">
+                <li><a href="http://www.grid.unina.it/Traffic/Traces/ttraces.php">Data Traces</a> for Anomaly Detection are on line.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">February</p>
+              <ul class="news-items">
+                <li>QoS <a href="http://www.grid.unina.it/Traffic/Traces/dtraces.php">Data Traces</a> are on line.</li>
+                <li><a href="http://www.grid.unina.it/Traffic/Traces/ttraces.php">Traffic Traces</a> are on line.</li>
+                <li><a href="software/Plab/">Plab</a> is on line.</li>
+              </ul>
+            </li>
+            <li class="news-entry">
+              <p class="news-month">January</p>
+              <ul class="news-items">
+                <li>The <a href="publications.html">Publications</a> page has been added.</li>
+                <li>The <a href="Tools/statools.html">Matlab Scripts</a> page has been added.</li>
+                <li>This site was born on January 1, 2006</li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+          </div>
+        <aside class="openings news-aside" aria-labelledby="openings-title">
+          <p class="card-kicker">Join us</p>
+          <h2 id="openings-title" class="openings-title">Traffic openings 2026</h2>
+          <p>
+            We are continuously looking for qualified, self-motivated graduate students and post-docs
+            (Italian and international) with a background in networking, programming or statistical
+            data analysis, in at least one of these areas:
+          </p>
+          <ul class="openings-list">
+            <li>Network and traffic measurement and analysis
+              <ul>
+                <li>Broadband monitoring and censorship detection (project partially funded by Google)</li>
+                <li>High-performance traffic generation and classification (with industry partners worldwide)</li>
+                <li>Active probing and network tracerouting</li>
+              </ul>
+            </li>
+            <li>Cloud networking and SDN/NFV</li>
+            <li>Smart city and mobility (with industry partners worldwide)</li>
           </ul>
-        </li>
-
-        <li class="menu-item"><a href="publications.html" class="menu-link">Publications</a></li>
-        <li class="menu-item"><a href="#" class="menu-link active">News</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
-          <ul class="submenu" id="material-submenu">
-            <li><a href="Tools/statools.html" class="menu-link">Matlab scripts</a></li>
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
-              <ul class="submenu-level-2" id="traces-data">
-                <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
-                <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
-                <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
-                <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-item"><a href="collaborations.html" class="menu-link">Collaborations</a></li>
-        <li class="menu-item"><a href="visiting.html" class="menu-link">Visiting</a></li>
-      </ul>
-    </nav>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-      <h2 class="news-section-title">News</h2>
-
-      <!-- ⭐ Traffic Openings Banner (kept because original page includes it) ⭐ -->
-      <section class="news-announcement openings">
-        <h3 class="news-title">Traffic openings 2025</h3>
-        <div class="news-box">
-          <p>We are continuously looking for qualified and self-motivated graduate students and Post Docs (both Italian and foreign)...</p>
-          <p>See details <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">here</a>.</p>
+          <p class="openings-how">
+            Send an email with subject <em>“Traffic Openings”</em> to
+            <a href="mailto:pescape@unina.it?subject=Traffic%20Openings">pescape AT unina.it</a>, including your CV
+            (with photo, research web page and at least two references), transcripts, publication list
+            and other related credentials.
+          </p>
+          <div class="openings-actions">
+            <a href="mailto:pescape@unina.it?subject=Traffic%20Openings" class="btn btn-primary">Apply by email</a>
+            <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf" class="btn btn-ghost">Details (PDF)</a>
+          </div>
+        </aside>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- NEWS TIMELINE -->
+  </main>
 
-      <!-- 2015 -->
-      <div class="news-year">November 2015</div>
-      <div class="news-card">
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
         <ul>
-          <li class="news-highlight">
-            Traffic research group seeks qualified and self-motivated graduate students and Post Docs.
-            See details <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">here</a>.
-          </li>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="collaborations.html">Collaborations</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
         </ul>
       </div>
-
-      <div class="news-year">September 2015</div>
-      <div class="news-card">
-        <ul>
-          <li><a href="http://www.nm-2.com" target="_nm2">NM2</a> released the <a href="http://www.nm-2.com/" target="_ditgbox">DITGBox</a> appliance based on D-ITG.</li>
-          <li><a href="http://www.nm-2.com" target="_nm2">NM2</a> released the <a href="http://www.nm-2.com/smartie/" target="_smartie">SmarTIE</a> platform based on TIE.</li>
-        </ul>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
       </div>
+    </div>
+  </footer>
 
-      <!-- All other years follow the same pattern -->
-
-      <!-- 2013 -->
-      <div class="news-year">October 2013</div>
-      <div class="news-card">
-        <ul>
-          <li>
-            Traffic research group seeks for qualified and self-motivated graduate students and Post Docs.
-            See details <a href="http://wpage.unina.it/pescape/doc/traffic_openings_2013_2014.pdf">here</a>.
-          </li>
-        </ul>
-      </div>
-
-      <!-- 2012, 2011, … down to 2006 -->
-      <!-- (All remaining content from your original page goes here in identical structure) -->
-
-      <!-- FOOTER -->
-      <hr>
-      <footer class="site-footer">
-        <p>For more information, please contact 
-          <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.
-        </p>
-      </footer>
-
-    </main>
-  </div>
 </body>
 </html>
