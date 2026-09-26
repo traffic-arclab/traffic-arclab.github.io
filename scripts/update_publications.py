@@ -339,7 +339,7 @@ def render_latest(records):
     latest = sorted(pool, key=lambda r: r['date'], reverse=True)[:LATEST_COUNT]
     cards = []
     for r in latest:
-        authors = ', '.join(r['authors'][:3]) + (' et al.' if len(r['authors']) > 3 else '')
+        authors = ', '.join(r['authors'])
         month = MONTHS[int(r['date'][5:7]) - 1][:3] if r['date'][5:10] != '01-01' else ''
         cards.append(f'''          <li>
             <a class="pub-card" href="{esc(r["url"])}">
