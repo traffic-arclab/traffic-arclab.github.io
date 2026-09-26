@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+
+<td><div class=textArea>
+    <p> <font color="darkRed" size="+2">FAQ</font> </p>
+    <p><a href="#1">1) How can I receive information regarding D-ITG news and updates?</a></p>
+    <p><a href="#2">2) Why do we obtain negative delay values?</a></p>
+    <p><a href="#3">3) May I know more about the D-ITG license?</a></p>
+    <p><a href="#4">4) How can I contact you?</a></p>
+    <p><a href="#4">5) How do I cite D-ITG?</a><br>
+    <br>
+    <hr>
+    <br>
+      1) <a name="1">How can I receive information regarding D-ITG news and updates?</a>
+    <p>
+      <table border=1 cellspacing=0 cellpadding=4 width="100%"><tr><td>
+      If you want to receive D-ITG news and updates, please follow the indications
+      present at the <a href="registration.html">Registration Page</a>.<br>
+      &nbsp;
+      </table>
+    </p>
+      2) <a name="2">Why do we obtain negative delay values?</a><br>
+    <p>
+      <table border=1 cellspacing=0 cellpadding=4 width="100%"><tr><td>
+      D-ITG does not provide any sort of synchronization among senders and receivers.<br>
+      In order to correctly measure packet One Way Delay (OWD), the clocks of sender
+      and receiver must be synchronized by other means (by using NTP, GPS, ...).
+      Otherwise, we suggest to use the Round Trip Time (RTT) meter. It is another feature of D-ITG.<br>
+      </table>
+    </p>
+      3) <a name="3">May I know more about the D-ITG license?</a><br>
+    <p>
+      <table border=1 cellspacing=0 cellpadding=4 width="100%"><tr><td>
+      D-ITG is open-source and completely&nbsp;free. For professional services please refer
+      to <a href="http://www.nm-2.com/">D-ITGPro</a>.
+      </table>
+    </p>
+      4) <a name="4">How can I contact you?</a><br>
+    <p>
+      <table border=1 cellspacing=0 cellpadding=4 width="100%"><tr><td>
+      Please direct comments, technical questions and inquiries about D-ITG and its Web site to
+      <a href="mailto:ditg[at]comics.unina.it">D-ITG email</a>.
+      For professional services please direct your inquiries to <a href="mailto:ditgpro[at]comics.unina.it">D-ITGPro email</a>.
+      </table>
+    </p>
+      5) <a name="5">How do I cite D-ITG?</a><br>
+
+     
+<p>
+  <table border=1 cellspacing=0 cellpadding=4><tr><td>
+  If you are using D-ITG for scientific papers, academic lectures, project reports, or technical documents, please help us increasing D-ITG impact by adding a reference to:<br>
+  <i><b>A. Botta, A. Dainotti, A. Pescap&egrave;,
+  &quot;A tool for the generation of realistic network workload for emerging networking scenarios&quot;,
+  Computer Networks (Elsevier), 2012, Volume 56, Issue 15, pp 3531-3547.</b></i>
+  (<a target="_out" href="http://wpage.unina.it/a.botta/pub/COMNET_WORKLOAD.pdf">Article</a>)
+  (<a target="_out" href="bibs/BottaDP12.bib">BibTex</a>)
+  </table>
+</p>
+
+     <p>
+      <table border=1 cellspacing=0 cellpadding=4><tr><td>
+      If you use a version less or equal than 2.4, when refering to D-ITG, please cite the following reference:
+      <i><b>S. Avallone, D. Emma, A. Pescap&egrave;, G. Ventre,
+      &quot;Performance evaluation of an open distributed platform for realistic traffic generation&quot;,
+      Performance Evaluation (Elsevier), ISSN: 0166-5316 - Vol. 60, Issues 1-4, May 2005, pp 359-392</b></i>
+      </table>
+     </p>
+
+    </p>
+    </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

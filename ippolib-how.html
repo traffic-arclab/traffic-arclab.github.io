@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ippo-lib - IP oPtion-based active PrObing | Traffic</title>
+  <meta name="description" content="ippo-lib - IP oPtion-based active PrObing — Traffic research group, University of Napoli Federico II.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
+    </div>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Traffic, home">
+        <img src="images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle is-current" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="np.html">High-performance networking</a>
+                  <a href="timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="security.html">Network security</a>
+                  <a href="internetcensor.html">Internet censorship detection</a>
+                  <a href="cloud.html">Cloud monitoring and control</a>
+                  <a href="sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="Traces/ttraces.php">Traffic traces</a>
+              <a href="Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="Traces/Magnets.php">MagNets data traces</a>
+              <a href="Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="index.html#topics">Topics</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>Active probing</span></nav>
+        <h1 class="page-title">ippo-lib - IP oPtion-based active PrObing</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose">
+
+<h2>Getting started with ippo-lib</h2>
+
+<p>
+	This section highlights part of the features of the library.
+	The following code shows how to send typical active probing packet probes toward a destination. Those probes are not equipped with any IP option.
+
+</p>
+
+<pre style="background:#EEE" >
+// Setting General Options
+GeneralOption *option = new GeneralOption(); 
+option->set_verbose_mode(true);  // enable verbose mode
+option->set_retries(2);  // set the number of retries
+option->set_timeout(2000);  // set the timeout
+option->src_port(34566);  // set source port number
+option->dst_port(34567);  // set destination port number
+
+// Create IPPOLib Object
+IPPOLib* prober = new IPPOLib();
+
+// Create the ProbeReply Object
+ProbeReply* reply = new ProbeReply(); // contains details about the collected reply
+
+// Define the Target IP address D
+std::string dst_addr = "192.168.15.34";
+
+// Send probes to the Target IP address
+prober->udp(option, reply, dst_addr); reply->print();
+prober->icmp(option, reply, dst_addr); reply->print();
+prober->tcp(option, reply, dst_addr); reply->print();
+prober->protocol(option, reply, dst_addr); reply->print();		
+</pre > 
+
+
+	<p>The corresponding output is:</p>
+
+
+<pre style="background:#EEE" >
+UDP: send probe to destination IP 192.168.15.34
+[192.168.15.34] UDP 3 from 192.168.15.34
+Printing details...
+	Source address 192.168.15.34
+	Destination address 192.168.20.100
+	IP protocol 1
+	IPError Destination address 192.168.15.34
+	ICMP type 3
+	ICMP code 3
+
+ICMP: send probe to destination IP 192.168.15.34
+[192.168.15.34] ICMP_ECHOREPLY (28  bytes)
+Printing details...
+	Source address 192.168.15.34
+	Destination address 192.168.20.100
+	IP protocol 1
+	ICMP type 0
+	ICMP code 0
+	
+TCP: send probe to destination IP 192.168.15.34
+[192.168.15.34]  TCP 60
+Printing details...
+	Source address 192.168.15.34
+	Destination address 192.168.20.100
+	IP protocol 6
+	
+PROTOCOL: send probe to destination IP 192.168.15.34
+[192.168.15.34] PROTOCOL TIMEOUT - Try #1
+[192.168.15.34] PROTOCOL TIMEOUT - Try #2
+No response
+</pre >
+
+
+	<p>Note how the PROTOCOL probe (SKIP) did not trigger any reply
+	from the targeted destination while the other probes succesfully
+	collected replies.</p>
+
+<p>
+	The following code shows how to send a UDP packet probe equipped
+	with the Prespecified Timestamp Option. All the four prespecified
+	addresses are equal to the targeted destination. 
+	
+		</p><pre style="background:#EEE" >		
+// Send Prespecified Timestamp Option equipped
+// UDP Packet toward D prespecifying four times D
+prober->udp_ts(option, reply, dst_addr); reply->print();
+			
+		</pre>
+
+	The output is:
+<pre style="background:#EEE" >						
+UDP_TS: send probe to destination IP 192.168.15.34 with prespecified IPs
+192.168.15.34, 192.168.15.34, 192.168.15.34, 192.168.15.34
+[192.168.15.34] UDP_TS 3 from 192.168.15.34
+Printing details...
+	Source address 192.168.15.34
+	Destination address 192.168.20.100
+	IP protocol 1
+	IPError Destination address 192.168.15.34
+	ICMP type 3
+	ICMP code 3
+	Outer Options
+		IP1 192.168.15.34 timestamp 59479588
+		IP2 192.168.15.34 timestamp 59479588
+		IP3 192.168.15.34 timestamp 0
+		IP4 192.168.15.34 timestamp 0
+	Inner Options
+		IP1 192.168.15.34 timestamp 59479588
+		IP2 192.168.15.34 timestamp 0
+		IP3 192.168.15.34 timestamp 0
+		IP4 192.168.15.34 timestamp 0
+		</pre>
+
+		<p>Note how the targeted destination replicated the IP option also at the encapsulating IP header.<br/>
+		Finally, the following code shows how to set each prespecified IP address. <p>
+
+<pre style="background:#EEE" >
+
+// Define the Target IP address D
+std::string dst_addr = "192.168.15.170";
+// Send Prespecified Timestamp Option equipped UDP Probes
+// prespecifying different IPs
+std::string x_addr = "192.168.15.1";
+std::string y_addr = "192.168.15.2";
+std::string z_addr = "192.168.15.3";
+std::string w_addr = "192.168.15.4";									
+prober->udp_ts(option, reply, dst_addr, x_addr, y_addr, z_addr, w_addr); reply->print();
+prober->udp_ts(option, reply, dst_addr, x_addr, y_addr, z_addr); reply->print(); 
+prober->udp_ts(option, reply, dst_addr, x_addr, y_addr); reply->print(); 
+prober->udp_ts(option, reply, dst_addr, x_addr); reply->print(); 
+
+</pre>
+
+	<p>The output is:</p>
+	
+<pre style="background:#EEE" >
+							
+UDP_TS: send probe to destination IP 192.168.15.170 with prespecified IPs
+192.168.15.1, 192.168.15.2, 192.168.15.3, 192.168.15.4
+[192.168.15.170] UDP_TS 3 from 192.168.15.34
+Printing details...
+	Source address 192.168.15.170
+	Destination address 192.168.20.100
+	IP protocol 1
+	IPError Destination address 192.168.15.170
+	ICMP type 3
+	ICMP code 3
+	Outer Options
+		IP1 192.168.15.1 timestamp 55344858
+		IP2 192.168.15.2 timestamp 55344858
+		IP3 192.168.15.3 timestamp 0
+		IP4 192.168.15.4 timestamp 0
+	
+UDP_TS: send probe to destination IP 192.168.15.170 with prespecified IPs
+192.168.15.1, 192.168.15.2, 192.168.15.3, 192.168.15.3
+[192.168.15.31704] UDP_TS 3 from 192.168.15.170
+Printing details...
+	Source address 192.168.15.170
+	Destination address 192.168.20.100
+	IP protocol 1
+	IPError Destination address 192.168.15.170
+	ICMP type 3
+	ICMP code 3
+	Outer Options
+		IP1 192.168.15.1 timestamp 55378647
+		IP2 192.168.15.2 timestamp 55378647
+		IP3 192.168.15.3 timestamp 0
+		IP4 192.168.15.3 timestamp 0
+
+UDP_TS: send probe to destination IP 192.168.15.170 with prespecified IPs
+192.168.15.1, 192.168.15.2, 192.168.15.2, 192.168.15.2
+[192.168.15.170] UDP_TS 3 from 192.168.15.34
+Printing details...
+	Source address 192.168.15.170
+	Destination address 192.168.20.100
+	IP protocol 1
+	IPError Destination address 192.168.15.170
+	ICMP type 3
+	ICMP code 3
+	Outer Options
+		IP1 192.168.15.1 timestamp 55989999
+		IP2 192.168.15.2 timestamp 55989999
+		IP3 192.168.15.2 timestamp 55989999
+		IP4 192.168.15.2 timestamp 55989999
+
+UDP_TS: send probe to destination IP 192.168.15.170 with prespecified IPs
+192.168.15.1, 192.168.15.1, 192.168.15.1, 192.168.15.1
+[192.168.15.170] UDP_TS 3 from 192.168.15.170
+Printing details...
+	Source address 192.168.15.170
+	Destination address 192.168.20.100
+	IP protocol 1
+	IPError Destination address 192.168.15.170
+	ICMP type 3
+	ICMP code 3
+	Outer Options
+		IP1 192.168.15.1 timestamp 56044209
+		IP2 192.168.15.1 timestamp 56044209
+		IP3 192.168.15.1 timestamp 56044209
+		IP4 192.168.15.1 timestamp 56044209
+
+</pre>
+
+</p>
+
+Documentation and other examples are provided with the IPPOLib library package as well.
+
+<h2>Download</h2>
+<p>
+
+	Click <a href="ippolib-download.html"> here to downlad IPPO-lib</a>.  <img alt="new" src="images/NEWa.gif">	
+</p>
+
+
+</div>
+
+  <hr>
+  
+  <br>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="collaborations.html">Collaborations</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

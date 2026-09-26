@@ -1,0 +1,587 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+
+          <td>
+            <div class="textArea">
+              <p><font color="darkRed" size="+2">Other Internet Traffic Generators</font></p>
+
+              <p>This page contains a comprehensive list of traffic generators.</p>
+
+              <table>
+                <tbody>
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Mtools</font></b></td>
+		    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.grid.unina.it/grid/mtools/">http://www.grid.unina.it/grid/mtools/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">MGEN</font></b></td>
+		    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://mgen.pf.itd.nrl.navy.mil">http://mgen.pf.itd.nrl.navy.mil</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Rude/Crude</font></b></td>
+		    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+		    <td colspan=2><a target=_new href="http://www.atm.tut.fi/rude">http://www.atm.tut.fi/rude</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">UDPgen</font></b></td>
+		    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+		    <td colspan=2><a target=_new href="http://www.fokus.fhg.de/usr/sebastian.zander/private/udpgen">http://www.fokus.fhg.de/usr/sebastian.zander/private/udpgen</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Iperf</font></b></td>
+		    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://iperf.fr/"> http://iperf.fr/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">UDP Generator</font></b></td>
+		    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.citi.umich.edu/projects/qbone/generator.html">http://www.citi.umich.edu/projects/qbone/generator.html</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Network Traffic Generator</font></b></td>
+		    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://sourceforge.net/projects/traffic">http://sourceforge.net/projects/traffic</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">MxTraf</font></b></td>
+                    <td>&nbsp;</td>                  
+		  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://mxtraf.sourceforge.net/">http://mxtraf.sourceforge.net/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">NTGen</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://tochna.technion.ac.il/project/NTGen_v2.0/html/index.htm">http://tochna.technion.ac.il/project/NTGen_v2.0/html/index.htm</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Netperf</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.netperf.org/">http://www.netperf.org/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Traffic Generator Tool</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.postel.org/tg/tg.htm">http://www.postel.org/tg/tg.htm</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">TfGen</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.pgcgi.com/hptools/">http://www.pgcgi.com/hptools/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Packet Shell</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://pksh.tecsiel.it/">http://pksh.tecsiel.it/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Real-Time Voice Traffic Generator</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.cs.ucr.edu/%7Emsamidi/projects.htm">http://www.cs.ucr.edu/~msamidi/projects.htm</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Self Similar Traffic Generator</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://glenkramer.com/ucdavis/trf_research.html">http://glenkramer.com/ucdavis/trf_research.html</a></td>
+                  </tr>
+
+                  <tr>
+                    <td width="571" height="19"><b><font color="#800000" size="-1">PacGen</font></b></td>
+                    <td><font size="-1">Packet Forger</font></td>
+                  </tr>
+                  <tr>
+                    <td width="391" height="19"><a target=_new href="http://sourceforge.net/projects/pacgen/">http://sourceforge.net/projects/pacgen/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">IPGen</font></b></td>
+                    <td><font size="-1">Packet Forger</font></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://sourceforge.net/projects/ipgen/">http://sourceforge.net/projects/ipgen/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">IP-Packet</font></b></td>
+                    <td><font size="-1">Packet Forger</font></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://sourceforge.net/projects/ip-packet/">http://sourceforge.net/projects/ip-packet/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">GenSyn</font></b></td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.item.ntnu.no/%7Epoulh/GenSyn/gensyn.html">http://www.item.ntnu.no/~poulh/GenSyn/gensyn.html</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Netspec</font></b></td>
+                    <td><font size="-1">Traffic Emulator</font></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.ittc.ku.edu/netspec/">http://www.ittc.ku.edu/netspec/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Surge</font></b></td>
+                    <td><font size="-1">Traffic Emulator</font></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://cs-www.bu.edu/faculty/crovella/surge_1.00a.tar.gz">http://cs-www.bu.edu/faculty/crovella/surge_1.00a.tar.gz</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Poisson Traffic Generator</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.spin.rice.edu/Software/poisson_gen/">http://www.spin.rice.edu/Software/poisson_gen/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">FTP traffic generator</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://roland.grc.nasa.gov/~jishac/software/">http://roland.grc.nasa.gov/~jishac/software/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Brawny and Rough Udp Traffic Engine</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://netgroup-serv.iet.unipi.it/brute/">http://netgroup-serv.iet.unipi.it/brute/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Jugi's Traffic Generator (jtg)</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.cs.helsinki.fi/u/jmanner/software/jtg/">http://www.cs.helsinki.fi/u/jmanner/software/jtg/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">TrafGen</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www-lor.int-evry.fr/~vincent/java/trafGen/trafGenEn.htm">http://www-lor.int-evry.fr/~vincent/java/trafGen/trafGenEn.htm</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">SPAK, Packet Generator</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.xenos.net/software/spak/">http://ww.xenos.net/software/spak/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">TTCP, Test TCP</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.netcordia.com/tools/tools/TTCP/ttcp.html">http://www.netcordia.com/tools/tools/TTCP/ttcp.html</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">PIM-SM, Protocol Independent Multicast Packet Generator</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://www.pim-sm-generator.com/">http://www.pim-sm-generator.com/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">KUTE-- Kernel-based Traffic Engine</font></b></td>
+                    <td></td>
+                 </tr>
+                 <tr>
+                    <td colspan=2><a target=_new href="http://caia.swin.edu.au/genius/tools/kute/">http://caia.swin.edu.au/genius/tools/kute/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">GEIST - Generator of E-commerce and Internet server Traffic</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://kkant.net/geist/">http://kkant.net/geist/</a></td>
+                  </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Ostinato</font></b></td>
+		  <td><font size="-1">Packet Forger</font></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://code.google.com/p/ostinato/">http://code.google.com/p/ostinato/</a></td>
+                </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">Trafgen (part of netsniff-ng)</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://netsniff-ng.org/">http://netsniff-ng.org/</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><b><font color="#800000" size="-1">epb - Ethernet Package Bombardier</font></b></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan=2><a target=_new href="http://maz-programmersdiary.blogspot.fi/2012/05/epb-ethernet-package-bombardier.html">http://maz-programmersdiary.blogspot.fi/2012/05/epb-ethernet-package-bombardier.html</a></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p><b>Commercial Tools</b></p>
+
+              <table>
+                <tr>
+                  <td><b><font color="#800000" size="-1">DITGBox, based on D-ITG and Intel DPDK</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.nm-2.com/ditgbox/">http://www.nm-2.com/index.php/products-ditgbox/</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Stateful Traffic Generator, STG-10G with D-ITG and INTEL DPDK</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.ecdata.com/stateful_traffic_generator.html">http://www.ecdata.com/stateful_traffic_generator.html</a></td>
+                </tr>
+
+		<tr>
+                  <td><b><font color="#800000" size="-1">LANdecoder32T Traffic Generator</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.triticom.com/triticom/ld32/trafgen.htm">http://www.triticom.com/triticom/ld32/trafgen.htm</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">LANTraffic V2 and IP Traffic Test &amp; Measure</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.zti-telecom.com/pages/iptraffic-test-measure.htm">http://www.zti-telecom.com/pages/iptraffic-test-measure.htm</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Traffic Generator for Wide Area Networks</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.solarwinds.net/Tools/Miscellaneous/WAN%20Killer/index.htm">http://www.solarwinds.net/Tools/Miscellaneous/WAN%20Killer/index.htm</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">SiteSpy</font></b></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.wirelessvalley.com/Products/SiteSpy/SiteSpy.asp">http://www.wirelessvalley.com/Products/SiteSpy/SiteSpy.asp</a></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Candela Technologies LANforge-FIRE Network Traffic Generator Testing Specific Protocols</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.telnetnetworks.ca/products/lab/network_traffic_generation/protocols.cfm">http://www.telnetnetworks.ca/products/lab/network_traffic_generation/protocols.cfm</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">ProvaGEN 3.0</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.provanet.com/packet_generator_tts_page.htm">http://www.provanet.com/packet_generator_tts_page.htm</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Internetworking Test Traffic Generation Programs</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.donfraysoftware.com/MITS/MITS.htm">http://www.donfraysoftware.com/MITS/MITS.htm</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Omnicor Hardware IP traffic generators</font></b></td><td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.omnicor.biz/Products/EthernetTestSystems/tabid/66/Default.aspx">http://www.omnicor.biz/Products/EthernetTestSystems/tabid/66/Default.aspx</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Omnicor Software IP traffic generators</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.omnicor.biz/Products/NetwokTestingTools/IPTrafficTestMeasureLANTrafficV2/tabid/97/Default.aspx">http://www.omnicor.biz/Products/NetwokTestingTools/IPTrafficTestMeasureLANTrafficV2/tabid/97/Default.aspx</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Skaion's Traffic Generation System (TGS)</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.skaion.com/">http://www.skaion.com/</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">ByteBlower</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.byteblower.com">www.byteblower.com</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">Bit-Twist</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://bittwist.sourceforge.net/index.html">bittwist.sourceforge.net</a></td>
+                </tr>
+
+                <tr>
+                  <td><b><font color="#800000" size="-1">6WINDGate fast path traffic generator for Octeon, XLR, XLS, XLP, Tilera and Intel DPDK</font></b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan=2><a target=_new href="http://www.6wind.com/products-services/6windgate-software">www.6wind.com</a></td>
+                </tr>
+
+              </table>
+
+              <p>Software Disclaimer: we assume no responsibility whatsoever for using tools in the previous list.</p><a href="mailto:ditg[at]comics.unina.it">E-mail us</a> if you want to add your traffic generator to this list.
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <a href="http://t.extreme-dm.com/?login=ditglink" target="_top"><img src="http://t1.extreme-dm.com/i.gif" name="EXim" border="0" height="38" width="41" alt="eXTReMe Tracker"></a> 
+  <script type="text/javascript" language="javascript1.2"><!-- 
+    EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?EXb=EXs.colorDepth:EXb=EXs.pixelDepth;//-->
+  </script>
+  <script type="text/javascript"><!--
+    var EXlogin='ditglink' // Login
+    var EXvsrv='s9' // VServer
+    navigator.javaEnabled()==1?EXjv="y":EXjv="n";
+    EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+    EXd.write("<img src=\"http://e0.extreme-dm.com","/"+EXvsrv+".g?login="+EXlogin+"&","jv="+EXjv+"&j=y&srw="+EXw+"&srb="+EXb+"&","l="+escape(EXd.referrer)+"\" height=1 width=1>");//-->
+  </script>
+  <noscript><img height="1" width="1" alt="" src="http://e0.extreme-dm.com/s9.g?login=ditglink&amp;j=n&amp;jv=n"></noscript>
+</body>
+</html>

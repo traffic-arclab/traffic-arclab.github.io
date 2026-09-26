@@ -656,3 +656,35 @@
     padding: 12px 11px;
   }
 }
+
+/* ==========================================================================
+   Fix per lo slider MIRAGE su schermi piccoli (tablet e smartphone) 
+   ========================================================================== */
+@media (max-width: 991px) {
+    #home-slider .main-slider {
+        height: auto !important;
+        padding-bottom: 40px !important;
+        padding-top: 100px !important; 
+    }
+    
+    #home-slider .slide-text {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    /* Applichiamo il fix a TUTTE le immagini dei vari dataset */
+    #home-slider .slider-hill,
+    #home-slider .slider-ccma,
+    #home-slider .slider-smartphone {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin: 40px auto 0 auto !important; 
+        display: block !important;
+        max-width: 80% !important;
+    }
+}

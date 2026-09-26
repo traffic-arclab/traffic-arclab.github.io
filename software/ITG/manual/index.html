@@ -1,0 +1,2720 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>D-ITG 2.8.1 Manual</TITLE>
+<META NAME="description" CONTENT="D-ITG 2.8.1 Manual">
+<META NAME="keywords" CONTENT="d-itg-manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="d-itg-manual.css">
+
+</HEAD>
+
+<BODY >
+<H1 ALIGN="CENTER">D-ITG 2.8.1 Manual</H1><DIV CLASS="author_info">
+<P ALIGN="CENTER" style="color: darkred">Last update: October 28, 2013</p>
+
+<P ALIGN="CENTER"><STRONG>Alessio Botta, Walter de Donato, Alberto Dainotti,  
+        Stefano Avallone, and Antonio Pescap&#233;</STRONG></P>
+<P ALIGN="CENTER"><I>COMICS (COMputer for Interaction and CommunicationS) Group<br>
+Department of Electrical Engineering and Information Technologies<br>
+University of Napoli "Federico II"</I></P>
+</DIV>
+
+<BR>
+
+<H2><A NAME="SECTION00010000000000000000">
+Contents</A>
+</H2>
+<!--Table of Contents-->
+
+<UL CLASS="TofC">
+<LI><A NAME="tex2html53"
+  HREF="index.html#SECTION00020000000000000000">Overview</A>
+<UL>
+<LI><A NAME="tex2html54"
+  HREF="index.html#SECTION00021000000000000000">Architecture</A>
+<LI><A NAME="tex2html55"
+  HREF="index.html#SECTION00022000000000000000">Features</A>
+</UL><BR>
+<LI><A NAME="tex2html56"
+  HREF="index.html#SECTION00030000000000000000">Compiling D-ITG</A>
+<UL>
+<LI><A NAME="tex2html57"
+  HREF="index.html#SECTION00031000000000000000">Requirements</A>
+<LI><A NAME="tex2html58"
+  HREF="index.html#SECTION00032000000000000000">Building steps</A>
+<LI><A NAME="tex2html59"
+  HREF="index.html#SECTION00033000000000000000">OS-Specific notes</A>
+</UL><BR>
+<LI><A NAME="tex2html60"
+  HREF="index.html#SECTION00040000000000000000">Using D-ITG</A>
+<UL>
+<LI><A NAME="tex2html61"
+  HREF="index.html#SECTION00041000000000000000">Quick start</A>
+<LI><A NAME="tex2html62"
+  HREF="index.html#SECTION00042000000000000000">ITGSend</A>
+<LI><A NAME="tex2html63"
+  HREF="index.html#SECTION00043000000000000000">ITGRecv</A>
+<LI><A NAME="tex2html64"
+  HREF="index.html#SECTION00044000000000000000">ITGLog</A>
+<LI><A NAME="tex2html65"
+  HREF="index.html#SECTION00045000000000000000">ITGDec</A>
+<LI><A NAME="tex2html66"
+  HREF="index.html#SECTION00046000000000000000">ITGplot</A>
+<LI><A NAME="tex2html67"
+  HREF="index.html#SECTION00047000000000000000">ITGapi</A>
+</UL><BR>
+<LI><A NAME="tex2html68"
+  HREF="index.html#SECTION00050000000000000000">Examples</A>
+<UL>
+<LI><A NAME="tex2html69"
+  HREF="index.html#SECTION00051000000000000000">Example #1</A>
+<LI><A NAME="tex2html70"
+  HREF="index.html#SECTION00052000000000000000">Example #2</A>
+<LI><A NAME="tex2html71"
+  HREF="index.html#SECTION00053000000000000000">Example #3</A>
+<LI><A NAME="tex2html72"
+  HREF="index.html#SECTION00054000000000000000">Example #4</A>
+<LI><A NAME="tex2html73"
+  HREF="index.html#SECTION00055000000000000000">Example #5</A>
+<LI><A NAME="tex2html74"
+  HREF="index.html#SECTION00056000000000000000">Example #6</A>
+<LI><A NAME="tex2html75"
+  HREF="index.html#SECTION00057000000000000000">Example #7</A>
+<LI><A NAME="tex2html76"
+  HREF="index.html#SECTION00058000000000000000">Example #8</A>
+<LI><A NAME="tex2html77"
+  HREF="index.html#SECTION00059000000000000000">Example #9</A>
+</UL><BR>
+<LI><A NAME="tex2html78"
+  HREF="index.html#SECTION00060000000000000000">Bibliography</A>
+</UL>
+<!--End of Table of Contents-->
+
+<P>
+
+<H1><A NAME="SECTION00020000000000000000"></A><A NAME="sec:overview"></A><BR>
+Overview
+</H1>
+
+<P>
+D-ITG (Distributed Internet Traffic Generator) is a platform capable to produce IPv4 and IPv6 traffic by accurately replicating the workload of current Internet applications&nbsp;[<A
+ HREF="index.html#d-itg0000">1</A>,<A
+ HREF="index.html#d-itg1111">2</A>,<A
+ HREF="index.html#d-itg3333">3</A>,<A
+ HREF="index.html#d-itg2222">4</A>].
+At the same time D-ITG is also a network measurement tool able to measure the most common performance metrics (e.g. throughput, delay, jitter,  packet loss) at packet level.
+
+<P>
+D-ITG can generate traffic following <SPAN  CLASS="textit">stochastic models</SPAN> for packet size (PS) and inter departure time (IDT) that mimic application-level protocol behavior.
+By specifying the distributions of IDT and PS random variables, it is possible to choose different renewal processes for packet generation: by using characterization and modeling results from literature, D-ITG is able to replicate statistical properties of traffic of different well-known applications (e.g Telnet, VoIP - G.711, G.723, G.729, Voice Activity Detection, Compressed RTP - DNS, network games).
+
+<P>
+At the transport layer, D-ITG currently supports TCP (Transmission Control Protocol), UDP (User Datagram Protocol), SCTP<A NAME="footfnm1"
+ HREF="#fnm1"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>(Stream Control Transmission Protocol), and DCCP<A NAME="tex2html2"
+  HREF="#foot47"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A> (Datagram Congestion Control Protocol). It also supports ICMP (Internet Control Message Protocol).
+Among the several features described below, FTP-like passive mode is also supported to conduct experiments in presence of NATs, and it is possible to set the TOS (DS) and TTL IP header fields.
+
+<P>
+
+<H2><A NAME="SECTION00021000000000000000"></A><A NAME="sec:architecture"></A><BR>
+Architecture
+</H2>
+
+<P>
+As reported in Fig.&nbsp;<A HREF="#fig:arch">1.1</A>, the architecture of D-ITG comprises different components.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:arch"></A><A NAME="54"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1:</STRONG>
+Architecture of D-ITG.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  width=500 ALIGN="BOTTOM" BORDER="0"
+ SRC="./arch.png"
+ ALT="Image arch"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The core features of D-ITG are provided by ITGSend and ITGRecv.
+ITGSend is the component responsible for generating traffic toward ITGRecv.
+Exploiting a multithreaded design, ITGSend can send multiple parallel traffic flows toward multiple ITGRecv instances, and ITGRecv can receive  multiple parallel traffic flows from multiple ITGSend instances.
+A signaling channel is created between each couple of ITGSend and ITGRecv components to control the generation of all the traffic flows between them.
+
+<P>
+ITGSend and ITGRecv can optionally produce log files containing detailed information about every sent and received packet.
+Such logs can be saved locally or sent - through the network - to the ITGLog component (useful to collect all the measures at a single point or in the case of hosts with limited storage capabilities &#226;&#128;&#147; e.g., sensors, embedded devices, smartphones, etc.).
+The ITGDec component is in charge of analyzing the log files in order to extract performance metrics related to the traffic flows.
+
+<P>
+The experiments (even large-scale ones) can be controlled from a single vantage point: the ITGRecv components act as daemons and can be completely configured and controlled by the ITGSend components that want to send traffic to them.
+Also the ITGSend components can act as daemons and can be remotely controlled through the D-ITG API.
+The ITGManager component represents an example of how to use the D-ITG API to remotely control ITGSend.
+This way, the user can completely control a large-scale distributed experiment from a single vantage point.
+
+<P>
+
+<H3><A NAME="SECTION00021100000000000000"></A><A NAME="ITGSend"></A><BR>
+ITGSend: Sender Component of the D-ITG Platform
+</H3>
+
+<P>
+The ITGSend component is responsible for generating traffic flows and can work in three different modes:
+
+<UL>
+<LI><SPAN  CLASS="textbf">Single-flow</SPAN> - read the configuration of the single traffic flow to generate toward a single ITGRecv instance from the command line;
+</LI>
+<LI><SPAN  CLASS="textbf">Multi-flow</SPAN> -  read the configuration of multiple traffic flows to generate toward one or more ITGRecv instances from a script file.  The script is made of a line for each traffic flow, which includes a set of command-line options as in the single-flow mode;
+</LI>
+<LI><SPAN  CLASS="textbf">Daemon</SPAN> - run as a daemon listening on a UDP socket for instructions and can be remotely controlled using the D-ITG API.
+</LI>
+</UL>
+
+<P>
+Every traffic flow generated is described by two stochastic processes relating to Packet Size (PS) and Internet Departure Time (IDT), through which well defined traffic profiles can be generated, emulating application protocols such as VoIP, DNS, etc..
+PS and IDT series can also be loaded from a file for each flow.
+ITGSend can log information about every sent or received packet, when running in <SPAN  CLASS="textit">One Way</SPAN> or <SPAN  CLASS="textit">Round Trip</SPAN> mode respectively (see below).
+In the first case, timestamps (and other information) of sent packets are stored, while in the second case, timestamps (and other information) of sent and received packets are stored.
+For each flow the source IP address can be specified, which is useful for multi-homed hosts.
+
+<P>
+
+<H3><A NAME="SECTION00021200000000000000"></A><A NAME="ITGRecv"></A><BR>
+ITGRecv: Receiver Component of the D-ITG Platform
+</H3>
+
+<P>
+The ITGRecv component is responsible for receiving multiple parallel traffic flows generated by one or more ITGSend instances.
+It normally runs as a multi-threaded daemon listening on a TCP socket for incoming traffic reception requests.
+Each time a request is received  from the network, a new thread is created, which performs all the operations related to the new request (e.g. receiving the packets of the flow).
+The port numbers on which ITGRecv will receive each flow and any logging activity required on the receiver side can be remotely controlled by ITGSend. A specific signaling protocol, called TSP, allows ITGRecv and ITGSend to properly setup and manage the traffic generation process.
+
+<P>
+
+<H3><A NAME="SECTION00021300000000000000"></A><A NAME="ITGLog"></A><BR>
+ITGLog: Logger Component of the D-ITG Platform
+</H3>
+
+<P>
+The ITGLog component is responsible for receiving and storing log information possibly sent by ITGSend and ITGRecv.
+It runs as a multi-threaded daemon listening on a TCP socket for incoming log requests.
+Log information is received over TCP or UDP protocols on port numbers dynamically allocated in the range [9003-10003].
+
+<P>
+
+<H3><A NAME="SECTION00021400000000000000"></A><A NAME="ITGDec"></A><BR>
+ITGDec: Decoder Component of the D-ITG Platform
+</H3>
+
+<P>
+The ITGDec component is responsible for decoding and analyzing the log files stored during the experiments conducted by using D-ITG.
+
+<P>
+ITGDec parses the log files generated by ITGSend and ITGRecv and
+calculates the average values of bitrate, delay and jitter either on the whole duration of the
+experiment or on variable-sized time intervals.
+
+<P>
+ITGDec analyzes the log files produced by ITGSend, ITGRecv, and ITGLog in order to produce the following results about each flow and about the whole set of flows:
+
+<P>
+
+<UL>
+<LI>Syntethic reports:
+  
+<UL>
+<LI>Experiment duration
+</LI>
+<LI>Packets transferred
+</LI>
+<LI>Payload bytes transferred
+</LI>
+<LI>One-way/round-trip delay (minimum, maximum, average, standard deviation)
+</LI>
+<LI>Average bitrate
+</LI>
+<LI>Average packet rate
+</LI>
+<LI>Dropped packets
+</LI>
+<LI>Duplicate packets
+</LI>
+<LI>Loss events
+</LI>
+<LI>Average loss-burst size
+</LI>
+<LI>First/last sequence number
+  
+</LI>
+</UL>
+</LI>
+<LI>Sampled QoS metrics timeseries:
+  
+<UL>
+<LI>Bitrate [Kbps] (i.e. goodput)
+</LI>
+<LI>One-way/round-trip delay [ms]
+</LI>
+<LI>Jitter [ms] (i.e. delay variation)
+</LI>
+<LI>Packet loss [pps] (i.e. packets lost per second)
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00022000000000000000"></A><A NAME="sec:features"></A><BR>
+Features
+</H2>
+
+<P>
+D-ITG is able to generate multiple unidirectional flows from many senders toward many receivers, each of them having the following features.
+
+<UL>
+<LI>Customizable flow-level properties
+  
+<UL>
+<LI>duration
+</LI>
+<LI>start delay
+</LI>
+<LI>total number of packets
+</LI>
+<LI>total number of KBytes
+  
+</LI>
+</UL>
+</LI>
+<LI>Supported Layer-3 features
+  
+<UL>
+<LI>protocols: IPv4, IPv6
+</LI>
+<LI>customizable header fields:
+    
+<UL>
+<LI>source and destination IP addresses
+</LI>
+<LI>source interface binding (for multi-homed devices)
+</LI>
+<LI>initial TTL value
+</LI>
+<LI>DS byte
+    
+</LI>
+</UL>
+</LI>
+<LI>NAT traversal: FTP-like passive mode
+  
+</LI>
+</UL>
+</LI>
+<LI>Supported Layer-4 features
+  
+<UL>
+<LI>protocols: TCP, UDP, ICMP, DCCP, SCTP
+</LI>
+<LI>customizable header fields:
+    
+<UL>
+<LI>source and destination port numbers
+    
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+<LI>Supported Layer-7 features
+  
+<UL>
+<LI>Predefined stochastic PS (Packet Size) and IDT (Inter Departure Time) profiles:
+    
+<UL>
+<LI>Telnet
+</LI>
+<LI>DNS
+</LI>
+<LI>Quake3
+</LI>
+<LI>CounterStrike (active and inactive)
+</LI>
+<LI>VoIP (G.711, G.729, G.723)
+    
+</LI>
+</UL>
+</LI>
+<LI>Payload content: random or read from file
+</LI>
+<LI>Stochastic processes supported for both PS and IDT:
+    
+<UL>
+<LI>Supported distributions are Uniform, Constant, Exponential, Pareto, Cauchy, Normal, Poisson, Gamma, Weibull
+</LI>
+<LI>Explicit random seed selection for replicating the same stochastic process
+</LI>
+<LI>Loading of PS and IDT series from file
+    
+</LI>
+</UL>
+</LI>
+</UL>
+</LI>
+<LI>Packet-level QoS metrics
+  
+<UL>
+<LI>Bitrate
+</LI>
+<LI>Packet rate
+</LI>
+<LI>One way delay (requires clocks synchronization)
+</LI>
+<LI>Round Trip Time
+</LI>
+<LI>Jitter
+</LI>
+<LI>Packet loss
+  
+</LI>
+</UL>
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000"></A><A NAME="sec:buildingopts"></A><BR>
+Compiling D-ITG
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION00031000000000000000">
+Requirements</A>
+</H2>
+
+<P>
+D-ITG currently supports the following operating systems:
+
+<UL>
+<LI>Linux<A NAME="tex2html4"
+  HREF="#foot47"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>(Ubuntu, Debian, Fedora, CentOS, OpenWRT, Snapgear, Montavista, uClinux)
+</LI>
+<LI>Windows (XP, Vista, 7)
+</LI>
+<LI>OSX (Leopard)
+</LI>
+<LI>FreeBSD<A NAME="tex2html5"
+  HREF="#foot47"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>
+</LI>
+</UL>
+
+In order to compile D-ITG you need GNU Make and gcc.
+Depending on the operating system, some limitations or additional requirements
+may apply (see <A HREF="#par:instr">2.2</A>).
+
+<P>
+
+<H2><A NAME="SECTION00032000000000000000"></A>
+<A NAME="par:instr"></A><BR>
+Building steps
+</H2>
+
+<P>
+Independently on the operating system, these are the high-level steps to follow:
+
+<OL>
+<LI>download and unpack the "D-ITG-2.8.1-r2058M-src.zip" package somewhere
+    on your filesystem;
+</LI>
+<LI>from the command line, enter the "D-ITG-2.8.1-r2058M/src" directory;
+</LI>
+<LI>type "make" to build the binaries.
+</LI>
+</OL>
+Once done, the binaries will be copied into the "D-ITG-2.8.1-r2058M/bin" directory.
+
+<P>
+<BR>
+<BR> 
+In order to show the list of compile-time options available for the
+current operating system run:
+<PRE>
+    $ make help
+</PRE>
+please note that not all the options are available on all operating systems and
+the previous command will only show the options available for the current target operating system.
+
+<P>
+For instance, to enable DEBUG mode using a specific verbosity level the "debug=<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$&lt;$"></SPAN>level<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$&gt;$"></SPAN>"
+option can be specified on the make command line:
+<PRE>
+    $ make clean all debug=&lt;level&gt;
+</PRE>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$&lt;$"></SPAN>level<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$&gt;$"></SPAN> is a positive integer value (bigger value <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$=&gt;$"></SPAN> more verbose) and
+if set to 0 enables only debugging symbols without increasing the verbosity level.
+
+<P>
+
+<H2><A NAME="SECTION00033000000000000000">
+OS-Specific notes</A>
+</H2>
+
+<P>
+We report in the following some guidelines specific for each operating system.
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">All Unix-like OSes (Linux, FreeBSD, OSX)</SPAN>
+
+<P>
+
+<UL>
+<LI>The D-ITG binaries can be installed on the system by using the root account:
+<PRE>
+        # make install PREFIX=/usr/local
+</PRE>
+      or as normal user by using the sudo utility:
+<PRE>
+        $ sudo make install PREFIX=/usr/local
+</PRE>
+      The same way the binaries can be removed by the system:
+<PRE>
+        # make uninstall PREFIX=/usr/local
+</PRE>
+      or:
+<PRE>
+        $ sudo make uninstall PREFIX=/usr/local
+</PRE>
+If not specified, the PREFIX variable takes "/usr/local" as default value.
+
+<P>
+</LI>
+<LI>The "multiport" and "bursty" options are enabled by default. They are still optional
+since no extensive testing has been conducted on them. Both options can be disabled
+at compile time respectively using the "multiport=off" and "bursty=off" options.
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">Linux</SPAN>
+
+<UL>
+<LI>In order to enable the SCTP protocol (sctp=on option), libsctp should be installed first.
+This feature is supported with kernel version starting from 2.5.15.
+
+<P>
+</LI>
+<LI>The DCCP protocol (dccp=on option) is supported with kernel version starting from 2.6.14-rc1.
+
+<P>
+</LI>
+<LI>Windows binaries can also be built under Linux using Mingw:
+<PRE>
+        $ make T=win
+</PRE>
+      If MinGW is installed in a standard location (e.g. /usr/i686-w64-mingw32 on Ubuntu 12.10)
+      it will be automatically detected, otherwise it is necessary to set the MINGW variable to
+      point to the Mingw toolchain path:
+<PRE>
+        $ export MINGW=/usr/local/i686-w64-mingw32
+</PRE>
+      In order to show the options available in this case do:
+<PRE>
+        $ make T=win help
+</PRE>
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">Windows</SPAN>
+
+<UL>
+<LI>Since with Windows XP/2000 listening on both IPv4 and IPv6 sockets is not supported,
+we provide an "ipv4only=on" option to disable IPv6 support. Which means that normally
+ITGRecv under Windows XP/2000 will only be able to accept connections using IPv6.
+Using more recent Windows versions this option is not necessary and ITGRecv
+will be able to work with IPv4 and IPv6 simultaneously.
+
+<P>
+</LI>
+<LI>The compilation under Windows has been tested using Dev-Cpp 4.9.9.2, which includes
+the Mingw 32-bit toolchain based on GCC 3.4.2. It can be compiled both using the IDE
+environment and Mingw from the command-line:
+
+<P>
+
+<UL>
+<LI>Using Dev-Cpp IDE:
+ 
+<OL>
+<LI>Open the "src/D-ITG.dev" project
+</LI>
+<LI>Uncomment the first lines of the "win-mingw.mk" file to set compile-time options, if needed
+</LI>
+<LI>Verify that the DEVDIR variable points to the right path of your Dev-Cpp installation
+</LI>
+<LI>Type CTRL + F11 to compile
+ 
+</LI>
+</OL>
+</LI>
+<LI>Using Mingw from the command-line:
+ 
+<OL>
+<LI>Add the bin folder of Dev-Cpp to the execution path:
+      <PRE>
+        C:\&gt; set PATH=&lt;Dev-Cpp_dir&gt;\bin:%PATH%
+      </PRE>
+</LI>
+<LI>If you installed Dev-Cpp in the default path just do:
+      <PRE>
+        C:\D-ITG-VER-rREV\src&gt; make
+</PRE>
+        otherwise you have to specify the right path setting the DEVDIR variable:
+      <PRE>
+        C:\D-ITG-VER-rREV\src&gt; make DEVDIR=&lt;Dev-Cpp_install_path&gt;
+</PRE>
+         Compile-time options are supported also in this case. To list them do:
+      <PRE>
+        C:\D-ITG-VER-rREV\src&gt; make help
+</PRE>
+</LI>
+</OL>
+</LI>
+</UL>
+
+<P>
+</LI>
+<LI>The "multiport" option is set to "off" by default because it currently adds a delay
+of several seconds when starting ITGRecv.exe.
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">FreeBSD</SPAN>
+
+<P>
+
+<UL>
+<LI>In order to build D-ITG you have to use the GNU version of make:
+<PRE>
+        $ gmake
+</PRE>
+
+<P>
+</LI>
+<LI>IPv6, DCCP and SCTP are currently not supported under FreeBSD.
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">OSX</SPAN>
+
+<UL>
+<LI>IPv6, DCCP and SCTP are currently not supported under OSX.
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00040000000000000000"></A><A NAME="sec:components"></A><BR>
+Using D-ITG
+</H1>
+
+<P>
+In order to use D-ITG, you have to run at least ITGRecv instance to receive the traffic
+and one ITGSend instance to send the traffic.
+They simplest way to try it is to run both instances on the same host, as shown in the
+quickstart example.
+
+<P>
+
+<H2><A NAME="SECTION00041000000000000000">
+Quick start</A>
+</H2>
+
+<P>
+Once obtained the D-ITG binaries, following the instructions reported in section <A HREF="#sec:buildingopts">2</A>,
+you are ready to start using D-ITG.
+Here we show a quickstart example in which all the components are executed on the same host and communicate
+using the loopback interface:
+
+<UL>
+<LI>Open a console, enter the folder containing the D-ITG binaries, and run the ITGRecv component:
+<PRE>
+        $ ./ITGRecv
+</PRE>
+
+<P>
+</LI>
+<LI>Open a second console and, from the same folder, run the ITGSend component:
+<PRE>
+        $ ./ITGSend -T UDP -a 127.0.0.1 -c 100 -C 10 -t 15000 \
+                    -l sender.log -x receiver.log
+</PRE>
+
+<P>
+This way ITGSend will generate one UDP flow with constant payload size (100 bytes) and constant packet rate (10 pps)
+for 15 seconds (15000 ms) and two packet-level log files will be generated both on sender (-l option) and
+receiver (-x option) side.
+
+<P>
+</LI>
+<LI>Now to analyze the logs, from the same folder, run the ITGDec component on both logs in turn:
+<PRE>
+        $ ./ITGDec sender.log
+
+          ...
+
+        $ ./ITGDec receiver.log
+
+          ...
+</PRE>
+
+<P>
+The result in both cases should be similar to the following one:
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 1
+      From 127.0.0.1:44225
+      To    127.0.0.1:8999
+      ----------------------------------------------------------
+      Total time               =     14.944263 s
+      Total packets            =           150
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =         15000
+      Average bitrate          =      8.029837 Kbit/s
+      Average packet rate      =     10.037297 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Average loss-burst size  =      0.000000 pkt
+      ----------------------------------------------------------
+
+      __________________________________________________________
+      ****************  TOTAL RESULTS   ******************
+      __________________________________________________________
+      Number of flows          =             1
+      Total time               =     14.944263 s
+      Total packets            =           150
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =         15000
+      Average bitrate          =      8.029837 Kbit/s
+      Average packet rate      =     10.037297 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Average loss-burst size  =             0 pkt
+      Error lines              =             0
+      ----------------------------------------------------------
+</PRE>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00042000000000000000"></A><A NAME="qs:ITGSend"></A><BR>
+ITGSend
+</H2>
+
+<P>
+
+<H3><A NAME="SECTION00042100000000000000">
+Synopsis</A>
+</H3>
+ITGSend can be launched in three different modes.
+
+<P>
+
+<UL>
+<LI><SPAN  CLASS="textbf">Single-flow mode</SPAN>: reads the single traffic flow to generate from the command line
+<PRE>
+        $ ./ITGSend [log_opts] [sig_opts] [flow_opts] [misc_opts]
+                    [ [idt_opts] [ps_opts] | [app_opts] ]
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Multi-flow mode</SPAN>: reads  the traffic flows to generate from a script file
+<PRE>
+        $ ./ITGSend &lt;script_file&gt; [log_opts]
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Daemon mode</SPAN>: runs as a daemon to be remotely controlled using the ITGapi
+<PRE>
+        $ ./ITGSend -Q [log_opts]
+</PRE>
+
+<P>
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">NOTE</SPAN>: launching ITGSend in background requires to redirect stdin to /dev/null.
+
+<P>
+
+<H3><A NAME="SECTION00042200000000000000">
+Modes</A>
+</H3>
+<DL>
+<DT><STRONG>Single-flow mode</STRONG></DT>
+<DD>
+<BR>
+<BR>The single-flow mode enables ITGSend to generate one traffic flow
+  according to the specified command-line options. The flow is  managed by a dedicated thread, while a
+  separate thread is responsible for setting up and coordinating the generation process by communicating
+  with the ITGRecv component on a separate channel.
+
+<P>
+</DD>
+<DT><STRONG>Multi-flow mode</STRONG></DT>
+<DD>
+<BR>
+<BR>The multi-flow mode enables ITGSend to simultaneously generate several flows. Each
+  flow is  managed by a single thread, with a single, separate thread acting as a master and coordinating the others.
+  To generate <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$n$"></SPAN> flows, the script file has to contain <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$n$"></SPAN> lines, each of them used to specify
+  the characteristics of one flow. Each line can contain all the options illustrated in
+  Section&nbsp;<A HREF="#sec:ITGSendoption">3.2.3</A>, with the exception of those regarding the logging process.
+  When using this mode, the logging options have to be specified on the command line and refer to all the flows.
+
+<P>
+</DD>
+<DT><STRONG>Daemon mode</STRONG></DT>
+<DD>
+<BR>
+<BR>The daemon mode allows ITGSend to be remotely controlled by using the ITGapi.
+  When working in this mode ITGSend acts as a daemon listening on a UDP port for traffic generation requests.
+
+<P>
+</DD>
+</DL>
+
+<P>
+
+<H3><A NAME="SECTION00042300000000000000"></A><A NAME="sec:ITGSendoption"></A><BR>
+Options
+</H3>
+
+<P>
+<PRE>
+Log options (log_opts):
+
+  -l [logfile]              Generate sender-side log file (default: /tmp/ITGSend.log).
+
+                            Generates a log file containing timing, ordering and size information
+                            about every packet sent by ITGSend.
+                            Under Windows the default log file name is "ITGSend.log".
+
+  -L [log_server_address]   Generate sender-side log file on a remote ITGLog instance.
+     [logging_protocol]
+                            The first parameter sets the log server IP address (default: 127.0.0.1).
+                            The second parameter sets the transport protocol used to establish the
+                            communication between ITGSend and ITGLog: UDP or TCP (default: UDP).
+                            The name of the log file is specified by the -l option.
+
+  -x [receiver_logfile]     Ask ITGRecv to generate receiver-side log file (default: /tmp/ITGRecv.log).
+
+                            Generates a log file containing timing, ordering and size information
+                            about every packet received by ITGRecv.
+                            Under Windows the default log file name is "ITGRecv.log".
+
+  -X [log_server_address]   Ask ITGRecv to generate receiver-side log file on a remote ITGLog instance.
+     [logging_protocol]
+                            The first parameter sets the log server IP address (default: 127.0.0.1).
+                            The second parameter sets the transport protocol used to establish the
+                            communication between ITGRecv and ITGLog: UDP or TCP (default: UDP).
+                            The name of the log file is specified by the -x option.
+
+  -q &lt;log_buffer_size&gt;      Number of packets to push to the log at once (default: 50).
+
+                            Sets how many packets have to be buffered before writing them to the
+                            log file. Since the buffer is flushed (on disk or through the network
+                            towards ITGLog) after this number of packets, using a small value has
+                            impact on the generation performance.
+                            This parameter has effect also when -L and -X options are specified.
+
+
+Signaling options (sig_opts):
+
+  -Sda  &lt;signaling_dest_addr&gt;   Set the destination address for the signaling channel
+                                (default: equal to -a &lt;dest_address&gt;).
+
+  -Sdp  &lt;signaling_dest_port&gt;   Set the destination port for the signaling channel
+                                (default: 9000).
+
+  -Ssa  &lt;signaling_src_addr&gt;    Set the source address for the signaling channel
+                                (default: Set by O.S.).
+
+  -Ssp  &lt;signaling_src_port&gt;    Set the source port for the signaling channel
+                                (default: Set by O.S.).
+
+  -Si  &lt;signaling_interface&gt;    Set the network interface for the signaling channel
+                                (available only on Linux).
+
+
+Flow options (flow_opts):
+
+  -H                      Enable NAT traversal: FTP-like passive mode
+
+                          As for FTP, such mode allows NAT traversal by opening every (TCP and UDP)
+                          connection (for signaling and for traffic generation) in the opposite
+                          direction (i.e. from ITGRecv towards ITGSend). When the option is enabled
+                          ITGSend waits to be contacted by ITGRecv before starting the genearation.
+                          This option is necessary when ITGRecv is behind a NAT, and it requires
+                          the -H option also at reciver side (see ITGRecv help).
+
+  -m  &lt;meter&gt;             Set the type of meter (default: owdm):
+                          - owdm (one-way delay meter)
+                          - rttm (round-trip time meter)
+
+                          D-ITG does not provide any sort of synchronization among senders and receivers.
+                          In order to correctly measure packet One Way Delay (OWD), the clocks of sender
+                          and receiver must be synchronized by other means.
+                          Otherwise, we suggest to use the Round Trip Time (RTT) meter.
+
+  -t  &lt;duration&gt;          Set the generation duration in ms (default: 10000 ms).
+
+                          When -t, -z, and/or -k are specified, the most restrictive applies.
+
+  -z  &lt;#_of_packets&gt;      Set the number of packets to generate.
+
+                          When -t, -z, and/or -k are specified, the most restrictive applies.
+
+  -k  &lt;#_of_KBytes&gt;       Set the number of KBytes to generate.
+
+                          When -t, -z, and/or -k are specified, the most restrictive applies.
+
+  -d  &lt;delay&gt;             Start the generation after the specified delay in ms (default: 0 ms).
+
+  -b &lt;DS_byte&gt;            Set the DS byte for QoS tests (default: 0).
+
+                          The value is interpreted as a decimal number (allowed range [0, 255]),
+                          or as an hexadecimal number using the "0x" prefix (allowed range [0, ff]).
+                          OS specific notes:
+                          - the option is disabled under Windows 2000 and XP, according to the
+                            "Microsoft Knowledge Base Article - 248611".
+                          - Under Linux you need root priviledges to set the DS byte to a value larger
+                            than 160.
+
+  -f &lt;TTL byte&gt;           Set the IP Time To Live (default:  64).
+
+                          The value is interpreted as a decimal number (allowed range [0, 255]),
+                          or as an hexadecimal number using the "0x" prefix (allowed range [0, ff]).
+
+  -a  &lt;dest_address&gt;      Set the destination address (default: 127.0.0.1).
+
+                          This option applies to both traffic flow and signaling channel unless
+                          -Sda option is also specified.
+
+  -sa &lt;src_address&gt;       Set the source address (default: Set by O.S.).
+
+  -rp &lt;dest_port&gt;         Set the destination port (default: 8999).
+
+                          This option applies only to traffic flows (i.e. not to signaling channel).
+                          See above for signaling channel.
+
+  -sp &lt;src_port&gt;          Set the source port (default: Set by O.S.).
+
+                          This option applies only to traffic flow. See above for signaling channel.
+
+  -i &lt;interface&gt;          Bind to the given interface (default: don't bind to any interface).
+
+  -p &lt;payload_metadata&gt;   Select the metadata sent in the payload of each packet (default: 0).
+
+                          Sets the type of information sent into the payload of each packet.
+                          Valid values are:
+                          - 0 standard information is sent in the packet payload;
+                          - 1 only the sequence numbers are sent in the packet payload;
+                          - 2 no information is sent in the packet payload.
+
+  -T &lt;protocol&gt;           Layer 4 protocol (default: UDP):
+                          - UDP                   (User Datagram Protocol)
+
+                          - TCP                   (Transport Control Protocol)
+
+                                                  Being TCP a stream-oriented protocol, the enforcement of
+                                                  payload sizes is not guaranteed, especially when imposing
+                                                  high packet rates. In this case the payload of subsequent
+                                                  packets could be merged and then splitted again according
+                                                  to the MSS value. The "-D" option may help in avoiding
+                                                  this phenomenon, but many pre-compiled kernels have this
+                                                  feature disabled and would just ignore it.
+
+                          - ICMP [type]           (Internet Control Messaging Protocol)
+
+                                                  The default type is 8 (i.e. ECHO request).
+                                                  Note: To use ICMP under Linux you need root
+                                                  priviledges for both ITGSend and ITGRecv.
+
+                          - SCTP &lt;association_id&gt;
+                                 &lt;max_streams&gt;    (Session Control Transport Protocol)
+
+                                                  SCTP protocol is currently supported only under Linux.
+                                                  Not all the features of this protocol are supported yet.
+                                                  Multi-streaming is partially supported but currently disabled.
+                                                  The &lt;association_id&gt; sub-option identifies the SCTP session,
+                                                  while the &lt;max_streams&gt; sub-option defines how many streams
+                                                  will be part of the session.
+                                                  The streams part of the same SCTP session have to be specified
+                                                  as separate flows with the same values for both sub-options.
+                                                  To enable this option D-ITG has to be compiled with
+                                                  "sctp" option enabled (i.e.  make sctp=on).
+
+                          - DCCP                  (Datagram Congestion Control Protocol)
+
+                                                  DCCP protocol is currently supported only under Linux.
+                                                  DCCP is a message-oriented protocol like UDP with
+                                                  some new features. It implements not only congestion
+                                                  control and congestion control negotiation, but also
+                                                  reliable connection setup, teardown, and feature
+                                                  negotiation. DCCP is supported only under Linux.
+                                                  To enable this option D-ITG has to be compiled with
+                                                  "dccp" option enabled (i.e.  make dccp=on).
+
+  -D                      Disable TCP Nagle algorithm.
+
+                          This option has effect only when using the TCP protocol and should allow to better
+                          enforce the imposed payload size for each packet.
+                          Note: many pre-compiled kernels have this feature disabled and would just ignore it.
+
+
+Inter-departure time options (idt_opts):
+
+  -C  &lt;rate&gt;              Constant (default: 1000 pkts/s).
+
+  -U  &lt;min_rate&gt;          Uniform distribution.
+      &lt;max_rate&gt;
+
+  -E  &lt;mean_rate&gt;         Exponential distribution.
+
+  -N  &lt;mean&gt; &lt;std_dev&gt;    Normal distribution.
+
+  -O  &lt;mean&gt;              Poisson distribution.
+
+  -V  &lt;shape&gt; &lt;scale&gt;     Pareto distribution.
+
+  -Y  &lt;shape&gt; &lt;scale&gt;     Cauchy distribution.
+
+  -G  &lt;shape&gt; &lt;scale&gt;     Gamma distribution.
+
+  -W  &lt;shape&gt; &lt;scale&gt;     Weibull distribution.
+
+  -Ft &lt;filename&gt;          Read IDTs from file (in ms).
+
+                          The input file provided has to contain each value on a different line.
+
+  -B  &lt;onDistro&gt; &lt;params&gt;
+      &lt;offDistro&gt; &lt;params&gt;
+                          Generate bursty traffic:
+
+                          Sets the duration of both ON and OFF periods according to a
+                          supported random distribution (e.g. -B C 1000 C 1000).
+                          Using this option the flow generates traffic in bursts, where the duration of ON
+                          and OFF periods can be set according to all the supported distributions.
+                          Notes:
+                          This option has to be the last one on the command line.
+                          To  enable this option D-ITG has to be compiled with "bursty" option enabled
+                          (i.e.  make bursty=on).
+
+ Note:
+ - The IDT random variable provides the inter-departure time expressed in milliseconds.
+ - For the sake of simplicity, in case of Constant, Uniform, Exponential and Poisson variables, each
+   parameter, say it x, is considered as a packet rate value in packets per second. It is then
+   internally converted to a IDT in milliseconds (y -&gt; 1000/x).
+
+
+Packet size options (ps_opts):
+
+  -c  &lt;pkt_size&gt;          Constant (default: 512 bytes).
+
+  -u  &lt;min_pkt_size&gt;      Uniform distribution.
+      &lt;max_pkt_size&gt;
+
+  -e  &lt;average_pkt_size&gt;  Exponential distribution.
+
+  -n  &lt;mean&gt; &lt;std_dev&gt;    Normal distribution.
+
+  -o  &lt;mean&gt;              Poisson distribution.
+
+  -v  &lt;shape&gt; &lt;scale&gt;     Pareto distribution.
+
+  -y  &lt;shape&gt; &lt;scale&gt;     Cauchy distribution.
+
+  -g  &lt;shape&gt; &lt;scale&gt;     Gamma distribution.
+
+  -w  &lt;shape&gt; &lt;scale&gt;     Weibull distribution.
+
+  -Fs &lt;filename&gt;          Read payload sizes from file.
+
+                          The input file provided has to contain each value on a different line,
+                          in agreement with the format of the output generated when using ITGDec
+                          with the -P option.
+
+
+Application layer options (app_opts):
+
+  -Fp &lt;filename&gt;        Read payload content from file.
+
+  Telnet                Emulate Telnet traffic.
+
+                        Generates traffic with Telnet characteristics. It works with TCP transport layer protocol.
+                        Different settings will be ignored.
+
+  DNS                   Emulate DNS traffic.
+
+                        Generates traffic with DNS characteristics. It works with both UDP and TCP transport
+                        layer protocols.
+
+  Quake3                Emulate Quake 3 traffic \cite{2}.
+
+                        Generates traffic with Quake III Arena characteristics. No option is required. It only
+                        works with UDP Transport Layer protocol. Different settings will be ignored.
+
+  CSa                   Emulate Counterstrike traffic - active player \cite{1}.
+
+                        Generates traffic with Counter Strike characteristics related to the active
+                        phase of the game. No option is required. It only works with UDP Transport
+                        Layer protocol. Different settings will be ignored.
+
+  CSi                   Emulate Counterstrike traffic - idle player \cite{1}.
+
+                        Generates traffic with Counter Strike characteristics related to the inactive
+                        phase of the game. No option is required. It only works with UDP Transport
+                        Layer protocol. Different settings will be ignored.
+
+  VoIP                  Emulate Voice-over-IP traffic.
+       -x &lt;codec&gt;       VoIP sub-option: audio codec (default: G.711.1):
+                          - G.711.&lt;1 or 2&gt; (samples per pkt)
+                          - G.729.&lt;2 or 3&gt; (samples per pkt)
+                          - G.723.1
+       -h &lt;protocol&gt;    VoIP sub-option: audio transfer protocol (default: RTP):
+                          - RTP:  Real Time Protocol (default)
+                          - CRTP: Real Time Protocol with header compression
+       -VAD             VoIP sub-option: enable voice activity detection.
+
+                        Generate traffic with VoIP characteristics. It only works with UDP transport
+                        layer protocol. Different settings will be ignored.
+                        The emulation of the following codecs is supported:
+                        - G.711.1: for G.711 codec with 1 sample per pkt (default)
+                        - G.711.2: for G.711 codec with 2 samples per pkt
+                        - G.723.1: for G.723.1 codec
+                        - G.729.2: for G.729 codec with 2 samples per pkt
+                        - G.729.3: for G.729 codec with 3 samples per pkt
+
+ Note:
+ - Emulation is obtained by properly replicating packet sizes and IDTs. The payload of the
+   application is not reproduced (i.e. bytes above transport layer have no real meaning).
+ - Application layer options have to be specified as the last option.
+ - If you specify an application layer protocol you cannot specify any inter-departure time,
+   or packet size option.
+
+
+Misc options (misc_opts):
+
+  -h | --help          Display this help and exit.
+
+  -s  &lt;seed&gt;           Set the seed used for generating distributions (default: random).
+
+                       Sets the seed for the random number generator (allowed range [0,1]).
+
+  -poll                Use busy-wait loop for IDTs shorter than 1 msec.
+
+  -j  &lt;0|1&gt;            Guarantee the mean packet rate (default: 1):
+                       - 0 (disable)
+                       - 1 (enable)
+
+                       Normally, depending on the selected IDT distribution, ITGSend sleeps
+                       some time before sending each packet. It can happen that the thread
+                       responible for generating the packets wakes up in late, thus causing
+                       an average packet rate smaller than the expected one.
+                       If enabled, all the packets ITGSend was unable to send in the previous
+                       interval are sent in late in the next one in order to guarantee the
+                       expected mean bitrate.
+
+  -sk &lt;serial_iface&gt;   Raise a signal on the serial interface when sending packets.
+
+                       Instructs ITGSend to raise a signal on the specified serial interface
+                       every time a packet is sent.
+                       OS specific notes:
+                       - Typical values under Windows are COM1, COM2, etc.
+                       - Typicsl values under Linux are ttys0, ttys1, etc.
+
+  -rk &lt;serial_iface&gt;   Ask ITGRecv to raise a signal on the serial interface when receiving packets.
+
+                       Instructs ITGRecv to raise a signal on the specified serial interface
+                       every time a packet is received.
+                       OS specific notes:
+                       - Typical values under Windows are COM1, COM2, etc.
+                       - Typicsl values under Linux are ttys0, ttys1, etc.
+
+  -P                   Enable thread high priority  (available only on Windows platform).
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00043000000000000000"></A><A NAME="qs:ITGRecv"></A><BR>
+ITGRecv
+</H2>
+
+<P>
+<BR>
+
+<H3><A NAME="SECTION00043100000000000000">
+Synopsis</A>
+</H3>
+
+<P>
+<PRE>
+        ./ITGRecv   [options]
+</PRE>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">NOTE</SPAN>: launching ITGRecv in background requires to redirect stdin to /dev/null
+
+<P>
+
+<H3><A NAME="SECTION00043200000000000000">
+Options</A>
+</H3>
+<PRE>
+  -h | --help            Display this help and exit
+
+  -P                     Enable thread high priority (available only on Windows platform).
+
+  -a &lt;bind_address&gt;      Bind data channels to a specific address.
+
+                         Sets the address ITGRecv has to bind to for receiving traffic flows.
+                         If the -a option is not specified, each socket is bound to the
+                         address specified by ITGSend with the -a option.
+
+  -i &lt;interface&gt;         Bind data channels to a specific network interface.
+
+                         Sets the interface ITGRecv has to bind to for receiving traffic flows
+                         (only available on Linux platforms).
+                         If the -i option is not specified, each socket is bound to the
+                         interface owning the address specified by ITGSend with the -a option.
+
+  -Si &lt;interface&gt;        Bind signaling channels to a specific network interface.
+
+                         Sets the interface ITGRecv has to bind to when listening for signaling
+                         connections (only Linux platforms).
+                         If the -Si option is not specified, ITGRecv listens on all the interfaces.
+
+  -Sp &lt;port&gt;             Signaling channel port number (default: 9000).
+
+                         Sets the TCP port number on which ITGRecv listens for signaling channels.
+
+  -l [logfile]           Enable logging to file (default filename: /tmp/ITGRecv.log).
+
+                         Generates a log file containing timing, ordering and size information about
+                         every received packet.
+                         Under Windows the default log file name is "ITGRecv.log".
+                         If the -l option is specified at the ITGRecv side and the -x option is
+                         set at the ITGSend side (with different log file names), the latter
+                         option is ignored.
+                         If the -l option is not specified, each ITGSend instance may specify a
+                         different log filename by means of the -x option.
+
+  -L [a:&lt;address&gt;]       Enable remote logging to a remote ITGLog.
+     [p:&lt;port&gt;]
+     [P:&lt;protocol&gt;]      The "a" sub-option sets the ITGLog server IP address (default: 127.0.0.1).
+                         The "p" sub-option sets the ITGLog server signaling port (default: 9001).
+                         The "P" sub-option sets the transport protocol used to establish the
+                         communication with ITGLog: UDP or TCP (default: UDP).
+                         The name of the log file is specified by the -l option.
+                         If the -L option is specified at the ITGRecv side and the -X option is
+                         set at the ITGSend side, then the latter is ignored.
+                         If the -L option is not specified, each ITGSend instance may specify a
+                         different log server by means of the -X option.
+
+  -q &lt;log_buffer_size&gt;   Number of packets to push to the log at once (default: 50).
+
+                         Sets how many packets have to be buffered before writing them to the
+                         log file. Since the buffer is flushed after every this number of packets,
+                         using a small value has impact on the generation performance.
+                         This parameter has effect also when the -L option is specified.
+
+  -H &lt;ITGSend_address&gt;   Enable "Passive Mode" toward the specified ITGSend instance.
+
+                         This mode allows to receive traffic flows from an ITGSend instance when
+                         ITGRecv is behind a NAT.
+                         When enabled, ITGRecv does not run as a daemon. Instead it tries
+                         to establish a signaling channel towards the specified ITGSend.
+                         The related data flows are also initiated by ITGRecv in order to correctly
+                         setup the NAT to receive the incoming traffic.
+                         Note that this option allows to send and received only one set of flows.
+                         ITGRecv exits after receiving the last flow of the set.
+
+  -n &lt;num_pkt&gt;           Number of outgoing packets for UDP NAT traversal
+
+                         When in passive mode, this option sets the number of UDP packets to send
+                         from ITGRecv towards ITGSend to instruct the NAT before receiving
+                         the UDP traffic flow from ITGSend. This option does not apply to TCP
+                         traffic flows, as the three-way handshake of TCP is sufficient for
+                         instructing the NAT.
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00044000000000000000"></A><A NAME="qs:ITGLog"></A><BR>
+ITGLog
+</H2>
+
+<P>
+
+<H3><A NAME="SECTION00044100000000000000">
+Synopsis</A>
+</H3>
+
+<P>
+<PRE>
+        ./ITGLog   [options]
+</PRE>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">NOTE</SPAN>: launching ITGLog in background requires to redirect stdin to /dev/null
+
+<P>
+
+<H3><A NAME="SECTION00044200000000000000">
+Options</A>
+</H3>
+<PRE>
+  -h | --help            Display this help and exit
+
+  -q &lt;log_buffer_size&gt;   Number of packets to push to the log at once (default: 50)
+
+                         Sets how many packets have to be buffered before writing them to the
+                         log file. Since the buffer is flushed every this number of packets,
+                         using a small value has impact on the generation performance.
+                         This parameter has effect also when the -L option is specified.
+</PRE>
+
+<P>
+
+<H2><A NAME="SECTION00045000000000000000"></A><A NAME="qs:ITGDec"></A><BR>
+ITGDec
+</H2>
+
+<P>
+
+<H3><A NAME="SECTION00045100000000000000">
+Synopsis</A>
+</H3>
+
+<P>
+<PRE>
+       ./ITGDec &lt;logfile&gt; [options]
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00045200000000000000"></A><A NAME="sec:DecOpt"></A><BR>
+Options
+</H3>
+<PRE>
+  -v                   Print standard summary to stdout (default).
+
+                       Prints to stdout a summary comprising a set of statistics about each
+                       flow and the whole set of flows.
+
+  -l &lt;txtlog&gt;          Print to &lt;txtlog&gt; the decoded log in text format.
+
+                       Generates the &lt;txtlog&gt; output log file in text format.
+                       For each packet the log file contains a line with the following fields:
+                       - Flow:   the flow number
+                       - Seq:    the sequence number of the packet
+                       - Src:    the source IP address and port number (e.g. 127.0.0.1/44225)
+                       - Dest:   the destination IP address and port number (e.g. 127.0.0.1/8999)
+                       - txTime: the transmission time (e.g. 8:23:52.874105)
+                       - rxTime: the reception time (e.g. 8:23:52.874105)
+                       - Size:   the size of the packet payload in bytes
+
+  -t                   Interpret &lt;logfile&gt; as in text format.
+
+                       The input log file is considered to be in text format as generated by
+                       using the -l option. If not specified the input log file is considered
+                       to be in binary format.
+
+  -o &lt;outfile&gt;         Print to &lt;outfile&gt; the decoded log for Octave/Matlab import.
+
+                       Generates the &lt;outfile&gt; output log file in a format that can be directly
+                       imported from Octave/Matlab for further analysis.
+                       The output log content is the same as the one generated by the -l option.
+
+  -r &lt;sender_log&gt;      Generate combined log file starting from receiver- and sender-side log files
+     [combined_log]    (default filename: 'combined.dat').
+
+                       Generates the &lt;combined_log&gt; binary log file starting from a receiver-side
+                       log file, given as &lt;logfile&gt; parameter, and the corresponding sender-side
+                       &lt;sender_log&gt; log file. This is useful when ITGSend is launched with the "-p"
+                       option having a value different from 2, because it does not insert into each
+                       packet the transmission timestamp. Using this option, this timestamp is
+                       recovered from the log file generated by ITGSend.
+
+  -d &lt;DT&gt; [filename]   Print average delay to file every &lt;DT&gt; milliseconds
+                       (default filename: 'delay.dat').
+
+                       Dumps to file the average packet transmission delay in milliseconds as
+                       sampled every &lt;DT&gt; milliseconds.
+                       The first line of the output file represents the table header. The
+                       following lines represent the table rows and comprise the follwing columns:
+                       - the "Time" column contains a time reference;
+                       - the following columns, labelled as "&lt;flow number&gt;-&lt;sender ip&gt;-&lt;receiver ip&gt;",
+                         contain the average value for each flow;
+                       - the "Aggregate-Flow" column contains the aggregate average delay.
+
+  -j &lt;JT&gt; [filename]   Print average jitter to file every &lt;JT&gt; milliseconds
+                       (default filename: 'jitter.dat').
+
+                       Dumps to file the average packet jitter in milliseconds as sampled every
+                       &lt;JT&gt; milliseconds.
+                       The file format is the same as the one produced with the "-d" option.
+
+  -b &lt;BT&gt; [filename]   Print average bitrate to file every &lt;BT&gt; milliseconds
+                       (default filename: 'bitrate.dat').
+
+                       Dumps to file the average bitrate in Kbit/sec as sampled every
+                       &lt;BT&gt; milliseconds.
+                       The file format is the same as the one produced with the "-d" option.
+
+  -p &lt;PT&gt; [filename]   Print average packet loss to file every &lt;PT&gt; milliseconds
+                       (default filename: 'packetloss.dat').
+
+                       Dumps to file the average packet loss in packets/sec as sampled every
+                       &lt;PT&gt; milliseconds.
+                       The file format is the same as the one produced with the "-d" option.
+
+  -c &lt;CT&gt; [filename]   Print all average metrics to file every &lt;CT&gt; milliseconds
+                       (default filename: 'combined_stats.dat').
+
+                       Dumps to file all the average metrics as sampled every &lt;PT&gt; milliseconds.
+                       Each line of the output file respectively contains the follwing fields:
+                       - "Time", "Bitrate", "Delay", "Jitter", "Packet loss"
+
+  -s [suffix]          Generate a separate log file for each flow adding a suffix to its name
+                       (default suffix: log).
+
+                       The input log file is split in N separate log files, where N is the number
+                       of flows detected in the log file.
+                       Each resulting log file will have the following filename format:
+                       "&lt;flow number&gt;-&lt;sender ip address&gt;-&lt;receiver ip address&gt;.&lt;suffix&gt;.dat".
+                       If not provided, the default value for suffix is "log".
+
+  -f &lt;flownum&gt;         Consider only flows with number &lt;= &lt;flownum&gt;.
+                       Setting &lt;flownum&gt; to 't' all packets are considered as part of the same flow.
+
+                       If &lt;flownum&gt; is a number, only the flows with flow number less or equal than
+                       &lt;flownum&gt; will be considered. If &lt;flownum&gt; is set to "t" all the packets will
+                       be considered as belonging to the same flow.
+
+  -P                   Print to stdout the size of each packet.
+
+  -I                   Print to stdout the inter departure time between each packet pair.
+
+  -h | --help          Display this help and exit.
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00045300000000000000">
+Notes</A>
+</H3>
+D-ITG log files consist of a set of records (one for each packet) including the following fields:
+
+<UL>
+<LI><TT>Flow</TT>:     the flow number
+</LI>
+<LI><TT>Seq</TT>:      the sequence number of the packet
+</LI>
+<LI><TT>SrcIP</TT>:    the source IP address
+</LI>
+<LI><TT>SrcPort</TT>:  the source port number
+</LI>
+<LI><TT>DestIP</TT>:   the destination IP address
+</LI>
+<LI><TT>DestPort</TT>: the destination port number
+</LI>
+<LI><TT>txTime</TT>:   the transmission timestamp
+</LI>
+<LI><TT>rxTime</TT>:   the reception timestamp
+</LI>
+<LI><TT>Size</TT>:     the size of the packet payload in bytes
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+The values reported in the standard summary are computed according to the log records as follows:
+
+<UL>
+<LI>the <SPAN  CLASS="textit">Total time</SPAN> is computed as the difference between the <TT>rxTime</TT> of the last and the first packet.
+</LI>
+<LI>the <SPAN  CLASS="textit">Delay</SPAN> is computed as the difference between rxTime and txTime of each packet.
+</LI>
+<LI>the <SPAN  CLASS="textit">Delay standard deviation</SPAN> (<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$\sigma$"></SPAN>) is computed according to equation <A HREF="#eq:stddev">1</A>:
+  <BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\sigma=\sqrt{\frac{1}{N}\sum^{N}_{i=1}\left(d_i-\hat{d}\right)^2}
+\end{equation}
+ -->
+<A NAME="eq:stddev"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eq:stddev"></A><IMG
+ WIDTH="162" HEIGHT="64" BORDER="0"
+ SRC="img6.png"
+ ALT="\begin{displaymath}
+\sigma=\sqrt{\frac{1}{N}\sum^{N}_{i=1}\left(d_i-\hat{d}\right)^2}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">1</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$N$"></SPAN> is the number of considered packets, <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$d_i$"></SPAN> is the delay of packet <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$i$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$\hat{d}$"></SPAN> is the average delay of packets.
+</LI>
+<LI>the <SPAN  CLASS="textit">Jitter</SPAN> is computed according to Figure&nbsp;<A HREF="#fig:jitter">2</A>, where S<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$_i$"></SPAN> and R<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$_i$"></SPAN> respectively correspond to <TT>txTime</TT> and <TT>rxTime</TT>.
+  
+<DIV ALIGN="CENTER"><A NAME="fig:jitter"></A><A NAME="284"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2:</STRONG>
+Jitter calculation formula.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+
+</DIV>	  <IMG
+  WIDTH="444" HEIGHT="228" ALIGN="BOTTOM" BORDER="0"
+ SRC="./jitter.png"
+ ALT="Image jitter"></TD></TR>
+</TABLE>
+</DIV>
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+The physical meaning of the metrics reported by analyzing the log files varies depending on the metric selected (One-Way or Round-Trip) when conducting the experiment and on the component that generated the log file (ITGSend or ITGRecv):
+
+<UL>
+<LI>A log file generated (locally or remotely) by ITGSend by using the One Way Delay Meter ("-m owdm" option) has for each packet the txTime and rxTime values both set to the transmission time.
+ Hence, <SPAN  CLASS="textit">delay</SPAN> and <SPAN  CLASS="textit">jitter</SPAN> should always have null value.
+ <SPAN  CLASS="textit">Packets dropped</SPAN> should also be normally null, except for special cases or errors (e.g.&nbsp;socket buffer full, lost log packets, etc.).
+
+<P>
+</LI>
+<LI>In a log file generated (locally or remotely) by ITGSend by using the Round Trip Delay Meter ("-m rttm" option), the txTime and rxTime are both set by ITGSend, when transmitting the packet and when receiving the reply from ITGRecv respectively.
+ Hence, the <SPAN  CLASS="textit">delay</SPAN> value represents the <SPAN  CLASS="textit">round-trip delay</SPAN> and the <SPAN  CLASS="textit">jitter</SPAN> value represents the <SPAN  CLASS="textit">round-trip delay variation</SPAN>.
+ In this case, <SPAN  CLASS="textit">Packets dropped</SPAN> refers to all the packets lost on the round-trip path (i.e.&nbsp;accounts both lost packets and replies).
+
+<P>
+</LI>
+<LI>A log file generated (locally or remotely) by ITGRecv has the txTime set by ITGSend when transmitting the packet and rxTime set by ITGRecv when receiving the packet.
+ Hence, the <SPAN  CLASS="textit">delay</SPAN> value represents the <SPAN  CLASS="textit">one-way delay</SPAN> and the <SPAN  CLASS="textit">jitter</SPAN> value represents the <SPAN  CLASS="textit">one-way delay variation</SPAN>.
+ In this case, <SPAN  CLASS="textit">Packets dropped</SPAN> refers to packets lost only on the one-way path (i.e. from ITGSend to ITGRecv).
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+<SPAN  CLASS="textbf">IMPORTANT!</SPAN> D-ITG does not provide any sort of synchronization among its components.
+In order to correctly measure the One Way Delay (OWD), the clocks of the host running ITGSend and ITGRecv must be synchronized by some means. Depending on the required accuracy, NTP, GPS, or other means can be used.
+In the case of synchronization issues we suggest to use the Round Trip Time (RTT) meter.
+
+<P>
+
+<H2><A NAME="SECTION00046000000000000000"></A><A NAME="qs:ITGplot"></A><BR>
+ITGplot
+</H2>
+
+<P>
+ITGplot is an Octave (<SPAN  CLASS="textit">http://www.octave.org</SPAN>) script that enables to draw plots using data contained in delay.dat, bitrate.dat, jitter.dat or packetloss.dat (see Section&nbsp;<A HREF="#sec:DecOpt">3.5.2</A>). The plot is saved (in the EPS format) in a file having the same name as the input file and the .eps extension. It is possible to save the plots in other formats by changing the <TT>graphicformat</TT> string in ITGplot. The available formats are those provided by gnuplot (run gnuplot and type `set term' to see the list of the available terminal types). It is also possible to give a title to the plot by setting the environment variable DITG_PLOT_TITLE.
+
+<P>
+
+<H3><A NAME="SECTION00046100000000000000">
+Synopsis</A>
+</H3>
+<PRE>
+        octave ITGplot &lt;input_file&gt; [flow_set]
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00046200000000000000">
+Options</A>
+</H3>
+<PRE>
+  &lt;input_file&gt;   The .dat file containing the data to be plotted.
+                 It might be one of the .dat files produced by ITGDec.
+
+  [flow_set]     The subset of flows to be plotted, expressed in the Octave notation.
+                 Thus, "2:4" allows to plot the second, the third and the fourth flows,
+                 while "[1 3 5]" allows to plot the first, the third and the fifth flows
+                 (remember: double quotes are needed to enclose values containing blanks).
+                 If not specified, all the flows are plotted.
+</PRE>
+
+<P>
+
+<H3><A NAME="SECTION00046300000000000000">
+Notes</A>
+</H3>
+
+<P>
+
+<H4><A NAME="SECTION00046310000000000000">
+Unix-like operating systems.</A>
+</H4>
+It is possible to make ITGplot an executable Octave program by following these steps:
+
+<OL>
+<LI>add execution permissions to ITGplot (<TT>chmod +x ITGplot</TT>)
+</LI>
+<LI>locate your Octave interpreter (<TT>which octave</TT>)
+</LI>
+<LI>write such location in the first line of ITGplot (e.g. <TT>#! /usr/bin/octave -qf</TT>)
+</LI>
+</OL>
+Then, you can directly execute ITGplot (e.g. <TT>./ITGplot bitrate.dat 1:4</TT>).
+
+<P>
+<BR>
+<BR> 
+If you want to set a title for the plot, you can use the <TT>env</TT> command:
+<PRE>
+        env DITG_PLOT_TITLE="A wonderful plot" ITGplot bitrate.dat "[1 4 6]"
+</PRE>
+
+<P>
+
+<H4><A NAME="SECTION00046320000000000000">
+Windows operating system.</A>
+</H4>
+First, since ITGplot uses gnuplot to draw plots it is necessary to specify the path to the gnuplot executable (pgnuplot.exe), which should be ``C:<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\backslash$"></SPAN>Program Files<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\backslash$"></SPAN>GNU Octave <SPAN  CLASS="textit">version</SPAN><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\backslash$"></SPAN>bin''. The path Octave will search for programs to run can be specified in three different ways:
+
+<OL>
+<LI>using the <TT>-exec-path</TT> command line option:
+<PRE>
+    octave --exec-path "C:\Program Files\GNU Octave VERSION\bin" ITGplot bitrate.dat
+</PRE>
+</LI>
+<LI>setting the OCTAVE_EXEC_PATH environment variable:
+<PRE>
+    set OCTAVE_EXEC_PATH="C:\Program Files\GNU Octave VERSION\bin"
+</PRE>
+</LI>
+<LI>defining the EXEC_PATH variable in the <TT>octaverc</TT> startup file:
+<PRE>
+    edit "C:\Program Files\GNU Octave VERSION\opt\octave\share\octave\site\m\startup\octaverc"
+
+    EXEC_PATH="C:\\Program Files\\GNU Octave VERSION\\bin"
+</PRE>
+</LI>
+</OL>
+Clearly, after applying methods 2 or 3 there is no need to use the <TT>-exec-path</TT> command line option.
+
+<P>
+<BR>
+<BR> 
+If you want to set a title for the plot, you can type:
+<PRE>
+        set DITG_PLOT_TITLE="A wonderful plot"
+</PRE>
+before executing ITGplot.
+
+<P>
+
+<H2><A NAME="SECTION00047000000000000000"></A><A NAME="qs:ITGapi"></A><BR>
+ITGapi
+</H2>
+
+<P>
+ITGapi is a C++ API that enables to remotely control traffic generation. For this purpose, after having
+launched ITGSend in daemon mode (ITGSend -Q) on one or more traffic source nodes, it is possible to use
+the following function to remotely coordinate the traffic generation for each ITGSend instance:
+
+<P>
+<PRE>
+        int DITGsend(char *sender, char *message);
+</PRE>
+where:
+
+<UL>
+<LI><TT>sender</TT> is the IP address of ITGSend.
+</LI>
+<LI><TT>message</TT> is a string containing the set of options you would pass to ITGSend on the command line.
+</LI>
+</UL>
+The function may return one of the following values:
+
+<UL>
+<LI><SPAN  CLASS="textbf">0</SPAN> in case of success;
+</LI>
+<LI><SPAN  CLASS="textbf">-1</SPAN> otherwise;
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+ITGSend, when used in daemon mode, sends messages back to the application that issued the generation of the traffic flow. Two types of messages are used, one to acknowledge the start of the generation process and the other to notify its end.
+The following functions allows to catch these messages:
+<PRE>
+        int catchManagerMsg(char **senderIP, char **msg);
+</PRE>
+where:
+
+<UL>
+<LI><TT>senderIP</TT> is a pointer to a string containing the IP address of the sender that sent the message.
+</LI>
+<LI><TT>msg</TT> is a pointer to a string containing the command that the sender received.
+</LI>
+</UL>
+The function may return one of the following values:
+
+<UL>
+<LI><SPAN  CLASS="textbf">1</SPAN> to indicate the start of the generation;
+</LI>
+<LI><SPAN  CLASS="textbf">2</SPAN> to indicate the end of the generation;
+</LI>
+<LI><SPAN  CLASS="textbf">-1</SPAN> in case no message has been received (the function is non blocking).
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR> 
+The above mentioned prototypes are declared in the <TT>ITGapi.h</TT> header file.
+D-ITG includes ITGManager.cpp, which is just a simple example of application based on ITGapi to remotely control traffic generation.
+
+<P>
+
+<H1><A NAME="SECTION00050000000000000000"></A>
+<A NAME="Example"></A><BR>
+Examples
+</H1>
+
+<P>
+All the usage examples reported in this section assume that the binaries are being executed from the folder containing the D-ITG binaries.
+
+<P>
+
+<H2><A NAME="SECTION00051000000000000000">
+Example #1</A>
+</H2>
+Single UDP flow with constant inter-departure time between packets and constant packets size:
+
+<P>
+
+<OL>
+<LI>start the receiver on the destination host (10.0.0.3):
+ <PRE>
+        $ ./ITGRecv
+</PRE>
+</LI>
+<LI>start the sender on the source host (10.0.0.4):
+ <PRE>
+        $ ./ITGSend -a 10.0.0.3 -sp 9400 -rp 9500 -C 100 -c 500 -t 20000 -x recv_log_file
+</PRE>
+</LI>
+<LI>The resulting flow from 10.0.0.4 to 10.0.0.3 has the following characteristics:
+ 
+<UL>
+<LI>the sender port is 9400
+</LI>
+<LI>the destination port is 9500
+</LI>
+<LI>100 packets per second are sent (with constant inter-departure time between packets)
+</LI>
+<LI>the size of each packet is equal to 500 bytes
+</LI>
+<LI>the duration of the generation experiment is 20 seconds (20000 milliseconds)
+</LI>
+<LI>at receiver side ITGRecv creates a log file named recv_log_file
+ 
+</LI>
+</UL>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00052000000000000000">
+Example #2</A>
+</H2>
+Single UDP flow in passive mode with constant inter-departure time between packets and constant packets size:
+
+<P>
+
+<OL>
+<LI>start the sender on the source host (192.168.0.4):
+ <PRE>
+        $ ./ITGSend -H -C 10 -c 50 -t 10000 -l send_log_file
+</PRE>
+</LI>
+<LI>start the receiver on the destination host (10.0.0.3), potentially sitting behind a NAT:
+ <PRE>
+        $ ./ITGRecv -H 192.168.0.4
+</PRE>
+</LI>
+<LI>The resulting flow from 192.168.0.4 to 10.0.0.3 has the following characteristics:
+ 
+<UL>
+<LI>both source and destination ports are automatically selected
+</LI>
+<LI>10 packets per second are sent (with constant inter-departure time between packets)
+</LI>
+<LI>the size of each packet is equal to 50 bytes
+</LI>
+<LI>the duration of the generation experiment is 10 seconds (10000 milliseconds)
+</LI>
+<LI>at sender side ITGSend creates a log file named send_log_file
+ 
+</LI>
+</UL>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00053000000000000000">
+Example #3</A>
+</H2>
+Single UDP flow with constant inter-departure time between packets and uniformly distributed packet size between 500 and 1000 bytes with local sender/receiver log
+
+<P>
+
+<OL>
+<LI>start receiver on the destination host (10.0.0.3):
+<PRE>
+        $ ./ITGRecv -l recv_log_file
+</PRE>
+</LI>
+<LI>start the sender on the source host:
+<PRE>
+        $ ./ITGSend -a 10.0.0.3 -rp 9501 -C 1000 -u 500 1000 -l send_log_file
+</PRE>
+</LI>
+<LI>terminate ITGRecv by pressing Ctrl-C
+</LI>
+<LI>decode the receiver log file on the destination host:
+<PRE>
+        $ ./ITGDec recv_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34771
+      To    10.0.0.3:9501
+      ----------------------------------------------------------
+      Total time		 =     10.001837 s
+      Total packets		 =         10000
+      Minimum delay		 =   3633.445701 s
+      Maximum delay		 =   3633.464808 s
+      Average delay		 =   3633.449749 s
+      Average jitter		 =      0.000706 s
+      Delay standard deviation =      0.001364 s
+      Bytes received		 =       7498028
+      Average bitrate		 =   5997.320692 Kbit/s
+      Average packet rate	 =    999.816334 pkt/s
+      Packets dropped		 =             0 (0.00 %)
+      ----------------------------------------------------------
+
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             1
+      Total time               =     10.001837 s
+      Total packets            =         10000
+      Minimum delay            =   3633.445701 s
+      Maximum delay            =   3633.464808 s
+      Average delay            =   3633.449749 s
+      Average jitter           =      0.000706 s
+      Delay standard deviation =      0.036939 s
+      Bytes received           =       7498028
+      Average bitrate          =   5997.320692 Kbit/s
+      Average packet rate      =    999.816334 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Error lines              =             0
+</PRE>
+Note: see the very large delay values caused by absence of clock synchronization!
+</LI>
+<LI>decode the sender log file on the source host:
+<PRE>
+        $ ./ITGDec send_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34771
+      To    10.0.0.3:9501
+      ----------------------------------------------------------
+      Total time               =      9.999002 s
+      Total packets            =         10000
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =       7498028
+      Average bitrate          =   5999.021102 Kbit/s
+      Average packet rate      =   1000.099810 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             1
+      Total time               =      9.999002 s
+      Total packets            =         10000
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =       7498028
+      Average bitrate          =   5999.021102 Kbit/s
+      Average packet rate      =   1000.099810 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Error lines              =             0
+      ----------------------------------------------------------
+</PRE>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00054000000000000000">
+Example #4</A>
+</H2>
+Single UDP flow with constant inter-departure time between packets and uniformly distributed packet size between 500 and 1000 bytes with remote sender/receiver log:
+
+<P>
+
+<OL>
+<LI>start the log server on the log host:
+<PRE>
+        $ ./ITGLog
+</PRE>
+</LI>
+<LI>start the receiver on the destination host:
+<PRE>
+        $ ./ITGRecv
+</PRE>
+</LI>
+<LI>start the sender on the source host:
+<PRE>
+        $ ITGSend -a 10.0.0.3 -rp 9501 -C 1000 -u 500 1000 \
+                  -l send_log_file -L 10.0.0.3 UDP -X 10.0.0.3 UDP -x recv_log_file
+</PRE>
+</LI>
+<LI>close the receiver by pressing Ctrl+C
+</LI>
+<LI>close the log server by pressing Ctrl+C
+</LI>
+<LI>decode the receiver log file on the log host:
+<PRE>
+       $ ITGDec recv_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34772
+      To    10.0.0.3:9501
+      ----------------------------------------------------------
+      Total time               =      9.993970 s
+      Total packets            =          9997
+      Minimum delay            =   3633.432089 s
+      Maximum delay            =   3633.504881 s
+      Average delay            =   3633.436616 s
+      Average jitter           =      0.000795 s
+      Delay standard deviation =      0.004083 s
+      Bytes received           =       7495843
+      Average bitrate          =   6000.292576 Kbit/s
+      Average packet rate      =   1000.303183 pkt/s
+      Packets dropped          =             2 (0.00 %)
+      ----------------------------------------------------------
+
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             1
+      Total time               =      9.993970 s
+      Total packets            =          9997
+      Minimum delay            =   3633.432089 s
+      Maximum delay            =   3633.504881 s
+      Average delay            =   3633.436616 s
+      Average jitter           =      0.000795 s
+      Delay standard deviation =      0.063898 s
+      Bytes received           =       7495843
+      Average bitrate          =   6000.292576 Kbit/s
+      Average packet rate      =   1000.303183 pkt/s
+      Packets dropped          =             2 (0.00 %)
+      Error lines              =             0
+      ----------------------------------------------------------
+</PRE>
+</LI>
+<LI>decode the sender log file on the log host:
+<PRE>
+        $ ITGDec send_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34772
+      To    10.0.0.3:9501
+      ----------------------------------------------------------
+      Total time               =      9.999001 s
+      Total packets            =         10000
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =       7498028
+      Average bitrate          =   5999.021702 Kbit/s
+      Average packet rate      =   1000.099910 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             1
+      Total time               =      9.999001 s
+      Total packets            =         10000
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =       7498028
+      Average bitrate          =   5999.021702 Kbit/s
+      Average packet rate      =   1000.099910 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Error lines              =             0
+</PRE>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00055000000000000000">
+Example #5</A>
+</H2>
+If you want to simultaneously generate more than one flow, you have to prepare a script file like those shown in the following examples. Three UDP flows with different constant bit rate and remote log:
+
+<P>
+
+<OL>
+<LI>start the log server on the log host:
+<PRE>
+        $ ./ITGLog
+</PRE>
+</LI>
+<LI>start the receiver on the destination host:
+<PRE>
+        $ ./ITGRecv
+</PRE>
+</LI>
+<LI>create the script file:
+<PRE>
+        $ cat &gt; script_file &lt;&lt;END
+        -a 10.0.0.3 -rp 10001 -C 1000 -c 512 -T UDP
+        -a 10.0.0.3 -rp 10002 -C 2000 -c 512 -T UDP
+        -a 10.0.0.3 -rp 10003 -C 3000 -c 512 -T UDP
+        END
+</PRE>
+</LI>
+<LI>start the sender:
+<PRE>
+        $ ./ITGSend script_file -l send_log_file -L 10.0.0.4 UDP -X 10.0.0.4 UDP -x recv_log_file
+</PRE>
+</LI>
+<LI>close the receiver by pressing Ctrl+C
+</LI>
+<LI>close the log server by pressing Ctrl+C
+</LI>
+<LI>decode the receiver log file on the log host:
+<PRE>
+        $ ./ITGDec recv_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 3
+      From 10.0.0.4:34775
+      To    10.0.0.3:10003
+      ----------------------------------------------------------
+      Total time               =     10.016555 s
+      Total packets            =          6098
+      Minimum delay            =   3633.409810 s
+      Maximum delay            =   3634.259565 s
+      Average delay            =   3633.507249 s
+      Average jitter           =      0.002100 s
+      Delay standard deviation =      0.156419 s
+      Bytes received           =       3122176
+      Average bitrate          =   2493.612624 Kbit/s
+      Average packet rate      =    608.792145 pkt/s
+      Packets dropped          =         22216 (78.00 %)
+      ----------------------------------------------------------
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34773
+      To    10.0.0.3:10001
+      ----------------------------------------------------------
+      Total time               =      9.638360 s
+      Total packets            =          2269
+      Minimum delay            =   3633.402899 s
+      Maximum delay            =   3634.260524 s
+      Average delay            =   3633.461365 s
+      Average jitter           =      0.003114 s
+      Delay standard deviation =      0.135945 s
+      Bytes received           =       1161728
+      Average bitrate          =    964.253670 Kbit/s
+      Average packet rate      =    235.413494 pkt/s
+      Packets dropped          =          4274 (65.00 %)
+      ----------------------------------------------------------
+      ----------------------------------------------------------
+      Flow number: 2
+      From 10.0.0.4:34774
+      To    10.0.0.3:10002
+      ----------------------------------------------------------
+      Total time               =     10.000351 s
+      Total packets            =          3136
+      Minimum delay            =   3633.407982 s
+      Maximum delay            =   3634.455203 s
+      Average delay            =   3633.514464 s
+      Average jitter           =      0.002740 s
+      Delay standard deviation =      0.221725 s
+      Bytes received           =       1605632
+      Average bitrate          =   1284.460515 Kbit/s
+      Average packet rate      =    313.588993 pkt/s
+      Packets dropped          =         16864 (84.00 %)
+      ----------------------------------------------------------
+
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             3
+      Total time               =     10.038005 s
+      Total packets            =         11503
+      Minimum delay            =   3633.402899 s
+      Maximum delay            =   3634.455203 s
+      Average delay            =   3633.500165 s
+      Average jitter           =      0.003291 s
+      Delay standard deviation =      0.417552 s
+      Bytes received           =       5889536
+      Average bitrate          =   4693.790051 Kbit/s
+      Average packet rate      =   1145.944837 pkt/s
+      Packets dropped          =         43354 (79.00 %)
+      Error lines              =             0
+</PRE>
+
+<P>
+</LI>
+<LI>decode the sender log file on the log host:
+<PRE>
+        $ ./ITGDec send_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 3
+      From 10.0.0.4:34775
+      To    10.0.0.3:10003
+      ----------------------------------------------------------
+      Total time               =      9.997255 s
+      Total packets            =         28480
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =      14581760
+      Average bitrate          =  11668.611034 Kbit/s
+      Average packet rate      =   2848.781991 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34773
+      To    10.0.0.3:10001
+      ----------------------------------------------------------
+      Total time               =      9.603001 s
+      Total packets            =          9604
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =       4917248
+      Average bitrate          =   4096.426107 Kbit/s
+      Average packet rate      =   1000.104030 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+      ----------------------------------------------------------
+      Flow number: 2
+      From 10.0.0.4:34774
+      To    10.0.0.3:10002
+      ----------------------------------------------------------
+      Total time               =      9.999501 s
+      Total packets            =         20000
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =      10240000
+      Average bitrate          =   8192.408801 Kbit/s
+      Average packet rate      =   2000.099805 pkt/s
+      Packets dropped          =             0 (0.00 \%)
+      ----------------------------------------------------------
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             3
+      Total time               =     10.013192 s
+      Total packets            =         58084
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =      29739008
+      Average bitrate          =  23759.862390 Kbit/s
+      Average packet rate      =   5800.747654 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Error lines              =             0
+</PRE>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00056000000000000000">
+Example #6</A>
+</H2>
+Generation of VoIP, Telnet and DNS flows towards two distinct destinations:
+
+<P>
+
+<OL>
+<LI>start the receiver on the first destination host:
+<PRE>
+        $ ./ITGRecv -l recv1_log_file
+</PRE>
+</LI>
+<LI>start the receiver on the second destination host:
+<PRE>
+        $ ./ITGRecv -l recv2_log_file
+</PRE>
+</LI>
+<LI>create the script file
+<PRE>
+        $ cat &gt; script_file &lt;&lt;END
+        -a 10.0.0.3 -rp 10001 VoIP -x G.711.2 -h RTP -VAD
+        -a 10.0.0.4 -rp 10002 Telnet
+        -a 10.0.0.4 -rp 10003 DNS
+        END
+</PRE>
+</LI>
+<LI>start the sender on the source host:
+<PRE>
+        $ ./ITGSend script_file -l sender_log_file
+</PRE>
+</LI>
+<LI>close the first receiver by pressing Ctrl+C
+</LI>
+<LI>close the second receiver by pressing Ctrl+C
+</LI>
+<LI>decode the sender log file:
+<PRE>
+        $ ./ITGDec sender_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 2
+      From 10.0.0.4:33029
+      To    10.0.0.4:10002
+      ----------------------------------------------------------
+      Total time               =      9.998991 s
+      Total packets            =          1139
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =          2482
+      Average bitrate          =      1.985800 Kbit/s
+      Average packet rate      =    113.911494 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34776
+      To    10.0.0.3:10001
+      ----------------------------------------------------------
+      Total time               =      9.980002 s
+      Total packets            =           500
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =         56000
+      Average bitrate          =     44.889771 Kbit/s
+      Average packet rate      =     50.100190 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+      ----------------------------------------------------------
+      Flow number: 3
+      From 10.0.0.4:34775
+      To    10.0.0.4:10003
+      ----------------------------------------------------------
+      Total time               =      8.928575 s
+      Total packets            =             6
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =          1507
+      Average bitrate          =      1.350271 Kbit/s
+      Average packet rate      =      0.672000 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             3
+      Total time               =     10.027982 s
+      Total packets            =          1645
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =         59989
+      Average bitrate          =     47.857286 Kbit/s
+      Average packet rate      =    164.040981 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Error lines              =             0
+      ----------------------------------------------------------
+</PRE>
+</LI>
+<LI>decode the first receiver log file:
+<PRE>
+        $ ./ITGDec recv1_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 1
+      From 10.0.0.4:34776
+      To    10.0.0.3:10001
+      ----------------------------------------------------------
+      Total time               =      9.980004 s
+      Total packets            =           500
+      Minimum delay            =   3633.375466 s
+      Maximum delay            =   3633.384447 s
+      Average delay            =   3633.376101 s
+      Average jitter           =      0.000138 s
+      Delay standard deviation =      0.000259 s
+      Bytes received           =         56000
+      Average bitrate          =     44.889762 Kbit/s
+      Average packet rate      =     50.100180 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             1
+      Total time               =      9.980004 s
+      Total packets            =           500
+      Minimum delay            =   3633.375466 s
+      Maximum delay            =   3633.384447 s
+      Average delay            =   3633.376101 s
+      Average jitter           =      0.000138 s
+      Delay standard deviation =      0.016080 s
+      Bytes received           =         56000
+      Average bitrate          =     44.889762 Kbit/s
+      Average packet rate      =     50.100180 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Error lines              =             0
+</PRE>
+</LI>
+<LI>decode the second receiver log file:
+<PRE>
+        $ ./ITGDec recv2_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 2
+      From 10.0.0.4:33029
+      To    10.0.0.4:10002
+      ----------------------------------------------------------
+      Total time               =      9.998989 s
+      Total packets            =          1139
+      Minimum delay            =      0.000019 s
+      Maximum delay            =      0.000934 s
+      Average delay            =      0.000034 s
+      Average jitter           =      0.000014 s
+      Delay standard deviation =      0.000056 s
+      Bytes received           =          2482
+      Average bitrate          =      1.985801 Kbit/s
+      Average packet rate      =    113.911516 pkt/s
+      Packets dropped          =             0 (  0 %)
+      ----------------------------------------------------------
+      ----------------------------------------------------------
+      Flow number: 3
+      From 10.0.0.4:34775
+      To    10.0.0.4:10003
+      ----------------------------------------------------------
+      Total time               =      8.928556 s
+      Total packets            =             6
+      Minimum delay            =      0.000023 s
+      Maximum delay            =      0.000042 s
+      Average delay            =      0.000028 s
+      Average jitter           =      0.000005 s
+      Delay standard deviation =      0.000006 s
+      Bytes received           =          1507
+      Average bitrate          =      1.350274 Kbit/s
+      Average packet rate      =      0.672001 pkt/s
+      Packets dropped          =             0 (  0 \%)
+      ----------------------------------------------------------
+
+      ****************  TOTAL RESULTS   ******************
+      Number of flows          =             2
+      Total time               =     10.023268 s
+      Total packets            =          1145
+      Minimum delay            =      0.000019 s
+      Maximum delay            =      0.000934 s
+      Average delay            =      0.000034 s
+      Average jitter           =      0.000014 s
+      Delay standard deviation =      0.007472 s
+      Bytes received           =          3989
+      Average bitrate          =      3.183792 Kbit/s
+      Average packet rate      =    114.234200 pkt/s
+      Packets dropped          =             0 (  0 %)
+      Error lines              =             0
+      ----------------------------------------------------------
+</PRE>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00057000000000000000">
+Example #7</A>
+</H2>
+Single SCTP flow, with association Id 3 and max outband stream 1,  with constant inter-departure time between packets, constant packet size, and local sender log:
+
+<P>
+
+<OL>
+<LI>start receiver on the destination host (192.168.1.10):
+<PRE>
+        $ ./ITGRecv
+</PRE>
+</LI>
+<LI>start the sender on the source host:
+<PRE>
+        $ ./ITGSend -a 192.168.1.10 -m RTTM -T SCTP 3 1 -rp 9030 -l send_log_file
+</PRE>
+</LI>
+<LI>close the ITGRecv by pressing Ctrl+C
+</LI>
+<LI>decode the sender log file on the source host:
+<PRE>
+        $ ./ITGDec send_log_file
+</PRE>
+<PRE>
+      ----------------------------------------------------------
+      Flow number: 1
+      From 192.168.1.5:32772
+      To    192.168.1.10:9030
+      ----------------------------------------------------------
+      Total time               =      9.998896 s
+      Total packets            =         10000
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =       5120000
+      Average bitrate          =   4096.452248 Kbit/s
+      Average packet rate      =   1000.110412 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      ----------------------------------------------------------
+
+      ****************  TOTAL RESULTS   *****************
+      Number of flows          =             1
+      Total time               =      9.998896 s
+      Total packets            =         10000
+      Minimum delay            =      0.000000 s
+      Maximum delay            =      0.000000 s
+      Average delay            =      0.000000 s
+      Average jitter           =      0.000000 s
+      Delay standard deviation =      0.000000 s
+      Bytes received           =       5120000
+      Average bitrate          =   4096.452248 Kbit/s
+      Average packet rate      =   1000.110412 pkt/s
+      Packets dropped          =             0 (0.00 %)
+      Error lines              =             0
+      ----------------------------------------------------------
+</PRE>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00058000000000000000">
+Example #8</A>
+</H2>
+Single DCCP flow  with constant inter-departure time between packets, constant packet size,  and local sender log:
+
+<P>
+
+<OL>
+<LI>start receiver on the destination host (192.168.1.10):
+<PRE>
+        $ ./ITGRecv
+</PRE>
+</LI>
+<LI>start the sender on the source host:
+<PRE>
+        $ ./ITGSend -a 192.168.1.10 -m RTTM -T DCCP -rp 9030 -l send_log_file
+</PRE>
+</LI>
+<LI>close the ITGRecv by pressing Ctrl+C
+</LI>
+<LI>decode the sender log file on the source host:
+<PRE>
+        $ ./ITGDec send_log_file
+</PRE>
+<PRE>
+----------------------------------------------------------
+Flow number: 1
+From 192.168.1.5:47426
+To    192.168.1.10:9030
+----------------------------------------------------------
+Total time               =      9.998912 s
+Total packets            =         10000
+Minimum delay            =      0.000000 s
+Maximum delay            =      0.000000 s
+Average delay            =      0.000000 s
+Average jitter           =      0.000000 s
+Delay standard deviation =      0.000000 s
+Bytes received           =       5120000
+Average bitrate          =   4096.445693 Kbit/s
+Average packet rate      =   1000.108812 pkt/s
+Packets dropped          =             0 (0.00 %)
+----------------------------------------------------------
+
+****************  TOTAL RESULTS   ******************
+Number of flows          =             1
+Total time               =      9.998912 s
+Total packets            =         10000
+Minimum delay            =      0.000000 s
+Maximum delay            =      0.000000 s
+Average delay            =      0.000000 s
+Average jitter           =      0.000000 s
+Delay standard deviation =      0.000000 s
+Bytes received           =       5120000
+Average bitrate          =   4096.445693 Kbit/s
+Average packet rate      =   1000.108812 pkt/s
+Packets dropped          =             0 (0.00 %)
+Error lines              =             0
+----------------------------------------------------------
+</PRE>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00059000000000000000">
+Example #9</A>
+</H2>
+Single UDP flow with bursty inter-departure time between packets (the on and off period durations are random variables: the former is an exponential with average 100, while the latter is a Weibull with shape 10 and scale 100) and constant packet size, and with local sender log
+
+<P>
+
+<OL>
+<LI>start receiver on the destination host (192.168.1.10):
+<PRE>
+        $ ./ITGRecv
+</PRE>
+</LI>
+<LI>start the sender on the source host:
+<PRE>
+        $ ./ITGSend -a 192.168.1.10 -T UDP -l send_log_file -B E 100 W 10 100
+</PRE>
+</LI>
+<LI>close the ITGRecv by pressing Ctrl+C
+</LI>
+<LI>decode the sender log file on the source host:
+<PRE>
+        $ ./ITGDec send_log_file
+</PRE>
+<PRE>
+----------------------------------------------------------
+Flow number: 1
+From 192.168.1.5:47973\
+To    192.168.1.10:8999
+----------------------------------------------------------
+Total time               =      9.998912 s
+Total packets            =          8720
+Minimum delay            =      0.000000 s
+Maximum delay            =      0.000000 s
+Average delay            =      0.000000 s
+Average jitter           =      0.000000 s
+Delay standard deviation =      0.000000 s
+Bytes received           =       4464640
+Average bitrate          =   3571.853445 Kbit/s
+Average packet rate      =    872.034533 pkt/s
+Packets dropped          =             0 (0.00 %)
+----------------------------------------------------------
+
+****************  TOTAL RESULTS   ******************
+Number of flows          =             1
+Total time               =      9.998912 s
+Total packets            =          8720
+Minimum delay            =      0.000000 s
+Maximum delay            =      0.000000 s
+Average delay            =      0.000000 s
+Average jitter           =      0.000000 s
+Delay standard deviation =      0.000000 s
+Bytes received           =       4464640
+Average bitrate          =   3571.853445 Kbit/s
+Average packet rate      =    872.034533 pkt/s
+Packets dropped          =             0 (0.00 %)
+Error lines              =             0
+----------------------------------------------------------
+</PRE>
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION00060000000000000000">
+Bibliography</A>
+</H2><DL COMPACT><DD>
+
+<P>
+<P></P><DT><A NAME="d-itg0000">1</A>
+<DD>
+S. Avallone, A. Pescap&#233;, G. Ventre, "Distributed Internet Traffic Generator (D-ITG): analysis and experimentation over heterogeneous networks", Poster at International Conference on Network Protocols, ICNP 2003  November 2003, Atlanta - Georgia (USA).
+
+<P>
+<P></P><DT><A NAME="d-itg1111">2</A>
+<DD>
+D. Emma, A. Pescap&#233;, G. Ventre, "Analysis and experimentation of an open distributed platform for synthetic traffic generation", 10th IEEE International Workshop on Future Trends of Distributed Computing Systems (FTDCS 2004), pp. 277-283, May 2004, Suzhou (China).
+
+<P>
+<P></P><DT><A NAME="d-itg3333">3</A>
+<DD>
+A. Botta, A. Dainotti, A. Pescap&#233;, "Do You Trust Your Software-based Traffic Generator?'', IEEE Communications Magazine, vol.48, no.9, pp.158-165, Sept. 2010.
+
+<P>
+<P></P><DT><A NAME="d-itg2222">4</A>
+<DD>
+A. Dainotti, A. Botta, A. Pescap&#233;, "A tool for the generation of realistic network workload for emerging networking scenarios", Computer Networks (Elsevier), Volume 56, Issue 15, 15 October 2012, Pages 3531-3547.
+
+<P>
+<P></P><DT><A NAME="pggloby">5</A>
+<DD> A. Dainotti, A. Pescap&#233;, P. Salvo Rossi, G. Iannello, F. Palmieri, G. Ventre,  ``An HMM Approach to Internet Traffic Modeling'', <SPAN  CLASS="textit">2006 IEEE GLOBECOM, Quality, Reliability, and Performance Modeling for Emerging Network Services Symposium.</SPAN>
+
+<P>
+<P></P><DT><A NAME="1">6</A>
+<DD>
+A. Dainotti, A. Botta, A. Pescap&#233;, G. Ventre,
+<BR><SPAN  CLASS="textit">"Searching for Invariants in Network Games Traffic"</SPAN>  , Poster at ACM Co-Next 2006 Student Workshop. 2-pages abstract published in Co-Next '06 Proceedings  .
+
+<P>
+<P></P><DT><A NAME="2">7</A>
+<DD>
+T. Lang, P. Branch, G. J. Armitage:
+<BR><SPAN  CLASS="textit">A synthetic traffic model for Quake3</SPAN>. Advances in Computer Entertainment Technology 2004: 233-238
+
+<P>
+</DL>
+
+<P>
+</BODY></HTML>

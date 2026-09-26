@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matlab scripts for statistical analysis | Traffic</title>
+  <meta name="description" content="Matlab scripts for statistical analysis — Traffic research group, University of Napoli Federico II.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/site.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
+    </div>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Traffic, home">
+        <img src="../images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="../ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="../pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="../uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="../index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="../index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="../index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="../index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="../np.html">High-performance networking</a>
+                  <a href="../timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="../netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="../security.html">Network security</a>
+                  <a href="../internetcensor.html">Internet censorship detection</a>
+                  <a href="../cloud.html">Cloud monitoring and control</a>
+                  <a href="../sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="../bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="../other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="../publications.html" class="nav-link">Publications</a></li>
+          <li><a href="../news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle is-current" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="../Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="../Traces/ttraces.php">Traffic traces</a>
+              <a href="../Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="../Traces/Magnets.php">MagNets data traces</a>
+              <a href="../Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="../mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="../collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="../visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>Material</span></nav>
+        <h1 class="page-title">Matlab scripts for statistical analysis</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose">
+
+  <p>
+    This page contains some Matlab&trade; functions useful for statistical analysis.
+    Most of these scripts have been written with the explicit purpose of analyzing
+    time series extracted from network traffic traces.
+  </p>
+
+  <h2>Citing</h2>
+  <p>
+   When refering to our tools, please cite the following Reference:
+  </p>
+  <p style="padding-left: 1em">
+   <b>A. Pescap&egrave;, A. Dainotti, A. Botta, &quot;On Internet Measurement Research&quot;,
+   1st Newsletter of the IEEE Technical Committee on Communication Systems Integration and Modeling,  November 2006</b>
+  </p>
+
+  
+
+  <hr>
+  <br>
+  <table>
+   <tbody>
+    <tr><td colspan=3><br></td></tr>
+    <tr><td colspan=3><b>Marginal Distributions Estimation and Analysis</b></td></tr>
+    <tr><td colspan=3><hr></td></tr>
+
+    <tr valign=top>
+     <td>
+      <b><a href=m/scott.m>scott.m</a></b>
+     </td>
+     <td>[w,bins]=scott(c,normal,factor)</td>
+     <td>
+      
+	     Calculate bins width and bins vector using the Scott's rule applied to vector 'c'.
+	     <br>normal = 1 : Use Normal rule
+	     <br>normal = 0 : Correct normal rule with a skewness factor
+	     <br>factor : Multiply calculated width by factor.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/pdfplot.m>pdfplot.m</a></b></td>
+     <td>[p,w,bins]=pdfplot(c,color,flag)</td>
+     <td>
+      
+       Plot the PDF of distribution c using Scott's rule to choose the bin width,
+       if 'flag' argument is given then the Matlab 'plot' command is used instead of 'bars'.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/pdfplotbins.m>pdfplotbins.m</a></b></td>
+     <td>p=pdfplotbins(c,w,bins,color,flag)</td>
+     <td>
+      
+       Plot the PDF of distribution c with given bins (w,bins are respectively the bin width and the bins' vector),
+       if 'flag' argument is given then the Matlab 'plot' command is used instead of 'bars'.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/bivpdf.m>bivpdf.m</a></b></td>
+     <td>bivpdf(seta,wa,setb,wb,bmin,bmax)</td>
+     <td>
+      
+       Plot the bivariate PDF of variables 'seta' and 'setb' by using bins widths 'wa' and 'wb'.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/ccdf.m>ccdf.m</a></b></td>
+     <td>ccdf(empirical,cutmin)</td>
+     <td>
+      
+       Display log-log Complementary CDFs and compute the alfa paramter starting from 'cutmin'.
+      
+     </td>
+    </tr>
+
+    <tr><td colspan=3><br></td></tr>
+    <tr><td colspan=3><b>Entropy</b></td></tr>
+    <tr><td colspan=3><hr></td></tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/entropy_base.m>entropy_base.m</a></b></td>
+     <td>entropy_base(p,base)</td>
+     <td>
+      
+       Calculate the entropy of a single random variable given its PDF in the vector p and the base of the logarithm.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/joint_ent.m>joint_ent.m</a></b></td>
+     <td>joint_ent(Pxy,base)</td>
+     <td>
+      
+       Calculate the joint entropy of a joint PDF "Pxy".
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/mutual_info.m>mutual_info.m</a></b></td>
+     <td>mutual_info(Px,Py,Pxy,base)</td>
+     <td>
+      
+       Calculate mutual info between 2 probability distributions.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/conditional_ent.m>conditional_ent.m</a></b></td>
+     <td>conditional_ent(Px,Pxy,base)</td>
+     <td>
+      
+       Calculate conditional entropy of a random variable.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/sim_uncert.m>sim_uncert.m</a></b></td>
+     <td>sim_uncert(data,bins)</td>
+     <td>
+	     Calculate the simmetrical uncertainty of the bivariate dataset data by using the number of bins specified by 'bins'.
+     
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/umargplot_off.m>umargplot_off.m</a></b></td>
+     <td>[newset,entr,um]=umargplot_off(empir,n,w)</td>
+     <td>
+     Perform a dataset reduction. Based on the Offline-Marginal Utility
+     
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/umarg.m>umarg.m</a></b></td>
+     <td>[U]=umarg(Pr1, Pr2)</td>
+     <td>
+     Compute the marginal utility between two distributions
+     
+     </td>
+    </tr>
+
+    <tr><td colspan=3><br></td></tr>
+    <tr><td colspan=3><b>Second Order Analysis</b></td></tr>
+    <tr><td colspan=3><hr></td></tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/acf_plot.m>acf_plot.m</a></b></td>
+     <td>acf_plot(empirical,directory,variable)</td>
+     <td>
+	     Plot the autocorrelation function of the data specified by empirical and save the figure in eps format.
+     
+     </td>
+    </tr>
+
+    <tr><td colspan=3><br></td></tr>
+    <tr><td colspan=3><b>Statistical Fitting</b></td></tr>
+    <tr><td colspan=3><hr></td></tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/lambdasquare.m>lambdasquare.m</a></b></td>
+     <td>
+     [x2,lambda2,dev] = lambdasquare(empirical, analytical, param, bins, mmin, mmax)
+     </td>
+     <td>
+      
+       Estimate lambda-square discrepancy.<br>
+       param = parameters of the analytical distribution.<br>
+       bins = custom bins vector or bin width.<br>
+       min,max:<br>
+       Use 0,0 to not make any truncations.<br>
+       Use 1,1 to truncate analytical to match min and max from empirical.<br>
+       Use different values to truncate both distros at your pleasure.<br>
+       Returns the Chi-square estimation (x2), the lambda-square estimation (lamdba2), and its standard deviation.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b><a href=m/fitting.m>fitting.m</a></b></td>
+     <td>fitting(emp_orig,empirical,w,b)</td>
+     <td>
+      
+      Perform Statistical fitting by comparing the empirical distribution given against several analytical
+      distributions by means of the Lambda-square discrepancy measure.<br>
+      It displays comparisons of the PDFs of each analytical distribution against the empirical one.<br>
+      It outputs also data formatted to be inserted into a latex table.
+      
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/bestlambda.m>bestlambda.m</a></b></td>
+     <td>bl = bestlambda(s)</td>
+     <td>
+      Simple script needed by "fitting.m". It compares several lambda-square discrepancy measures taking into account their standard deviations.
+     
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/workfit.m>workfit.m</a></b></td>
+     <td>[lam,dev] = workfit(emp_orig, empirical, w, b, an, param, string);</td>
+     <td>
+      Simple script needed by "fitting.m". It plots the PDFs of an analytical distribution and of the empirical one in one single diagram.
+     
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/normmix2.m>normmix2.m</a></b></td>
+     <td>
+     [p, m, s, x, pdf, an] = normmix2(data, iter, flag)</td>
+     <td>
+      Perform statistical fitting using the Expectation Maximization algorithm with a mixture of 2 Gaussian distributions.<br>
+      INPUT<br>
+      data:		data to be fitted<br>
+      iter:		max number of iterations (0 = default)<br>
+      flag:		OPTIONAL:<br>
+      0	do nothing<br>
+      1	plot a comparison of the PDFs<br>
+      <br>
+      OUTPUT<br>
+      p:		percentages<br>
+      m:		param1<br>
+      s:		param2<br>
+      x:		x for the pdf<br>
+      pdf:		y for the pdf<br>
+      an:		OPTIONAL: generate 100k random numbers following the obtained mixture<br>
+     
+     </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/normmix3.m>normmix3.m</a></b></td>
+     <td>[p, m, s, x, pdf, an] = normmix3(data, iter, flag)</td>
+     <td>
+     Same as above, but with a mix of 3 Gaussian distributions.
+     
+     </td>
+    </tr>
+
+    <tr valign=top>
+      <td><b>
+       <a href=m/normmix4.m>normmix4.m</a></b></td>
+      <td>[p, m, s, x, pdf, an] = normmix4(data, iter, flag)</td>
+      <td>
+      Same as above, but with a mix of 4 Gaussian distributions.
+      
+      </td>
+    </tr>
+
+    <tr valign=top>
+      <td><b>
+       <a href=m/normmix5.m>normmix5.m</a></b></td>
+      <td>[p, m, s, x, pdf, an] = normmix5(data, iter, flag)</td>
+      <td>
+      Same as above, but with a mix of 5 Gaussian distributions.
+      
+      </td>
+    </tr>
+
+    <tr valign=top>
+      <td><b>
+       <a href=m/tail.m>tail.m</a></b></td>
+      <td>tail(empirical,analytical)</td>
+      <td>
+	      Estimate goodness of tail approximation.
+      
+      </td>
+    </tr>
+
+    <tr><td colspan=3><br></td></tr>
+    <tr><td colspan=3><b>Network Traffic Time Series</b></td></tr>
+    <tr><td colspan=3><hr></td></tr>
+
+    <tr valign=top>
+      <td><b>
+       <a href=m/bitrate.m>bitrate.m</a></b></td>
+      <td>[x,y] = bitrate(ipt, ps, k, steps, unit, time_unit)</td>
+      <td>
+       
+	Calculate bit or packet rate from the inter-packet time and packet size series.<br>
+
+	<br>INPUT<br>
+	ipt:		inter packet times<br>
+	ps:		vector of packet sizes (set to a single value to calculate the packet rate)<br>
+	k:		sampling period of the calculated rate<br>
+	steps:		how many samples to compute<br>
+	unit:<br>
+	set unit = 1 to have byte rate<br>
+	set unit = 8 to have bit rate (unaffected if packet rate is requested)<br>
+	time_unit:<br>
+	if ipt are expressed in seconds set to 1<br>
+	if ipt are exepressed in ms set to 1000<br>
+	etc..<br>
+
+	Note that ps() has one more element than ipt() !<br>
+	<br>OUTPUT:<br>
+	x:		time ticks<br>
+	y:		corresponding rate for each tick<br>
+       
+      </td>
+    </tr>
+
+    <tr valign=top>
+     <td><b> <a href=m/bitrate2.m>bitrate2.m</a></b></td>
+     <td>[x,y]=bitrate2(time,ps,scale,unit,time_type,time_unit);</td>
+     <td>
+      
+       Calculate bit or packet rate from the inter-packet time (or timestamps of arrivals) and packet size series.<br>
+       <br>
+       Much faster than bitrate.m<br>
+       Can work with the timestamps of arrivals too.<br>
+      
+     </td>
+    </tr>
+
+    <tr><td colspan=3><br></td></tr>
+    <tr><td colspan=3><b>Network Traffic Modeling</b></td></tr>
+    <tr><td colspan=3><hr></td></tr>
+
+    <tr valign=top>
+     <td><b>
+      <a href=m/HMM.zip>HMM.zip</a></b></td>
+     <td>Hidden Markov Models library</td>
+     <td>
+      
+      This set of scripts implements techniques based on Hidden Markov Models to model, replicate, and predict network traffic.
+      They have been used in our works, e.g.
+      "<a href="../publications.html">An HMM Approach to Internet Traffic Modeling</a>"
+      
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr>
+  <br>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="../people.html">People</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../news.html">News</a></li>
+          <li><a href="../collaborations.html">Collaborations</a></li>
+          <li><a href="../visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

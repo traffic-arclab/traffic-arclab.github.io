@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CloudSurf Project | Documentation</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+
+    <!--[if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/cloud_ico.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header">
+        <!--<div class="container">
+            <div class="row">
+                <div class="col-sm-12 overflow">
+                   <div class="social-icons pull-right">
+                        <ul class="nav nav-pills">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+             </div>
+        </div>-->
+<!--         <div class="navbar navbar-inverse navbar-fixed-top" role="banner"> -->
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">
+<!--                     <h1><img src="images/logo.png" alt="logo"></h1> -->
+                    	<h1><img src="images/home/cloud.png"><b>CloudSurf | Documentation</b></h1>
+                    </a>
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#Modes">Modes</a></li>
+                        <li class="active"><a href="#Experiments">Experiments</a></li>
+                        <li class="active"><a href="#Output">Output</a></li>
+                        <li class="active"><a href="#footer">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+
+
+    <section id="Modes"  class="scura">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12">
+                    <h2>Modes</h2>
+                    <p>CloudSurf allows you to monitor the performance of the cloud network in its constituent parts.</p>
+                    <ul>
+                    <li>o The intra-datacenter network
+                    <li>o The inter-datacenter network
+                    <li>o The User-to-cloud network
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>Intra-datacenter network performance</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p> This mode allows you to benchmark the network interconnecting two VMs deployed into the same geographic region.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>Inter-datacenter network performance</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>This mode allows you to benchmark the network interconnecting two VMs deployed into different geographic regions.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>User-to-Cloud network performance</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>This mode allows to benchmark the performance of the set of paths that interconnect the cloud consumer to the datacenter.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+<section id="Experiments">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12">
+                    <h2>Preconfigured Experiments</h2>
+                    <p>Cloudsurf comes with a set of preconfigured experiments:</p>
+                    <ul>
+                    <li>o TCP throughput and latency test
+                    <li>o UDP throughput test
+                    <li>o ICMP latency
+                    <li>o Path characterization
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>TCP throughput and latency</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>This experiments aims at finding the maximum TCP throughput and the perceived latency by generating high-rate (1 Gbps) synthetic TCP traffic.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>UDP throughput</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>This experiments aims at finding the maximum UDP throughput by generating high-rate (1 Gbps) synthetic UDP traffic.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>ICMP latency</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>This experiments aims at finding the maximum the latency perceived by generating low-rate (10 pps) ICMP traffic.</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>Path characterization</br>(Soon Available)</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>This experiments aims at characterizing the traversed path in terms of hop distance, traversed ASes, and number of paths.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+<section id="Output" class="scura">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12">
+                    <h2>Output Format</h2>
+                    <p>CloudSurf defines a common output format for the results of the experiment.</p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>JSON file naming format</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>
+JSON file naming example:
+<pre>
+aws-us-west-2a-t2.medium_aws-us-east-1d-t2.nano_1452774551_results.json
+</pre>
+JSON file naming template:
+<pre>
+&lt;snd_prv&gt;-&lt;snd_plc&gt;-&lt;snd_type&gt;_&lt;rcv_prv&gt;-&lt;rcv_plc&gt;-&lt;rcv_type&gt;_&lt;ts&gt;_results.json
+</pre>
+JSON file naming fields:
+<pre>
+<ul>
+<li>- snd_prv &#8594; provider of sender VM
+<li>- snd_plc &#8594; placement of sender VM
+<li>- snd_type &#8594; type of sender VM
+<li>- rcv_prv &#8594; provider of receiver VM
+<li>- rcv_plc &#8594; placement of receiver VM
+<li>- rcv_type &#8594; type of receiver VM
+<li>- ts &#8594; starting timestamp of the campaign
+</ul>
+</pre>
+				</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                <h3>JSON file format</h3>
+                </div>
+
+                <div class="col-sm-9 well">
+                <p>
+JSON file example:
+<pre>
+<script>
+document.write(JSON.stringify([{"start": 1452774556, "proto": "tcp", "info_rcv": {"protocol": "tcp", "ip_receiver": "52.90.87.130", "exp_name": "nuttcp_1", "start_time": 1452774551, "tool": "NUTTCP_R", "ip_agent": "172.31.38.66", "duration": 300, "ip_exp_sender": "52.32.69.18", "ip_sender": "52.32.69.18", "port": 18100, "ip_exp_receiver": "52.90.87.130"}, "exp_name": "nuttcp_1", "duration": 300, "camp": {"region_rcv": "us-east-1d", "size_snd": "t2.medium", "provider_rcv": "aws", "region_snd": "us-west-2a", "provider_snd": "aws", "size_rcv": "t2.nano"}, "info_snd": {"protocol": "tcp", "ip_receiver": "52.90.87.130", "exp_name": "nuttcp_1", "start_time": 1452774556, "target_bwd": 1000000000, "tool": "NUTTCP_S", "ip_agent": "172.31.41.163", "granularity": 0.1, "duration": 300, "ip_exp_sender": "52.32.69.18", "ip_sender": "52.32.69.18", "port": 18100, "ip_exp_receiver": "52.90.87.130"}, "results": {"delay": {"detailed": null, "synt": {"std": null, "pctl5": null, "min": null, "max": null, "pctl25": null, "pctl95": null, "median": null, "pctl75": null, "mean": 72.88}}, "loss": {"detailed": {"1452774556": 0.0, "1452774557": 0.0, "1452774558": 0.0, "1452774559": 0.0, "1452774560": 0.0, "1452774561": 0.0, "1452774562": 0.0, "1452774563": 0.0, "1452774564": 0.0, "1452774565": 0.0, "1452774566": 0.0, "1452774567": 0.0, "1452774568": 0.0, "1452774569": 0.0, "1452774570": 0.0}, "synt": {"std": 0.0, "pctl5": 0.0, "min": 0.0, "max": 0.0, "pctl25": 0.0, "pctl95": 0.0, "median": 0.0, "pctl75": 0.0, "mean": 0.0}}, "route": {"detailed": null, "synt": null}, "tput": {"detailed": {"1452774556": 70.542418181818178, "1452774557": 109.51876666666666, "1452774558": 104.85843, "1452774559": 108.00174, "1452774560": 106.76547272727272, "1452774561": 105.37968000000001, "1452774562": 106.43177, "1452774563": 107.47920999999999, "1452774564": 106.95507000000001, "1452774565": 106.43014000000001, "1452774566": 105.38191999999999, "1452774567": 109.05135, "1452774568": 106.43038000000001, "1452774569": 105.38316, "1452774570": 108.52799, }, "synt": {"std": 24.666100557004235, "pctl5": 30.828042, "min": 17.301310000000001, "max": 114.29306000000001, "pctl25": 61.342079999999996, "pctl95": 111.673483, "median": 80.216980000000007, "pctl75": 94.895265000000009, "mean": 78.453964036012295}}, "jitter": {"detailed": null, "synt": null}}, "granularity": 0.1}], undefined, 3));
+</script>
+</pre>
+<pre>
+<ul>
+<li>- exp_name &#8594; experiment name
+<li>- tool &#8594; experiment used tool
+<li>- proto (protocol) &#8594; experiment protocol
+<li>- port &#8594; experiment target port
+<li>- start (start_time) &#8594; experiment start time [seconds since the epoch (1970-01-01 UTC)]
+<li>- duration &#8594; experiment duration [s]
+<li>- granularity &#8594; frequency of experiment probes [s]
+<li>- target_bwd &#8594; target bandwidth for throughput measurements [bit/s]
+<li>- interval &#8594; probing interval for ICMP latency measurements [s]
+<li>- ip_agent &#8594; IP address of XMLRPC agent
+<li>- ip_sender &#8594; IP address of sender VM
+<li>- ip_receiver &#8594; IP address of receiver VM
+<li>- ip_exp_sender &#8594; target IP address at sender side
+<li>- ip_exp_receiver &#8594; target IP address at receiver side
+
+<li>- info_snd &#8594; information about sender VM
+
+<li>- info_rcv &#8594; information about receiver VM
+
+<li>- camp &#8594; information about campaign:
+<li>	- provider_snd &#8594; provider of sender VM
+<li>	- region_snd &#8594; placement of sender VM
+<li>	- size_snd &#8594; type of sender VM
+<li>	- provider_rcv &#8594; provider of receiver VM
+<li>	- region_rcv &#8594; placement of receiver VM
+<li>	- size_rcv &#8594; type of receiver VM
+
+<li>- results &#8594; experiment parsed results:
+<li>	- &lt;metric&gt; &#8594; metric of interest (i.e. tput, delay, jitter, loss):
+<li>		- detailed &#8594; detailed results
+<li>			&lt;timestamp&gt;:&lt;value&gt;
+<li>		- synt &#8594; experiment synthetic parameters
+<li>			- mean &#8594; average of experiment samples
+<li>			- median &#8594; median of experiment samples
+<li>			- std &#8594; standard deviation of experiment samples
+<li>			- min &#8594; minimum of experiment samples
+<li>			- pctl5 &#8594; 5-percentile of experiment samples
+<li>			- pctl25 &#8594; 25-percentile of experiment samples
+<li>			- pctl75 &#8594; 75-percentile of experiment samples
+<li>			- pctl95 &#8594; 95-percentile of experiment samples
+<li>			- max &#8594; maximum of experiment samples
+</ul>
+</pre>
+
+				</p>
+
+                                <p>Download results from the <a href="http://143.225.229.177:8080/CloudSurfData/data">community repository</a> and copy them in your local &lt;$CLOUDSURFDIR/cloudsurf_res&gt; directory to easily visualize them through CloudSurf.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 text-center">
+                    <div>
+                        <h2>About</h2>
+                        <h3>CloudSurf is developed and maintained by </br>the <a href="http://traffic.comics.unina.it">Traffic Research Group</a>.</h3>
+                        E-mail: <a href="mailto:pescape[a-t]unina.it">pescape[a t]unina dot it</a> <br>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 ">
+                    <div class="text-center">
+                        <h2>Contacts</h2>
+                        <p>
+                        Traffic Research Group</br>
+                        Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</br>
+                        Universita' degli Studi di Napoli ''Federico II''</br>
+                        (Italy)
+                        </p>
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+
+                </div>
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>&copy; Traffic 2016. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/prettify.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript">
+	(function(jQuery){
+	  jQuery( document ).ready( function() {
+		prettyPrint();
+	  } );
+	}(jQuery))
+</script>
+
+</body>
+</html>

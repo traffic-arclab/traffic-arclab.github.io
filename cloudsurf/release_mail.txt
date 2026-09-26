@@ -1,0 +1,45 @@
+The Traffic Research Group is happy to announce that the CloudSurf Platform is going to be released as an open-source project.
+CloudSurf is a platform that enables cloud consumers to easily perform network monitoring tasks in public cloud infrastructures from the general user angle.
+
+
+# WHO CAN USE IT
+- Internet measurement researchers who are in need of measuring the network performance in public clouds;
+- Cloud consumers who want to benchmark the network performance of public the cloud services they pay for.
+
+CloudSurf is a community-oriented project
+We therefore would be pleased to know from you what you think about it, to get suggestions,
+contributions and requests for collaborations. It would also be nice to know how you plan to use CloudSurf in your project/activity.
+
+CloudSurf is released under ...
+If you are interested in a different kind of licensing please contact us.
+
+
+# MAIN FEATURES
+
+*Easy setup
+To run an experiment you just need to configure the credentials of your cloud account.
+
+*Customizable experiments
+Choose among a set of preconfigured experiments or customize your own monitoring task. 
+A number of preconfigured network experiments can be picked from our portfolio (e.g., intra-datacenter, inter-datacenter, cloud-to-user, etc.). 
+Moreover you can also customize your own experiments, leveraging a wide set of parameters.
+
+*Community results repository
+Check your own results, choose to share them with the community, and access the results obtained by other users.
+
+*Estimation of the cost of the monitoring task
+Check the estimated cost of your monitoring task before you run it.
+
+*Support to most popular cloud providers
+-Amazon Web Services
+-Microsoft Azure (under development)
+
+Thank you,
+The CloudSurf Team @ University of Napoli.
+
+
+# ABOUT TRAFFIC RESEARCH GROUP
+Traffic Research Group (http://traffic.comics.unina.it)
+
+TODO: LICENZA 
+TODO: VERSIONE

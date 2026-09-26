@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+					<td>
+						<div class=textArea>
+							<p><h2>2. Analysis and Performance Evaluation <br>over Windows platform</h2></p>
+							<p><h4>Windows Platform: local experimentation</h4></p>
+							<p><h4>Local experimentation with logging only at receiver side </h4></p>
+							<p>
+								Over Windows platform and by using the log file at the receiver 
+								side, D-ITG presents the performance depicted in Figure 1.
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/windowsImage002.gif" width="281" height="185" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<strong><font size="-1">
+												Figure 1: Comparative analysis of local received<br>
+												data rate over Windows platform (log at receiver side)
+											</font></strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<p>
+								In the case of C=30000pkt/s, c=1024byte, t=60s D-ITG reaches a received data rate 
+								equal to 241Mbit/s with a percentage loss rate equal to 1.8%. At the same received 
+								data rate Iperf and Mtools present respectively a loss rate equal to 38% and 5.3%. 
+								In addition, in section 4.1.1 we have already clarified that the Iperf logging 
+								process does not permit a complete performance analysis. In Figure 2 the percentage 
+								loss rate (between real and expected data rate) as a function of packet rate is reported. 
+								In Figure 3 the percentage loss rate trend is depicted. 
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/windowsImage004.gif" width="275" height="177" border="0"></td>
+										<td><IMG src="images/windowsImage006.gif" width="291" height="177" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<strong><font size="-1">
+												Figure 2: Local received data rate over<br> 
+												Windows platform (log at receiver side)
+											</font></strong>
+										</td>
+										<td>
+											<strong><font size="-1">
+												Figure 3: Local loss rate (%) over <br> 
+												
+										Windows platform (log at receiver side)
+											</font></strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<p><h4>Local experimentation with logging both at receiver and sender side</h4></p>
+							<p>
+								In this subsection we can analyze only D-ITG because there are not traffic 
+								generators, over Windows platform, that can log both at sender and receiver side. 
+								In this case, D-ITG presents a reduction of 102 Mbps (Figure 4). 
+								Indeed in this case, with a percentage loss rate equal to 1.8%, we had a max 
+								data rate equal to 143 Mbps for 17500 pkt/s (in the previous case for the same 
+								percentage loss rate we had a max data rate equal to 245 Mbps for 30000 pkt/s). 
+								In Figure 5 and in Figure 6 the percentage loss rate respectively at sender 
+								and receiver side is depicted.
+							</p>
+							<p>
+								Before to study the performance in a distributed testbed, we can conclude 
+								that under the same conditions, over Windows platforms the maximum data 
+								rate is less than maximum value over Linux platforms.
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/windowsImage008.gif" width="240" height="206" border="0"></td>
+										<td><IMG src="images/windowsImage010.gif" width="214" height="206" border="0"></td>
+										<td><IMG src="images/windowsImage012.gif" width="168" height="206" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<strong><font size="-1">
+												Figure 4: Local generated data rate <br>
+												over Windows platform (log both <br>
+												sender and receiver side)
+											</font></strong>
+										</td>
+										<td>
+											<strong><font size="-1">
+												Figure 5: Local loss rate (%)<br>
+											 	at sender side over Windows platform<br>
+												(log both sender and receiver side)
+											</font></strong>
+										</td>
+										<td>
+											<strong><font size="-1">
+												Figure 6: Local loss rate (%) at <br>
+												receiver side over Windows platform<br>
+												(log both sender and receiver side)
+											</font></strong>
+										</td>
+				
+									</tr>
+								</table>
+							</div>
+							<p><h4>Windows Platform: distributed experimentation</h4></p>
+							<p>
+								In this subsection we describe the results of the distributed 
+								experimentation over Windows platform. In this case we used 
+								the same operational mode of the section <em>
+								"Windows Platform: local experimentation"</em>. 
+							</p>
+							<p><h4>Distributed experimentation with logging only at receiver side </h4></p>
+							<p>
+								Between two Windows devices and by using the log file at the 
+								receiver side D-ITG present the performance depicted in Figure 7. 
+								In Figure 8 a percentage loss rate (between real and expected 
+								data rate) as a function of packets per second number is reported. 
+								In the case of C=30000pkt/s, c=1024byte, t=60s D-ITG reaches a 
+								received data rate equal to 242Mbit/s with a percentage loss rate 
+								equal to 1.4%.
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/windowsImage018.gif" width="299" height="215" border="0"></td>
+										<td><IMG src="images/windowsImage020.gif" width="312" height="215" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<strong><font size="-1">
+												Figure 7: Received data rate over Windows platform <br>
+												(distributed and log at receiver side)
+											</font></strong>
+										</td>
+										<td>
+											<strong><font size="-1">
+												Figure 8: Loss rate (%) trend over Windows platform <br>
+												(distributed and log at receiver side)
+											</font></strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<p>
+								It is important to note that also over two distinct devices D-ITG 
+								is able to reach its higher performance. Figure 9 shows a comparative 
+								analysis between traffic generators over two distinct devices: also in this c
+								ase D-ITG presents the highest performance.
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/windowsImage022.gif" width="334" height="182" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<strong><font size="-1">
+												Figure 9:Comparative analysis of received <br>
+												data rate over Windows devices (distributed<br>
+												 and log at receiver side)
+											</font></strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<p><h4>Distributed experimentation with logging both at receiver and <br>sender side </h4></p>
+							<p>
+								D-ITG is the only traffic generator that, over Windows platform, permits 
+								to log both at sender and receiver side. Thus, over two distinct Windows 
+								devices and by using log file both at receiver and sender side D-ITG 
+								presents the performance depicted in Figure 10 (sender) and in Figure 11 
+								(receiver).
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/windowsImage024.gif" width="312" height="183" border="0"></td>
+										<td><IMG src="images/windowsImage026.gif" width="318" height="194" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<strong><font size="-1">
+												Figure 10: Generated data rate over Windows platforms<br>
+												(distributed and log at sender and receiver side)
+											</font></strong>
+										</td>
+										<td>
+											<strong><font size="-1">
+												Figure 11: Received data rate over Windows platforms<br>
+										 		(distributed and log at sender and receiver side)
+											</font></strong>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<p>
+								<table>
+									<tr>
+										<td><A href="linuxAnalysis.html">Back</A></td>
+										<td><A href="comparativeAnalysis.html">Home</A></td>
+										<td><A href="crossPlatformAnalysis.html">Next</A></td>
+									</tr>
+								</table>
+							</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+</body>
+</html>

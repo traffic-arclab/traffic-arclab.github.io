@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+					<td>
+						<div class=textArea>
+						<p>
+							<font color="darkRed" size=+1>Contributors</font>
+						</p>
+						<p>
+							The following people have contributed in various ways during the course of
+							this implementation project (the list is no particular order). Thanks to all!
+						</p>
+						<p>
+							<ul>
+								<li>
+									Saverio Masino: involved in the first version of D-ITG.
+								</li>
+								<li>
+									Rosario Bosco: involved in the D-ITG performance improvement.
+								</li>
+								<li>
+									Salvatore Guadagno: involved both in the multithread version
+									and the porting on Windows platform. His work represents one of the
+									main bricks to D-ITG development.
+								</li>
+								<li>
+									Alessio Botta: involved in the decoder implementation.
+									By using D-ITG Alessio are working on heterogeneous
+									wireless networks performance analysis.
+								</li>
+								<li>
+									<a href="http://www.grid.unina.it/%7Evollero">Luca Vollero</a>:
+									involved in the porting on Linux Familiar platforms.
+								</li>
+							</ul>
+						</p>
+						<p>
+							Our apologies, if we forgot anyone or anything. Please let us know!
+						</p>
+						<p>
+							<hr>
+							The following people have contributed sending us bug notifications and/or
+							comments. Thanks to all!
+						</p>
+						<p>
+							<ul>
+								<li>
+									Stefan Goethals : an incredible stuff on the bug notification !!!
+								</li>
+							</ul>
+						</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

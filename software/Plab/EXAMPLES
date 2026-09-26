@@ -1,0 +1,38 @@
+Packet Processing
+=================
+
+- Process HTTP traffic
+
+	nohup ./plab -x -r /mnt/dump.log -D 1 -d /usr/local/data/lun -F ../Filters/NA/na-egress.txt -m -P -R 900 -t 900 -Z 7200
+	Commented:
+	       	-x 					# filter out TCP packets without payload
+		-r /mnt/dump.log			# read packets from file ..
+		-D 1					# process only day of week = Monday
+		-d /usr/local/data/lun			# save output logs in directory ..
+		-F ../Filters/NA/na-egress.txt		# Filter read packets using pcap filter in file ..
+		-m					# Evaluate MSS
+		-P					# Inspect packets payload
+		-R 900					# Process rates (pps/bps/sps) with 900 seconds (15 min)
+		-t 900					# Set session timeout to 900 seconds (15 min)
+		-Z 7200					# Set timezone to +7200
+
+
+- Analysis of the Slammer worm traffic
+
+	./plab -r mssql-20030125-0.sanitized.pcap -d mit-20030125-0-BAD -q h -g 1 less 404 and greater 404
+
+
+Packet Capture
+==============
+
+- Capture all TCP:80 traffic in and out proxy.unina.it keeping 10 bytes of TCP payload
+	nohup ./plab -f -p -i em0 -s 300 -W 10 -w ../dumps/proxy tcp and port 80 and host proxy.unina.it
+
+
+
+File Conversions
+================
+
+- Zero-out IP addresses:
+	plab -f -p -0 -r h09.dump -w h09.0.dump
+

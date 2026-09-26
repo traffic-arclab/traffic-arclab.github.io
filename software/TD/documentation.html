@@ -1,0 +1,129 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN "http://www.w3.org/TR/html4/loose.dtd"">
+<html>
+<head>
+<title>..:: Hynetd (Hybrid Network Topology Discovery) ::..</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="Network Tools">
+<META NAME="Keywords" CONTENT="traffic,internet,topology,discovery, generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+<LINK href="../../Traffic/style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+<div class=title>
+  <table height="80">
+    <tbody>
+      <tr valign="center">
+        <td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+        <td><table>
+            <tr>
+              <td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td>
+            <tr>
+            <tr>
+              <td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td>
+            </tr>
+          </table></td>
+      </tr>
+    </tbody>
+  </table>
+  <div align="right"><font class="title"><b>Hynetd</b> (<b>H</b>ybrid <b>N</b>etwork <b>T</b>opology <b>D</b>iscovery)<b></font>&nbsp;</div>
+</div>
+
+<div class=pageArea>
+	<table width="100%">
+	<thead>
+	  <tr valign="top">
+	    <td width="20%" height="100%"></td>
+	    <td width="80%" height="100%"></td>
+	  </tr>
+	</thead>
+
+	<tbody>
+	<tr valign="top">
+	<td height="350" style="border-right:1px dotted #284279;">
+		<div class=linkArea>
+	    	<!-- Inizio Menu laterale -->
+			<table border="0"  width="100%">
+	        <tbody>
+			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="/Traffic/index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Hynetd Home</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="news.html"><img src="images/linkOpaque.gif" border="0">&nbsp;News</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="authors.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="changelog.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Changelog</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="download.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Downloads</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="documentation.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="license.html"><img src="images/linkOpaque.gif" border="0">&nbsp;License</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Publications</a>
+				</td>
+			</tr>			<tr>
+				<td class="menuout" onMouseOver="this.className='menuin'" onMouseOut="this.className='menuout'">
+					<a class="menu" href="others.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Related Projects</a>
+				</td>
+			</tr>	        </tbody>
+      		</table>
+      		<!-- Fine Menu laterale -->
+		</div>
+	</td>
+
+<td>
+	<div class=textArea>
+		<p> <font color="darkRed" size="+1">Documentation</font> </p>
+		<p>
+			In all our releases a complete command line help is present. Also, all our archives contain
+			a README file explaining all the options. In this page Hynetd manuals can be found in both TXT and PDF format.
+		</p>
+		<ul>
+			<li><p><font face="Arial">Manual for the version 0.2.5: <a href="download/README-0.2.5" target="_blank">TXT</a> / <a href="download/manual-0.2.5.pdf" target="_blank">PDF</a></font><img alt="new" src="images/NEWa.gif">
+			</p>
+			</li>
+			<li><p><font face="Arial">Manual for the version 0.2.4: <a href="download/README-0.2.4" target="_blank">TXT</a> / <a href="download/manual-0.2.4.pdf" target="_blank">PDF</a></font>
+			</p>
+			</li>
+		</ul>
+		<p>In the <a href="papers.html">Publications</a> section some Hynetd technical papers are present.</p>
+	</div>
+</td>
+</tr></tbody></table></div></body></html>

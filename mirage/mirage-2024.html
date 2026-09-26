@@ -1,107 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MIRAGE-AppAct-2024 Dataset</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5}a{text-decoration:none;color:#003366}img{max-width:100%;display:block}h1,h2,h3{color:#003366;font-weight:bold}
-.site-header{background:#002244;color:white;text-align:center;padding:18px}.site-title{margin:0;font-size:1.9rem;color:white}
-.page-container{display:flex;min-height:calc(100vh - 120px)}
-.sidebar{width:260px;background:#fff;border-right:1px solid #e0e0e0;padding:20px;overflow-y:auto}
-.main-menu,.submenu{list-style:none;padding:0;margin:0}
-.menu-item{margin-bottom:12px}.menu-link{display:block;padding:10px;border-radius:6px;color:#003366}.menu-link:hover,.menu-link.active{background:#003366;color:#fff}
-.submenu-toggle{cursor:pointer;font-weight:bold;display:block;padding:8px;border-radius:6px}.submenu li{margin-bottom:8px;padding-left:10px}.submenu li a{display:block;padding:6px 8px;border-radius:6px}.submenu li a:hover{background:#003366;color:white}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146925735-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-.main-content{flex:1;padding:25px}.hero-area{text-align:center;background:#fff;padding:35px 25px;margin-bottom:30px;border-radius:12px;box-shadow:0 3px 6px rgba(0,0,0,0.15)}.hero-image{width:260px;margin:20px auto}
-.dataset-button{display:inline-block;background:#003366;color:white;padding:12px 16px;border-radius:8px;margin-top:10px}
-.app-list-compact{background:#fff;padding:25px;border-radius:12px;margin-bottom:30px;box-shadow:0 2px 5px rgba(0,0,0,0.15)}
-.app-list-item{padding:10px 0;border-bottom:1px solid #e0e0e0}.app-list-item:last-child{border-bottom:none}
-.app-title{font-weight:bold;color:#003366}.app-meta{font-size:.9rem;color:#444}
-.row{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px}
-.col{flex:1 1 calc(50% - 20px);background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 5px rgba(0,0,0,0.15)}
-pre{background:#eee;padding:12px;border-radius:8px;overflow-x:auto}
-.site-footer{text-align:center;background:#003366;color:white;padding:25px;margin-top:40px}
+      gtag('config', 'UA-146925735-1');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MIRAGE-AppAct-2024 is a human-generated dataset encompassing the traffic of 20 popular mobile apps and labeled with both the app with and the specific activity performed.">
+    <meta name="keywords" content="Mobile app, Mobile traffic, Traffic classification, Open dataset, MIRAGE, MIRAGE-AppAct-2024, Android app">
+    <meta name="author" content="Antonio Montieri Traffic unina">
+    <title>MIRAGE Project</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/prettify.css" />
 
-@media(max-width:900px){.page-container{flex-direction:column}.sidebar{width:100%;border-right:none;border-bottom:1px solid #ddd}.col{flex:1 1 100%}}
-</style>
+    <link rel="shortcut icon" href="images/ico/cloud_ico.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head>
+
 <body>
-<header class="site-header">
-<h1 class="site-title">MIRAGE-AppAct-2024 Dataset</h1>
-<p>Human-generated dataset of 20 popular mobile apps with activity labels</p>
-</header>
+    <header id="header">
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-<div class="page-container">
-<nav class="sidebar">
-<ul class="main-menu">
-  <li><a href="index.html" class="menu-link">Home</a></li>
-  <li>
-    <span class="submenu-toggle active">MIRAGE-AppAct-2024 ▼</span>
-    <ul class="submenu" style="display:block;">
-      <li><a href="#" class="menu-link active">Overview</a></li>
-      <li><a href="app_list_mirage_2024.html" class="menu-link">App List</a></li>
-    </ul>
-  </li>
-  <li><a href="mirage-2019.html" class="menu-link">MIRAGE-2019</a></li>
-  <li><a href="mirage-covid-ccma-2022.html" class="menu-link">MIRAGE-COVID-CCMA-2022</a></li>
-  <li><a href="mirage-video.html" class="menu-link">MIRAGE-Video</a></li>
-</ul>
-</nav>
+                    <a class="navbar-brand" href="index.html">
+                        <h1><b>MIRAGE-Project</b></h1>
+                    </a>
+                </div>
+                
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right" style="position: relative; z-index: 999;">
+                        <li class="active"><a href="index.html">MIRAGE Home</a></li>
+                        <li class="active"><a href="app_list_mirage_2024.html">App List</a></li>
+                        <li class="active"><a href="mirage-2024.html#download">Download</a></li>
+                        <li class="active"><a href="mirage-2024.html#download">Paper</a></li>
+                        
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Other Datasets <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="mirage-genai-2025.html">MIRAGE-GenAI-2025</a></li>
+                                <li><a href="mirage-covid-ccma-2022.html">MIRAGE-COVID-CCMA-2022</a></li>
+                                <li><a href="mirage-video.html">MIRAGE-Video</a></li>
+                                <li><a href="mirage-2019.html">MIRAGE-2019</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="active"><a href="mirage-2024.html#footer">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>MIRAGE-AppAct-2024 Dataset</h1>
+                        <p><b>MIRAGE-AppAct-2024</b> is a human-generated dataset encompassing the traffic of <b>20 Popular Mobile Apps</b> and labeled with both the app with and the specific activity performed.</p>
+                        <a href="mirage-2024.html#download" class="btn btn-common">DOWNLOAD THE PUBLIC MIRAGE-AppAct-2024 DATASET</a>
+                    </div>
+                    <img src="images/home/slider/mirage-2024.png" class="slider-ccma" alt="slider image">
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <section id="download" class="chiara">
+        <div class="container">
+            <br>
 
-<main class="main-content">
-<section class="hero-area">
-<h1>MIRAGE-AppAct-2024 Dataset</h1>
-<p><b>MIRAGE-AppAct-2024</b> is a human-generated dataset encompassing traffic from <b>20 popular mobile apps</b> labeled with specific activities.</p>
-<img src="images/home/slider/mirage-2024.png" class="hero-image">
-<a href="#download" class="dataset-button">DOWNLOAD THE PUBLIC DATASET</a>
-</section>
+            <div class="row">
+                <div class="col-xs-5">
+                    <div class="well">
+                        <h2>Download <br>MIRAGE-AppAct-2024 <img src="images/home/new.png" width="50" alt="New"></h2>
+                        <a href="MIRAGE/MIRAGE-AppAct-2024.zip">Download the latest downloadable release</a>
+                        <br><br>
+                        <a href="MIRAGE/MIRAGE-AppAct-2024.zip"><img src="images/home/download11.png" class="img-responsive center-block" alt="Download"></a>
+                        <br>
+                        <p><b>MIRAGE-AppAct-2024</b> takes into consideration the traffic generated by more than 240 experimenters using 20 popular mobile apps via 3 devices. 
+                            Each app was used to perform at least one of the following activities: Chat (Chat), Audio-call (ACall),  Online Gaming (Gaming), Video-call (VCall), and Video-streaming (Streaming).</p>
+                        <p>The dataset is released in JSON format, making available the raw traffic data captured.</p>
+                        <p><a href="app_list_mirage_2024.html"> APP LIST</a> reports the details on the apps and related activities contained in the downloadable version of the dataset.</p>
+                        <br/>
+                        <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br/>MIRAGE-AppAct-2024 dataset is released under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
+                    </div>
+                </div>
 
-<section class="app-list-compact">
-<h2>App List Overview (Compact)</h2>
-<p>Summary of some apps in MIRAGE-AppAct-2024. For full list, see <a href="app_list_mirage_2024.html">App List page</a>.</p>
-<div class="app-list-item"><span class="app-title">WhatsApp</span><div class="app-meta">Category: Communication – <a href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank">Metadata</a></div></div>
-<div class="app-list-item"><span class="app-title">Facebook</span><div class="app-meta">Category: Social – <a href="https://play.google.com/store/apps/details?id=com.facebook.katana" target="_blank">Metadata</a></div></div>
-<div class="app-list-item"><span class="app-title">Spotify</span><div class="app-meta">Category: Music – <a href="https://play.google.com/store/apps/details?id=com.spotify.music" target="_blank">Metadata</a></div></div>
-<p style="margin-top:15px;"><a href="app_list_mirage_2024.html" style="font-weight:bold;color:#003366;">View the full list →</a></p>
-</section>
-
-<section id="download" class="row">
-<div class="col">
-<h2>Download MIRAGE-AppAct-2024</h2>
-<p><a href="MIRAGE/MIRAGE-AppAct-2024.zip">Download the latest release</a></p>
-<a href="MIRAGE/MIRAGE-AppAct-2024.zip"><img src="images/home/download11.png" alt=""></a>
-<p><b>MIRAGE-AppAct-2024</b> includes traffic generated by over 240 experimenters using 20 apps on 3 devices, performing activities: Chat, Audio-call, Gaming, Video-call, and Streaming.</p>
-</div>
-</section>
-
-<section id="paper" class="row">
-<div class="col">
-<h2>MIRAGE-AppAct-2024 Paper</h2>
-<pre>
+                <div class="col-xs-7">
+                    <div class="well">
+                        <h2>MIRAGE-AppAct-2024 Paper</h2>
+                        <p>
+                        If you are using <b>MIRAGE-AppAct-2024</b> human-generated dataset for scientific papers, academic lectures, project reports, or technical documents,
+                        please help us increasing its impact by citing the following reference:
+                        </p>
+                        <pre>
 Idio Guarino, Domenico Ciuonzo, Antonio Montieri, Antonio Pescapè,
-MIRAGE-APPxACT-2024: A Novel Dataset for Mobile App and Activity Traffic Analysis, Under submission, 2024.
-</pre>
-</div>
-</section>
+<i>MIRAGE-APPxACT-2024: A Novel Dataset for Mobile App and Activity Traffic Analysis</i>, Under submission, 2024.                
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer id="footer" class="site-footer">
-<p>MIRAGE is maintained by <a href="http://traffic.comics.unina.it" style="color:white;text-decoration:underline;">Traffic Research Group</a>.</p>
-<p>antonio.montieri [at] unina dot it</p>
-<p>&copy; Traffic 2025</p>
-</footer>
-</main>
-</div>
+    <footer id="footer" class="scura">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div>
+                        <h2>About</h2>
+                        <h3>MIRAGE is maintained by <br>the <a href="http://traffic.comics.unina.it">Traffic Research Group</a>.</h3>
+                        E-mail: <a href="mailto:antonio.montieri[a-t]unina.it">antonio.montieri[a t]unina dot it</a> <br>
+                    </div>
+                </div>
 
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const toggles=document.querySelectorAll('.submenu-toggle');
-  toggles.forEach(t=>t.addEventListener('click',()=>{
-    const sub=t.nextElementSibling;
-    sub.style.display=sub.style.display==='block'?'none':'block';
-    t.classList.toggle('active');
-  }));
-});
-</script>
+                <div class="col-md-6 ">
+                    <div class="text-center">
+                        <h2>Contacts</h2>
+                        <p>
+                        Traffic Research Group<br>
+                        Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)<br>
+                        Università degli Studi di Napoli Federico II<br>
+                        (Italy)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>Original template designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
+                        <p>Icons from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> are licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></p>
+                        <p>Slider image generated with OpenAI Chat-GPT</p>
+                        <p>&copy; Traffic 2026. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/prettify.js"></script>
+
+    <script type="text/javascript">
+        (function($){
+          $( document ).ready( function() {
+            prettyPrint();
+          } );
+        }(jQuery));
+    </script>
+
 </body>
 </html>

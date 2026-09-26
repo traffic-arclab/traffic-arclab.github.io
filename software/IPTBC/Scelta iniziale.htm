@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Scelta Iniziale</title>
+<base target="_self">
+<SCRIPT LANGUAGE=javascript src="LayoutFunc.js"></SCRIPT>
+<SCRIPT LANGUAGE=javascript src="Functions.js"></SCRIPT>
+</head>
+
+<body bgcolor="#C0C0C0">
+<form action="" method=POST name=SIForm1>
+<table border="0" width="97%" bgcolor="#C0C0C0"
+style="line-height: 100%; border-style: solid" bordercolor="#C0C0C0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="85%" align="right">
+      <b>Number of Users</b>
+    </td>
+	<td width="5%"> </td>
+	<td>
+	  <!--webbot bot="Validation" s-data-type="Integer" s-number-separators="x" s-validation-constraint="Greater than or equal to" s-validation-value="1" s-validation-constraint="Less than or equal to" s-validation-value="99999" -->
+	  <input type="text" size="5" id="NumUt" name="NumeroUtenti"
+      onclick="Scelto(1)" onchange="aggiornamento()" onblur="aggiornamento()">
+	</td>
+  </tr>
+  <tr>
+    <td width="85%" align="right">
+      <b>Total Traffic [Erlangs]</b>
+	</td>
+	<td width="5%"> </td>
+	<td>
+      <input type="text" size="5" id="ET" name="ErlangTotali"
+      onclick="Scelto(2)" onchange="aggiornamento()" onblur="aggiornamento()">
+	</td>
+  </tr>
+  <tr>
+    <td width="85%" align="right">
+      <b>Number of Lines</b>
+	</td>
+	<td width="5%"> </td>
+	<td>
+      <input type="text" size="5" id="NL" name="NumeroLinee"
+	  onclick="Scelto(3)" onchange="aggiornamento()" onblur="aggiornamento()">
+	</td>
+  </tr>
+</table>
+</form>
+</body>
+
+</html>

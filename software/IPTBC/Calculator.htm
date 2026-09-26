@@ -1,0 +1,186 @@
+<html>
+
+<head>
+<title>Calculator Engine</title>
+<base target="_self">
+<SCRIPT LANGUAGE=javascript src="Functions.js"></SCRIPT>
+<SCRIPT LANGUAGE=javascript src="LayoutFunc.js"></SCRIPT>
+</head>
+<body bgcolor="#C0C0C0">
+
+<center>
+<FORM action="" method=POST id=Form1 name=FrontPage_Form1 onsubmit="return FrontPage_Form1_Validator(this)" >
+
+<table border="1" width="695" bgcolor="#C0C0C0"
+style="line-height: 100%; border-style: solid" bordercolor="#C0C0C0" height="345">
+  <tr>
+    <td width="697" valign="middle" height="13" bgcolor="#C0C0C0" colspan="6">
+      <p style="line-height: 100%"><b>Layer 7 - Application </b>:</td>
+  </tr>
+  <tr>
+    <td width="349" valign="middle" height="29" bgcolor="#C0C0C0">
+      <p align="right"><b>Total Voice Channel (PSTN)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></p>
+    </td>
+    <td width="90" valign="middle" height="29" bgcolor="#C0C0C0">
+      <p align="center"><input type="text" name="CVT" size="8"
+	   style="text-align: centrato">
+    </td>
+    <td width="135" valign="middle" height="29" bgcolor="#C0C0C0" colspan="2">&nbsp;</td>
+    <td width="73" valign="middle" align="center" height="29" bgcolor="#C0C0C0">
+      <p align="center">
+      <input type="text" name="MUL7" size="8"
+		value="64" style="text-align: centrato">
+      </p>
+    </td>
+    <td width="68" valign="middle" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="BW7" size="8">
+    </td>
+  </tr>
+  <tr>
+    <td width="697" height="19" bgcolor="#C0C0C0" colspan="6"
+    style="border-top-style: solid; border-top-color: #808080">
+      <p style="line-height: 100%"><b>Layer 6 - Presentation</b></td>
+  </tr>
+  <tr>
+    <td width="439" height="27" bgcolor="#C0C0C0" colspan="2">
+      <p style="line-height: 100%" align="right"><b>Compression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b><select name="CO" size="1" onchange="CambioCodec(); Calcolo_Valori()" onblur="CambioCodec(); Calcolo_Valori()">
+        <option value="64">G.711 PCM 64K</option>
+        <option value="32">G.721 ADPCM 32K</option>
+        <option value="6.3">G.723.1 MQ-CLP 6.3K</option>
+        <option value="5.3">G.723.1 ACELP 5.3K</option>
+        <option value="40">G.726 ADPCM 40K</option>
+        <option value="32">G.726 ADPCM 32K</option>
+        <option value="24">G.726 ADPCM 24K</option>
+        <option value="16">G.726 ADPCM 16K</option>
+        <option value="16">G.728 Id-CELP 16K</option>
+        <option selected value="8">G.729 CS-ACELP 8K</option>
+        <option value="8">G.729A CS-ACELP 8K</option>
+        <option value="11.8">G729E CS-ACELP 11.8K</option>
+        <option value="5.6">GSM 6.10 (HR)</option>
+        <option value="12.2">GSM 6.10 (EFR)</option>
+     </select></td>
+    <td width="131" height="56" bgcolor="#C0C0C0" colspan="2" rowspan="2">
+      <p align="center"><input type="button" value=" Quality Test" name="QT" onclick="Open_Window_Test()"></p>
+    </td>
+    <td width="73" height="27" bgcolor="#C0C0C0">
+      <input type="text" name="MUL6a" size="8">
+    </td>
+    <td width="68" height="27" bgcolor="#C0C0C0">
+      <input type="text" name="BW6a" size="8">
+    </td>
+  </tr>
+  <tr>
+    <td width="439" height="29" bgcolor="#C0C0C0" colspan="2">
+      <p style="line-height: 100%" align="right"><b>Voice Activity Detection
+      (VAD)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b><select
+      size="1" name="VAD" onchange="Calcolo_Valori()" onblur="Calcolo_Valori()">
+        <option selected value="0.65">Yes</option>
+        <option value="1" >No</option>
+      </select></td>
+    <td width="73" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="MUL6b" size="8" >
+    </td>
+    <td width="68" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="BW6b" size="8" >
+    </td>
+  </tr>
+  <tr>
+    <td width="697" height="15" bgcolor="#C0C0C0" colspan="6"
+    style="border-top-style: solid; border-top-color: #808080">
+      <p style="line-height: 100%"><b>Layers 5+4+3 - Session+Transport+Network</b></td>
+  </tr>
+  </center>
+  <tr>
+    <td width="439" height="23" bgcolor="#C0C0C0" colspan="2">
+      <p align="right"><b>Codec &amp; Packet Delay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select size="1" name="Delay" onchange="Calcolo_Valori()" onblur="Calcolo_Valori()">
+       <option value="10"> 10 milliseconds (1 sample) </option>
+       <option selected value="20"> 20 milliseconds (2 samples) </option>
+       <option value="30"> 30 milliseconds (3 samples) </option>
+       <option value="40"> 40 milliseconds (4 samples) </option>
+       <option value="50"> 50 milliseconds (5 samples) </option>
+       <option value="60"> 60 milliseconds (6 samples) </option>
+       <option value="70"> 70 milliseconds (7 samples) </option>
+       <option value="80"> 80 milliseconds (8 samples) </option>
+       <option value="90"> 90 milliseconds (9 samples) </option>
+      </select></b></td>
+  <center>
+    <td width="283" height="24" bgcolor="#C0C0C0" colspan="4">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="439" height="29" bgcolor="#C0C0C0" colspan="2">
+      <p style="line-height: 100%" align="right"><b>Protocol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select size="1" name="PROT" id="PROT" onchange="Cambio_protocol(); Calcolo_Valori()" onblur="Cambio_protocol(); Calcolo_Valori(); ">
+        <option selected value="40">RTP/UDP/IP</option>
+        <option value="4.62">CRTP with UDP chksum</option>
+        <option value="2.66">CRTP without UDP chksum</option>
+        <option value="0">None</option>
+      </select></b></td>
+    <td width="61" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="HBpp" size="6">
+    </td>
+    <td width="70" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="DBpp" size="6">
+    </td>
+    <td width="73" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="MUL543a" size="8">
+    </td>
+    <td width="68" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="BW543a" size="8">
+    </td>
+  </tr>
+  <tr>
+    <td width="439" height="29" bgcolor="#C0C0C0" colspan="2">
+      <p style="line-height: 100%" align="right"><b>Control&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select size="1" name="CONTROLLO" id="CON" onchange="Calcolo_Valori()" onblur="Calcolo_Valori()">
+        <option value="1.0526" selected>RTCP</option>
+        <option value="1.05">Typical</option>
+        <option value="1">None</option>
+      </select></b></td>
+    <td width="135" height="29" bgcolor="#C0C0C0" colspan="2">
+      <p style="line-height: 100%">&nbsp;</td>
+    <td width="73" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="MUL543b" size="8">
+    </td>
+    <td width="68" height="29" bgcolor="#C0C0C0">
+      <input type="text" name="BW543b" size="8">
+    </td>
+  </tr>
+  <tr>
+    <td width="697" height="14" bgcolor="#C0C0C0" colspan="6"
+    style="border-top-style: solid; border-top-color: #808080"><b>Layer 2 -
+      Data-Link</b></td>
+  </tr>
+    <tr>
+    <td width="439" height="26" bgcolor="#C0C0C0" colspan="2">
+      <p align="right"><b>Protocol&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select id="PROTO2" name="PROTO2" size="1" onchange="Nuova_Finestra(); Calcolo_Valori()" onblur="Calcolo_Valori()">
+        <option value="ATM-AAL1">ATM-AAL1</option>
+        <option value="ATM-AAL2">ATM-AAL2</option>
+        <option value="ATM-AAL5">ATM-AAL5 (SEAL)</option>
+        <option value="Frame Relay">Frame Relay</option>
+        <option value="PPP">PPP</option>
+        <option value="802.3 (Ethernet)">802.3 (Ethernet)</option>
+      </select></b></td>
+    <td width="135" height="26" bgcolor="#C0C0C0" colspan="2">&nbsp;</td>
+    <td width="73" height="26" bgcolor="#C0C0C0">
+      <input type="text" name="MUL2" size="8">
+    </td>
+    <td width="68" height="26" bgcolor="#C0C0C0">
+      <input type="text" name="BW2" size="8">
+    </td>
+    </tr>
+</table>
+
+</FORM>
+</center>
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+Calcolo_Valori();
+//-->
+</SCRIPT>
+
+</body>
+
+</html>

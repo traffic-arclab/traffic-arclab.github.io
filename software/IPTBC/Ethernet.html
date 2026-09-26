@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<title>Ethernet LINK Configurator</title>
+<SCRIPT LANGUAGE=javascript src="Functions.js"></SCRIPT>
+</head>
+
+<body background="fed_back1.gif" bgcolor="#c0c0c0">
+
+<p align="center"><font size="6">Ethernet LINK&nbsp;</font></p>
+<form action="" id="Ethernet" method="post"  NAME="Ethernet" VALUE="" onSubmit="">
+    <table border="1" width="460" bgcolor="#c0c0c0" height="100" bordercolor="#c0c0c0" align=center>
+      <tr>
+        <td width="336" height="19" align="right">
+          <p align="right"><i><b>Choose Ethernet Link Bandwidth&nbsp;&nbsp;&nbsp;&nbsp;
+          [Mbps]</b></i></p></td>
+    <center>
+        <td width="108" height="19" align="right"><select size="1" name="DDC" onchange="Verifica_Banda_e_Calcolo_Banda_Residua()">
+            <option value=""></option>
+            <option value="10">10</option>
+            <option value="100">100</option>
+          </select></td>
+      </tr>
+        <tr>
+        <td width="336" height="19" align="right"><b><i>Data Link Level
+          Bandwidth (Ethernet)&nbsp;&nbsp;&nbsp;&nbsp; [Kbps]</i></b></td>
+        <td width="108" height="19" align="right"><i><input name="DLLB" size="10"></i></td>
+        </tr>
+      <tr>
+        <td width="336" align="right"><b><i>Residual Bandwidth for
+          Data Traffic&nbsp;&nbsp;&nbsp;&nbsp; [Mbps]</i></b></td>
+        <td width="108" height="18" align="right"><b><i><input name="RES" size="10" ></i></b></td>
+      </tr>
+      <tr>
+        <td width="336" height="19" align="right"><b><i>Overall Efficiency (Ethernet&nbsp;
+          vs. PSTN)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [%]</i></b></td>
+        <td width="108" height="19" align="right"><input name="OE" size="10" 
+     ></td>
+      </tr>
+      <tr>
+        <td width="440" height="19" align="right" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="440" height="19" align="center" colspan="2"><input type="button" value="Exit" name="Close" onclick="window.close()"></td>
+      </tr>
+    </table></CENTER>
+</form>
+
+</body>
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+function Verifica_Banda_e_Calcolo_Banda_Residua(){
+	var Band;
+	document.Ethernet.DLLB.value=window.opener.document.FrontPage_Form1.BW2.value;
+	with (document.Ethernet){
+		Band=round(DDC.value-(DLLB.value/1000));
+		if (Band<0){
+		RES.value=0;
+		window.alert("Warning: The Link choosen haven't enough Bandwidth");
+		}
+		else {RES.value=Band
+			OE.value=Math.round(Efficiency(window.opener.document.FrontPage_Form1.BW7.value,DLLB.value));
+
+		}
+	}
+}
+//-->
+</SCRIPT>
+
+</html>

@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<title>PPP LINK Configurator</title>
+<SCRIPT LANGUAGE=javascript src="Functions.js"></SCRIPT>
+</head>
+
+<body background="fed_back1.gif" bgcolor="#c0c0c0">
+
+<p align="center"><font size="6">PPP LINK&nbsp;</font></p>
+<form action="" id="PPP" method="post"  NAME="PPP" VALUE="" onSubmit="">
+    <table border="1" width="460" bgcolor="#c0c0c0" height="100" bordercolor="#c0c0c0" align=center>
+      <tr>
+        <td width="336" height="19" align="right">
+          <p align="right"><i><b>Choose Direct Digital Circuit Bandwidth&nbsp;&nbsp;
+          [Kbps]</b></i></p></td>
+    <center>
+        <td width="108" height="19" align="right"><select size="1" name="DDC" onchange="Verifica_Banda_e_Calcolo_Banda_Residua()">
+            <option value=""></option>
+            <option value="64">64</option>
+            <option value="128">128</option>
+            <option value="256">256</option>
+            <option value="384">384</option>
+            <option value="512">512</option>
+            <option value="768">768</option>
+            <option value="2048">2048</option>
+          </select></td>
+      </tr>
+        <tr>
+        <td width="336" height="19" align="right"><b><i>Data Link Level
+          Bandwidth (PPP)&nbsp;&nbsp; [Kbps]</i></b></td>
+        <td width="108" height="19" align="right"><i><input name="DLLB" size="10"></i></td>
+        </tr>
+      <tr>
+        <td width="336" align="right"><b><i>Residual Bandwidth for
+          Data Traffic&nbsp;&nbsp; [Kbps]</i></b></td>
+        <td width="108" height="18" align="right"><b><i><input name="RES" size="10" ></i></b></td>
+      </tr>
+      <tr>
+        <td width="336" height="19" align="right"><b><i>Overall Efficiency (PPP&nbsp;
+          vs. PSTN)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [%]</i></b></td>
+        <td width="108" height="19" align="right"><input name="OE" size="10" 
+     ></td>
+      </tr>
+      <tr>
+        <td width="440" height="19" align="right" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="440" height="19" align="center" colspan="2"><input type="button" value="Exit" name="Close" onclick="window.close()"></td>
+      </tr>
+    </table></CENTER>
+</form>
+
+</body>
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+function Verifica_Banda_e_Calcolo_Banda_Residua(){
+	var Band;
+	document.PPP.DLLB.value=window.opener.document.FrontPage_Form1.BW2.value;
+	with (document.PPP){
+		Band=round(DDC.value-DLLB.value);
+		if (Band<0){
+		RES.value=0;
+		window.alert("Warning: The DDC choosen haven't enough Bandwidth");
+		}
+		else {RES.value=Band};
+			OE.value=Math.round(Efficiency(window.opener.document.FrontPage_Form1.BW7.value,DLLB.value));
+	}
+}
+//-->
+</SCRIPT>
+</html>

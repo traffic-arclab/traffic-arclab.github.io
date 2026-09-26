@@ -1,96 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Antonio Montieri Traffic unina">
-<title>MIRAGE-AppAct-2024 App List</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5}a{text-decoration:none;color:#003366}img{max-width:100%;display:block}h1,h2,h3{color:#003366;font-weight:bold}
-.site-header{background:#002244;color:white;text-align:center;padding:18px}.site-title{margin:0;font-size:1.9rem;color:white}
-.page-container{display:flex;min-height:calc(100vh - 120px)}
-.sidebar{width:260px;background:#fff;border-right:1px solid #e0e0e0;padding:20px;overflow-y:auto}
-.main-menu,.submenu{list-style:none;padding:0;margin:0}
-.menu-item{margin-bottom:12px}.menu-link{display:block;padding:10px;border-radius:6px;color:#003366}.menu-link:hover,.menu-link.active{background:#003366;color:#fff}
-.submenu-toggle{cursor:pointer;font-weight:bold;display:block;padding:8px;border-radius:6px}.submenu li{margin-bottom:8px;padding-left:10px}.submenu li a{display:block;padding:6px 8px;border-radius:6px}.submenu li a:hover{background:#003366;color:white}
-
-.main-content{flex:1;padding:25px}.app-list-compact{background:#fff;padding:25px;border-radius:12px;margin-bottom:30px;box-shadow:0 2px 5px rgba(0,0,0,0.15)}
-.app-list-item{padding:10px 0;border-bottom:1px solid #e0e0e0}.app-list-item:last-child{border-bottom:none}
-.app-title{font-weight:bold;color:#003366}.app-meta{font-size:.9rem;color:#444}
-.row{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px}
-.col{flex:1 1 calc(50% - 20px);background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 5px rgba(0,0,0,0.15)}
-.site-footer{text-align:center;background:#003366;color:white;padding:25px;margin-top:40px}
-
-@media(max-width:900px){.page-container{flex-direction:column}.sidebar{width:100%;border-right:none;border-bottom:1px solid #ddd}.col{flex:1 1 100%}}
-</style>
+    <meta name="author" content="Antonio Montieri Traffic unina">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MIRAGE-AppAct-2024 is a human-generated dataset encompassing the traffic of 20 popular mobile apps and labeled with both the app and the specific activity performed.">
+    <title>MIRAGE AppAct-2024 App List</title>
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/table.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/prettify.css" />
 </head>
 <body>
-<header class="site-header">
-<h1 class="site-title">MIRAGE-AppAct-2024 | App and Activity List</h1>
-<p>Human-generated dataset for mobile app traffic with activity labels</p>
-</header>
 
-<div class="page-container">
-<nav class="sidebar">
-<ul class="main-menu">
-  <li><a href="index.html" class="menu-link">Home</a></li>
-  <li>
-    <span class="submenu-toggle active">MIRAGE-AppAct-2024 ▼</span>
-    <ul class="submenu" style="display:block;">
-      <li><a href="mirage-2024.html" class="menu-link">Overview</a></li>
-      <li><a href="#" class="menu-link active">App List</a></li>
-    </ul>
-  </li>
-  <li><a href="mirage-2019.html" class="menu-link">MIRAGE-2019</a></li>
-  <li><a href="mirage-covid-ccma-2022.html" class="menu-link">MIRAGE-COVID-CCMA-2022</a></li>
-  <li><a href="mirage-video.html" class="menu-link">MIRAGE-Video</a></li>
-</ul>
-</nav>
+    <header id="header">
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
 
-<main class="main-content">
-<section class="app-list-compact">
-<h2>MIRAGE-AppAct-2024 App List</h2>
-<p>Summary of apps and activities in MIRAGE-AppAct-2024. For full dataset details, see <a href="#">dataset overview</a>.</p>
+                    <a class="navbar-brand" href="mirage-2024.html" style="white-space: normal; height: auto; line-height: 1.2;">
+                        <h1><b>MIRAGE-AppAct-2024 | App and Activity List</b></h1>
+                        <h2><b>Human-generated Dataset for Mobile App and Activity Traffic Analysis</b></h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<!-- Example of app list items -->
-<div class="row">
-  <div class="col">
-    <span class="app-title">WhatsApp</span>
-    <div class="app-meta">Activities: Chat, Audiocall, Videocall – <a href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank">Metadata</a></div>
-  </div>
-  <div class="col">
-    <span class="app-title">Facebook</span>
-    <div class="app-meta">Activities: Chat, Video Streaming – <a href="https://play.google.com/store/apps/details?id=com.facebook.katana" target="_blank">Metadata</a></div>
-  </div>
-  <div class="col">
-    <span class="app-title">Spotify</span>
-    <div class="app-meta">Activities: Music Streaming – <a href="https://play.google.com/store/apps/details?id=com.spotify.music" target="_blank">Metadata</a></div>
-  </div>
-  <div class="col">
-    <span class="app-title">Zoom</span>
-    <div class="app-meta">Activities: Audiocall, Videocall – <a href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank">Metadata</a></div>
-  </div>
-  <!-- Add additional apps following the same structure -->
-</div>
-</section>
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table">
 
-<footer class="site-footer">
-<p>MIRAGE is maintained by <a href="http://traffic.comics.unina.it" style="color:white;text-decoration:underline;">Traffic Research Group</a>.</p>
-<p>antonio.montieri [at] unina dot it</p>
-<p>&copy; Traffic 2025</p>
-</footer>
-</main>
-</div>
+                    <div class="row header">
+                        <div class="cell">Package Name</div>
+                        <div class="cell">App Name</div>
+                        <div class="cell">Activities</div>
+                        <div class="cell">Play Store Link</div>
+                    </div>
 
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const toggles=document.querySelectorAll('.submenu-toggle');
-  toggles.forEach(t=>t.addEventListener('click',()=>{
-    const sub=t.nextElementSibling;
-    sub.style.display=sub.style.display==='block'?'none':'block';
-    t.classList.toggle('active');
-  }));
-});
-</script>
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.supercell.clashroyale</div>
+                        <div class="cell" data-title="App Name">Clash Royale</div>
+                        <div class="cell" data-title="Activities">Online Gaming</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale" target="_blank">Clash Royale metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.crunchyroll.crunchyroid</div>
+                        <div class="cell" data-title="App Name">Crunchyroll</div>
+                        <div class="cell" data-title="Activities">Online Gaming</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.crunchyroll.crunchyroid" target="_blank">Crunchyroll metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.discord</div>
+                        <div class="cell" data-title="App Name">Discord</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.discord" target="_blank">Discord metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.gotomeeting</div>
+                        <div class="cell" data-title="App Name">GotoMeeting</div>
+                        <div class="cell" data-title="Activities">Audiocall, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.gotomeeting" target="_blank">GotoMeeting metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">org.jitsi.meet</div>
+                        <div class="cell" data-title="App Name">Jitsi Meet</div>
+                        <div class="cell" data-title="Activities">Audiocall, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=org.jitsi.meet" target="_blank">Jitsi Meet metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.kakao.talk</div>
+                        <div class="cell" data-title="App Name">KakaoTalk</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.kakao.talk" target="_blank">KakaoTalk metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">jp.naver.line.android</div>
+                        <div class="cell" data-title="App Name">Line</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=jp.naver.line.android" target="_blank">Line metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.google.android.apps.meetings</div>
+                        <div class="cell" data-title="App Name">Google Meet</div>
+                        <div class="cell" data-title="Activities">Audiocall, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.meetings" target="_blank">Google Meet metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.facebook.orca</div>
+                        <div class="cell" data-title="App Name">Messenger</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.facebook.orca" target="_blank">Messenger metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">mobisocial.arcade</div>
+                        <div class="cell" data-title="App Name">Omlet Arcade</div>
+                        <div class="cell" data-title="Activities">Video Streaming</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=mobisocial.arcade" target="_blank">Omlet Arcade metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">org.thoughtcrime.securesms</div>
+                        <div class="cell" data-title="App Name">Signal</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms" target="_blank">Signal metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.skype.raider</div>
+                        <div class="cell" data-title="App Name">Skype</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.skype.raider" target="_blank">Skype metadata</a>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.Slack</div>
+                        <div class="cell" data-title="App Name">Slack</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.Slack" target="_blank">Slack metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.microsoft.teams</div>
+                        <div class="cell" data-title="App Name">Microsoft Teams</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.microsoft.teams" target="_blank">Microsoft Teams metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">org.telegram.messenger</div>
+                        <div class="cell" data-title="App Name">Telegram</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger" target="_blank">Telegram metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.trueconf.videochat</div>
+                        <div class="cell" data-title="App Name">Trueconf</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.trueconf.videochat" target="_blank">Trueconf metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">tv.twitch.android.app</div>
+                        <div class="cell" data-title="App Name">Twitch</div>
+                        <div class="cell" data-title="Activities">Video Streaming</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=tv.twitch.android.app" target="_blank">Twitch metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.cisco.webex.meetings</div>
+                        <div class="cell" data-title="App Name">Webex Meetings</div>
+                        <div class="cell" data-title="Activities">Audiocall, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.cisco.webex.meetings" target="_blank">Webex Meetings metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">com.whatsapp</div>
+                        <div class="cell" data-title="App Name">WhatsApp</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank">WhatsApp metadata</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell" data-title="Package Name">us.zoom.videomeetings</div>
+                        <div class="cell" data-title="App Name">ZOOM Cloud Meetings</div>
+                        <div class="cell" data-title="Activities">Audiocall, Chat, Videocall</div>
+                        <div class="cell" data-title="Play Store Link">
+                            <a href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank">ZOOM Cloud Meetings metadata</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/select2/select2.min.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>

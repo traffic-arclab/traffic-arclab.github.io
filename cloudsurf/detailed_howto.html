@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CloudSurf Project</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+
+    <!--[if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/cloud_ico.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+    <section id="detailed_howto">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div >
+<!--                         <h2>Installation</h2> -->
+                        <h3>* Setup credentials to access your provider (Amazon) *</h3>
+
+                        <p>You don't have an active Amazon account? <a href="http://aws.amazon.com/free">Create a free account</a> and test CloudSurf for free!</p>
+
+
+                        <p>For Amazon, in Unix/Linux systems this can be done by configuring a file named ".boto" in your homedir. </br>
+                        A boto config file is a text file formatted like an .ini configuration file that specifies values for options that control the behavior of the boto library.</p>
+
+                        <p>A .boto file might look like:
+                        <pre class="prettyprint linenums">
+[Credentials]
+aws_access_key_id = &lt;your_access_key_here&gt;
+aws_secret_access_key = &lt;your_secret_key_here&gt;</pre>
+
+<p>Credentials can be easily retrieved from your <b>AWS management console</b> through the <b>Identity and Access Management</b> console:</p>
+<pre>
+<b>AWS Management Console </b> &gt; <b>Identity and Access Management </b>
+</pre>
+<p>Then create a new user:</p>
+<pre ><b>Users</b> &gt; <b>Create New Users</b> &gt; Enter a User Name (e.g., <b>CloudSurf</b>) &gt; <b>Create</b> &gt; <b>Show User Security Credentials</b></pre>
+
+
+</p>
+
+<p>Simply cut and paste into your terminal the following commands, after having replaced &lt;your_access_key_here&gt; and &lt;your_secret_key_here&gt; with your aws access key id and your aws secret access key, respectively.</p>
+
+                        <pre class="prettyprint lang-bash">
+~# echo "[Credentials]" > ~/.boto
+~# echo "aws_access_key_id = &lt;your_access_key_here&gt;" >> ~/.boto
+~# echo "aws_secret_access_key = &lt;your_secret_key_here&gt;" >> ~/.boto</pre>
+
+                        <p>For more details, please visit the <a href="http://boto.cloudhackers.com/en/latest/boto_config_tut.html">Amazon Documentation Website</a>.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+<!--    <section id="clients">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+     </section>
+    <!--/#clients-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                <div class="copyright-text text-center">
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    <p>&copy; Traffic 2016. All Rights Reserved.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/prettify.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+    <script type="text/javascript">
+(function(jQuery){
+  jQuery( document ).ready( function() {
+    prettyPrint();
+  } );
+}(jQuery))
+</script>
+
+</body>
+</html>

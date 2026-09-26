@@ -1,0 +1,3338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applications List | TIE | Traffic</title>
+  <meta name="description" content="TIE: Traffic Identification Engine, an open platform for traffic classification.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../css/site.css">
+  <script src="../../../../js/site.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
+    </div>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../../../index.html" aria-label="Traffic, home">
+        <img src="../../../../images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../../../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../../../people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle is-current" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="../../../../ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="../../../../pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="../../../../uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="../../../../index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="../../../../index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="../../../../index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="../../../../index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="../../../../np.html">High-performance networking</a>
+                  <a href="../../../../timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="../../../../netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="../../../../security.html">Network security</a>
+                  <a href="../../../../internetcensor.html">Internet censorship detection</a>
+                  <a href="../../../../cloud.html">Cloud monitoring and control</a>
+                  <a href="../../../../sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="../../../../bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="../../../../other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="../../../../publications.html" class="nav-link">Publications</a></li>
+          <li><a href="../../../../news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="../../../../Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="../../../../Traces/ttraces.php">Traffic traces</a>
+              <a href="../../../../Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="../../../../Traces/Magnets.php">MagNets data traces</a>
+              <a href="../../../../Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="../../../../mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="../../../../collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="../../../../visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../../index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="../../../../index.html#topics">Topics</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="../../start.html">TIE</a></nav>
+        <h1 class="page-title">Applications List</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container with-subnav">
+        <nav class="subnav" aria-label="TIE"><p class="subnav-title">TIE</p><ul><li><a href="../../start.html">Home</a></li><li><a href="../friends.html">Partners</a></li><li><a href="../helping.html">How to help</a></li><li><a href="../links.html">Links</a></li><li><a href="../people.html">People</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../publications.html">Publications</a></li><li><a href="../support.html">Support</a></li><li><a href="start.html">Documentation</a></li><li><a href="../download/start.html">Download</a></li></ul></nav>
+        <article class="prose">
+
+<p>The complete list of applications recognized by <code>tie</code> can
+be found in the text file <em>&lt;TIE install
+dir&gt;</em><code>/conf/tie_apps.txt</code>, whose content is reported
+hereafter:</p>
+<p>/* appena sarà possibile, scriverò uno script che costruisce le
+tabelle separandole per GRUPPO, attualmente sono spezzate nei punti dove
+nel file c’era una riga vuota di commento, questo per consentire un
+dimensionamento decente delle colonne della tabella dove possibile
+*/</p>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>UNKNOWN</td>
+<td>UNKNOWN</td>
+<td>Unknown application</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>HTTP</td>
+<td>HTTP</td>
+<td>World Wide Web</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>HTTP</td>
+<td>DAP</td>
+<td>HTTP by Download Accelerator Plus</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>HTTP</td>
+<td>FRESHDOWNLOAD</td>
+<td>HTTP by Fresh Download</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>HTTP</td>
+<td>AUDIO</td>
+<td>HTTP - Audio over HyperText Transfer Protocol</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>HTTP</td>
+<td>CACHEHIT</td>
+<td>HTTP - Proxy Cache hit for HyperText Transfer Protocol</td>
+</tr>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>1</td>
+<td>HTTP</td>
+<td>CACHEMISS</td>
+<td>HTTP - Proxy Cache miss for HyperText Transfer Protocol</td>
+</tr>
+<tr>
+<td>1</td>
+<td>6</td>
+<td>1</td>
+<td>HTTP</td>
+<td>VIDEO</td>
+<td>HTTP - Video over HyperText Transfer Protocol</td>
+</tr>
+<tr>
+<td>1</td>
+<td>7</td>
+<td>1</td>
+<td>HTTP</td>
+<td>QUICKTIME</td>
+<td>Quicktime HTTP</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>SQUID</td>
+<td>SQUID</td>
+<td>Squid Web Cache</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>SQUID_ICP</td>
+<td>SQUID_ICP</td>
+<td>Squid Web Cache (ICP)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>HTTPS</td>
+<td>HTTPS</td>
+<td>Secure Web</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>9</td>
+<td>DNS</td>
+<td>DNS</td>
+<td>Domain Name Service</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>9</td>
+<td>MULTICAST_DNS</td>
+<td>MULTICAST_DNS</td>
+<td>Multicast DNS</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0</td>
+<td>9</td>
+<td>OSUNMS</td>
+<td>OSUNMS</td>
+<td>OSU Network Monitoring System</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0</td>
+<td>9</td>
+<td>SLP</td>
+<td>SLP</td>
+<td>Service Location Protocol</td>
+</tr>
+<tr>
+<td>9</td>
+<td>0</td>
+<td>9</td>
+<td>BOOTP</td>
+<td>BOOTP</td>
+<td>DHCP/BOOTP IP Address Assignment</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>0</td>
+<td>3</td>
+<td>FTP</td>
+<td>FTP</td>
+<td>File Transfer Protocol</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>3</td>
+<td>FTP</td>
+<td>FTP_DATA</td>
+<td>File Transfer Protocol (data stream)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2</td>
+<td>3</td>
+<td>FTP</td>
+<td>FTP_CONTROL</td>
+<td>File Transfer Protocol (control)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>0</td>
+<td>2</td>
+<td>SpamAssassin</td>
+<td>SpamAssassin</td>
+<td>Spam Assassin</td>
+</tr>
+<tr>
+<td>12</td>
+<td>0</td>
+<td>3</td>
+<td>GSI_FTP</td>
+<td>GSI_FTP</td>
+<td>GSI FTP</td>
+</tr>
+<tr>
+<td>13</td>
+<td>0</td>
+<td>3</td>
+<td>BBFTP</td>
+<td>BBFTP</td>
+<td>BB FTP</td>
+</tr>
+<tr>
+<td>14</td>
+<td>0</td>
+<td>3</td>
+<td>BBCP</td>
+<td>BBCP</td>
+<td>BBCP</td>
+</tr>
+<tr>
+<td>15</td>
+<td>0</td>
+<td>2</td>
+<td>SMTP</td>
+<td>SMTP</td>
+<td>Mail Forwarding</td>
+</tr>
+<tr>
+<td>16</td>
+<td>0</td>
+<td>2</td>
+<td>SMTPS</td>
+<td>SMTPS</td>
+<td>Secure Mail Forwarding</td>
+</tr>
+<tr>
+<td>17</td>
+<td>0</td>
+<td>2</td>
+<td>SMTPSubmission</td>
+<td>SMTPSubmission</td>
+<td>New Mail Submission</td>
+</tr>
+<tr>
+<td>18</td>
+<td>0</td>
+<td>2</td>
+<td>POP</td>
+<td>POP</td>
+<td>Post Office Protocol (v2 &amp; v3)</td>
+</tr>
+<tr>
+<td>19</td>
+<td>0</td>
+<td>2</td>
+<td>IMAP</td>
+<td>IMAP</td>
+<td>Internet Message Access Protocol</td>
+</tr>
+<tr>
+<td>20</td>
+<td>0</td>
+<td>10</td>
+<td>SSH</td>
+<td>SSH</td>
+<td>Secure Shell</td>
+</tr>
+<tr>
+<td>21</td>
+<td>0</td>
+<td>10</td>
+<td>TELNET</td>
+<td>TELNET</td>
+<td>Telnet</td>
+</tr>
+<tr>
+<td>22</td>
+<td>0</td>
+<td>9</td>
+<td>WHOIS</td>
+<td>WHOIS</td>
+<td>Who Is</td>
+</tr>
+<tr>
+<td>23</td>
+<td>0</td>
+<td>9</td>
+<td>GOPHER</td>
+<td>GOPHER</td>
+<td>Gopher Information</td>
+</tr>
+<tr>
+<td>24</td>
+<td>0</td>
+<td>9</td>
+<td>IDENT</td>
+<td>IDENT</td>
+<td>Ident Authentication</td>
+</tr>
+<tr>
+<td>25</td>
+<td>0</td>
+<td>15</td>
+<td>NNTP</td>
+<td>NNTP</td>
+<td>USENET News</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26</td>
+<td>0</td>
+<td>14</td>
+<td>SNMP</td>
+<td>SNMP</td>
+<td>Simple Network Management Protocol</td>
+</tr>
+<tr>
+<td>26</td>
+<td>1</td>
+<td>14</td>
+<td>SNMP</td>
+<td>SNMP_MON</td>
+<td>SNMP Monitoring - Simple Network Management Protocol</td>
+</tr>
+<tr>
+<td>26</td>
+<td>2</td>
+<td>14</td>
+<td>SNMP</td>
+<td>SNMP_TRAP</td>
+<td>SNMP Traps - Simple Network Management Protocol</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27</td>
+<td>0</td>
+<td>14</td>
+<td>TRACEROUTE</td>
+<td>TRACEROUTE</td>
+<td>Traceroute</td>
+</tr>
+<tr>
+<td>28</td>
+<td>0</td>
+<td>9</td>
+<td>NETBIOS</td>
+<td>NETBIOS</td>
+<td>Microsoft Netbios</td>
+</tr>
+<tr>
+<td>29</td>
+<td>0</td>
+<td>7</td>
+<td>REALPLAYER</td>
+<td>REALPLAYER</td>
+<td>RealPlayer</td>
+</tr>
+<tr>
+<td>30</td>
+<td>0</td>
+<td>7</td>
+<td>RTSP</td>
+<td>RTSP</td>
+<td>Real Time Stream Control Protocol</td>
+</tr>
+<tr>
+<td>31</td>
+<td>0</td>
+<td>5</td>
+<td>MS_NETMEET</td>
+<td>MS_NETMEET</td>
+<td>MS NetMeeting (control)</td>
+</tr>
+<tr>
+<td>32</td>
+<td>0</td>
+<td>7</td>
+<td>LIQUIDAUDIO</td>
+<td>LIQUIDAUDIO</td>
+<td>Liquid Audio audio streaming</td>
+</tr>
+<tr>
+<td>33</td>
+<td>0</td>
+<td>7</td>
+<td>MS_MEDIA</td>
+<td>MS_MEDIA</td>
+<td>MS Media Player</td>
+</tr>
+<tr>
+<td>34</td>
+<td>0</td>
+<td>7</td>
+<td>SHOUTCAST</td>
+<td>SHOUTCAST</td>
+<td>Shoutcast MP3 Streaming</td>
+</tr>
+<tr>
+<td>35</td>
+<td>0</td>
+<td>7</td>
+<td>BACKBONE_RADIO</td>
+<td>BACKBONE_RADIO</td>
+<td>Backbone Radio</td>
+</tr>
+<tr>
+<td>36</td>
+<td>0</td>
+<td>7</td>
+<td>CAMARADES</td>
+<td>CAMARADES</td>
+<td>Camarades Live Webcam Community</td>
+</tr>
+<tr>
+<td>37</td>
+<td>0</td>
+<td>7</td>
+<td>CUSEEME</td>
+<td>CUSEEME</td>
+<td>CU SeeMe Video-conferencing</td>
+</tr>
+<tr>
+<td>38</td>
+<td>0</td>
+<td>11</td>
+<td>DOOM</td>
+<td>DOOM</td>
+<td>Doom game</td>
+</tr>
+<tr>
+<td>39</td>
+<td>0</td>
+<td>11</td>
+<td>QUAKE</td>
+<td>QUAKE</td>
+<td>Quake game</td>
+</tr>
+<tr>
+<td>39</td>
+<td>1</td>
+<td>11</td>
+<td>QUAKE</td>
+<td>QUAKE_HALFLIFE</td>
+<td>Quake 2/3 game</td>
+</tr>
+<tr>
+<td>40</td>
+<td>0</td>
+<td>11</td>
+<td>UNREAL</td>
+<td>UNREAL</td>
+<td>Unreal game</td>
+</tr>
+<tr>
+<td>41</td>
+<td>0</td>
+<td>11</td>
+<td>STARCRAFT</td>
+<td>STARCRAFT</td>
+<td>Starcraft game</td>
+</tr>
+<tr>
+<td>42</td>
+<td>0</td>
+<td>11</td>
+<td>AoE</td>
+<td>AoE</td>
+<td>Age of Empires game</td>
+</tr>
+<tr>
+<td>43</td>
+<td>0</td>
+<td>11</td>
+<td>EVERQUEST</td>
+<td>EVERQUEST</td>
+<td>EverQuest game</td>
+</tr>
+<tr>
+<td>44</td>
+<td>0</td>
+<td>11</td>
+<td>ASHERONS</td>
+<td>ASHERONS</td>
+<td>Asheron’s Call game</td>
+</tr>
+<tr>
+<td>45</td>
+<td>0</td>
+<td>11</td>
+<td>HALFLIFE</td>
+<td>HALFLIFE</td>
+<td>Half Life game</td>
+</tr>
+<tr>
+<td>46</td>
+<td>0</td>
+<td>11</td>
+<td>BLACKWHITE</td>
+<td>BLACKWHITE</td>
+<td>Black &amp; White game</td>
+</tr>
+<tr>
+<td>47</td>
+<td>0</td>
+<td>11</td>
+<td>HALO</td>
+<td>HALO</td>
+<td>Halo game</td>
+</tr>
+<tr>
+<td>48</td>
+<td>0</td>
+<td>11</td>
+<td>SWG</td>
+<td>SWG</td>
+<td>Star Wars Galaxies game</td>
+</tr>
+<tr>
+<td>49</td>
+<td>0</td>
+<td>11</td>
+<td>STARSIEGE</td>
+<td>STARSIEGE</td>
+<td>STARSIEGE</td>
+</tr>
+<tr>
+<td>50</td>
+<td>0</td>
+<td>11</td>
+<td>NETREK</td>
+<td>NETREK</td>
+<td>Netrek</td>
+</tr>
+<tr>
+<td>51</td>
+<td>0</td>
+<td>11</td>
+<td>YAHOO_GAMES</td>
+<td>YAHOO_GAMES</td>
+<td>Yahoo Games</td>
+</tr>
+<tr>
+<td>52</td>
+<td>0</td>
+<td>11</td>
+<td>WOW</td>
+<td>WOW</td>
+<td>World Of Warcraft</td>
+</tr>
+<tr>
+<td>53</td>
+<td>0</td>
+<td>11</td>
+<td>BATTLENET</td>
+<td>BATTLENET</td>
+<td>Battle.net games</td>
+</tr>
+<tr>
+<td>54</td>
+<td>0</td>
+<td>11</td>
+<td>GAMESPY_ARCADE</td>
+<td>GAMESPY_ARCADE</td>
+<td>GameSpy Arcade</td>
+</tr>
+<tr>
+<td>55</td>
+<td>0</td>
+<td>11</td>
+<td>DIRECT_PLAY</td>
+<td>DIRECT_PLAY</td>
+<td>DirectPlay</td>
+</tr>
+<tr>
+<td>56</td>
+<td>0</td>
+<td>12</td>
+<td>HOTLINE</td>
+<td>HOTLINE</td>
+<td>Hotline servers</td>
+</tr>
+<tr>
+<td>57</td>
+<td>0</td>
+<td>5</td>
+<td>IRC</td>
+<td>IRC</td>
+<td>Internet Relay Chat</td>
+</tr>
+<tr>
+<td>58</td>
+<td>0</td>
+<td>9</td>
+<td>NTP</td>
+<td>NTP</td>
+<td>Network time</td>
+</tr>
+<tr>
+<td>59</td>
+<td>0</td>
+<td>14</td>
+<td>BGP</td>
+<td>BGP</td>
+<td>Border Gateway Protocol</td>
+</tr>
+<tr>
+<td>60</td>
+<td>0</td>
+<td>14</td>
+<td>RIP</td>
+<td>RIP</td>
+<td>Routing Information Protocol</td>
+</tr>
+<tr>
+<td>61</td>
+<td>0</td>
+<td>14</td>
+<td>IPERF</td>
+<td>IPERF</td>
+<td>IPERF</td>
+</tr>
+<tr>
+<td>62</td>
+<td>0</td>
+<td>15</td>
+<td>NFS</td>
+<td>NFS</td>
+<td>Network File System</td>
+</tr>
+<tr>
+<td>63</td>
+<td>0</td>
+<td>15</td>
+<td>AFS</td>
+<td>AFS</td>
+<td>AFS</td>
+</tr>
+<tr>
+<td>64</td>
+<td>0</td>
+<td>9</td>
+<td>LDAP</td>
+<td>LDAP</td>
+<td>Lightweight Directory Access Protocol</td>
+</tr>
+<tr>
+<td>65</td>
+<td>0</td>
+<td>9</td>
+<td>KERBEROS</td>
+<td>KERBEROS</td>
+<td>Kerberos</td>
+</tr>
+<tr>
+<td>66</td>
+<td>0</td>
+<td>9</td>
+<td>ECHO</td>
+<td>ECHO</td>
+<td>Echo</td>
+</tr>
+<tr>
+<td>67</td>
+<td>0</td>
+<td>9</td>
+<td>DISCARD</td>
+<td>DISCARD</td>
+<td>Discard</td>
+</tr>
+<tr>
+<td>68</td>
+<td>0</td>
+<td>9</td>
+<td>SYSTAT</td>
+<td>SYSTAT</td>
+<td>Active users list</td>
+</tr>
+<tr>
+<td>69</td>
+<td>0</td>
+<td>9</td>
+<td>DAYTIME</td>
+<td>DAYTIME</td>
+<td>Day/time</td>
+</tr>
+<tr>
+<td>70</td>
+<td>0</td>
+<td>9</td>
+<td>CHARGEN</td>
+<td>CHARGEN</td>
+<td>Character generator</td>
+</tr>
+<tr>
+<td>71</td>
+<td>0</td>
+<td>9</td>
+<td>TIMESERVER</td>
+<td>TIMESERVER</td>
+<td>Time server</td>
+</tr>
+<tr>
+<td>72</td>
+<td>0</td>
+<td>9</td>
+<td>ISAKMP</td>
+<td>ISAKMP</td>
+<td>Internet Key Exchange</td>
+</tr>
+<tr>
+<td>73</td>
+<td>0</td>
+<td>9</td>
+<td>REXEC</td>
+<td>REXEC</td>
+<td>BSD rexec</td>
+</tr>
+<tr>
+<td>74</td>
+<td>0</td>
+<td>2</td>
+<td>BIFF</td>
+<td>BIFF</td>
+<td>BSD biff</td>
+</tr>
+<tr>
+<td>75</td>
+<td>0</td>
+<td>10</td>
+<td>RLOGIN</td>
+<td>RLOGIN</td>
+<td>BSD rlogin</td>
+</tr>
+<tr>
+<td>76</td>
+<td>0</td>
+<td>9</td>
+<td>WHO</td>
+<td>WHO</td>
+<td>BSD rwho</td>
+</tr>
+<tr>
+<td>77</td>
+<td>0</td>
+<td>10</td>
+<td>RSHELL</td>
+<td>RSHELL</td>
+<td>BSD rshell</td>
+</tr>
+<tr>
+<td>78</td>
+<td>0</td>
+<td>5</td>
+<td>TALK</td>
+<td>TALK</td>
+<td>UNIX talk</td>
+</tr>
+<tr>
+<td>79</td>
+<td>0</td>
+<td>9</td>
+<td>LPR</td>
+<td>LPR</td>
+<td>UNIX print spooler</td>
+</tr>
+<tr>
+<td>80</td>
+<td>0</td>
+<td>9</td>
+<td>RPC</td>
+<td>RPC</td>
+<td>RPC portmapper</td>
+</tr>
+<tr>
+<td>81</td>
+<td>0</td>
+<td>5</td>
+<td>AOL</td>
+<td>AOL</td>
+<td>America Online</td>
+</tr>
+<tr>
+<td>81</td>
+<td>1</td>
+<td>5</td>
+<td>AOL</td>
+<td>AIM</td>
+<td>America Online Instant Messenger</td>
+</tr>
+<tr>
+<td>81</td>
+<td>2</td>
+<td>5</td>
+<td>AOL</td>
+<td>AIM_WEB_CONTENT</td>
+<td>AIM web content - ads/news content downloaded by AOL Instant
+Messenger</td>
+</tr>
+<tr>
+<td>82</td>
+<td>0</td>
+<td>9</td>
+<td>X11</td>
+<td>X11</td>
+<td>X-Windows</td>
+</tr>
+<tr>
+<td>83</td>
+<td>0</td>
+<td>6</td>
+<td>SQL</td>
+<td>SQL</td>
+<td>Various SQL servers</td>
+</tr>
+<tr>
+<td>84</td>
+<td>0</td>
+<td>6</td>
+<td>MS_SQL_UDP</td>
+<td>MS_SQL_UDP</td>
+<td>Microsoft SQL Monitor</td>
+</tr>
+<tr>
+<td>85</td>
+<td>0</td>
+<td>17</td>
+<td>IPSEC</td>
+<td>IPSEC</td>
+<td>IPsec</td>
+</tr>
+<tr>
+<td>86</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_ECHOREPLY</td>
+<td>ICMP_ECHOREPLY</td>
+<td>ICMP Echo reply</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>87</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP Net unreachable</td>
+</tr>
+<tr>
+<td>87</td>
+<td>1</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_NET</td>
+<td>ICMP Net unreachable</td>
+</tr>
+<tr>
+<td>87</td>
+<td>2</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_HOST</td>
+<td>ICMP Host unreachable</td>
+</tr>
+<tr>
+<td>87</td>
+<td>3</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_PROTOCOL</td>
+<td>ICMP Protocol unreachable</td>
+</tr>
+<tr>
+<td>87</td>
+<td>4</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_PORT</td>
+<td>ICMP Port unreachable</td>
+</tr>
+<tr>
+<td>87</td>
+<td>5</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_NEEDFRAG</td>
+<td>ICMP Fragmentation Needed</td>
+</tr>
+<tr>
+<td>87</td>
+<td>6</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_SRCFAIL</td>
+<td>ICMP Source Route Failed</td>
+</tr>
+<tr>
+<td>87</td>
+<td>7</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_NET_UNKNOWN</td>
+<td>ICMP Destination Network Unknown</td>
+</tr>
+<tr>
+<td>87</td>
+<td>8</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_HOST_UNKNOWN</td>
+<td>ICMP Destination Host Unknown</td>
+</tr>
+<tr>
+<td>87</td>
+<td>9</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_ISOLATED</td>
+<td>ICMP Source Host Isolated</td>
+</tr>
+<tr>
+<td>87</td>
+<td>10</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_NET_PROHIB</td>
+<td>ICMP Network Administratively Prohibited</td>
+</tr>
+<tr>
+<td>87</td>
+<td>11</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_HOST_PROHIB</td>
+<td>ICMP Host Administratively Prohibited</td>
+</tr>
+<tr>
+<td>87</td>
+<td>12</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_TOSNET</td>
+<td>ICMP Network Unreachable for Type of Service</td>
+</tr>
+<tr>
+<td>87</td>
+<td>13</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_TOSHOST</td>
+<td>ICMP Host Unreachable for Type of Service</td>
+</tr>
+<tr>
+<td>87</td>
+<td>14</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_FILTER_PROHIB</td>
+<td>ICMP Communication Administratively Prohibited</td>
+</tr>
+<tr>
+<td>87</td>
+<td>15</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_HOST_PRECEDENCE</td>
+<td>ICMP Host Precedence Violation</td>
+</tr>
+<tr>
+<td>87</td>
+<td>16</td>
+<td>14</td>
+<td>ICMP_UNREACH</td>
+<td>ICMP_UNREACH_PRECEDENCE_CUTOFF</td>
+<td>ICMP Precedence cutoff in effect</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>88</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_ECHO</td>
+<td>ICMP_ECHO</td>
+<td>ICMP Echo request</td>
+</tr>
+<tr>
+<td>89</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_SOURCEQUENCH</td>
+<td>ICMP_SOURCEQUENCH</td>
+<td>ICMP Source Quench</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_REDIRECT</td>
+<td>ICMP_REDIRECT</td>
+<td>ICMP Redirect</td>
+</tr>
+<tr>
+<td>90</td>
+<td>1</td>
+<td>14</td>
+<td>ICMP_REDIRECT</td>
+<td>ICMP_REDIRECT_NET</td>
+<td>ICMP Network Redirect</td>
+</tr>
+<tr>
+<td>90</td>
+<td>2</td>
+<td>14</td>
+<td>ICMP_REDIRECT</td>
+<td>ICMP_REDIRECT_HOST</td>
+<td>ICMP Host Redirect</td>
+</tr>
+<tr>
+<td>90</td>
+<td>3</td>
+<td>14</td>
+<td>ICMP_REDIRECT</td>
+<td>ICMP_REDIRECT_TOSNET</td>
+<td>ICMP Network Redirect for TOS</td>
+</tr>
+<tr>
+<td>90</td>
+<td>4</td>
+<td>14</td>
+<td>ICMP_REDIRECT</td>
+<td>ICMP_REDIRECT_TOSHOST</td>
+<td>ICMP Host Redirect for TOS</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>91</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_ROUTERADVERT</td>
+<td>ICMP_ROUTERADVERT</td>
+<td>ICMP Router Advertisement</td>
+</tr>
+<tr>
+<td>92</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_ROUTERSOLICIT</td>
+<td>ICMP_ROUTERSOLICIT</td>
+<td>ICMP Router Selection</td>
+</tr>
+<tr>
+<td>93</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_TIMXCEED_INTRANS</td>
+<td>ICMP_TIMXCEED_INTRANS</td>
+<td>ICMP TTL Exceeded</td>
+</tr>
+<tr>
+<td>94</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_PARAMPROB_ERRATPTR</td>
+<td>ICMP_PARAMPROB_ERRATPTR</td>
+<td>ICMP Pointer Indicates Parameter Problem</td>
+</tr>
+<tr>
+<td>95</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_PARAMPROB_OPTABSENT</td>
+<td>ICMP_PARAMPROB_OPTABSENT</td>
+<td>ICMP Missing Required Option</td>
+</tr>
+<tr>
+<td>96</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_PARAMPROB_LENGTH</td>
+<td>ICMP_PARAMPROB_LENGTH</td>
+<td>ICMP Bad Length Parameter</td>
+</tr>
+<tr>
+<td>97</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_TSTAMP</td>
+<td>ICMP_TSTAMP</td>
+<td>ICMP Timestamp Request</td>
+</tr>
+<tr>
+<td>98</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_TSTAMPREPLY</td>
+<td>ICMP_TSTAMPREPLY</td>
+<td>ICMP Timestamp Reply</td>
+</tr>
+<tr>
+<td>99</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_IREQ</td>
+<td>ICMP_IREQ</td>
+<td>ICMP Information Request</td>
+</tr>
+<tr>
+<td>100</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_IREQREPLY</td>
+<td>ICMP_IREQREPLY</td>
+<td>ICMP Information Reply</td>
+</tr>
+<tr>
+<td>101</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_MASKREQ</td>
+<td>ICMP_MASKREQ</td>
+<td>ICMP Address Mask Request</td>
+</tr>
+<tr>
+<td>102</td>
+<td>0</td>
+<td>14</td>
+<td>ICMP_MASKREPLY</td>
+<td>ICMP_MASKREPLY</td>
+<td>ICMP Address Mask Reply</td>
+</tr>
+<tr>
+<td>103</td>
+<td>0</td>
+<td>9</td>
+<td>AT_BACKUP</td>
+<td>AT_BACKUP</td>
+<td>@Backup facilities</td>
+</tr>
+<tr>
+<td>104</td>
+<td>0</td>
+<td>9</td>
+<td>STUN</td>
+<td>STUN</td>
+<td>STUN - Simple Traversal of UDP Through NAT</td>
+</tr>
+<tr>
+<td>105</td>
+<td>0</td>
+<td>11</td>
+<td>SUBSPACE</td>
+<td>SUBSPACE</td>
+<td>Subspace - 2D asteroids-style space game</td>
+</tr>
+<tr>
+<td>106</td>
+<td>0</td>
+<td>9</td>
+<td>SUBVERSION</td>
+<td>SUBVERSION</td>
+<td>Subversion - a version control system</td>
+</tr>
+<tr>
+<td>107</td>
+<td>0</td>
+<td>11</td>
+<td>TEAM_FORTRESS2</td>
+<td>TEAM_FORTRESS2</td>
+<td>Team Fortress 2 - network game</td>
+</tr>
+<tr>
+<td>108</td>
+<td>0</td>
+<td>8</td>
+<td>TEAM_SPEAK</td>
+<td>TEAM_SPEAK</td>
+<td>TeamSpeak - VoIP application</td>
+</tr>
+<tr>
+<td>109</td>
+<td>0</td>
+<td>12</td>
+<td>TESLA</td>
+<td>TESLA</td>
+<td>Tesla Advanced Communication - P2P filesharing</td>
+</tr>
+<tr>
+<td>110</td>
+<td>0</td>
+<td>3</td>
+<td>TFTP</td>
+<td>TFTP</td>
+<td>TFTP - Trivial File Transfer Protocol - used for bootstrapping</td>
+</tr>
+<tr>
+<td>111</td>
+<td>0</td>
+<td>12</td>
+<td>THECIRCLE</td>
+<td>THECIRCLE</td>
+<td>The Circle - P2P application</td>
+</tr>
+<tr>
+<td>112</td>
+<td>0</td>
+<td>1</td>
+<td>TOR</td>
+<td>TOR</td>
+<td>Tor - The Onion Router - used for anonymization</td>
+</tr>
+<tr>
+<td>113</td>
+<td>0</td>
+<td>9</td>
+<td>TSP</td>
+<td>TSP</td>
+<td>TSP - Berkely UNIX Time Synchronization Protocol</td>
+</tr>
+<tr>
+<td>114</td>
+<td>0</td>
+<td>9</td>
+<td>UUCP</td>
+<td>UUCP</td>
+<td>UUCP - Unix to Unix Copy</td>
+</tr>
+<tr>
+<td>115</td>
+<td>0</td>
+<td>9</td>
+<td>VALIDCERTSSL</td>
+<td>VALIDCERTSSL</td>
+<td>Valid certificate SSL</td>
+</tr>
+<tr>
+<td>116</td>
+<td>0</td>
+<td>8</td>
+<td>VENTRILO</td>
+<td>VENTRILO</td>
+<td>Ventrilo - VoIP</td>
+</tr>
+<tr>
+<td>117</td>
+<td>0</td>
+<td>11</td>
+<td>XBOXLIVE</td>
+<td>XBOXLIVE</td>
+<td>XBox Live - Console gaming</td>
+</tr>
+<tr>
+<td>118</td>
+<td>0</td>
+<td>12</td>
+<td>XUNLEI</td>
+<td>XUNLEI</td>
+<td>Xunlei - Chinese P2P filesharing</td>
+</tr>
+<tr>
+<td>119</td>
+<td>0</td>
+<td>9</td>
+<td>ZMAAP</td>
+<td>ZMAAP</td>
+<td>ZMAAP - Zeroconf Multicast Address Allocation Protocol</td>
+</tr>
+<tr>
+<td>120</td>
+<td>0</td>
+<td>14</td>
+<td>SSDP</td>
+<td>SSDP</td>
+<td>SSDP - Simple Service Discovery Protocol - easy discovery of network
+devices</td>
+</tr>
+<tr>
+<td>121</td>
+<td>0</td>
+<td>17</td>
+<td>SSL</td>
+<td>SSL</td>
+<td>SSL and TLS - Secure Socket Layer / Transport Layer Security</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>122</td>
+<td>0</td>
+<td>5</td>
+<td>DIALPAD</td>
+<td>DIALPAD</td>
+<td>Dialpad Internet phone</td>
+</tr>
+<tr>
+<td>122</td>
+<td>1</td>
+<td>5</td>
+<td>DIALPAD</td>
+<td>DIALPAD_DATA</td>
+<td>Dialpad Internet phone (data)</td>
+</tr>
+<tr>
+<td>122</td>
+<td>2</td>
+<td>5</td>
+<td>DIALPAD</td>
+<td>DIALPAD_CTRL</td>
+<td>Dialpad Internet phone (control)</td>
+</tr>
+<tr>
+<td>123</td>
+<td>0</td>
+<td>16</td>
+<td>SMB</td>
+<td>SMB</td>
+<td>Samba/SMB - Server Message Block - Microsoft Windows
+filesharing</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>124</td>
+<td>0</td>
+<td>12</td>
+<td>NAPSTER</td>
+<td>NAPSTER</td>
+<td>Napster MP3 Sharing</td>
+</tr>
+<tr>
+<td>124</td>
+<td>1</td>
+<td>12</td>
+<td>NAPSTER</td>
+<td>NAPSTER_DATA</td>
+<td>Napster MP3 Sharing (data)</td>
+</tr>
+<tr>
+<td>124</td>
+<td>2</td>
+<td>12</td>
+<td>NAPSTER</td>
+<td>NAPSTER_CONTROL</td>
+<td>Napster MP3 Sharing (control)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>125</td>
+<td>0</td>
+<td>7</td>
+<td>RTP</td>
+<td>RTP</td>
+<td>Real-Time Transport Protocol</td>
+</tr>
+<tr>
+<td>126</td>
+<td>0</td>
+<td>12</td>
+<td>FASTTRACK</td>
+<td>FASTTRACK</td>
+<td>FastTrack</td>
+</tr>
+<tr>
+<td>127</td>
+<td>0</td>
+<td>12</td>
+<td>EDONKEY</td>
+<td>EDONKEY</td>
+<td>eDonkey 2000</td>
+</tr>
+<tr>
+<td>128</td>
+<td>0</td>
+<td>12</td>
+<td>GNUTELLA</td>
+<td>GNUTELLA</td>
+<td>Gnutella</td>
+</tr>
+<tr>
+<td>129</td>
+<td>0</td>
+<td>12</td>
+<td>SCOUR_EX</td>
+<td>SCOUR_EX</td>
+<td>Scour Exchange</td>
+</tr>
+<tr>
+<td>130</td>
+<td>0</td>
+<td>12</td>
+<td>IMESH</td>
+<td>IMESH</td>
+<td>iMesh</td>
+</tr>
+<tr>
+<td>131</td>
+<td>0</td>
+<td>12</td>
+<td>DIRECT_CONNECT</td>
+<td>DIRECT_CONNECT</td>
+<td>Direct Connect</td>
+</tr>
+<tr>
+<td>132</td>
+<td>0</td>
+<td>12</td>
+<td>BITTORRENT</td>
+<td>BITTORRENT</td>
+<td>BitTorrent file sharing</td>
+</tr>
+<tr>
+<td>133</td>
+<td>0</td>
+<td>7</td>
+<td>ITUNES</td>
+<td>ITUNES</td>
+<td>iTunes file sharing</td>
+</tr>
+<tr>
+<td>134</td>
+<td>0</td>
+<td>3</td>
+<td>RSYNC</td>
+<td>RSYNC</td>
+<td>rsync</td>
+</tr>
+<tr>
+<td>135</td>
+<td>0</td>
+<td>12</td>
+<td>ROMNET</td>
+<td>ROMNET</td>
+<td>ROMnet game sharing</td>
+</tr>
+<tr>
+<td>136</td>
+<td>0</td>
+<td>4</td>
+<td>PORTDOOM</td>
+<td>PORTDOOM</td>
+<td>Portal of doom exploit</td>
+</tr>
+<tr>
+<td>137</td>
+<td>0</td>
+<td>18</td>
+<td>L2TP</td>
+<td>L2TP</td>
+<td>L2TP Tunneling</td>
+</tr>
+<tr>
+<td>138</td>
+<td>0</td>
+<td>7</td>
+<td>POINTCAST</td>
+<td>POINTCAST</td>
+<td>Pointcast info service</td>
+</tr>
+<tr>
+<td>139</td>
+<td>0</td>
+<td>18</td>
+<td>APPLETALK_IP</td>
+<td>APPLETALK_IP</td>
+<td>Appletalk TCP/IP</td>
+</tr>
+<tr>
+<td>140</td>
+<td>0</td>
+<td>5</td>
+<td>iVisit</td>
+<td>iVisit</td>
+<td>iVisit</td>
+</tr>
+<tr>
+<td>141</td>
+<td>0</td>
+<td>5</td>
+<td>ICU_II</td>
+<td>ICU_II</td>
+<td>ICU II</td>
+</tr>
+<tr>
+<td>142</td>
+<td>0</td>
+<td>5</td>
+<td>ROGER_WILCO</td>
+<td>ROGER_WILCO</td>
+<td>Roger Wilco</td>
+</tr>
+<tr>
+<td>143</td>
+<td>0</td>
+<td>18</td>
+<td>tinc</td>
+<td>tinc</td>
+<td>tinc</td>
+</tr>
+<tr>
+<td>144</td>
+<td>0</td>
+<td>12</td>
+<td>WINMX</td>
+<td>WINMX</td>
+<td>WinMX</td>
+</tr>
+<tr>
+<td>145</td>
+<td>0</td>
+<td>12</td>
+<td>BLUBSTER</td>
+<td>BLUBSTER</td>
+<td>BLUBSTER</td>
+</tr>
+<tr>
+<td>146</td>
+<td>0</td>
+<td>9</td>
+<td>tekpls</td>
+<td>tekpls</td>
+<td>tekpls</td>
+</tr>
+<tr>
+<td>147</td>
+<td>0</td>
+<td>9</td>
+<td>nOAgent</td>
+<td>nOAgent</td>
+<td>netOctopus Agent</td>
+</tr>
+<tr>
+<td>148</td>
+<td>0</td>
+<td>5</td>
+<td>SIP</td>
+<td>SIP</td>
+<td>IETF SIP</td>
+</tr>
+<tr>
+<td>149</td>
+<td>0</td>
+<td>5</td>
+<td>SIP_TLS</td>
+<td>SIP_TLS</td>
+<td>IETF SIP TLS</td>
+</tr>
+<tr>
+<td>150</td>
+<td>0</td>
+<td>5</td>
+<td>VOCALTEC</td>
+<td>VOCALTEC</td>
+<td>VocalTec Internet Phone</td>
+</tr>
+<tr>
+<td>151</td>
+<td>0</td>
+<td>5</td>
+<td>VIRTUAL_PLACES</td>
+<td>VIRTUAL_PLACES</td>
+<td>Virtual Places</td>
+</tr>
+<tr>
+<td>152</td>
+<td>0</td>
+<td>5</td>
+<td>WINDOWS_MESSENGER</td>
+<td>WINDOWS_MESSENGER</td>
+<td>Windows Messenger</td>
+</tr>
+<tr>
+<td>152</td>
+<td>1</td>
+<td>5</td>
+<td>WINDOWS_MESSENGER</td>
+<td>FILE_TRANSFER</td>
+<td>Windows Messenger File Transfer</td>
+</tr>
+<tr>
+<td>153</td>
+<td>0</td>
+<td>5</td>
+<td>DIGICHAT</td>
+<td>DIGICHAT</td>
+<td>DigiChat</td>
+</tr>
+<tr>
+<td>154</td>
+<td>0</td>
+<td>5</td>
+<td>PGPFONE</td>
+<td>PGPFONE</td>
+<td>Pretty Good Privacy Phone</td>
+</tr>
+<tr>
+<td>155</td>
+<td>0</td>
+<td>5</td>
+<td>YAHOO_MESSENGER</td>
+<td>YAHOO_MESSENGER</td>
+<td>Yahoo Messenger</td>
+</tr>
+<tr>
+<td>156</td>
+<td>0</td>
+<td>5</td>
+<td>XMPP_JABBER</td>
+<td>XMPP_JABBER</td>
+<td>XMPP/Jabber</td>
+</tr>
+<tr>
+<td>157</td>
+<td>0</td>
+<td>5</td>
+<td>QNEXT</td>
+<td>QNEXT</td>
+<td>Qnext</td>
+</tr>
+<tr>
+<td>158</td>
+<td>0</td>
+<td>5</td>
+<td>ICHAT</td>
+<td>ICHAT</td>
+<td>Apple iChat</td>
+</tr>
+<tr>
+<td>159</td>
+<td>0</td>
+<td>5</td>
+<td>NET2PHONE</td>
+<td>NET2PHONE</td>
+<td>NET2PHONE CommCenter</td>
+</tr>
+<tr>
+<td>160</td>
+<td>0</td>
+<td>5</td>
+<td>IVISIT</td>
+<td>IVISIT</td>
+<td>iVisit</td>
+</tr>
+<tr>
+<td>161</td>
+<td>0</td>
+<td>5</td>
+<td>THE_PALACE</td>
+<td>THE_PALACE</td>
+<td>The Palace</td>
+</tr>
+<tr>
+<td>162</td>
+<td>0</td>
+<td>5</td>
+<td>ITALK</td>
+<td>ITALK</td>
+<td>Italk</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>163</td>
+<td>0</td>
+<td>5</td>
+<td>SKYPE</td>
+<td>SKYPE</td>
+<td>Skype</td>
+</tr>
+<tr>
+<td>163</td>
+<td>1</td>
+<td>5</td>
+<td>SKYPE</td>
+<td>SKYPE2SKYPE</td>
+<td>Skype to Skype - UDP voice call (program to program)</td>
+</tr>
+<tr>
+<td>163</td>
+<td>2</td>
+<td>5</td>
+<td>SKYPE</td>
+<td>SKYPEOUT</td>
+<td>Skype to phone - UDP voice call (program to POTS phone)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>164</td>
+<td>0</td>
+<td>10</td>
+<td>PCAnywhere</td>
+<td>PCAnywhere</td>
+<td>PC Anywhere</td>
+</tr>
+<tr>
+<td>165</td>
+<td>0</td>
+<td>9</td>
+<td>ncp</td>
+<td>ncp</td>
+<td>ncp</td>
+</tr>
+<tr>
+<td>166</td>
+<td>0</td>
+<td>9</td>
+<td>APRS_Server</td>
+<td>APRS_Server</td>
+<td>APRS Server</td>
+</tr>
+<tr>
+<td>167</td>
+<td>0</td>
+<td>9</td>
+<td>APRS_Link</td>
+<td>APRS_Link</td>
+<td>APRS Link Port</td>
+</tr>
+<tr>
+<td>168</td>
+<td>0</td>
+<td>9</td>
+<td>APRS_MSG</td>
+<td>APRS_MSG</td>
+<td>APRS Message Port</td>
+</tr>
+<tr>
+<td>169</td>
+<td>0</td>
+<td>9</td>
+<td>APRS_HTTP</td>
+<td>APRS_HTTP</td>
+<td>APRS HTTP Port</td>
+</tr>
+<tr>
+<td>170</td>
+<td>0</td>
+<td>5</td>
+<td>Convers</td>
+<td>Convers</td>
+<td>Convers IRC Client</td>
+</tr>
+<tr>
+<td>171</td>
+<td>0</td>
+<td>4</td>
+<td>Kuang2TheVirus</td>
+<td>Kuang2TheVirus</td>
+<td>Kuang2 Virus (trojan)</td>
+</tr>
+<tr>
+<td>172</td>
+<td>0</td>
+<td>4</td>
+<td>Slapper_Worm</td>
+<td>Slapper_Worm</td>
+<td>Linux/Slapper-B worm</td>
+</tr>
+<tr>
+<td>173</td>
+<td>0</td>
+<td>4</td>
+<td>Sub7_Trojan</td>
+<td>Sub7_Trojan</td>
+<td>Backdoor-Sub7 Trojan</td>
+</tr>
+<tr>
+<td>174</td>
+<td>0</td>
+<td>10</td>
+<td>Radmin</td>
+<td>Radmin</td>
+<td>Radmin</td>
+</tr>
+<tr>
+<td>175</td>
+<td>0</td>
+<td>18</td>
+<td>SOCKS</td>
+<td>SOCKS</td>
+<td>SOCKS</td>
+</tr>
+<tr>
+<td>176</td>
+<td>0</td>
+<td>10</td>
+<td>Netware</td>
+<td>Netware</td>
+<td>Novell Netware</td>
+</tr>
+<tr>
+<td>177</td>
+<td>0</td>
+<td>10</td>
+<td>linuxconf</td>
+<td>linuxconf</td>
+<td>linuxconf</td>
+</tr>
+<tr>
+<td>178</td>
+<td>0</td>
+<td>10</td>
+<td>Firewall-1</td>
+<td>Firewall-1</td>
+<td>Checkpoint FW-1</td>
+</tr>
+<tr>
+<td>179</td>
+<td>0</td>
+<td>10</td>
+<td>WINDOWS_RDP</td>
+<td>WINDOWS_RDP</td>
+<td>Windows Remote Desktop Protocol</td>
+</tr>
+<tr>
+<td>180</td>
+<td>0</td>
+<td>10</td>
+<td>VNC</td>
+<td>VNC</td>
+<td>VNC</td>
+</tr>
+<tr>
+<td>181</td>
+<td>0</td>
+<td>4</td>
+<td>Xlog</td>
+<td>Xlog</td>
+<td>Xlog keylogger</td>
+</tr>
+<tr>
+<td>182</td>
+<td>0</td>
+<td>4</td>
+<td>RemoConChubo</td>
+<td>RemoConChubo</td>
+<td>RemoConChubo Trojan</td>
+</tr>
+<tr>
+<td>183</td>
+<td>0</td>
+<td>4</td>
+<td>Backdoor.LaLA</td>
+<td>Backdoor.LaLA</td>
+<td>Backdoor.LaLa</td>
+</tr>
+<tr>
+<td>184</td>
+<td>0</td>
+<td>4</td>
+<td>Dabber_Backdoor</td>
+<td>Dabber_Backdoor</td>
+<td>Dabber Worm Backdoor</td>
+</tr>
+<tr>
+<td>185</td>
+<td>0</td>
+<td>4</td>
+<td>Sasser_FTP</td>
+<td>Sasser_FTP</td>
+<td>Sasser Worm FTP</td>
+</tr>
+<tr>
+<td>186</td>
+<td>0</td>
+<td>4</td>
+<td>MyDoom_Backdoor</td>
+<td>MyDoom_Backdoor</td>
+<td>W32.MyDoom, W32.Novarg.A Backdoor</td>
+</tr>
+<tr>
+<td>187</td>
+<td>0</td>
+<td>4</td>
+<td>Port_1025_Trojans_(4)</td>
+<td>Port_1025_Trojans_(4)</td>
+<td>Trojans: FraggleRock, md5Backdoor, NetSpy, RemoteStorm</td>
+</tr>
+<tr>
+<td>188</td>
+<td>0</td>
+<td>4</td>
+<td>RemoteStorm</td>
+<td>RemoteStorm</td>
+<td>RemoteStorm Trojan (UDP)</td>
+</tr>
+<tr>
+<td>189</td>
+<td>0</td>
+<td>4</td>
+<td>Bagle_Backdoor</td>
+<td>Bagle_Backdoor</td>
+<td>Bagle Worm Backdoor</td>
+</tr>
+<tr>
+<td>190</td>
+<td>0</td>
+<td>9</td>
+<td>Norton_AV_Host_Discovery</td>
+<td>Norton_AV_Host_Discovery</td>
+<td>Norton Antivirus Host Discovery</td>
+</tr>
+<tr>
+<td>191</td>
+<td>0</td>
+<td>10</td>
+<td>Dameware</td>
+<td>Dameware</td>
+<td>Dameware Remote Admin</td>
+</tr>
+<tr>
+<td>192</td>
+<td>0</td>
+<td>9</td>
+<td>Samba_SWAT</td>
+<td>Samba_SWAT</td>
+<td>Samba SWAT tool</td>
+</tr>
+<tr>
+<td>193</td>
+<td>0</td>
+<td>4</td>
+<td>Port_5000_Trojans_(7)</td>
+<td>Port_5000_Trojans_(7)</td>
+<td>Trojans: BackDoor, BioNet Lite, Blazer5, Bubbel, ICKiller, Ra1d,
+SocketsdesTroie</td>
+</tr>
+<tr>
+<td>194</td>
+<td>0</td>
+<td>9</td>
+<td>commplex-main</td>
+<td>commplex-main</td>
+<td>commplex-main (remote file access server)</td>
+</tr>
+<tr>
+<td>195</td>
+<td>0</td>
+<td>4</td>
+<td>Sasser.E_Backdoor</td>
+<td>Sasser.E_Backdoor</td>
+<td>Sasser.E Worm Backdoor</td>
+</tr>
+<tr>
+<td>196</td>
+<td>0</td>
+<td>4</td>
+<td>OptixPro_Trojan</td>
+<td>OptixPro_Trojan</td>
+<td>OptixPro Trojan</td>
+</tr>
+<tr>
+<td>197</td>
+<td>0</td>
+<td>9</td>
+<td>NHCI_status</td>
+<td>NHCI_status</td>
+<td>NHCI status</td>
+</tr>
+<tr>
+<td>198</td>
+<td>0</td>
+<td>4</td>
+<td>Crat_Pro_Backdoor</td>
+<td>Crat_Pro_Backdoor</td>
+<td>Crat Pro Backdoor</td>
+</tr>
+<tr>
+<td>199</td>
+<td>0</td>
+<td>4</td>
+<td>Messenger_Spam</td>
+<td>Messenger_Spam</td>
+<td>Messenger Spam</td>
+</tr>
+<tr>
+<td>200</td>
+<td>0</td>
+<td>14</td>
+<td>HDL_Server</td>
+<td>HDL_Server</td>
+<td>Handle Server</td>
+</tr>
+<tr>
+<td>201</td>
+<td>0</td>
+<td>14</td>
+<td>BIG_BROTHER</td>
+<td>BIG_BROTHER</td>
+<td>Big Brother</td>
+</tr>
+<tr>
+<td>202</td>
+<td>0</td>
+<td>14</td>
+<td>MADCAP</td>
+<td>MADCAP</td>
+<td>MADCAP - Multicast Address Dynamic Client Allocation Protocol</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>203</td>
+<td>0</td>
+<td>14</td>
+<td>NETWORKLENS</td>
+<td>NETWORKLENS</td>
+<td>NetworkLens</td>
+</tr>
+<tr>
+<td>203</td>
+<td>1</td>
+<td>14</td>
+<td>NETWORKLENS</td>
+<td>NETWORKLENS_EVENT</td>
+<td>NetworkLens Event</td>
+</tr>
+<tr>
+<td>203</td>
+<td>2</td>
+<td>14</td>
+<td>NETWORKLENS</td>
+<td>NETWORKLENS_SSL_EVENT</td>
+<td>NetworkLens SSL Event</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204</td>
+<td>0</td>
+<td>7</td>
+<td>REPLAYTV_IVS</td>
+<td>REPLAYTV_IVS</td>
+<td>ReplayTV Internet Video Sharing - Digital Video Recorder</td>
+</tr>
+<tr>
+<td>205</td>
+<td>0</td>
+<td>14</td>
+<td>BONJOUR</td>
+<td>BONJOUR</td>
+<td>Apple Bonjour</td>
+</tr>
+<tr>
+<td>206</td>
+<td>0</td>
+<td>5</td>
+<td>CARRACHO</td>
+<td>CARRACHO</td>
+<td>Carracho</td>
+</tr>
+<tr>
+<td>207</td>
+<td>0</td>
+<td>9</td>
+<td>UNIDATA_LDM</td>
+<td>UNIDATA_LDM</td>
+<td>UNIDATA Local Data Manager</td>
+</tr>
+<tr>
+<td>208</td>
+<td>0</td>
+<td>0</td>
+<td>RTIP</td>
+<td>RTIP</td>
+<td>RTIP</td>
+</tr>
+<tr>
+<td>209</td>
+<td>0</td>
+<td>13</td>
+<td>IBP</td>
+<td>IBP</td>
+<td>Internet Backplane Protocol</td>
+</tr>
+<tr>
+<td>210</td>
+<td>0</td>
+<td>3</td>
+<td>MCIDAS</td>
+<td>MCIDAS</td>
+<td>MCIDAS Data Transmission Protocol</td>
+</tr>
+<tr>
+<td>211</td>
+<td>0</td>
+<td>5</td>
+<td>TIMBUKTU</td>
+<td>TIMBUKTU</td>
+<td>Timbuktu</td>
+</tr>
+<tr>
+<td>212</td>
+<td>0</td>
+<td>9</td>
+<td>INTERNET_PRINTING_PROTOCOL</td>
+<td>INTERNET_PRINTING_PROTOCOL</td>
+<td>Internet Printing Protocol</td>
+</tr>
+<tr>
+<td>213</td>
+<td>0</td>
+<td>9</td>
+<td>SECURE_LDAP</td>
+<td>SECURE_LDAP</td>
+<td>Secure LDAP (LDAP over TSL/SSL)</td>
+</tr>
+<tr>
+<td>214</td>
+<td>0</td>
+<td>10</td>
+<td>REMOTE_CONTROL</td>
+<td>REMOTE_CONTROL</td>
+<td>Unicenter Remote Control</td>
+</tr>
+<tr>
+<td>215</td>
+<td>0</td>
+<td>10</td>
+<td>VMWARE</td>
+<td>VMWARE</td>
+<td>VMWare Virtual Machine Console</td>
+</tr>
+<tr>
+<td>216</td>
+<td>0</td>
+<td>18</td>
+<td>OpenVPN</td>
+<td>OpenVPN</td>
+<td>OpenVPN</td>
+</tr>
+<tr>
+<td>217</td>
+<td>0</td>
+<td>12</td>
+<td>WASTE</td>
+<td>WASTE</td>
+<td>WASTE</td>
+</tr>
+<tr>
+<td>218</td>
+<td>0</td>
+<td>12</td>
+<td>SOULSEEK</td>
+<td>SOULSEEK</td>
+<td>SoulSeek</td>
+</tr>
+<tr>
+<td>219</td>
+<td>0</td>
+<td>12</td>
+<td>SHARE_DIRECT</td>
+<td>SHARE_DIRECT</td>
+<td>Laplink ShareDirect</td>
+</tr>
+<tr>
+<td>220</td>
+<td>0</td>
+<td>7</td>
+<td>ABACAST</td>
+<td>ABACAST</td>
+<td>Abacast</td>
+</tr>
+<tr>
+<td>221</td>
+<td>0</td>
+<td>12</td>
+<td>SORIBADA</td>
+<td>SORIBADA</td>
+<td>Soribada mp3 sharing system</td>
+</tr>
+<tr>
+<td>222</td>
+<td>0</td>
+<td>12</td>
+<td>GOBOOGY</td>
+<td>GOBOOGY</td>
+<td>GoBoogy P2P system</td>
+</tr>
+<tr>
+<td>223</td>
+<td>0</td>
+<td>12</td>
+<td>PEERENABLER</td>
+<td>PEERENABLER</td>
+<td>PeerEnabler by Joltid</td>
+</tr>
+<tr>
+<td>224</td>
+<td>0</td>
+<td>12</td>
+<td>ARES</td>
+<td>ARES</td>
+<td>ARES P2P system</td>
+</tr>
+<tr>
+<td>225</td>
+<td>0</td>
+<td>12</td>
+<td>FILEGURI</td>
+<td>FILEGURI</td>
+<td>Freechal P2P FileGuri System (Korean)</td>
+</tr>
+<tr>
+<td>226</td>
+<td>0</td>
+<td>12</td>
+<td>FILEBEE</td>
+<td>FILEBEE</td>
+<td>FileBee P2P system (Korean)</td>
+</tr>
+<tr>
+<td>227</td>
+<td>0</td>
+<td>12</td>
+<td>FILEPIA</td>
+<td>FILEPIA</td>
+<td>FilePia P2P system (Korean)</td>
+</tr>
+<tr>
+<td>228</td>
+<td>0</td>
+<td>12</td>
+<td>GROUPER</td>
+<td>GROUPER</td>
+<td>Grouper</td>
+</tr>
+<tr>
+<td>229</td>
+<td>0</td>
+<td>9</td>
+<td>LOTUS_NOTES</td>
+<td>LOTUS_NOTES</td>
+<td>Lotus Notes Domino</td>
+</tr>
+<tr>
+<td>230</td>
+<td>0</td>
+<td>9</td>
+<td>CITRIX_ICA</td>
+<td>CITRIX_ICA</td>
+<td>Citrix ICA remote application access</td>
+</tr>
+<tr>
+<td>231</td>
+<td>0</td>
+<td>9</td>
+<td>NOVELL_GROUPWISE</td>
+<td>NOVELL_GROUPWISE</td>
+<td>Novell GroupWise (Remote Client)</td>
+</tr>
+<tr>
+<td>232</td>
+<td>0</td>
+<td>9</td>
+<td>PPTP</td>
+<td>PPTP</td>
+<td>PPTP</td>
+</tr>
+<tr>
+<td>233</td>
+<td>0</td>
+<td>9</td>
+<td>GLIMPSE_SERVER</td>
+<td>GLIMPSE_SERVER</td>
+<td>Glimpse Server</td>
+</tr>
+<tr>
+<td>234</td>
+<td>0</td>
+<td>9</td>
+<td>DISTRIBUTED_NET</td>
+<td>DISTRIBUTED_NET</td>
+<td>Distributed.Net</td>
+</tr>
+<tr>
+<td>235</td>
+<td>0</td>
+<td>6</td>
+<td>BORLAND_INTERBASE_DB</td>
+<td>BORLAND_INTERBASE_DB</td>
+<td>Borland InterBase DB and InterServer</td>
+</tr>
+<tr>
+<td>236</td>
+<td>0</td>
+<td>9</td>
+<td>iSNS</td>
+<td>iSNS</td>
+<td>Internet Storage Name Service</td>
+</tr>
+<tr>
+<td>237</td>
+<td>0</td>
+<td>9</td>
+<td>iSCSI</td>
+<td>iSCSI</td>
+<td>iSCSI</td>
+</tr>
+<tr>
+<td>238</td>
+<td>0</td>
+<td>9</td>
+<td>PDL_DATASTREAM</td>
+<td>PDL_DATASTREAM</td>
+<td>PDL Datastream</td>
+</tr>
+<tr>
+<td>239</td>
+<td>0</td>
+<td>9</td>
+<td>NDMP</td>
+<td>NDMP</td>
+<td>Network Data Management Protocol</td>
+</tr>
+<tr>
+<td>240</td>
+<td>0</td>
+<td>9</td>
+<td>AMANDA</td>
+<td>AMANDA</td>
+<td>Amanda</td>
+</tr>
+<tr>
+<td>241</td>
+<td>0</td>
+<td>4</td>
+<td>NetBusTrojan</td>
+<td>NetBusTrojan</td>
+<td>NetBus (trojan)</td>
+</tr>
+<tr>
+<td>242</td>
+<td>0</td>
+<td>3</td>
+<td>PALM_HOTSYNC</td>
+<td>PALM_HOTSYNC</td>
+<td>Palm Network HotSync</td>
+</tr>
+<tr>
+<td>243</td>
+<td>0</td>
+<td>2</td>
+<td>RAZOR</td>
+<td>RAZOR</td>
+<td>Vipul’s Razor</td>
+</tr>
+<tr>
+<td>244</td>
+<td>0</td>
+<td>12</td>
+<td>MP2P</td>
+<td>MP2P</td>
+<td>MP2P by Pablo Soto</td>
+</tr>
+<tr>
+<td>245</td>
+<td>0</td>
+<td>12</td>
+<td>EARTHSTATION</td>
+<td>EARTHSTATION</td>
+<td>EarthStation 5</td>
+</tr>
+<tr>
+<td>246</td>
+<td>0</td>
+<td>12</td>
+<td>P2P_MAYBE</td>
+<td>P2P_MAYBE</td>
+<td>Probably P2P</td>
+</tr>
+<tr>
+<td>247</td>
+<td>0</td>
+<td>12</td>
+<td>EASYSHARING</td>
+<td>EASYSHARING</td>
+<td>EasySharing</td>
+</tr>
+<tr>
+<td>248</td>
+<td>0</td>
+<td>12</td>
+<td>GURU_GURU</td>
+<td>GURU_GURU</td>
+<td>Guru-Guru</td>
+</tr>
+<tr>
+<td>249</td>
+<td>0</td>
+<td>12</td>
+<td>PDBOX</td>
+<td>PDBOX</td>
+<td>PDBox</td>
+</tr>
+<tr>
+<td>250</td>
+<td>0</td>
+<td>12</td>
+<td>MONKEY3</td>
+<td>MONKEY3</td>
+<td>Monkey3</td>
+</tr>
+<tr>
+<td>251</td>
+<td>0</td>
+<td>12</td>
+<td>TRANSFER_KING</td>
+<td>TRANSFER_KING</td>
+<td>Transfer King</td>
+</tr>
+<tr>
+<td>252</td>
+<td>0</td>
+<td>12</td>
+<td>COFILE</td>
+<td>COFILE</td>
+<td>CoFile</td>
+</tr>
+<tr>
+<td>253</td>
+<td>0</td>
+<td>12</td>
+<td>ORANGE_FILE</td>
+<td>ORANGE_FILE</td>
+<td>Orange-File</td>
+</tr>
+<tr>
+<td>254</td>
+<td>0</td>
+<td>12</td>
+<td>OPENNAP</td>
+<td>OPENNAP</td>
+<td>OpenNAP</td>
+</tr>
+<tr>
+<td>255</td>
+<td>0</td>
+<td>12</td>
+<td>P2P_OTHER</td>
+<td>P2P_OTHER</td>
+<td>Other P2P application</td>
+</tr>
+<tr>
+<td>256</td>
+<td>0</td>
+<td>9</td>
+<td>IDISK</td>
+<td>IDISK</td>
+<td>iDisk</td>
+</tr>
+<tr>
+<td>257</td>
+<td>0</td>
+<td>9</td>
+<td>NEO_FOLDER</td>
+<td>NEO_FOLDER</td>
+<td>NeoFolder</td>
+</tr>
+<tr>
+<td>258</td>
+<td>0</td>
+<td>9</td>
+<td>FOLDER_PLUS</td>
+<td>FOLDER_PLUS</td>
+<td>FolderPlus</td>
+</tr>
+<tr>
+<td>259</td>
+<td>0</td>
+<td>9</td>
+<td>TODO_DISK</td>
+<td>TODO_DISK</td>
+<td>Todo-Disk</td>
+</tr>
+<tr>
+<td>260</td>
+<td>0</td>
+<td>10</td>
+<td>GOTOMYPC</td>
+<td>GOTOMYPC</td>
+<td>GoToMyPC</td>
+</tr>
+<tr>
+<td>261</td>
+<td>0</td>
+<td>12</td>
+<td>100BAO</td>
+<td>100BAO</td>
+<td>100BAO P2P Protocol/program</td>
+</tr>
+<tr>
+<td>262</td>
+<td>0</td>
+<td>12</td>
+<td>APPLEJUICE</td>
+<td>APPLEJUICE</td>
+<td>Apple Juice - P2P filesharing</td>
+</tr>
+<tr>
+<td>263</td>
+<td>0</td>
+<td>11</td>
+<td>ARMAGETRON</td>
+<td>ARMAGETRON</td>
+<td>Armagetron Advanced - open source Tron/snake based multiplayer
+game</td>
+</tr>
+<tr>
+<td>264</td>
+<td>0</td>
+<td>12</td>
+<td>AUDIOGALAXY</td>
+<td>AUDIOGALAXY</td>
+<td>Audiogalaxy - (defunct) Peer to Peer filesharing</td>
+</tr>
+<tr>
+<td>265</td>
+<td>0</td>
+<td>11</td>
+<td>BATTLEFIELD1942</td>
+<td>BATTLEFIELD1942</td>
+<td>Battlefield 1942 - An EA game</td>
+</tr>
+<tr>
+<td>266</td>
+<td>0</td>
+<td>11</td>
+<td>BATTLEFIELD2</td>
+<td>BATTLEFIELD2</td>
+<td>Battlefield 2 - An EA game.</td>
+</tr>
+<tr>
+<td>267</td>
+<td>0</td>
+<td>11</td>
+<td>BATTLEFIELD2142</td>
+<td>BATTLEFIELD2142</td>
+<td>Battlefield 2142 - An EA game.</td>
+</tr>
+<tr>
+<td>268</td>
+<td>0</td>
+<td>9</td>
+<td>CHIKKA</td>
+<td>CHIKKA</td>
+<td>Chikka - SMS service which can be used without phones</td>
+</tr>
+<tr>
+<td>269</td>
+<td>0</td>
+<td>9</td>
+<td>CIMD</td>
+<td>CIMD</td>
+<td>Computer Interface to Message Distribution, an SMSC protocol by
+Nokia</td>
+</tr>
+<tr>
+<td>270</td>
+<td>0</td>
+<td>18</td>
+<td>CISCOVPN</td>
+<td>CISCOVPN</td>
+<td>Cisco VPN - VPN client software to a Cisco VPN server</td>
+</tr>
+<tr>
+<td>271</td>
+<td>0</td>
+<td>4</td>
+<td>CODE_RED</td>
+<td>CODE_RED</td>
+<td>Code Red - a worm that attacks Microsoft IIS web servers</td>
+</tr>
+<tr>
+<td>272</td>
+<td>0</td>
+<td>11</td>
+<td>COUNTERSTRIKE_SOURCE</td>
+<td>COUNTERSTRIKE_SOURCE</td>
+<td>Counterstrike (using the Source engine) - network game</td>
+</tr>
+<tr>
+<td>273</td>
+<td>0</td>
+<td>9</td>
+<td>CVS</td>
+<td>CVS</td>
+<td>CVS - Concurrent Versions System</td>
+</tr>
+<tr>
+<td>274</td>
+<td>0</td>
+<td>11</td>
+<td>DAYOFDEFEAT_SOURCE</td>
+<td>DAYOFDEFEAT_SOURCE</td>
+<td>Day of Defeat: Source - game (Half-Life 2 mod)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>275</td>
+<td>0</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>EXE</td>
+<td>Executable - Microsoft PE file format</td>
+</tr>
+<tr>
+<td>275</td>
+<td>1</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>FLASH</td>
+<td>Flash - Macromedia Flash</td>
+</tr>
+<tr>
+<td>275</td>
+<td>2</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>GIF</td>
+<td>GIF - Popular Image format</td>
+</tr>
+<tr>
+<td>275</td>
+<td>3</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>HTML</td>
+<td>(X)HTML - (Extensible) Hypertext Markup Language</td>
+</tr>
+<tr>
+<td>275</td>
+<td>4</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>JPEG</td>
+<td>JPEG - Joint Picture Expert Group image format</td>
+</tr>
+<tr>
+<td>275</td>
+<td>5</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>MP3</td>
+<td>MP3 - Moving Picture Experts Group Audio Layer III</td>
+</tr>
+<tr>
+<td>275</td>
+<td>6</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>OGG</td>
+<td>Ogg - Ogg Vorbis music format (not any ogg file, just vorbis)</td>
+</tr>
+<tr>
+<td>275</td>
+<td>7</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>PDF</td>
+<td>PDF - Portable Document Format - Postscript-like format by
+Adobe</td>
+</tr>
+<tr>
+<td>275</td>
+<td>8</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>PERL</td>
+<td>Perl - A scripting language by Larry Wall</td>
+</tr>
+<tr>
+<td>275</td>
+<td>9</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>PNG</td>
+<td>PNG - Portable Network Graphics, a popular image format</td>
+</tr>
+<tr>
+<td>275</td>
+<td>10</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>PS</td>
+<td>Postscript - Printing Language</td>
+</tr>
+<tr>
+<td>275</td>
+<td>11</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>RAR</td>
+<td>RAR - The RAR archive format</td>
+</tr>
+<tr>
+<td>275</td>
+<td>12</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>RPM</td>
+<td>RPM - Redhat Package Management packages</td>
+</tr>
+<tr>
+<td>275</td>
+<td>13</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>RTF</td>
+<td>RTF - Rich Text Format - an open document format</td>
+</tr>
+<tr>
+<td>275</td>
+<td>14</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>TAR</td>
+<td>Tar - tape archive. Standard UNIX file archiver, not just for
+tapes</td>
+</tr>
+<tr>
+<td>275</td>
+<td>15</td>
+<td>3</td>
+<td>FILE_TRANSFER</td>
+<td>ZIP</td>
+<td>ZIP - (PK/Win)Zip archive format</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>276</td>
+<td>0</td>
+<td>9</td>
+<td>FINGER</td>
+<td>FINGER</td>
+<td>Finger - User information server - RFC 1288</td>
+</tr>
+<tr>
+<td>277</td>
+<td>0</td>
+<td>12</td>
+<td>FREENET</td>
+<td>FREENET</td>
+<td>Freenet - Anonymous information retrieval</td>
+</tr>
+<tr>
+<td>278</td>
+<td>0</td>
+<td>9</td>
+<td>GKRELLM</td>
+<td>GKRELLM</td>
+<td>Gkrellm - a system monitor</td>
+</tr>
+<tr>
+<td>279</td>
+<td>0</td>
+<td>12</td>
+<td>GNUCLEUSLAN</td>
+<td>GNUCLEUSLAN</td>
+<td>GnucleusLAN - LAN-only P2P filesharing</td>
+</tr>
+<tr>
+<td>280</td>
+<td>0</td>
+<td>8</td>
+<td>H323</td>
+<td>H323</td>
+<td>H.323 - Voice over IP</td>
+</tr>
+<tr>
+<td>281</td>
+<td>0</td>
+<td>9</td>
+<td>HDDTEMP</td>
+<td>HDDTEMP</td>
+<td>Hard Drive Tempereture reporting</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>282</td>
+<td>0</td>
+<td>18</td>
+<td>HTTP_TUNNEL</td>
+<td>HTTP_TUNNEL</td>
+<td>Some protocol tunneled within HTTP</td>
+</tr>
+<tr>
+<td>282</td>
+<td>1</td>
+<td>18</td>
+<td>HTTP_TUNNEL</td>
+<td>RTSP</td>
+<td>RTSP tunneled within HTTP</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>AppID</th>
+<th>SubID</th>
+<th>GroupID</th>
+<th>Label</th>
+<th>SubLabel</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>283</td>
+<td>0</td>
+<td>12</td>
+<td>KUGOO</td>
+<td>KUGOO</td>
+<td>KuGoo - a Chinese P2P program</td>
+</tr>
+<tr>
+<td>284</td>
+<td>0</td>
+<td>7</td>
+<td>LIVE365</td>
+<td>LIVE365</td>
+<td>live365 - An Internet radio site</td>
+</tr>
+<tr>
+<td>285</td>
+<td>0</td>
+<td>11</td>
+<td>LIVEFORSPEED</td>
+<td>LIVEFORSPEED</td>
+<td>Live For Speed - A racing game</td>
+</tr>
+<tr>
+<td>286</td>
+<td>0</td>
+<td>9</td>
+<td>LPD</td>
+<td>LPD</td>
+<td>LPD - Line Printer Daemon Protocol (old-style UNIX printing)</td>
+</tr>
+<tr>
+<td>287</td>
+<td>0</td>
+<td>11</td>
+<td>MOHAA</td>
+<td>MOHAA</td>
+<td>Medal of Honor Allied Assault - an Electronic Arts game</td>
+</tr>
+<tr>
+<td>288</td>
+<td>0</td>
+<td>12</td>
+<td>MUTE</td>
+<td>MUTE</td>
+<td>MUTE - P2P filesharing</td>
+</tr>
+<tr>
+<td>289</td>
+<td>0</td>
+<td>9</td>
+<td>NBNS</td>
+<td>NBNS</td>
+<td>Netbios name service</td>
+</tr>
+<tr>
+<td>290</td>
+<td>0</td>
+<td>4</td>
+<td>NIMDA</td>
+<td>NIMDA</td>
+<td>Nimda - a worm that attacks Microsoft IIS web servers, and MORE</td>
+</tr>
+<tr>
+<td>291</td>
+<td>0</td>
+<td>9</td>
+<td>NTP</td>
+<td>NTP</td>
+<td>(S)NTP - (Simple) Network Time Protocol</td>
+</tr>
+<tr>
+<td>292</td>
+<td>0</td>
+<td>12</td>
+<td>OPENFT</td>
+<td>OPENFT</td>
+<td>OpenFT - P2P filesharing (implemented in giFT library)</td>
+</tr>
+<tr>
+<td>293</td>
+<td>0</td>
+<td>12</td>
+<td>POCO</td>
+<td>POCO</td>
+<td>POCO and PP365 - Chinese P2P filesharing</td>
+</tr>
+<tr>
+<td>294</td>
+<td>0</td>
+<td>5</td>
+<td>QQ</td>
+<td>QQ</td>
+<td>Tencent QQ Protocol - Chinese instant messenger protocol</td>
+</tr>
+<tr>
+<td>295</td>
+<td>0</td>
+<td>7</td>
+<td>PRESSPLAY</td>
+<td>PRESSPLAY</td>
+<td>pressplay - A legal music distribution site</td>
+</tr>
+<tr>
+<td>296</td>
+<td>0</td>
+<td>7</td>
+<td>VOIPSTUNT</td>
+<td>VOIPSTUNT</td>
+<td>VoipStunt client</td>
+</tr>
+<tr>
+<td>297</td>
+<td>0</td>
+<td>12</td>
+<td>PIOLET</td>
+<td>PIOLET</td>
+<td>Piolet p2p client</td>
+</tr>
+</tbody>
+</table>
+
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../../../../images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="../../../../people.html">People</a></li>
+          <li><a href="../../../../publications.html">Publications</a></li>
+          <li><a href="../../../../news.html">News</a></li>
+          <li><a href="../../../../collaborations.html">Collaborations</a></li>
+          <li><a href="../../../../visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

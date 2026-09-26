@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time and Path diversity in IP networks | Traffic</title>
+  <meta name="description" content="Time and Path diversity in IP networks — Traffic research group, University of Napoli Federico II.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
+    </div>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Traffic, home">
+        <img src="images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle is-current" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="np.html">High-performance networking</a>
+                  <a href="timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="security.html">Network security</a>
+                  <a href="internetcensor.html">Internet censorship detection</a>
+                  <a href="cloud.html">Cloud monitoring and control</a>
+                  <a href="sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="Traces/ttraces.php">Traffic traces</a>
+              <a href="Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="Traces/Magnets.php">MagNets data traces</a>
+              <a href="Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="index.html#topics">Topics</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>Network performance improvement</span></nav>
+        <h1 class="page-title">Time and Path diversity in IP networks</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose">
+
+
+  <h2>Description</h2>
+  <p style="padding-left: 1em">
+    The current Internet scenario poses several challenges to the infrastructure, and different approaches have been proposed
+    in literature towards the Future Internet. Adopting an evolutionary approach, in this research activities we study how space
+    and time diversity at IP layer can help to overcome limitations of current Internet infrastructure. We work on techniques
+    implementing what we call informed diversity: space and time diversity using information about the status of the network to
+    make informed decisions about the operating parameters. We adopt a methodology composed of theoretical, simulation, and
+    experimental analysis, and we provide contributions in terms of methodologies and techniques for network monitoring, and
+    in terms of innovative techniques and tools for space and time diversity at IP layer.
+  </p>
+
+  <h2>Projects</h2>
+  <p style="padding-left: 1em"><i>International</i></p>
+  <ul>
+   <li><a href=http://www.tma-portal.eu>EU COST IC0703</a> (TMA: Traffic Monitoring and Analysis)<br>
+   <li><a href=http://www.onelab.eu>EU FP7 ONELAB2</a> (An Open Networking Laboratory Supporting Communication Network Research Across Heterogeneous Environments 2)<br>
+   <li><a href=http://www.netqos.eu>EU FP6-033516 NETQOS</a> (Policy based Management of Heterogeneous Networks for guaranteed QoS)<br>
+   <li><a href=http://www.ist-content.eu>EU IST-FP6-038423 CONTENT Network of Excellence</a> (Excellence in Content Distribution Network Research)<br>
+   <li><a href=http://www.onelab.eu>EU FP6-224263 ONELAB</a> (An Open Networking Laboratory Supporting Communication Network Research Across Heterogeneous Environments)<br>
+  </ul>
+  <p style="padding-left: 1em"><i>Italian</i></p>
+  <ul>
+   <li><u>LATINO</u> - Un sistema innovativo di LocAlizzazione e Tracciamento di Individui per l'Ottimizzazione di percorsi in ambienti indoor
+  </ul>
+
+  <h2>Papers, TR, Documentation</h2>
+
+  <p style="padding-left: 1em">
+   Alessio Botta, Antonio Pescap&egrave;, &quot;<b><a href="http://wpage.unina.it/a.botta/pub/iscc2011.pdf">IP packet interleaving: bridging the
+   gap between theory and practice</a></b>&quot;, 16th IEEE Symposium on Computer and Communications (ISCC), Kerkyra (Corfu), Greece, June 2011.
+  </p>
+  <p style="padding-left: 1em">
+   Vinh Bui, Weiping Zhu, Alessio Botta, Antonio Pescap&egrave;, &quot;<b><a href="http://wpage.unina.it/a.botta/pub/TPDS_MULTIPATH.pdf">A Markovian
+   Approach to Multi-path Data Transfer in Overlay Networks</a></b>&quot;,
+   IEEE Transactions on Parallel and Distributed Systems, vol.21, no.10, pp.1398-1411, Oct. 2010.
+  </p>
+  <p style="padding-left: 1em">
+   Alessio Botta, &quot;<a href=TimeD/PhDThesis_Botta.pdf>Towards informed diversity in IP networks: techniques, issues, and solutions</a>&quot;,
+   Ph.D. dissertation, University of Napoli Federico II, December 2009.
+  </p>
+  <p style="padding-left: 1em">
+   Alessio Botta, Antonio Pescap&egrave;, &quot;<a href=pub/TR-DIS-INT-7-2009.pdf>Packet interleaving from theory to practice</a>&quot;,
+   Technical Report TR-DIS-INT-7-2009 Dipartimento di Informatica e Sistemistica, University of Napoli Federico II, Italy, July 2009.
+  </p>
+  <p style="padding-left: 1em">
+   Alessio Botta, Antonio Pescap&egrave;, Vinh Q Bui, Weiping Zhu, &quot;<a href=pub/ICC08_botta.pdf>An MDP-based Approach for Multipath Data
+   Transmission over Wireless Networks</a>&quot;, 2008 IEEE International Conference on Communications (ICC 2008), page(s): 268 - 274.
+  </p>
+  <p style="padding-left: 1em">
+   ... more in <a href=publications.php>publications</a>
+  </p>
+
+  <h2>Source code*</h2>
+
+  <p style="padding-left: 1em">
+   <b>TimeD</b> is a prototype implementation of a packet interleaver for Linux based on libipq. It is a continuosly evolving project,
+   aimed of deploying time diversity at IP layer, despite the application, transport protocol, and network technology in use. Alpha versions
+   of TimeD are currently available under the terms of GNU GPL.
+  </p>
+  <p style="padding-left: 1em">
+   <a href=TimeD/TimeD_simulator.tgz>TimeD Simulator</a> Based on Matlab, it allows to study time diversity at IP layer at a high level.
+   <br>
+   <a href=TimeD/TimeD_0.1.tgz>TimeD v0.1</a> First version. It requires the manual configuration of the operating parameters.
+   <br>
+   <a href=TimeD/TimeD_0.2.tgz>TimeD v0.2</a> Second version. A lot of improvements for stability and auto-configuration of the operating parameters.
+  </p>
+  <p>
+   *Software Disclaimer: we assume no responsibility whatsoever for using tools in the previous list.
+  </p>
+
+  <h2>Related resources</h2>
+  <p style="padding-left: 1em">
+   <a href=https://svn.netfilter.org/netfilter/trunk/iptables/libipq>libipq subversion repository</a><br>
+   <a href=http://www.cs.princeton.edu/~nakao/libipq.htm>libipq man page</a><br>
+  </p>
+
+  <h2>Student contributors</h2>
+  <p style="padding-left: 1em">
+   - Alessandro Ferraiuolo<br>
+   - Giansimone Perrino<br>
+   - Carlo Ruggiero<br>
+   - Rosario Mattera<br>
+   - Rosa Guerra<br>
+   - Antonino Esposito<br>
+  </p>
+  <hr>
+
+  
+  <br>
+</div>
+
+
+
+<div style="display: none" id="eXTReMe"><a href="http://extremetracking.com/open?login=timediv">
+<img src="http://t1.extreme-dm.com/i.gif" style="border: 0"
+height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
+<script type="text/javascript">
+</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
+src="http://e0.extreme-dm.com/s9.g?login=timediv&amp;j=n&amp;jv=n" />
+</div></noscript>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="collaborations.html">Collaborations</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

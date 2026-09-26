@@ -1,0 +1,416 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+					<td>
+						<div class=textArea>
+							<p><h2>1. Analysis and Performance Evaluation over Linux platform</h2></p>
+							<p><h3>Linux Platform: local experimentation</h3></p>
+							<p>
+								In this case we study D-ITG performance at sender 
+								and receiver side by storing information at sender 
+								and receiver side. This feature is not available 
+								in all analyzed traffic generators. Thus we present 
+								both the results related to logging phase only at 
+								receiver side and results related to logging phase 
+								at sender and receiver side. This "modus operandi" 
+								has been carried out over the same platform (local 
+								experimentation, sender and receiver over the same 
+								device) and between two distinct but identical PCs 
+								(distributed experimentation, sender and receiver 
+								over two distinct devices).
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/linuxReceiverDataRate.gif" width="270" height="168" border="0"></td>
+										<td><IMG src="images/linuxReceiverErrorRate.gif" width="283" height="167" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td><font size="-1"><strong>Figure 1: Local received data rate over <br>Linux platform (log at receiver side)</strong></font></td>
+										<td><font size="-1"><strong>Figure 2:  Local loss rate (%) over <br>Linux platform (log at receiver side)</strong></font></td>
+										
+									</tr>
+									
+								</table>
+							</div>
+							<p><h4>Local experimentation with logging only at receiver side</h4></p>
+							<p>
+								Over Linux platform and by using the log file at the receiver side 
+								D-ITG presents the performance depicted in Figure 1. In Figure 2 the 
+								percentage loss rate (between real and expected data rate) as a function 
+								of the packet rate is reported. In the case of C=75000pkt/s, c=1024byte, 
+								t=60s D-ITG reaches a received data rate equal to 611Mbit/s with a 
+								percentage loss rate equal to 0.4%. 
+							</dp>
+							<p>
+								By using the same parameters, in Figure 3 a comparative analysis between 
+								traffic generators that can log at receiver side is reported. As far as
+								experimental results, D-ITG shows the best performance. It is important 
+								to underline that Iperf (which presents a percentage loss rate equal to 
+								5,3% with respect to 0,4 % of D-ITG) works in a different way with respect 
+								to D-ITG. Indeed Iperf does not produce a log file: it provides only an 
+								estimation of received and transmitted date rate at the end of the experiment.
+								By using Iperf it is not possible to make a complete performance study, it 
+								is only possible to determine average values on the whole duration of the experiment. 
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/linuxImage006.gif" width="337" height="232" border="0"></td>
+										</tr>
+									<tr align="center">
+										<td><font size="-1"><strong>Figure 3: Comparative analysis of local received data rate over <br>Linux platform (log at receiver side)</strong></font></td>	
+									</tr>
+									
+								</table>
+							</div>
+							<p><h4>Local experimentation with logging both at receiver and sender side </h4></p>
+							<p>
+								Over a single Linux host and by using log file both at receiver and sender 
+								side D-ITG presents the performance depicted in Figure 4 and Figure 5. 
+								In particular in Figure 4 (Figure 5) a comparative analysis with respect to 
+								generated (received) data rate between traffic generators that can log both 
+								at receiver and sender side is reported. In the case of C=63000pkt/s, c=1024byte, 
+								t=60s D-ITG reaches a received data rate equal to 511Mbps. By observing Figure 
+								3 and Figure 4. it is possible to understand that: (i) by logging both at sender 
+								and receiver side D-ITG presents a reduction of 100 Mbps; (ii) both D-ITG and 
+								Iperf can receive all sent packets. Other analyzed generators present a high 
+								rate of loss packets. Iperf presents a percentage reduction higher than D-ITG 
+								when the log process, at both side of the communication, is performed. 
+								Finally, in this case Mtools presents a generated data rate higher than 
+								that one observed in Figure 3: this is due to the different packet rate (C).
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/linuxSenderComparativeAnalisys.gif" width="280" height="243" border="0"></td>
+										<td><IMG src="images/linuxImage010.gif" width="302" height="246" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<font size="-1"><strong>
+												Figure 4: A comparative analysis with respect to  <br>
+												generated data rate over Linux platform (local <br>
+												and log at sender and receiver side)
+											</strong></font>
+										</td>
+										<td>
+											<font size="-1"><strong>
+												Figure 5: A comparative analysis with respect to <br>
+												received data rate over Linux platform (local <br>
+												and log at sender and receiver side)
+											</strong></font></td>
+										
+									</tr>
+									
+								</table>
+							</div>
+							<p><h3>Linux Platform: distributed experimentation</h3></p>
+							<p>
+								In this subsection we describe the results of the distributed experimentation over Linux platform. 
+								In this case we used the same operational mode of the section <em>"Linux Platform: local experimentation"</em>. 
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/linuxReceiverDataRate2.gif" width="280" height="185" border="0"></td>
+										<td><IMG src="images/linuxReceiverErrorRate2.gif" width="280" height="185" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<font size="-1"><strong>
+												Figure 6: Distributed received data rate over Linux  <br>
+												platform (log at receiver side)
+											</strong></font>
+										</td>
+										<td>
+											<font size="-1"><strong>
+												Figure 7: Distributed loss rate (%) over Linux platform  <br>
+												(log at receiver side)
+											</strong></font></td>
+										
+									</tr>
+									
+								</table>
+							</div>
+							<p><h4>Distributed experimentation with logging only at receiver side </h4></p>
+							<p>
+								Between two Linux devices and by using the log file at the receiver side 
+								D-ITG present the performance depicted in Figure 6. In Figure 7 a percentage 
+								loss rate (between real and expected data rate) as a function of packet rate 
+								is reported. In the case of C=77000pkt/s, c=1024byte, t=60s D-ITG reaches a 
+								received data rate equal to 627 Mbit/s with a percentage loss rate equal to 0.5%. 
+								In Figure 7 the percentage loss rate trend is depicted. It is important to note 
+								that also over two distinct devices D-ITG is able to reach high performance. 
+								Figure 8 shows a comparative analysis between traffic generators over two distinct devices. 
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/linuxReceiverComparativeAnalysis2.gif" width="322" height="204" border="0"></td>
+										<td><IMG src="images/linuxRudeCrude.gif" width="299" height="204" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<font size="-1"><strong>
+												Figure 8: Distributed received data rate over<br> Linux
+												platform (log at receiver side)
+											</strong></font>
+										</td>
+										<td>
+											<font size="-1"><strong>
+												Figure 9: Distributed loss rate (%) over Linux <br>
+												platform (log at receiver side)
+											</strong></font></td>
+										
+									</tr>
+									
+								</table>
+							</div>
+							<p>
+								Also in this case, D-ITG presents the best performance. It is important to 
+								underline that Rude/Crude for 77000 pkt/s presents a very low performance 
+								(11 Mbps). Indeed we studied the Rude/Crude performance by varying the packet 
+								rate: the results are depicted in Figure 9. Rude/Crude presents the maximum 
+								data rate for a packet rate equal to 60000 pkt/s (438 Mbps with an error, 
+								between the expected and real value, equal to 0.9%). Thanks to this analysis, 
+								we can conclude that: (i) Rude/Crude is able to reach data rate up to 438 Mbps
+								whereas D-ITG reaches 627 Mbps; (ii) Rude/Crude cannot generate traffic with 
+								a high packet rate. Regarding Iperf, we must take into account the observation
+								made at the end of the section <em>"Local experimentation with logging only at receiver side"</em>.
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/linuxImage020.gif" width="466" height="218" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<font size="-1"><strong>
+												Figure 10: Generated and received data rate over Linux devices
+												(distributed and log both at sender and receiver side)
+											</strong></font>
+										</td>
+									</tr>
+									
+								</table>
+							</div>
+							<p><h3>Distributed experimentation with logging both at receiver and sender side</h3></p>
+							<p>
+								Over two distinct Linux devices and by using log file both at 
+								receiver and sender side D-ITG presents the performance depicted 
+								in Figure 10. In this figure the data rate (both at sender and 
+								receiver side) trend is reported. In the case of C=75000pkt/s, 
+								c=1024byte, t=60s D-ITG reaches a generated data rate equal to 
+								612Mbps (with an error equal to 0.5%). The logging process at 
+								sender side implies a maximum data rate reduction in the generation 
+								phase. Moreover, all generated packets have been received at receiver 
+								side. In Figure 11 a comparative analysis among traffic generators over two 
+								distinct Linux devices with respect to generated data rate is shown. 
+								In the same way in Figure 12 a comparative analysis with respect to 
+								received data rate is sketched. Results shown in Figure 11 and in 
+								Figure 12 present some interesting properties: (i) D-ITG presents (both at 
+								sender and receiver side) high performance; (ii) TG2 presents very high 
+								performance. This result is not valid for the local experimentation. 
+								Indeed, in that case TG2 reaches respectively 358Mbps at sender side and 
+								84Mbps at receiver side. Instead, D-ITG presents substantially the same 
+								performance both in the local and in the distributed experimentation. 
+							</p>
+							<div align="center">
+								<table align="center">
+									<tr align="center">
+										<td><IMG src="images/linuxImage021.gif" width="296" height="215" border="0"></td>
+										<td><IMG src="images/linuxImage022.gif" width="296" height="215" border="0"></td>
+									</tr>
+									<tr align="center">
+										<td>
+											<font size="-1"><strong>
+												Figure 11: G comparative analysis with  <br>
+												respect to generated data rate over <br>
+												Linux platform  (distributed and <br>
+												log at sender and receiver side)
+											</strong></font>
+										</td>
+										<td>
+											<font size="-1"><strong>
+												Figure 12: A comparative analysis with  <br>
+												respect to received data rate over  <br>
+												Linux platform (distributed and log<br>
+												at sender and receiver side)
+											</strong></font></td>
+										
+									</tr>
+									
+								</table>
+							</div>
+							<p>
+								<table>
+									<tr>
+										<td><A href="comparativeAnalysis.html">Back</A></td>
+										<td><A href="comparativeAnalysis.html">Home</A></td>
+										<td><A href="windowsAnalysis.html">Next</A></td>
+									</tr>
+								</table>
+							</p>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</p>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+
+<td><div class=textArea>
+    <p> <font color="darkRed" size="+2">ChangeLog</font> </p>
+
+    <ul>
+	<li><b> v2.8.1</b><br>
+
+<br>New Features
+<ul>
+<li>    ITGSend
+<ul>
+<li>	Added -Fp to read payload content from file instead of using random bytes
+</ul>
+<li>    ITGDec
+<ul>
+<li>	Added -c option to generate a combined log including all the metrics
+</ul>
+<li>    Common
+<ul>
+<li>	Added -q option to ITGSend, ITGRecv and ITGLog to set the log buffer size
+</ul>
+</ul>
+<br>Improvements
+<ul>
+<li>    ITGSend
+<ul>
+<li>	Renamed onoff mode to bursty mode
+<li>	Improved inline help screen
+</ul>
+<li>    ITGRecv
+<ul>
+<li>	Improved thread management with explicit detach request upon creation
+<li>	Improved support for IPv6 on Windows (dual stack is now supported starting from Vista)
+<li>	Improved startup output on Windows with multiport=on
+</ul>
+<li>    ITGDec
+<ul>
+<li>	Forced buffer flush when generating Octave output to allow in-pipe live plotting
+</ul>
+<li>    Makefiles
+<ul>
+<li>	Improved Linux->Windows cross-compilation using Mingw
+<li>	Cleaned make output and inline help
+<li>	Added simple checks for dependencies with hints on errors
+<li>	Added a wrapper Makefile to select the right mk file depending on the operating system
+</ul>
+<li>    Common
+<ul>
+<li>	Added support for Apple OSX without IPv6 (tested on Leopard)
+<li>	Added support for FreeBSD without IPv6
+<li>	Reformatted most code to make it more readable
+<li>	Redirected all error messages to standard error
+</ul>
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    ITGSend
+<ul>
+<li>	Fixed segfault when using RTTM meter without sender-side log
+<li>	Fixed infinite generation of traffic with bursty flows enabled and -z or -k options
+<li>	Fixed sender-side log format with RTTM meter
+<li>	Fixed useless wait for packets at the end of the generation with RTTM meter
+<li>	Fixed crash caused by empty lines at the end of the script file
+<li>	Fixed segfault SCTP multi-channel
+<li>	Fixed RequestToSend: precise length and byte ordering on signaling channel
+<li>	Fixed destAddr allocation
+<li>	Fixed daemon mode crash on malformed incoming requests
+</ul>
+<li>    ITGRecv
+<ul>
+<li>	Fixed several long-term memory leaks
+<li>	Fixed SignalManager select fdset size causing the last socket to be ignored
+<li>	Fixed DoS vulnerability when accepting empty connections
+<li>	Fixed UDP thread exit on error
+<li>	Fixed getaddrinfo bug with IPv6 addresses
+<li>	Fixed missing flowId assignment
+<li>	Fixed DS byte consistency in RTTM mode
+<li>	Fixed dirty sockaddr_in mallocs on OSX
+</ul>
+<li>    ITGplot
+<ul>
+<li>	Fixed compatibility issues with octave 3.6
+</ul>
+<li>    Common
+<ul>
+<li>	Fixed generation deadlock with minimum packet sizes and RTTM meter
+<li>	Applied patch from Roland Stigge to timestamp.h to solve compilation issues
+<li>	Fixed compilation under Fedora 18, CentOS 6.3, and Debian 6.07
+<li>	Fixed PF_INET6 cross-OS portability
+<li>	Fixed IPv6 local-scope addresses management
+
+</ul>
+</ul>
+<li><b> v2.8.0-rc1: Beta</b><br>
+
+<br>New Features
+<ul>
+<li>    ITGSend
+<ul>
+<li>	Added the possibility to to a specific source address for data flows: "-sa" option
+<li>	Added the possibility to read payload sizes and IDTs from file: "-Fs" and "-Ft" options
+<li>	Added the possibility to specify the number of packets to generate: "-z" option
+<li>	Added the possibility to specify the amount of Kbytes to generate: "-k" option
+<li>	Added the possibility to specify both source and destination addresses and port numbers for the signaling channel: "-Sda" "-Sdp" "-Ssa" "-Ssp" options
+<li>	Added the possibility to bind to a specific interface for the signaling channel: "-Si" option
+<li>	Added the possibility to let ITGRecv decide the data destination port number: "-rp 0" option (set as default)
+</ul>
+<li>    ITGRecv 
+<ul>
+<li>	Added the possibility to change the signaling port number: "-Sp" option (ack to Grzegorz Lysko)
+<li>	Added the possibility to specify the port number of the log server: "-L p" sub-option (ack to Grzegorz Lysko)
+<li>	Added the possibility to bind to a specific interface for the signaling channel: "-Si" option
+<li>	Added the possibility to bind to a specific source address for data flows: "-a" option
+<li>	Added the possibility to receive multiple data flows on the same port number (only for TCP and UDP): requires "multiport=on" compile-time option
+</ul>
+<li>    ITGDec
+<ul>
+<li>	Added the possibility to customize the name of output files: "-j", "-d", "-b", "-p" options
+</ul>
+<li>    Common
+<ul>
+<li>	Added passive mode which enables ITGRecv to start the communication as a way to provide NAT traversal (only for TCP and UDP): "-H" option
+</ul>
+</ul>
+<br>Improvements
+<ul>
+<li>    ITGSend
+<ul>
+<li>	Improved the precision in respecting IDTs lower than 1 ms by polling: "-poll" option
+</ul>
+<li>    ITGRecv 
+<ul>
+<li>	Reorganized the parser with support for sub-options
+</ul>
+<li>    Common
+<ul>
+<li>	Adoption of portable integer types to avoid inconsistencies between different architectures
+<li>	Improved the IPv4/IPv6 compatibility
+<li>	Improved the error handling for TCP flows
+<li>	Improved the signaling protocol to support crashes of endpoints without losing consistency
+<li>	Disabled the "waitStopKey" thread by default: now requires "-gui" as the first option
+<li>	Improved the portability of the logs
+<li>	Enabled support for OSX (without ipv6)
+<li>	Enabled support for uclibxx (testend under OpenWRT)
+<li>	Improved console output to show version information and compile-time options
+</ul>
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    ITGSend
+<ul>
+<li>	Fixed the generation of TCP flows to avoid the fragmentation of the preamble
+<li>	Fixed the header size for VoIP traffic
+<li>	Fixed logging format when working in both OWDM and RTTM modes
+<li>	Fixed addresses and port numbers inside log files in OWDM mode
+<li>	Fixed the alignment of the SCTP preamble on 64 bit machines
+<li>	Fixed the generation of random payload content
+<li>	Fixed the generation delay to allow gaps without traffic
+</ul>
+<li>    ITGRecv
+<ul>
+<li>	Fixed the management of the TSP_CLOSED_ERR message
+<li>	Fixed "-l" option inline documentation
+<li>	Fixed logging when receiving multiple flows using the sender-side "-x" option
+<li>	Fixed the packet counter to include the last packets
+<li>	Fixed remote logging when using sender-side "-p 2" option
+</ul>
+<li>    ITGDec
+<ul>
+<li>	Fixed loss burst rate computation
+</ul>
+<li>    ITGPlot
+<ul>
+<li>	Fixed to work with Octave 3.2
+</ul>
+<li>    Common
+<ul>
+<li>	Made strtok() thread-safe
+<li>	Fixed the compilation on 64 bit architectures
+<li>	Fixed the remote logging to support both big- and little-endian architectures
+<li>	Fixed the alignement of preamble fields between Linux and Windows
+<li>	Fixed compilation errors under Windows (mingw32 and DevC++)
+<li>	Fixed most warnings and debug messages
+</ul>
+<li>    
+</ul>
+<li><b> v2.7.0-Beta2: Beta</b><br>
+
+<br>Improvements
+<ul>
+<li>    Added support for 64 bit processors
+<li>    Adopted new version of newran library
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    Corrected behavior of ITGRecv with DCCP in RTTM mode
+<li>    Corrected a bug in the compilation with SCTP enabled
+<li>    Corrected behavior of IPv6 under Windows
+
+</ul>
+<li><b> v2.7.0-Beta: Beta</b><br>
+
+<br>New Features
+<ul>
+<li>    Added Burst (aka On/Off) and Weibull traffic types
+<li>    Added the possibility to bind to a specific network interface
+<li>    ITGDec now reports the average loss-burst size also
+</ul>
+<br>Improvements
+<ul>
+<li>    Added support for compiling under Spark64 (thanks to Gerrit Renker)
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    Fixed compilation errors with g++ 4.3.1
+<li>    Fixed a bug in ITGDec which caused an 'Error opening file ...' error
+
+</ul>
+<li><b> v2.6.1d: Stable</b><br>
+
+<br>License
+<ul>
+<li>    D-ITG is now released under GPLv3 license
+</ul>
+<br>Improvements
+<ul>
+<li>    Added MinGW makefile to compile Win32 binaries on linux
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    Fixed a lot of warnings shown using gcc 4.2.3 version
+
+</ul>
+<li><b> v2.6.1c: Stable</b><br>
+
+<br>Bug Fixing
+<ul>
+<li>    Fixed problem related to ITGDec options -b, -j, -p and -d
+<li>    Addedd Sleep(1000) call into waitStopKey() functions to solve some timing problems
+
+</ul>
+<li><b> v2.6.1b: Stable</b><br>
+
+<br>Improvements
+<ul>
+<li>    Linux: simplified method to enable DCCP, SCTP and DEBUG without modifying "Makefile"
+<li>    Windows: simplified method to enable IPv6 and DEBUG without modifying "win.mk"
+<li>    Improved installation guide (see INSTALL file)
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    Fixed compilation problem related to IPv6 DS byte setting with old kernel and libc versions
+
+</ul>
+<li><b> v2.6.1: Stable</b><br>
+
+<br>New Features
+<ul>
+<li>    Added modifications suggested by Volker Semken to let GUI work better
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    Now IPv6 version works again both under Linux and Windows
+<li>    IPv6 DS byte now works correctly
+<li>    Now the Sender logfile pathname can contain spaces (only in command-line mode at the moment)
+<li>    A lot of warning fixed both under Linux and Windows
+
+</ul>
+<li><b> v2.6: Stable</b><br>
+
+<br>License
+<ul>
+<li>    D-ITG is no more released under GPL license. The new one is reported in the source package inside LICENSE file.
+</ul>
+<br>Manual
+<ul>
+<li>    The information related to the new features have been added.
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    MSG_DONTWAIT flag under Windows;
+<li>    Timeout calculation in OWDM mode;
+<li>    Send time reported by remote log;
+<li>    Inter-departure time statistical distribution accuracy.
+<li>    Random number seed option.
+
+</ul>
+<li><b> v2.5: D-ITG 2.5 "INFOCOM 2007 Edition"</b><br>
+
+<br>New features
+<ul>
+<li>    Preliminary SCTP support.
+<li>    Preliminary DCCP support.
+<li>    Support for three different types of log-info (-pl option). This feature allows to send smaller packets.
+<li>    Currently it is possible to disable the strategy used to guarantee the mean bitrate (-j option).
+<li>    Several new decoding features have been added to the decoder ITGDec:
+<ul>
+<li>	Reconstruction of receiver log files created by using the new log-info types (-r option).
+<li>	Printing of the inter departure time of each packet (-? option).
+<li>	Printing of the packet size of each packet (-j option).
+</ul>
+<li>    Improved version of the manual.
+<li>    Both an "install" and an "uninstall" options have been added to the Linux Makefile.
+</ul>
+<br>Bug Fixing
+<ul>
+<li>    A massive work of stability fixes has been done.
+<li>    Some of the bugs fixed are related to:
+<ul>
+<li>	The management of the log files at receiver side;
+<li>	Parsing of multiple flows; 
+<li>	The decoding of log files.
+
+</ul>
+</ul>
+<li><b> v2.4: D-ITG 2.4(02) Decoder</b><br>
+
+<br>D-ITG Decoder
+<ul>
+<li>    Errors coming out with gcc v3.4 compiler have been fixed
+
+</ul>
+<li><b> v2.4: D-ITG 2.4 GUI</b><br>
+
+<br>D-ITG Graphical User Interface:
+<ul>
+<li>    This GUI is written in Java and should support any plattform D-ITG is and will be ported to. It supports all traffic settings of the version 2.4.
+
+</ul>
+<li><b> v2.4: Stable</b><br>
+
+<br>Bug Fixing
+<ul>
+<li>    Header VoIP packets
+<li>    Nagle algorithm settings
+<li>    TCP packets receiving
+<li>    More details in the documentation about the interaction between sender and receiver
+<li>    rttm option by using the signaling channel
+<li>    DS setting on Windows OSs
+<li>    log options (-L, -l, etc.): default value
+<li>    -f (TTL) option runs correctly on Linux OSs
+</ul>
+<br>Improvements
+<ul>
+<li>    Software architecture has been deeply revised and optimized
+<li>    -x (see the manual for details)
+<li>    Currently the log server supports multiflows
+<li>    New Decoder. It is able to determine a lot of output results (see the manual for details)
+<li>    IPv6 traffic generation
+<li>    Nagle option management via CLI
+<li>    Sender port setting
+<li>    Synchronization with the serial port (signal raising for each sent and received packet)
+<li>    Packet payload filled in a random fashion
+<li>    -P option (priority setting on Windows OSs)
+<li>    -X option (more log servers are available, see the manual for details)
+
+</ul>
+<li><b> v2.3: Stable</b><br>
+
+<ul>
+<li>    A lot of bugs fixed.
+
+</ul>
+<li><b> v2.1: Stable</b><br>
+
+<ul>
+<li>    Windows makefile and Windows binary files.
+
+</ul>
+<li><b> v2.0: Alpha</b><br>
+
+<ul>
+<li>    Multithread implementation and Windows version.
+
+</ul>
+<li><b> v1.1: Alpha</b><br>
+
+<ul>
+<li>    TCP communication with Log Server was fixed and the performance was improved.
+
+</ul>
+<li><b> v1.0: Alpha</b><br>
+
+<ul>
+<li>    TCP communication with Log Server was added.
+
+</ul>
+<li><b> v0.9: Alpha</b><br>
+
+<ul>
+<li>    The first distributed version was released. The "Log Server" was introduced.
+
+</ul>
+<li><b> v0.2: Alpha</b><br>
+
+<ul>
+<li>    TCP traffic generation was added.
+
+</ul>
+<li><b> v0.1: Alpha</b><br>
+
+<ul>
+<li>    The first version. Only sender and receiver were present. UDP was the supported protocol.
+
+
+    </ul>
+    </p>
+  </div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body></html>

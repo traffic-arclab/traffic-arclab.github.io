@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="http://traffic.comics.unina.it"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+
+<td><div class=textArea>
+    <p> <font color="darkRed" size="+2">Citings and Links</font> </p>
+
+
+    <p> We have a strong tradition of collaboration with both
+
+      other Universities and Industries. To support network
+
+      research and engineering of high performance research
+
+      networks, our activities have created and continue to
+
+      build networks analysis tools. D-ITG is one of the
+
+      platforms we released. </p>
+    <p> We actively solicit collaborations with other network
+
+      researchers, which increase the breadth and scope of
+
+      our work and improve the understanding of performance
+
+      issues and parameters in studying networks. </p>
+    <p> Many researchers use our tool for a variety of research
+
+      and engineering purposes. The following is a listing of
+
+      links where D-ITG is present. This page contains information
+
+      on publications, researchers, and educators referencing
+
+      our tool. For papers citings D-ITG please refer to
+	   <a href="papersciting.html"> http://traffic.comics.unina.it/software/ITG/papersciting.php</a>.</p>
+
+     
+<p>
+  <table border=1 cellspacing=0 cellpadding=4><tr><td>
+  If you are using D-ITG for scientific papers, academic lectures, project reports, or technical documents, please help us increasing D-ITG impact by adding a reference to:<br>
+  <i><b>A. Botta, A. Dainotti, A. Pescap&egrave;,
+  &quot;A tool for the generation of realistic network workload for emerging networking scenarios&quot;,
+  Computer Networks (Elsevier), 2012, Volume 56, Issue 15, pp 3531-3547.</b></i>
+  (<a target="_out" href="http://wpage.unina.it/a.botta/pub/COMNET_WORKLOAD.pdf">Article</a>)
+  (<a target="_out" href="bibs/BottaDP12.bib">BibTex</a>)
+  </table>
+</p>
+    
+    <div align="left">
+      <ol>
+        <li>
+          <p> Network Monitoring Tools at Stanford University: <a href="http://www.slac.stanford.edu/xorg/nmtf/nmtf-tools.html" target="_blank"> http://www.slac.stanford.edu/xorg/nmtf/nmtf-tools.html </a> </p>
+        </li>
+        <li>
+          <p> Internet Technical Resources, Traffic Generators at the
+
+            web page of Prof. Henning Schulzrinne (Dept. of
+
+            Computer Science and Dept. of Electrical Engineering
+
+            at Columbia University): <a href="http://www.cs.columbia.edu/~hgs/internet/traffic-generator.html" target="_blank"> http://www.cs.columbia.edu/~hgs/internet/traffic-generator.html </a> </p>
+        </li>
+        <li>
+          <p> Traffic Generators for Internet Traffic at the
+
+            web page of Dr. Sally Floyd (ICIR, the ICSI Center for Internet Research at ICSI in Berkeley, California): <a href="http://www.icir.org/models/trafficgenerators.html" target="_blank"> http://www.icir.org/models/trafficgenerators.html </a> </p>
+        </li>
+        <li>
+          <p> IP Network Emulation Resources at Department of Computer Science & Engineering Michigan State University: <a href="http://www.cse.msu.edu/%7Ezhengpei/emulator.html" target="_blank"> http://www.cse.msu.edu/%7Ezhengpei/emulator.html </a> </p>
+        </li>
+        <li>
+          <p> Tools for work, Network traffic generators and sniffers
+
+            (Seppo Korpelainen, FINLAND): <a href="http://personal.inet.fi/koti/zeppo/bookmarks/Tools_for_work/Network_traffic_generators_and_sniffers/" target="_blank"> http://personal.inet.fi/koti/zeppo/bookmarks/Tools_for_work/Network_traffic_generators_and_sniffers/ </a> </p>
+        </li>
+        <li>
+          <p> IP-Measurement (at Fraunhofer FOKUS) provides an overview on measurement
+
+            related software : <a href="http://www.ip-measurement.org/tools/tool.php?task=list&start=a&end=e" target="_blank"> http://www.ip-measurement.org/tools/tool.php?task=list&start=a&end=e </a> </p>
+        </li>
+        <li>
+          <p> Tom Dunigan's Network Peformance Links at Network Research Group of Oak Ridge National Laboratory (ORNL): <a href="http://www.csm.ornl.gov/~dunigan/netperf/netlinks.html" target="_blank"> http://www.csm.ornl.gov/~dunigan/netperf/netlinks.html </a> </p>
+        </li>
+        <li>
+          <p> Advance Network Technology, Institute of Communications Engineering (ICOMM) - National Chung Cheng University (CCU), Taiwan: <a href="http://ant.comm.ccu.edu.tw/ant_lab/link.php" target="_blank">http://ant.comm.ccu.edu.tw/ant_lab/link.php </a> </p>
+        </li>
+        <li>
+          <p> Faculty of Computer Science and Information Technology, Department of Computer System & Technology, University of Malaya (Dr. Ling Teck Chaw): <a href="http://comm9.fsktm.um.edu.my/wres3102/note.asp" target="_blank"> http://comm9.fsktm.um.edu.my/wres3102/note.asp </a> </p>
+        </li>
+        <li>
+          <p> School of Computer Science and Information Systems (CSIS) at Pace
+
+            University - Laboratory for Undergraduate Research and Collaborative
+
+            Computing. New York, NY 10038 (USA): <a href="http://csis.pace.edu/i2/wvc/i2i/i2other.html" target="_blank"> http://csis.pace.edu/i2/wvc/i2i/i2other.html </a> </p>
+        </li>
+        <li>
+          <p> TCPIP93 class (<a href="http://www.mmnetlab.csie.ncku.edu.tw/class/TCPIP93.htm" target="_blank">http://www.mmnetlab.csie.ncku.edu.tw/class/TCPIP93.htm</a>) at
+
+            MingSoft Laboratory of Multimedia Mobile Networking, Computer Networks
+
+            Research and Training Village (<a href="http://www.mmnetlab.csie.ncku.edu.tw/" target="_blank">http://www.mmnetlab.csie.ncku.edu.tw/</a>),
+
+            National Cheng Kung University, Department of Computer Science and Information Engineering. </a> </p>
+        </li>
+        <li>
+          <p> MOME (Monitoring and Measurement Cluster) European Project. Deliverable D11,
+
+            "State of Interoperability", July 1, 2004: <a href="http://www.ist-mome.org/deliverables/D11.pdf" target="_blank"> http://www.ist-mome.org/deliverables/D11.pdf </a> </p>
+        </li>
+        <li>
+          <p> Network traffic generators (Bob McCormick, USA): <a href="http://bob.web-wide.net/blog/networking/QOS/Networktrafficgenerator.html" target="_blank"> http://bob.web-wide.net/blog/networking/QOS/Networktrafficgenerator.html </a> </p>
+        </li>
+        <li>
+          <p> E-Next Virtual Laboratory, <a href="http://www.ist-e-next.net/VirtualLab/" target="_blank">http://www.ist-e-next.net/VirtualLab/</a> </p>
+        </li>
+        <li>
+          <p> ATASYN at UCLA (University of California, Los Angeles) Compilers Group, <a href="http://compilers.cs.ucla.edu/atasyn/" target="_blank">http://compilers.cs.ucla.edu/atasyn/</a> </p>
+        </li>
+        <li>
+          <p> Network Monitoring Tools at Edulife, <a href="http://www.edulife.com.cn/infos/189912/30189912009732.html" target="_blank">http://www.edulife.com.cn/infos/189912/30189912009732.html</a> </p>
+        </li>
+        <li>
+          <p> SPIET, <a href="http://ttyman.free.fr/spiet/guida.html" target="_blank">http://ttyman.free.fr/spiet/guida.html</a> </p>
+        </li>
+        <li>
+          <p> Projects in Networks Lab at IIT Bombay (India), <a href="http://www.it.iitb.ac.in/research/labs/networks_lab/projects.php" target="_blank">http://www.it.iitb.ac.in/research/labs/networks_lab/projects.php</a> </p>
+        </li>
+        <li>
+          <p> NTGC- Network background Traffic Generation Control tool at UCDavis, University of California (USA), <a href="http://wwwcsif.cs.ucdavis.edu/~tingy/" target="_blank">http://wwwcsif.cs.ucdavis.edu/~tingy/</a> </p>
+        </li>
+        <li>
+          <p> <a href="http://www.csee.usf.edu/~guerrerc/index.htm" target="_blank">http://www.csee.usf.edu/~guerrerc/index.htm</a> </p>
+        </li>
+        <li>
+          <p> Tools <a href="http://wajihakhan.tripod.com/id5.html" target="_blank">http://wajihakhan.tripod.com/id5.html</a> </p>
+        </li>
+        <li>
+          <p> Orbit supports D-ITG <a href="http://www.orbit-lab.org/userdoc/wiki/OtherApps " target="_blank">http://www.orbit-lab.org/userdoc/wiki/OtherApps</a> . More information about the ORBIT project can be found <a href="http://www.orbit-lab.org/news/index.html" target="_blank"> here </a>. </p>
+        </li>
+        <li>
+          <p> HTU-s test Wiki page <a href="http://tellus.thn.htu.se/cgi-bin/read.pl?UsefulLinks" target="_blank">http://tellus.thn.htu.se/cgi-bin/read.pl?UsefulLinks</a>. </p>
+        </li>
+        <li>
+          <p> Network Monitoring Tools <a href="http://tech521.com/autoGenFile/techData/22/2222.htm" target="_blank">http://tech521.com/autoGenFile/techData/22/2222.htm</a>. </p>
+        </li>
+        <li>
+          <p> Slax Telecomunicazioni <a href="http://rclug.linux.it/wiki/Slax-tlc" target="_blank">http://rclug.linux.it/wiki/Slax-tlc</a>. </p>
+        </li>
+        <li>
+          <p> Network Tools - Links to network software and network information sources from New Zealand <a href="http://www.ees.net.nz/it/networking/network_tools.htm" target="_blank">http://www.ees.net.nz/it/networking/network_tools.htm</a>. </p>
+        </li>
+        <li>
+          <p> Computer Networks Course at University of Porto <a href="http://www.ncc.up.pt/~pbrandao/aulas/0405/TAR/trabalho.html" target="_blank">http://www.ncc.up.pt/~pbrandao/aulas/0405/TAR/trabalho.html</a>. </p>
+        </li>
+        <li>
+          <p> Used Tools during the Network Management Course at Câmpus Universitário II - Uruguaiana, RS <a href="http://pucrs.campus2.br/~kindel/gred/tf.html" target="_blank">http://pucrs.campus2.br/~kindel/gred/tf.html</a>. </p>
+        </li>
+        <li>
+          <p> Traffic Generators at Protocol Testing web page <a href="http://www.protocoltesting.com/trgen.html" target="_blank">http://www.protocoltesting.com/trgen.html</a>. </p>
+        </li>
+        <li>
+          <p> ChekMate Security Group (IT security within the Calgary, Alberta, Canada area) page <a href="http://www.chekmate.org/wiki/index.php/Main_Page" target="_blank">http://www.chekmate.org/wiki/index.php/Main_Page</a>. </p>
+        </li>
+      </ol>
+    </div>
+  </div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body></html>

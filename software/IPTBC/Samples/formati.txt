@@ -1,0 +1,14 @@
+G.711 64Kbps; 8 KHz; Mono; 8 bit
+
+G.721 32Kbps; 8 KHz; Mono; 4 bit
+
+G.723 18Kbps; 6 KHz; Mono; 3 bit ???
+
+G.726 40Kbps; 8 KHz; Mono; 5 bit
+G.726 32Kbps; 8 KHz; Mono; 4 bit
+G.726 24Kbps; 6 KHz; Mono; 4 bit
+G.726 16Kbps; 8 KHz; Mono; 2 bit
+
+GSM   12.~Kbps; 8 KHz; Mono; 8 bit
+
+

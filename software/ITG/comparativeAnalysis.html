@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+					<td>
+						<div class=textArea>
+							<p><h2>D-ITG Performance Analysis</h2></p>
+							<p>
+								We compared our tool with several of
+								the currently available and most widely adopted traffic generators and we found
+								that D-ITG offers several improvements in terms of both functionalities and
+								performance. The presented architecture and the comparative analysis shown in
+								this page confirm our assumption.
+							</p>
+							<div align="center">
+								<FONT size="-1"><strong>Figure 1: D-ITG Architecture</strong></FONT><br>
+								<IMG src="images/D-ITG-Architecture.jpg" width="500" height="294" border="0">
+							</div>
+							<p>
+								Before presenting experimental results, we present a complete description of D-ITG features. 
+								D-ITG gives the ability to generate network traffic on remote network segments for a 
+								"What If" analysis during the planning and management of networks. Using D-ITG is useful in 
+								order to perform highly specific tests on remote network segments from a central management 
+								station. This provides a fast and efficient way to perform troubleshooting, stress testing 
+								on specific devices and capacity planning. Table 3 presents a comparative schema that 
+								summarizes D-ITG characteristics and contrasts it with respect to other widely used traffic generators. 
+								In [10] a detailed reletad work analysis is reported. D-ITG is currently available both on Linux 
+								and Windows platform. It presents both a multithread and a multitask implementation. 
+								The supported protocols are: TCP, UDP, ICMP, DNS, Telnet, VoIP (G.711, G.723, G.729, Voice 
+								Activity Detection, Compressed RTP). Currently we are working on SMTP, HTTP, FTP, P2P, SNMP, 
+								MPEG protocol implementation. The provided stochastic processes both in the case of PS and IDT 
+								are Constant, Uniformly distributed, Exponentially distributed, Pareto distributed, Cauchy distributed, 
+								Normal distributed, Poisson distributed, Gamma distributed. Thanks to this wide range of 
+								supported stochastic processes it is possible to reproduce a broad range of traffic mixture. 
+								D-ITG provides setting of generation seed: this option gives the possibility to repeat different 
+								experiments using the same seed. D-ITG can perform both one-way-delay (OWD) measurement and 
+								round-trip-time (RTT) measurement, packet loss evaluation, jitter and throughput measurement. 
+								Another innovative feature of D-ITG is the possibility to store information both on the receiver 
+								and on the sender and, additionally, to remotely store information.
+							</p>
+							<div align="center">
+								<FONT size="-1"><strong>Table 1: Traffic Generators Comparative Schema</strong></FONT><br>
+								<IMG src="images/comparativeTable.gif" width="570" height="334" border="0">
+							</div>
+							<p>
+								As far as this last feature, D-ITG enables the sender and the receiver to delegate the 
+								logging operation to a remote log server; this option is useful when the receiver has limited 
+								storage capacity - e.g. PDAs, palms, etc. - and when log information must be analyzed 
+								"on-the-fly", for example, in case the sender is asked to adapt the transmission rate based 
+								on channel congestion and receiver capacity. D-ITG permits the setting of TOS (DS) and TTL 
+								packet field. Both experiment duration and delay (initial time of the experiment) can be set. 
+								The communication between sender and receiver is made by using a separated signaling channel 
+								that implements a protocol for the configuration of traffic generation experiment (Traffic 
+								Specification Protocol). Furthermore, the sender can be remotely controlled by using ITGapi. 
+								This means that the D-ITG sender can be launched in daemon mode and waiting for commands, so 
+								that generation of traffic flows can be remotely controlled. By using this feature is possible 
+								to test traffic engineering algorithms in a real network
+							</p>
+							<p>
+								D-ITG is able to reach high (receiver and sender) data rate. In particular, in a local 
+								environment (sender and receiver over the same Linux platform) the maximum data rate is equal 
+								to 511 Mbps both at sender and receiver side; in a distributed environment (sender and 
+								receiver over two different Linux platforms) the maximum data rate is equal to 612 Mbps at 
+								sender side and 611 Mbps at receiver side. As far as this last point in this section in order 
+								to demonstrate D-ITG performance we present a performance analysis study both over Linux and 
+								Windows platform. We study the D-ITG performance over a local machine too in order to (i) study 
+								the interference between sender and receiver process and (ii) isolate the dependencies from 
+								network dynamics. In Table 4 and Figure 12 all parameters of our experimentation and the 
+								network testbed are summarized.
+							</p>
+							<div align="center">
+								<table align="center">
+									<thead align="center">
+										<td>
+											<FONT size="-1"><strong>Figure 2: Experiment Testbed</strong></FONT>
+										<td/>
+										<td>
+											<FONT size="-1"><strong>Table 2: Experiment Parameter</strong></FONT>
+										</td>
+									</thead>
+									<tbody align="center">				
+										<tr>
+											<td>
+												<IMG src="images/testbed.gif" width="153" height="48" border="0">
+											<td/>
+											<td>
+												<IMG src="images/experimentParameters.gif" width="374" height="191" border="0">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div>
+								<ol>
+									<li><A href="linuxAnalysis.html">Analysis and Performance Evaluation over Linux platform</A></li>
+									<li><A href="windowsAnalysis.html">Analysis and Performance Evaluation over Windows platform</A></li>
+									<li><A href="crossPlatformAnalysis.html">A cross platform analysis and performance evaluation</A></li>
+									<li><A href="scalabilityAnalysis.html">Scalability Analysis</A></li>
+								</ol>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

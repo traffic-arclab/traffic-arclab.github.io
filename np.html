@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High-performance networking | Traffic</title>
+  <meta name="description" content="High-performance networking — Traffic research group, University of Napoli Federico II.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
+    </div>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Traffic, home">
+        <img src="images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle is-current" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="ippolib.html">Active Probing <small>IPPO Library</small></a>
+                  <a href="pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="index.html#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="index.html#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="np.html">High-performance networking</a>
+                  <a href="timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                  <a href="netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="security.html">Network security</a>
+                  <a href="internetcensor.html">Internet censorship detection</a>
+                  <a href="cloud.html">Cloud monitoring and control</a>
+                  <a href="sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="other.html">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="Tools/statools.html">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="Traces/ttraces.php">Traffic traces</a>
+              <a href="Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="Traces/Magnets.php">MagNets data traces</a>
+              <a href="Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="index.html#topics">Topics</a></nav>
+        <h1 class="page-title">High-performance networking</h1>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose">
+
+  <p>
+   In the context of activities on <a target="_new" href="http://www.comics.unina.it/index.php?option=com_content&task=view&id=45&Itemid=130">
+   ANTS (The Testbed on Autonomic NeTworkS)</a> of the <a target="_new" href="http://www.comics.unina.it/">Comics research group</a>,
+   we are working on multi-core architectures suitable for high speed networking, such as Network Processors and GPGPUs.
+  </p>
+
+  <h2>Network Processors</h2>
+  <p>
+   Intel Corporation kindly donated four network processor boards to University of Napoli:
+  </p>
+  <ul>
+    <li>Two of these boards are equipped with Intel IXP425@533MHz, 256MB SDRAM, two Intel PRO 2200 Wireless and two Ethernet cards.</li>
+    <li>The other two boards are equipped with Intel IXP2350@900MHz, 512MB DDR RAM with ECC, two Gigabit Ethernet and one Fast Ethernet cards.</li>
+  </ul>
+  <p>
+   The donation represents an important contribution to our research activities.
+   The University of Napoli deeply appreciated Intel Corporation for its valuable support.
+  </p>
+
+  <h2>Papers</h2>
+
+  <p  style="padding-left: 1em">
+   A. Botta, W. de Donato, A. Pescap&egrave; and G. Ventre,
+   "<b>Networked Embedded Systems: a Quantitative Performance Comparison</b>",
+   <a href="http://www.ieee-globecom.org/" target=_new>Globecom 2008</a>, New Orleans, LA, USA, December, 2008<br>
+  </p>
+
+  <h2>Technical Reports</h2>
+  <p style="padding-left: 1em">
+   Alessio Botta, Antonio Pescap&egrave;,"<a href="pub/TR-DIS-NP-2-2007.pdf">How to set up and configure StarEast in Access Point
+   Mode with Intel 2200 Wireless Network Interfaces</a>", TR-DIS-NP-2-2007, Technical Report Dipartimento di Informatica e Sistemistica,
+   Universit&agrave; di Napoli "Federico II".
+  </p>
+
+  <h2>Student Contributors</h2>
+  <p style="padding-left: 1em">
+   - Giuseppe Bruno<br>
+   - Vincenzo Siressi<br>
+   - Francesco Rendine<br>
+  </p>
+
+  <h2>GPGPUs</h2>
+
+  <p>
+   We equipped a high-end server with an NVIDIA
+   <a target="_new" href="http://www.nvidia.com/docs/IO/43395/NV_DS_Tesla_C1060_US_Jan10_lores_r1.pdf">Tesla C1060</a> card
+   (240 CUDA cores, 4GB GDDR3 memory),
+   and an NVIDIA <a target="_new" href="http://www.nvidia.com/docs/IO/43395/NV_DS_Tesla_C2050_C2070_jul10_lores.pdf">Tesla C2075</a> card
+   (448 CUDA cores, 6GB GDDR5 memory), kindly donated to us by NVIDIA,
+   in order to exploit the CUDA framework for implementing high-speed complex packet processing.
+   In details, we are currently exploiting CUDA to implement efficient traffic classfication techniques
+   to be used into the <a href="http://tie.comics.unina.it">TIE</a> platform.
+  </p>
+
+  <h2>Papers &amp; Technical Reports</h2>
+
+  <p  style="padding-left: 1em">
+   available soon (we hope...)
+  </p>
+
+  <h2>Student Contributors</h2>
+  <p style="padding-left: 1em">
+   - Stelvio Troncone<br>
+  </p>
+
+  <hr>
+  
+  <br>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="collaborations.html">Collaborations</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

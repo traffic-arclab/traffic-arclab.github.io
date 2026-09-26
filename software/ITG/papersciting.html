@@ -1,0 +1,857 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META NAME="Author" content="">
+<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
+Generator">
+<META NAME="Keywords" CONTENT="traffic,internet,
+generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
+<META NAME="revisit" CONTENT="3 days">
+<META NAME="ROBOTS" CONTENT="ALL">
+  <LINK href="../../style.css" type=text/css rel=stylesheet>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35228304-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+	<div class=title>
+		<table height="80">
+			<tbody>
+				<tr valign="center">
+					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
+					<td>
+						<table>
+							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
+							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
+	</div>
+	<div class=pageArea>
+		<table width="100%">
+			<thead>
+				<tr valign="top">
+					<td width="20%" height="100%"></td>
+					<td width="80%" height="100%"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr valign="top">
+					<td height="100%" style="border-right:1px dotted #284279;">
+						<div class=linkArea>
+							<table border="0"  "height=100%">
+								<tbody>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
+										</td>
+									</tr>
+									<p> </p>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
+										</td>
+									</tr>
+								 	<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
+										</td>
+									</tr>
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
+										</td>
+									</tr>
+
+<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
+										</td>
+									</tr>
+									<tr>
+										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
+											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</td>
+
+
+<td><div class=textArea>
+    <p> <font color="darkRed" size="+2">Citations</font> </p>
+    <p>
+		Many researchers use our tool for a variety of research and engineering purposes. The following is a listing of some
+		papers citing D-ITG and/or papers related to D-ITG.
+		For further details about sites citing D-ITG please refer to
+		<a href="citings.html"> http://traffic.comics.unina.it/software/ITG/citings.php</a>.</p>
+
+     
+<p>
+  <table border=1 cellspacing=0 cellpadding=4><tr><td>
+  If you are using D-ITG for scientific papers, academic lectures, project reports, or technical documents, please help us increasing D-ITG impact by adding a reference to:<br>
+  <i><b>A. Botta, A. Dainotti, A. Pescap&egrave;,
+  &quot;A tool for the generation of realistic network workload for emerging networking scenarios&quot;,
+  Computer Networks (Elsevier), 2012, Volume 56, Issue 15, pp 3531-3547.</b></i>
+  (<a target="_out" href="http://wpage.unina.it/a.botta/pub/COMNET_WORKLOAD.pdf">Article</a>)
+  (<a target="_out" href="bibs/BottaDP12.bib">BibTex</a>)
+  </table>
+</p>
+
+   <div align="left">
+      <ol>
+        <li>
+          <p> Wei Li, Hong Liu, G. Gagnon, <em><strong>"Performance assessment of IP traffic over ATSC interactive datacasting systems"</strong></em>,
+          IEEE Transactions on Consumer Electronics, Volume 51,  Issue 1,  Feb. 2005 Page(s):54 - 62		  </p>
+        </li>
+        <li>
+          <p> V. Krishna Nandivada, J. Palsberg,
+		  <strong><em>"Timing analysis of TCP servers for surviving denial-of-service attacks"</em></strong>,
+		  11th IEEE Real Time and Embedded Technology and Applications Symposium, 2005. RTAS 2005. - 7-10 March 2005 Page(s):541 - 549		  </p>
+        </li>
+        <li>
+          <p> M. Kassab, A. Belghith, J.M. Bonnin, S. Sassi,
+		  <strong><em>"Fast pre-authentication based on proactive key distribution for 802.11 infrastructure networks"</em></strong>,
+          Proceedings of the 1st ACM workshop on Wireless multimedia networking and performance modeling,  Pages: 46 - 53, 2005		  </p>
+        </li>
+        <li>
+          <p> Julie-Anne Bussiere, Jason But, <strong><em>"Measuring the Performance of NetSniff: Testbed Design"</em></strong>,
+		  Centre for Advanced Internet Architectures, Technical Report 050623A, Swinburne University of Technology, Melbourne, Australia		  </p>
+        </li>
+        <li>
+          <p> Sebastian Zander, David Kennedy, Grenville Armitage, <strong><em>"KUTE - A High Performance Kernel-based UDP Traffic Engine"</em></strong>,
+		  Centre for Advanced Internet Architectures (CAIA). Technical Report 050118A, Swinburne University of Technology, Melbourne, Australia		  </p>
+        </li>
+        <li>
+          <p>Pattipaka Subramanyam, Anirudha Sahoo, Parameswaran Ramanathan,
+		  <strong><em>&quot;Implementation of Delay Assurance Service for Voice Applications in Wireless LANs&quot;</em></strong>,
+		  National Conference on Communication, January 2006, IIT Delhi, India.		  </p>
+        </li>
+        <li>
+          <p>L. Samaranayake, M. Leksell, T. Vijayananda, S. Alahakoon,
+		  <strong><em>&quot;Ethernet Ready Sensor Actuator Module for Distributed Control Applications&quot;</em></strong>, <br>
+          IEEE International Conference on Computer as a Tool, EUROCON, Serbia &amp; Montenegro, Belgrade, November 22-24, 2005		  </p>
+        </li>
+        <li>
+          <p>L. Samaranayake, M. Leksell, C. Mannakkara, S. Alahakoon,
+		  <strong><em>&quot;Distributed Control of and XY Board via Ethernet&quot;</em></strong>,
+		  7th IASTED International Conference on Intelligent Systems and Control, Cambridge MA, USA 31st October - 02nd November 2005		  </p>
+        </li>
+        <li>
+          <p>Leopoldo Angrisani, Salvatore D'Antonio, Marcello Esposito, Michele Vadursi,
+		  <strong><em>&quot;Techniques for available bandwidth measurement in IP networks: A performance comparison&quot;</em></strong>,
+		  Computer Networks Journal, Vol 50 (2006), pp. 332-349, Available online at <a href="http://www.sciencedirect.com"> www.sciencedirect.com </a></p>
+        </li>
+        <li>
+          <p> <strong><em>"Experiences with Synthetic Network Emulation for Complex IP based Networks"</em></strong>,
+		  PhD Thesis at University of Bologna, <a href="http://www.cs.unibo.it/pub/UBLCS/2005/2005-04.pdf"> Click here to download the thesis </a> </p>
+        </li>
+        <li>
+          <p> Terrence van Valkenhoef and Mishar Mahboob,
+            <strong><em>"VoIP over 802.11 wireless networks: a packet scheduling approach to provide QoS using Linux"</em></strong>,
+			Techinical Report at North Carolina State University, Department of Electrical and Computer Engineering,
+			<a href="http://www4.ncsu.edu/~tavanval/report/Final-Reportv3.pdf">Click here to download the Report </a></p>
+        </li>
+        <li>
+          <p>Gustav Nyberg,
+            <strong><em>"SEMO: A Policy-Based Prototype for Handovers in Heterogeneous Networks"</em></strong>,
+			Master Thesis at UMEA UNIVERSITY (Sweden)		  </p>
+        </li>
+        <li>
+          <p> Horst F. Wedde et al.,
+            <strong><em>"BeeAdHoc: an Efficient, Secure and Scalable Routing Framework for Mobile AdHoc Networks"</em></strong>,
+			Project Group 460 at University of Dortmund, Department of Computer Science,		  </p>
+        </li>
+        <li>
+          <p> Vidar Evenrud Seeberg, <em><strong>"Filtering real data for IDS benchmarking"</strong></em>,
+		  MSc Project Plan at Gjrvik University College (Hrgskolen i Gjrvik), Norway</p>
+        </li>
+        <li>
+		  <p>
+			NTGC: A tool for Network Traffic Generation Control and Coordination <a href="http://wwwcsif.cs.ucdavis.edu/~tingy/NTGC.pdf"> Click here to download the paper </a>          </p>
+        </li>
+        <li> <p>
+		Delivarable D 7.1 of the <a href="http://www.windect.ethz.ch/"> WINDECT EU project </a>, September 2005, <a href="http://www.windect.ethz.ch/documents/D_7_JSI_001_06_D7.1_Pre_Trial_Results_Report.pdf"> Click here to download the deliverable </a>
+          </p>
+        </li>
+        <li> <p>
+		Integration Report Delivarable of The Simplicity project is a European Union program under IST (reference number IST-2004-507558), October 2005, <a href="http://server.ist-simplicity.org/download.php?OID=127918&FILENAME=D4102-Integration Report.pdf">Click here to download the deliverable </a>
+          </p>
+        </li>
+		<li>
+			<p>
+			S. Avallone, P.S. Rossi, V. La Marca, G. Iannello, F. Palmieri, G. Ventre, <strong><em>"Congestion control for UDP traffic"</em></strong>,
+			Proceedings of the Fourth IEEE International Symposium on Signal Processing and Information Technology 2004, pp. 258-261, 18-21 Dec. 2004			</p>
+		</li>
+		<li>
+			<p>
+			E. Salminen1, T. Kangas1, J. Riihim&auml;ki and T. D. H&auml;m&auml;l&auml;inen, <strong><em>"Requirements for Network-on-Chip Benchmarking"</em></strong>,
+			NORCHIP Conference, 2005. 23rd , pp. 82-85, 21-22 Nov. 2005			</p>
+		</li>
+		<li>
+			<p>
+			L. Wei, G. Gagnon, L. Hong, A. Vincent,
+			<strong><em>"IP over terrestrial ATSC DTV channels: performance evaluations on data transmission throughput"</em></strong>,
+			Broadcasting, IEEE Transactions on , vol.52, no.2, pp. 121-128, June 2006			</p>
+		</li>
+		<li>
+			<p>
+			P.S. Rossi, G. Romano, F. Palmieri, G. Iannello, <strong><em>"Bayesian Modeling for Packet Channels"</em></strong>,
+			Procs of WIRN Vietri '03 14th Italian Workshop on Neural Networks,2003			</p>
+		</li>
+		<li>
+			<p>
+			Bilicki, Vilmos, <strong><em>"Testing and Verifying an IPv6 Based Multicast Network"</em></strong>,
+			Computing in the Global Information Technology, 2006. ICCGI '06. International Multi-Conference on , vol., no., pp.3-3, Aug. 2006			</p>
+		</li>
+		<li>
+			<p>
+			K.S. Anderson, J.P. Bigus, E. Bouillet, P. Dube, N. Halim, Liu Zhen, D. Pendarakis,
+			<em><strong> "Sword: Scalable and Flexible Workload Generator for Distributed Data Processing Systems"</strong></em>,
+			Winter Simulation Conference, 2006. WSC 06. Proceedings of the, pp.2109-2116, 3-6 Dec. 2006			</p>
+		</li>
+		<li>
+			<p>
+			P.S. Rossi, A.P. Petropulu, Yu Jie, F. Palmieri, G. Iannello,
+			<strong><em>"Internet loss-delay modeling by use of input/output hidden Markov models"</em></strong>,
+			Multimedia Signal Processing, 2004 IEEE 6th Workshop on, pp. 470-473, 29 Sept.-1 Oct. 2004			</p>
+		</li>
+		<li>
+			<p>
+			S. Cacciaguerra, <strong><em>"Experiences with Synthetic Network Emulation for Complex IP based Networks"</em></strong>,
+			Department of Computer Science, University of Bologna, Technical Report UBLCS-2005-04, March 2005			</p>
+		</li>
+		<li>
+			<p>
+			Peter Pocta, Peter Kortis, Martin Vaculik, <strong><em>"Impact of Background Traffic on Speech Quality in VoWLAN"</em></strong>,
+			Dept. of Telecommunications, FEE, University of Zilina, 2007			</p>
+		</li>
+		<li>
+			<p>
+			Kee Ngoh Ting, Moh Lim Sim, <strong><em>"Wireless broadband provisioning using single radio multihop Wi-Fi systems with chain topology"</em></strong>,
+			13th IEEE International Conference on Networks, 2005, vol.1, pp. 5, 16-18 Nov. 2005			</p>
+		</li>
+		<li>
+			<p>
+			Kee Ngoh Ting, Yin Fern Ko, Moh Lim Sim,
+			<strong><em>"Voice performance study on single radio multihop IEEE 802.11b systems with chain topology"</em></strong>,
+			13th IEEE International Conference on Networks, 2005, vol.1, pp. 5, 16-18 Nov. 2005			</p>
+		</li>
+		<li>
+			<p>
+			Kee Ngoh Ting, Yin Fern Ko, Moh Lim Sim, <strong><em>"VoWLAN Study on Single Radio IEEE 802.11b Systems with Multihop Chain Topology"</em></strong>,
+			8th International Symposium on DSP for Communication Systems and 4th Workshop on the Internet, Telecommunications and Signal Processing: 19-21 December 2005			</p>
+		</li>
+		<li>
+			<p>
+			Kee Ngoh Ting, Moh Lim Sim, <strong><em>"Measurement Study on Performance of Single Radio Multihop Wi-Fi Systems with Chain Topology"</em></strong>,
+			4th Asian International Mobile Computing Conference (AMOC2006), Kolkata, India	4-7 Jan 2006			</p>
+		</li>
+		<li>
+			<p>
+			W. West, E. Agu, <strong><em>"Experimental Evaluation of Energy-Based Denial-of Service Attacks in Wireless Networks"</em></strong>,
+			IJCSNS International Journal of Computer Science and Network Security, VOL.7 No.6, June 2007			</p>
+		</li>
+		<li>
+			<p>
+			S. Geirhofer, L. Tong, and B. M. Sadler, <strong><em>"Measurement-Based Models for Cognitive Medium Access in WLAN Bands"</em></strong>,
+			Adaptive Communications And Signal Processing Laboratory, Technical Report ACSP-TR-02-07-02, Cornell University, Ithaca, March 2007			</p>
+		</li>
+		<li>
+			<p>L. Angrisani, S. D'Antonio, M. Esposito, M. Vadursi,
+			  <strong><em>"Techniques for available bandwidth measurement in IP networks: A performance comparison"</em></strong>,
+			Computer Networks 50, pp. 332-349, 2006			</p>
+		</li>
+		<li>
+			<p>
+			A. A. Ali, F. Lepage,
+			  <strong><em>"IGMPS, a New Tool for Estimating End-to-End Available Bandwidth in IP Network Paths"</em></strong>,
+			In Proceedings of the Third international Conference on Networking and Services, Washington, DC, June 19-25, 2007.			</p>
+		</li>
+		<li>
+			<p>
+			R. Riggio, N. Scalabrino, D. Miorandi, G. Iacovoni,
+			<em><strong>&quot;Wireless Mesh Networks: State of the art and research directions&quot;</strong></em>,
+			Create-Net Technical Report N. 200600006,	April 21, 2006</p>
+		</li>
+		<li>
+			<p>
+			F. De Pellegrini, D. Miorandi, E. Salvadori, N. Scalabrino,
+			  <strong><em>"Qos Support in Wimax Networks: issues and experimental measurements"</em></strong>,
+			Create-Net Technical Report N. 200600009, June 16, 2006			</p>
+		</li>
+		<li>
+			<p>
+			D. Brevi, D. Mazzocchi, R. Scopigno, A. Bonivento, R. Calcagno, F. Rusina,
+			  <strong><em>"A Methodology for the Analysis of 802.11a Links in Industrial Environments"</em></strong>,
+			IEEE International Workshop on Factory Communication Systems, 2006, pp. 165-174, June 27, 2006			</p>
+		</li>
+		<li>
+			<p>C. Anglano, M. Canonico, <em><strong>&quot;The File Mover: An Efficient Data Transfer System for Grid
+			  Applications&quot;</strong></em>, Proceedings of the GAN'04: Workshop on Grids and Advanced Networks,
+		    Chicago (USA), Aprile 2004 </p>
+		</li>
+		<li>
+			<p>C. Anglano and M. Canonico, <em><strong>&quot;The File Mover: High-Performance Data Transfer for the Grid&quot;</strong></em>,
+		    submitted to Concurrency and Computation: Practice and Experience, October 2006. </p>
+		</li>
+		<li>
+			<p>
+			J. Quittek, A. Bulanza, S. Zander, C. Schmoll, M. Kundt, E. Boschi, J. Sliwinski,
+			  <strong><em>"State of Interoperability"</em></strong>,
+			Deliverable D11 of MOME, IST Projects, June 2004			</p>
+		</li>
+		<li>
+			<p>A. Hussain, S. Schwab, S. Fahmy, J. Mirkovic,
+			  <strong><em>&quot;DDoS Experiment Methodology&quot;</em></strong>,
+			Proceedings of deter Community Workshop, Arlington, Virginia, June 15-16, 2006 </p>
+		</li>
+		<li>
+			<p>C. Gallen,  J. Reeve,
+			  <strong><em>"The OpenOSS Project - An open Source operations Support Lab for the Telecommunications Industry"</em></strong>,
+			Proceedings of The 9th World Multiconference on Systems, Cybernetics and Informatics, Orlando, FA, May 05, 2006			</p>
+		</li>
+		<li>
+			<p>Xiaoyuan Ta,
+			  <strong><em>"A Quality of Service Monitoring System for Service Level Agreement Verification"</em></strong>,
+			School of Electrical and Information Engineering, The University of Sydney, April 2005		</p>
+		</li>
+		<li>
+			<p>Paul Fleischer,
+			  <strong><em>"Implementation and Experimental Evaluation of a Header-Based Quality of Service Architecture for IPv6 Networks"</em></strong>,
+			Department of Computer Science, University of Aarhus, July 2006			</p>
+		</li>
+		<li>
+			<p>J. Sethi, M. Wawrin, R. Supeene,
+			  <strong><em>"Design of a Practical Wireless Mesh Network Using Available Consumer Hardware"</em></strong>,
+			University of Manitoba, 2006</p>
+		</li>
+		<li>
+			<p>Stefan Geirhofer; Lang Tong; Brian M. Sadler,<em><strong> "A Measurement-Based Model for Dynamic Spectrum Access in WLAN Channels"</strong></em>,
+			Military Communications Conference, MILCOM 2006, pp.1-7, Oct. 2006</p>
+		</li>
+		<li>
+			<p>Gustav Nyberg,
+			  <strong><em>"SEMO: A Policy-Based Prototype for Handovers in Heterogeneous Networks"</em></strong>,
+			Master Thesis in Computing Science, Umea University, 25 January 2006</p>
+		</li>
+		<li>
+			<p>Lee Weng Hong,
+			  <strong><em>"Tools for Performance Measurement of TwinGlass, an IPv4 to IPv6 Transition Mechanism"</em></strong>,
+			Department of Computer Science, National University of Singapore, 2006</p>
+		</li>
+		<li>
+			<p>Justin Gregory,
+			  <strong><em>"An Investigation Into Internet Protocol Version 6 (IPv6) Address Allocation And Performance Considerations"</em></strong>,
+			Rhodes University, South Africa, 6 November 2006</p>
+		</li>
+		<li>
+			<p>A. M&eacute;ndez, G. Leider, G. Molano, J. Andr&eacute;s,
+			  <strong><em>"Evaluaci&oacute;n experimental de la capacidad de IEEE 802.11b para soporte de VoIP"</em></strong>,
+			Biblioteca Digital, Universidad Icesi, 8 Mar 2007</p>
+		</li>
+		<li>
+			<p>Simon K&uuml;nzli, Lothar Thiele,
+			  <strong><em>"Generating Event Traces Based on Arrival Curves"</em></strong>,
+			In Proceedings of 13th GI/ITG Conference on Measurement, Modeling and Evaluation of Computer and Communication Systems (MMB),
+			Nuremberg, Germany, March 2006</p>
+		</li>
+		<li>
+			<p>Vidar Evenrud Seeberg,<em><strong> "Filtering real data for IDS benchmarking"</strong></em>,
+			Norwegian Information Security Laboratory - NISlab, Department of Computer Science and Media Technology, Gj&oslash;vik University College, December 9, 2005</p>
+		</li>
+		<li>
+			<p>I. Chlamtac, E. Gregori, G. Iacovoni, D. Miorandi, R. Riggio, N. Scalabrino,
+			  <strong><em>"Performance Measurements of Multimedia Flows on a WiFi-based Mesh Network"</em></strong>,
+			1st Workshop on multiMedia Applications over Wireless Networks, Athens, 2006</p>
+		</li>
+		<li>
+			<p>A. Capone, S. Napoli, A. Pollastro,
+			  <strong><em>"MobiMESH: An Experimental Platform for Wireless MESH Networks with Mobility Support"</em></strong>,
+			Proc. of ACM QShine 2006 (WiMESHNets 2006, Workshop on "Wireless mesh: moving towards applications"),
+			Waterloo (Canada), August 10, 2006</p>
+		</li>
+		<li>
+			<p>John Nelson,
+			  <strong><em>"Project Test-beds/Low Power Activities"</em></strong>,
+			NCNRC, May 2006</p>
+		</li>
+		<li>
+			<p>N. Blefari-Melazzi, D. Di Sorte, M. Femminella, G. Reali,
+			  <strong><em>"Autonomic Control and Personalization of a Wireless Access Network"</em></strong>,
+			Comput. Networks 51, pp. 2645-2676, July 10, 2007			</p>
+		</li>
+		<li>
+			<p>Horst F. Wedde, Muddassar Farooq,
+			  <strong><em>"BeeAdHoc: an Efficient, Secure and Scalable Routing Framework for Mobile AdHoc Networks"</em></strong>,
+			Department of Computer Science, University of Dortmund, 2006			</p>
+		</li>
+		<li>
+			<p>Peng Li, Qi Cheng,
+			  <strong><em>"Performance analysis and test of the DVB-RCT system"</em></strong>,
+			Master Thesis, Department of Electronics, Computer and Software Systems, Royal Institute of Technology, Stockholm, Mar 2006			</p>
+		</li>
+		<li>
+			<p>L. Angrisani, G. Ventre, L. Peluso, A. Tedesco,
+			  <strong><em>"Measurement of Processing and Queuing Delays Introduced by an Open-Source Router in a Single-Hop Network"</em></strong>,
+			IEEE Transactions On Instrumentation And Measurement, Vol. 55, No. 4, August 2006			</p>
+		</li>
+		<li>
+			<p>A.K. Ganame, J. Bourgeois, R. Bidou, F. Spies,
+			  <strong><em>"A High Performance System for Intrusion Detection and Reaction Management"</em></strong>,
+			Journal of Information Assurance and Security, 3:181--194, September 2006			</p>
+		</li>
+		<li>
+			<p>E. Salminen, T. Kangas, J. Riihimaki, T.D. Hamalainen,
+			  <strong><em>"Requirements for network-on-chip benchmarking"</em></strong>,
+			NORCHIP Conference, 23rd, pp. 82-85, 21-22 Nov. 2005			</p>
+		</li>
+		<li>
+			<p>Stefan Geirhofer, Lang Tong, Brian M. Sadler,
+			  <strong><em>"A Measurement-Based Model for Dynamic Spectrum Access in WLAN Channels"</em></strong>,
+			Military Communications Conference, MILCOM 2006, pp.1-7, Oct. 2006			</p>
+		</li>
+		<li>
+			<p>M. Wzorek, D. Landen, P. Doherty,
+			  <strong><em>"GSM Technology as a Communication Media for an Autonomous Unmanned Aerial Vehicle"</em></strong>,
+			In Proceedings of the 21st Bristol International Conference on UAV Systems, 2006			</p>
+		</li>
+		<li>
+			<p>Vin&iacute;cius De Miranda Rios,
+			  <em>  <strong>"Um Estudo Sobre Ferramentas De Ger&euml;ncia De Redes Ipv6"</strong></em>,
+			Trabalho de Est&aacute;gio, Palmas, 2005			</p>
+		</li>
+		<li>
+			<p>Muddassar Farooq,
+			  <strong><em>"BeeAdHoc Linux implementation of bee inspired routing algorithm"</em></strong>,
+			Department of Computer Science, University of Dortmund, 2005			</p>
+		</li>
+		<li>
+			<p><strong><em>"Higher power limits for licence exempt devices"</em></strong>,
+			BT Response to the Ofcom consultation on, Issue 1, 15 September 2006			</p>
+		</li>
+		<li>
+			<p>S. Karpinski, E. Belding, K. Almeroth,
+			  <strong><em>"Wireless Traffic: The Failure of CBR Modeling"</em></strong>,
+			IEEE International Conference on Broadband Communications, Networks, and Systems (BroadNets), Raleigh, North Carolina, USA, September 2007			</p>
+		</li>
+		<li>
+			<p>Hoi Kit Yip, Yu-Kwong Kwok,<em><strong> "Practical channel state aware and cooperative packet scheduling disciplines for coordinating colocated Bluetooth and IEEE 802.11b devices"</strong></em>,
+			Computer Communications 30, pp. 1569-1587, 2007			</p>
+		</li>
+		<li>
+			<p>Sudeep Goyal,
+			  <strong><em>"Mapping Application QoS to Network Configurations for DiffServ over MPLS Networks"</em></strong>,
+			Dual Degree Thesis, Department of Computer Science and Engineering, Indian Institute Of Technology, Bombay, 2005			</p>
+		</li>
+		<li>
+			<p>Matthias Kolly, Marc Staub,
+			  <strong><em>"Embedded Network Intrusion Detection System"</em></strong>,
+			Department of computer sciences, University of Applied Sciences of Freiburg, February 2005			</p>
+		</li>
+		<li>
+			<p>Mesut Ali Ergin, Kishore Ramachandran, Marco Gruteser,
+			  <strong><em>"Extended Abstract: Understanding the Effect of Access Point Density on Wireless LAN Performance"</em></strong>,
+			the Thirteenth Annual International Conference on Mobile Computing and Networking, ACM MobiCom 2007, Montreal, Canada, September 2007.			</p>
+		</li>
+		<li>
+			<p>Denise Umuhoza,
+			  <strong><em>"Metric of Trust for Mobile Ad hoc Networks Using Source Routing Algorithms"</em></strong>,
+			Department of Computer Science, University of the Western Cape, May 2006			</p>
+		</li>
+		<li>
+			<p>P. H&aacute;ga, S. Laki, F. T&oacute;th, I. Csabai, J. St&eacute;ger, G. Vattay,
+			  <em>  <strong>"Neural Network Based Available Bandwidth Estimation"</strong></em>,
+			in the ETOMIC Infrastructure Proceedings of TridentCom 2007 Conference, Candidate to Best Paper Award, 21-23 May 2007, Orlando, FL, USA (2007)			</p>
+		</li>
+		<li>
+			<p>Y. He, J. Brassil,
+			  <strong><em>"NATALIE: An Adaptive, Network-Aware Traffic Equalizer"</em></strong>,
+			IEEE International Conference on Communications, ICC '07, pp.595-602, 24-28 June 2007			</p>
+		</li>
+		<li>
+			<p>P.S. Rossi, F. Palmieri, G. Iannello,
+			  <strong><em>"HMM-Based Monitoring of Packet Channels"</em></strong>,
+			High Speed Networks and Multimedia Communications, 2004			</p>
+		</li>
+		<li>
+			<p>Shankar Mahadevan,
+			  <strong><em>"Simulation-based Modeling Frameworks for Networked Multi-processor System-on-Chip"</em></strong>,
+			Ph.D Thesis, Technical University of Denmark, 2006			</p>
+		</li>
+		<li>
+			<p>C. Anglano, M. Canonico,
+			  <strong><em>"Exploiting Overlay Networks Features to Enhance the Performance of the File Mover"</em></strong>,
+			Talk presented at the 2nd International Workshop on Distributed Cooperative Laboratories (INGRID07), S. Margherita Ligure - Italy, April 2007.			</p>
+		</li>
+		<li>
+			<p>Jon Henrik Bj&oslash;rnstad,
+			  <strong><em>"Traffic Characteristics and Queueing Theory: Implications and Applications to Web Server Systems"</em></strong>,
+			Master thesis, Department of Informatics, University of Oslo, May 22, 2006			</p>
+		</li>
+		<li>
+			<p>Kanizsai Zolt&aacute;n, Lakat G&aacute;bor,
+			  <strong><em>"Ip Alap&uacute; Mobilit&aacute;s M&eacute;dia&aacute;tvitelre Gyakorolt Hat&aacute;sainak Szimul&aacute;ci&oacute;s Vizsg&aacute;lata &Uacute;jgener&aacute;ci&oacute;s Vezet&eacute;kn&eacute;lk&uuml;li H&aacute;l&oacute;zatokon"</em></strong>,
+			H&iacute;rad&aacute;stechnikai Tansz&eacute;k, Budapesti Muszaki &eacute;s Gazdas&aacute;gtudom&aacute;nyi Egyetem, 2005</p>
+		</li>
+		<li>
+			<p>L. Samaranayake, M. Leksell (Sweden), S. Alahakoon (Sri Lanka),
+			  <strong><em>"Distributed Control of an XY Board via Ethernet"</em></strong>,
+			Intelligent Systems and Control, ISC 2005, Cambridge, USA, 31/10-2/11, 2006			</p>
+		</li>
+		<li>
+			<p>L. Samaranayake, M. Leksell, T. Vijayananda, S. Alahakoon,
+			  <strong><em>"Ethernet Ready Sensor Actuator Module for Distributed Control Applications"</em></strong>,
+			EUROCON 2005, Serbia &amp; Montenegro, Belgrade, November 22-24, 2005			</p>
+		</li>
+		<li>
+			<p>Maurice David Woernhard,
+			  <strong><em>"Generating Synthetic VoIP Traffic for Analyzing Redundant OpenBSD-Firewalls"</em></strong>,
+			Master Thesis, Department of Informatics, University of Oslo, May 22, 2006			</p>
+		</li>
+		<li>
+			<p>L. Angrisani, L. Peluso, A. Tedesco, G. Ventre,<em><strong> "Measurement of Processing and Queuing Delays Introduced by a Software Router in a Single-Hop Network"</strong></em>,
+			IMTC 2005 - Instrumentation and Measurement Technology Conference, Ottawa, Canada, 17-19 May 2005			</p>
+		</li>
+		<li>
+			<p>P. Subramanyam, A. Sahoo, P. Ramanathan,
+			  <strong><em>"Implementation of Delay Assurance Service for Voice Applications in Wireless LANs"</em></strong>,
+			National Conference on Communication, January 2006, IIT Delhi, India			</p>
+		</li>
+		<li>
+			<p>M. Faloutsos ,
+			  <strong><em>"Public real data repositories and measurement tools"</em></strong>,
+			SIGCOMM Comput. Commun. Rev. 36, pp. 37-40, 2 Apr. 2006			</p>
+		</li>
+		<li>
+			<p>M. Kassab, A. Belghith, J. Bonnin, S. Sassi,
+			  <em>  <strong>"Fast pre-authentication based on proactive key distribution for 802.11 infrastructure networks"</strong></em>,
+			In Proceedings of the 1st ACM Workshop on Wireless Multimedia Networking and Performance Modeling, WMuNeP '05, Montreal, Canada, pp. 46-53, October 13, 2005			</p>
+		</li>
+		<li>
+			<p>N. Scalabrino, F. De Pellegrini, I. Chlamtac, A. Ghittino, S. Pera,
+			  <strong><em>"Performance evaluation of a WiMAX testbed under VoIP traffic"</em></strong>,
+			In Proceedings of the 1st international Workshop on Wireless Network Testbeds, Experimental Evaluation &Amp; Characterization, WiNTECH '06,
+			Los Angeles, CA, USA, pp. 97-98, September 29, 2006			</p>
+		</li>
+		<li>
+			<p>N. Scalabrino, F. De Pellegrini, R. Riggio, A. Maestrini, C. Costa, I. Chlamtac,
+			  <em>  <strong>"Measuring the Quality of VoIP Traffic on a WiMAX Testbed"</strong></em>,
+			In Proceedings of TRIDENTCOM, Orlando, Florida, 21-23 Maggio 2007			</p>
+		</li>
+		<li>
+			<p>A. L&oacute;pez Monge,
+			  <strong><em>"Aprendiendo a programar con Libpcap"</em></strong>,
+			http://www.e-ghost.deusto.es/docs/2005/conferencias/pcap.pdf, Feb. 2005			</p>
+		</li>
+		<li>
+			<p>Morten N. Jensen, Anders Nickelsen,
+			  <strong><em>"Evaluation of Routing Dependability in MANETs using a Topology Emulator"</em></strong>,
+			Master Thesis, Aalborg University, June 11, 2007			</p>
+		</li>
+		<li>
+			<p>R. Torres, S. Cuevas, B. Jaramillo,
+			  <strong><em>"Comparaci&ograve;n de la eficiencia en la transmisi&ograve;n de tr&agrave;fico de videoconferencia de los protocolos IPv4 e IPv6"</em></strong>,
+			RedIRIS: bolet&igrave;n de la Red Nacional de I+D RedIRIS, ISSN 1139-207X, Nr 78-79, pp. 101-105, 2006			</p>
+		</li>
+		<li>
+			<p>Marconi, <strong><em>"Sperimentazione WiMax - Presentazione risultati"</em></strong>, Roma, Jan 30, 2006</p>
+		</li>
+		<li>
+			<p>M. Ikeda, G. De Marco, L. Barolli,
+			  <strong><em>"Performance Analysis of an Ad Hoc Network for Emergency and Collaborative Environments"</em></strong>,
+			submitted to Journal of Telecommunication Systems, Springer, 2007			</p>
+		</li>
+		<li>
+			<p>Rolf Ehrenreich Thorup,
+			  <strong><em>"Implementing and Evaluating the DYMO Routing Protocol"</em></strong>,
+			Master Thesis, Department Of Computer Science, University Of Aarhus, Denmark, Feb. 2007			</p>
+		</li>
+		<li>
+			<p>Stefan Karpinski, Elizabeth M. Belding, Kevin C. Almeroth,
+			  <strong><em>"Towards Realistic Models of Wireless Workload"</em></strong>,
+			Department of Computer Science, University of California, Santa Barbara, Mar 2007			</p>
+		</li>
+		<li>
+			<p>
+			R. Riggio, N. Scalabrino, D. Miorandi, I. Chlamtac,
+			  <strong><em>"JANUS: A Framework for Distributed Management of Wireless Mesh Networks"</em></strong>,
+			In Proceedings of TRIDENTCOM, Orlando, Florida, 21-23 May 2007
+			</p>
+		</li>
+		<li>
+			<p>Liu Yi, Cui Hua-li, Tian Min, Qian De-pei,
+			<strong><em>"IPv4 and IPv6-based Traffic Generating System with Measuring Support"</em></strong>,
+			13th IEEE International Conference on Networks, 2005. Jointly held with the 2005 IEEE 7th Malaysia International Conference on Communication, 2005 , Nov. 2005
+			</p>
+		</li>
+		<li>
+			<p>Leopoldo Angrisani, Michele Vadursi,
+			<strong><em>"Performance Assessment of Wireless Communication Networks through Cross-Layer Measurements"</em></strong>,
+			IEEE IMTC 2006 - Instrumentation and Measurement Technology Conference, pp. 201-206, 2006
+			</p>
+		</li>
+		<li>
+			<p>Geirhofer, S.; Lang Tong; Sadler, B.M.,
+			<strong><em>"Dynamic Spectrum Access in the Time Domain: Modeling and Exploiting White Space"</em></strong>,
+			Communications Magazine, IEEE , vol.45, no.5, pp.66-72, May 2007
+			</p>
+		</li>
+		<li>
+			<p>Leopoldo Angrisani, Michele Vadursi,
+			<strong><em>"Cross-Layer Measurements for a Comprehensive Characterization of Wireless Networks in the Presence of Interference"</em></strong>,
+			IEEE Transactions On Instrumentation And Measurement, Vol. 56, no. 4, PP. 1148-1156, august 2007
+			</p>
+		</li>
+		<li>
+			<p>Marko Jurvansuu, Jarmo Prokkola, Mikko Hanski, Pekka Perälä,
+			<strong><em>"HSDPA Performance in Live Networks"</em></strong>,
+			Proc. of IEEE ICC'07, Glasgow (UK), June 2007
+			</p>
+		</li>
+		<li>
+			<p>Jarmo Prokkola, Mikko Hanski, Marko Jurvansuu, Milla Immonen,
+			<strong><em>"Measuring WCDMA and HSDPA Delay Characteristics with QoSMeT"</em></strong>,
+			Proc. of IEEE ICC'07, Glasgow (UK), June 2007
+			</p>
+		</li>
+		<li>
+			<p>William West, Emmanuel Agu,
+			<strong><em>"Experimental Evaluation of Energy-Based Denial-of Service Attacks in Wireless Networks"</em></strong>,
+			IJCSNS International Journal of Computer Science and Network Security, VOL.7 No.6, June 2007
+			</p>
+		</li>
+		<li>
+			<p>Itrat Rasool Quadri,
+			<strong><em>"MEASUREMENT BASED COMPARISON BETWEEN VoIPoMPLS AND VoIP USING SOFTWARE ROUTERS"</em></strong>,
+			MASTER OF SCIENCE in Computer Networks King Fahd University of Petroleum &amp; Minerals, Dhahran, Saudi Arabia
+			</p>
+		</li>
+		<li>
+			<p>Nicola Cranley, Tanmoy Debnath, Mark Davis,
+			<strong><em>"An Experimental Investigation of Parallel Multimedia Streams over IEEE 802.11e WLAN Networks using TXOP"</em></strong>,
+			Proc. of IEEE ICC'07, Glasgow (UK), June 2007
+			</p>
+		</li>
+		<li>
+			<p>Deliverable D18,
+			<strong><em>"Installation of complete network for experimentation"</em></strong>,
+			ADHOCSYS EU Project
+			</p>
+		</li>
+		<li>
+			<p>Gallen, C. and Reeve, J.,
+			<strong><em>"The OpenOSS Project - An open Source operations Support Lab for the Telecommunications Industry"</em></strong>,
+			In Proceedings of The 9th World Multiconference on Systems, Cybernetics and Informatics.(IX), Orlando, 2005
+			</p>
+		</li>
+		<li>
+			<p>Geirhofer, S.; Lang Tong; Sadler, B.M.,
+			<strong><em>"Dynamic Spectrum Access in the Time Domain: Modeling and Exploiting White Space"</em></strong>,
+			Communications Magazine, IEEE , vol.45, no.5, pp.66-72, May 2007
+			</p>
+		</li>
+		<li>
+			<p>Agrawal, D. K., T. Kleiberg, S. Papp, R. E. Kooij and P. Van Mieghem,
+			<strong><em>"Quantifying the Quality of Service of Streaming Media in Differentiated Services Networks"</em></strong>,
+			International Conference on Software, Telecommunications and Computer Networks (IEEE SoftCom 2007),  September 27-29, Split-Dubrovnik, Croatia, 2007
+			</p>
+		</li>
+		<li>
+			<p>arsten Schmoll,
+			<strong><em>"Estimation Accuracy of IP QoS Measurements based on Active Traffic Probing"</em></strong>,
+			2007
+			</p>
+		</li>
+		<li>
+			<p>Nicola Cranley, Tanmoy Debnath, Mark Davis,
+			<strong><em>"The Effects of Contention between stations on Video Streaming Applications over Wireless Local Area Networks - an experimental approach"</em></strong>,
+			Information Technology and Telecommunications Conference 2007 (ITT 2007), Blanchardstown, Ireland, October 2007
+			</p>
+		</li>
+		<li>
+			<p>LuisIgnacio Ortiz Villasenor,
+			<strong><em>"A New Worm Traffic Generator"</em></strong>,
+			Master Thesis, Department of Computer Science, University of Texas at San Antonio, 2007.
+			</p>
+		</li>
+		<li>
+			<p>Peter Pocta, Peter Korti, and Martin Vaculk,
+			<strong><em>"Impact of Background Traffic on Speech Quality in VoWLAN"</em></strong>,
+			Advances in Multimedia Journal, 2007
+			</p>
+		</li>
+		<li>
+			<p>Antonio Vincenzo TADDEO,
+			<strong><em>"Studio degli acceleratori crittografici per IPsec: alternative di design e scheduling efficiente dei pacchetti"</em></strong>,
+			POLITECNICO DI MILANO, V Facoltà di Ingegneria di Milano, Corso di Laurea in Ingegneria delle Telecomunicazioni
+			</p>
+		</li>
+		<li>
+			<p>Mei-Ling Shyu, Thiago Quirino, Zongxing Xie, Shu-Ching Chen, and LiWu Chang,
+			<strong><em>"Network Intrusion Detection through Adaptive Sub-Eigenspace Modeling in Multiagent Systems"</em></strong>,
+			ACM Transactions on Autonomous and Adaptive Systems,Vol. 2, No. 3,Article 9, Publication date: September 2007
+			</p>
+		</li>
+		<li>
+			<p>Denise Umuhoza,
+			<strong><em>"Metric of Trust for Mobile Ad hoc Networks Using Source Routing Algorithms"</em></strong>,
+			Thesis at Department of Computer Science, University of the Western Cape, 2006
+			</p>
+		</li>
+		<li>
+			<p>Timur Khusainov, Antonio Ramirez, Darwin Valderas, Michel Shahan, Hanbo Zhao,
+			<strong><em>"Multi-homed residential gateway"</em></strong>,
+			KTH, Communication System Design, Final report.
+			</p>
+		</li>
+		<li>
+			<p>Sanket Shah, Tularam M. Bansod, Amit Singh,
+			<strong><em>"Design and Implementation of a Network Processor Based 10Gbps Network Traffic Generator"</em></strong>,
+			ICDCN 2006, pp. 269-275
+			</p>
+		</li>
+		<li>
+			<p>Rolf Ehrenreich Thorup,
+			<strong><em>"Implementing and Evaluating the DYMO Routing Protocol"</em></strong>,
+			Master Thesis at Department of Computer Science, University of Aarhus, Denmark, 2007
+			</p>
+		</li>
+		<li>
+			<p>Sambuddho Chakravarty, Angelos Stavrou, Angelos D. Keromytis,
+			<strong><em>"LinkWidth: A Method to measure Link Capacity and Available Bandwidth using Single-End Probes"</em></strong>,
+			Department of Information &amp; Software Engineering, School of Information Technology and Engineering, George Mason University, Nov 2006
+			</p>
+		</li>
+		<li>
+			<p>Nicola Cranley, Mark Davis,
+			<strong><em>"An Experimental Investigation of IEEE 802.11e TXOP facility for Real-Time Video Streaming"</em></strong>,
+			IEEE GLOBECOM 2007, 26-30 November 2007, Washington DC, USA
+			</p>
+		</li>
+		<li>
+			<p>
+			<strong><em>"NTGC: A tool for Network Traffic Generation Control and Coordination"</em></strong>,
+
+			</p>
+		</li>
+		<li>
+			<p>Mesut Ergin, Kishore Ramachandran, Marco Gruteser,
+			<strong><em>"Understanding the Effect of Access Point Density on Wireless LAN Performance"</em></strong>,
+			The ACM International Conference on Mobile Computing and Networking (MobiCom), Montreal, QC, 2007
+			</p>
+		</li>
+		<li>
+			<p>Nicola Cranley, Mark Davis,
+			<strong><em>"Video Frame Differentiation for Streamed Multimedia over Heavily Loaded IEEE 802.11e WLAN using TXOP"</em></strong>,
+			Proceedings of 18th Annual IEEE International Symposium on Personal, Indoor and Mobile Radio Communications (PIMRC), 3 -7 September 2007, Athens, Greece.
+			</p>
+		</li>
+		<li>
+			<p>Hoi Kit Yipa and Yu-Kwong Kwok,
+			<strong><em>"Practical channel state aware and cooperative packet scheduling disciplines for coordinating colocated Bluetooth and IEEE 802.11b devices"</em></strong>,
+			Computer Communications Journal, Volume 30, Issue 7, 26 May 2007, Pages 1569-1587
+			</p>
+		</li>
+		<li>
+			<p>Yee YC, et al.,
+			<strong><em>"SIP-based proactive and adaptive mobility management framework for heterogeneous networks"</em></strong>,
+			Journal of Network and Computer  Applications (2007)
+			</p>
+		</li>
+
+		<!--
+		<li>
+			<p>
+			<strong><em>""</em></strong>,
+
+			</p>
+		</li>
+		-->
+
+      </ol>
+    </div>
+  </div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body></html>
