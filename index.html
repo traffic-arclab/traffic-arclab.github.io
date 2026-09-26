@@ -3,211 +3,299 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Traffic and Tools</title>
-  <meta name="description" content="Network Traffic Tools and Traces">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="menu.js" defer></script>
+  <title>Traffic | Network Monitoring and Measurements</title>
+  <meta name="description" content="Traffic research group, University of Napoli Federico II (DIETI): network monitoring and measurements, traffic analysis, tools and traces.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-content">
-      <img src="images/clip_image002.gif" alt="University Logo" class="header-logo"> 
-      <div class="header-info">
-        <p class="university-name">Universita' degli Studi di Napoli ''Federico II'' (Italy)</p>
-        <p class="department-name">Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
-      </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+      <a class="topbar-link" href="http://www.comics.unina.it/">COMICS group ↗</a>
     </div>
-    <h1 class="site-title">
-      <span class="bold-initial">N</span>etwork <span class="bold-initial">M</span>onitoring and <span class="bold-initial">M</span>easurements
-    </h1>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Traffic, home">
+        <img src="images/clip_image002.gif" alt="Seal of the University of Napoli Federico II" class="brand-seal">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement</p>
+                  <a href="ippolib.php">Active Probing <small>IPPO Library</small></a>
+                  <a href="pythia.php">Alias resolution <small>PYTHIA</small></a>
+                  <a href="uanm.php">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="#topics">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="#topics">Path tracing <small>TPA · TP-Traceroute · Hidden routers</small></a>
+                  <a href="#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; Systems</p>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="np.php">High-performance networking</a>
+                  <a href="timeDiv.php">Network performance improvement <small>TimeD</small></a>
+                  <a href="netdata.php">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, Cloud &amp; more</p>
+                  <a href="security.php">Network security</a>
+                  <a href="internetcensor.php">Internet censorship detection</a>
+                  <a href="cloud.php">Cloud monitoring and control</a>
+                  <a href="sdnmonitoring.php">Software-defined network monitoring</a>
+                  <a href="bioinformatics.php">Bioinformatics and e-Health</a>
+                  <a href="other.php">Others</a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Material</button>
+            <div class="dropdown">
+              <a href="Tools/statools.php">Matlab scripts</a>
+              <p class="dropdown-heading">Traffic and data traces</p>
+              <a href="Traces/ttraces.php">Traffic traces</a>
+              <a href="Traces/dtraces.php">Heterogeneous networks data traces</a>
+              <a href="Traces/Magnets.php">MagNets data traces</a>
+              <a href="Traces/hobbit.php">HoBBIT dataset</a>
+              <a href="mirage/">MIRAGE datasets</a>
+            </div>
+          </li>
+
+          <li><a href="collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <div class="page-container">
-    
-    <nav class="sidebar">
-      <ul class="main-menu">
-        <li class="menu-item"><a href="#" class="menu-link active">Home</a></li>
-        <li class="menu-item"><a href="people.html" class="menu-link">People</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="topics-submenu">Topics</span>
-          <ul class="submenu" id="topics-submenu">
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="active-probing">Active Probing</span>
-              <ul class="submenu-level-2" id="active-probing">
-                <li><a href="ippolib.php" class="menu-link">IPPO Library</a></li>
-              </ul>
-            </li>
+  <main id="main">
 
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="alias-resolution">Alias resolution</span>
-              <ul class="submenu-level-2" id="alias-resolution">
-                <li><a href="pythia.php" class="menu-link">PYTHIA</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="app-traffic-gen">Application traffic generation</span>
-              <ul class="submenu-level-2" id="app-traffic-gen">
-                <li><a href="/software/ITG" class="menu-link">D-ITG</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="bandwidth-mon">Bandwidth monitoring</span>
-              <ul class="submenu-level-2" id="bandwidth-mon">
-                <li><a href="uanm.php" class="menu-link">UANM</a></li>
-              </ul>
-            </li>
-            
-            <li><a href="bioinformatics.php" class="menu-link">Bioinformatics and E-Health</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="broadband-perf">Broadband performance monitoring</span>
-              <ul class="submenu-level-2" id="broadband-perf">
-                <li><a target="_new" href="http://projectbismark.net" class="menu-link">BISmark</a></li>
-                <li><a target="_new" href="http://hobbit.comics.unina.it" class="menu-link">HoBBIT</a></li>
-              </ul>
-            </li>
-
-            <li><a href="cloud.php" class="menu-link">Cloud Monitoring and Control</a></li>
-            <li><a href="internetcensor.php" class="menu-link">Internet Censorship Detection</a></li>
-            <li><a href="netdata.php" class="menu-link">Network data management</a></li>
-            <li><a href="np.php" class="menu-link">High-performance networking</a></li>
-            
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-mapping">Network mapping</span>
-              <ul class="submenu-level-2" id="network-mapping">
-                <li><a href="/software/TD" class="menu-link">Hynetd</a></li>
-                <li><a target="_new" href="http://svnet.u-strasbg.fr/merlin" class="menu-link">MERLIN</a></li>
-              </ul>
-            </li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="network-perf-improv">Network performance improvement</span>
-              <ul class="submenu-level-2" id="network-perf-improv">
-                <li><a href="timeDiv.php" class="menu-link">TimeD</a></li>
-              </ul>
-            </li>
-
-            <li><a href="security.php" class="menu-link">Network security</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="path-tracing">Path tracing</span>
-              <ul class="submenu-level-2" id="path-tracing">
-                <li><a href="tpa.php" class="menu-link">Third-Party Addresses</a></li>
-                <li><a href="tptraceroute.php" class="menu-link">TP-Traceroute</a></li>
-                <li><a href="drago.php" class="menu-link">Hidden routers</a></li>
-              </ul>
-            </li>
-
-            <li><a href="sdnmonitoring.php" class="menu-link">Software-Defined Network Monitoring</a></li>
-
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traffic-analysis">Traffic analysis and classification</span>
-              <ul class="submenu-level-2" id="traffic-analysis">
-                <li><a href="/software/Plab" class="menu-link">Plab</a></li>
-                <li><a target="_new" href="http://tie.comics.unina.it" class="menu-link">TIE</a></li>
-                <li><a href="wwanMonitor.php" class="menu-link">WWAN</a></li>
-              </ul>
-            </li>
-
-            <li><a href="other.php" class="menu-link">Others</a></li>
-          </ul>
-        </li>
-
-        <li class="menu-item"><a href="publications.html" class="menu-link">Publications</a></li>
-        <li class="menu-item"><a href="news.html" class="menu-link">News</a></li>
-        
-        <li class="menu-item has-submenu">
-          <span class="menu-link submenu-toggle" data-target="material-submenu">Material</span>
-          <ul class="submenu" id="material-submenu">
-            <li><a href="Tools/statools.php" class="menu-link">Matlab scripts</a></li>
-            <li class="menu-item has-submenu-level-2">
-              <span class="submenu-toggle-level-2" data-target="traces-data">Traffic and data traces</span>
-              <ul class="submenu-level-2" id="traces-data">
-                <li><a href="Traces/ttraces.php" class="menu-link">Traffic traces</a></li>
-                <li><a href="Traces/dtraces.php" class="menu-link">Heterogenous networks data traces</a></li>
-                <li><a href="Traces/Magnets.php" class="menu-link">MagNets data traces</a></li>
-                <li><a href="Traces/hobbit.php" class="menu-link">Hobbit dataset</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-item"><a href="collaborations.html" class="menu-link">Collaborations</a></li>
-        <li class="menu-item"><a href="visiting.html" class="menu-link">Visiting</a></li>
-      </ul>
-    </nav>
-    
-    <main class="main-content">
-      <section class="welcome-section">
-        <h2 class="section-title">Welcome to the <i>Traffic</i> web site</h2>
-        <p>
-          ***Traffic*** is a research group working in the area of computer networks and multimedia,
-          with focus on **Network Monitoring and Measurements**. Our research involves measuring and evaluating
-          both experimental and operational systems/networks to derive knowledge and models for network behaviors.
-          Traffic (and this is the main motivation of its name) focuses on monitoring **Internet traffic** to provide
-          input for developing new algorithms, protocols, and systems for the current and future Internet, with a
-          specific focus on network management and security.
-        </p>
-        <p>
-          Besides teaching activities, it is involved in several national and international research projects.
-          Although it is a young group, formed in 2003, it has a significant track record with respect to funding (approx. more than 1.5 Ml euro)
-          and publications (e.g. conferences like SIGCOMM, Conext, IMC and journals like JSAC, IEEE Networks, IEEE Communication Magazines, etc). Click on the menu on the left side for links to our main projects, publications and software we have produced.
-        </p>
-        <p>
-          <a href="people.html">We</a> are part of the larger Computer Networks group (<a href="http://www.comics.unina.it/">COMICS</a>)
-          at University of Napoli Federico II.
-        </p>
-      </section>
-
-      <section class="news-announcement new-dataset">
-        <h3 class="news-title new-badge">NEW DATASET RELEASED!</h3>
-        <div class="news-box">
-          <p>We are happy to announce the release of our new and open dataset to the Internet community.
-          You can find it at the following URL: <a href="http://traffic-arclab.github.io/mirage">http://traffic-arclab.github.io/mirage</a>.</p>
-          <p class="award-text">
-            <img src="images/award.gif" alt="Award Icon" class="inline-icon"> The MIRAGE paper has won the **Best Paper Award** at the 4th IEEE International Conference on Computing, Communications and Security (ICCCS 2019), October 2019, Rome (Italy).
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">DIETI · Università di Napoli Federico II</p>
+          <h1 class="hero-title">
+            <span class="initial">N</span>etwork <span class="initial">M</span>onitoring<br>
+            and <span class="initial">M</span>easurements
+          </h1>
+          <p class="hero-subtitle">Measuring the Internet to understand, model and secure it.</p>
+          <p class="hero-lead">
+            <strong>Traffic</strong> is a research group working in computer networks and multimedia, focused on
+            <strong>Network Monitoring and Measurements</strong>. We measure experimental and operational
+            networks to derive knowledge and models of their behaviour, with a specific focus on
+            network management and security.
           </p>
-          <p>Our MIRAGE-2019 dataset is a human-generated dataset for mobile traffic analysis with associated ground-truth, having the goal of advancing the state-of-the-art in mobile app traffic analysis.
-            MIRAGE-2019 contains data related to 40 Android apps (e.g., Facebook, Spotify, Twitter, etc.) related to 16 different categories (e.g., Social, Communication, Lifestyle, etc.) of Google Play store and collected by more than 280 experimenters, during May 2017- May 2019.</p>
-          <p>Find additional info <a href="http://traffic.comics.unina.it/mirage">HERE</a>!</p>
+          <div class="hero-actions">
+            <a href="#topics" class="btn btn-primary">Research topics</a>
+            <a href="publications.html" class="btn btn-ghost">Publications</a>
+          </div>
         </div>
-      </section>
+        <dl class="hero-facts">
+          <div class="fact"><dt>Founded</dt><dd>2003</dd></div>
+          <div class="fact"><dt>Publications</dt><dd>500+</dd></div>
+          <div class="fact"><dt>Research funding</dt><dd>&gt; €1.5M</dd></div>
+          <div class="fact fact-wide"><dt>Published at</dt><dd class="fact-small">SIGCOMM · CoNEXT · IMC · JSAC · IEEE Network</dd></div>
+        </dl>
+      </div>
+    </section>
 
-      <section class="news-announcement openings">
-        <h3 class="news-title">Traffic openings 2025</h3>
-        <div class="news-box">
-          <p>We are continuously looking for qualified and self-motivated graduate students and Post Docs (both Italian and foreign) with background in
-            networking, programming, statistical data analysis, in at least one of the following areas:</p>
-          <ul class="opening-list">
-            <li>Network and Traffic Measurement and Analysis
+    <!-- Highlights -->
+    <section class="section section-highlights" aria-labelledby="highlights-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="highlights-title" class="section-title">Highlights</h2>
+          <a href="news.html" class="section-more">All news →</a>
+        </div>
+
+        <div class="highlights">
+          <article class="card card-feature">
+            <div class="card-tags">
+              <span class="tag tag-accent">New dataset</span>
+              <span class="tag">Open data</span>
+            </div>
+            <h3 class="card-title">MIRAGE-2019: human-generated mobile traffic with ground truth</h3>
+            <p>
+              A dataset for mobile app traffic analysis covering <strong>40 Android apps</strong>
+              (e.g. Facebook, Spotify, Twitter) across <strong>16 Google Play categories</strong>,
+              collected by more than <strong>280 experimenters</strong> between May 2017 and May 2019.
+              Released openly to the Internet community.
+            </p>
+            <div class="award">
+              <img src="images/award.gif" alt="" class="award-icon">
+              <p><strong>Best Paper Award</strong> — 4th IEEE International Conference on Computing,
+              Communications and Security (ICCCS 2019), Rome, October 2019.</p>
+            </div>
+            <a href="mirage/" class="card-link">Explore the MIRAGE datasets →</a>
+          </article>
+
+          <div class="highlights-side">
+            <article class="card">
+              <p class="card-kicker">Workshop · IEEE WiMob</p>
+              <h3 class="card-title-sm">GenXNet'26</h3>
+              <p>Call for papers and programme of the 2026 edition.</p>
+              <a href="genxnet2026/" class="card-link">Workshop website →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">Past workshops</p>
+              <ul class="plain-links">
+                <li><a href="genxnet2025/">IEEE GenXNet'25 — WiMob Workshops</a></li>
+                <li><a href="aidcs2024/">IEEE AI-DCS 2024 — ICDCS Workshops</a></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research topics -->
+    <section class="section section-alt" id="topics" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="topics-title" class="section-title">Research topics &amp; tools</h2>
+          <p class="section-intro">Projects, software and systems developed by the group.</p>
+        </div>
+
+        <ul class="topics">
+          <li class="topic"><h3><a href="ippolib.php">Active probing</a></h3><div class="chips"><a href="ippolib.php">IPPO Library</a></div></li>
+          <li class="topic"><h3><a href="pythia.php">Alias resolution</a></h3><div class="chips"><a href="pythia.php">PYTHIA</a></div></li>
+          <li class="topic"><h3>Application traffic generation</h3><div class="chips"><a href="/software/ITG">D-ITG</a></div></li>
+          <li class="topic"><h3><a href="uanm.php">Bandwidth monitoring</a></h3><div class="chips"><a href="uanm.php">UANM</a></div></li>
+          <li class="topic"><h3>Broadband performance monitoring</h3><div class="chips"><a href="http://projectbismark.net" target="_blank" rel="noopener">BISmark ↗</a><a href="http://hobbit.comics.unina.it" target="_blank" rel="noopener">HoBBIT ↗</a></div></li>
+          <li class="topic"><h3>Traffic analysis &amp; classification</h3><div class="chips"><a href="/software/Plab">Plab</a><a href="http://tie.comics.unina.it" target="_blank" rel="noopener">TIE ↗</a><a href="wwanMonitor.php">WWAN</a></div></li>
+          <li class="topic"><h3>Network mapping</h3><div class="chips"><a href="/software/TD">Hynetd</a><a href="http://svnet.u-strasbg.fr/merlin" target="_blank" rel="noopener">MERLIN ↗</a></div></li>
+          <li class="topic"><h3>Path tracing</h3><div class="chips"><a href="tpa.php">Third-Party Addresses</a><a href="tptraceroute.php">TP-Traceroute</a><a href="drago.php">Hidden routers</a></div></li>
+          <li class="topic"><h3><a href="timeDiv.php">Network performance improvement</a></h3><div class="chips"><a href="timeDiv.php">TimeD</a></div></li>
+          <li class="topic"><h3><a href="security.php">Network security</a></h3></li>
+          <li class="topic"><h3><a href="internetcensor.php">Internet censorship detection</a></h3></li>
+          <li class="topic"><h3><a href="cloud.php">Cloud monitoring and control</a></h3></li>
+          <li class="topic"><h3><a href="sdnmonitoring.php">Software-defined network monitoring</a></h3></li>
+          <li class="topic"><h3><a href="np.php">High-performance networking</a></h3></li>
+          <li class="topic"><h3><a href="netdata.php">Network data management</a></h3></li>
+          <li class="topic"><h3><a href="bioinformatics.php">Bioinformatics and e-Health</a></h3></li>
+        </ul>
+        <p class="topics-more"><a href="other.php">Other activities →</a></p>
+      </div>
+    </section>
+
+    <!-- About + openings -->
+    <section class="section" aria-labelledby="about-title">
+      <div class="container two-col">
+        <div>
+          <h2 id="about-title" class="section-title">About the group</h2>
+          <p>
+            Traffic — and this is the main motivation behind its name — focuses on monitoring
+            <strong>Internet traffic</strong> to provide input for developing new algorithms, protocols and
+            systems for the current and future Internet.
+          </p>
+          <p>
+            Besides teaching, the group is involved in several national and international research projects.
+            Formed in 2003, it has a significant track record in funding and publications at venues such as
+            SIGCOMM, CoNEXT and IMC, and in journals such as IEEE JSAC, IEEE Network and IEEE Communications Magazine.
+          </p>
+          <p>
+            <a href="people.html">We</a> are part of the larger Computer Networks group
+            (<a href="http://www.comics.unina.it/">COMICS</a>) at the University of Napoli Federico II.
+          </p>
+        </div>
+
+        <aside class="openings" aria-labelledby="openings-title">
+          <p class="card-kicker">Join us</p>
+          <h2 id="openings-title" class="openings-title">Traffic openings 2025</h2>
+          <p>
+            We are continuously looking for qualified, self-motivated graduate students and post-docs
+            (Italian and international) with a background in networking, programming or statistical
+            data analysis, in at least one of these areas:
+          </p>
+          <ul class="openings-list">
+            <li>Network and traffic measurement and analysis
               <ul>
-                <li>Broadband Monitoring and Censorship Detection (in a project partially funded by Google)</li>
-                <li>High-performance Traffic Generation and Classification (in collaboration with worldwide Industries)</li>
-                <li>Active Probing and Network Tracerouting</li>
+                <li>Broadband monitoring and censorship detection (project partially funded by Google)</li>
+                <li>High-performance traffic generation and classification (with industry partners worldwide)</li>
+                <li>Active probing and network tracerouting</li>
               </ul>
             </li>
-            <li>Cloud Networking and SDN/NFV</li>
-            <li>Smart City and Mobility (in collaboration with worldwide Industries)</li>
+            <li>Cloud networking and SDN/NFV</li>
+            <li>Smart city and mobility (with industry partners worldwide)</li>
           </ul>
-          <p>For those who are interested, please send an email with subject "Traffic Openings" to <a href="mailto:pescape@unina.it" class="email-link">pescape AT unina.it</a>,
-            including a copy of your resume (with photo, link to the research web page and a list of at least two references), transcripts, publications list,
-            and other closely related credentials.<br>
-            <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf">Here</a> a pdf with detailed information.
+          <p class="openings-how">
+            Send an email with subject <em>“Traffic Openings”</em> to
+            <a href="mailto:pescape@unina.it?subject=Traffic%20Openings">pescape AT unina.it</a>, including your CV
+            (with photo, research web page and at least two references), transcripts, publication list
+            and other related credentials.
           </p>
-        </div>
-      </section>
-    </main>
-  </div>
-  
+          <div class="openings-actions">
+            <a href="mailto:pescape@unina.it?subject=Traffic%20Openings" class="btn btn-primary">Apply by email</a>
+            <a href="http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf" class="btn btn-ghost">Details (PDF)</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
   <footer class="site-footer">
-    <p>
-      If you are interested in collaborating with us or in opportunities in Traffic,
-      please send an e-mail to <a href="mailto:pescape%20[at]%20unina.it">Antonio Pescapè</a>.
-    </p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clip_image002.gif" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="people.html">People</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="collaborations.html">Collaborations</a></li>
+          <li><a href="visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
   </footer>
 
 </body>
