@@ -16,10 +16,10 @@ jQuery(function($) {'use strict';
 	}
 
 	//Initiat WOW JS
-	new WOW().init();
+	if (typeof WOW === 'function') new WOW().init();
 
 	// portfolio filter
-	$(window).load(function(){
+	$(window).on('load', function(){
 
 		$('.main-slider').addClass('animate-in');
 		$('.preloader').remove();

@@ -2694,3 +2694,8 @@ section {
 .footer .credits a {
   color: #fff;
 }
+/* TRAFFIC site refresh: open third-level menus to the left on wide screens too (no sideways scroll). */
+@media (min-width: 1367px) {
+  .navbar .dropdown .dropdown ul { left: -90%; }
+  .navbar .dropdown .dropdown:hover>ul { left: -100%; }
+}

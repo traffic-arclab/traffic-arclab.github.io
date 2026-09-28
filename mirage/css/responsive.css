@@ -688,3 +688,9 @@
         max-width: 80% !important;
     }
 }
+
+/* TRAFFIC site refresh: small-screen readability fixes (content unchanged). */
+@media (max-width: 767px) {
+  #download .col-xs-5, #download .col-xs-7 { float: none; width: 100%; }
+  .btn-common { max-width: 100%; white-space: normal; }
+}

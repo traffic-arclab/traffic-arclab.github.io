@@ -1,0 +1,97 @@
+/* TRAFFIC global bar — a thin institutional bar shown on top of the historical sub-sites
+   (MIRAGE, CloudSurf, D-ITG, workshops, …). Everything is namespaced under .tgb and sized in px,
+   because the legacy pages ship their own resets, root font sizes and element selectors.
+   The bar works without JavaScript: the home link is a plain link and the compact menu is a
+   native <details> element; js/traffic-bar.js only adds Escape / outside-click handling. */
+
+:root { --tgb-h: 44px; }
+
+.tgb, .tgb *, .tgb *::before, .tgb *::after {
+  box-sizing: border-box; margin: 0; padding: 0; border: 0; float: none;
+  background: none; box-shadow: none; text-shadow: none; text-transform: none; text-decoration: none;
+  letter-spacing: normal; list-style: none; font: inherit; color: inherit; max-width: none; min-width: 0;
+}
+.tgb {
+  position: relative; z-index: 10000; display: block; width: 100%;
+  background: #0b2545; color: #e9eff5;
+  font: 400 14px/1.3 "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; text-align: left;
+  border-bottom: 1px solid #2a6cab;
+}
+.tgb .tgb__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  width: 100%; max-width: 1456px; min-height: 43px; margin: 0 auto; padding: 0 clamp(14px, 3vw, 48px);
+}
+.tgb a { color: #fff; cursor: pointer; }
+.tgb a:focus-visible, .tgb .tgb__summary:focus-visible { outline: 2px solid #9fd0f5; outline-offset: 2px; border-radius: 3px; }
+
+/* Identity: the essential way back to TRAFFIC. */
+.tgb .tgb__home { display: inline-flex; align-items: center; gap: 10px; min-height: 43px; min-width: 0; white-space: nowrap; }
+.tgb .tgb__seal { display: block; flex: none; width: 26px; height: 26px; padding: 1px; border-radius: 50%; background: #fff; object-fit: contain; }
+.tgb .tgb__arrow { display: block; flex: none; width: 14px; height: 14px; margin-right: -2px; color: #9fd0f5; transition: transform 150ms; }
+.tgb .tgb__home:hover .tgb__arrow { transform: translateX(-2px); }
+.tgb .tgb__name { overflow: hidden; text-overflow: ellipsis; color: #fff; font-size: 14px; }
+.tgb .tgb__name b { font-weight: 700; letter-spacing: .06em; }
+.tgb .tgb__uni { padding-left: 12px; border-left: 1px solid rgba(255, 255, 255, .22); color: #bdcad8; font-size: 13px; }
+.tgb .tgb__home:hover .tgb__name { text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .5); text-underline-offset: 3px; }
+
+/* Wide screens: the TRAFFIC sections inline. */
+.tgb .tgb__nav { display: flex; align-items: center; flex: none; }
+.tgb .tgb__links { display: flex; align-items: center; gap: 2px; }
+.tgb .tgb__links a {
+  display: block; padding: 6px 10px; border-radius: 3px;
+  color: #dfe8f0; font-size: 13.5px; font-weight: 600; white-space: nowrap;
+  transition: background-color 150ms, color 150ms;
+}
+.tgb .tgb__links a:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+
+/* Compact menu (native disclosure). */
+.tgb .tgb__menu { position: relative; display: none; }
+.tgb .tgb__summary {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 34px; padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, .28); border-radius: 4px;
+  color: #fff; font-size: 13.5px; font-weight: 700; cursor: pointer; list-style: none; user-select: none;
+  transition: background-color 150ms, border-color 150ms;
+}
+.tgb .tgb__summary::-webkit-details-marker { display: none; }
+.tgb .tgb__summary::marker { content: ""; }
+.tgb .tgb__summary:hover, .tgb .tgb__menu[open] > .tgb__summary { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .5); }
+.tgb .tgb__chevron { display: block; width: 10px; height: 10px; transition: transform 150ms; }
+.tgb .tgb__menu[open] .tgb__chevron { transform: rotate(180deg); }
+.tgb .tgb__panel {
+  position: absolute; top: calc(100% + 8px); right: 0; width: 248px; padding: 8px;
+  border: 1px solid #dce3eb; border-top: 2px solid #2a6cab; border-radius: 4px 4px 8px 8px;
+  background: #fff; color: #0b2545;
+  box-shadow: 0 22px 48px -18px rgba(11, 37, 69, .45), 0 2px 6px rgba(11, 37, 69, .08);
+}
+.tgb .tgb__panel-title { display: block; padding: 6px 10px 8px; margin-bottom: 4px; border-bottom: 1px solid #e8edf2; color: #1b5b93; font-size: 11.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.tgb .tgb__panel a { display: block; padding: 10px; border-radius: 4px; color: #0b2545; font-size: 15px; font-weight: 600; }
+.tgb .tgb__panel a:hover { background: #eef3f8; color: #1b5b93; }
+.tgb .tgb__panel a:focus-visible { outline-color: #2a6cab; outline-offset: -2px; }
+.tgb .tgb__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 1199px) { .tgb .tgb__uni { display: none; } }
+@media (max-width: 1023px) {
+  .tgb .tgb__links { display: none; }
+  .tgb .tgb__menu { display: block; }
+}
+@media (max-width: 480px) {
+  .tgb .tgb__inner { gap: 10px; }
+  .tgb .tgb__home { gap: 8px; }
+  .tgb .tgb__name-extra { display: none; }
+}
+
+/* Plain legacy pages (browser default body margin): the bar spans the full width at the very top. */
+body:has(> .tgb--flush) { margin: 0; padding: 0 8px 8px; }
+.tgb.tgb--flush { width: auto; margin: 0 -8px 24px; }
+
+/* Legacy templates whose own header is fixed to the top slide below the bar. */
+.tgb ~ .fixed-top, .tgb ~ #header.fixed-top {
+  top: var(--tgb-offset, var(--tgb-h));
+  transition-property: background-color, box-shadow, height, padding;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tgb *, .tgb *::before, .tgb *::after { transition: none !important; }
+}
+@media print { .tgb { display: none !important; } }

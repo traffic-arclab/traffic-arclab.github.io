@@ -1707,3 +1707,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 #footer .credits a {
   color: #333333;
 }
+
+/* TRAFFIC site refresh: keynote portraits stay inside their column. */
+#keynotes .testimonial-item .testimonial-img { max-width: 100%; height: auto; }
