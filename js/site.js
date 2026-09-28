@@ -19,7 +19,7 @@
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = theme === 'dark' ? '#101c2a' : '#fbfcfd';
+    if (meta) meta.content = theme === 'dark' ? '#0e1824' : '#fcfcfd';
     if (save) {
       try { localStorage.setItem('traffic-theme', theme); } catch (_) { /* storage is optional */ }
     }
@@ -151,6 +151,12 @@
   }
 
   if (header) {
+    // Sticky offsets (sub-navigation, year index, anchors) follow the real header height.
+    const syncHeaderHeight = () => root.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    syncHeaderHeight();
+    if ('ResizeObserver' in window) new ResizeObserver(syncHeaderHeight).observe(header);
+    else window.addEventListener('resize', syncHeaderHeight);
+
     const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
     updateHeader();
     window.addEventListener('scroll', () => {
@@ -158,6 +164,32 @@
       closeDropdowns();
       if (!desktop.matches) setMenu(false);
     }, { passive: true });
+  }
+
+  // Publications: mark the year currently being read in the sticky year index.
+  const jump = document.querySelector('.pub-jump');
+  if (jump && 'IntersectionObserver' in window) {
+    const links = new Map([...jump.querySelectorAll('a[href^="#"]')].map(link => [link.hash.slice(1), link]));
+    const visible = new Set();
+    let active = null;
+    const setActive = id => {
+      const link = links.get(id);
+      if (!link || link === active) return;
+      active?.classList.remove('is-active');
+      active?.removeAttribute('aria-current');
+      link.classList.add('is-active');
+      link.setAttribute('aria-current', 'location');
+      active = link;
+      const left = link.offsetLeft - (jump.clientWidth - link.offsetWidth) / 2;
+      jump.scrollTo({ left: Math.max(0, left), behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    };
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) visible.add(entry.target); else visible.delete(entry.target); });
+      const first = [...visible].filter(section => !section.hidden)
+        .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+      if (first) setActive(first.id);
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('.pub-year[id]').forEach(section => spy.observe(section));
   }
 
   // Animation is an enhancement; no content is hidden while waiting for scroll.
