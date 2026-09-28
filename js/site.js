@@ -19,7 +19,7 @@
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = theme === 'dark' ? '#0d1c2b' : '#f8f7f3';
+    if (meta) meta.content = theme === 'dark' ? '#101c2a' : '#fbfcfd';
     if (save) {
       try { localStorage.setItem('traffic-theme', theme); } catch (_) { /* storage is optional */ }
     }
@@ -28,7 +28,7 @@
       const dark = theme === 'dark';
       toggle.setAttribute('aria-pressed', String(dark));
       toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-      toggle.querySelector('.theme-toggle-label').textContent = dark ? 'Light' : 'Dark';
+      toggle.querySelector('.theme-toggle-label').textContent = dark ? 'Dark' : 'Light';
     }
   }
 
@@ -42,7 +42,18 @@
       <span class="theme-toggle-label"></span>`;
     headerInner.append(toggle);
     setTheme(root.dataset.theme || (systemDark.matches ? 'dark' : 'light'));
-    toggle.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true));
+    toggle.addEventListener('click', () => {
+      root.classList.add('theme-changing');
+      const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(nextTheme, true);
+      if (!reducedMotion.matches) {
+        toggle.querySelector(nextTheme === 'dark' ? '.theme-icon-moon' : '.theme-icon-sun')?.animate?.(
+          [{ opacity: .45, transform: 'scale(.85) rotate(-15deg)' }, { opacity: 1, transform: 'none' }],
+          { duration: 240, easing: 'cubic-bezier(.2, .65, .25, 1)' }
+        );
+      }
+      window.setTimeout(() => root.classList.remove('theme-changing'), 280);
+    });
     systemDark.addEventListener('change', event => {
       if (savedTheme() !== 'dark' && savedTheme() !== 'light') setTheme(event.matches ? 'dark' : 'light');
     });
@@ -79,9 +90,11 @@
       menu.id ||= `nav-submenu-${index + 1}`;
       button.setAttribute('aria-controls', menu.id);
       let closeTimer;
+      let openedByHover = false;
 
       button.addEventListener('click', () => {
-        const open = !item.classList.contains('open');
+        const open = openedByHover || !item.classList.contains('open');
+        openedByHover = false;
         closeDropdowns(item);
         setDropdown(item, open);
       });
@@ -96,10 +109,14 @@
         if (!desktop.matches || !hover.matches) return;
         clearTimeout(closeTimer);
         closeDropdowns(item);
-        setDropdown(item, true);
+        if (!item.classList.contains('open')) {
+          setDropdown(item, true);
+          openedByHover = true;
+        }
       });
       item.addEventListener('mouseleave', () => {
         if (!desktop.matches || !hover.matches) return;
+        openedByHover = false;
         closeTimer = setTimeout(() => setDropdown(item, false), 160);
       });
       item.addEventListener('focusout', () => {
@@ -143,9 +160,9 @@
     }, { passive: true });
   }
 
-  // Content stays visible without JavaScript. Only below-fold elements are animated.
+  // Animation is an enhancement; no content is hidden while waiting for scroll.
   if ('IntersectionObserver' in window && !reducedMotion.matches) {
-    const candidates = document.querySelectorAll('.section-head, .area, .highlights .card, .person, .collab, .news-year');
+    const candidates = document.querySelectorAll('.section-head, .area, .highlights .card, .latest-pubs > li, .person, .collab, .news-year');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -155,7 +172,6 @@
     }, { threshold: 0.08, rootMargin: '0px 0px 48px 0px' });
     candidates.forEach(element => {
       if (element.getBoundingClientRect().top <= window.innerHeight + 32) return;
-      element.classList.add('reveal-pending');
       observer.observe(element);
     });
   }

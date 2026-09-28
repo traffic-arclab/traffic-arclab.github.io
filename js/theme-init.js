@@ -15,5 +15,5 @@
   document.documentElement.style.colorScheme = theme;
 
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.content = dark ? '#0d1c2b' : '#f8f7f3';
+  if (meta) meta.content = dark ? '#101c2a' : '#fbfcfd';
 })();
