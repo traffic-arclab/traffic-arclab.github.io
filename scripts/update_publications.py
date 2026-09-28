@@ -319,8 +319,10 @@ def render_page(records, updated):
           <label class="visually-hidden" for="pub-search">Search publications</label>
           <input id="pub-search" type="search" placeholder="Search by title, author, venue…" autocomplete="off">
           <div class="pub-filters" role="group" aria-label="Filter by type">{filters}</div>
+          <button id="pub-clear" class="pub-clear" type="button" hidden>Clear filters</button>
           <p class="pub-count" aria-live="polite"></p>
         </div>
+        <p class="pub-empty" hidden>No publications match your search. Try another term or clear the filters.</p>
         <nav class="pub-jump" aria-label="Years">{jump}</nav>
 {chr(10).join(groups)}
       </div>

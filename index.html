@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#f8f7f3">
+  <script src="js/theme-init.js"></script>
   <link rel="stylesheet" href="css/site.css">
   <script src="js/site.js" defer></script>
 </head>
@@ -106,6 +108,7 @@
       <div class="container hero-inner">
         <div class="hero-copy">
           <p class="eyebrow">DIETI · Università di Napoli Federico II</p>
+          <p class="hero-lab">TRAFFIC <span>Research Group</span></p>
           <h1 class="hero-title">
             <span class="initial">N</span>etwork <span class="initial">M</span>onitoring<br>
             and <span class="initial">M</span>easurements
@@ -190,6 +193,56 @@
       </div>
     </section>
 
+    <!-- Research topics -->
+    <section class="section section-alt" id="topics" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="topics-title" class="section-title">Research topics &amp; tools</h2>
+          <p class="section-intro">Projects, software and systems developed by the group.</p>
+        </div>
+
+        <div class="areas">
+          <article class="area">
+            <header class="area-head"><span class="area-num">01</span><h3>Internet measurement</h3></header>
+            <ul class="area-topics">
+              <li><a href="ippolib.html" class="area-topic">Active probing</a><div class="chips"><a href="ippolib.html">IPPO Library</a></div></li>
+              <li><a href="pythia.html" class="area-topic">Alias resolution</a><div class="chips"><a href="pythia.html">PYTHIA</a></div></li>
+              <li><span class="area-topic">Network mapping</span><div class="chips"><a href="/software/TD">Hynetd</a><a href="http://svnet.u-strasbg.fr/merlin" target="_blank" rel="noopener">MERLIN ↗</a></div></li>
+              <li><span class="area-topic">Path tracing</span><div class="chips"><a href="tpa.html">Third-Party Addresses</a><a href="tptraceroute.html">TP-Traceroute</a><a href="drago.html">Hidden routers</a></div></li>
+            </ul>
+          </article>
+          <article class="area">
+            <header class="area-head"><span class="area-num">02</span><h3>Traffic &amp; performance</h3></header>
+            <ul class="area-topics">
+              <li><span class="area-topic">Traffic analysis &amp; classification</span><div class="chips"><a href="/software/Plab">Plab</a><a href="software/tie/start.html">TIE</a><a href="wwanMonitor.html">WWAN</a></div></li>
+              <li><span class="area-topic">Application traffic generation</span><div class="chips"><a href="/software/ITG">D-ITG</a></div></li>
+              <li><a href="uanm.html" class="area-topic">Bandwidth monitoring</a><div class="chips"><a href="uanm.html">UANM</a></div></li>
+              <li><span class="area-topic">Broadband performance monitoring</span><div class="chips"><a href="http://projectbismark.net" target="_blank" rel="noopener">BISmark ↗</a><a href="http://hobbit.comics.unina.it" target="_blank" rel="noopener">HoBBIT ↗</a></div></li>
+              <li><a href="timeDiv.html" class="area-topic">Network performance improvement</a><div class="chips"><a href="timeDiv.html">TimeD</a></div></li>
+            </ul>
+          </article>
+          <article class="area">
+            <header class="area-head"><span class="area-num">03</span><h3>Cloud &amp; network systems</h3></header>
+            <ul class="area-topics">
+              <li><a href="cloud.html" class="area-topic">Cloud monitoring and control</a></li>
+              <li><a href="sdnmonitoring.html" class="area-topic">Software-defined network monitoring</a></li>
+              <li><a href="np.html" class="area-topic">High-performance networking</a></li>
+              <li><a href="netdata.html" class="area-topic">Network data management</a></li>
+            </ul>
+          </article>
+          <article class="area">
+            <header class="area-head"><span class="area-num">04</span><h3>Security, society &amp; health</h3></header>
+            <ul class="area-topics">
+              <li><a href="security.html" class="area-topic">Network security</a></li>
+              <li><a href="internetcensor.html" class="area-topic">Internet censorship detection</a></li>
+              <li><a href="bioinformatics.html" class="area-topic">Bioinformatics and e-Health</a></li>
+            </ul>
+          </article>
+        </div>
+        <p class="topics-more"><a href="other.html">Other activities →</a></p>
+      </div>
+    </section>
+
     <!-- Highlights -->
     <section class="section section-highlights" aria-labelledby="highlights-title">
       <div class="container">
@@ -212,7 +265,11 @@
               Released openly to the Internet community.
             </p>
             <div class="award">
-              <img src="images/award.gif" alt="" class="award-icon">
+              <svg class="award-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <circle cx="16" cy="12" r="8.5"/>
+                <path d="M11 19 9 29l7-3 7 3-2-10"/>
+                <path d="m16 7 1.6 3.2 3.5.5-2.5 2.5.6 3.5L16 15l-3.2 1.7.6-3.5-2.5-2.5 3.5-.5Z"/>
+              </svg>
               <p><strong>Best Paper Award</strong> — 4th IEEE International Conference on Computing,
               Communications and Security (ICCCS 2019), Rome, October 2019.</p>
             </div>
@@ -306,56 +363,6 @@
       </div>
     </section>
     <!-- LATEST-PUBLICATIONS:END -->
-
-    <!-- Research topics -->
-    <section class="section section-alt" id="topics" aria-labelledby="topics-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="topics-title" class="section-title">Research topics &amp; tools</h2>
-          <p class="section-intro">Projects, software and systems developed by the group.</p>
-        </div>
-
-        <div class="areas">
-          <article class="area">
-            <header class="area-head"><span class="area-num">01</span><h3>Internet measurement</h3></header>
-            <ul class="area-topics">
-              <li><a href="ippolib.html" class="area-topic">Active probing</a><div class="chips"><a href="ippolib.html">IPPO Library</a></div></li>
-              <li><a href="pythia.html" class="area-topic">Alias resolution</a><div class="chips"><a href="pythia.html">PYTHIA</a></div></li>
-              <li><span class="area-topic">Network mapping</span><div class="chips"><a href="/software/TD">Hynetd</a><a href="http://svnet.u-strasbg.fr/merlin" target="_blank" rel="noopener">MERLIN ↗</a></div></li>
-              <li><span class="area-topic">Path tracing</span><div class="chips"><a href="tpa.html">Third-Party Addresses</a><a href="tptraceroute.html">TP-Traceroute</a><a href="drago.html">Hidden routers</a></div></li>
-            </ul>
-          </article>
-          <article class="area">
-            <header class="area-head"><span class="area-num">02</span><h3>Traffic &amp; performance</h3></header>
-            <ul class="area-topics">
-              <li><span class="area-topic">Traffic analysis &amp; classification</span><div class="chips"><a href="/software/Plab">Plab</a><a href="software/tie/start.html">TIE</a><a href="wwanMonitor.html">WWAN</a></div></li>
-              <li><span class="area-topic">Application traffic generation</span><div class="chips"><a href="/software/ITG">D-ITG</a></div></li>
-              <li><a href="uanm.html" class="area-topic">Bandwidth monitoring</a><div class="chips"><a href="uanm.html">UANM</a></div></li>
-              <li><span class="area-topic">Broadband performance monitoring</span><div class="chips"><a href="http://projectbismark.net" target="_blank" rel="noopener">BISmark ↗</a><a href="http://hobbit.comics.unina.it" target="_blank" rel="noopener">HoBBIT ↗</a></div></li>
-              <li><a href="timeDiv.html" class="area-topic">Network performance improvement</a><div class="chips"><a href="timeDiv.html">TimeD</a></div></li>
-            </ul>
-          </article>
-          <article class="area">
-            <header class="area-head"><span class="area-num">03</span><h3>Cloud &amp; network systems</h3></header>
-            <ul class="area-topics">
-              <li><a href="cloud.html" class="area-topic">Cloud monitoring and control</a></li>
-              <li><a href="sdnmonitoring.html" class="area-topic">Software-defined network monitoring</a></li>
-              <li><a href="np.html" class="area-topic">High-performance networking</a></li>
-              <li><a href="netdata.html" class="area-topic">Network data management</a></li>
-            </ul>
-          </article>
-          <article class="area">
-            <header class="area-head"><span class="area-num">04</span><h3>Security, society &amp; health</h3></header>
-            <ul class="area-topics">
-              <li><a href="security.html" class="area-topic">Network security</a></li>
-              <li><a href="internetcensor.html" class="area-topic">Internet censorship detection</a></li>
-              <li><a href="bioinformatics.html" class="area-topic">Bioinformatics and e-Health</a></li>
-            </ul>
-          </article>
-        </div>
-        <p class="topics-more"><a href="other.html">Other activities →</a></p>
-      </div>
-    </section>
 
     <!-- About + openings -->
     <section class="section" aria-labelledby="about-title">
