@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRAGE-Video | Datasets | Traffic</title>
+  <meta name="description" content="Traffic of 14 video mobile apps with associated ground truth, collected between June 2019 and March 2020.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Source+Sans+3:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#fcfcfd">
+  <script src="../js/theme-init.js"></script>
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/site.js" defer></script>
+  <script src="../js/datasets.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+    </div>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Traffic, home">
+        <img src="../images/traffic-mark.svg" alt="" class="brand-seal"><img src="../images/traffic-mark-dark.svg" alt="" class="brand-seal brand-seal--dark">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <!-- TOPICS-MENU:START -->
+                <div class="mega-col">
+                  <p class="mega-heading">Internet measurement</p>
+                  <a href="../ippolib.html">Active probing <small>IPPO Library</small></a>
+                  <a href="../pythia.html">Alias resolution <small>PYTHIA</small></a>
+                  <a href="../index.html#topics">Network mapping <small>Hynetd · MERLIN</small></a>
+                  <a href="../index.html#topics">Path tracing <small>Third-Party Addresses · TP-Traceroute · Hidden routers</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Traffic &amp; performance</p>
+                  <a href="../index.html#topics">Traffic analysis &amp; classification <small>Plab · TIE · WWAN</small></a>
+                  <a href="/software/ITG">Application traffic generation <small>D-ITG</small></a>
+                  <a href="../uanm.html">Bandwidth monitoring <small>UANM</small></a>
+                  <a href="../index.html#topics">Broadband performance monitoring <small>BISmark · HoBBIT</small></a>
+                  <a href="../timeDiv.html">Network performance improvement <small>TimeD</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Cloud &amp; network systems</p>
+                  <a href="../cloud.html">Cloud monitoring and control</a>
+                  <a href="../sdnmonitoring.html">Software-defined network monitoring</a>
+                  <a href="../np.html">High-performance networking</a>
+                  <a href="../netdata.html">Network data management</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Security, society &amp; health</p>
+                  <a href="../security.html">Network security</a>
+                  <a href="../internetcensor.html">Internet censorship detection</a>
+                  <a href="../bioinformatics.html">Bioinformatics and e-Health</a>
+                  <a href="../other.html">Other activities</a>
+                </div>
+                <!-- TOPICS-MENU:END -->
+              </div>
+            </div>
+          </li>
+
+          <li><a href="../publications.html" class="nav-link">Publications</a></li>
+          <li><a href="../news.html" class="nav-link">News</a></li>
+
+          <li><a href="../datasets/" class="nav-link" aria-current="page">Datasets</a></li>
+
+          <li><a href="../collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="../visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="index.html">Datasets</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>MIRAGE-Video</span></nav>
+        <h1 class="page-title">MIRAGE-Video</h1>
+        <p class="page-lead">Traffic of 14 video mobile apps with associated ground truth, collected between June 2019 and March 2020.</p>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <div class="dataset-hero">
+          <div class="dataset-hero-copy">
+            <div class="card-tags"><span class="tag">CC BY-NC-ND 4.0</span></div>
+          <p>MIRAGE-Video is a human-generated dataset for mobile traffic analysis with associated ground truth, having the goal of advancing the state of the art in mobile app traffic analysis.</p>
+          <p>It takes into consideration the traffic generated by more than 280 experimenters using 14 video mobile apps via 3 devices. The dataset was collected during the time period June 2019 – March 2020.</p>
+            <div class="dataset-actions">
+              <button type="button" class="btn btn-primary" data-download="https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-Video.zip" data-dataset="MIRAGE-Video">Download the dataset <span class="btn-note">1.8 GB</span></button>
+              <a href="#cite" class="btn btn-ghost">How to cite</a>
+            </div>
+          </div>
+          <figure class="dataset-figure"><img src="../images/datasets/mirage-video.jpg" alt="MIRAGE-Video"></figure>
+        </div>
+        <dl class="dataset-stats"><div class="dataset-stat"><dt>Experimenters</dt><dd>280+</dd></div><div class="dataset-stat"><dt>Apps</dt><dd>14</dd></div><div class="dataset-stat"><dt>Devices</dt><dd>3</dd></div><div class="dataset-stat"><dt>Period</dt><dd>Jun 2019 – Mar 2020</dd></div></dl>
+      </div>
+    </section>
+
+    <section class="section page-body section-alt" aria-labelledby="apps-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="apps-title" class="section-title">Apps</h2>
+          <p class="section-intro">14 apps in the downloadable release.</p>
+        </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th scope="col">Package Name</th><th scope="col">App Name</th><th scope="col">Video Category</th><th scope="col">Play Store Link</th></tr></thead>
+              <tbody>
+              <tr><td><code>com.discovery.DiscoveryVR</code></td><td>DiscoveryVR</td><td>CloudVR</td><td><a href="https://play.google.com/store/apps/details?id=com.discovery.DiscoveryVR" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.facebook.katana</code></td><td>Facebook</td><td>Video on demand</td><td><a href="https://play.google.com/store/apps/details?id=com.facebook.katana" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>in.fulldive.shell</code></td><td>FulldiveVR</td><td>CloudVR</td><td><a href="https://play.google.com/store/apps/details?id=in.fulldive.shell" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.instagram.android</code></td><td>Instagram</td><td>Short Video</td><td><a href="https://play.google.com/store/apps/details?id=com.instagram.android" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.facebook.orca</code></td><td>Messenger</td><td>Video Chat</td><td><a href="https://play.google.com/store/apps/details?id=com.facebook.orca" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.netflix.mediaclient</code></td><td>Netflix</td><td>Video on demand</td><td><a href="https://play.google.com/store/apps/details?id=com.netflix.mediaclient" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.amazon.avod.thirdpartyclient</code></td><td>Prime Video</td><td>Video on demand</td><td><a href="https://play.google.com/store/apps/details?id=com.amazon.avod.thirdpartyclient" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.skype.raider</code></td><td>Skype</td><td>Video Chat</td><td><a href="https://play.google.com/store/apps/details?id=com.skype.raider" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.snapchat.android</code></td><td>Snapchat</td><td>Short Video</td><td><a href="https://play.google.com/store/apps/details?id=com.snapchat.android" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.zhiliaoapp.musically</code></td><td>TikTok</td><td>Short Video</td><td><a href="https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.coaster.roller.vr</code></td><td>VR Roller Coaster 360</td><td>CloudVR</td><td><a href="https://play.google.com/store/apps/details?id=com.coaster.roller.vr" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.whatsapp</code></td><td>WhatsApp</td><td>Video Chat</td><td><a href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>com.google.android.youtube</code></td><td>Youtube</td><td>Video on demand</td><td><a href="https://play.google.com/store/apps/details?id=com.google.android.youtube" target="_blank" rel="noopener">Google Play ↗</a></td></tr>
+              <tr><td><code>us.zoom.videomeetings</code></td><td>Zoom</td><td>Video Chat</td></tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </section>
+
+    <section class="section page-body" id="cite" aria-labelledby="cite-title">
+      <div class="container two-col">
+        <div>
+          <h2 id="cite-title" class="section-title">How to cite</h2>
+          <p>If you use MIRAGE-Video for scientific papers, academic lectures, project reports or technical documents,
+          please help us increase its impact by citing:</p>
+          <blockquote class="citation">
+            <p>Antonio Montieri, Giampaolo Bovenzi, Giuseppe Aceto, Domenico Ciuonzo, Valerio Persico, Antonio Pescapè, “Packet-level prediction of mobile-app traffic using multitask Deep Learning”, <em>Computer Networks, Volume 200, 2021</em>.</p>
+            <p class="citation-links"><a href="https://www.sciencedirect.com/science/article/pii/S1389128621004564" target="_blank" rel="noopener">Article ↗</a></p>
+          </blockquote>
+        </div>
+        <aside class="openings">
+          <p class="card-kicker">License</p>
+          <p>MIRAGE-Video is released under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
+          <div class="openings-actions"><button type="button" class="btn btn-primary" data-download="https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-Video.zip" data-dataset="MIRAGE-Video">Download <span class="btn-note">1.8 GB</span></button></div>
+          <p class="openings-how"><a href="index.html">← All MIRAGE datasets</a></p>
+        </aside>
+      </div>
+    </section>
+
+    <dialog class="gate" id="download-gate" data-endpoint="" aria-labelledby="gate-title">
+      <form class="gate-form" method="dialog" novalidate>
+        <button type="button" class="gate-close" data-gate-close aria-label="Close">×</button>
+        <p class="card-kicker">Download</p>
+        <h2 id="gate-title" class="gate-title">Before downloading <span data-gate-dataset></span></h2>
+        <p class="gate-intro">Please tell us who you are: it helps us understand who uses the MIRAGE datasets.</p>
+        <div class="gate-grid">
+          <label>First name *<input name="first_name" autocomplete="given-name" required></label>
+          <label>Last name *<input name="last_name" autocomplete="family-name" required></label>
+          <label class="gate-wide">Company, university or institution *<input name="organization" autocomplete="organization" required placeholder="Where you work or study"></label>
+          <label>Nationality *<input name="nationality" list="gate-countries" autocomplete="country-name" required></label>
+          <label><span>Email <small>(optional)</small></span><input name="email" type="email" autocomplete="email"></label>
+        </div>
+        <datalist id="gate-countries"></datalist>
+        <label class="gate-check"><input type="checkbox" name="consent" required>
+          <span>I will use the dataset under the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a> license
+          and I agree that these details are stored by the Traffic research group only to keep statistics on dataset downloads.</span></label>
+        <p class="gate-error" role="alert" hidden></p>
+        <div class="gate-actions">
+          <button type="submit" class="btn btn-primary">Download</button>
+          <button type="button" class="btn btn-ghost" data-gate-close>Cancel</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../images/traffic-mark-dark.svg" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="../people.html">People</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../news.html">News</a></li>
+          <li><a href="../collaborations.html">Collaborations</a></li>
+          <li><a href="../visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

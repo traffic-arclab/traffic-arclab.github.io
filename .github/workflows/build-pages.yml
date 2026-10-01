@@ -8,10 +8,12 @@ on:
       - 'data/news.json'
       - 'data/topics.json'
       - 'data/collaborations.json'
+      - 'data/datasets.json'
       - 'scripts/build_people.py'
       - 'scripts/build_news.py'
       - 'scripts/build_topics.py'
       - 'scripts/build_collaborations.py'
+      - 'scripts/build_datasets.py'
   workflow_dispatch:       # "Run workflow" button in the Actions tab
 
 permissions:
@@ -32,24 +34,26 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Rebuild People, News, Topics and Collaborations
+      - name: Rebuild People, News, Topics, Collaborations and Datasets
         run: |
           python scripts/build_people.py
           python scripts/build_news.py
           python scripts/build_topics.py
           python scripts/build_collaborations.py
+          python scripts/build_datasets.py
+          python scripts/build_topics.py
 
       - name: Commit changes
         id: commit
         run: |
-          if git diff --quiet; then
+          if [ -z "$(git status --porcelain -- '*.html')" ]; then
             echo "The pages are already up to date."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -u -- '*.html'
+          git add -A -- '*.html'
           git commit -m "Rebuild pages from data"
           git pull --rebase
           git push
