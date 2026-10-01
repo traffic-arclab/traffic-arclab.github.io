@@ -408,6 +408,10 @@ strong, b { font-weight: 650; }
 
 /* Research directory ----------------------------------------------------- */
 .areas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); align-items: stretch; }
+/* An area left alone on the last row (e.g. "Earlier research") spans the row, its topics in columns. */
+.areas > .area:last-child:nth-child(4n+1) { grid-column: 1 / -1; }
+.areas > .area:last-child:nth-child(4n+1) .area-topics { columns: 3 260px; column-gap: var(--space-8); }
+.areas > .area:last-child:nth-child(4n+1) .area-topics li { break-inside: avoid; }
 .area {
   display: flex; flex-direction: column; min-width: 0; overflow: hidden;
   border: 1px solid var(--color-line); border-top: 3px solid var(--color-deep);

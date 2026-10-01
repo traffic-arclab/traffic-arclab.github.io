@@ -1,45 +1,218 @@
 {
-  "intro": "Projects, software and systems developed by the group.",
+  "intro": "What we work on today, with the main results, datasets and tools developed by the group.",
   "areas": [
     {
-      "title": "Internet measurement",
+      "title": "Network Traffic Classification",
       "topics": [
         {
-          "name": "Active probing",
-          "link": "ippolib.html",
-          "tools": [
-            {
-              "name": "IPPO Library",
-              "link": "ippolib.html"
-            }
-          ]
-        },
-        {
-          "name": "Alias resolution",
-          "link": "pythia.html",
-          "tools": [
-            {
-              "name": "PYTHIA",
-              "link": "pythia.html"
-            }
-          ]
-        },
-        {
-          "name": "Network mapping",
+          "name": "Encrypted and mobile-app traffic classification",
           "link": "",
           "tools": [
             {
-              "name": "Hynetd",
-              "link": "/software/TD"
+              "name": "MIMETIC",
+              "link": "https://doi.org/10.1016/j.comnet.2019.106944"
             },
             {
-              "name": "MERLIN",
-              "link": "http://svnet.u-strasbg.fr/merlin"
+              "name": "DISTILLER",
+              "link": "https://doi.org/10.1016/j.jnca.2021.102985"
+            },
+            {
+              "name": "AI-powered traffic classification",
+              "link": "https://doi.org/10.1109/mcom.001.2300361"
             }
           ]
         },
         {
-          "name": "Path tracing",
+          "name": "Incremental and few-shot learning",
+          "link": "",
+          "tools": [
+            {
+              "name": "MEMENTO",
+              "link": "https://doi.org/10.1016/j.comnet.2024.110374"
+            },
+            {
+              "name": "Meta Mimetic",
+              "link": "https://doi.org/10.1109/itc-3560063.2023.10555634"
+            }
+          ]
+        },
+        {
+          "name": "Explainable AI for traffic analysis",
+          "link": "",
+          "tools": [
+            {
+              "name": "XAI survey (COMST)",
+              "link": "https://doi.org/10.1109/comst.2024.3504955"
+            },
+            {
+              "name": "Quantum ML",
+              "link": "https://doi.org/10.1109/sec62691.2024.00053"
+            }
+          ]
+        },
+        {
+          "name": "Mobile and GenAI app traffic datasets",
+          "link": "datasets/",
+          "tools": [
+            {
+              "name": "MIRAGE datasets",
+              "link": "datasets/"
+            },
+            {
+              "name": "From prompts to packets",
+              "link": "https://doi.org/10.1016/j.comnet.2026.112237"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Network Traffic Generation & Prediction",
+      "topics": [
+        {
+          "name": "Generative AI for synthetic traffic",
+          "link": "",
+          "tools": [
+            {
+              "name": "Federated GenAI",
+              "link": "https://doi.org/10.1109/noms69089.2026.11668294"
+            },
+            {
+              "name": "Lightweight GenAI",
+              "link": "https://doi.org/10.48550/arxiv.2603.25507"
+            },
+            {
+              "name": "Privacy-preserving traces",
+              "link": "https://doi.org/10.1016/j.jnca.2024.103926"
+            }
+          ]
+        },
+        {
+          "name": "Traffic prediction",
+          "link": "",
+          "tools": [
+            {
+              "name": "Multitask deep learning",
+              "link": "https://doi.org/10.1016/j.comnet.2021.108529"
+            },
+            {
+              "name": "Markov models",
+              "link": "https://doi.org/10.1109/tnsm.2021.3051381"
+            }
+          ]
+        },
+        {
+          "name": "Application traffic generation",
+          "link": "/software/ITG",
+          "tools": [
+            {
+              "name": "D-ITG",
+              "link": "/software/ITG"
+            },
+            {
+              "name": "Virtual environments",
+              "link": "https://doi.org/10.1109/iscc55528.2022.9913058"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Anomaly & Intrusion Detection",
+      "topics": [
+        {
+          "name": "Adaptive intrusion detection for IoT and IoMT",
+          "link": "",
+          "tools": [
+            {
+              "name": "Federated NIDS",
+              "link": "https://doi.org/10.1109/tnsm.2026.3675031"
+            },
+            {
+              "name": "Attack-adaptive NIDS",
+              "link": "https://doi.org/10.1016/j.comnet.2025.111228"
+            },
+            {
+              "name": "IoMT",
+              "link": "https://doi.org/10.1109/ficloud70576.2026.00066"
+            },
+            {
+              "name": "Few-shot NIDS",
+              "link": "https://doi.org/10.1109/ojcoms.2024.3481895"
+            }
+          ]
+        },
+        {
+          "name": "Robust and explainable detection",
+          "link": "",
+          "tools": [
+            {
+              "name": "XAI-guided attacks",
+              "link": "https://doi.org/10.23919/ifipnetworking70592.2026.11579020"
+            },
+            {
+              "name": "Cross-network transfer",
+              "link": "https://doi.org/10.1016/j.comnet.2026.112434"
+            },
+            {
+              "name": "MLOps",
+              "link": "https://doi.org/10.1109/iscc61673.2024.10733700"
+            },
+            {
+              "name": "Quantum ML",
+              "link": "https://doi.org/10.1109/infocomwkshps65812.2025.11152772"
+            }
+          ]
+        },
+        {
+          "name": "Network anomaly detection",
+          "link": "",
+          "tools": [
+            {
+              "name": "IoT benchmark",
+              "link": "https://doi.org/10.1016/j.cose.2023.103167"
+            },
+            {
+              "name": "Data poisoning",
+              "link": "https://doi.org/10.1109/icc45855.2022.9838942"
+            },
+            {
+              "name": "XAI",
+              "link": "https://doi.org/10.1109/icasspw62465.2024.10626031"
+            }
+          ]
+        },
+        {
+          "name": "Malware and botnet traffic",
+          "link": "",
+          "tools": [
+            {
+              "name": "Android malware",
+              "link": "https://doi.org/10.1109/trustcom56396.2022.00191"
+            },
+            {
+              "name": "IoT botnets",
+              "link": "https://doi.org/10.1109/bigdata59044.2023.10386602"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Measurement & Traffic Operations",
+      "topics": [
+        {
+          "name": "Internet measurement and censorship",
+          "link": "internetcensor.html",
+          "tools": [
+            {
+              "name": "Iran's 2026 shutdown",
+              "link": "https://doi.org/10.48550/arxiv.2603.28753"
+            }
+          ]
+        },
+        {
+          "name": "Path tracing and topology",
           "link": "",
           "tools": [
             {
@@ -51,56 +224,56 @@
               "link": "tptraceroute.html"
             },
             {
-              "name": "Hidden routers",
-              "link": "drago.html"
+              "name": "PYTHIA",
+              "link": "pythia.html"
+            },
+            {
+              "name": "Forwarding detours",
+              "link": "https://doi.org/10.1109/tnsm.2021.3062151"
+            }
+          ]
+        },
+        {
+          "name": "Generative AI for network management",
+          "link": "",
+          "tools": [
+            {
+              "name": "GenAI survey (TNSM)",
+              "link": "https://doi.org/10.1109/tnsm.2025.3543022"
+            },
+            {
+              "name": "Digital twins",
+              "link": "https://doi.org/10.1109/tii.2025.3540473"
+            }
+          ]
+        },
+        {
+          "name": "Active probing",
+          "link": "ippolib.html",
+          "tools": [
+            {
+              "name": "IPPO Library",
+              "link": "ippolib.html"
             }
           ]
         }
       ]
     },
     {
-      "title": "Traffic & performance",
+      "title": "Earlier research",
       "topics": [
         {
-          "name": "Traffic analysis & classification",
-          "link": "",
-          "tools": [
-            {
-              "name": "Plab",
-              "link": "/software/Plab"
-            },
-            {
-              "name": "TIE",
-              "link": "software/tie/start.html"
-            },
-            {
-              "name": "WWAN",
-              "link": "wwanMonitor.html"
-            }
-          ]
+          "name": "Cloud monitoring and control",
+          "link": "cloud.html",
+          "tools": []
         },
         {
-          "name": "Application traffic generation",
-          "link": "",
-          "tools": [
-            {
-              "name": "D-ITG",
-              "link": "/software/ITG"
-            }
-          ]
+          "name": "Software-defined network monitoring",
+          "link": "sdnmonitoring.html",
+          "tools": []
         },
         {
-          "name": "Bandwidth monitoring",
-          "link": "uanm.html",
-          "tools": [
-            {
-              "name": "UANM",
-              "link": "uanm.html"
-            }
-          ]
-        },
-        {
-          "name": "Broadband performance monitoring",
+          "name": "Broadband performance",
           "link": "",
           "tools": [
             {
@@ -114,29 +287,40 @@
           ]
         },
         {
-          "name": "Network performance improvement",
-          "link": "timeDiv.html",
+          "name": "Traffic classification tools",
+          "link": "",
           "tools": [
+            {
+              "name": "TIE",
+              "link": "software/tie/start.html"
+            },
+            {
+              "name": "Plab",
+              "link": "/software/Plab"
+            },
+            {
+              "name": "WWAN",
+              "link": "wwanMonitor.html"
+            }
+          ]
+        },
+        {
+          "name": "Network performance",
+          "link": "",
+          "tools": [
+            {
+              "name": "UANM",
+              "link": "uanm.html"
+            },
             {
               "name": "TimeD",
               "link": "timeDiv.html"
+            },
+            {
+              "name": "Hidden routers",
+              "link": "drago.html"
             }
           ]
-        }
-      ]
-    },
-    {
-      "title": "Cloud & network systems",
-      "topics": [
-        {
-          "name": "Cloud monitoring and control",
-          "link": "cloud.html",
-          "tools": []
-        },
-        {
-          "name": "Software-defined network monitoring",
-          "link": "sdnmonitoring.html",
-          "tools": []
         },
         {
           "name": "High-performance networking",
@@ -147,20 +331,10 @@
           "name": "Network data management",
           "link": "netdata.html",
           "tools": []
-        }
-      ]
-    },
-    {
-      "title": "Security, society & health",
-      "topics": [
+        },
         {
           "name": "Network security",
           "link": "security.html",
-          "tools": []
-        },
-        {
-          "name": "Internet censorship detection",
-          "link": "internetcensor.html",
           "tools": []
         },
         {
