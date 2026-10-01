@@ -1,5 +1,14 @@
 {
-  "current": [],
+  "current": [
+    {
+      "name": "Huawei",
+      "type": "company",
+      "link": "https://www.huawei.com/en/corporate-information/research-development",
+      "organization": "",
+      "topic": "Network Traffic and AI enabled Network",
+      "logo": "images/logos/huawei.png"
+    }
+  ],
   "past": [
     {
       "name": "Cedric Westphal",
