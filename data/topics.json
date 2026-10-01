@@ -103,12 +103,8 @@
         },
         {
           "name": "Application traffic generation",
-          "link": "/software/ITG",
+          "link": "",
           "tools": [
-            {
-              "name": "D-ITG",
-              "link": "/software/ITG"
-            },
             {
               "name": "Virtual environments",
               "link": "https://doi.org/10.1109/iscc55528.2022.9913058"
@@ -271,6 +267,16 @@
           "name": "Software-defined network monitoring",
           "link": "sdnmonitoring.html",
           "tools": []
+        },
+        {
+          "name": "Application traffic generation",
+          "link": "software/ITG/",
+          "tools": [
+            {
+              "name": "D-ITG",
+              "link": "software/ITG/"
+            }
+          ]
         },
         {
           "name": "Broadband performance",
