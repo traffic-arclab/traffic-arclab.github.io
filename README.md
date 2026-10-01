@@ -6,14 +6,16 @@ L'editor online è su **https://traffic-arclab.github.io/admin/people/**. In alt
 
 ## 1. Crea il token (una volta sola)
 
-Possono salvare solo le persone con permesso di scrittura su questo repository. Serve un token GitHub personale:
+Possono salvare solo gli account GitHub che sono **collaboratori con permesso di scrittura** di questo repository
+(li aggiunge il proprietario `traffic-arclab` da *Settings → Collaborators*). Ognuno crea il proprio token **classic**:
 
-1. Apri [GitHub → Fine-grained tokens → Generate new token](https://github.com/settings/personal-access-tokens/new).
-2. *Resource owner*: **traffic-arclab**. *Repository access*: **Only select repositories** → `traffic-arclab.github.io`.
-3. *Repository permissions* → **Contents: Read and write**. Scegli una scadenza.
-4. Genera il token e copialo.
+1. Apri [GitHub → Settings → Tokens (classic) → Generate new token](https://github.com/settings/tokens/new?scopes=public_repo&description=Traffic%20site%20editor):
+   il link seleziona già l'unico permesso necessario, **public_repo**.
+2. Scegli una scadenza e premi **Generate token**.
+3. Copia il token (inizia con `ghp_`).
 
-Se l'organizzazione richiede l'approvazione dei token, un admin di `traffic-arclab` deve approvarlo prima che funzioni.
+Non usare un *fine-grained token*: GitHub non permette a quel tipo di token di scrivere su un repository
+che appartiene a un altro account utente, come in questo caso.
 
 ## 2. Accedi
 

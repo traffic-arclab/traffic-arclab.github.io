@@ -140,12 +140,15 @@
   <h2>Sign in with GitHub</h2>
   <p class="hint">Only people with write access to <strong>traffic-arclab/traffic-arclab.github.io</strong> can save. Use a GitHub personal access token:</p>
   <ol>
-    <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Settings → Fine-grained tokens → Generate new token</a>.</li>
-    <li>Resource owner: <strong>traffic-arclab</strong>; Repository access: <strong>Only select repositories</strong> → this site's repository.</li>
-    <li>Repository permissions → <strong>Contents: Read and write</strong>. Pick an expiration date.</li>
-    <li>Generate, copy the token and paste it here.</li>
+    <li>Open <a href="https://github.com/settings/tokens/new?scopes=public_repo&amp;description=Traffic%20site%20editor" target="_blank" rel="noopener">GitHub → Settings → Tokens (classic) → Generate new token</a>
+      (the link pre-selects the only permission needed, <strong>public_repo</strong>).</li>
+    <li>Pick an expiration date, then <strong>Generate token</strong>.</li>
+    <li>Copy the token (it starts with <code>ghp_</code>) and paste it here.</li>
   </ol>
-  <label>Token <input id="token" type="password" autocomplete="off" placeholder="github_pat_…"></label>
+  <p class="hint">Use a <strong>classic</strong> token: fine-grained tokens cannot write to a repository owned by another
+    user account, which is the case for <strong>traffic-arclab</strong>. Your GitHub account must be a collaborator
+    of the repository with write access.</p>
+  <label>Token <input id="token" type="password" autocomplete="off" placeholder="ghp_…"></label>
   <label class="check"><input type="checkbox" id="remember"> Remember on this browser (otherwise it is forgotten when the tab closes)</label>
   <p class="error-text" id="login-error"></p>
   <button class="primary" id="signin">Sign in</button>
@@ -472,6 +475,7 @@
 
     async function api(path, options = {}) {
       const res = await fetch('https://api.github.com' + path, {
+        cache: 'no-store',   // always the current state of the repository, never a cached answer
         ...options,
         headers: {
           Accept: 'application/vnd.github+json',
@@ -482,7 +486,17 @@
       });
       const body = res.status === 204 ? null : await res.json().catch(() => null);
       if (!res.ok) {
-        const error = new Error((body && body.message) || `GitHub API error ${res.status}`);
+        let message = (body && body.message) || `GitHub API error ${res.status}`;
+        if (res.status === 403 && /personal access token/i.test(message)) {
+          message = 'GitHub refused to save with this token. Use a classic token with the "public_repo" permission ' +
+            '(fine-grained tokens cannot write to this repository): Sign out and sign in again with the new token.';
+        } else if (res.status === 404 && options.method) {
+          message = 'GitHub refused to save: this token has no write access to the repository. ' +
+            'Use a classic token with the "public_repo" permission, from an account that is a collaborator.';
+        } else if (res.status === 422 && /fast forward/i.test(message)) {
+          message = 'The site changed on GitHub while you were editing. Reload the page and redo your changes.';
+        }
+        const error = new Error(message);
         error.status = res.status;
         throw error;
       }
