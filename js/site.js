@@ -207,9 +207,108 @@
     });
   });
 
+  // Home highlights: add the latest news entries as slides and fade through them every 8 seconds.
+  const rotator = document.querySelector('.rotator');
+  if (rotator) setupRotator(rotator);
+
+  async function setupRotator(container) {
+    const slidesBox = container.querySelector('.rotator-slides');
+    const source = container.dataset.newsSource;
+    const count = Number(container.dataset.newsCount) || 5;
+    if (source) {
+      try {
+        const res = await fetch(source);
+        if (res.ok) {
+          const doc = new DOMParser().parseFromString(await res.text(), 'text/html');
+          const base = new URL(source, location.href);
+          const items = [];
+          for (const entry of doc.querySelectorAll('.news-entry')) {
+            const year = entry.closest('.news-year')?.querySelector('.news-year-title')?.textContent.trim() || '';
+            const month = entry.querySelector('.news-month')?.textContent.trim() || '';
+            for (const item of entry.querySelectorAll('.news-items > li')) {
+              items.push({ item, date: `${month} ${year}`.trim(), anchor: entry.closest('.news-year')?.id });
+              if (items.length === count) break;
+            }
+            if (items.length === count) break;
+          }
+          for (const { item, date, anchor } of items) slidesBox.appendChild(newsSlide(item, date, anchor, base));
+        }
+      } catch (_) { /* without the news the feature card stays on its own */ }
+    }
+
+    const slides = [...slidesBox.querySelectorAll('.rotator-slide')];
+    if (slides.length < 2) return;
+
+    const controls = document.createElement('div');
+    controls.className = 'rotator-dots';
+    const dots = slides.map((slide, index) => {
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', `${index + 1} of ${slides.length}`);
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'rotator-dot';
+      dot.setAttribute('aria-label', `Show highlight ${index + 1}`);
+      dot.addEventListener('click', () => { show(index); restart(); });
+      controls.appendChild(dot);
+      return dot;
+    });
+    // Auto-rotation needs a way to stop it (WCAG 2.2.2): a pause/play toggle next to the dots.
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'rotator-toggle';
+    toggle.addEventListener('click', () => { userPaused = !userPaused; restart(); });
+    controls.appendChild(toggle);
+    container.appendChild(controls);
+
+    let current = 0, timer = null, userPaused = false, focusPaused = false;
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.classList.toggle('is-active', active);
+        slide.inert = !active;   // hidden slides keep their links out of the tab order
+      });
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === current)));
+    }
+    function restart() {
+      clearInterval(timer);
+      toggle.setAttribute('aria-label', userPaused ? 'Play highlights' : 'Pause highlights');
+      toggle.classList.toggle('is-paused', userPaused);
+      if (!userPaused && !focusPaused && !document.hidden) timer = setInterval(() => show(current + 1), 8000);
+    }
+    // Keyboard users reading a slide are not interrupted; the mouse does not pause it.
+    slidesBox.addEventListener('focusin', () => { focusPaused = true; restart(); });
+    slidesBox.addEventListener('focusout', event => {
+      if (!slidesBox.contains(event.relatedTarget)) { focusPaused = false; restart(); }
+    });
+    document.addEventListener('visibilitychange', restart);
+    show(0);
+    restart();
+  }
+
+  function newsSlide(item, date, anchor, base) {
+    const slide = document.createElement('article');
+    slide.className = 'card card-feature rotator-slide';
+    const text = item.cloneNode(true);
+    // Links in news.html are relative to that page.
+    text.querySelectorAll('a[href]').forEach(a => { a.href = new URL(a.getAttribute('href'), base).href; });
+    const first = text.querySelector('a[href]');
+    const more = first ? first.href : new URL(anchor ? `#${anchor}` : '', base).href;
+    slide.innerHTML = `
+      <div class="card-tags"><span class="tag tag-accent">Latest news</span><span class="tag"></span></div>
+      <p class="news-slide-text"></p>
+      <a class="card-link">${first ? 'Read more' : 'See the news'} →</a>`;
+    slide.querySelector('.tag:not(.tag-accent)').textContent = date;
+    slide.querySelector('.news-slide-text').append(...text.childNodes);
+    const link = slide.querySelector('.card-link');
+    link.href = more;
+    if (first && first.target) { link.target = first.target; link.rel = 'noopener'; }
+    return slide;
+  }
+
   // Animation is an enhancement; no content is hidden while waiting for scroll.
   if ('IntersectionObserver' in window && !reducedMotion.matches) {
-    const candidates = document.querySelectorAll('.section-head, .area, .highlights .card, .latest-pubs > li, .person, .collab, .news-year');
+    const candidates = document.querySelectorAll('.section-head, .area, .rotator, .highlights-side .card, .latest-pubs > li, .person, .collab, .news-year');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;

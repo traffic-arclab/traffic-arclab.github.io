@@ -1,0 +1,274 @@
+{
+  "news": [
+    {
+      "year": 2015,
+      "month": "November",
+      "text": "Traffic research group seeks for qualified and self-motivated graduate students and Post Docs. See details [here](http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf)."
+    },
+    {
+      "year": 2015,
+      "month": "September",
+      "text": "[NM2](http://www.nm-2.com) released the [DITGBox](http://www.nm-2.com/) appliance based on D-ITG."
+    },
+    {
+      "year": 2015,
+      "month": "September",
+      "text": "[NM2](http://www.nm-2.com) released the [SmarTIE](http://www.nm-2.com/smartie/) platform based on TIE."
+    },
+    {
+      "year": 2013,
+      "month": "October",
+      "text": "Traffic research group seeks for qualified and self-motivated graduate students and Post Docs. See details [here](http://wpage.unina.it/pescape/doc/traffic_openings_2013_2014.pdf)."
+    },
+    {
+      "year": 2012,
+      "month": "January",
+      "text": "NVIDIA supported our research by kindly donating us a [Tesla C2075](http://www.nvidia.com/object/workstation-solutions-tesla.html) card."
+    },
+    {
+      "year": 2011,
+      "month": "November",
+      "text": "[BISmark](http://projectbismark.net/) wins the [TEA, Technologybiz Endorsement Award](http://www.technologybiz.it/en/events/the-technologybiz-endorsement-award-tea) to recognize outstanding achievements in ICT research from South Italy as demonstrated through international acclaim."
+    },
+    {
+      "year": 2011,
+      "month": "November",
+      "text": "[BISmark @ SCTE 2011](http://expo.scte.org/)"
+    },
+    {
+      "year": 2011,
+      "month": "October",
+      "text": "[BISmark @ NANOG 53](http://www.nanog.org/meetings/nanog53/)"
+    },
+    {
+      "year": 2011,
+      "month": "September",
+      "text": "BISmark \"[Klatch](http://mirrors.projectbismark.net/klatch/final/ar71xx/)\" released and shipped first batch of routers to beta testers in the USA."
+    },
+    {
+      "year": 2011,
+      "month": "August",
+      "text": "[D-ITG](software/ITG/) version 2.8.0-rc1 has been released."
+    },
+    {
+      "year": 2011,
+      "month": "July",
+      "text": "[BISmark @ Scienzainrete](http://www.scienzainrete.it/contenuto/articolo/open-internet-america-chiama-napoli-risponde)"
+    },
+    {
+      "year": 2011,
+      "month": "July",
+      "text": "[BISmark @ Working Capital (Telecom Italia)](http://www.workingcapital.telecomitalia.it/2011/07/votiamo-bismark-progetto-italiano-per-la-liberta-della-rete-in-gara-oltreoceano/)"
+    },
+    {
+      "year": 2011,
+      "month": "July",
+      "text": "[BISmark @ fanpage](http://tech.fanpage.it/bismark-progetto-italo-americano-che-misura-la-banda-larga/)"
+    },
+    {
+      "year": 2011,
+      "month": "July",
+      "text": "[BISmark @ unina news](http://www.news.unina.it/dettagli_area.jsp?area=IN%20ATENEO&ID=10600)"
+    },
+    {
+      "year": 2011,
+      "month": "July",
+      "text": "[BISmark Summer Camp](https://www.bufferbloat.net/projects/bismark/wiki/Summer-camp-2011) hosted @ Georgia Tech."
+    },
+    {
+      "year": 2011,
+      "month": "June",
+      "text": "[Google Public Policy Blog talks about BISmark](http://googlepublicpolicy.blogspot.com/2011/07/measurement-lab-introduces-new-hardware.html)"
+    },
+    {
+      "year": 2011,
+      "month": "June",
+      "text": "[Il Denaro talks about BISmark](http://denaro.it/blog/2011/06/18/rete-libera-un-progetto-napoletano-per-gli-usa/) - [printed version](http://wpage.unina.it/pescape/doc/Denaro_Bismark_article.jpg)"
+    },
+    {
+      "year": 2011,
+      "month": "June",
+      "text": "TIE @ [MCS 2011 Workshop](http://www.diee.unica.it/mcs/)"
+    },
+    {
+      "year": 2011,
+      "month": "June",
+      "text": "BISmark competes @ [FCC Open Internet Apps Challenge](http://openinternetapps.challenge.gov/submissions/3133-bismark-a-broadband-internet-service-benchmark)."
+    },
+    {
+      "year": 2011,
+      "month": "June",
+      "text": "Released [MERLIN](http://svnet.u-strasbg.fr/merlin) platform."
+    },
+    {
+      "year": 2011,
+      "month": "May",
+      "text": "BISmark \"[Capetown](https://www.bufferbloat.net/projects/bismark/wiki/Capetown)\" released and deployed in South Africa."
+    },
+    {
+      "year": 2011,
+      "month": "April",
+      "text": "TIE @ [TMA 2011 Workshop](http://www.tma-portal.eu/cost-tma-action/tma-workshops/tma-2011-workshop/)"
+    },
+    {
+      "year": 2011,
+      "month": "April",
+      "text": "[TIE](software/tie/start.html) v1.0.0-beta3 has been released."
+    },
+    {
+      "year": 2011,
+      "month": "January",
+      "text": "[D-ITG](software/ITG/) officially added to Debian distribution (sid/unstable version)."
+    },
+    {
+      "year": 2011,
+      "month": "January",
+      "text": "Released [HoBBIT](http://hobbit.comics.unina.it) platform."
+    },
+    {
+      "year": 2010,
+      "month": "November",
+      "text": "First NoxBox-based BISmark deployment in Atlanta."
+    },
+    {
+      "year": 2010,
+      "month": "November",
+      "text": "TIE @ [RIPE 61](http://ripe61.ripe.net/presentations/266-tie-ripe-v5.pdf)."
+    },
+    {
+      "year": 2010,
+      "month": "September",
+      "text": "[UANM](uanm.html) information page updated."
+    },
+    {
+      "year": 2010,
+      "month": "July",
+      "text": "[D-ITG](software/ITG/) information page updated."
+    },
+    {
+      "year": 2010,
+      "month": "July",
+      "text": "[TIE](software/tie/start.html) information page updated."
+    },
+    {
+      "year": 2010,
+      "month": "July",
+      "text": "[TimeD](timeDiv.html) information page updated."
+    },
+    {
+      "year": 2009,
+      "month": "August",
+      "text": "[TimeD](timeDiv.html) information page added."
+    },
+    {
+      "year": 2009,
+      "month": "March",
+      "text": "[UANM](uanm.html) information page added."
+    },
+    {
+      "year": 2009,
+      "month": "January",
+      "text": "[Book chapter](publications.html) on Wireless Networks Test-beds has been published [A preview](http://books.google.com/books?id=aJLFZiTVhYEC&lpg=PR2&pg=PA439#v=onepage&q=&f=false) is available on google books."
+    },
+    {
+      "year": 2007,
+      "month": "February",
+      "text": "HMM Traffic Modeling Library: Added Matlab Library for Internet Traffic Modeling by means of Hidden Markov Models."
+    },
+    {
+      "year": 2007,
+      "month": "February",
+      "text": "[Technical Report](np.html) \"How to set up and configure StarEast in Access Point Mode with Intel 2200 Wireless Network Interfaces\" has been published."
+    },
+    {
+      "year": 2007,
+      "month": "February",
+      "text": "[Hynetd (Hybrid Network Topology Discovery)](software/TD/) 0.2.3 is on line."
+    },
+    {
+      "year": 2007,
+      "month": "February",
+      "text": "The [TRACE/TIE room](software/tie/start.html) has been opened."
+    },
+    {
+      "year": 2007,
+      "month": "January",
+      "text": "A TR on Intel IXP425 [has been released](np.html)"
+    },
+    {
+      "year": 2006,
+      "month": "October",
+      "text": "The beta2 version of [Plab](software/Plab/) 2.3 has been released."
+    },
+    {
+      "year": 2006,
+      "month": "October",
+      "text": "A new beta version of [Plab](software/Plab/) with lots of features has been released."
+    },
+    {
+      "year": 2006,
+      "month": "October",
+      "text": "Added Matlab Scripts for Marginal Utility based dataset reduction."
+    },
+    {
+      "year": 2006,
+      "month": "July",
+      "text": "A [minor fix](software/Plab/) for compilation issues was applied to the distribution of Plab."
+    },
+    {
+      "year": 2006,
+      "month": "July",
+      "text": "A [new release of D-ITG](software/ITG/) is on line."
+    },
+    {
+      "year": 2006,
+      "month": "July",
+      "text": "[Hynetd (Hybrid Network Topology Discovery)](software/TD/) is on line."
+    },
+    {
+      "year": 2006,
+      "month": "July",
+      "text": "A bugfix to bitrate.m and a new script (bitrate2.m) in the Matlab Scripts section."
+    },
+    {
+      "year": 2006,
+      "month": "May",
+      "text": "[Instant Messaging traffic traces](http://www.grid.unina.it/Traffic/Traces/ttraces.php) are on line."
+    },
+    {
+      "year": 2006,
+      "month": "March",
+      "text": "[Data Traces](http://www.grid.unina.it/Traffic/Traces/ttraces.php) for Anomaly Detection are on line."
+    },
+    {
+      "year": 2006,
+      "month": "February",
+      "text": "QoS [Data Traces](http://www.grid.unina.it/Traffic/Traces/dtraces.php) are on line."
+    },
+    {
+      "year": 2006,
+      "month": "February",
+      "text": "[Traffic Traces](http://www.grid.unina.it/Traffic/Traces/ttraces.php) are on line."
+    },
+    {
+      "year": 2006,
+      "month": "February",
+      "text": "[Plab](software/Plab/) is on line."
+    },
+    {
+      "year": 2006,
+      "month": "January",
+      "text": "The [Publications](publications.html) page has been added."
+    },
+    {
+      "year": 2006,
+      "month": "January",
+      "text": "The Matlab Scripts page has been added."
+    },
+    {
+      "year": 2006,
+      "month": "January",
+      "text": "This site was born on January 1, 2006"
+    }
+  ]
+}

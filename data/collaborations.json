@@ -1,0 +1,90 @@
+{
+  "current": [
+    {
+      "name": "Dario Rossi",
+      "link": "http://perso.infres.enst.fr/~drossi/",
+      "organization": "TELECOM ParisTech (formerly ENST), France",
+      "topic": "Impact of sampling on traffic monitoring and analysis, traffic classification"
+    },
+    {
+      "name": "KC Claffy",
+      "link": "http://www.caida.org/home/seniorstaff/kclaffy.xml",
+      "organization": "Cooperative Association for Internet Data Analysis (CAIDA), San Diego, USA",
+      "topic": "Traffic classification"
+    },
+    {
+      "name": "Ernst Biersack",
+      "link": "http://www.eurecom.fr/~btroup/erbi_page.html",
+      "organization": "Eurécom, Sophia Antipolis, France",
+      "topic": "Passive analysis of 3G/4G networks"
+    },
+    {
+      "name": "Benoit Donnet",
+      "link": "http://inl.info.ucl.ac.be/donnet",
+      "organization": "Université catholique de Louvain, Belgium",
+      "topic": "Topology discovery"
+    },
+    {
+      "name": "Nick Feamster",
+      "link": "http://www.cs.princeton.edu/~feamster/",
+      "organization": "Princeton University, USA",
+      "topic": "Network neutrality and broadband performance evaluation"
+    },
+    {
+      "name": "Cedric Westphal",
+      "link": "http://www.docomolabsresearchers-usa.com/~cwestphal/",
+      "organization": "DoCoMo USA Labs, Palo Alto, USA",
+      "topic": "Compression of monitoring data"
+    },
+    {
+      "name": "Fabio Ricciato",
+      "link": "http://www.fri.uni-lj.si/en/fabio-ricciato/",
+      "organization": "University of Ljubljana, Slovenia",
+      "topic": "Traffic monitoring and analysis"
+    },
+    {
+      "name": "Pascal Mérindol",
+      "link": "http://clarinet.u-strasbg.fr/~merindol/",
+      "organization": "University of Strasbourg, France",
+      "topic": "Network topologies"
+    },
+    {
+      "name": "Mahesh K. Marina",
+      "link": "http://homepages.inf.ed.ac.uk/mmarina/",
+      "organization": "University of Edinburgh, UK",
+      "topic": "Broadband performance monitoring"
+    },
+    {
+      "name": "Ethan Katz-Bassett",
+      "link": "http://www-bcf.usc.edu/~katzbass/",
+      "organization": "University of Southern California, USA",
+      "topic": "Internet measurement"
+    },
+    {
+      "name": "Renato Lo Cigno",
+      "link": "http://disi.unitn.it/locigno/",
+      "organization": "University of Trento, Italy",
+      "topic": "Inter-vehicular communications"
+    }
+  ],
+  "past": [
+    {
+      "name": "Rajiv Chakravorty",
+      "link": "http://www.cl.cam.ac.uk/~rc277/",
+      "organization": "Systems Research Group, University of Cambridge Computer Laboratory, UK",
+      "topic": "Performance evaluation of GPRS networks"
+    },
+    {
+      "name": "Roger Karrer",
+      "link": "http://www.deutsche-telekom-laboratories.de/~karrer/",
+      "organization": "Deutsche Telekom Laboratories, Berlin, Germany",
+      "topic": "Analysis and performance evaluation of the MagNets WiFi backbone"
+    },
+    {
+      "name": "Prasad Calyam",
+      "link": "http://www.ece.osu.edu/~calyam/",
+      "organization": "The Ohio State University and Ohio Supercomputer Center, USA",
+      "topic": "Multimedia traffic characterization and modeling"
+    }
+  ]
+}

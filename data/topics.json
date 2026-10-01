@@ -1,0 +1,174 @@
+{
+  "intro": "Projects, software and systems developed by the group.",
+  "areas": [
+    {
+      "title": "Internet measurement",
+      "topics": [
+        {
+          "name": "Active probing",
+          "link": "ippolib.html",
+          "tools": [
+            {
+              "name": "IPPO Library",
+              "link": "ippolib.html"
+            }
+          ]
+        },
+        {
+          "name": "Alias resolution",
+          "link": "pythia.html",
+          "tools": [
+            {
+              "name": "PYTHIA",
+              "link": "pythia.html"
+            }
+          ]
+        },
+        {
+          "name": "Network mapping",
+          "link": "",
+          "tools": [
+            {
+              "name": "Hynetd",
+              "link": "/software/TD"
+            },
+            {
+              "name": "MERLIN",
+              "link": "http://svnet.u-strasbg.fr/merlin"
+            }
+          ]
+        },
+        {
+          "name": "Path tracing",
+          "link": "",
+          "tools": [
+            {
+              "name": "Third-Party Addresses",
+              "link": "tpa.html"
+            },
+            {
+              "name": "TP-Traceroute",
+              "link": "tptraceroute.html"
+            },
+            {
+              "name": "Hidden routers",
+              "link": "drago.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Traffic & performance",
+      "topics": [
+        {
+          "name": "Traffic analysis & classification",
+          "link": "",
+          "tools": [
+            {
+              "name": "Plab",
+              "link": "/software/Plab"
+            },
+            {
+              "name": "TIE",
+              "link": "software/tie/start.html"
+            },
+            {
+              "name": "WWAN",
+              "link": "wwanMonitor.html"
+            }
+          ]
+        },
+        {
+          "name": "Application traffic generation",
+          "link": "",
+          "tools": [
+            {
+              "name": "D-ITG",
+              "link": "/software/ITG"
+            }
+          ]
+        },
+        {
+          "name": "Bandwidth monitoring",
+          "link": "uanm.html",
+          "tools": [
+            {
+              "name": "UANM",
+              "link": "uanm.html"
+            }
+          ]
+        },
+        {
+          "name": "Broadband performance monitoring",
+          "link": "",
+          "tools": [
+            {
+              "name": "BISmark",
+              "link": "http://projectbismark.net"
+            },
+            {
+              "name": "HoBBIT",
+              "link": "http://hobbit.comics.unina.it"
+            }
+          ]
+        },
+        {
+          "name": "Network performance improvement",
+          "link": "timeDiv.html",
+          "tools": [
+            {
+              "name": "TimeD",
+              "link": "timeDiv.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cloud & network systems",
+      "topics": [
+        {
+          "name": "Cloud monitoring and control",
+          "link": "cloud.html",
+          "tools": []
+        },
+        {
+          "name": "Software-defined network monitoring",
+          "link": "sdnmonitoring.html",
+          "tools": []
+        },
+        {
+          "name": "High-performance networking",
+          "link": "np.html",
+          "tools": []
+        },
+        {
+          "name": "Network data management",
+          "link": "netdata.html",
+          "tools": []
+        }
+      ]
+    },
+    {
+      "title": "Security, society & health",
+      "topics": [
+        {
+          "name": "Network security",
+          "link": "security.html",
+          "tools": []
+        },
+        {
+          "name": "Internet censorship detection",
+          "link": "internetcensor.html",
+          "tools": []
+        },
+        {
+          "name": "Bioinformatics and e-Health",
+          "link": "bioinformatics.html",
+          "tools": []
+        }
+      ]
+    }
+  ]
+}

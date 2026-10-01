@@ -4,16 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>People editor · Traffic</title>
+<title>Site editor · Traffic</title>
 <!--
-  Editor for the People page (data/people.json).
+  Editor for the People page (data/people.json), the News page (data/news.json)
+  the research topics (data/topics.json: home section and header menu) and the
+  Collaborations page (data/collaborations.json).
 
   - Locally, served by scripts/people_admin.py (http://localhost:8765): saving
-    writes the files and rebuilds people.html on this computer.
-  - Online, at /admin/people/ on GitHub Pages: saving commits data/people.json
+    writes the files and rebuilds the pages on this computer.
+  - Online, at /admin/people/ on GitHub Pages: saving commits the data files
     and the new photos to the repository through the GitHub API, using a
     personal access token of someone with write access to the repository.
-    The "Build People page" workflow then regenerates people.html.
+    The "Build pages from data" workflow then regenerates the pages.
 -->
 <style>
   :root {
@@ -86,15 +88,50 @@
   .login { max-width: 560px; margin: 48px auto; }
   .login ol { margin: 0 0 16px; padding-left: 20px; font-size: .9rem; line-height: 1.6; color: var(--ink); }
   .error-text { color: var(--danger); font-size: .9rem; min-height: 1.2em; margin: 8px 0 0; }
+  .tabs { display: flex; gap: 4px; margin-right: auto; }
+  header h1 { margin-right: 8px; }
+  .tab { background: transparent; color: #cfd9e4; border-color: transparent; }
+  .tab:hover { border-color: rgba(255,255,255,.35); }
+  .tab[aria-selected="true"] { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.35); }
+  .year-title { margin: 22px 0 8px; color: var(--title); font: 600 1.05rem var(--serif); }
+  .year-title:first-child { margin-top: 0; }
+  .news-row { align-items: flex-start; }
+  .news-row .month { flex: none; width: 82px; padding-top: 2px; color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .news-row .text { flex: 1; min-width: 0; line-height: 1.45; }
+  .news-row .text.empty-text { color: var(--muted); font-style: italic; }
+  .two { display: grid; grid-template-columns: 110px 1fr; gap: 10px; }
+  select { display: block; width: 100%; margin-top: 4px; padding: 8px 10px; font: 400 .95rem var(--sans); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 6px; background: #fff; text-transform: none; letter-spacing: 0; }
+  .preview { margin: 4px 0 14px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); line-height: 1.55; }
+  .preview a { color: var(--accent); }
+  .preview:empty::before { content: "The preview appears here"; color: var(--muted); font-style: italic; }
+  .label-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .label-row button { padding: 3px 9px; font-size: .78rem; text-transform: none; letter-spacing: 0; }
+  .area-box { margin-bottom: 18px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; background: #fbfcfd; }
+  .area-box.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+  .area-head-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; cursor: pointer; }
+  .area-head-row .num { color: var(--accent); font-size: .75rem; font-weight: 700; letter-spacing: .1em; }
+  .area-head-row strong { flex: 1; color: var(--title); font: 600 1.05rem var(--serif); }
+  .topic-row .who small { display: block; }
+  .tool-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto; gap: 6px; margin-bottom: 6px; }
+  .tool-row input { margin-top: 0; }
+  .tool-row button { padding: 4px 9px; }
+  .fieldset-title { margin: 6px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 </style>
 </head>
 <body>
 <header>
-  <h1><span>Traffic</span> · People editor</h1>
+  <h1><span>Traffic</span> · Editor</h1>
+  <nav class="tabs" role="tablist" id="tabs" hidden>
+    <button class="tab" role="tab" data-tab="people" aria-selected="true">People</button>
+    <button class="tab" role="tab" data-tab="news" aria-selected="false">News</button>
+    <button class="tab" role="tab" data-tab="topics" aria-selected="false">Topics</button>
+    <button class="tab" role="tab" data-tab="collabs" aria-selected="false">Collaborations</button>
+  </nav>
   <span class="status" id="status">Loading…</span>
   <span class="status" id="who" hidden></span>
   <button class="plain" id="logout" hidden>Sign out</button>
-  <a class="btn" href="/people.html" target="_blank" rel="noopener">Open page ↗</a>
+  <a class="btn" id="open-page" href="/people.html" target="_blank" rel="noopener">Open page ↗</a>
   <button class="primary" id="save" disabled>Save</button>
 </header>
 
@@ -131,6 +168,39 @@
   <aside id="editor"></aside>
 </main>
 
+<main id="news-app" hidden>
+  <section>
+    <h2>News <button id="add-news">+ Add news</button></h2>
+    <p class="hint">Shown newest first on the News page; the latest five also rotate in the Highlights of the home page.</p>
+    <div id="news-list"></div>
+  </section>
+  <aside id="news-editor"></aside>
+</main>
+
+<main id="topics-app" hidden>
+  <section>
+    <h2>Research topics <button id="add-area">+ Add area</button></h2>
+    <p class="hint">Shown in the "Research topics &amp; tools" section of the home page and in the Topics menu of every page.</p>
+    <label>Section intro <input id="t-intro" placeholder="One line under the section title"></label>
+    <div id="topics-list"></div>
+  </section>
+  <aside id="topics-editor"></aside>
+</main>
+
+<main id="collabs-app" hidden>
+  <section>
+    <div class="group">
+      <h2>Current collaborations <button data-add-collab="current">+ Add collaboration</button></h2>
+      <ul class="list" id="collabs-current"></ul>
+    </div>
+    <div class="group">
+      <h2>Past collaborations <button data-add-collab="past">+ Add past collaboration</button></h2>
+      <ul class="list" id="collabs-past"></ul>
+    </div>
+  </section>
+  <aside id="collabs-editor"></aside>
+</main>
+
 <template id="intro">
   <h2>Select a person or add a new one</h2>
   <p class="hint" id="intro-text"></p>
@@ -159,11 +229,68 @@
   </div>
 </template>
 
+<template id="news-form">
+  <h2>News item</h2>
+  <div class="two">
+    <label>Year <input id="n-year" type="number" min="1990" max="2100" required></label>
+    <label>Month <select id="n-month"></select></label>
+  </div>
+  <label><span class="label-row">Text * <button type="button" id="n-link">Link selected text</button></span>
+    <small>write links as [label](https://…)</small><textarea id="n-text" rows="5" required></textarea></label>
+  <p class="hint" style="margin-bottom:4px">Preview</p>
+  <div class="preview" id="n-preview"></div>
+  <div class="actions">
+    <button class="danger" id="n-delete">Delete</button>
+  </div>
+</template>
+
+<template id="area-form">
+  <h2>Area</h2>
+  <label>Title * <input id="a-title" required></label>
+  <div class="actions">
+    <button id="a-up">↑ Move up</button>
+    <button id="a-down">↓ Move down</button>
+    <button class="danger" id="a-delete">Delete area</button>
+  </div>
+</template>
+
+<template id="topic-form">
+  <h2>Topic</h2>
+  <label>Area <select id="t-area"></select></label>
+  <label>Name * <input id="t-name" required></label>
+  <label>Link <small>its page on this site (e.g. ippolib.html) or a full address; optional</small><input id="t-link" placeholder="page.html or https://…"></label>
+  <p class="fieldset-title">Tools &amp; projects <small style="text-transform:none;letter-spacing:0;font-weight:400">shown as chips; optional</small></p>
+  <div id="t-tools"></div>
+  <button type="button" id="t-add-tool" style="margin-bottom:14px">+ Add tool</button>
+  <div class="actions">
+    <button id="t-up">↑</button>
+    <button id="t-down">↓</button>
+    <button class="danger" id="t-delete">Delete topic</button>
+  </div>
+</template>
+
+<template id="collab-form">
+  <h2 id="c-title">Collaboration</h2>
+  <label>Contact person * <input id="c-name" required placeholder="e.g. Dario Rossi"></label>
+  <label>Link <small>their homepage; the name becomes a link</small><input id="c-link" type="url" placeholder="https://…"></label>
+  <label>Organization <input id="c-organization" placeholder="University, lab or company, city, country"></label>
+  <label>Topic <small>what you work on together</small><textarea id="c-topic" rows="2"></textarea></label>
+  <div class="actions">
+    <button id="c-move"></button>
+    <button class="danger" id="c-delete">Delete</button>
+  </div>
+</template>
+
 <script>
 (() => {
   const REPO = 'traffic-arclab/traffic-arclab.github.io';
   const BRANCH = 'main';
   const DATA_PATH = 'data/people.json';
+  const NEWS_PATH = 'data/news.json';
+  const TOPICS_PATH = 'data/topics.json';
+  const COLLABS_PATH = 'data/collaborations.json';
+  const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+    'August', 'September', 'October', 'November', 'December'];
   const PHOTO_DIR = 'images/pictures';
   const PLACEHOLDER = '/images/pictures/placeholder.svg';
   const TOKEN_KEY = 'traffic-people-token';
@@ -172,6 +299,10 @@
 
   const $ = id => document.getElementById(id);
   let data = null, selected = null, dirty = false, backend = null;
+  let news = [], selectedNews = null;
+  let topics = { intro: '', areas: [] }, selectedTopic = null;   // selectedTopic: { area } or { area, topic }
+  let collabs = { current: [], past: [] }, selectedCollab = null;
+  const changed = new Set();         // 'people' and/or 'news', for the commit message
   let photos = new Set();            // file names already in images/pictures
   const pending = new Map();         // 'images/pictures/x.jpg' -> JPEG data URL, sent on save
 
@@ -220,6 +351,75 @@
     };
   }
 
+  function newsOrder(a, b) {
+    return (b.year - a.year) || (MONTHS.indexOf(b.month) - MONTHS.indexOf(a.month));
+  }
+
+  function cleanNews() {
+    const out = news.map(n => ({ year: Number(n.year), month: n.month, text: String(n.text || '').trim().replace(/\s+/g, ' ') }));
+    for (const n of out) {
+      if (!n.text) throw new Error('Every news item needs a text');
+      if (!Number.isInteger(n.year) || n.year < 1990 || n.year > 2100) throw new Error(`"${n.text.slice(0, 40)}…": the year is not valid`);
+      if (!MONTHS.includes(n.month)) throw new Error(`"${n.text.slice(0, 40)}…": choose a month`);
+    }
+    return { news: out.sort(newsOrder) };   // stable: same-month items keep their order
+  }
+
+  function cleanLink(url, what) {
+    const link = String(url || '').trim();
+    if (/\s/.test(link)) throw new Error(`${what}: the link must not contain spaces`);
+    return link;
+  }
+
+  function cleanTopics() {
+    return {
+      intro: String(topics.intro || '').trim(),
+      areas: topics.areas.map(area => {
+        const title = String(area.title || '').trim();
+        if (!title) throw new Error('Every area needs a title');
+        return {
+          title,
+          topics: area.topics.map(topic => {
+            const name = String(topic.name || '').trim();
+            if (!name) throw new Error(`${title}: every topic needs a name`);
+            return {
+              name,
+              link: cleanLink(topic.link, name),
+              tools: (topic.tools || []).filter(t => String(t.name || '').trim() || String(t.link || '').trim()).map(t => {
+                const toolName = String(t.name || '').trim();
+                if (!toolName) throw new Error(`${name}: every tool needs a name`);
+                return { name: toolName, link: cleanLink(t.link, toolName) };
+              }),
+            };
+          }),
+        };
+      }),
+    };
+  }
+
+  function cleanCollabs() {
+    const clean = item => {
+      const out = {};
+      for (const key of ['name', 'link', 'organization', 'topic']) out[key] = String(item[key] || '').trim().replace(/\s+/g, ' ');
+      if (!out.name) throw new Error('Every collaboration needs a contact person');
+      if (out.link && !/^https?:\/\//.test(out.link)) throw new Error(`${out.name}: the link must start with http:// or https://`);
+      return out;
+    };
+    return { current: collabs.current.map(clean), past: collabs.past.map(clean) };
+  }
+
+  // Same rules as scripts/build_news.py: [label](url) becomes a link, everything else is text.
+  function renderNewsText(text) {
+    const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    let out = '', last = 0;
+    for (const m of text.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)) {
+      out += esc(text.slice(last, m.index));
+      out += `<a href="${esc(m[2]).replace(/"/g, '&quot;')}" target="_blank" rel="noopener">${esc(m[1])}</a>`;
+      last = m.index + m[0].length;
+    }
+    return out + esc(text.slice(last));
+  }
+
   function slugify(name) {
     return name.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'person';
   }
@@ -233,23 +433,30 @@
   // Local: scripts/people_admin.py writes the files and rebuilds people.html.
   const localBackend = {
     async load() {
-      const [people, list] = await Promise.all([fetch('/api/people'), fetch('/api/photos')]);
-      return { data: await people.json(), photos: await list.json() };
+      const [people, list, newsFile, topicsFile, collabsFile] = await Promise.all(
+        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations'].map(url => fetch(url)));
+      return {
+        data: await people.json(), photos: await list.json(), news: (await newsFile.json()).news,
+        topics: await topicsFile.json(), collabs: await collabsFile.json(),
+      };
     },
-    async save(clean) {
+    async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData) {
       const res = await fetch('/api/save', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ data: clean, photos: Object.fromEntries(pending) }),
+        body: JSON.stringify({
+          data: clean, news: cleanNewsData, topics: cleanTopicsData, collaborations: cleanCollabsData,
+          photos: Object.fromEntries(pending),
+        }),
       });
       const out = await res.json();
       if (!out.ok) throw new Error(out.error);
-      return 'Saved · people.html rebuilt at ' + new Date().toLocaleTimeString();
+      return 'Saved · pages rebuilt at ' + new Date().toLocaleTimeString();
     },
   };
 
   // GitHub: one commit with data/people.json and the new photos; a workflow rebuilds people.html.
   function githubBackend(token) {
-    let baseSha = null;   // blob sha of data/people.json when it was loaded
+    const baseSha = {};   // blob sha of each data file when it was loaded
 
     async function api(path, options = {}) {
       const res = await fetch('https://api.github.com' + path, {
@@ -278,21 +485,40 @@
         return user ? user.login : null;
       },
       async load() {
-        const [file, list] = await Promise.all([
+        const [file, list, newsFile, topicsFile, collabsFile] = await Promise.all([
           api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${PHOTO_DIR}?ref=${BRANCH}`),
+          api(`/repos/${REPO}/contents/${NEWS_PATH}?ref=${BRANCH}`),
+          api(`/repos/${REPO}/contents/${TOPICS_PATH}?ref=${BRANCH}`),
+          api(`/repos/${REPO}/contents/${COLLABS_PATH}?ref=${BRANCH}`),
         ]);
-        baseSha = file.sha;
-        return { data: JSON.parse(decodeBase64(file.content)), photos: list.map(f => f.name) };
+        baseSha[DATA_PATH] = file.sha;
+        baseSha[NEWS_PATH] = newsFile.sha;
+        baseSha[TOPICS_PATH] = topicsFile.sha;
+        baseSha[COLLABS_PATH] = collabsFile.sha;
+        return {
+          data: JSON.parse(decodeBase64(file.content)),
+          photos: list.map(f => f.name),
+          news: JSON.parse(decodeBase64(newsFile.content)).news,
+          topics: JSON.parse(decodeBase64(topicsFile.content)),
+          collabs: JSON.parse(decodeBase64(collabsFile.content)),
+        };
       },
-      async save(clean) {
+      async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData) {
         const ref = await api(`/repos/${REPO}/git/ref/heads/${BRANCH}`);
         const head = await api(`/repos/${REPO}/git/commits/${ref.object.sha}`);
-        const current = await api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${ref.object.sha}`);
-        if (current.sha !== baseSha) {
-          throw new Error('Someone else changed the People data meanwhile. Reload the page (your unsaved edits will be lost) and redo them.');
+        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH]) {
+          const current = await api(`/repos/${REPO}/contents/${path}?ref=${ref.object.sha}`);
+          if (current.sha !== baseSha[path]) {
+            throw new Error('Someone else saved changes meanwhile. Reload the page (your unsaved edits will be lost) and redo them.');
+          }
         }
-        const tree = [{ path: DATA_PATH, mode: '100644', type: 'blob', content: serialize(clean) }];
+        const tree = [
+          { path: DATA_PATH, mode: '100644', type: 'blob', content: serialize(clean) },
+          { path: NEWS_PATH, mode: '100644', type: 'blob', content: serialize(cleanNewsData) },
+          { path: TOPICS_PATH, mode: '100644', type: 'blob', content: serialize(cleanTopicsData) },
+          { path: COLLABS_PATH, mode: '100644', type: 'blob', content: serialize(cleanCollabsData) },
+        ];
         for (const [path, url] of pending) {
           const blob = await api(`/repos/${REPO}/git/blobs`, {
             method: 'POST', body: JSON.stringify({ content: url.split(',')[1], encoding: 'base64' }),
@@ -303,11 +529,12 @@
           method: 'POST', body: JSON.stringify({ base_tree: head.tree.sha, tree }),
         });
         const commit = await api(`/repos/${REPO}/git/commits`, {
-          method: 'POST', body: JSON.stringify({ message: 'Update People page', tree: newTree.sha, parents: [ref.object.sha] }),
+          method: 'POST', body: JSON.stringify({ message: commitMessage(), tree: newTree.sha, parents: [ref.object.sha] }),
         });
         await api(`/repos/${REPO}/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
-        const saved = await api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${commit.sha}`);
-        baseSha = saved.sha;
+        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH]) {
+          baseSha[path] = (await api(`/repos/${REPO}/contents/${path}?ref=${commit.sha}`)).sha;
+        }
         return 'Saved · the site updates in about 2 minutes ' +
           `(<a href="https://github.com/${REPO}/actions" target="_blank" rel="noopener">progress</a>)`;
       },
@@ -321,7 +548,16 @@
     el.className = 'status ' + kind;
   }
 
-  function markDirty() {
+  function commitMessage() {
+    const names = { people: 'People', news: 'News', topics: 'Topics', collabs: 'Collaborations' };
+    const parts = Object.keys(names).filter(k => changed.has(k)).map(k => names[k]);
+    if (!parts.length) parts.push('People');
+    return `Update ${parts.length > 1 ? parts.slice(0, -1).join(', ') + ' and ' + parts.at(-1) : parts[0]} ` +
+      (parts.length > 1 ? 'pages' : parts[0] === 'Topics' ? 'section' : 'page');
+  }
+
+  function markDirty(kind = 'people') {
+    changed.add(kind);
     dirty = true;
     $('save').disabled = false;
     setStatus('Unsaved changes', 'dirty');
@@ -434,6 +670,216 @@
     if (!person.name) $('f-name').focus();
   }
 
+  // ---------------------------------------------------------------- topics
+  function setupTopics() {
+    const intro = $('t-intro');
+    intro.value = topics.intro || '';
+    intro.addEventListener('input', () => { topics.intro = intro.value; markDirty('topics'); });
+    renderTopics();
+    showTopicsIntro();
+  }
+
+  function showTopicsIntro() {
+    $('topics-editor').innerHTML = '<h2>Select an area or a topic</h2>' +
+      '<p class="hint">Click an area title to rename, move or delete it; click a topic to edit its name, link and tools. ' +
+      'Links to pages of this site are written as in the home page (e.g. <code>ippolib.html</code>); ' +
+      'they are adjusted automatically in the menu of every page.</p>';
+  }
+
+  function moveItem(list, index, dir) {
+    const to = index + dir;
+    if (to < 0 || to >= list.length) return false;
+    [list[index], list[to]] = [list[to], list[index]];
+    return true;
+  }
+
+  function renderTopics() {
+    const box = $('topics-list');
+    box.innerHTML = '';
+    if (!topics.areas.length) box.innerHTML = '<p class="empty">No areas yet</p>';
+    topics.areas.forEach((area, ai) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'area-box' + (selectedTopic && selectedTopic.area === area && !selectedTopic.topic ? ' selected' : '');
+      const head = document.createElement('div');
+      head.className = 'area-head-row';
+      head.innerHTML = '<span class="num"></span><strong></strong><button type="button">+ Add topic</button>';
+      head.querySelector('.num').textContent = String(ai + 1).padStart(2, '0');
+      head.querySelector('strong').textContent = area.title || '(untitled area)';
+      head.addEventListener('click', event => {
+        if (event.target.closest('button')) {
+          const topic = { name: '', link: '', tools: [] };
+          area.topics.push(topic);
+          markDirty('topics');
+          selectTopic({ area, topic });
+          return;
+        }
+        selectTopic({ area });
+      });
+      const list = document.createElement('ul');
+      list.className = 'list';
+      if (!area.topics.length) list.innerHTML = '<li class="empty">No topics yet</li>';
+      area.topics.forEach(topic => {
+        const li = document.createElement('li');
+        li.className = 'row topic-row' + (selectedTopic && selectedTopic.topic === topic ? ' selected' : '');
+        li.innerHTML = '<div class="who"><strong></strong><small></small></div><div class="tags"></div>';
+        li.querySelector('strong').textContent = topic.name || '(no name)';
+        li.querySelector('small').textContent = (topic.tools || []).map(t => t.name).filter(Boolean).join(' · ');
+        if (!topic.link) li.querySelector('.tags').innerHTML = '<span class="tag missing">no page</span>';
+        li.addEventListener('click', () => selectTopic({ area, topic }));
+        list.appendChild(li);
+      });
+      wrap.append(head, list);
+      box.appendChild(wrap);
+    });
+  }
+
+  function selectTopic(ref) {
+    selectedTopic = ref;
+    renderTopics();
+    const editor = $('topics-editor');
+    editor.innerHTML = '';
+    const changedTopics = () => { markDirty('topics'); renderTopics(); };
+
+    if (!ref.topic) {
+      const area = ref.area;
+      editor.appendChild($('area-form').content.cloneNode(true));
+      const title = $('a-title');
+      title.value = area.title || '';
+      title.addEventListener('input', () => { area.title = title.value; changedTopics(); });
+      const move = dir => { if (moveItem(topics.areas, topics.areas.indexOf(area), dir)) changedTopics(); };
+      $('a-up').addEventListener('click', () => move(-1));
+      $('a-down').addEventListener('click', () => move(1));
+      $('a-delete').addEventListener('click', () => {
+        const n = area.topics.length;
+        if (!confirm(n ? `Delete the area "${area.title}" and its ${n} topic(s)?` : `Delete the area "${area.title}"?`)) return;
+        topics.areas.splice(topics.areas.indexOf(area), 1);
+        selectedTopic = null;
+        changedTopics();
+        showTopicsIntro();
+      });
+      if (!area.title) title.focus();
+      return;
+    }
+
+    const { topic } = ref;
+    editor.appendChild($('topic-form').content.cloneNode(true));
+    const areaSelect = $('t-area');
+    topics.areas.forEach((a, i) => areaSelect.add(new Option(a.title || `Area ${i + 1}`, i)));
+    areaSelect.value = topics.areas.indexOf(ref.area);
+    areaSelect.addEventListener('change', () => {
+      ref.area.topics.splice(ref.area.topics.indexOf(topic), 1);
+      ref.area = topics.areas[Number(areaSelect.value)];
+      ref.area.topics.push(topic);
+      changedTopics();
+    });
+    for (const field of ['name', 'link']) {
+      const input = $('t-' + field);
+      input.value = topic[field] || '';
+      input.addEventListener('input', () => { topic[field] = input.value; changedTopics(); });
+    }
+    const toolsBox = $('t-tools');
+    const renderTools = () => {
+      toolsBox.innerHTML = '';
+      (topic.tools || []).forEach((tool, i) => {
+        const row = document.createElement('div');
+        row.className = 'tool-row';
+        row.innerHTML = '<input placeholder="Name, e.g. D-ITG"><input placeholder="Link (optional)"><button type="button" title="Remove">✕</button>';
+        const [name, link] = row.querySelectorAll('input');
+        name.value = tool.name || '';
+        link.value = tool.link || '';
+        name.addEventListener('input', () => { tool.name = name.value; changedTopics(); });
+        link.addEventListener('input', () => { tool.link = link.value; changedTopics(); });
+        row.querySelector('button').addEventListener('click', () => { topic.tools.splice(i, 1); changedTopics(); renderTools(); });
+        toolsBox.appendChild(row);
+      });
+    };
+    renderTools();
+    $('t-add-tool').addEventListener('click', () => {
+      topic.tools = topic.tools || [];
+      topic.tools.push({ name: '', link: '' });
+      renderTools();
+      toolsBox.lastElementChild.querySelector('input').focus();
+    });
+    const move = dir => { if (moveItem(ref.area.topics, ref.area.topics.indexOf(topic), dir)) changedTopics(); };
+    $('t-up').addEventListener('click', () => move(-1));
+    $('t-down').addEventListener('click', () => move(1));
+    $('t-delete').addEventListener('click', () => {
+      if (!confirm(`Delete the topic "${topic.name || 'untitled'}"?`)) return;
+      ref.area.topics.splice(ref.area.topics.indexOf(topic), 1);
+      selectedTopic = null;
+      changedTopics();
+      showTopicsIntro();
+    });
+    if (!topic.name) $('t-name').focus();
+  }
+
+  // ---------------------------------------------------------------- collaborations
+  function showCollabsIntro() {
+    $('collabs-editor').innerHTML = '<h2>Select a collaboration or add a new one</h2>' +
+      '<p class="hint">Use ↑ ↓ to change the order, and <strong>Move to past</strong> when a collaboration ends.</p>';
+  }
+
+  function renderCollabs() {
+    for (const group of ['current', 'past']) {
+      const list = $('collabs-' + group);
+      list.innerHTML = '';
+      if (!collabs[group].length) list.innerHTML = '<li class="empty">None yet</li>';
+      collabs[group].forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'row' + (selectedCollab && selectedCollab.item === item ? ' selected' : '');
+        li.innerHTML = '<div class="who"><strong></strong><small></small></div><div class="tags"></div>' +
+          '<div class="tools"><button data-dir="-1" title="Move up">↑</button><button data-dir="1" title="Move down">↓</button></div>';
+        li.querySelector('strong').textContent = item.name || '(no name)';
+        li.querySelector('small').textContent = [item.organization, item.topic].filter(Boolean).join(' — ');
+        if (!item.link) li.querySelector('.tags').innerHTML = '<span class="tag missing">no link</span>';
+        li.addEventListener('click', event => {
+          const dir = event.target.dataset.dir;
+          if (!dir) { selectCollab({ group, item }); return; }
+          event.stopPropagation();
+          if (moveItem(collabs[group], index, Number(dir))) { markDirty('collabs'); renderCollabs(); }
+        });
+        list.appendChild(li);
+      });
+    }
+  }
+
+  function selectCollab(ref) {
+    selectedCollab = ref;
+    renderCollabs();
+    const { group, item } = ref;
+    const editor = $('collabs-editor');
+    editor.innerHTML = '';
+    editor.appendChild($('collab-form').content.cloneNode(true));
+    $('c-title').textContent = item.name || (group === 'current' ? 'New collaboration' : 'New past collaboration');
+    for (const field of ['name', 'link', 'organization', 'topic']) {
+      const input = $('c-' + field);
+      input.value = item[field] || '';
+      input.addEventListener('input', () => {
+        item[field] = input.value;
+        if (field === 'name') $('c-title').textContent = input.value || 'New collaboration';
+        markDirty('collabs');
+        renderCollabs();
+      });
+    }
+    const other = group === 'current' ? 'past' : 'current';
+    $('c-move').textContent = other === 'past' ? 'Move to past collaborations' : 'Move back to current';
+    $('c-move').addEventListener('click', () => {
+      collabs[group].splice(collabs[group].indexOf(item), 1);
+      collabs[other].unshift(item);
+      markDirty('collabs');
+      selectCollab({ group: other, item });
+    });
+    $('c-delete').addEventListener('click', () => {
+      if (!confirm(`Delete the collaboration with ${item.name || 'this contact'}?`)) return;
+      collabs[group].splice(collabs[group].indexOf(item), 1);
+      selectedCollab = null;
+      markDirty('collabs');
+      renderCollabs();
+      showCollabsIntro();
+    });
+    if (!item.name) $('c-name').focus();
+  }
+
   // Crop to a 5:6 portrait (keeping the top, where the face usually is) and resize to 600x720.
   function addPhoto(person, file) {
     if (!person.name.trim()) { alert('Enter the name first: it is used for the photo file name.'); return; }
@@ -469,17 +915,19 @@
   }
 
   async function save() {
-    let clean;
-    try { clean = cleanData(); } catch (error) { setStatus(error.message, 'error'); return; }
+    let clean, cleanNewsData, cleanTopicsData, cleanCollabsData;
+    try { clean = cleanData(); cleanNewsData = cleanNews(); cleanTopicsData = cleanTopics(); cleanCollabsData = cleanCollabs(); }
+    catch (error) { setStatus(error.message, 'error'); return; }
     // Only upload photos that are still used by someone.
     const used = new Set([clean.principal, ...clean.members, ...clean.alumni].filter(Boolean).map(p => p.photo));
     for (const path of [...pending.keys()]) if (!used.has(path)) pending.delete(path);
     $('save').disabled = true;
     setStatus('Saving…');
     try {
-      const message = await backend.save(clean);
+      const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData);
       for (const path of pending.keys()) photos.add(path.split('/').pop());
       pending.clear();
+      changed.clear();
       dirty = false;
       setStatus(message);
     } catch (error) {
@@ -494,11 +942,105 @@
     data.members = data.members || [];
     data.alumni = data.alumni || [];
     photos = new Set(loaded.photos);
+    news = loaded.news || [];
+    topics = loaded.topics || { intro: '', areas: [] };
+    topics.areas = topics.areas || [];
+    collabs = loaded.collabs || {};
+    collabs.current = collabs.current || [];
+    collabs.past = collabs.past || [];
     $('login').hidden = true;
-    $('app').hidden = false;
+    $('tabs').hidden = false;
     renderLists();
     showIntro();
+    renderNews();
+    showNewsIntro();
+    setupTopics();
+    renderCollabs();
+    showCollabsIntro();
+    showTab(['#news', '#topics', '#collabs'].includes(location.hash) ? location.hash.slice(1) : 'people');
     setStatus('All changes saved');
+  }
+
+  // ---------------------------------------------------------------- tabs
+  function showTab(tab) {
+    $('app').hidden = tab !== 'people';
+    $('news-app').hidden = tab !== 'news';
+    $('topics-app').hidden = tab !== 'topics';
+    $('collabs-app').hidden = tab !== 'collabs';
+    document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.tab === tab)));
+    $('open-page').href = { people: '/people.html', news: '/news.html', topics: '/index.html#topics', collabs: '/collaborations.html' }[tab];
+    history.replaceState(null, '', tab === 'people' ? location.pathname : '#' + tab);
+  }
+
+  // ---------------------------------------------------------------- news
+  function showNewsIntro() {
+    $('news-editor').innerHTML = '<h2>Select a news item or add a new one</h2>' +
+      '<p class="hint">Write the text and choose year and month: the list is kept in date order automatically. ' +
+      'Links are written as <code>[label](https://…)</code>, or select some text and press <strong>Link selected text</strong>.</p>';
+  }
+
+  function renderNews() {
+    const box = $('news-list');
+    box.innerHTML = '';
+    if (!news.length) { box.innerHTML = '<p class="empty">No news yet</p>'; return; }
+    let year = null, list = null;
+    for (const item of [...news].sort(newsOrder)) {
+      if (item.year !== year) {
+        year = item.year;
+        const h = document.createElement('h3');
+        h.className = 'year-title';
+        h.textContent = year || '(no year)';
+        list = document.createElement('ul');
+        list.className = 'list';
+        box.append(h, list);
+      }
+      const li = document.createElement('li');
+      li.className = 'row news-row' + (item === selectedNews ? ' selected' : '');
+      li.innerHTML = '<span class="month"></span><span class="text"></span>';
+      li.querySelector('.month').textContent = item.month || '—';
+      const text = li.querySelector('.text');
+      const plain = String(item.text || '').replace(/\[([^\]]+)\]\([^)\s]+\)/g, '$1');
+      text.textContent = plain || '(empty)';
+      text.classList.toggle('empty-text', !plain);
+      li.addEventListener('click', () => selectNews(item));
+      list.appendChild(li);
+    }
+  }
+
+  function selectNews(item) {
+    selectedNews = item;
+    renderNews();
+    const editor = $('news-editor');
+    editor.innerHTML = '';
+    editor.appendChild($('news-form').content.cloneNode(true));
+    const year = $('n-year'), month = $('n-month'), text = $('n-text'), preview = $('n-preview');
+    month.innerHTML = MONTHS.map(m => `<option>${m}</option>`).join('');
+    year.value = item.year;
+    month.value = item.month;
+    text.value = item.text;
+    const update = () => { preview.innerHTML = renderNewsText(text.value); };
+    update();
+    year.addEventListener('input', () => { item.year = Number(year.value); markDirty('news'); renderNews(); });
+    month.addEventListener('change', () => { item.month = month.value; markDirty('news'); renderNews(); });
+    text.addEventListener('input', () => { item.text = text.value; update(); markDirty('news'); renderNews(); });
+    $('n-link').addEventListener('click', () => {
+      const { selectionStart: a, selectionEnd: b } = text;
+      if (a === b) { alert('Select the words that should become a link first.'); return; }
+      const url = prompt('Link address (https://…)', 'https://');
+      if (!url || !/^(https?:\/\/|mailto:)/.test(url)) return;
+      text.setRangeText(`[${text.value.slice(a, b)}](${url.trim()})`, a, b, 'end');
+      text.dispatchEvent(new Event('input'));
+      text.focus();
+    });
+    $('n-delete').addEventListener('click', () => {
+      if (!confirm('Delete this news item?')) return;
+      news.splice(news.indexOf(item), 1);
+      selectedNews = null;
+      markDirty('news');
+      renderNews();
+      showNewsIntro();
+    });
+    if (!item.text) text.focus();
   }
 
   async function signIn(token, remember) {
@@ -514,6 +1056,9 @@
 
   function showLogin(message = '') {
     $('app').hidden = true;
+    $('news-app').hidden = true;
+    $('topics-app').hidden = true;
+    $('collabs-app').hidden = true;
     $('login').hidden = false;
     $('login-error').textContent = message;
     setStatus('Not signed in');
@@ -527,6 +1072,27 @@
     select({ group, index: data[group].length - 1 });
   }));
   $('save').addEventListener('click', save);
+  document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
+  document.querySelectorAll('[data-add-collab]').forEach(button => button.addEventListener('click', () => {
+    const group = button.dataset.addCollab;
+    const item = { name: '', link: '', organization: '', topic: '' };
+    collabs[group].unshift(item);
+    markDirty('collabs');
+    selectCollab({ group, item });
+  }));
+  $('add-area').addEventListener('click', () => {
+    const area = { title: '', topics: [] };
+    topics.areas.push(area);
+    markDirty('topics');
+    selectTopic({ area });
+  });
+  $('add-news').addEventListener('click', () => {
+    const now = new Date();
+    const item = { year: now.getFullYear(), month: MONTHS[now.getMonth()], text: '' };
+    news.unshift(item);   // first among the items of its month
+    markDirty('news');
+    selectNews(item);
+  });
   $('signin').addEventListener('click', async () => {
     const token = $('token').value.trim();
     if (!token) return;
