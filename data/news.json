@@ -1,6 +1,251 @@
 {
   "news": [
     {
+      "year": 2026,
+      "month": "October",
+      "text": "We will hold [GenXNet'26](genxnet2026/), the International Workshop on Generative and eXplainable Artificial Intelligence for Networking, in conjunction with IEEE WiMob 2026 (14–16 October 2026, Avignon, France)."
+    },
+    {
+      "year": 2026,
+      "month": "June",
+      "text": "Our paper [Cross-network transferability of AI-based network intrusion detection systems in heterogeneous Internet of Things environments](https://doi.org/10.1016/j.comnet.2026.112434) has been published in Computer Networks."
+    },
+    {
+      "year": 2026,
+      "month": "May",
+      "text": "Our paper [Synthetic Network Traffic Generation via Federated Generative AI for Traffic Classification](https://doi.org/10.1109/noms69089.2026.11668294) has been presented at IEEE NOMS 2026."
+    },
+    {
+      "year": 2026,
+      "month": "April",
+      "text": "Released [MIRAGE-GenAI-2025](datasets/mirage-genai-2025.html), a human-generated dataset with the traffic of ChatGPT, Copilot and Gemini mobile apps."
+    },
+    {
+      "year": 2026,
+      "month": "March",
+      "text": "Our paper [From prompts to packets: A view from the network on ChatGPT, Copilot, and Gemini](https://doi.org/10.1016/j.comnet.2026.112237) has been published in Computer Networks."
+    },
+    {
+      "year": 2026,
+      "month": "February",
+      "text": "Our paper [A multimodal and perturbation-aware learning approach for robust traffic classification](https://doi.org/10.1016/j.comnet.2026.112090) has been published in Computer Networks."
+    },
+    {
+      "year": 2026,
+      "month": "January",
+      "text": "Our paper [A Federated and Incremental Network Intrusion Detection System for IoT Emerging Threats](https://doi.org/10.1109/tnsm.2026.3675031) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2025,
+      "month": "December",
+      "text": "Our paper [Analyzing the impact of shifts in encrypted mobile-app traffic on multimodal few-shot learning](https://doi.org/10.1016/j.comnet.2025.111935) has been published in Computer Networks."
+    },
+    {
+      "year": 2025,
+      "month": "October",
+      "text": "We organized [GenXNet'25](genxnet2025/), the International Workshop on Generative and eXplainable Artificial Intelligence for Networking, in conjunction with IEEE WiMob 2025 (20–22 October 2025, Marrakech, Morocco)."
+    },
+    {
+      "year": 2025,
+      "month": "June",
+      "text": "Our paper [An integration perspective of security, privacy, and resource efficiency in IoT-Fog networks: A comprehensive survey](https://doi.org/10.1016/j.comnet.2025.111470) has been published in Computer Networks."
+    },
+    {
+      "year": 2025,
+      "month": "June",
+      "text": "Our paper [Explainable federated class incremental learning for Encrypted Network Traffic classification](https://doi.org/10.1016/j.comnet.2025.111448) has been published in Computer Networks."
+    },
+    {
+      "year": 2025,
+      "month": "March",
+      "text": "Our paper [Attack-adaptive network intrusion detection systems for IoT networks through class incremental learning](https://doi.org/10.1016/j.comnet.2025.111228) has been published in Computer Networks."
+    },
+    {
+      "year": 2025,
+      "month": "February",
+      "text": "Our paper [Mapping the Landscape of Generative AI in Network Monitoring and Management](https://doi.org/10.1109/tnsm.2025.3543022) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2024,
+      "month": "November",
+      "text": "Our paper [A Survey on Explainable Artificial Intelligence for Internet Traffic Classification and Prediction, and Intrusion Detection](https://doi.org/10.1109/comst.2024.3504955) has been published in IEEE Communications Surveys & Tutorials."
+    },
+    {
+      "year": 2024,
+      "month": "September",
+      "text": "Released [MIRAGE-Video](datasets/mirage-video.html), a human-generated dataset with the traffic of 14 video mobile apps."
+    },
+    {
+      "year": 2024,
+      "month": "July",
+      "text": "We organized [AI-DCS 2024](aidcs2024/), the International Workshop on Generative, Incremental, Adversarial, Explainable AI/ML in Distributed Computing Systems, in conjunction with IEEE ICDCS 2024 (23–26 July 2024, Jersey City, New Jersey, USA)."
+    },
+    {
+      "year": 2024,
+      "month": "July",
+      "text": "Released [MIRAGE-AppAct-2024](datasets/mirage-appact-2024.html), a human-generated dataset of 20 popular mobile apps labeled with both the app and the activity performed."
+    },
+    {
+      "year": 2024,
+      "month": "March",
+      "text": "Our paper [MEMENTO: A novel approach for class incremental learning of encrypted traffic](https://doi.org/10.1016/j.comnet.2024.110374) has been published in Computer Networks."
+    },
+    {
+      "year": 2023,
+      "month": "December",
+      "text": "Our paper [AI-Powered Internet Traffic Classification: Past, Present, and Future](https://doi.org/10.1109/mcom.001.2300361) has been published in IEEE Communications Magazine."
+    },
+    {
+      "year": 2023,
+      "month": "June",
+      "text": "Our paper [Many or Few Samples?: Comparing Transfer, Contrastive and Meta-Learning in Encrypted Traffic Classification](https://doi.org/10.23919/tma58422.2023.10198965) has been presented at TMA 2023."
+    },
+    {
+      "year": 2023,
+      "month": "June",
+      "text": "Our paper [Benchmarking Class Incremental Learning in Deep Learning Traffic Classification](https://doi.org/10.1109/tnsm.2023.3287430) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2023,
+      "month": "February",
+      "text": "Our paper [Improving Performance, Reliability, and Feasibility in Multimodal Multitask Traffic Classification with XAI](https://doi.org/10.1109/tnsm.2023.3246794) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2022,
+      "month": "November",
+      "text": "Our paper [Contextual counters and multimodal Deep Learning for activity-level traffic classification of mobile communication apps during COVID-19 pandemic](https://doi.org/10.1016/j.comnet.2022.109452) has been published in Computer Networks."
+    },
+    {
+      "year": 2022,
+      "month": "October",
+      "text": "Released [MIRAGE-COVID-CCMA-2022](datasets/mirage-covid-ccma-2022.html), a human-generated dataset of communication and collaboration mobile apps that bloomed with the COVID-19 pandemic."
+    },
+    {
+      "year": 2021,
+      "month": "October",
+      "text": "Our paper [Packet-level prediction of mobile-app traffic using multitask Deep Learning](https://doi.org/10.1016/j.comnet.2021.108529) has been published in Computer Networks."
+    },
+    {
+      "year": 2021,
+      "month": "August",
+      "text": "Our paper [XAI Meets Mobile Traffic Classification: Understanding and Improving Multimodal Deep Learning Architectures](https://doi.org/10.1109/tnsm.2021.3098157) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2021,
+      "month": "August",
+      "text": "We organized [IWNTA 2021](IWNTA2021/), the International Workshop on Network Traffic Analytics, in conjunction with MobiSPC 2021 (9–12 August 2021, Leuven, Belgium)."
+    },
+    {
+      "year": 2021,
+      "month": "February",
+      "text": "Our paper [The Art of Detecting Forwarding Detours](https://doi.org/10.1109/tnsm.2021.3062151) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2021,
+      "month": "February",
+      "text": "Our paper [Characterization and Prediction of Mobile-App Traffic Using Markov Modeling](https://doi.org/10.1109/tnsm.2021.3051381) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2020,
+      "month": "November",
+      "text": "Our paper [Characterization and analysis of cloud-to-user latency: The case of Azure and AWS](https://doi.org/10.1016/j.comnet.2020.107693) has been published in Computer Networks."
+    },
+    {
+      "year": 2019,
+      "month": "October",
+      "text": "Our paper [MIMETIC: Mobile encrypted traffic classification using multimodal deep learning](https://doi.org/10.1016/j.comnet.2019.106944) has been published in Computer Networks."
+    },
+    {
+      "year": 2019,
+      "month": "October",
+      "text": "The MIRAGE paper won the Best Paper Award at the 4th IEEE International Conference on Computing, Communications and Security (ICCCS 2019) in Rome. The [MIRAGE-2019 dataset](datasets/mirage-2019.html) is publicly available."
+    },
+    {
+      "year": 2019,
+      "month": "June",
+      "text": "Our paper [Know your Big Data Trade-offs when Classifying Encrypted Mobile Traffic with Deep Learning](https://doi.org/10.23919/tma.2019.8784565) has been presented at TMA 2019."
+    },
+    {
+      "year": 2019,
+      "month": "June",
+      "text": "Our paper [Hic Sunt Proxies: Unveiling Proxy Phenomena in Mobile Networks](https://doi.org/10.23919/tma.2019.8784678) has been presented at TMA 2019."
+    },
+    {
+      "year": 2019,
+      "month": "June",
+      "text": "Our paper [Filtering the Noise to Reveal Inter-Domain Lies](https://doi.org/10.23919/tma.2019.8784618) has been presented at TMA 2019."
+    },
+    {
+      "year": 2019,
+      "month": "February",
+      "text": "Our paper [Mobile Encrypted Traffic Classification Using Deep Learning: Experimental Evaluation, Lessons Learned, and Challenges](https://doi.org/10.1109/tnsm.2019.2899085) has been published in IEEE Transactions on Network and Service Management."
+    },
+    {
+      "year": 2019,
+      "month": "January",
+      "text": "Our paper [A Survey on Information and Communication Technologies for Industry 4.0: State-of-the-Art, Taxonomies, Perspectives, and Challenges](https://doi.org/10.1109/comst.2019.2938259) has been published in IEEE Communications Surveys & Tutorials."
+    },
+    {
+      "year": 2018,
+      "month": "June",
+      "text": "Our paper [Mobile Encrypted Traffic Classification Using Deep Learning](https://doi.org/10.23919/tma.2018.8506558) has been presented at TMA 2018."
+    },
+    {
+      "year": 2018,
+      "month": "June",
+      "text": "We organized [ICT4I40 2018](ICT4I40ws/), the Workshop on Information and Communication Technologies for Industry 4.0, in conjunction with IEEE ISCC 2018 (25–28 June 2018, Natal, Brazil)."
+    },
+    {
+      "year": 2018,
+      "month": "March",
+      "text": "Our paper [Network Testing and Analytics](https://doi.org/10.1109/mcom.2018.8316787) has been published in IEEE Communications Magazine."
+    },
+    {
+      "year": 2018,
+      "month": "February",
+      "text": "Our paper [Anonymity Services Tor, I2P, JonDonym: Classifying in the Dark (Web)](https://doi.org/10.1109/tdsc.2018.2804394) has been published in IEEE Transactions on Dependable and Secure Computing."
+    },
+    {
+      "year": 2017,
+      "month": "June",
+      "text": "Our paper [SOMETIME: Software defined network-based available Bandwidth Measurement In MONROE](https://doi.org/10.23919/tma.2017.8002918) has been presented at TMA 2017."
+    },
+    {
+      "year": 2017,
+      "month": "June",
+      "text": "Our paper [Hic sunt NATs: Uncovering address translation with a smart traceroute](https://doi.org/10.23919/tma.2017.8002924) has been presented at TMA 2017."
+    },
+    {
+      "year": 2017,
+      "month": "February",
+      "text": "Our paper [Measuring Networks Using IP Options](https://doi.org/10.1109/mnet.2017.1600070nm) has been published in IEEE Network."
+    },
+    {
+      "year": 2017,
+      "month": "January",
+      "text": "Antonio Pescapè is guest editor of the IEEE Access Special Section [The New Era of Smart Cities: Sensors, Communication Technologies, and Applications](https://doi.org/10.1109/access.2017.2783079)."
+    },
+    {
+      "year": 2016,
+      "month": "October",
+      "text": "Our paper [On the performance of the wide-area networks interconnecting public-cloud datacenters around the globe](https://doi.org/10.1016/j.comnet.2016.10.013) has been published in Computer Networks."
+    },
+    {
+      "year": 2016,
+      "month": "February",
+      "text": "Our paper [Mining agile DNS traffic using graph analysis for cybercrime detection](https://doi.org/10.1016/j.comnet.2016.02.009) has been published in Computer Networks."
+    },
+    {
+      "year": 2015,
+      "month": "December",
+      "text": "Our paper “Detecting Middlebox Interference on Applications” has been presented at ACM CoNEXT 2015."
+    },
+    {
+      "year": 2015,
+      "month": "November",
+      "text": "Our paper [Measuring network throughput in the cloud: The case of Amazon EC2](https://doi.org/10.1016/j.comnet.2015.09.037) has been published in Computer Networks."
+    },
+    {
       "year": 2015,
       "month": "November",
       "text": "Traffic research group seeks for qualified and self-motivated graduate students and Post Docs. See details [here](http://wpage.unina.it/pescape/doc/Traffic_Openings.pdf)."
@@ -14,6 +259,16 @@
       "year": 2015,
       "month": "September",
       "text": "[NM2](http://www.nm-2.com) released the [SmarTIE](http://www.nm-2.com/smartie/) platform based on TIE."
+    },
+    {
+      "year": 2015,
+      "month": "April",
+      "text": "Our paper [A consensus-based approach for platooning with inter-vehicular communications](https://doi.org/10.1109/infocom.2015.7218490) has been presented at IEEE INFOCOM 2015."
+    },
+    {
+      "year": 2015,
+      "month": "March",
+      "text": "Our paper [Internet Censorship detection: A survey](https://doi.org/10.1016/j.comnet.2015.03.008) has been published in Computer Networks."
     },
     {
       "year": 2013,
