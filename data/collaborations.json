@@ -1,5 +1,6 @@
 {
-  "current": [
+  "current": [],
+  "past": [
     {
       "name": "Cedric Westphal",
       "type": "company",
@@ -9,67 +10,19 @@
       "logo": ""
     },
     {
-      "name": "Dario Rossi",
-      "type": "academic",
-      "link": "http://perso.infres.enst.fr/~drossi/",
-      "organization": "TELECOM ParisTech (formerly ENST), France",
-      "topic": "Impact of sampling on traffic monitoring and analysis, traffic classification",
-      "logo": ""
+      "name": "Roger Karrer",
+      "type": "company",
+      "link": "http://www.deutsche-telekom-laboratories.de/~karrer/",
+      "organization": "Deutsche Telekom Laboratories, Berlin, Germany",
+      "topic": "Analysis and performance evaluation of the MagNets WiFi backbone",
+      "logo": "images/logos/deutsche_telekom_laboratories_berlin_germany.png"
     },
     {
-      "name": "KC Claffy",
+      "name": "Renato Lo Cigno",
       "type": "academic",
-      "link": "http://www.caida.org/home/seniorstaff/kclaffy.xml",
-      "organization": "Cooperative Association for Internet Data Analysis (CAIDA), San Diego, USA",
-      "topic": "Traffic classification",
-      "logo": ""
-    },
-    {
-      "name": "Ernst Biersack",
-      "type": "academic",
-      "link": "http://www.eurecom.fr/~btroup/erbi_page.html",
-      "organization": "Eurécom, Sophia Antipolis, France",
-      "topic": "Passive analysis of 3G/4G networks",
-      "logo": ""
-    },
-    {
-      "name": "Benoit Donnet",
-      "type": "academic",
-      "link": "http://inl.info.ucl.ac.be/donnet",
-      "organization": "Université catholique de Louvain, Belgium",
-      "topic": "Topology discovery",
-      "logo": ""
-    },
-    {
-      "name": "Nick Feamster",
-      "type": "academic",
-      "link": "http://www.cs.princeton.edu/~feamster/",
-      "organization": "Princeton University, USA",
-      "topic": "Network neutrality and broadband performance evaluation",
-      "logo": ""
-    },
-    {
-      "name": "Fabio Ricciato",
-      "type": "academic",
-      "link": "http://www.fri.uni-lj.si/en/fabio-ricciato/",
-      "organization": "University of Ljubljana, Slovenia",
-      "topic": "Traffic monitoring and analysis",
-      "logo": ""
-    },
-    {
-      "name": "Pascal Mérindol",
-      "type": "academic",
-      "link": "http://clarinet.u-strasbg.fr/~merindol/",
-      "organization": "University of Strasbourg, France",
-      "topic": "Network topologies",
-      "logo": ""
-    },
-    {
-      "name": "Mahesh K. Marina",
-      "type": "academic",
-      "link": "http://homepages.inf.ed.ac.uk/mmarina/",
-      "organization": "University of Edinburgh, UK",
-      "topic": "Broadband performance monitoring",
+      "link": "http://disi.unitn.it/locigno/",
+      "organization": "University of Trento, Italy",
+      "topic": "Inter-vehicular communications",
       "logo": ""
     },
     {
@@ -81,21 +34,67 @@
       "logo": ""
     },
     {
-      "name": "Renato Lo Cigno",
+      "name": "Mahesh K. Marina",
       "type": "academic",
-      "link": "http://disi.unitn.it/locigno/",
-      "organization": "University of Trento, Italy",
-      "topic": "Inter-vehicular communications",
+      "link": "http://homepages.inf.ed.ac.uk/mmarina/",
+      "organization": "University of Edinburgh, UK",
+      "topic": "Broadband performance monitoring",
       "logo": ""
-    }
-  ],
-  "past": [
+    },
     {
-      "name": "Roger Karrer",
-      "type": "company",
-      "link": "http://www.deutsche-telekom-laboratories.de/~karrer/",
-      "organization": "Deutsche Telekom Laboratories, Berlin, Germany",
-      "topic": "Analysis and performance evaluation of the MagNets WiFi backbone",
+      "name": "Pascal Mérindol",
+      "type": "academic",
+      "link": "http://clarinet.u-strasbg.fr/~merindol/",
+      "organization": "University of Strasbourg, France",
+      "topic": "Network topologies",
+      "logo": ""
+    },
+    {
+      "name": "Fabio Ricciato",
+      "type": "academic",
+      "link": "http://www.fri.uni-lj.si/en/fabio-ricciato/",
+      "organization": "University of Ljubljana, Slovenia",
+      "topic": "Traffic monitoring and analysis",
+      "logo": ""
+    },
+    {
+      "name": "Nick Feamster",
+      "type": "academic",
+      "link": "http://www.cs.princeton.edu/~feamster/",
+      "organization": "Princeton University, USA",
+      "topic": "Network neutrality and broadband performance evaluation",
+      "logo": ""
+    },
+    {
+      "name": "Benoit Donnet",
+      "type": "academic",
+      "link": "http://inl.info.ucl.ac.be/donnet",
+      "organization": "Université catholique de Louvain, Belgium",
+      "topic": "Topology discovery",
+      "logo": ""
+    },
+    {
+      "name": "Ernst Biersack",
+      "type": "academic",
+      "link": "http://www.eurecom.fr/~btroup/erbi_page.html",
+      "organization": "Eurécom, Sophia Antipolis, France",
+      "topic": "Passive analysis of 3G/4G networks",
+      "logo": ""
+    },
+    {
+      "name": "KC Claffy",
+      "type": "academic",
+      "link": "http://www.caida.org/home/seniorstaff/kclaffy.xml",
+      "organization": "Cooperative Association for Internet Data Analysis (CAIDA), San Diego, USA",
+      "topic": "Traffic classification",
+      "logo": ""
+    },
+    {
+      "name": "Dario Rossi",
+      "type": "academic",
+      "link": "http://perso.infres.enst.fr/~drossi/",
+      "organization": "TELECOM ParisTech (formerly ENST), France",
+      "topic": "Impact of sampling on traffic monitoring and analysis, traffic classification",
       "logo": ""
     },
     {
