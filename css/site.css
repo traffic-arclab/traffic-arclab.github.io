@@ -182,8 +182,6 @@ strong, b { font-weight: 650; }
 .topbar-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; min-height: 36px; padding-block: 6px; }
 .topbar strong { color: #fff; font-weight: 600; }
 .topbar-sep { color: var(--color-gold); }
-.topbar-link { margin-left: auto; color: #fff; font-weight: 600; text-decoration: none; }
-.topbar-link:hover { color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .55); }
 .topbar :focus-visible, .site-footer :focus-visible { outline-color: var(--color-focus-on-deep); }
 .site-header {
   position: sticky; top: 0; z-index: 100;
@@ -197,11 +195,9 @@ strong, b { font-weight: 650; }
 .brand { display: flex; align-items: center; gap: 13px; min-width: 0; margin-right: auto; color: inherit; text-decoration: none; }
 .brand:hover { color: inherit; }
 .brand:focus-visible { outline-offset: 5px; }
-.brand-seal, .footer-seal {
-  width: 46px; height: 46px; flex: none; object-fit: contain;
-  padding: 3px; border-radius: 50%; background: #fff;
-  box-shadow: 0 0 0 1px var(--color-line);
-}
+.brand-seal, .footer-seal { width: 50px; height: 50px; flex: none; object-fit: contain; }
+/* Light version of the Traffic mark on dark surfaces. */
+:root[data-theme="dark"] .brand-seal { content: url("../images/traffic-mark-dark.svg"); }
 .brand-text { display: flex; flex-direction: column; min-width: 0; line-height: 1.12; }
 .brand-name { color: var(--color-title); font: 650 1.42rem/1.1 var(--font-serif); letter-spacing: -.012em; white-space: nowrap; }
 .brand-group { margin-left: 5px; padding-left: 10px; border-left: 1px solid var(--color-strong-line); font-weight: 400; }
@@ -708,7 +704,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .site-footer { padding-block: clamp(46px, 5.5vw, 70px); background: var(--color-deepest); color: var(--color-deep-muted); border-top: 3px solid var(--color-accent); font-size: .94rem; line-height: 1.6; }
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(140px, .6fr) minmax(220px, .85fr); gap: clamp(32px, 5vw, 80px); }
 .footer-brand { display: flex; align-items: flex-start; gap: var(--space-4); }
-.footer-seal { width: 54px; height: 54px; box-shadow: none; }
+.footer-seal { width: 56px; height: 56px; }
 .footer-name { color: #fff; font: 600 1.45rem/1.15 var(--font-serif); }
 .footer-tagline { margin: 5px 0 14px; color: #fff; font-size: .68rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .footer-tagline .initial { color: #a8d2f1; }
@@ -855,10 +851,9 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 @media (max-width: 460px) {
   :root { --gutter: 18px; }
   .topbar { font-size: .78rem; }
-  .topbar-link { display: none; }
   .header-inner { gap: 8px; }
   .brand { gap: 9px; }
-  .brand-seal { width: 36px; height: 36px; padding: 2px; }
+  .brand-seal { width: 38px; height: 38px; }
   .brand-name { font-size: 1.08rem; }
   .brand-group { margin-left: 3px; padding-left: 7px; }
   .brand-tagline { margin-top: 4px; font-size: .56rem; letter-spacing: .05em; }

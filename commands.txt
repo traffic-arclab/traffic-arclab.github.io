@@ -1,0 +1,4 @@
+cd ~/traffic-arclab.github.io
+python3 -m http.server 8000        # sito: http://localhost:8000
+python3 scripts/people_admin.py    # editor People: http://localhost:8765
+

@@ -13,19 +13,6 @@
   },
   "members": [
     {
-      "name": "Alessio Botta",
-      "role": "Associate Professor",
-      "photo": "images/pictures/alessio.jpg",
-      "affiliation": "DIETI · CINI (ITeM Lab)",
-      "phone": "+39 081 7683865",
-      "emails": [
-        "a.botta@unina.it",
-        "alessio.botta@consorzio-cini.it"
-      ],
-      "homepage": "http://wpage.unina.it/a.botta",
-      "scholar": "https://scholar.google.com/citations?hl=it&user=HjE9sqgAAAAJ"
-    },
-    {
       "name": "Giuseppe Aceto",
       "role": "Associate Professor",
       "photo": "images/pictures/giuseppe_aceto.jpg",
@@ -136,6 +123,19 @@
     }
   ],
   "alumni": [
+    {
+      "name": "Alessio Botta",
+      "role": "Associate Professor",
+      "photo": "images/pictures/alessio.jpg",
+      "affiliation": "DIETI · CINI (ITeM Lab)",
+      "phone": "+39 081 7683865",
+      "emails": [
+        "a.botta@unina.it",
+        "alessio.botta@consorzio-cini.it"
+      ],
+      "homepage": "http://wpage.unina.it/a.botta",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=HjE9sqgAAAAJ"
+    },
     {
       "name": "Davide di Monda",
       "role": "Postdoc",

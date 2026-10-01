@@ -27,7 +27,7 @@
 
 /* Identity: the essential way back to TRAFFIC. */
 .tgb .tgb__home { display: inline-flex; align-items: center; gap: 10px; min-height: 43px; min-width: 0; white-space: nowrap; }
-.tgb .tgb__seal { display: block; flex: none; width: 26px; height: 26px; padding: 1px; border-radius: 50%; background: #fff; object-fit: contain; }
+.tgb .tgb__seal { display: block; flex: none; width: 26px; height: 26px; object-fit: contain; }
 .tgb .tgb__arrow { display: block; flex: none; width: 14px; height: 14px; margin-right: -2px; color: #9fd0f5; transition: transform 150ms; }
 .tgb .tgb__home:hover .tgb__arrow { transform: translateX(-2px); }
 .tgb .tgb__name { overflow: hidden; text-overflow: ellipsis; color: #fff; font-size: 14px; }
