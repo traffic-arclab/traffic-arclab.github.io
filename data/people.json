@@ -1,0 +1,202 @@
+{
+  "principal": {
+    "name": "Antonio Pescapè",
+    "role": "Full Professor · Principal Investigator",
+    "photo": "images/pictures/antonio2.jpg",
+    "affiliation": "DIETI",
+    "phone": "+39 081 7683856",
+    "emails": [
+      "pescape@unina.it"
+    ],
+    "homepage": "http://wpage.unina.it/pescape",
+    "scholar": "https://scholar.google.com/citations?hl=it&user=-kNTrVcAAAAJ"
+  },
+  "members": [
+    {
+      "name": "Alessio Botta",
+      "role": "Associate Professor",
+      "photo": "images/pictures/alessio.jpg",
+      "affiliation": "DIETI · CINI (ITeM Lab)",
+      "phone": "+39 081 7683865",
+      "emails": [
+        "a.botta@unina.it",
+        "alessio.botta@consorzio-cini.it"
+      ],
+      "homepage": "http://wpage.unina.it/a.botta",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=HjE9sqgAAAAJ"
+    },
+    {
+      "name": "Giuseppe Aceto",
+      "role": "Associate Professor",
+      "photo": "images/pictures/giuseppe_aceto.jpg",
+      "affiliation": "DIETI · CINI (ITeM Lab)",
+      "phone": "+39 081 7683821",
+      "emails": [
+        "giuseppe.aceto@unina.it"
+      ],
+      "homepage": "http://wpage.unina.it/giuseppe.aceto",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=MmaTME0AAAAJ"
+    },
+    {
+      "name": "Valerio Persico",
+      "role": "Associate Professor",
+      "photo": "images/pictures/valerio.jpg",
+      "affiliation": "DIETI",
+      "phone": "+39 081 7683821",
+      "emails": [
+        "valerio.persico@unina.it"
+      ],
+      "homepage": "http://wpage.unina.it/valerio.persico",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=EOIDaioAAAAJ"
+    },
+    {
+      "name": "Antonio Montieri",
+      "role": "Tenure-Track Professor",
+      "photo": "images/pictures/antonio_montieri.jpg",
+      "affiliation": "DIETI",
+      "phone": "+39 081 7683821",
+      "emails": [
+        "antonio.montieri@unina.it"
+      ],
+      "homepage": "http://wpage.unina.it/antonio.montieri",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=oFe8YFMAAAAJ"
+    },
+    {
+      "name": "Domenico Ciuonzo",
+      "role": "Associate Professor",
+      "photo": "images/pictures/ciuonzo.jpg",
+      "affiliation": "DIETI",
+      "phone": "+39 081 7683821",
+      "emails": [
+        "domenico.ciuonzo@ieee.org",
+        "Domenico.ciuonzo@unina.it"
+      ],
+      "homepage": "https://domenicociuonzo.wordpress.com",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=oHGui3MAAAAJ"
+    },
+    {
+      "name": "Alfredo Nascita",
+      "role": "Assistant Professor (RTDA)",
+      "photo": "images/pictures/alfredo_nascita.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [
+        "alfredo.nascita@unina.it"
+      ],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=nh89OvgAAAAJ"
+    },
+    {
+      "name": "Francesco Cerasuolo",
+      "role": "Postdoc",
+      "photo": "images/pictures/francesco_cerasuolo.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [
+        "francesco.cerasuolo@unina.it"
+      ],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=CqA3POcAAAAJ"
+    },
+    {
+      "name": "Vincenzo Spadari",
+      "role": "PhD Student",
+      "photo": "images/pictures/vincenzo_spadari.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [
+        "vincenzo.spadari@unina.it"
+      ],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=Av9C3JcAAAAJ"
+    },
+    {
+      "name": "Donato D'Ambrosio",
+      "role": "PhD Student",
+      "photo": "images/pictures/donato_d_ambrosio.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [
+        "donato.dambrosio@unina.it"
+      ],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=S2MOgfIAAAAJ"
+    },
+    {
+      "name": "Gabriele Mangiacapre",
+      "role": "PhD Student",
+      "photo": "images/pictures/gabriele_mangiacapre.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [
+        "gabriele.mangiacapre@unina.it"
+      ],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=KHmw3P8AAAAJ"
+    }
+  ],
+  "alumni": [
+    {
+      "name": "Davide di Monda",
+      "role": "Postdoc",
+      "photo": "images/pictures/davide_di_monda.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=TovQSusAAAAJ"
+    },
+    {
+      "name": "Idio Guarino",
+      "role": "Assistant Professor (Non-Tenure Track) - Alma Mater Studiorum University of Bologna",
+      "photo": "images/pictures/idio_guarino.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=9-os59cAAAAJ"
+    },
+    {
+      "name": "Ciro Guida",
+      "role": "Postdoc - Now at Unversité Clermont Auvergne and Université de Strasbourg",
+      "photo": "images/pictures/ciro_guida.jpg",
+      "affiliation": "DIETI",
+      "phone": "",
+      "emails": [],
+      "homepage": "",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=o3Uh12MAAAAJ"
+    },
+    {
+      "name": "Walter de Donato",
+      "role": "PhD - Now at NM2 Srl",
+      "photo": "images/pictures/walter.png",
+      "affiliation": "DIETI · CINI (ITeM Lab)",
+      "phone": "+39 081 7683821",
+      "emails": [
+        "walter.dedonato@unina.it"
+      ],
+      "homepage": "http://wpage.unina.it/walter.dedonato",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=sG-6TMEAAAAJ"
+    },
+    {
+      "name": "Alberto Dainotti",
+      "role": "PhD - Now at Georgia Tech",
+      "photo": "images/pictures/alberto.jpg",
+      "affiliation": "",
+      "phone": "",
+      "emails": [],
+      "homepage": "http://wpage.unina.it/alberto",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=oZNdAREAAAAJ"
+    },
+    {
+      "name": "Pietro Marchetta",
+      "role": "Postdoc",
+      "photo": "images/pictures/pietro.jpg",
+      "affiliation": "",
+      "phone": "",
+      "emails": [],
+      "homepage": "http://wpage.unina.it/pietro.marchetta",
+      "scholar": "https://scholar.google.com/citations?hl=it&user=m_hP9eQAAAAJ"
+    }
+  ]
+}

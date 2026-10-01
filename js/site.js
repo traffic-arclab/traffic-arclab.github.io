@@ -192,6 +192,21 @@
     document.querySelectorAll('.pub-year[id]').forEach(section => spy.observe(section));
   }
 
+  // People: the whole card opens the person's homepage, or Scholar when there is none.
+  document.querySelectorAll('.person').forEach(card => {
+    const target = card.querySelector('.person-link:not([href=""])');
+    if (!target) return;
+    card.classList.add('is-linked');
+    card.addEventListener('click', event => {
+      if (event.target.closest('a') || String(window.getSelection())) return;
+      if (event.metaKey || event.ctrlKey) window.open(target.href, '_blank', 'noopener');
+      else window.location.href = target.href;
+    });
+    card.addEventListener('auxclick', event => {
+      if (event.button === 1 && !event.target.closest('a')) window.open(target.href, '_blank', 'noopener');
+    });
+  });
+
   // Animation is an enhancement; no content is hidden while waiting for scroll.
   if ('IntersectionObserver' in window && !reducedMotion.matches) {
     const candidates = document.querySelectorAll('.section-head, .area, .highlights .card, .latest-pubs > li, .person, .collab, .news-year');

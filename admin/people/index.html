@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>People editor · Traffic</title>
+<!--
+  Editor for the People page (data/people.json).
+
+  - Locally, served by scripts/people_admin.py (http://localhost:8765): saving
+    writes the files and rebuilds people.html on this computer.
+  - Online, at /admin/people/ on GitHub Pages: saving commits data/people.json
+    and the new photos to the repository through the GitHub API, using a
+    personal access token of someone with write access to the repository.
+    The "Build People page" workflow then regenerates people.html.
+-->
+<style>
+  :root {
+    --bg: #f4f6f9; --surface: #fff; --ink: #1b2531; --muted: #5f6d7c; --line: #dce3eb;
+    --title: #0b2545; --accent: #1b5b93; --accent-soft: #eaf2fa; --gold: #a5842c;
+    --danger: #a3261b;
+    --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+    font-family: var(--sans); color: var(--ink); background: var(--bg);
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--bg); }
+  header { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px;
+    padding: 14px 24px; background: var(--title); color: #fff; }
+  header h1 { margin: 0 auto 0 0; font: 600 1.25rem var(--serif); }
+  header h1 span { color: #d9c28a; }
+  .status { font-size: .9rem; color: #cfd9e4; }
+  .status.dirty { color: #ffd98a; }
+  .status.error { color: #ffb4a8; }
+  .status a { color: inherit; }
+  button, .btn { font: 600 .9rem/1.2 var(--sans); padding: 8px 14px; border-radius: 6px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; display: inline-block; }
+  button:hover, .btn:hover { border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  button.primary { background: var(--gold); border-color: var(--gold); color: #fff; }
+  header .btn, header button.plain { background: transparent; color: #fff; border-color: rgba(255,255,255,.35); }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 440px); gap: 24px; padding: 24px; max-width: 1400px; margin: 0 auto; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } aside { position: static !important; } }
+  h2 { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 10px; color: var(--title); font: 600 1.15rem var(--serif); }
+  .group { margin-bottom: 28px; }
+  .list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .row { display: flex; align-items: center; gap: 12px; padding: 8px 10px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 8px; cursor: pointer; }
+  .row:hover { border-color: var(--accent); }
+  .row.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+  .row img { width: 40px; height: 48px; object-fit: cover; object-position: center top; border-radius: 4px; background: var(--bg); flex: none; }
+  .row .who { flex: 1; min-width: 0; }
+  .row .who strong { display: block; color: var(--title); }
+  .row .who small { color: var(--muted); }
+  .row .tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; }
+  .tag { font-size: .7rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+  .tag.missing { background: #fbefe2; color: #8a5a12; }
+  .row .tools { display: flex; gap: 4px; }
+  .row .tools button { padding: 4px 8px; font-size: .8rem; }
+  .empty { padding: 14px; color: var(--muted); border: 1px dashed var(--line); border-radius: 8px; text-align: center; }
+  aside, .panel { padding: 20px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--title); border-radius: 8px; }
+  aside { position: sticky; top: 76px; align-self: start; }
+  aside h2 { margin-bottom: 16px; }
+  label { display: block; margin-bottom: 12px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  label small { text-transform: none; letter-spacing: 0; font-weight: 400; }
+  label.check { display: flex; gap: 8px; align-items: center; text-transform: none; letter-spacing: 0; font-size: .9rem; font-weight: 400; color: var(--ink); }
+  label.check input { width: auto; margin: 0; }
+  input, textarea { display: block; width: 100%; margin-top: 4px; padding: 8px 10px; font: 400 .95rem var(--sans); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 6px; background: #fff; text-transform: none; letter-spacing: 0; }
+  input:focus, textarea:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  input:invalid { border-color: var(--danger); }
+  textarea { min-height: 58px; resize: vertical; }
+  .inline { display: flex; gap: 8px; align-items: flex-end; }
+  .inline > :first-child { flex: 1; }
+  .inline a { margin-bottom: 12px; white-space: nowrap; }
+  .photo { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+  .drop { flex: 1; padding: 16px; border: 2px dashed var(--line); border-radius: 8px; text-align: center; color: var(--muted); font-size: .9rem; cursor: pointer; }
+  .drop.over { border-color: var(--accent); background: var(--accent-soft); }
+  .photo img { width: 100px; height: 120px; object-fit: cover; object-position: center top; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .actions .danger { color: var(--danger); margin-left: auto; }
+  .hint { margin: 0 0 14px; font-size: .9rem; line-height: 1.5; color: var(--muted); }
+  .hint code { font-size: .85em; background: var(--bg); padding: 1px 4px; border-radius: 3px; }
+  .login { max-width: 560px; margin: 48px auto; }
+  .login ol { margin: 0 0 16px; padding-left: 20px; font-size: .9rem; line-height: 1.6; color: var(--ink); }
+  .error-text { color: var(--danger); font-size: .9rem; min-height: 1.2em; margin: 8px 0 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>Traffic</span> · People editor</h1>
+  <span class="status" id="status">Loading…</span>
+  <span class="status" id="who" hidden></span>
+  <button class="plain" id="logout" hidden>Sign out</button>
+  <a class="btn" href="/people.html" target="_blank" rel="noopener">Open page ↗</a>
+  <button class="primary" id="save" disabled>Save</button>
+</header>
+
+<section class="login panel" id="login" hidden>
+  <h2>Sign in with GitHub</h2>
+  <p class="hint">Only people with write access to <strong>traffic-arclab/traffic-arclab.github.io</strong> can save. Use a GitHub personal access token:</p>
+  <ol>
+    <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Settings → Fine-grained tokens → Generate new token</a>.</li>
+    <li>Resource owner: <strong>traffic-arclab</strong>; Repository access: <strong>Only select repositories</strong> → this site's repository.</li>
+    <li>Repository permissions → <strong>Contents: Read and write</strong>. Pick an expiration date.</li>
+    <li>Generate, copy the token and paste it here.</li>
+  </ol>
+  <label>Token <input id="token" type="password" autocomplete="off" placeholder="github_pat_…"></label>
+  <label class="check"><input type="checkbox" id="remember"> Remember on this browser (otherwise it is forgotten when the tab closes)</label>
+  <p class="error-text" id="login-error"></p>
+  <button class="primary" id="signin">Sign in</button>
+</section>
+
+<main id="app" hidden>
+  <section>
+    <div class="group">
+      <h2>Head of the group</h2>
+      <ul class="list" id="principal"></ul>
+    </div>
+    <div class="group">
+      <h2>Members <button data-add="members">+ Add member</button></h2>
+      <ul class="list" id="members"></ul>
+    </div>
+    <div class="group">
+      <h2>Former members <button data-add="alumni">+ Add former member</button></h2>
+      <ul class="list" id="alumni"></ul>
+    </div>
+  </section>
+  <aside id="editor"></aside>
+</main>
+
+<template id="intro">
+  <h2>Select a person or add a new one</h2>
+  <p class="hint" id="intro-text"></p>
+</template>
+
+<template id="form">
+  <h2 id="form-title"></h2>
+  <div class="photo">
+    <img id="f-preview" alt="">
+    <div class="drop" id="f-drop" tabindex="0">Drop a photo here<br>or click to choose<br><small>cropped to a 5:6 portrait automatically</small></div>
+    <input type="file" id="f-file" accept="image/*" hidden>
+  </div>
+  <label>Name * <input id="f-name" required></label>
+  <label>Role <small>e.g. Associate Professor, Postdoc, PhD Student</small><input id="f-role"></label>
+  <label>Affiliation <input id="f-affiliation" placeholder="DIETI"></label>
+  <label>Phone <input id="f-phone" placeholder="+39 081 768 …"></label>
+  <label>Emails <small>one per line, shown as name[at]domain</small><textarea id="f-emails"></textarea></label>
+  <label>Homepage <small>the card opens this link</small><input id="f-homepage" type="url" placeholder="https://…"></label>
+  <div class="inline">
+    <label>Google Scholar <small>used by the card when there is no homepage</small><input id="f-scholar" type="url" placeholder="https://scholar.google.com/citations?user=…"></label>
+    <a class="btn" id="f-find" target="_blank" rel="noopener">Find ↗</a>
+  </div>
+  <div class="actions">
+    <button id="f-move"></button>
+    <button class="danger" id="f-delete">Delete</button>
+  </div>
+</template>
+
+<script>
+(() => {
+  const REPO = 'traffic-arclab/traffic-arclab.github.io';
+  const BRANCH = 'main';
+  const DATA_PATH = 'data/people.json';
+  const PHOTO_DIR = 'images/pictures';
+  const PLACEHOLDER = '/images/pictures/placeholder.svg';
+  const TOKEN_KEY = 'traffic-people-token';
+  const LABELS = { principal: 'Head of the group', members: 'Member', alumni: 'Former member' };
+  const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
+
+  const $ = id => document.getElementById(id);
+  let data = null, selected = null, dirty = false, backend = null;
+  let photos = new Set();            // file names already in images/pictures
+  const pending = new Map();         // 'images/pictures/x.jpg' -> JPEG data URL, sent on save
+
+  // ---------------------------------------------------------------- storage
+  const store = {
+    get() {
+      try { return sessionStorage.getItem(TOKEN_KEY) || localStorage.getItem(TOKEN_KEY); } catch (_) { return null; }
+    },
+    set(token, remember) {
+      try { (remember ? localStorage : sessionStorage).setItem(TOKEN_KEY, token); } catch (_) { /* kept in memory only */ }
+    },
+    clear() {
+      try { sessionStorage.removeItem(TOKEN_KEY); localStorage.removeItem(TOKEN_KEY); } catch (_) { /* nothing stored */ }
+    },
+  };
+
+  // ---------------------------------------------------------------- helpers
+  function serialize(value) {
+    return JSON.stringify(value, null, 2) + '\n';   // same layout as Python's json.dump(indent=2)
+  }
+
+  function decodeBase64(text) {
+    const bytes = Uint8Array.from(atob(text.replace(/\s/g, '')), c => c.charCodeAt(0));
+    return new TextDecoder().decode(bytes);
+  }
+
+  function cleanPerson(p) {
+    const out = {};
+    for (const key of ['name', 'role', 'photo', 'affiliation', 'phone', 'emails', 'homepage', 'scholar']) {
+      out[key] = key === 'emails'
+        ? (p.emails || []).map(e => e.trim()).filter(Boolean)
+        : String(p[key] || '').trim();
+    }
+    if (!out.name) throw new Error('Every person needs a name');
+    for (const key of ['homepage', 'scholar']) {
+      if (out[key] && !/^https?:\/\//.test(out[key])) throw new Error(`${out.name}: ${key} must start with http:// or https://`);
+    }
+    return out;
+  }
+
+  function cleanData() {
+    return {
+      principal: data.principal ? cleanPerson(data.principal) : null,
+      members: data.members.map(cleanPerson),
+      alumni: data.alumni.map(cleanPerson),
+    };
+  }
+
+  function slugify(name) {
+    return name.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'person';
+  }
+
+  function photoSrc(path) {
+    if (!path) return PLACEHOLDER;
+    return pending.get(path) || '/' + path;
+  }
+
+  // ---------------------------------------------------------------- backends
+  // Local: scripts/people_admin.py writes the files and rebuilds people.html.
+  const localBackend = {
+    async load() {
+      const [people, list] = await Promise.all([fetch('/api/people'), fetch('/api/photos')]);
+      return { data: await people.json(), photos: await list.json() };
+    },
+    async save(clean) {
+      const res = await fetch('/api/save', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: clean, photos: Object.fromEntries(pending) }),
+      });
+      const out = await res.json();
+      if (!out.ok) throw new Error(out.error);
+      return 'Saved · people.html rebuilt at ' + new Date().toLocaleTimeString();
+    },
+  };
+
+  // GitHub: one commit with data/people.json and the new photos; a workflow rebuilds people.html.
+  function githubBackend(token) {
+    let baseSha = null;   // blob sha of data/people.json when it was loaded
+
+    async function api(path, options = {}) {
+      const res = await fetch('https://api.github.com' + path, {
+        ...options,
+        headers: {
+          Accept: 'application/vnd.github+json',
+          Authorization: 'Bearer ' + token,
+          'X-GitHub-Api-Version': '2022-11-28',
+          ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+        },
+      });
+      const body = res.status === 204 ? null : await res.json().catch(() => null);
+      if (!res.ok) {
+        const error = new Error((body && body.message) || `GitHub API error ${res.status}`);
+        error.status = res.status;
+        throw error;
+      }
+      return body;
+    }
+
+    return {
+      async check() {
+        const repo = await api(`/repos/${REPO}`);
+        if (!repo.permissions || !repo.permissions.push) throw new Error('This token cannot write to the repository.');
+        const user = await api('/user').catch(() => null);
+        return user ? user.login : null;
+      },
+      async load() {
+        const [file, list] = await Promise.all([
+          api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`),
+          api(`/repos/${REPO}/contents/${PHOTO_DIR}?ref=${BRANCH}`),
+        ]);
+        baseSha = file.sha;
+        return { data: JSON.parse(decodeBase64(file.content)), photos: list.map(f => f.name) };
+      },
+      async save(clean) {
+        const ref = await api(`/repos/${REPO}/git/ref/heads/${BRANCH}`);
+        const head = await api(`/repos/${REPO}/git/commits/${ref.object.sha}`);
+        const current = await api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${ref.object.sha}`);
+        if (current.sha !== baseSha) {
+          throw new Error('Someone else changed the People data meanwhile. Reload the page (your unsaved edits will be lost) and redo them.');
+        }
+        const tree = [{ path: DATA_PATH, mode: '100644', type: 'blob', content: serialize(clean) }];
+        for (const [path, url] of pending) {
+          const blob = await api(`/repos/${REPO}/git/blobs`, {
+            method: 'POST', body: JSON.stringify({ content: url.split(',')[1], encoding: 'base64' }),
+          });
+          tree.push({ path, mode: '100644', type: 'blob', sha: blob.sha });
+        }
+        const newTree = await api(`/repos/${REPO}/git/trees`, {
+          method: 'POST', body: JSON.stringify({ base_tree: head.tree.sha, tree }),
+        });
+        const commit = await api(`/repos/${REPO}/git/commits`, {
+          method: 'POST', body: JSON.stringify({ message: 'Update People page', tree: newTree.sha, parents: [ref.object.sha] }),
+        });
+        await api(`/repos/${REPO}/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
+        const saved = await api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${commit.sha}`);
+        baseSha = saved.sha;
+        return 'Saved · the site updates in about 2 minutes ' +
+          `(<a href="https://github.com/${REPO}/actions" target="_blank" rel="noopener">progress</a>)`;
+      },
+    };
+  }
+
+  // ---------------------------------------------------------------- UI
+  function setStatus(html, kind = '') {
+    const el = $('status');
+    el.innerHTML = html;
+    el.className = 'status ' + kind;
+  }
+
+  function markDirty() {
+    dirty = true;
+    $('save').disabled = false;
+    setStatus('Unsaved changes', 'dirty');
+  }
+
+  function personAt(ref) {
+    return ref.group === 'principal' ? data.principal : data[ref.group][ref.index];
+  }
+
+  function showIntro() {
+    const editor = $('editor');
+    editor.innerHTML = '';
+    editor.appendChild($('intro').content.cloneNode(true));
+    $('intro-text').innerHTML = LOCAL
+      ? 'Changes stay here until you press <strong>Save</strong>, which updates <code>data/people.json</code> and rebuilds <code>people.html</code> on this computer. It does not commit or push.'
+      : 'Changes stay here until you press <strong>Save</strong>, which commits them to GitHub. The public page is rebuilt automatically and updates in about 2 minutes.';
+  }
+
+  function renderLists() {
+    for (const group of ['principal', 'members', 'alumni']) {
+      const list = $(group);
+      list.innerHTML = '';
+      const people = group === 'principal' ? (data.principal ? [data.principal] : []) : data[group];
+      if (!people.length) list.innerHTML = '<li class="empty">Nobody here yet</li>';
+      people.forEach((p, index) => {
+        const li = document.createElement('li');
+        li.className = 'row';
+        if (selected && selected.group === group && selected.index === index) li.classList.add('selected');
+        const tags = [];
+        if (!p.homepage) tags.push('<span class="tag missing">no homepage</span>');
+        tags.push(p.scholar ? '<span class="tag">Scholar</span>' : '<span class="tag missing">no Scholar</span>');
+        li.innerHTML = `<img alt=""><div class="who"><strong></strong><small></small></div><div class="tags">${tags.join('')}</div>` +
+          (group === 'principal' ? '' : '<div class="tools"><button data-dir="-1" title="Move up">↑</button><button data-dir="1" title="Move down">↓</button></div>');
+        li.querySelector('img').src = photoSrc(p.photo);
+        li.querySelector('strong').textContent = p.name || '(no name)';
+        li.querySelector('small').textContent = p.role || '';
+        li.addEventListener('click', event => {
+          const dir = event.target.dataset.dir;
+          if (!dir) { select({ group, index }); return; }
+          event.stopPropagation();
+          const to = index + Number(dir);
+          if (to < 0 || to >= data[group].length) return;
+          [data[group][index], data[group][to]] = [data[group][to], data[group][index]];
+          if (selected && selected.group === group && selected.index === index) selected.index = to;
+          markDirty();
+          renderLists();
+        });
+        list.appendChild(li);
+      });
+    }
+  }
+
+  function select(ref) {
+    selected = ref;
+    renderLists();
+    const person = personAt(ref);
+    const editor = $('editor');
+    editor.innerHTML = '';
+    editor.appendChild($('form').content.cloneNode(true));
+    $('form-title').textContent = person.name || 'New ' + LABELS[ref.group].toLowerCase();
+
+    const updateFind = () => {
+      $('f-find').href = 'https://scholar.google.com/citations?view_op=search_authors&mauthors=' + encodeURIComponent(person.name || '');
+    };
+    const bind = (field, toValue = v => v, fromValue = v => v || '') => {
+      const input = $('f-' + field);
+      input.value = fromValue(person[field]);
+      input.addEventListener('input', () => {
+        person[field] = toValue(input.value);
+        if (field === 'name') { $('form-title').textContent = input.value || 'New person'; updateFind(); }
+        markDirty();
+        renderLists();
+      });
+    };
+    ['name', 'role', 'affiliation', 'phone', 'homepage', 'scholar'].forEach(field => bind(field));
+    bind('emails', v => v.split(/[\n,;]+/).map(s => s.trim()).filter(Boolean), v => (v || []).join('\n'));
+    updateFind();
+
+    $('f-preview').src = photoSrc(person.photo);
+    const drop = $('f-drop'), file = $('f-file');
+    drop.addEventListener('click', () => file.click());
+    drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); file.click(); } });
+    drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) addPhoto(person, e.dataTransfer.files[0]); });
+    file.addEventListener('change', () => { if (file.files[0]) addPhoto(person, file.files[0]); });
+
+    const move = $('f-move');
+    if (ref.group === 'principal') {
+      move.remove();
+      $('f-delete').remove();
+    } else {
+      const other = ref.group === 'members' ? 'alumni' : 'members';
+      move.textContent = other === 'alumni' ? 'Move to former members' : 'Move back to members';
+      move.addEventListener('click', () => {
+        data[ref.group].splice(ref.index, 1);
+        data[other].unshift(person);
+        markDirty();
+        select({ group: other, index: 0 });
+      });
+      $('f-delete').addEventListener('click', () => {
+        if (!confirm(`Remove ${person.name || 'this person'} from the page? (The photo file is kept.)`)) return;
+        data[ref.group].splice(ref.index, 1);
+        selected = null;
+        markDirty();
+        renderLists();
+        showIntro();
+      });
+    }
+    if (!person.name) $('f-name').focus();
+  }
+
+  // Crop to a 5:6 portrait (keeping the top, where the face usually is) and resize to 600x720.
+  function addPhoto(person, file) {
+    if (!person.name.trim()) { alert('Enter the name first: it is used for the photo file name.'); return; }
+    const img = new Image();
+    img.onload = () => {
+      const W = 600, H = 720, ratio = W / H;
+      let sw = img.width, sh = img.height, sx = 0, sy = 0;
+      if (sw / sh > ratio) { sw = sh * ratio; sx = (img.width - sw) / 2; }
+      else { sh = sw / ratio; sy = (img.height - sh) * 0.2; }
+      const canvas = document.createElement('canvas');
+      canvas.width = W; canvas.height = H;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, H);
+      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, W, H);
+      URL.revokeObjectURL(img.src);
+
+      // Replacing a photo added in this session reuses its name; otherwise pick a free one.
+      let path = pending.has(person.photo) ? person.photo : null;
+      if (!path) {
+        const base = slugify(person.name);
+        let name = `${base}.jpg`, n = 2;
+        while (photos.has(name) || pending.has(`${PHOTO_DIR}/${name}`)) name = `${base}_${n++}.jpg`;
+        path = `${PHOTO_DIR}/${name}`;
+      }
+      pending.set(path, canvas.toDataURL('image/jpeg', 0.86));
+      person.photo = path;
+      $('f-preview').src = photoSrc(path);
+      markDirty();
+      renderLists();
+    };
+    img.onerror = () => setStatus('This file is not an image the browser can read', 'error');
+    img.src = URL.createObjectURL(file);
+  }
+
+  async function save() {
+    let clean;
+    try { clean = cleanData(); } catch (error) { setStatus(error.message, 'error'); return; }
+    // Only upload photos that are still used by someone.
+    const used = new Set([clean.principal, ...clean.members, ...clean.alumni].filter(Boolean).map(p => p.photo));
+    for (const path of [...pending.keys()]) if (!used.has(path)) pending.delete(path);
+    $('save').disabled = true;
+    setStatus('Saving…');
+    try {
+      const message = await backend.save(clean);
+      for (const path of pending.keys()) photos.add(path.split('/').pop());
+      pending.clear();
+      dirty = false;
+      setStatus(message);
+    } catch (error) {
+      $('save').disabled = false;
+      setStatus(error.message, 'error');
+    }
+  }
+
+  async function start() {
+    const loaded = await backend.load();
+    data = loaded.data;
+    data.members = data.members || [];
+    data.alumni = data.alumni || [];
+    photos = new Set(loaded.photos);
+    $('login').hidden = true;
+    $('app').hidden = false;
+    renderLists();
+    showIntro();
+    setStatus('All changes saved');
+  }
+
+  async function signIn(token, remember) {
+    const gh = githubBackend(token);
+    const login = await gh.check();
+    store.set(token, remember);
+    backend = gh;
+    $('who').textContent = login ? 'Signed in as ' + login : 'Signed in';
+    $('who').hidden = false;
+    $('logout').hidden = false;
+    await start();
+  }
+
+  function showLogin(message = '') {
+    $('app').hidden = true;
+    $('login').hidden = false;
+    $('login-error').textContent = message;
+    setStatus('Not signed in');
+    $('token').focus();
+  }
+
+  document.querySelectorAll('[data-add]').forEach(button => button.addEventListener('click', () => {
+    const group = button.dataset.add;
+    data[group].push({ name: '', role: '', photo: '', affiliation: 'DIETI', phone: '', emails: [], homepage: '', scholar: '' });
+    markDirty();
+    select({ group, index: data[group].length - 1 });
+  }));
+  $('save').addEventListener('click', save);
+  $('signin').addEventListener('click', async () => {
+    const token = $('token').value.trim();
+    if (!token) return;
+    $('signin').disabled = true;
+    $('login-error').textContent = '';
+    try { await signIn(token, $('remember').checked); }
+    catch (error) { $('login-error').textContent = error.status === 401 ? 'GitHub did not accept this token.' : error.message; }
+    $('signin').disabled = false;
+  });
+  $('token').addEventListener('keydown', e => { if (e.key === 'Enter') $('signin').click(); });
+  $('logout').addEventListener('click', () => {
+    if (dirty && !confirm('Discard the unsaved changes and sign out?')) return;
+    store.clear();
+    dirty = false;
+    location.reload();
+  });
+  window.addEventListener('beforeunload', event => { if (dirty) event.preventDefault(); });
+
+  if (LOCAL) {
+    backend = localBackend;
+    start().catch(() => setStatus('Start the editor with: python3 scripts/people_admin.py', 'error'));
+  } else {
+    const token = store.get();
+    if (token) signIn(token, false).catch(error => { store.clear(); showLogin(error.message); });
+    else showLogin();
+  }
+})();
+</script>
+</body>
+</html>
