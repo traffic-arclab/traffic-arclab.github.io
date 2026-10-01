@@ -6,7 +6,7 @@
   const nav = document.getElementById('primary-nav');
   const navToggle = document.querySelector('.nav-toggle');
   const dropdowns = [...document.querySelectorAll('.has-dropdown')];
-  const desktop = window.matchMedia('(min-width: 1181px)');
+  const desktop = window.matchMedia('(min-width: 1341px)');
   const hover = window.matchMedia('(hover: hover) and (pointer: fine)');
   const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');

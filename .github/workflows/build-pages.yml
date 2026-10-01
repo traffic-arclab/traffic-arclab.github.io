@@ -9,13 +9,13 @@ on:
       - 'data/topics.json'
       - 'data/collaborations.json'
       - 'data/datasets.json'
-      - 'data/community.json'
+      - 'data/workshops.json'
       - 'scripts/build_people.py'
       - 'scripts/build_news.py'
       - 'scripts/build_topics.py'
       - 'scripts/build_collaborations.py'
       - 'scripts/build_datasets.py'
-      - 'scripts/build_community.py'
+      - 'scripts/build_workshops.py'
   workflow_dispatch:       # "Run workflow" button in the Actions tab
 
 permissions:
@@ -43,7 +43,7 @@ jobs:
           python scripts/build_topics.py
           python scripts/build_collaborations.py
           python scripts/build_datasets.py
-          python scripts/build_community.py
+          python scripts/build_workshops.py
           python scripts/build_topics.py
 
       - name: Commit changes
