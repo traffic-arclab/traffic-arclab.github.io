@@ -11,20 +11,20 @@
   ],
   "past": [
     {
-      "name": "Cedric Westphal",
-      "type": "company",
-      "link": "http://www.docomolabsresearchers-usa.com/~cwestphal/",
-      "organization": "DoCoMo USA Labs, Palo Alto, USA",
-      "topic": "Compression of monitoring data",
-      "logo": ""
-    },
-    {
       "name": "Roger Karrer",
       "type": "company",
       "link": "http://www.deutsche-telekom-laboratories.de/~karrer/",
       "organization": "Deutsche Telekom Laboratories, Berlin, Germany",
       "topic": "Analysis and performance evaluation of the MagNets WiFi backbone",
       "logo": "images/logos/deutsche_telekom_laboratories_berlin_germany.png"
+    },
+    {
+      "name": "Cedric Westphal",
+      "type": "academic",
+      "link": "http://www.docomolabsresearchers-usa.com/~cwestphal/",
+      "organization": "DoCoMo USA Labs, Palo Alto, USA",
+      "topic": "Compression of monitoring data",
+      "logo": ""
     },
     {
       "name": "Renato Lo Cigno",
