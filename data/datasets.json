@@ -1,5 +1,5 @@
 {
-  "form_endpoint": "",
+  "form_endpoint": "https://script.google.com/macros/s/AKfycbw3t3yV9i1piPSYFpxB9C4SweeucFJ79zU5z9xc9AbGtc77SMy-52r7QAv4oeHCsdx8Ow/exec",
   "intro": "MIRAGE is a reproducible architecture for mobile-app traffic capture and ground-truth creation. The human-generated datasets below have been collected by means of MIRAGE and are released openly to the research community.",
   "mailing_list": "https://groups.google.com/forum/#!forum/mirage-project",
   "contact": "antonio.montieri@unina.it",
