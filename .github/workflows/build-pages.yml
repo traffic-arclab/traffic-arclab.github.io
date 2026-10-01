@@ -16,6 +16,9 @@ on:
       - 'scripts/build_collaborations.py'
       - 'scripts/build_datasets.py'
       - 'scripts/build_workshops.py'
+      - 'scripts/stamp_assets.py'
+      - 'css/**'
+      - 'js/**'
   workflow_dispatch:       # "Run workflow" button in the Actions tab
 
 permissions:
@@ -44,6 +47,7 @@ jobs:
           python scripts/build_collaborations.py
           python scripts/build_datasets.py
           python scripts/build_workshops.py
+          python scripts/stamp_assets.py
           python scripts/build_topics.py
 
       - name: Commit changes

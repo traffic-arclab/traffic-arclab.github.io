@@ -72,7 +72,20 @@ Le collaborazioni sono divise in **Current** e **Past**.
 5. Con le frecce ↑ ↓ cambi l'ordine (le aziende restano comunque in cima); con **Move to past collaborations** sposti una collaborazione conclusa
    tra quelle passate (e con **Move back to current** la riporti tra le attuali). **Delete** la elimina.
 
-## 3e. Chi ha scaricato i dataset (scheda Downloads)
+## 3e. Workshop e special issue (scheda Workshops)
+
+Aggiorna la pagina **Workshops & Special Issues**. Le due liste sono mostrate sul sito dalla più recente.
+
+- **+ Add workshop**: anno, acronimo (es. *GenXNet'27*), titolo completo, conferenza con cui si tiene, date, luogo e
+  sito del workshop (una cartella del sito, es. `genxnet2027/`, oppure un indirizzo completo). In **Chairs** aggiungi
+  gli organizzatori con **+ Add chair**.
+- **+ Add special issue**: anno, tipo (*Special Issue*, *Special Section*…), rivista, titolo, guest editor e link
+  (es. *Call for papers*, *Editorial*).
+- Chi ha come affiliazione **University of Napoli Federico II** viene evidenziato come membro del gruppo
+  (il campo la suggerisce già); per gli esterni scrivi la loro università o azienda.
+- Clicca un elemento della lista per modificarlo; **Delete** lo elimina.
+
+## 3f. Chi ha scaricato i dataset (scheda Downloads)
 
 La scheda **Downloads** mostra l'elenco di chi ha compilato il form prima di scaricare un dataset MIRAGE:
 data, nome, organizzazione, nazionalità, email (se indicata) e dataset, dal più recente.

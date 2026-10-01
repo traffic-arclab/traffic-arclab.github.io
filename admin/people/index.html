@@ -28,6 +28,7 @@
   }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   body { margin: 0; background: var(--bg); }
   header { position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px;
     padding: 14px 24px; background: var(--title); color: #fff; }
@@ -115,6 +116,7 @@
   .topic-row .who small { display: block; }
   .tool-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto; gap: 6px; margin-bottom: 6px; }
   .tool-row input { margin-top: 0; }
+  .person-row { padding: 8px; margin-bottom: 8px; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfd; }
   .tool-row button { padding: 4px 9px; }
   .logo-box img { width: 140px; height: 70px; object-fit: contain; object-position: center; background: #fff; }
   #downloads-app { display: block; }
@@ -137,6 +139,9 @@
   .dl-table td.name { color: var(--title); font-weight: 600; }
   .dl-table .ds { display: inline-block; padding: 2px 7px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); font-size: .78rem; font-weight: 700; white-space: nowrap; }
   .dl-note { padding: 8px 12px; border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; background: #fbf6ea; color: var(--ink); }
+  .dl-table td.actions { width: 1%; padding-block: 5px; text-align: right; vertical-align: middle; }
+  .dl-delete { width: 28px; height: 28px; padding: 0; border-radius: 999px; color: var(--muted); font-size: 1rem; line-height: 1; }
+  .dl-delete:hover { border-color: var(--danger); color: var(--danger); background: #fdf0ee; }
   .dl-message { padding: 24px; color: var(--muted); text-align: center; }
   .dl-token { max-width: 520px; }
   .fieldset-title { margin: 6px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
@@ -150,6 +155,7 @@
     <button class="tab" role="tab" data-tab="news" aria-selected="false">News</button>
     <button class="tab" role="tab" data-tab="topics" aria-selected="false">Topics</button>
     <button class="tab" role="tab" data-tab="collabs" aria-selected="false">Collaborations</button>
+    <button class="tab" role="tab" data-tab="workshops" aria-selected="false">Workshops</button>
     <button class="tab" role="tab" data-tab="downloads" aria-selected="false">Downloads</button>
   </nav>
   <span class="status" id="status">Loading…</span>
@@ -271,6 +277,20 @@
   </div>
 </template>
 
+<main id="workshops-app" hidden>
+  <section>
+    <div class="group">
+      <h2>Workshops <button data-add-event="workshops">+ Add workshop</button></h2>
+      <ul class="list" id="events-workshops"></ul>
+    </div>
+    <div class="group">
+      <h2>Special issues <button data-add-event="special_issues">+ Add special issue</button></h2>
+      <ul class="list" id="events-special_issues"></ul>
+    </div>
+  </section>
+  <aside id="events-editor"></aside>
+</main>
+
 <main id="downloads-app" hidden>
   <section>
     <h2>Dataset downloads</h2>
@@ -289,6 +309,45 @@
     <div class="dl-table-wrap"><div class="dl-message" id="dl-message">Loading…</div><table class="dl-table" id="dl-table" hidden></table></div>
   </section>
 </main>
+
+<template id="workshop-form">
+  <h2 id="w-heading">Workshop</h2>
+  <div class="two">
+    <label>Year * <input id="w-year" type="number" min="1990" max="2100" required></label>
+    <label>Acronym * <small>e.g. GenXNet'26</small><input id="w-acronym" required></label>
+  </div>
+  <label>Full title * <input id="w-title" required placeholder="International Workshop on …"></label>
+  <label>Held with <small>conference</small><input id="w-conference" placeholder="IEEE WiMob 2026"></label>
+  <div class="two">
+    <label>Dates <input id="w-dates" placeholder="14–16 October 2026"></label>
+    <label>Place <input id="w-place" placeholder="Avignon, France"></label>
+  </div>
+  <label>Website <small>a folder of this site (e.g. genxnet2026/) or a full address</small><input id="w-link" placeholder="genxnet2026/ or https://…"></label>
+  <p class="fieldset-title">Chairs <small style="text-transform:none;letter-spacing:0;font-weight:400">group members are highlighted on the page</small></p>
+  <div id="w-people"></div>
+  <button type="button" id="w-add-person" style="margin-bottom:14px">+ Add chair</button>
+  <div class="actions"><button class="danger" id="w-delete">Delete workshop</button></div>
+</template>
+
+<template id="issue-form">
+  <h2 id="i-heading">Special issue</h2>
+  <div class="two">
+    <label>Year * <input id="i-year" type="number" min="1990" max="2100" required></label>
+    <label>Type <input id="i-kind" list="issue-kinds" placeholder="Special Issue"></label>
+  </div>
+  <datalist id="issue-kinds"><option value="Special Issue"><option value="Special Section"><option value="Feature Topic"></datalist>
+  <label>Journal * <input id="i-journal" required placeholder="IEEE Access"></label>
+  <label>Title * <textarea id="i-title" rows="2" required></textarea></label>
+  <p class="fieldset-title">Guest editors</p>
+  <div id="i-people"></div>
+  <button type="button" id="i-add-person" style="margin-bottom:14px">+ Add guest editor</button>
+  <p class="fieldset-title">Links <small style="text-transform:none;letter-spacing:0;font-weight:400">e.g. Call for papers, Editorial, Issue</small></p>
+  <div id="i-links"></div>
+  <button type="button" id="i-add-link" style="margin-bottom:14px">+ Add link</button>
+  <div class="actions"><button class="danger" id="i-delete">Delete special issue</button></div>
+</template>
+
+<datalist id="group-affiliation"><option value="University of Napoli Federico II"></datalist>
 
 <template id="area-form">
   <h2>Area</h2>
@@ -342,6 +401,8 @@
   const NEWS_PATH = 'data/news.json';
   const TOPICS_PATH = 'data/topics.json';
   const COLLABS_PATH = 'data/collaborations.json';
+  const WORKSHOPS_PATH = 'data/workshops.json';
+  const GROUP = 'University of Napoli Federico II';
   const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];
   const PHOTO_DIR = 'images/pictures';
@@ -356,6 +417,7 @@
   let topics = { intro: '', areas: [] }, selectedTopic = null;   // selectedTopic: { area } or { area, topic }
   let collabs = { current: [], past: [] }, selectedCollab = null;
   let ghToken = null;                // GitHub token of the signed-in user (online)
+  let events = { workshops: [], special_issues: [] }, selectedEvent = null;
   let downloads = null;              // rows read from the Google Sheet
   let logos = new Set();             // file names already in images/logos
   const LOGO_DIR = 'images/logos';
@@ -467,6 +529,44 @@
     return { current: collabs.current.map(clean).sort(companiesFirst), past: collabs.past.map(clean).sort(companiesFirst) };
   }
 
+  function cleanEvents() {
+    const str = v => String(v ?? '').trim().replace(/\s+/g, ' ');
+    const person = (p, what) => {
+      const out = { name: str(p.name) };
+      if (!out.name) throw new Error(`${what}: every person needs a name`);
+      if (str(p.affiliation)) out.affiliation = str(p.affiliation);
+      if (str(p.role)) out.role = str(p.role);
+      return out;
+    };
+    const year = (y, what) => {
+      const n = Number(y);
+      if (!Number.isInteger(n) || n < 1990 || n > 2100) throw new Error(`${what}: the year is not valid`);
+      return n;
+    };
+    const byYear = (a, b) => b.year - a.year;
+    return {
+      intro: str(events.intro),
+      workshops: events.workshops.map(w => {
+        const name = str(w.acronym) || '(workshop without acronym)';
+        if (!str(w.acronym) || !str(w.title)) throw new Error(`${name}: acronym and full title are required`);
+        if (/\s/.test(str(w.link)) && !/^https?:/.test(str(w.link))) throw new Error(`${name}: the website must not contain spaces`);
+        return { acronym: str(w.acronym), year: year(w.year, name), title: str(w.title), conference: str(w.conference),
+          dates: str(w.dates), place: str(w.place), link: str(w.link),
+          chairs: (w.chairs || []).filter(p => str(p.name) || str(p.affiliation)).map(p => person(p, name)) };
+      }).sort(byYear),
+      special_issues: events.special_issues.map(i => {
+        const name = str(i.title).slice(0, 40) || '(special issue without title)';
+        if (!str(i.title) || !str(i.journal)) throw new Error(`${name}: title and journal are required`);
+        return { title: str(i.title), kind: str(i.kind) || 'Special Issue', journal: str(i.journal), year: year(i.year, name),
+          editors: (i.editors || []).filter(p => str(p.name) || str(p.affiliation)).map(p => person(p, name)),
+          links: (i.links || []).filter(l => str(l.url)).map(l => {
+            if (!/^https?:\/\//.test(str(l.url))) throw new Error(`${name}: links must start with http:// or https://`);
+            return { label: str(l.label) || 'Link', url: str(l.url) };
+          }) };
+      }).sort(byYear),
+    };
+  }
+
   // Same rules as scripts/build_news.py: [label](url) becomes a link, everything else is text.
   function renderNewsText(text) {
     const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -492,18 +592,19 @@
   // Local: scripts/people_admin.py writes the files and rebuilds people.html.
   const localBackend = {
     async load() {
-      const [people, list, newsFile, topicsFile, collabsFile, logosFile] = await Promise.all(
-        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations', '/api/logos'].map(url => fetch(url)));
+      const [people, list, newsFile, topicsFile, collabsFile, logosFile, workshopsFile] = await Promise.all(
+        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations', '/api/logos', '/api/workshops'].map(url => fetch(url)));
       return {
         data: await people.json(), photos: await list.json(), news: (await newsFile.json()).news,
         topics: await topicsFile.json(), collabs: await collabsFile.json(), logos: await logosFile.json(),
+        events: await workshopsFile.json(),
       };
     },
-    async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData) {
+    async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData) {
       const res = await fetch('/api/save', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          data: clean, news: cleanNewsData, topics: cleanTopicsData, collaborations: cleanCollabsData,
+          data: clean, news: cleanNewsData, topics: cleanTopicsData, collaborations: cleanCollabsData, workshops: cleanEventsData,
           photos: Object.fromEntries(pending),
         }),
       });
@@ -555,17 +656,19 @@
         return user ? user.login : null;
       },
       async load() {
-        const [file, list, newsFile, topicsFile, collabsFile] = await Promise.all([
+        const [file, list, newsFile, topicsFile, collabsFile, workshopsFile] = await Promise.all([
           api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${PHOTO_DIR}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${NEWS_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${TOPICS_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${COLLABS_PATH}?ref=${BRANCH}`),
+          api(`/repos/${REPO}/contents/${WORKSHOPS_PATH}?ref=${BRANCH}`),
         ]);
         baseSha[DATA_PATH] = file.sha;
         baseSha[NEWS_PATH] = newsFile.sha;
         baseSha[TOPICS_PATH] = topicsFile.sha;
         baseSha[COLLABS_PATH] = collabsFile.sha;
+        baseSha[WORKSHOPS_PATH] = workshopsFile.sha;
         const logoList = await api(`/repos/${REPO}/contents/${LOGO_DIR}?ref=${BRANCH}`).catch(() => []);
         return {
           data: JSON.parse(decodeBase64(file.content)),
@@ -573,13 +676,14 @@
           news: JSON.parse(decodeBase64(newsFile.content)).news,
           topics: JSON.parse(decodeBase64(topicsFile.content)),
           collabs: JSON.parse(decodeBase64(collabsFile.content)),
+          events: JSON.parse(decodeBase64(workshopsFile.content)),
           logos: Array.isArray(logoList) ? logoList.map(f => f.name) : [],
         };
       },
-      async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData) {
+      async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData) {
         const ref = await api(`/repos/${REPO}/git/ref/heads/${BRANCH}`);
         const head = await api(`/repos/${REPO}/git/commits/${ref.object.sha}`);
-        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH]) {
+        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH]) {
           const current = await api(`/repos/${REPO}/contents/${path}?ref=${ref.object.sha}`);
           if (current.sha !== baseSha[path]) {
             throw new Error('Someone else saved changes meanwhile. Reload the page (your unsaved edits will be lost) and redo them.');
@@ -590,6 +694,7 @@
           { path: NEWS_PATH, mode: '100644', type: 'blob', content: serialize(cleanNewsData) },
           { path: TOPICS_PATH, mode: '100644', type: 'blob', content: serialize(cleanTopicsData) },
           { path: COLLABS_PATH, mode: '100644', type: 'blob', content: serialize(cleanCollabsData) },
+          { path: WORKSHOPS_PATH, mode: '100644', type: 'blob', content: serialize(cleanEventsData) },
         ];
         for (const [path, url] of pending) {
           const blob = await api(`/repos/${REPO}/git/blobs`, {
@@ -604,7 +709,7 @@
           method: 'POST', body: JSON.stringify({ message: commitMessage(), tree: newTree.sha, parents: [ref.object.sha] }),
         });
         await api(`/repos/${REPO}/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
-        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH]) {
+        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH]) {
           baseSha[path] = (await api(`/repos/${REPO}/contents/${path}?ref=${commit.sha}`)).sha;
         }
         return 'Saved · the site updates in about 2 minutes ' +
@@ -621,7 +726,7 @@
   }
 
   function commitMessage() {
-    const names = { people: 'People', news: 'News', topics: 'Topics', collabs: 'Collaborations' };
+    const names = { people: 'People', news: 'News', topics: 'Topics', collabs: 'Collaborations', workshops: 'Workshops & Special Issues' };
     const parts = Object.keys(names).filter(k => changed.has(k)).map(k => names[k]);
     if (!parts.length) parts.push('People');
     return `Update ${parts.length > 1 ? parts.slice(0, -1).join(', ') + ' and ' + parts.at(-1) : parts[0]} ` +
@@ -885,6 +990,114 @@
     if (!topic.name) $('t-name').focus();
   }
 
+  // ---------------------------------------------------------------- workshops & special issues
+  function showEventsIntro() {
+    $('events-editor').innerHTML = '<h2>Select a workshop or a special issue</h2>' +
+      '<p class="hint">Both lists are shown newest first on the <strong>Workshops &amp; Special Issues</strong> page. ' +
+      'People with affiliation <em>University of Napoli Federico II</em> are highlighted as members of the group.</p>';
+  }
+
+  function renderEvents() {
+    for (const group of ['workshops', 'special_issues']) {
+      const list = $('events-' + group);
+      list.innerHTML = '';
+      const items = [...events[group]].sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+      if (!items.length) list.innerHTML = '<li class="empty">None yet</li>';
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'row' + (selectedEvent && selectedEvent.item === item ? ' selected' : '');
+        li.innerHTML = '<div class="who"><strong></strong><small></small></div><div class="tags"><span class="tag"></span></div>';
+        li.querySelector('strong').textContent = (group === 'workshops' ? item.acronym : item.title) || '(untitled)';
+        li.querySelector('small').textContent = group === 'workshops'
+          ? [item.conference, item.place].filter(Boolean).join(' · ')
+          : [item.kind, item.journal].filter(Boolean).join(' · ');
+        li.querySelector('.tag').textContent = item.year || '—';
+        li.addEventListener('click', () => selectEvent({ group, item }));
+        list.appendChild(li);
+      });
+    }
+  }
+
+  // Editable rows of people (name, affiliation, role) or links (label, url).
+  function rowsEditor(box, items, fields, onChange) {
+    const render = () => {
+      box.innerHTML = '';
+      items.forEach((entry, i) => {
+        const row = document.createElement('div');
+        row.className = 'tool-row';
+        // People: the name on its own line, affiliation and role below it.
+        const stacked = fields.length === 3;
+        row.style.gridTemplateColumns = stacked ? '1.4fr 1fr auto' : fields.map(f => f.width || '1fr').join(' ') + ' auto';
+        if (stacked) row.classList.add('person-row');
+        for (const f of fields) {
+          const input = document.createElement('input');
+          input.placeholder = f.placeholder;
+          input.value = entry[f.key] || '';
+          if (f.list) input.setAttribute('list', f.list);
+          input.addEventListener('input', () => { entry[f.key] = input.value; onChange(); });
+          if (stacked && f.key === 'name') input.style.gridColumn = '1 / 3';
+          row.appendChild(input);
+        }
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.title = 'Remove';
+        remove.textContent = '✕';
+        remove.addEventListener('click', () => { items.splice(i, 1); onChange(); render(); });
+        if (stacked) { remove.style.gridColumn = '3'; remove.style.gridRow = '1 / 3'; remove.style.alignSelf = 'center'; }
+        row.appendChild(remove);
+        box.appendChild(row);
+      });
+    };
+    render();
+    return () => { items.push({}); render(); box.lastElementChild.querySelector('input').focus(); };
+  }
+
+  function selectEvent(ref) {
+    selectedEvent = ref;
+    renderEvents();
+    const { group, item } = ref;
+    const editor = $('events-editor');
+    editor.innerHTML = '';
+    const changed = () => { markDirty('workshops'); renderEvents(); };
+    const bind = (id, key) => {
+      const input = $(id);
+      input.value = item[key] ?? '';
+      input.addEventListener('input', () => { item[key] = key === 'year' ? Number(input.value) : input.value; changed(); });
+    };
+    const people = [
+      { key: 'name', placeholder: 'Name' },
+      { key: 'affiliation', placeholder: 'Affiliation', list: 'group-affiliation', width: '1.3fr' },
+      { key: 'role', placeholder: 'Role (optional)', width: '.8fr' },
+    ];
+    if (group === 'workshops') {
+      editor.appendChild($('workshop-form').content.cloneNode(true));
+      ['year', 'acronym', 'title', 'conference', 'dates', 'place', 'link'].forEach(key => bind('w-' + key, key));
+      item.chairs = item.chairs || [];
+      $('w-add-person').addEventListener('click', rowsEditor($('w-people'), item.chairs, people, changed));
+      $('w-delete').addEventListener('click', () => removeEvent(group, item, item.acronym));
+      if (!item.acronym) $('w-acronym').focus();
+    } else {
+      editor.appendChild($('issue-form').content.cloneNode(true));
+      ['year', 'kind', 'journal', 'title'].forEach(key => bind('i-' + key, key));
+      item.editors = item.editors || [];
+      item.links = item.links || [];
+      $('i-add-person').addEventListener('click', rowsEditor($('i-people'), item.editors, people, changed));
+      $('i-add-link').addEventListener('click', rowsEditor($('i-links'), item.links,
+        [{ key: 'label', placeholder: 'Label, e.g. Editorial', width: '.7fr' }, { key: 'url', placeholder: 'https://…', width: '1.6fr' }], changed));
+      $('i-delete').addEventListener('click', () => removeEvent(group, item, item.title));
+      if (!item.title) $('i-journal').focus();
+    }
+  }
+
+  function removeEvent(group, item, name) {
+    if (!confirm(`Delete "${name || 'this item'}"?`)) return;
+    events[group].splice(events[group].indexOf(item), 1);
+    selectedEvent = null;
+    markDirty('workshops');
+    renderEvents();
+    showEventsIntro();
+  }
+
   // ---------------------------------------------------------------- downloads
   const dlMessage = text => { $('dl-message').textContent = text; $('dl-message').hidden = false; $('dl-table').hidden = true; };
 
@@ -955,7 +1168,7 @@
     $('dl-pdf').disabled = !rows.length;
     if (!rows.length) { dlMessage(downloads.length ? 'No downloads match the filters.' : 'No downloads yet.'); return; }
     const table = $('dl-table');
-    table.innerHTML = '<thead><tr><th>Date</th><th>Name</th><th>Organization</th><th>Nationality</th><th>Email</th><th>Dataset</th></tr></thead>';
+    table.innerHTML = '<thead><tr><th>Date</th><th>Name</th><th>Organization</th><th>Nationality</th><th>Email</th><th>Dataset</th><th><span class="visually-hidden">Delete</span></th></tr></thead>';
     const body = document.createElement('tbody');
     rows.forEach(r => {
       const tr = document.createElement('tr');
@@ -966,11 +1179,44 @@
       td.innerHTML = '<span class="ds"></span>';
       td.firstChild.textContent = r.dataset;
       tr.appendChild(td);
+      const del = document.createElement('td');
+      del.className = 'actions';
+      if (r.row) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'dl-delete';
+        button.textContent = '✕';
+        button.title = 'Delete this download';
+        button.setAttribute('aria-label', `Delete the download of ${r.first_name} ${r.last_name}`);
+        button.addEventListener('click', () => deleteDownload(r, button));
+        del.appendChild(button);
+      }
+      tr.appendChild(del);
       body.appendChild(tr);
     });
     table.appendChild(body);
     table.hidden = false;
     $('dl-message').hidden = true;
+  }
+
+  async function deleteDownload(r, button) {
+    const who = `${r.first_name} ${r.last_name}`.trim();
+    if (!confirm(`Delete the download of ${who} (${r.dataset}, ${formatDate(r.date)})?\nThe row is removed from the Google Sheet.`)) return;
+    button.disabled = true;
+    try {
+      const config = await (await fetch('/data/datasets.json', { cache: 'no-store' })).json();
+      const res = await fetch(config.form_endpoint, {
+        method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'delete', token: ghToken || $('dl-token-input').value.trim(),
+          row: r.row, date: r.date, dataset: r.dataset, first_name: r.first_name, last_name: r.last_name }),
+      });
+      const out = await res.json().catch(() => ({ ok: false, error: 'Update the Google Apps Script to the latest version (see scripts/google-apps-script/dataset-downloads.gs).' }));
+      if (!out.ok) { alert(out.error || 'The download could not be deleted.'); button.disabled = false; return; }
+      await loadDownloads();   // row numbers shift after a deletion: read the list again
+    } catch (error) {
+      alert('The download could not be deleted: ' + error.message);
+      button.disabled = false;
+    }
   }
 
   function loadScript(src) {
@@ -1170,8 +1416,11 @@
   }
 
   async function save() {
-    let clean, cleanNewsData, cleanTopicsData, cleanCollabsData;
-    try { clean = cleanData(); cleanNewsData = cleanNews(); cleanTopicsData = cleanTopics(); cleanCollabsData = cleanCollabs(); }
+    let clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData;
+    try {
+      clean = cleanData(); cleanNewsData = cleanNews(); cleanTopicsData = cleanTopics();
+      cleanCollabsData = cleanCollabs(); cleanEventsData = cleanEvents();
+    }
     catch (error) { setStatus(error.message, 'error'); return; }
     // Only upload photos and logos that are still used by someone.
     const used = new Set([
@@ -1182,7 +1431,7 @@
     $('save').disabled = true;
     setStatus('Saving…');
     try {
-      const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData);
+      const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData);
       for (const path of pending.keys()) (path.startsWith(LOGO_DIR) ? logos : photos).add(path.split('/').pop());
       pending.clear();
       changed.clear();
@@ -1207,6 +1456,9 @@
     collabs.current = collabs.current || [];
     collabs.past = collabs.past || [];
     logos = new Set(loaded.logos || []);
+    events = loaded.events || {};
+    events.workshops = events.workshops || [];
+    events.special_issues = events.special_issues || [];
     $('login').hidden = true;
     $('tabs').hidden = false;
     renderLists();
@@ -1216,7 +1468,9 @@
     setupTopics();
     renderCollabs();
     showCollabsIntro();
-    showTab(['#news', '#topics', '#collabs', '#downloads'].includes(location.hash) ? location.hash.slice(1) : 'people');
+    renderEvents();
+    showEventsIntro();
+    showTab(['#news', '#topics', '#collabs', '#workshops', '#downloads'].includes(location.hash) ? location.hash.slice(1) : 'people');
     setStatus('All changes saved');
   }
 
@@ -1227,10 +1481,11 @@
     $('topics-app').hidden = tab !== 'topics';
     $('collabs-app').hidden = tab !== 'collabs';
     $('downloads-app').hidden = tab !== 'downloads';
+    $('workshops-app').hidden = tab !== 'workshops';
     $('save').hidden = tab === 'downloads';
     if (tab === 'downloads' && downloads === null) loadDownloads();
     document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.tab === tab)));
-    $('open-page').href = { people: '/people.html', news: '/news.html', topics: '/index.html#topics', collabs: '/collaborations.html', downloads: '/datasets/' }[tab];
+    $('open-page').href = { people: '/people.html', news: '/news.html', topics: '/index.html#topics', collabs: '/collaborations.html', workshops: '/workshops.html', downloads: '/datasets/' }[tab];
     history.replaceState(null, '', tab === 'people' ? location.pathname : '#' + tab);
   }
 
@@ -1323,6 +1578,7 @@
     $('topics-app').hidden = true;
     $('collabs-app').hidden = true;
     $('downloads-app').hidden = true;
+    $('workshops-app').hidden = true;
     $('login').hidden = false;
     $('login-error').textContent = message;
     setStatus('Not signed in');
@@ -1337,6 +1593,16 @@
   }));
   $('save').addEventListener('click', save);
   document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
+  document.querySelectorAll('[data-add-event]').forEach(button => button.addEventListener('click', () => {
+    const group = button.dataset.addEvent;
+    const year = new Date().getFullYear();
+    const item = group === 'workshops'
+      ? { acronym: '', year, title: '', conference: '', dates: '', place: '', link: '', chairs: [{ name: '', affiliation: GROUP }] }
+      : { title: '', kind: 'Special Issue', journal: '', year, editors: [{ name: '', affiliation: GROUP }], links: [] };
+    events[group].push(item);
+    markDirty('workshops');
+    selectEvent({ group, item });
+  }));
   $('dl-refresh').addEventListener('click', loadDownloads);
   $('dl-pdf').addEventListener('click', downloadPdf);
   $('dl-dataset').addEventListener('change', renderDownloads);

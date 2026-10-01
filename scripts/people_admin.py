@@ -28,6 +28,8 @@ import build_collaborations  # noqa: E402
 import build_news  # noqa: E402
 import build_people  # noqa: E402
 import build_topics  # noqa: E402
+import build_workshops  # noqa: E402
+import stamp_assets  # noqa: E402
 
 ROOT = build_people.ROOT
 PHOTOS = os.path.join(ROOT, 'images', 'pictures')
@@ -116,6 +118,52 @@ def clean_collaborations(raw):
     return groups
 
 
+def clean_workshops(raw):
+    def text(value):
+        return ' '.join(str(value if value is not None else '').split())
+
+    def year(value, what):
+        if not isinstance(value, int) or not 1990 <= value <= 2100:
+            raise ValueError(f'{what}: the year is not valid')
+        return value
+
+    def people(items, what):
+        out = []
+        for p in items or []:
+            entry = {'name': text(p.get('name'))}
+            if not entry['name']:
+                raise ValueError(f'{what}: every person needs a name')
+            for key in ('affiliation', 'role'):
+                if text(p.get(key)):
+                    entry[key] = text(p.get(key))
+            out.append(entry)
+        return out
+
+    workshops = []
+    for w in raw.get('workshops') or []:
+        name = text(w.get('acronym')) or '(workshop)'
+        if not text(w.get('acronym')) or not text(w.get('title')):
+            raise ValueError(f'{name}: acronym and full title are required')
+        workshops.append({'acronym': text(w['acronym']), 'year': year(w.get('year'), name), 'title': text(w['title']),
+                          'conference': text(w.get('conference')), 'dates': text(w.get('dates')), 'place': text(w.get('place')),
+                          'link': text(w.get('link')), 'chairs': people(w.get('chairs'), name)})
+    issues = []
+    for i in raw.get('special_issues') or []:
+        name = text(i.get('title'))[:40] or '(special issue)'
+        if not text(i.get('title')) or not text(i.get('journal')):
+            raise ValueError(f'{name}: title and journal are required')
+        links = []
+        for link in i.get('links') or []:
+            if not re.match(r'https?://', text(link.get('url'))):
+                raise ValueError(f'{name}: links must start with http:// or https://')
+            links.append({'label': text(link.get('label')) or 'Link', 'url': text(link.get('url'))})
+        issues.append({'title': text(i['title']), 'kind': text(i.get('kind')) or 'Special Issue', 'journal': text(i['journal']),
+                       'year': year(i.get('year'), name), 'editors': people(i.get('editors'), name), 'links': links})
+    return {'intro': text(raw.get('intro')),
+            'workshops': sorted(workshops, key=lambda w: -w['year']),
+            'special_issues': sorted(issues, key=lambda i: -i['year'])}
+
+
 def write_json(path, data):
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -160,6 +208,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         elif self.path == '/api/collaborations':
             with open(build_collaborations.DATA, encoding='utf-8') as f:
                 self.send_json(200, json.load(f))
+        elif self.path == '/api/workshops':
+            with open(build_workshops.DATA, encoding='utf-8') as f:
+                self.send_json(200, json.load(f))
         elif self.path == '/api/photos':
             self.send_json(200, sorted(os.listdir(PHOTOS)))
         elif self.path == '/api/logos':
@@ -179,6 +230,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             topics = clean_topics(payload['topics']) if payload.get('topics') is not None else None
             collaborations = (clean_collaborations(payload['collaborations'])
                               if payload.get('collaborations') is not None else None)
+            workshops = clean_workshops(payload['workshops']) if payload.get('workshops') is not None else None
             # Uploads: people photos (JPEG) and collaboration logos (PNG).
             kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png')}
             files = {}
@@ -205,6 +257,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if collaborations is not None:
                 write_json(build_collaborations.DATA, collaborations)
                 build_collaborations.build()
+            if workshops is not None:
+                write_json(build_workshops.DATA, workshops)
+                build_workshops.build()
+            stamp_assets.stamp()   # generated pages get the current CSS/JS versions
             self.send_json(200, {'ok': True})
         except (ValueError, KeyError, TypeError) as error:
             self.send_json(400, {'ok': False, 'error': str(error)})

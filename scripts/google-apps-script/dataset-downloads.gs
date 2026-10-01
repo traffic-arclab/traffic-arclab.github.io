@@ -3,8 +3,9 @@
  * row per download to the "Downloads" sheet of the spreadsheet it is attached to.
  *
  * It also returns the list of downloads to the site editor (admin/people/, tab
- * "Downloads"), but only to whoever sends a GitHub token with write access to the
- * site repository: the same token used to sign in to the editor.
+ * "Downloads") and deletes single rows from it, but only for whoever sends a
+ * GitHub token with write access to the site repository: the same token used
+ * to sign in to the editor.
  *
  * Setup (once):
  *  1. Create a Google Sheet (e.g. "MIRAGE downloads") with the group's Google account.
@@ -25,6 +26,7 @@ const COLUMNS = ['Date', 'Dataset', 'First name', 'Last name', 'Organization', '
 function doPost(e) {
   const data = JSON.parse(e.postData.contents);
   if (data.action === 'list') return listDownloads(data.token);
+  if (data.action === 'delete') return deleteDownload(data);
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
@@ -78,10 +80,34 @@ function listDownloads(token) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
   if (!sheet || sheet.getLastRow() < 2) return json({ ok: true, rows: [] });
   const values = sheet.getRange(2, 1, sheet.getLastRow() - 1, COLUMNS.length).getValues();
-  const rows = values.map(r => ({
+  const rows = values.map((r, i) => ({
+    row: i + 2,   // sheet row number, used to delete it
     date: r[0] instanceof Date ? r[0].toISOString() : String(r[0]),
     dataset: r[1], first_name: r[2], last_name: r[3], organization: r[4],
     nationality: r[5], email: r[6], file: r[7], page: r[8],
   }));
   return json({ ok: true, rows: rows });
+}
+
+/** Deletes one download, only if the sheet row still holds the same person and dataset. */
+function deleteDownload(data) {
+  if (!canRead(data.token)) return json({ ok: false, error: 'This GitHub account cannot change the download list.' });
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    const row = Number(data.row);
+    if (!sheet || !Number.isInteger(row) || row < 2 || row > sheet.getLastRow()) {
+      return json({ ok: false, error: 'This download is no longer in the list. Refresh and try again.' });
+    }
+    const r = sheet.getRange(row, 1, 1, COLUMNS.length).getValues()[0];
+    const date = r[0] instanceof Date ? r[0].toISOString() : String(r[0]);
+    const same = date === data.date && String(r[1]) === String(data.dataset) &&
+      String(r[2]) === String(data.first_name) && String(r[3]) === String(data.last_name);
+    if (!same) return json({ ok: false, error: 'The list changed meanwhile. Refresh and try again.' });
+    sheet.deleteRow(row);
+    return json({ ok: true });
+  } finally {
+    lock.releaseLock();
+  }
 }

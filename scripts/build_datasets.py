@@ -58,8 +58,8 @@ def frame(title, description, main):
                   f'<meta name="description" content="{esc(description)}">', page, count=1)
     page = page.replace(' aria-current="page"', '')
     page = page.replace('class="nav-link">Datasets</a>', 'class="nav-link" aria-current="page">Datasets</a>')
-    page = page.replace(f'<script src="{PREFIX}js/site.js" defer></script>',
-                        f'<script src="{PREFIX}js/site.js" defer></script>\n  <script src="{PREFIX}js/datasets.js" defer></script>')
+    page = re.sub(r'(<script src="\.\./js/site\.js(?:\?v=[0-9a-f]*)?" defer></script>)',
+                  lambda m: m.group(1) + f'\n  <script src="{PREFIX}js/datasets.js" defer></script>', page, count=1)
     return page
 
 
