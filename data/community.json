@@ -1,0 +1,165 @@
+{
+  "intro": "Workshops we organize and special issues we edit for the networking research community.",
+  "workshops": [
+    {
+      "acronym": "GenXNet'26",
+      "year": 2026,
+      "title": "International Workshop on Generative and eXplainable Artificial Intelligence for Networking",
+      "conference": "IEEE WiMob 2026",
+      "dates": "14–16 October 2026",
+      "place": "Avignon, France",
+      "link": "genxnet2026/",
+      "chairs": [
+        {
+          "name": "Antonio Pescapè",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Alfredo Nascita",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Francesco Cerasuolo",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Anca Delia Jurcut",
+          "affiliation": "University College Dublin"
+        }
+      ]
+    },
+    {
+      "acronym": "GenXNet'25",
+      "year": 2025,
+      "title": "International Workshop on Generative and eXplainable Artificial Intelligence for Networking",
+      "conference": "IEEE WiMob 2025",
+      "dates": "20–22 October 2025",
+      "place": "Marrakech, Morocco",
+      "link": "genxnet2025/",
+      "chairs": [
+        {
+          "name": "Antonio Pescapè",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Giampaolo Bovenzi",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Alfredo Nascita",
+          "affiliation": "University of Napoli Federico II"
+        }
+      ]
+    },
+    {
+      "acronym": "AI-DCS 2024",
+      "year": 2024,
+      "title": "International Workshop on Generative, Incremental, Adversarial, Explainable AI/ML in Distributed Computing Systems",
+      "conference": "IEEE ICDCS 2024",
+      "dates": "23–26 July 2024",
+      "place": "Jersey City, New Jersey, USA",
+      "link": "aidcs2024/",
+      "chairs": [
+        {
+          "name": "Yuval Shavitt",
+          "affiliation": "Tel-Aviv University"
+        },
+        {
+          "name": "Antonio Pescapè",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Tal Shapira",
+          "affiliation": "The Hebrew University of Jerusalem"
+        },
+        {
+          "name": "Antonio Montieri",
+          "affiliation": "University of Napoli Federico II"
+        }
+      ]
+    },
+    {
+      "acronym": "IWNTA 2021",
+      "year": 2021,
+      "title": "International Workshop on Network Traffic Analytics",
+      "conference": "MobiSPC 2021",
+      "dates": "9–12 August 2021",
+      "place": "Leuven, Belgium",
+      "link": "IWNTA2021/",
+      "chairs": [
+        {
+          "name": "Domenico Ciuonzo",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Antonio Montieri",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Valerio Persico",
+          "affiliation": "University of Napoli Federico II"
+        }
+      ]
+    },
+    {
+      "acronym": "ICT4I40 2018",
+      "year": 2018,
+      "title": "Workshop on Information and Communication Technologies for Industry 4.0",
+      "conference": "IEEE ISCC 2018",
+      "dates": "25–28 June 2018",
+      "place": "Natal, Brazil",
+      "link": "ICT4I40ws/",
+      "chairs": [
+        {
+          "name": "Antonio Pescapè",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Joel J. P. C. Rodrigues",
+          "affiliation": "Inatel, Brazil"
+        },
+        {
+          "name": "Augusto José Venâncio Neto",
+          "affiliation": "Federal University of Rio Grande do Norte"
+        },
+        {
+          "name": "Valerio Persico",
+          "affiliation": "University of Napoli Federico II",
+          "role": "Program Chair"
+        }
+      ]
+    }
+  ],
+  "special_issues": [
+    {
+      "title": "The New Era of Smart Cities: Sensors, Communication Technologies, and Applications",
+      "kind": "Special Section",
+      "journal": "IEEE Access",
+      "year": 2017,
+      "editors": [
+        {
+          "name": "M. K. Afzal"
+        },
+        {
+          "name": "M. H. Rehmani"
+        },
+        {
+          "name": "Antonio Pescapè",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "S. W. Kim"
+        },
+        {
+          "name": "W. Ejaz"
+        }
+      ],
+      "links": [
+        {
+          "label": "Editorial",
+          "url": "https://doi.org/10.1109/access.2017.2783079"
+        }
+      ]
+    }
+  ]
+}

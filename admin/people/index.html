@@ -136,6 +136,7 @@
   .dl-table td.date { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
   .dl-table td.name { color: var(--title); font-weight: 600; }
   .dl-table .ds { display: inline-block; padding: 2px 7px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); font-size: .78rem; font-weight: 700; white-space: nowrap; }
+  .dl-note { padding: 8px 12px; border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; background: #fbf6ea; color: var(--ink); }
   .dl-message { padding: 24px; color: var(--muted); text-align: center; }
   .dl-token { max-width: 520px; }
   .fieldset-title { margin: 6px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
@@ -274,6 +275,7 @@
   <section>
     <h2>Dataset downloads</h2>
     <p class="hint">Everyone who filled in the form before downloading a dataset, newest first. The list comes from the Google Sheet linked in <code>data/datasets.json</code>.</p>
+    <p class="hint dl-note"><strong>NB:</strong> downloads are recorded only since 1 October 2026; earlier downloads are not included.</p>
     <div class="dl-token" id="dl-token" hidden>
       <label>GitHub token <small>the same kind used online; needed here to read the list</small><input id="dl-token-input" type="password" autocomplete="off" placeholder="ghp_…"></label>
     </div>
@@ -996,8 +998,10 @@
       doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(95, 109, 124);
       const filters = [dataset ? `Dataset: ${dataset}` : 'All datasets', query ? `Search: "${query}"` : ''].filter(Boolean).join(' · ');
       doc.text(`Traffic Research Group, University of Napoli Federico II · ${filters} · ${rows.length} downloads · generated on ${today}`, 40, 68);
+      doc.setFontSize(9);
+      doc.text('NB: downloads are recorded only since 1 October 2026; earlier downloads are not included.', 40, 82);
       doc.autoTable({
-        startY: 86,
+        startY: 96,
         head: [['Date', 'Name', 'Organization', 'Nationality', 'Email', 'Dataset']],
         body: rows.map(r => [formatDate(r.date), `${r.first_name} ${r.last_name}`.trim(), r.organization, r.nationality, r.email || '—', r.dataset]),
         styles: { font: 'helvetica', fontSize: 9, cellPadding: 5, textColor: [27, 37, 49], lineColor: [220, 227, 235], lineWidth: 0.5 },
