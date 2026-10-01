@@ -273,7 +273,7 @@
 <main id="downloads-app" hidden>
   <section>
     <h2>Dataset downloads</h2>
-    <p class="hint">Everyone who filled in the form before downloading a MIRAGE dataset, newest first. The list comes from the Google Sheet linked in <code>data/datasets.json</code>.</p>
+    <p class="hint">Everyone who filled in the form before downloading a dataset, newest first. The list comes from the Google Sheet linked in <code>data/datasets.json</code>.</p>
     <div class="dl-token" id="dl-token" hidden>
       <label>GitHub token <small>the same kind used online; needed here to read the list</small><input id="dl-token-input" type="password" autocomplete="off" placeholder="ghp_…"></label>
     </div>
@@ -907,10 +907,13 @@
       const out = await res.json();
       if (!out.ok) { dlMessage(out.error || 'The list could not be read.'); return; }
       downloads = out.rows.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+      // Every dataset of the site, plus any older name that only appears in the downloads.
       const select = $('dl-dataset');
-      const names = [...new Set(downloads.map(r => r.dataset).filter(Boolean))].sort();
-      select.innerHTML = '<option value="">All datasets</option>' + names.map(n => `<option></option>`).join('');
-      names.forEach((n, i) => { select.options[i + 1].value = n; select.options[i + 1].textContent = n; });
+      const current = select.value;
+      const names = [...new Set([...(config.datasets || []).map(d => d.name), ...downloads.map(r => r.dataset)].filter(Boolean))];
+      select.innerHTML = '<option value="">All datasets</option>';
+      names.forEach(name => select.add(new Option(name, name)));
+      select.value = names.includes(current) ? current : '';
       renderDownloads();
     } catch (error) {
       dlMessage('The list could not be read: ' + error.message);
