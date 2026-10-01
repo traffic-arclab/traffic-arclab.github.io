@@ -117,6 +117,27 @@
   .tool-row input { margin-top: 0; }
   .tool-row button { padding: 4px 9px; }
   .logo-box img { width: 140px; height: 70px; object-fit: contain; object-position: center; background: #fff; }
+  #downloads-app { display: block; }
+  .dl-toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; margin-bottom: 16px; }
+  .dl-toolbar label { margin: 0; }
+  .dl-toolbar .grow { flex: 1; min-width: 200px; }
+  .dl-toolbar select, .dl-toolbar input { min-width: 180px; }
+  .dl-summary { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .dl-stat { padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+  .dl-stat strong { display: block; color: var(--title); font: 600 1.35rem var(--serif); }
+  .dl-stat span { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .dl-stat.is-dataset span { text-transform: none; letter-spacing: 0; font-size: .82rem; }
+  .dl-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+  .dl-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  .dl-table th { position: sticky; top: 0; padding: 10px 12px; background: var(--bg); border-bottom: 1px solid var(--line); color: var(--muted);
+    font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-align: left; text-transform: uppercase; white-space: nowrap; }
+  .dl-table td { padding: 9px 12px; border-bottom: 1px solid #eef2f6; vertical-align: top; }
+  .dl-table tr:last-child td { border-bottom: 0; }
+  .dl-table td.date { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .dl-table td.name { color: var(--title); font-weight: 600; }
+  .dl-table .ds { display: inline-block; padding: 2px 7px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); font-size: .78rem; font-weight: 700; white-space: nowrap; }
+  .dl-message { padding: 24px; color: var(--muted); text-align: center; }
+  .dl-token { max-width: 520px; }
   .fieldset-title { margin: 6px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 </style>
 </head>
@@ -128,6 +149,7 @@
     <button class="tab" role="tab" data-tab="news" aria-selected="false">News</button>
     <button class="tab" role="tab" data-tab="topics" aria-selected="false">Topics</button>
     <button class="tab" role="tab" data-tab="collabs" aria-selected="false">Collaborations</button>
+    <button class="tab" role="tab" data-tab="downloads" aria-selected="false">Downloads</button>
   </nav>
   <span class="status" id="status">Loading…</span>
   <span class="status" id="who" hidden></span>
@@ -248,6 +270,24 @@
   </div>
 </template>
 
+<main id="downloads-app" hidden>
+  <section>
+    <h2>Dataset downloads</h2>
+    <p class="hint">Everyone who filled in the form before downloading a MIRAGE dataset, newest first. The list comes from the Google Sheet linked in <code>data/datasets.json</code>.</p>
+    <div class="dl-token" id="dl-token" hidden>
+      <label>GitHub token <small>the same kind used online; needed here to read the list</small><input id="dl-token-input" type="password" autocomplete="off" placeholder="ghp_…"></label>
+    </div>
+    <div class="dl-toolbar">
+      <label>Dataset <select id="dl-dataset"><option value="">All datasets</option></select></label>
+      <label class="grow">Search <input id="dl-search" placeholder="Name, organization, nationality, email"></label>
+      <button type="button" id="dl-refresh">Refresh</button>
+      <button type="button" class="primary" id="dl-pdf" disabled>Download PDF</button>
+    </div>
+    <div class="dl-summary" id="dl-summary"></div>
+    <div class="dl-table-wrap"><div class="dl-message" id="dl-message">Loading…</div><table class="dl-table" id="dl-table" hidden></table></div>
+  </section>
+</main>
+
 <template id="area-form">
   <h2>Area</h2>
   <label>Title * <input id="a-title" required></label>
@@ -313,6 +353,8 @@
   let news = [], selectedNews = null;
   let topics = { intro: '', areas: [] }, selectedTopic = null;   // selectedTopic: { area } or { area, topic }
   let collabs = { current: [], past: [] }, selectedCollab = null;
+  let ghToken = null;                // GitHub token of the signed-in user (online)
+  let downloads = null;              // rows read from the Google Sheet
   let logos = new Set();             // file names already in images/logos
   const LOGO_DIR = 'images/logos';
   const companiesFirst = (a, b) => (a.type !== 'company') - (b.type !== 'company');
@@ -841,6 +883,137 @@
     if (!topic.name) $('t-name').focus();
   }
 
+  // ---------------------------------------------------------------- downloads
+  const dlMessage = text => { $('dl-message').textContent = text; $('dl-message').hidden = false; $('dl-table').hidden = true; };
+
+  async function loadDownloads() {
+    downloads = [];
+    $('dl-pdf').disabled = true;
+    const token = ghToken || $('dl-token-input').value.trim();
+    if (!token) {
+      $('dl-token').hidden = false;
+      dlMessage('Paste a GitHub token above and press Refresh to see the downloads.');
+      downloads = null;
+      return;
+    }
+    dlMessage('Loading…');
+    try {
+      const config = await (await fetch('/data/datasets.json', { cache: 'no-store' })).json();
+      if (!config.form_endpoint) { dlMessage('The download form is not connected to a Google Sheet yet ("form_endpoint" in data/datasets.json is empty).'); return; }
+      const res = await fetch(config.form_endpoint, {
+        method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'list', token }),
+      });
+      const out = await res.json();
+      if (!out.ok) { dlMessage(out.error || 'The list could not be read.'); return; }
+      downloads = out.rows.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+      const select = $('dl-dataset');
+      const names = [...new Set(downloads.map(r => r.dataset).filter(Boolean))].sort();
+      select.innerHTML = '<option value="">All datasets</option>' + names.map(n => `<option></option>`).join('');
+      names.forEach((n, i) => { select.options[i + 1].value = n; select.options[i + 1].textContent = n; });
+      renderDownloads();
+    } catch (error) {
+      dlMessage('The list could not be read: ' + error.message);
+    }
+  }
+
+  function filteredDownloads() {
+    const dataset = $('dl-dataset').value;
+    const query = $('dl-search').value.trim().toLowerCase();
+    return (downloads || []).filter(r => (!dataset || r.dataset === dataset) &&
+      (!query || [r.first_name, r.last_name, r.organization, r.nationality, r.email].join(' ').toLowerCase().includes(query)));
+  }
+
+  const formatDate = value => {
+    const d = new Date(value);
+    return isNaN(d) ? String(value || '') : d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) +
+      ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  };
+
+  function renderDownloads() {
+    const rows = filteredDownloads();
+    const count = key => new Set(rows.map(r => String(r[key] || '').trim().toLowerCase()).filter(Boolean)).size;
+    const stats = [[rows.length, rows.length === 1 ? 'download' : 'downloads'], [count('organization'), 'organizations'], [count('nationality'), 'countries']];
+    const perDataset = {};
+    rows.forEach(r => { perDataset[r.dataset] = (perDataset[r.dataset] || 0) + 1; });
+    if (!$('dl-dataset').value) Object.entries(perDataset).sort((a, b) => b[1] - a[1]).forEach(([name, n]) => stats.push([n, name]));
+    const summary = $('dl-summary');
+    summary.innerHTML = '';
+    stats.forEach(([n, label], i) => {
+      const box = document.createElement('div');
+      box.className = 'dl-stat' + (i > 2 ? ' is-dataset' : '');
+      box.innerHTML = '<strong></strong><span></span>';
+      box.querySelector('strong').textContent = n;
+      box.querySelector('span').textContent = label;
+      summary.appendChild(box);
+    });
+    $('dl-pdf').disabled = !rows.length;
+    if (!rows.length) { dlMessage(downloads.length ? 'No downloads match the filters.' : 'No downloads yet.'); return; }
+    const table = $('dl-table');
+    table.innerHTML = '<thead><tr><th>Date</th><th>Name</th><th>Organization</th><th>Nationality</th><th>Email</th><th>Dataset</th></tr></thead>';
+    const body = document.createElement('tbody');
+    rows.forEach(r => {
+      const tr = document.createElement('tr');
+      const cells = [['date', formatDate(r.date)], ['name', `${r.first_name} ${r.last_name}`.trim()], ['', r.organization],
+        ['', r.nationality], ['', r.email || '—']];
+      cells.forEach(([cls, text]) => { const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); });
+      const td = document.createElement('td');
+      td.innerHTML = '<span class="ds"></span>';
+      td.firstChild.textContent = r.dataset;
+      tr.appendChild(td);
+      body.appendChild(tr);
+    });
+    table.appendChild(body);
+    table.hidden = false;
+    $('dl-message').hidden = true;
+  }
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) { resolve(); return; }
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = resolve;
+      script.onerror = () => reject(new Error('could not load ' + src));
+      document.head.appendChild(script);
+    });
+  }
+
+  async function downloadPdf() {
+    const rows = filteredDownloads();
+    $('dl-pdf').disabled = true;
+    try {
+      await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+      await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js');
+      const doc = new window.jspdf.jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' });
+      const dataset = $('dl-dataset').value, query = $('dl-search').value.trim();
+      const today = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(18); doc.setTextColor(11, 37, 69);
+      doc.text('MIRAGE dataset downloads', 40, 50);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(95, 109, 124);
+      const filters = [dataset ? `Dataset: ${dataset}` : 'All datasets', query ? `Search: "${query}"` : ''].filter(Boolean).join(' · ');
+      doc.text(`Traffic Research Group, University of Napoli Federico II · ${filters} · ${rows.length} downloads · generated on ${today}`, 40, 68);
+      doc.autoTable({
+        startY: 86,
+        head: [['Date', 'Name', 'Organization', 'Nationality', 'Email', 'Dataset']],
+        body: rows.map(r => [formatDate(r.date), `${r.first_name} ${r.last_name}`.trim(), r.organization, r.nationality, r.email || '—', r.dataset]),
+        styles: { font: 'helvetica', fontSize: 9, cellPadding: 5, textColor: [27, 37, 49], lineColor: [220, 227, 235], lineWidth: 0.5 },
+        headStyles: { fillColor: [11, 37, 69], textColor: 255, fontStyle: 'bold' },
+        alternateRowStyles: { fillColor: [244, 246, 249] },
+        columnStyles: { 0: { cellWidth: 92 }, 1: { fontStyle: 'bold' } },
+        margin: { left: 40, right: 40 },
+        didDrawPage: data => {
+          doc.setFontSize(8); doc.setTextColor(95, 109, 124);
+          doc.text(`Page ${data.pageNumber}`, doc.internal.pageSize.getWidth() - 40, doc.internal.pageSize.getHeight() - 20, { align: 'right' });
+        },
+      });
+      doc.save(`mirage-downloads-${new Date().toISOString().slice(0, 10)}.pdf`);
+    } catch (error) {
+      alert('The PDF could not be created: ' + error.message);
+    }
+    $('dl-pdf').disabled = !rows.length;
+  }
+
   // ---------------------------------------------------------------- collaborations
   function showCollabsIntro() {
     $('collabs-editor').innerHTML = '<h2>Select a collaboration or add a new one</h2>' +
@@ -1036,7 +1209,7 @@
     setupTopics();
     renderCollabs();
     showCollabsIntro();
-    showTab(['#news', '#topics', '#collabs'].includes(location.hash) ? location.hash.slice(1) : 'people');
+    showTab(['#news', '#topics', '#collabs', '#downloads'].includes(location.hash) ? location.hash.slice(1) : 'people');
     setStatus('All changes saved');
   }
 
@@ -1046,8 +1219,11 @@
     $('news-app').hidden = tab !== 'news';
     $('topics-app').hidden = tab !== 'topics';
     $('collabs-app').hidden = tab !== 'collabs';
+    $('downloads-app').hidden = tab !== 'downloads';
+    $('save').hidden = tab === 'downloads';
+    if (tab === 'downloads' && downloads === null) loadDownloads();
     document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.tab === tab)));
-    $('open-page').href = { people: '/people.html', news: '/news.html', topics: '/index.html#topics', collabs: '/collaborations.html' }[tab];
+    $('open-page').href = { people: '/people.html', news: '/news.html', topics: '/index.html#topics', collabs: '/collaborations.html', downloads: '/datasets/' }[tab];
     history.replaceState(null, '', tab === 'people' ? location.pathname : '#' + tab);
   }
 
@@ -1127,6 +1303,7 @@
     const login = await gh.check();
     store.set(token, remember);
     backend = gh;
+    ghToken = token;
     $('who').textContent = login ? 'Signed in as ' + login : 'Signed in';
     $('who').hidden = false;
     $('logout').hidden = false;
@@ -1138,6 +1315,7 @@
     $('news-app').hidden = true;
     $('topics-app').hidden = true;
     $('collabs-app').hidden = true;
+    $('downloads-app').hidden = true;
     $('login').hidden = false;
     $('login-error').textContent = message;
     setStatus('Not signed in');
@@ -1152,6 +1330,10 @@
   }));
   $('save').addEventListener('click', save);
   document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
+  $('dl-refresh').addEventListener('click', loadDownloads);
+  $('dl-pdf').addEventListener('click', downloadPdf);
+  $('dl-dataset').addEventListener('change', renderDownloads);
+  $('dl-search').addEventListener('input', renderDownloads);
   document.querySelectorAll('[data-add-collab]').forEach(button => button.addEventListener('click', () => {
     const group = button.dataset.addCollab;
     const item = { name: '', type: 'academic', link: '', organization: '', topic: '', logo: '' };

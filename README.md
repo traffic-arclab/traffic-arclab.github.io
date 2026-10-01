@@ -72,6 +72,18 @@ Le collaborazioni sono divise in **Current** e **Past**.
 5. Con le frecce ↑ ↓ cambi l'ordine (le aziende restano comunque in cima); con **Move to past collaborations** sposti una collaborazione conclusa
    tra quelle passate (e con **Move back to current** la riporti tra le attuali). **Delete** la elimina.
 
+## 3e. Chi ha scaricato i dataset (scheda Downloads)
+
+La scheda **Downloads** mostra l'elenco di chi ha compilato il form prima di scaricare un dataset MIRAGE:
+data, nome, organizzazione, nazionalità, email (se indicata) e dataset, dal più recente.
+
+- In alto trovi i totali (download, organizzazioni, paesi e download per dataset).
+- Puoi filtrare per **dataset** e cercare per nome, organizzazione, nazionalità o email.
+- **Download PDF** scarica l'elenco così come è filtrato, pronto da stampare o inviare.
+
+L'elenco si legge dal Google Sheet collegato al form ed è visibile solo a chi accede con un token GitHub
+autorizzato. Questa scheda non ha niente da salvare.
+
 ## 4. Salva
 
 Premi **Save**. Le modifiche vengono salvate sul repository e le pagine pubbliche si aggiornano

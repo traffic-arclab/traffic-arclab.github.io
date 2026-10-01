@@ -294,8 +294,6 @@ strong, b { font-weight: 650; }
 .eyebrow a { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; transition: background-size 180ms var(--ease-standard); }
 .eyebrow a:hover, .eyebrow a:focus-visible { background-size: 100% 2px; }
 .eyebrow::before { content: ""; width: 44px; height: 3px; flex: none; background: var(--color-gold); }
-.hero-lab { margin-bottom: var(--space-3); color: var(--color-title); font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
-.hero-lab span { margin-left: 8px; color: var(--color-muted); font-weight: 400; letter-spacing: .1em; }
 .hero-title { max-width: 16ch; color: var(--color-title); font: 600 clamp(2.6rem, 5vw, 4.35rem)/1.04 var(--font-serif); letter-spacing: -.028em; text-wrap: balance; }
 .hero-title .initial { color: var(--color-gold); }
 .hero-subtitle { max-width: 34ch; margin-top: var(--space-5); color: var(--color-gold); font: italic 400 clamp(1.2rem, 1.75vw, 1.5rem)/1.32 var(--font-serif); text-wrap: balance; }
@@ -960,7 +958,6 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
   .brand-tagline { margin-top: 4px; font-size: .56rem; letter-spacing: .05em; }
   .theme-toggle, .nav-toggle { width: 40px; height: 40px; min-width: 40px; }
   .hero-title { font-size: clamp(2.3rem, 11vw, 3.1rem); }
-  .hero-lab span { display: block; margin-left: 0; margin-top: 3px; }
   .hero-actions .btn { flex: 1 1 auto; }
   .hero-facts { column-gap: 16px; }
   .fact dd { font-size: 1.6rem; }
