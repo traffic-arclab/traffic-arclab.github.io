@@ -116,6 +116,7 @@
   .tool-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) auto; gap: 6px; margin-bottom: 6px; }
   .tool-row input { margin-top: 0; }
   .tool-row button { padding: 4px 9px; }
+  .logo-box img { width: 140px; height: 70px; object-fit: contain; object-position: center; background: #fff; }
   .fieldset-title { margin: 6px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 </style>
 </head>
@@ -271,6 +272,13 @@
 
 <template id="collab-form">
   <h2 id="c-title">Collaboration</h2>
+  <label>Type <select id="c-type"><option value="academic">Academic / research</option><option value="company">Company (listed first)</option></select></label>
+  <div class="photo logo-box">
+    <img id="c-logo-preview" alt="">
+    <div class="drop" id="c-drop" tabindex="0">Drop a logo here<br>or click to choose<br><small>optional · PNG with transparent background works best</small></div>
+    <input type="file" id="c-file" accept="image/*" hidden>
+  </div>
+  <button type="button" id="c-logo-remove" style="margin:-6px 0 14px">Remove logo</button>
   <label>Contact person * <input id="c-name" required placeholder="e.g. Dario Rossi"></label>
   <label>Link <small>their homepage; the name becomes a link</small><input id="c-link" type="url" placeholder="https://…"></label>
   <label>Organization <input id="c-organization" placeholder="University, lab or company, city, country"></label>
@@ -302,6 +310,9 @@
   let news = [], selectedNews = null;
   let topics = { intro: '', areas: [] }, selectedTopic = null;   // selectedTopic: { area } or { area, topic }
   let collabs = { current: [], past: [] }, selectedCollab = null;
+  let logos = new Set();             // file names already in images/logos
+  const LOGO_DIR = 'images/logos';
+  const companiesFirst = (a, b) => (a.type !== 'company') - (b.type !== 'company');
   const changed = new Set();         // 'people' and/or 'news', for the commit message
   let photos = new Set();            // file names already in images/pictures
   const pending = new Map();         // 'images/pictures/x.jpg' -> JPEG data URL, sent on save
@@ -400,12 +411,13 @@
   function cleanCollabs() {
     const clean = item => {
       const out = {};
-      for (const key of ['name', 'link', 'organization', 'topic']) out[key] = String(item[key] || '').trim().replace(/\s+/g, ' ');
+      for (const key of ['name', 'type', 'link', 'organization', 'topic', 'logo']) out[key] = String(item[key] || '').trim().replace(/\s+/g, ' ');
+      out.type = out.type === 'company' ? 'company' : 'academic';
       if (!out.name) throw new Error('Every collaboration needs a contact person');
       if (out.link && !/^https?:\/\//.test(out.link)) throw new Error(`${out.name}: the link must start with http:// or https://`);
       return out;
     };
-    return { current: collabs.current.map(clean), past: collabs.past.map(clean) };
+    return { current: collabs.current.map(clean).sort(companiesFirst), past: collabs.past.map(clean).sort(companiesFirst) };
   }
 
   // Same rules as scripts/build_news.py: [label](url) becomes a link, everything else is text.
@@ -433,11 +445,11 @@
   // Local: scripts/people_admin.py writes the files and rebuilds people.html.
   const localBackend = {
     async load() {
-      const [people, list, newsFile, topicsFile, collabsFile] = await Promise.all(
-        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations'].map(url => fetch(url)));
+      const [people, list, newsFile, topicsFile, collabsFile, logosFile] = await Promise.all(
+        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations', '/api/logos'].map(url => fetch(url)));
       return {
         data: await people.json(), photos: await list.json(), news: (await newsFile.json()).news,
-        topics: await topicsFile.json(), collabs: await collabsFile.json(),
+        topics: await topicsFile.json(), collabs: await collabsFile.json(), logos: await logosFile.json(),
       };
     },
     async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData) {
@@ -496,12 +508,14 @@
         baseSha[NEWS_PATH] = newsFile.sha;
         baseSha[TOPICS_PATH] = topicsFile.sha;
         baseSha[COLLABS_PATH] = collabsFile.sha;
+        const logoList = await api(`/repos/${REPO}/contents/${LOGO_DIR}?ref=${BRANCH}`).catch(() => []);
         return {
           data: JSON.parse(decodeBase64(file.content)),
           photos: list.map(f => f.name),
           news: JSON.parse(decodeBase64(newsFile.content)).news,
           topics: JSON.parse(decodeBase64(topicsFile.content)),
           collabs: JSON.parse(decodeBase64(collabsFile.content)),
+          logos: Array.isArray(logoList) ? logoList.map(f => f.name) : [],
         };
       },
       async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData) {
@@ -821,6 +835,7 @@
 
   function renderCollabs() {
     for (const group of ['current', 'past']) {
+      collabs[group].sort(companiesFirst);   // stable: same as on the page
       const list = $('collabs-' + group);
       list.innerHTML = '';
       if (!collabs[group].length) list.innerHTML = '<li class="empty">None yet</li>';
@@ -831,7 +846,8 @@
           '<div class="tools"><button data-dir="-1" title="Move up">↑</button><button data-dir="1" title="Move down">↓</button></div>';
         li.querySelector('strong').textContent = item.name || '(no name)';
         li.querySelector('small').textContent = [item.organization, item.topic].filter(Boolean).join(' — ');
-        if (!item.link) li.querySelector('.tags').innerHTML = '<span class="tag missing">no link</span>';
+        li.querySelector('.tags').innerHTML = (item.type === 'company' ? '<span class="tag">Company</span>' : '') +
+          (item.logo ? '<span class="tag">Logo</span>' : '') + (item.link ? '' : '<span class="tag missing">no link</span>');
         li.addEventListener('click', event => {
           const dir = event.target.dataset.dir;
           if (!dir) { selectCollab({ group, item }); return; }
@@ -851,6 +867,22 @@
     editor.innerHTML = '';
     editor.appendChild($('collab-form').content.cloneNode(true));
     $('c-title').textContent = item.name || (group === 'current' ? 'New collaboration' : 'New past collaboration');
+    const type = $('c-type');
+    type.value = item.type === 'company' ? 'company' : 'academic';
+    type.addEventListener('change', () => { item.type = type.value; markDirty('collabs'); renderCollabs(); });
+    const showLogo = () => {
+      $('c-logo-preview').src = item.logo ? (pending.get(item.logo) || '/' + item.logo) : PLACEHOLDER_LOGO;
+      $('c-logo-remove').hidden = !item.logo;
+    };
+    showLogo();
+    const drop = $('c-drop'), file = $('c-file');
+    drop.addEventListener('click', () => file.click());
+    drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); file.click(); } });
+    drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) addLogo(item, e.dataTransfer.files[0], showLogo); });
+    file.addEventListener('change', () => { if (file.files[0]) addLogo(item, file.files[0], showLogo); });
+    $('c-logo-remove').addEventListener('click', () => { item.logo = ''; showLogo(); markDirty('collabs'); renderCollabs(); });
     for (const field of ['name', 'link', 'organization', 'topic']) {
       const input = $('c-' + field);
       input.value = item[field] || '';
@@ -878,6 +910,35 @@
       showCollabsIntro();
     });
     if (!item.name) $('c-name').focus();
+  }
+
+  // Logos keep their proportions: scaled to fit 480x200 and saved as PNG (transparency is kept).
+  const PLACEHOLDER_LOGO = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 70"><rect width="140" height="70" fill="#f4f6f9"/><text x="70" y="40" font-family="sans-serif" font-size="11" fill="#5f6d7c" text-anchor="middle">no logo</text></svg>');
+  function addLogo(item, file, done) {
+    const base = slugify(item.organization || item.name || '');
+    if (!base || base === 'person') { alert('Enter the organization (or the name) first: it is used for the logo file name.'); return; }
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, 480 / img.width, 200 / img.height);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(img.width * scale));
+      canvas.height = Math.max(1, Math.round(img.height * scale));
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(img.src);
+      let path = pending.has(item.logo) ? item.logo : null;
+      if (!path) {
+        let name = `${base}.png`, n = 2;
+        while (logos.has(name) || pending.has(`${LOGO_DIR}/${name}`)) name = `${base}_${n++}.png`;
+        path = `${LOGO_DIR}/${name}`;
+      }
+      pending.set(path, canvas.toDataURL('image/png'));
+      item.logo = path;
+      done();
+      markDirty('collabs');
+      renderCollabs();
+    };
+    img.onerror = () => setStatus('This file is not an image the browser can read', 'error');
+    img.src = URL.createObjectURL(file);
   }
 
   // Crop to a 5:6 portrait (keeping the top, where the face usually is) and resize to 600x720.
@@ -918,14 +979,17 @@
     let clean, cleanNewsData, cleanTopicsData, cleanCollabsData;
     try { clean = cleanData(); cleanNewsData = cleanNews(); cleanTopicsData = cleanTopics(); cleanCollabsData = cleanCollabs(); }
     catch (error) { setStatus(error.message, 'error'); return; }
-    // Only upload photos that are still used by someone.
-    const used = new Set([clean.principal, ...clean.members, ...clean.alumni].filter(Boolean).map(p => p.photo));
+    // Only upload photos and logos that are still used by someone.
+    const used = new Set([
+      ...[clean.principal, ...clean.members, ...clean.alumni].filter(Boolean).map(p => p.photo),
+      ...[...cleanCollabsData.current, ...cleanCollabsData.past].map(c => c.logo),
+    ]);
     for (const path of [...pending.keys()]) if (!used.has(path)) pending.delete(path);
     $('save').disabled = true;
     setStatus('Saving…');
     try {
       const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData);
-      for (const path of pending.keys()) photos.add(path.split('/').pop());
+      for (const path of pending.keys()) (path.startsWith(LOGO_DIR) ? logos : photos).add(path.split('/').pop());
       pending.clear();
       changed.clear();
       dirty = false;
@@ -948,6 +1012,7 @@
     collabs = loaded.collabs || {};
     collabs.current = collabs.current || [];
     collabs.past = collabs.past || [];
+    logos = new Set(loaded.logos || []);
     $('login').hidden = true;
     $('tabs').hidden = false;
     renderLists();
@@ -1075,7 +1140,7 @@
   document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
   document.querySelectorAll('[data-add-collab]').forEach(button => button.addEventListener('click', () => {
     const group = button.dataset.addCollab;
-    const item = { name: '', link: '', organization: '', topic: '' };
+    const item = { name: '', type: 'academic', link: '', organization: '', topic: '', logo: '' };
     collabs[group].unshift(item);
     markDirty('collabs');
     selectCollab({ group, item });

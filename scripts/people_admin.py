@@ -31,6 +31,7 @@ import build_topics  # noqa: E402
 
 ROOT = build_people.ROOT
 PHOTOS = os.path.join(ROOT, 'images', 'pictures')
+LOGOS = os.path.join(ROOT, 'images', 'logos')
 PORT = int(os.environ.get('PORT', 8765))
 FIELDS = ('name', 'role', 'photo', 'affiliation', 'phone', 'emails', 'homepage', 'scholar')
 
@@ -101,13 +102,17 @@ def clean_collaborations(raw):
     for group in ('current', 'past'):
         items = []
         for item in raw.get(group) or []:
-            entry = {key: ' '.join(str(item.get(key) or '').split()) for key in ('name', 'link', 'organization', 'topic')}
+            entry = {key: ' '.join(str(item.get(key) or '').split())
+                     for key in ('name', 'type', 'link', 'organization', 'topic', 'logo')}
+            entry['type'] = 'company' if entry['type'] == 'company' else 'academic'
+            if entry['logo'] and not re.fullmatch(r'images/logos/[a-z0-9_]+\.png', entry['logo']):
+                raise ValueError(f'{entry["name"]}: unexpected logo path')
             if not entry['name']:
                 raise ValueError('every collaboration needs a contact person')
             if entry['link'] and not re.match(r'https?://', entry['link']):
                 raise ValueError(f'{entry["name"]}: the link must start with http:// or https://')
             items.append(entry)
-        groups[group] = items
+        groups[group] = sorted(items, key=lambda i: i['type'] != 'company')   # companies first
     return groups
 
 
@@ -157,6 +162,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 self.send_json(200, json.load(f))
         elif self.path == '/api/photos':
             self.send_json(200, sorted(os.listdir(PHOTOS)))
+        elif self.path == '/api/logos':
+            self.send_json(200, sorted(os.listdir(LOGOS)) if os.path.isdir(LOGOS) else [])
         else:
             super().do_GET()
 
@@ -172,17 +179,20 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             topics = clean_topics(payload['topics']) if payload.get('topics') is not None else None
             collaborations = (clean_collaborations(payload['collaborations'])
                               if payload.get('collaborations') is not None else None)
+            # Uploads: people photos (JPEG) and collaboration logos (PNG).
+            kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png')}
             files = {}
             for path, url in (payload.get('photos') or {}).items():
-                name = os.path.basename(path)
-                if path != f'images/pictures/{name}' or not re.fullmatch(r'[a-z0-9_]+\.jpg', name):
-                    raise ValueError(f'unexpected photo path: {path}')
-                match = re.match(r'data:image/jpeg;base64,(.+)', url, re.S)
+                folder, name = os.path.split(path)
+                if folder not in kinds or not re.fullmatch(rf'[a-z0-9_]+\.{kinds[folder][1]}', name):
+                    raise ValueError(f'unexpected upload path: {path}')
+                match = re.match(rf'data:image/{kinds[folder][2]};base64,(.+)', url, re.S)
                 if not match:
-                    raise ValueError(f'{name}: the photo must be a JPEG data URL')
-                files[name] = base64.b64decode(match.group(1))
-            for name, content in files.items():
-                with open(os.path.join(PHOTOS, name), 'wb') as f:
+                    raise ValueError(f'{name}: unexpected image format')
+                files[os.path.join(kinds[folder][0], name)] = base64.b64decode(match.group(1))
+            for target, content in files.items():
+                os.makedirs(os.path.dirname(target), exist_ok=True)
+                with open(target, 'wb') as f:
                     f.write(content)
             write_json(build_people.DATA, data)
             build_people.build()

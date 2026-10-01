@@ -61,9 +61,13 @@ può avere dei **tool** o progetti (es. *D-ITG*), mostrati come etichette. Da qu
 Le collaborazioni sono divise in **Current** e **Past**.
 
 1. Premi **+ Add collaboration** (o **+ Add past collaboration**).
-2. Compila la **persona di riferimento** (obbligatoria), il **link** alla sua pagina, l'**organizzazione**
+2. Scegli il **tipo**: *Academic / research* oppure *Company*. Le aziende compaiono per prime, con l'etichetta
+   *Industry*.
+3. Se vuoi, trascina il **logo** nel riquadro (meglio un PNG con sfondo trasparente): viene ridimensionato da solo.
+   **Remove logo** lo toglie.
+4. Compila la **persona di riferimento** (obbligatoria), il **link** alla sua pagina, l'**organizzazione**
    e il **topic** su cui collaborate.
-3. Con le frecce ↑ ↓ cambi l'ordine; con **Move to past collaborations** sposti una collaborazione conclusa
+5. Con le frecce ↑ ↓ cambi l'ordine (le aziende restano comunque in cima); con **Move to past collaborations** sposti una collaborazione conclusa
    tra quelle passate (e con **Move back to current** la riporti tra le attuali). **Delete** la elimina.
 
 ## 4. Salva

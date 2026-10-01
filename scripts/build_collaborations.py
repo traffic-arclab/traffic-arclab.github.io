@@ -2,7 +2,9 @@
 """Rebuild the Collaborations page of the Traffic group from data/collaborations.json.
 
 The data holds the "current" and the "past" collaborations, each with the
-name of the contact person, a link, the organization and the shared topic.
+name of the contact person, its type ("company" or "academic"), a link, the
+organization, the shared topic and an optional logo. In each group the
+companies are listed first.
 Everything between the COLLABORATIONS markers in collaborations.html is
 regenerated; the rest of the page is left untouched. Edit the data by hand
 or with the editor (admin/people/, "Collaborations" tab).
@@ -33,7 +35,17 @@ def card(item):
         external = re.match(r'https?://', link)
         target = ' target="_blank" rel="noopener"' if external else ''
         name = f'<a href="{esc(link)}"{target}>{name}{" ↗" if external else ""}</a>'
-    lines = ['<li class="collab">', f'  <h3 class="collab-name">{name}</h3>']
+    company = item.get('type') == 'company'
+    lines = [f'<li class="collab{" collab--company" if company else ""}">']
+    if item.get('logo') or company:
+        lines.append('  <div class="collab-head">')
+        if company:
+            lines.append('    <span class="collab-kind">Industry</span>')
+        if item.get('logo'):
+            alt = esc(item.get('organization') or item['name'])
+            lines.append(f'    <img class="collab-logo" src="{esc(item["logo"])}" alt="{alt}" loading="lazy">')
+        lines.append('  </div>')
+    lines.append(f'  <h3 class="collab-name">{name}</h3>')
     if item.get('organization'):
         lines.append(f'  <p class="collab-org">{esc(item["organization"])}</p>')
     if item.get('topic'):
@@ -50,7 +62,8 @@ def section(title, intro, items, alt):
     if intro:
         lines.append(f'      <p class="section-intro">{intro}</p>')
     lines += ['    </div>', '    <ul class="collab-grid">']
-    for item in items:
+    # Companies first, otherwise the order of the data file.
+    for item in sorted(items, key=lambda i: i.get('type') != 'company'):
         lines += ['      ' + line for line in card(item)]
     lines += ['    </ul>', '  </div>', '</section>']
     return lines

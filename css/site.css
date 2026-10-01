@@ -647,6 +647,11 @@ a.area-topic:hover { color: var(--color-link); text-decoration-color: currentCol
 .collab-topic { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-soft-line); color: var(--color-ink); font-size: .92rem; line-height: 1.5; }
 .collab-org + .collab-topic { margin-top: 8px; }
 .collab-topic::before { content: "Topic"; margin-right: 8px; }
+.collab-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 26px; margin-bottom: 6px; }
+.collab-kind { padding: 3px 8px; border-radius: var(--radius-sm); background: color-mix(in srgb, var(--color-gold) 16%, transparent); color: color-mix(in srgb, var(--color-gold) 75%, var(--color-ink)); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.collab-logo { max-width: 140px; max-height: 44px; margin-left: auto; object-fit: contain; }
+:root[data-theme="dark"] .collab-logo { padding: 4px 6px; border-radius: var(--radius-sm); background: #fff; }
+.collab--company { border-left-color: var(--color-gold); }
 .news-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); gap: clamp(34px, 5vw, 80px); align-items: start; }
 .news-aside { position: sticky; top: calc(var(--header-h) + 24px); }
 .news-year {
