@@ -63,6 +63,11 @@
               "link": "https://doi.org/10.1016/j.comnet.2026.112237"
             }
           ]
+        },
+        {
+          "name": "Federated Learning",
+          "link": "",
+          "tools": []
         }
       ]
     },
