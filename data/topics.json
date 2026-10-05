@@ -6,7 +6,9 @@
       "topics": [
         {
           "name": "Encrypted and mobile-app traffic classification",
-          "link": "",
+          "slug": "encrypted-and-mobile-app-traffic-classification",
+          "summary": "Deep learning classifiers that recognize mobile apps and services from encrypted traffic, using multimodal and multitask architectures such as MIMETIC and DISTILLER.",
+          "image": "",
           "tools": [
             {
               "name": "MIMETIC",
@@ -20,11 +22,63 @@
               "name": "AI-powered traffic classification",
               "link": "https://doi.org/10.1109/mcom.001.2300361"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "MIMETIC: Mobile encrypted traffic classification using multimodal deep learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2019,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2019.106944",
+              "url": "https://doi.org/10.1016/j.comnet.2019.106944"
+            },
+            {
+              "title": "DISTILLER: Encrypted traffic classification via multimodal multitask deep learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "Journal of Network and Computer Applications",
+              "year": 2021,
+              "category": "journal",
+              "doi": "10.1016/j.jnca.2021.102985",
+              "url": "https://doi.org/10.1016/j.jnca.2021.102985"
+            },
+            {
+              "title": "AI-Powered Internet Traffic Classification: Past, Present, and Future",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Communications Magazine",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1109/mcom.001.2300361",
+              "url": "https://doi.org/10.1109/mcom.001.2300361",
+              "pdf": "https://ieeexplore.ieee.org/ielx7/35/7593423/10355065.pdf"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Incremental and few-shot learning",
-          "link": "",
+          "slug": "incremental-and-few-shot-learning",
+          "summary": "Traffic classifiers that learn new apps and classes from few samples, or incrementally, without being retrained from scratch.",
+          "image": "",
           "tools": [
             {
               "name": "MEMENTO",
@@ -34,11 +88,62 @@
               "name": "Meta Mimetic",
               "link": "https://doi.org/10.1109/itc-3560063.2023.10555634"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Davide di Monda"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "MEMENTO: A novel approach for class incremental learning of encrypted traffic",
+              "authors": "F. Cerasuolo, A. Nascita, G. Bovenzi, G. Aceto, D. Ciuonzo, A. Pescapè, D. Rossi",
+              "venue": "Computer Networks",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2024.110374",
+              "url": "https://doi.org/10.1016/j.comnet.2024.110374"
+            },
+            {
+              "title": "Meta Mimetic: Few-Shot Classification of Mobile-App Encrypted Traffic via Multimodal Meta-Learning",
+              "authors": "G. Bovenzi, D. Di Monda, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2023 35th International Teletraffic Congress (ITC-35)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/itc-3560063.2023.10555634",
+              "url": "https://doi.org/10.1109/itc-3560063.2023.10555634"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Explainable AI for traffic analysis",
-          "link": "",
+          "slug": "explainable-ai-for-traffic-analysis",
+          "summary": "Making AI-based traffic classification and prediction interpretable, and comparing classical and quantum machine learning on mobile traffic.",
+          "image": "",
           "tools": [
             {
               "name": "XAI survey (COMST)",
@@ -48,11 +153,62 @@
               "name": "Quantum ML",
               "link": "https://doi.org/10.1109/sec62691.2024.00053"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Vincenzo Spadari"
+            },
+            {
+              "name": "Idio Guarino"
+            }
+          ],
+          "papers": [
+            {
+              "title": "A Survey on Explainable Artificial Intelligence for Internet Traffic Classification and Prediction, and Intrusion Detection",
+              "authors": "A. Nascita, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Communications Surveys & Tutorials",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1109/comst.2024.3504955",
+              "url": "https://doi.org/10.1109/comst.2024.3504955"
+            },
+            {
+              "title": "A Comparison Between Classical and Quantum Machine Learning for Mobile App Traffic Classification",
+              "authors": "V. Spadari, I. Guarino, D. Ciuonzo, A. Pescapè",
+              "venue": "2024 IEEE/ACM Symposium on Edge Computing (SEC)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/sec62691.2024.00053",
+              "url": "https://doi.org/10.1109/sec62691.2024.00053"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Mobile and GenAI app traffic datasets",
-          "link": "datasets/",
+          "slug": "mobile-and-genai-app-traffic-datasets",
+          "summary": "The MIRAGE human-generated datasets of mobile-app traffic with ground truth, now including the traffic of Generative AI apps such as ChatGPT, Copilot and Gemini.",
+          "image": "",
           "tools": [
             {
               "name": "MIRAGE datasets",
@@ -62,12 +218,84 @@
               "name": "From prompts to packets",
               "link": "https://doi.org/10.1016/j.comnet.2026.112237"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Alfredo Nascita"
+            }
+          ],
+          "papers": [
+            {
+              "title": "From prompts to packets: A view from the network on ChatGPT, Copilot, and Gemini",
+              "authors": "A. Montieri, A. Nascita, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2026,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2026.112237",
+              "url": "https://doi.org/10.1016/j.comnet.2026.112237"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Federated Traffic Classification",
-          "link": "",
-          "tools": []
+          "slug": "federated-traffic-classification",
+          "summary": "Federated approaches to traffic classification: models trained across several networks without sharing their raw traffic, that keep learning new apps and can be explained.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "Description",
+              "text": "Federated learning trains a shared model across several networks or organizations without moving their raw traffic, which often cannot be shared for privacy or business reasons.\n\nThe group applies it to traffic classification:\n\n- **encrypted traffic classification**, with explainable and class-incremental federated models that keep learning new apps;\n- **synthetic traffic generation**, training generative AI models in a federated way to produce traffic for classifiers.\n\nFederated intrusion detection is described in [Federated Learning NIDS](topics/federated-learning-nids.html)."
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Gabriele Mangiacapre"
+            },
+            {
+              "name": "Alfredo Nascita"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Explainable federated class incremental learning for Encrypted Network Traffic classification",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111448",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111448"
+            },
+            {
+              "title": "Synthetic Network Traffic Generation via Federated Generative AI for Traffic Classification",
+              "authors": "G. Mangiacapre, F. Cerasuolo, A. Nascita, D. Ciuonzo, A. Pescapè",
+              "venue": "NOMS 2026-2026 IEEE Network Operations and Management Symposium",
+              "year": 2026,
+              "category": "conference",
+              "doi": "10.1109/noms69089.2026.11668294",
+              "url": "https://doi.org/10.1109/noms69089.2026.11668294"
+            }
+          ],
+          "links": [],
+          "files": []
         }
       ]
     },
@@ -76,7 +304,9 @@
       "topics": [
         {
           "name": "Generative AI for synthetic traffic",
-          "link": "",
+          "slug": "generative-ai-for-synthetic-traffic",
+          "summary": "Generative AI models that produce realistic and privacy-preserving synthetic traffic, to augment datasets and train traffic classifiers.",
+          "image": "",
           "tools": [
             {
               "name": "Federated GenAI",
@@ -90,11 +320,72 @@
               "name": "Privacy-preserving traces",
               "link": "https://doi.org/10.1016/j.jnca.2024.103926"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Gabriele Mangiacapre"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Ciro Guida"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Synthetic Network Traffic Generation via Federated Generative AI for Traffic Classification",
+              "authors": "G. Mangiacapre, F. Cerasuolo, A. Nascita, D. Ciuonzo, A. Pescapè",
+              "venue": "NOMS 2026-2026 IEEE Network Operations and Management Symposium",
+              "year": 2026,
+              "category": "conference",
+              "doi": "10.1109/noms69089.2026.11668294",
+              "url": "https://doi.org/10.1109/noms69089.2026.11668294"
+            },
+            {
+              "title": "Lightweight GenAI for Network Traffic Generation: Fidelity, Augmentation, and Classification",
+              "authors": "G. Bovenzi, D. Ciuonzo, J. Krolikowski, A. Montieri, A. Nascita, A. Pescapè, D. Rossi",
+              "venue": "arXiv (Cornell University)",
+              "year": 2026,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2603.25507",
+              "url": "https://doi.org/10.48550/arxiv.2603.25507",
+              "pdf": "https://arxiv.org/pdf/2603.25507"
+            },
+            {
+              "title": "Synthetic and privacy-preserving traffic trace generation using generative AI models for training Network Intrusion Detection Systems",
+              "authors": "G. Aceto, F. Giampaolo, C. Guida, S. Izzo, A. Pescapè, F. Piccialli, E. Prezioso",
+              "venue": "Journal of Network and Computer Applications",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1016/j.jnca.2024.103926",
+              "url": "https://doi.org/10.1016/j.jnca.2024.103926"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Traffic prediction",
-          "link": "",
+          "slug": "traffic-prediction",
+          "summary": "Predicting mobile-app traffic at packet level, with multitask deep learning and Markov models.",
+          "image": "",
           "tools": [
             {
               "name": "Multitask deep learning",
@@ -104,17 +395,90 @@
               "name": "Markov models",
               "link": "https://doi.org/10.1109/tnsm.2021.3051381"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Packet-level prediction of mobile-app traffic using multitask Deep Learning",
+              "authors": "A. Montieri, G. Bovenzi, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2021,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2021.108529",
+              "url": "https://doi.org/10.1016/j.comnet.2021.108529"
+            },
+            {
+              "title": "Characterization and Prediction of Mobile-App Traffic Using Markov Modeling",
+              "authors": "G. Aceto, G. Bovenzi, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2021,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2021.3051381",
+              "url": "https://doi.org/10.1109/tnsm.2021.3051381"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Application traffic generation",
-          "link": "",
+          "slug": "application-traffic-generation",
+          "summary": "Generating accurate network traffic in virtual environments for testing and experimentation.",
+          "image": "",
           "tools": [
             {
               "name": "Virtual environments",
               "link": "https://doi.org/10.1109/iscc55528.2022.9913058"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Ciro Guida"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "A First Look at Accurate Network Traffic Generation in Virtual Environments",
+              "authors": "G. Aceto, C. Guida, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2022 IEEE Symposium on Computers and Communications (ISCC)",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.1109/iscc55528.2022.9913058",
+              "url": "https://doi.org/10.1109/iscc55528.2022.9913058"
+            }
+          ],
+          "links": [],
+          "files": []
         }
       ]
     },
@@ -123,7 +487,9 @@
       "topics": [
         {
           "name": "Adaptive intrusion detection for IoT and IoMT",
-          "link": "",
+          "slug": "adaptive-intrusion-detection-for-iot-and-iomt",
+          "summary": "Intrusion detection systems for IoT and medical IoT that adapt to newly emerging attacks through incremental, few-shot and federated learning.",
+          "image": "",
           "tools": [
             {
               "name": "Federated NIDS",
@@ -141,11 +507,77 @@
               "name": "Few-shot NIDS",
               "link": "https://doi.org/10.1109/ojcoms.2024.3481895"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Davide di Monda"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "A Federated and Incremental Network Intrusion Detection System for IoT Emerging Threats",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2026,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2026.3675031",
+              "url": "https://doi.org/10.1109/tnsm.2026.3675031"
+            },
+            {
+              "title": "Attack-adaptive network intrusion detection systems for IoT networks through class incremental learning",
+              "authors": "F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111228",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111228"
+            },
+            {
+              "title": "When New Attacks Emerge: Adaptive Intrusion Detection Systems for IoMT",
+              "authors": "D. D’Ambrosio, F. Cerasuolo, A. Nascita, G. Bovenzi, A. Montieri, A. Pescapè",
+              "venue": "2026 13th International Conference on Future Internet of Things and Cloud (FiCloud)",
+              "year": 2026,
+              "category": "conference",
+              "doi": "10.1109/ficloud70576.2026.00066",
+              "url": "https://doi.org/10.1109/ficloud70576.2026.00066"
+            },
+            {
+              "title": "Few-Shot Class-Incremental Learning for Network Intrusion Detection Systems",
+              "authors": "D. Di Monda, A. Montieri, V. Persico, P. Voria, M. De Ieso, A. Pescapè",
+              "venue": "IEEE Open Journal of the Communications Society",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1109/ojcoms.2024.3481895",
+              "url": "https://doi.org/10.1109/ojcoms.2024.3481895"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Robust and explainable detection",
-          "link": "",
+          "slug": "robust-and-explainable-detection",
+          "summary": "How robust, transferable and explainable AI-based intrusion detection really is: adversarial attacks guided by XAI, transfer across networks, MLOps and quantum machine learning.",
+          "image": "",
           "tools": [
             {
               "name": "XAI-guided attacks",
@@ -163,11 +595,80 @@
               "name": "Quantum ML",
               "link": "https://doi.org/10.1109/infocomwkshps65812.2025.11152772"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Vincenzo Spadari"
+            },
+            {
+              "name": "Gabriele Mangiacapre"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Idio Guarino"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            }
+          ],
+          "papers": [
+            {
+              "title": "When Explanations Help Attackers: XAI-Guided Adversarial Attacks to Network Intrusion Detection Systems",
+              "authors": "G. Mangiacapre, A. Nascita, F. Cerasuolo, A. Montieri, A. Pescapè",
+              "venue": "2026 IFIP Networking Conference (IFIP Networking)",
+              "year": 2026,
+              "category": "conference",
+              "doi": "10.23919/ifipnetworking70592.2026.11579020",
+              "url": "https://doi.org/10.23919/ifipnetworking70592.2026.11579020"
+            },
+            {
+              "title": "Cross-network transferability of AI-based network intrusion detection systems in heterogeneous Internet of Things environments",
+              "authors": "F. Cerasuolo, G. Bovenzi, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2026,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2026.112434",
+              "url": "https://doi.org/10.1016/j.comnet.2026.112434"
+            },
+            {
+              "title": "An MLOps Framework for Explainable Network Intrusion Detection with MLflow",
+              "authors": "V. Spadari, F. Cerasuolo, G. Bovenzi, A. Pescapè",
+              "venue": "2024 IEEE Symposium on Computers and Communications (ISCC)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/iscc61673.2024.10733700",
+              "url": "https://doi.org/10.1109/iscc61673.2024.10733700"
+            },
+            {
+              "title": "Towards Network Intrusion Detection via Quantum Machine Learning: A Reality Check",
+              "authors": "V. Spadari, I. Guarino, D. Ciuonzo, A. Pescapè",
+              "venue": "IEEE INFOCOM 2025 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1109/infocomwkshps65812.2025.11152772",
+              "url": "https://doi.org/10.1109/infocomwkshps65812.2025.11152772"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Network anomaly detection",
-          "link": "",
+          "slug": "network-anomaly-detection",
+          "summary": "Deep learning anomaly detection in IoT networks: fair benchmarking, robustness to data poisoning and interpretability through XAI.",
+          "image": "",
           "tools": [
             {
               "name": "IoT benchmark",
@@ -181,11 +682,65 @@
               "name": "XAI",
               "link": "https://doi.org/10.1109/icasspw62465.2024.10626031"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Alfredo Nascita"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Network anomaly detection methods in IoT environments via deep learning: A Fair comparison of performance and robustness",
+              "authors": "G. Bovenzi, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "Computers & Security",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1016/j.cose.2023.103167",
+              "url": "https://doi.org/10.1016/j.cose.2023.103167"
+            },
+            {
+              "title": "Data Poisoning Attacks against Autoencoder-based Anomaly Detection Models: a Robustness Analysis",
+              "authors": "G. Bovenzi, A. Foggia, S. Santella, A. Testa, V. Persico, A. Pescapè",
+              "venue": "ICC 2022 - IEEE International Conference on Communications",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.1109/icc45855.2022.9838942",
+              "url": "https://doi.org/10.1109/icc45855.2022.9838942"
+            },
+            {
+              "title": "Interpretability and Complexity Reduction in Iot Network Anomaly Detection Via XAI",
+              "authors": "A. Nascita, R. Carillo, F. Giampetraglia, A. Iacono, V. Persico, A. Pescapè",
+              "venue": "2024 IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/icasspw62465.2024.10626031",
+              "url": "https://doi.org/10.1109/icasspw62465.2024.10626031"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Malware and botnet traffic",
-          "link": "",
+          "slug": "malware-and-botnet-traffic",
+          "summary": "Classifying the traffic of Android malware and IoT botnets, with hierarchical and few-shot learning approaches.",
+          "image": "",
           "tools": [
             {
               "name": "Android malware",
@@ -195,12 +750,84 @@
               "name": "IoT botnets",
               "link": "https://doi.org/10.1109/bigdata59044.2023.10386602"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Vincenzo Spadari"
+            },
+            {
+              "name": "Davide di Monda"
+            },
+            {
+              "name": "Antonio Montieri"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Hierarchical Classification of Android Malware Traffic",
+              "authors": "G. Bovenzi, V. Persico, A. Pescapè, A. Piscitelli, V. Spadari",
+              "venue": "2022 IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.1109/trustcom56396.2022.00191",
+              "url": "https://doi.org/10.1109/trustcom56396.2022.00191"
+            },
+            {
+              "title": "IoT Botnet-Traffic Classification Using Few-Shot Learning",
+              "authors": "D. Di Monda, G. Bovenzi, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2023 IEEE International Conference on Big Data (BigData)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/bigdata59044.2023.10386602",
+              "url": "https://doi.org/10.1109/bigdata59044.2023.10386602"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Federated Learning NIDS",
-          "link": "",
-          "tools": []
+          "slug": "federated-learning-nids",
+          "summary": "Network intrusion detection systems trained with federated learning, so that IoT networks can detect emerging threats together without sharing their traffic.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "Description",
+              "text": "Intrusion detection models need traffic from many networks to recognize new attacks, but that traffic is sensitive and rarely shared. With federated learning each network trains the model locally and only model updates are combined.\n\nThe group studies **federated and incremental** network intrusion detection for IoT, where the system also has to adapt to emerging threats over time. See also [Adaptive intrusion detection for IoT and IoMT](topics/adaptive-intrusion-detection-for-iot-and-iomt.html)."
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            }
+          ],
+          "papers": [
+            {
+              "title": "A Federated and Incremental Network Intrusion Detection System for IoT Emerging Threats",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2026,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2026.3675031",
+              "url": "https://doi.org/10.1109/tnsm.2026.3675031"
+            }
+          ],
+          "links": [],
+          "files": []
         }
       ]
     },
@@ -209,39 +836,213 @@
       "topics": [
         {
           "name": "Internet measurement and censorship",
-          "link": "internetcensor.html",
+          "slug": "internet-measurement-and-censorship",
+          "summary": "Measuring Internet censorship and shutdowns: the UBICA platform for user-based censorship detection, country case studies and the 2026 Iran shutdown.",
+          "image": "",
           "tools": [
             {
               "name": "Iran's 2026 shutdown",
               "link": "https://doi.org/10.48550/arxiv.2603.28753"
             }
-          ]
+          ],
+          "sections": [
+            {
+              "title": "",
+              "text": "With the growing usage of Internet as a tool for spreading news and fostering discussions of any kind, Internet censorship has become more and more a concern and a subject of active research (e.g. see [OpenNet Initiative](https://opennet.net/) for reports about worldwide internet censorship). Several techniques can be employed by censors to impair or prevent altogether the access to information on the Internet, by acting at different layers (network and transport, or application) and at different control points (the user's machine, the ISP, country border ASes, server side); moreover adopted censoring techniques change on geographic basis and in time.\n\nMeasuring the occurrence of this practice and identifying the techniques employed are instrumental to scientifically document the phenomenon, detect possible side-effects affecting entities outside the censored network, raise the awareness of the users, and empower them with respect to political decisions. Also, these research activities provide insights useful for the design of circumvention techniques.\n\n![](images/faculty_award.png)\n\nUBICA Project\n\nUBICA (User-based Internet Censorship Analysis) is a research project of University of Napoli \"Federico II\", led by prof. Antonio Pescapè and partially funded by a Google Faculty Research Award in 2013.\n\nThe research project aims at advancing the state of the art in the field of Internet censorship analysis implementing a multi-platform and open-source client (UBICA censorship monitor) to be distributed worldwide in order to perform a number of censorship tests, mainly traffic manipulations and content blocking. The UBICA censorship monitor will leverage a measurement and management infrastructure currently employed by the proposing research team for broadband network performance evaluation on national scale (HoBBIT) to provide easy deployment and update of new censorship tests, keep a low computational footprint on the hosts, and perform integrated analysis of the experimental results. By means of the UBICA censorship monitor we aim at collecting and analyzing (avoiding any concerns about user privacy) heterogeneous and independent data sources related to censors activity. The research project aims to: (i) improve the current state of the art in the field of censorship analysis; (ii) relate Quality of Service parameters, geographical location, and access technologies with the results of censorship tests; (iii) infer possible side-effects that censorship techniques enforced by a government in a country can have on a global scale; (iv) make available both the monitor source code and a set of anonymized collected data related to evidences of censorship."
+            },
+            {
+              "title": "Architecture",
+              "text": "Thanks to a modular client design, new tests are deployed on user permission without reinstalling or even stopping the client, lowering the barrier to the deployment of new detection experiments. All tests perform active measurements, i.e. no information from user activity or user traffic is collected, avoiding possible concerns about user privacy, as the tests use automatically generated traffic to infer possible censorship. Some tests (namely, traffic manipulation ones) employ server-based helper applications: a server counterpart is deployed on the management infrastructure.\n\nIn general, the destinations of probe traffic are of three types: (i) Internet services (DNS, open web proxies, TOR relays); (ii) web servers hosting content potentially subject to censorship; (iii) helper measurement servers.\n\nFor the tests that check content blocking, the list of potential targets is generated on the management server, using several sources of information, such as the Herdict project, TOR relay lists, open proxy lists, worldwide popular social networking and news lists. The orchestration of the tests, the client update, the distribution of the targets lists as well as the collection and analysis of the results will be done by means of a management infrastructure, based on the HoBBIT project.\n\n![](ubica_architecture.png)"
+            },
+            {
+              "title": "Events",
+              "text": "### May 2013\n\nETIC AICA & Rotary International Prize awarded to Giuseppe Aceto for his PhD Thesis entitled ''Monitoring Internet censorship: the case of UBICA'' ([Announcement - in Italian](http://www.aicanet.it/attivita/Vincitori%20ETIC-2014-15_%20def.pdf)).\n\n### February 2013\n\n[Google Faculty Award](http://googleresearch.blogspot.it/2013/02/google-research-awards-winter-2013.html) granted to Antonio Pescapè for the [UBICA (User-Based Internet Censorship Analysis) research project](http://services.google.com/fh/files/blogs/googlefras_february13.pdf).\n\n### April 30 2013\n\nTest run of Alpha version of client\n\n### May 2013\n\nPress release by [Il Denaro](http://denaro.it/blog/2013/05/13/web-libero-google-premia-ubica-mastino-napoletano-anti-censure/)\n\n### May 2013\n\nUBICA has been press released by [Unina News](http://www.news.unina.it/dettagli_area.jsp?ID=13593)\n\n### June 2013\n\nPresentation at the technical meetings of [NaLUG](http://nalug.net/)\n\n### June 11 2013\n\nPrototype of UBICA website with main reports (using mock data)\n\n### June 20 2013\n\nTest run of Beta version of client\n\n### July 17 2013\n\nOnline meeting with researchers from NUST School of Electrical Engineering & Computer Science, Pakistan and Georgia Technology Institute, GA, USA about censorship tests in Pakistan.\n\n### July 22-26, 2013\n\nPoster presentation at University of Toronto, Connaught Summer Institute on Monitoring Internet Openness and Rights.\n\nMeetings with researchers, hacktivists and journalists involved in Internet Censorship.\n\n### August 5 2013\n\nOnline meeting with M-lab people to explore integration of UBICA in m-lab experiments\n\n### September 9 2013\n\nOnline meeting with OONI developers and M-lab people on m-lab deployment of censorship measurements\n\n### October 7 2013\n\nExposition of UBICA poster at [2nd IEEE International Workshop M&N 2013](http://mn2013.ieee-ims.org/)\n\n### October 14 2013\n\nTalk \"Router-based and client-based platforms for performance measurement and censorship detection\" at the [IRTF Network Management Research Group meeting (Zurich, Switzerland)](https://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroupAg&LgZurich32)\n\n### October 26 2013\n\nTalk at the [Linux Day 2013 in Napoli (in Italian)](http://www.linuxdaynapoli.org/it/agenda), about Internet Censorship and its monitoring [(slides, in English)](http://wpage.unina.it/giuseppe.aceto/pub/IC_linuxday2013_pescape_top.pdf) and the UBICA project [(slides, in English)](http://wpage.unina.it/giuseppe.aceto/pub/linuxday2013_aceto_ubica.pdf).\n\n### July 28-31, 2014\n\nParticipation to Citizen Lab Summer Institute on Monitoring Internet Openness and Rights, at University of Toronto.\n\n### March 16, 2015\n\nPublished and available online survey paper [Internet Censorship detection: A survey](http://dx.doi.org/10.1016/j.comnet.2015.03.008) focused on detection techniques and platforms.\n\n### April 24, 2015\n\nPaper presentation at Universitat Politecnica de Cataunya, Barcelona (Spain) for the 7th International Workshop on Traffic Monitoring and Analysis (TMA'15)\n\n### December 4, 2015\n\nPoster presentation at ACM CoNEXT Conference, Heidelberg\n\n### September, 2016\n\nPaper presentation at IEEE 2nd International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow (RTSI), Bologna, Italy."
+            },
+            {
+              "title": "Related Projects",
+              "text": "BISMark: the Broadband Internet Service Benchmark ([http://projectbismark.net/](http://projectbismark.net/))\n\nHoBBIT: Host Based Broadband Internet Telemetry ([http://hobbit.comics.unina.it](http://hobbit.comics.unina.it/) )\n\nM-Lab: an open platform for researchers to deploy Internet measurement tools ([http://measurementlab.net/](http://measurementlab.net/) )\n\nPlanetLab: An open platform for developing, deploying, and accessing planetary-scale services ([http://planet-lab.org](http://planet-lab.org/)).\n\nTor: Anonymity online ([http://torproject.org](http://torproject.org/))\n\nOpen Observatory of Network Interference ([https://ooni.torproject.org/](https://ooni.torproject.org/))\n\nHerdictWeb: Help spot Web blockages ([http://www.herdict.org/](http://www.herdict.org/))"
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè",
+              "role": "PI",
+              "link": "http://wpage.unina.it/pescape/"
+            },
+            {
+              "name": "Giuseppe Aceto",
+              "role": "Postdoc",
+              "link": "http://wpage.unina.it/giuseppe.aceto/"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Internet Censorship in Italy: A First Look at 3G/4G Networks",
+              "authors": "G. Aceto, A. Montieri, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1007/978-3-319-48965-0_53",
+              "url": "https://doi.org/10.1007/978-3-319-48965-0_53",
+              "pdf": "http://wpage.unia.it/giuseppe.aceto/pub/aceto2016internet_CANS_poster.pdf"
+            },
+            {
+              "title": "Analyzing internet censorship in Pakistan",
+              "authors": "G. Aceto, A. Botta, A. Pescapè, M. F. Awan, T. Ahmad, S. Qaisar",
+              "venue": "2016 IEEE 2nd International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow (RTSI)",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/rtsi.2016.7740626",
+              "url": "https://doi.org/10.1109/rtsi.2016.7740626",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2016analyzing.pdf"
+            },
+            {
+              "title": "Detecting Middlebox Interference on Applications",
+              "authors": "S. Huang, G. Aceto, F. Cuadrado, S. Uhlig, A. Pescapè",
+              "venue": "ACM CONEXT 2015",
+              "year": 2015,
+              "category": "conference",
+              "pdf": "https://wpage.unina.it/giuseppe.aceto/pub/CoNext2015StudentWorkshop-final12.pdf"
+            },
+            {
+              "title": "Monitoring Internet Censorship with UBICA",
+              "authors": "G. Aceto, A. Botta, A. Pescapè, N. Feamster, M. F. Awan, T. Ahmad, S. Qaisar",
+              "venue": "Lecture notes in computer science",
+              "year": 2015,
+              "category": "conference",
+              "doi": "10.1007/978-3-319-17172-2_10",
+              "url": "https://doi.org/10.1007/978-3-319-17172-2_10",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2015monitoring_TMA.pdf"
+            },
+            {
+              "title": "Internet Censorship detection: A survey",
+              "authors": "G. Aceto, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2015,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2015.03.008",
+              "url": "https://doi.org/10.1016/j.comnet.2015.03.008",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2015internet_censorship_detection__a_survey.pdf"
+            },
+            {
+              "text": "Giuseppe Aceto, Nick Feamster, Antonio Pescapè \"**[User-side approach for censorship detection: home-router and client-based platforms](http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_poster.pdf)**\" ([Abstract](http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_abstract.pdf)), Connaught Summer Institute on Monitoring Internet Openness and Rights, University of Toronto July 22-26, 2013"
+            },
+            {
+              "title": "Iran's January 2026 Internet Shutdown: Public Data, Censorship Methods, and Circumvention Techniques",
+              "authors": "G. Aceto, V. Persico, A. Pescapè",
+              "venue": "arXiv (Cornell University)",
+              "year": 2026,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2603.28753",
+              "url": "https://doi.org/10.48550/arxiv.2603.28753",
+              "pdf": "https://arxiv.org/pdf/2603.28753"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "internetcensor.html"
+            }
+          ],
+          "files": []
         },
         {
           "name": "Path tracing and topology",
-          "link": "",
+          "slug": "path-tracing-and-topology",
+          "summary": "Making traceroute and topology discovery more reliable: third-party addresses, alias resolution with PYTHIA, and forwarding detours.",
+          "image": "",
           "tools": [
             {
               "name": "Third-Party Addresses",
-              "link": "tpa.html"
+              "link": "tpa.html",
+              "description": "An accurate knowledge of the Internet topology is essential for a deep understanding of such a complex and ever-evolving system. In the last decade many attempts have been done to overcome the incompleteness of BGP-derived AS-level topologies using traceroute."
             },
             {
               "name": "TP-Traceroute",
-              "link": "tptraceroute.html"
+              "link": "tptraceroute.html",
+              "description": "TP-Traceroute tool is an enhanced traceroute version which applies the Third-Party address detection technique. TP-Traceroute is able to identify third-party addresses on traceroute trace."
             },
             {
               "name": "PYTHIA",
-              "link": "pythia.html"
+              "link": "pythia.html",
+              "description": "Pythia is an active probing technique for alias resolution purposely designed to recontruct any-interface stamping routers. An accurate and exhaustive knowledge of the Internet topology is essential for a deep understanding of such a complex and ever-evolving ecosystem."
             },
             {
               "name": "Forwarding detours",
               "link": "https://doi.org/10.1109/tnsm.2021.3062151"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Francesco Cesareo"
+            },
+            {
+              "name": "Pietro Marchetta",
+              "link": "http://wpage.unina.it/pietro.marchetta/"
+            },
+            {
+              "name": "Antonio Pescapè",
+              "link": "http://wpage.unina.it/pescape/"
+            },
+            {
+              "name": "Walter de Donato"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Detecting Third-Party Addresses in Traceroute Traces with IP Timestamp Option",
+              "authors": "P. Marchetta, W. de Donato, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-36516-4_3",
+              "url": "https://doi.org/10.1007/978-3-642-36516-4_3",
+              "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/tpa_pam2013.pdf"
+            },
+            {
+              "title": "Detecting third-party addresses in traceroute IP paths",
+              "authors": "P. Marchetta, W. de Donato, A. Pescapè",
+              "venue": "Proceedings of the ACM SIGCOMM 2012 conference on Applications, technologies, architectures, and protocols for computer communication",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1145/2342356.2342384",
+              "url": "https://doi.org/10.1145/2342356.2342384",
+              "pdf": "https://dl.acm.org/doi/pdf/10.1145/2342356.2342384"
+            },
+            {
+              "text": "Pietro Marchetta, Valerio Persico, and Antonio Pescapè. [Pythia: yet another active probing technique for alias resolution](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf). In Proceedings of the ninth ACM conference on Emerging networking experiments and technologies (CoNEXT '13). ACM, New York, NY, USA, 229-234. DOI=10.1145/2535372.2535413 http://doi.acm.org/10.1145/2535372.2535413"
+            },
+            {
+              "title": "The Art of Detecting Forwarding Detours",
+              "authors": "J. M. Del Fiore, V. Persico, P. Mérindol, C. Pelsser, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2021,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2021.3062151",
+              "url": "https://doi.org/10.1109/tnsm.2021.3062151"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Generative AI for network management",
-          "link": "",
+          "slug": "generative-ai-for-network-management",
+          "summary": "Generative AI for network monitoring and management, and for digital twins of networks.",
+          "image": "",
           "tools": [
             {
               "name": "GenAI survey (TNSM)",
@@ -251,17 +1052,155 @@
               "name": "Digital twins",
               "link": "https://doi.org/10.1109/tii.2025.3540473"
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Davide di Monda"
+            },
+            {
+              "name": "Idio Guarino"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Mapping the Landscape of Generative AI in Network Monitoring and Management",
+              "authors": "G. Bovenzi, F. Cerasuolo, D. Ciuonzo, D. Di Monda, I. Guarino, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2025.3543022",
+              "url": "https://doi.org/10.1109/tnsm.2025.3543022"
+            },
+            {
+              "title": "Generative AI-Empowered Digital Twin: A Comprehensive Survey With Taxonomy",
+              "authors": "D. Chiaro, P. Qi, A. Pescapè, F. Piccialli",
+              "venue": "IEEE Transactions on Industrial Informatics",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1109/tii.2025.3540473",
+              "url": "https://doi.org/10.1109/tii.2025.3540473"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Active probing",
-          "link": "ippolib.html",
+          "slug": "active-probing",
+          "summary": "Active probing with IP options: the IPPO library and the measurement techniques built on the IP Prespecified Timestamp option.",
+          "image": "",
           "tools": [
             {
               "name": "IPPO Library",
-              "link": "ippolib.html"
+              "link": "ippolib.html",
+              "description": "IPPO is a library written in C++ to semplify sending packets probes typically used in Internet Measurements based on active probing and the analysis of the collected replies."
             }
-          ]
+          ],
+          "sections": [
+            {
+              "title": "",
+              "text": "**Active Probing Library for IP Options Equipped probes**\n\nIPPO is a library written in C++ to semplify sending packets probes typically used in Internet Measurements based on active probing and the analysis of the collected replies. In particular, the library allows to easily forge and send packet probes equipped with IP options and it has been purposely studied to support large scale active proving measurement campaigns.\n\nThe packet probes currently implemented are listed in the following table:\n\n- Packet Probe — Expected Reply — Description\n- ICMP Echo Request — ICMP Echo Reply — The classic *ping* probe\n- UDP — ICMP Port Unreachable — A UDP probe sent toward an unused destination port (default 33457) to solicit a ICMP Port Unreachable message\n- TCP SYN — TCP RST — A TCP SYN packet toward an unassigned well-known port (default 737) to solicit a TCP reset reply\n- PROTOCOL — ICMP Protocol Unreachable — An IP packet with a customized protocol number (by default set to 57, SKIP protocol) to solicit an ICMP Protocol Unreachable reply\n\nAll the packet probes highlighted above can be equipped with the following IP options:\n**Prespecified Timestamp IP option**, [rfc791](http://www.ietf.org/rfc/rfc791.txt)\nEquipping a packet probe with this variant of the IP Timestamp Option allows to request a timestamp from up to four \"prespecified\" IPs. We use the option according to the (D|XYZW) format with D represents the destination of the probe and XYZW the ordered list of prespecified IPs).\nWhen using ICMP and TCP packet probes, IPPO extracts the returned option (if present) from the IP layer of the reply packet, while, regarding UDP and PROTOCOL packet probes, the option is extracted from the original probe carried back by the ICMP error packet. However, some devices replicate the IP option also in the IP header encapsulating the ICMP error packet. In those cases, the IPPO makes available both the encapsulated and encapsulating Prespecified Timestamp options. The term Outer and Inner Option refers respectively to the IP option of the encapsulating IP header and the IP header encapsulated in the ICMP error message."
+            },
+            {
+              "title": "Download",
+              "text": "Click [here to downlad IPPO-lib](ippolib-download.html).\n\n![new](images/NEWa.gif)\n\nDocumentation and examples are provided with the IPPOLib library package as well."
+            },
+            {
+              "title": "How to use ippo-lib",
+              "text": "Click [here to getting started with ippo-lib](ippolib-how.html)."
+            }
+          ],
+          "people": [
+            {
+              "name": "Francesco Cesareo"
+            },
+            {
+              "name": "Pietro Marchetta",
+              "link": "http://wpage.unina.it/pietro.marchetta/"
+            },
+            {
+              "name": "Antonio Pescapè",
+              "link": "http://wpage.unina.it/pescape/"
+            },
+            {
+              "name": "Walter de Donato",
+              "link": "http://wpage.unina.it/walter.dedonato/"
+            },
+            {
+              "name": "Valerio Persico"
+            }
+          ],
+          "papers": [
+            {
+              "text": "Pietro Marchetta, Alessio Botta, Ethan Katz-Bassett, A. Pescapè, \"[Dissecting Round Trip Time on the Slow Path Using a One-Packet Approach](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaPAM14paper.pdf)\", Passive and Active Measurement (PAM) 2014, March, Los Angeles, USA."
+            },
+            {
+              "title": "Don't trust traceroute (completely)",
+              "authors": "P. Marchetta, V. Persico, A. Pescapè, E. Katz-Bassett",
+              "venue": "Proceedings of the 2013 workshop on Student workhop",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1145/2537148.2537155",
+              "url": "https://doi.org/10.1145/2537148.2537155",
+              "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13abstract.pdf"
+            },
+            {
+              "text": "Pietro Marchetta, Valerio Persico, Antonio Pescapè, \"[Pythia: Yet Another Active Probing Technique for Alias Resolution](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf)\", ACM CoNEXT 2013, Santa Barbara, California (USA), December 9-12, 2013"
+            },
+            {
+              "title": "Detecting Third-Party Addresses in Traceroute Traces with IP Timestamp Option",
+              "authors": "P. Marchetta, W. de Donato, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-36516-4_3",
+              "url": "https://doi.org/10.1007/978-3-642-36516-4_3",
+              "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/tpa_pam2013.pdf"
+            },
+            {
+              "title": "Detecting third-party addresses in traceroute IP paths",
+              "authors": "P. Marchetta, W. de Donato, A. Pescapè",
+              "venue": "Proceedings of the ACM SIGCOMM 2012 conference on Applications, technologies, architectures, and protocols for computer communication",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1145/2342356.2342384",
+              "url": "https://doi.org/10.1145/2342356.2342384",
+              "pdf": "https://dl.acm.org/doi/pdf/10.1145/2342356.2342384"
+            },
+            {
+              "title": "A Hands-on Look at Active Probing Using the IP Prespecified Timestamp Option",
+              "authors": "W. de Donato, P. Marchetta, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-28537-0_19",
+              "url": "https://doi.org/10.1007/978-3-642-28537-0_19",
+              "pdf": "http://wpage.unina.it/pescape/doc/PAM2012paper19.pdf"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "ippolib.html"
+            }
+          ],
+          "files": []
         }
       ]
     },
@@ -270,27 +1209,450 @@
       "topics": [
         {
           "name": "Cloud monitoring and control",
-          "link": "cloud.html",
-          "tools": []
+          "slug": "cloud-monitoring-and-control",
+          "summary": "Provider-independent monitoring of public-cloud network performance (AWS, Azure), the CloudSurf platform and the control of cloud resources.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "Description",
+              "text": "Nowadays, more and more the industry and market depend on cloud-based infrastructures for delivering IT services. To drive this increasing demand, cloud providers made huge investments supporting the public cloud paradigm, thanks to which any customer can take advantage of virtual resources at varying performance and cost.\n\nHowever, the dependence of the industry on these infrastructures has grown much faster than our understanding of the performance limits and dynamics of these environments. In fact, the adoption of sophisticated virtualization strategies for sharing resources among a great number of largely uncoordinated and mutually untrusted customers can cause non-negligible performance penalties. While cloud customers are not aware of the complexity of similar mechanisms, the Quality of the Service (QoS) they perceive is deeply affected by them. Indeed, cloud providers often provide no or only coarse grained information about the performance a customer should expect from the cloud. Hence the only viable solution to the customer is to monitor these complex environments through non-cooperative approaches - i.e. without relying on information restricted to the provider.\n\nMoreover, the information provided by non-cooperative approaches, properly integrated together with performance indicators directly provided by the providers, are of paramount importance to conveniently control virtual resources.\n\nOur work aims at characterizing cloud performance by adopting provider-independent approaches. In more details, we focus on the performance of the resource that interconnects all the others (i.e. the cloud high-performance network). We are developing novel strategies to automatically control virtual resource deployment in cloud environments, and aimed at deploying quality-assured services to final users.\n\nOur experimental activities are performed by taking advantage of the cloud services offered by the leading public cloud providers:\n\nAmazon Web Service —\n\n![aws](cloudsurf/images/home/aws_logo.png)\n\nMicrosoft Azure —\n\n![azure](cloudsurf/images/home/azure_logo.png)"
+            },
+            {
+              "title": "CloudSurf",
+              "text": "CloudSurf is a platform to easily perform network monitoring tasks in public cloud infrastructures from the general user angle.\n\nIt is released as an open-source platform and supports the most popular public cloud providers.\n\n[Subscribe](https://groups.google.com/forum/#!forum/cloudsurf) to the mailing list of the project.\n\nVisit the project's [homepage](cloudsurf/)."
+            },
+            {
+              "title": "Collaborations",
+              "text": "- [Prof. Stefania Santini](http://www.sincrolab.unina.it/mediawiki/index.php/S._Santini) (University of Napoli \"Federico II\", Italy)\n- [Dr. Alessandro Salvi, PhD](http://wpage.unina.it/alessandro.salvi) (University of Napoli \"Federico II\", Italy)"
+            },
+            {
+              "title": "Resources / Software / Datasets",
+              "text": "[Characterizing cloud-to-user latency as perceived by AWS and Azure users spread over the globe](https://traffic.comics.unina.it/cloud/CLOUD_LATENCY_DATASET.zip) [NEW]\n\n[On_the_network_performance_of_Amazon_S3_cloud-storage_service](cloud/On_the_network_performance_of_Amazon_S3_cloud-storage_service_2016.tar.gz)\n\n[On the performance of the wide-area networks interconnecting public-cloud datacenters around the globe](cloud/InterdatacenterNetworkPerformanceDataset.tar.gz)\n\n[A feedback-control approach for resource management in public clouds](cloud/CloudControl.tar.gz)\n\n[FCL controller](cloud/FLC_cloudcontrol.tar.gz)"
+            }
+          ],
+          "people": [
+            {
+              "name": "Domenico Grimaldi",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Luciano Esposito",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Martina Perrella",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Antonio Montieri",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Abele Grillo",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Walter de Donato"
+            },
+            {
+              "name": "Pietro Marchetta"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            }
+          ],
+          "papers": [
+            {
+              "title": "A Fuzzy Approach Based on Heterogeneous Metrics for Scaling Out Public Clouds",
+              "authors": "V. Persico, D. Grimaldi, A. Pescapè, A. Salvi, S. Santini",
+              "venue": "IEEE Transactions on Parallel and Distributed Systems",
+              "year": 2017,
+              "category": "journal",
+              "doi": "10.1109/tpds.2017.2651810",
+              "url": "https://doi.org/10.1109/tpds.2017.2651810",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/TPDS_control.pdf"
+            },
+            {
+              "title": "On the performance of the wide-area networks interconnecting public-cloud datacenters around the globe",
+              "authors": "V. Persico, A. Botta, P. Marchetta, A. Montieri, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2016,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2016.10.013",
+              "url": "https://doi.org/10.1016/j.comnet.2016.10.013",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/1-s2.0-S138912861630353X-main.pdf"
+            },
+            {
+              "title": "A First Look at Public-Cloud Inter-Datacenter Network Performance",
+              "authors": "V. Persico, A. Botta, A. Montieri, A. Pescapè",
+              "venue": "IEEE Conference Proceedings",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/glocom.2016.7841498",
+              "url": "https://doi.org/10.1109/glocom.2016.7841498",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/globecom_interDC.pdf"
+            },
+            {
+              "title": "On the Network Performance of Amazon S3 Cloud-Storage Service",
+              "authors": "V. Persico, A. Montieri, A. Pescapè",
+              "venue": "2016 5th IEEE International Conference on Cloud Networking (Cloudnet)",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/cloudnet.2016.16",
+              "url": "https://doi.org/10.1109/cloudnet.2016.16",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/persicocloudnet2016.pdf"
+            },
+            {
+              "title": "CloudSurf: A platform for monitoring public-cloud networks",
+              "authors": "V. Persico, A. Montieri, A. Pescapè",
+              "venue": "2016 IEEE 2nd International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow (RTSI)",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/rtsi.2016.7740635",
+              "url": "https://doi.org/10.1109/rtsi.2016.7740635",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/cloudsurf.pdf"
+            },
+            {
+              "title": "Integration of Cloud computing and Internet of Things: A survey",
+              "authors": "A. Botta, W. de Donato, V. Persico, A. Pescapè",
+              "venue": "Future Generation Computer Systems",
+              "year": 2015,
+              "category": "journal",
+              "doi": "10.1016/j.future.2015.09.021",
+              "url": "https://doi.org/10.1016/j.future.2015.09.021",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/CloudIoT_FGCS.pdf"
+            },
+            {
+              "title": "Measuring network throughput in the cloud: The case of Amazon EC2",
+              "authors": "V. Persico, P. Marchetta, A. Botta, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2015,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2015.09.037",
+              "url": "https://doi.org/10.1016/j.comnet.2015.09.037",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/tput_cloud_AWS_comnet.pdf"
+            },
+            {
+              "title": "A Feedback-Control Approach for Resource Management in Public Clouds",
+              "authors": "D. Grimaldi, V. Persico, A. Pescapè, A. Salvi, S. Santini",
+              "venue": "2015 IEEE Global Communications Conference (GLOBECOM)",
+              "year": 2015,
+              "category": "conference",
+              "doi": "10.1109/glocom.2015.7417016",
+              "url": "https://doi.org/10.1109/glocom.2015.7417016",
+              "pdf": "http://wpage.unina.it/pescape/doc/GC2015_1.pdf"
+            },
+            {
+              "title": "On Network Throughput Variability in Microsoft Azure Cloud",
+              "authors": "V. Persico, P. Marchetta, A. Botta, A. Pescapè",
+              "venue": "2015 IEEE Global Communications Conference (GLOBECOM)",
+              "year": 2015,
+              "category": "conference",
+              "doi": "10.1109/glocom.2015.7416997",
+              "url": "https://doi.org/10.1109/glocom.2015.7416997",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/NetThroughputAzure.pdf"
+            },
+            {
+              "title": "On the Integration of Cloud Computing and Internet of Things",
+              "authors": "A. Botta, W. de Donato, V. Persico, A. Pescapè",
+              "venue": "2014 International Conference on Future Internet of Things and Cloud",
+              "year": 2014,
+              "category": "conference",
+              "doi": "10.1109/ficloud.2014.14",
+              "url": "https://doi.org/10.1109/ficloud.2014.14",
+              "pdf": "http://wpage.unina.it/pescape/doc/ficloud2014_cloudIoT_cr.pdf"
+            },
+            {
+              "title": "Cloud monitoring: A survey",
+              "authors": "G. Aceto, A. Botta, W. de Donato, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2013,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2013.04.001",
+              "url": "https://doi.org/10.1016/j.comnet.2013.04.001",
+              "pdf": "http://wpage.unina.it/pescape/doc/CM_final_version.pdf"
+            },
+            {
+              "title": "Cloud monitoring: Definitions, issues and future directions",
+              "authors": "G. Aceto, A. Botta, W. de Donato, A. Pescapè",
+              "venue": "2012 IEEE 1st International Conference on Cloud Networking (CLOUDNET)",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1109/cloudnet.2012.6483656",
+              "url": "https://doi.org/10.1109/cloudnet.2012.6483656",
+              "pdf": "http://wpage.unina.it/pescape/doc/cloudnet2012_cloud_monitoring.pdf"
+            },
+            {
+              "title": "A Network-Oriented Survey and Open Issues in Cloud Computing",
+              "authors": "L. Atzori, F. Granelli, A. Pescapè",
+              "venue": "Cloud Computing",
+              "year": 2011,
+              "category": "book",
+              "doi": "10.1201/b11149-5",
+              "url": "https://doi.org/10.1201/b11149-5",
+              "pdf": "http://wpage.unina.it/pescape/doc/cloud_computing_networking_survey_CC_2011.pdf"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "cloud.html"
+            }
+          ],
+          "files": []
         },
         {
           "name": "Software-defined network monitoring",
-          "link": "sdnmonitoring.html",
-          "tools": []
+          "slug": "software-defined-network-monitoring",
+          "summary": "Available bandwidth measurement in software-defined networks, including the SOMETIME experiment in the MONROE mobile broadband platform.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "Description",
+              "text": "Networks are the more and more common and pervasive in many aspects of our everyday life. While they allow very easy access to online services and resources, they have become the more and more complex to both build and manage. Current network architectures are rigid thus it is especially hard to add new features to them.\n\nSoftware Defined Networking (SDN) offers a solution for this problem mainly through the following features: (i) data and control planes are decoupled; (ii) control logic is moved out of the network devices (SDN switches) to an external Network Operating System (also called the SDN controller); (iii) external applications can program the network using the abstraction mechanisms provided by the SDN controller.\n\nThe SDN concept has quickly gained significant focus by the research community after the introduction of OpenFlow in 2008. The ongoing adoption and research on SDN has provided new opportunities regarding the network monitoring and measurements. The newly proposed solutions for network monitoring in SDN environments are based on approaches completely different from the counterparts in traditional networks, and this is mainly due to the abstraction mechanism provided by the Network Operating System (NOS).\n\nThe new possibilities provided by SDN and its NOS introduce also new issues, limitations, and sources of error, which were previously undiscussed in such manner. In projects related to SDN Monitoring we research both the new promises offered by SDN, and the new challenges it poses."
+            },
+            {
+              "title": "SOMETIME Project",
+              "text": "The SOMETIME project (SOftware Defined Network-based Available Bandwidth MEasuremenT In MONROE) is a \"Scientific Excellence\" project of the *First MONROE Open Call for Experiments and Extensions*. [MONROE](http://www.monroe-project.eu) (Measuring Mobile Broadband Networks in Europe) is an European Horizon 2020 project, aimed at building and exercising an European testbed for 5G networks in the form of Experiments-as-a-Service.\n\nIn SOMETIME we are investigating the addition of Available Bandwidth (ABw) estimation to the set of metrics collected by MONROE. We will investigate implementations using active measurements and leveraging the Software Defined Network (SDN) paradigm, both to refine the technique considering interference with node-local processes (a more realistic scenario compared with mutually exclusive measurements), and to mitigate such interference.\n\n[Video](sdn/sometime.mp4) introducing the SOMETIME project.\n\n[Video](sdn/sometime.webm)\n\n[Video](sdn/sometime.mp4)\n\nYour browser does not support the video tag."
+            },
+            {
+              "title": "Datasets",
+              "text": "Available bandwidth vs. Achievable throughput in MBB networks [DOWNLOAD](https://doi.org/10.5281/zenodo.1300512)"
+            },
+            {
+              "title": "Tools",
+              "text": "Modified version of Yaz: [DOWNLOAD](sdn/yaz_modified.tar.gz)"
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Grimaldi",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Daniele Pipolo",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Fabio D'Onofrio",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Alessio Botta"
+            }
+          ],
+          "papers": [
+            {
+              "title": "An experimental evaluation of the impact of heterogeneous scenarios and virtualization on the available bandwidth estimation tools",
+              "authors": "G. Aceto, F. Palumbo, V. Persico, A. Pescapè",
+              "venue": "2017 IEEE International Workshop on Measurement and Networking (M&N)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.1109/iwmn.2017.8078402",
+              "url": "https://doi.org/10.1109/iwmn.2017.8078402",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2017experimental_evaluation__MandN.pdf"
+            },
+            {
+              "title": "SOMETIME: Software defined network-based available Bandwidth Measurement In MONROE",
+              "authors": "G. Aceto, V. Persico, A. Pescapè, G. Ventre",
+              "venue": "2017 Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.23919/tma.2017.8002918",
+              "url": "https://doi.org/10.23919/tma.2017.8002918",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2017sometime.pdf"
+            },
+            {
+              "title": "Challenges and solution for measuring available bandwidth in software defined networks",
+              "authors": "P. Megyesi, A. Botta, G. Aceto, A. Pescapè, S. Molnár",
+              "venue": "Computer Communications",
+              "year": 2016,
+              "category": "journal",
+              "doi": "10.1016/j.comcom.2016.12.004",
+              "url": "https://doi.org/10.1016/j.comcom.2016.12.004",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/megyesi2016challenges.pdf"
+            },
+            {
+              "title": "Available bandwidth measurement in software defined networks",
+              "authors": "P. Megyesi, A. Botta, G. Aceto, A. Pescapè, S. Molnár",
+              "venue": "Proceedings of the 31st Annual ACM Symposium on Applied Computing",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1145/2851613.2851727",
+              "url": "https://doi.org/10.1145/2851613.2851727",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/megyesi2016available.pdf"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "sdnmonitoring.html"
+            }
+          ],
+          "files": []
         },
         {
           "name": "Application traffic generation",
-          "link": "software/ITG/",
+          "slug": "application-traffic-generation-2",
+          "summary": "D-ITG, the Distributed Internet Traffic Generator: an open-source platform that generates IPv4 and IPv6 traffic at packet level, replicating inter-departure time and packet size processes.",
+          "image": "",
           "tools": [
             {
               "name": "D-ITG",
               "link": "software/ITG/"
             }
-          ]
+          ],
+          "sections": [
+            {
+              "title": "D-ITG",
+              "text": "D-ITG (Distributed Internet Traffic Generator) is a platform capable of producing traffic at packet level, accurately replicating the stochastic processes of both IDT (Inter Departure Time) and PS (Packet Size) random variables: exponential, uniform, cauchy, normal, pareto and more.\n\nD-ITG supports both IPv4 and IPv6 traffic generation and can generate traffic at network, transport and application layer. It runs on Linux (Ubuntu, Debian, Fedora, CentOS, OpenWRT), Windows, OSX and FreeBSD, and it is open-source and completely free.\n\nDocumentation, downloads, the manual and the full list of publications are on the [D-ITG website](software/ITG/)."
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Walter de Donato"
+            },
+            {
+              "name": "Giuseppe Aceto",
+              "role": "D-ITG developer"
+            },
+            {
+              "name": "Stefano Avallone",
+              "role": "Former D-ITG developer"
+            },
+            {
+              "name": "Salvatore Guadagno",
+              "role": "D-ITG contributor"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Experiment-Driven Modeling of Open-Source Internet Traffic Generators",
+              "authors": "L. Angrisani, A. Botta, G. Miele, A. Pescapè, M. Vadursi",
+              "venue": "IEEE Transactions on Instrumentation and Measurement",
+              "year": 2014,
+              "category": "journal",
+              "doi": "10.1109/tim.2014.2348633",
+              "url": "https://doi.org/10.1109/tim.2014.2348633",
+              "pdf": "http://wpage.unina.it/pescape/doc/06893014.pdf"
+            },
+            {
+              "title": "D-ITG 2.8.1 Manual",
+              "authors": "A. Botta, W. de Donato, A. Dainotti, S. Avallone, A. Pescapè",
+              "venue": "Computer for Interaction and Communications (COMICS) Group",
+              "year": 2013,
+              "category": "other"
+            },
+            {
+              "title": "Do you trust your software-based traffic generator?",
+              "authors": "A. Botta, A. Dainotti, A. Pescapè",
+              "venue": "IEEE Communications Magazine",
+              "year": 2010,
+              "category": "journal",
+              "doi": "10.1109/mcom.2010.5560600",
+              "url": "https://doi.org/10.1109/mcom.2010.5560600",
+              "pdf": "http://wpage.unina.it/alberto/papers/commag.pdf"
+            },
+            {
+              "title": "Multi-protocol and multi-platform traffic generation and measurement",
+              "authors": "A. Botta, A. Dainotti, A. Pescapè",
+              "venue": "INFOCOM 2007 DEMO Session",
+              "year": 2007,
+              "category": "conference"
+            },
+            {
+              "title": "High Performance Internet Traffic Generators",
+              "authors": "S. Avallone, D. Emma, A. Pescapè, G. Ventre",
+              "venue": "The Journal of Supercomputing",
+              "year": 2005,
+              "category": "journal",
+              "doi": "10.1007/s11227-006-0798-1",
+              "url": "https://doi.org/10.1007/s11227-006-0798-1",
+              "pdf": "http://wpage.unina.it/pescape/doc/JoS2006pescape.pdf"
+            },
+            {
+              "title": "D-ITG distributed Internet traffic generator",
+              "authors": "S. Avallone, S. Guadagno, D. Emma, A. Pescapè, G. Ventre",
+              "venue": "First International Conference on the Quantitative Evaluation of Systems, 2004. QEST 2004. Proceedings.",
+              "year": 2004,
+              "category": "conference",
+              "doi": "10.1109/qest.2004.1348045",
+              "url": "https://doi.org/10.1109/qest.2004.1348045"
+            },
+            {
+              "title": "Performance evaluation of an open distributed platform for realistic traffic generation",
+              "authors": "S. Avallone, D. Emma, A. Pescapè, G. Ventre",
+              "venue": "Performance Evaluation",
+              "year": 2004,
+              "category": "journal",
+              "doi": "10.1016/j.peva.2004.10.012",
+              "url": "https://doi.org/10.1016/j.peva.2004.10.012",
+              "pdf": "http://wpage.unina.it/pescape/doc/pe2005pescape.pdf"
+            },
+            {
+              "title": "A practical demonstration of network traffic generation",
+              "authors": "S. Avallone, D. Emma, A. Pescapè, G. Ventre",
+              "venue": "Internet, Multimedia Systems and Applications",
+              "year": 2004,
+              "category": "journal",
+              "url": "https://www.iris.unina.it/handle/11588/564411"
+            },
+            {
+              "title": "A DISTRIBUTED MULTIPLATFORM ARCHITECTURE FOR TRAFFIC GENERATION",
+              "authors": "A. Pescapè, G. Ventre, S. Avallone, D. Emma",
+              "venue": "International Symposium on Performance Evaluation of Computer and Telecommunication Systems",
+              "year": 2004,
+              "category": "conference",
+              "url": "https://www.iris.unina.it/handle/11588/342336",
+              "pdf": "http://wpage.unina.it/pescape/doc/T135_Pescape.pdf"
+            }
+          ],
+          "links": [
+            {
+              "label": "D-ITG website",
+              "url": "software/ITG/"
+            },
+            {
+              "label": "D-ITG documentation",
+              "url": "software/ITG/documentation.html"
+            }
+          ],
+          "files": []
         },
         {
           "name": "Broadband performance",
-          "link": "",
+          "slug": "broadband-performance",
+          "summary": "Measuring broadband access performance from the user side, with the BISmark home-router platform and the HoBBIT host-based platform, including satellite broadband.",
+          "image": "",
           "tools": [
             {
               "name": "BISmark",
@@ -300,11 +1662,105 @@
               "name": "HoBBIT",
               "link": "http://hobbit.comics.unina.it"
             }
-          ]
+          ],
+          "sections": [
+            {
+              "title": "Description",
+              "text": "How fast is a broadband connection really, and what limits it? The group measures broadband access performance from the user side, where the experience of customers can be observed directly.\n\n- **BISmark** (Broadband Internet Service Benchmark) is a platform for broadband Internet and home network research based on instrumented home routers, developed together with Georgia Tech.\n- **HoBBIT** (Host-Based Broadband Internet Telemetry) monitors broadband performance from the hosts of the user network.\n\nThe measurements also cover new generation satellite broadband Internet services, compared with ADSL and 3G."
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Walter de Donato"
+            },
+            {
+              "name": "Alessio Botta"
+            }
+          ],
+          "papers": [
+            {
+              "title": "HoBBIT: A Platform for Monitoring Broadband Performance from the User Network",
+              "authors": "W. de Donato, A. Botta, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2014,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-54999-1_6",
+              "url": "https://doi.org/10.1007/978-3-642-54999-1_6",
+              "pdf": "https://link.springer.com/content/pdf/10.1007%2F978-3-642-54999-1_6.pdf"
+            },
+            {
+              "title": "On the performance of new generation satellite broadband internet services",
+              "authors": "A. Botta, A. Pescapè",
+              "venue": "IEEE Communications Magazine",
+              "year": 2014,
+              "category": "journal",
+              "doi": "10.1109/mcom.2014.6829965",
+              "url": "https://doi.org/10.1109/mcom.2014.6829965",
+              "pdf": "http://wpage.unina.it/pescape/doc/06829965.pdf"
+            },
+            {
+              "title": "New generation satellite broadband Internet services: Should ADSL and 3G worry?",
+              "authors": "A. Botta, A. Pescapè",
+              "venue": "2013 Proceedings IEEE INFOCOM",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1109/infcom.2013.6567151",
+              "url": "https://doi.org/10.1109/infcom.2013.6567151",
+              "pdf": "http://wpage.unina.it/pescape/doc/tma_infocom_2013_ca.pdf"
+            },
+            {
+              "title": "BISmark: A Platform for Broadband Internet and Home Network Research",
+              "authors": "S. Woodrow, S. Sundaresan, S. Burnett, W. de Donato, N. G. Feamster, A. Pescapè",
+              "venue": "SSRN Electronic Journal",
+              "year": 2012,
+              "category": "preprint",
+              "doi": "10.2139/ssrn.2031341",
+              "url": "https://doi.org/10.2139/ssrn.2031341"
+            },
+            {
+              "title": "Measuring home broadband performance",
+              "authors": "S. Sundaresan, W. de Donato, N. Feamster, R. Teixeira, S. Crawford, A. Pescapè",
+              "venue": "Communications of the ACM",
+              "year": 2012,
+              "category": "journal",
+              "doi": "10.1145/2366316.2366337",
+              "url": "https://doi.org/10.1145/2366316.2366337"
+            },
+            {
+              "title": "Broadband internet performance",
+              "authors": "S. Sundaresan, W. de Donato, N. Feamster, R. Teixeira, S. Crawford, A. Pescapè",
+              "venue": "Proceedings of the ACM SIGCOMM 2011 conference",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1145/2018436.2018452",
+              "url": "https://doi.org/10.1145/2018436.2018452",
+              "pdf": "https://dl.acm.org/doi/pdf/10.1145/2018436.2018452"
+            },
+            {
+              "title": "Large Scale Benchmarking of Broadband Access Networks: Issues, Methodologies, and Solutions.",
+              "authors": "W. De Donato, A. Pescapè, F. Garofalo, G. Ventre, N. Feamster",
+              "venue": "University of Naples Federico II, Italy",
+              "year": 2011,
+              "category": "other"
+            },
+            {
+              "title": "Benchmarking broadband internet with bismark",
+              "authors": "S. Sundaresan, W. de Donato, N. Feamster, A. Pescapè, R. Teixeira",
+              "year": 2010,
+              "category": "conference"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Traffic classification tools",
-          "link": "",
+          "slug": "traffic-classification-tools",
+          "summary": "Tools developed by the group for traffic classification and monitoring: TIE, Plab and the WWAN performance monitor for mobile broadband networks.",
+          "image": "",
           "tools": [
             {
               "name": "TIE",
@@ -312,51 +1768,577 @@
             },
             {
               "name": "Plab",
-              "link": "/software/Plab"
+              "link": "https://traffic.comics.unina.it/software/Plab"
             },
             {
               "name": "WWAN",
-              "link": "wwanMonitor.html"
+              "link": "wwanMonitor.html",
+              "description": "We develop techniques and tools to uncover the performance of operational, wireless, wide area networks. In particular, we focus on 3/4G and satellite networks."
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Antonino Esposito",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Rosa Guerra",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Agostino Casella",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Marco Ottaviano",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Sergio Franco",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Andrea Paudice",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Alessio Botta"
+            }
+          ],
+          "papers": [
+            {
+              "title": "A customer service assurance platform for mobile broadband networks",
+              "authors": "A. Botta, A. Pescapè, C. Guerrini, M. Mangri",
+              "venue": "IEEE Communications Magazine",
+              "year": 2011,
+              "category": "journal",
+              "doi": "10.1109/mcom.2011.6035823",
+              "url": "https://doi.org/10.1109/mcom.2011.6035823",
+              "pdf": "http://wpage.unina.it/a.botta/pub/COMMAG_UNINA_ACCANTO_O2.pdf"
+            },
+            {
+              "title": "Performance footprints of heavy-users in 3G networks via empirical measurement",
+              "authors": "A. Botta, A. Pescapè, G. Ventre, E. W. Biersack, S. Rugel",
+              "venue": "Modeling and Optimization in Mobile, Ad-Hoc and Wireless Networks",
+              "year": 2010,
+              "category": "journal",
+              "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.299.6578",
+              "pdf": "http://wpage.unina.it/a.botta/pub/winmee2010.pdf"
+            },
+            {
+              "title": "Monitoring and measuring wireless network performance in the presence of middleboxes",
+              "authors": "A. Botta, A. Pescapè",
+              "venue": "2011 Eighth International Conference on Wireless On-Demand Network Systems and Services",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1109/wons.2011.5720184",
+              "url": "https://doi.org/10.1109/wons.2011.5720184",
+              "pdf": "http://wpage.unina.it/a.botta/pub/wons2011.pdf"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "Network performance",
-          "link": "",
+          "slug": "network-performance",
+          "summary": "Available bandwidth estimation (UANM), packet interleaving and path diversity (TimeD) and the detection of hidden routers in traceroute paths (DRAGO).",
+          "image": "",
           "tools": [
             {
               "name": "UANM",
-              "link": "uanm.html"
+              "link": "uanm.html",
+              "description": "In the context of network monitoring we are working on a distributed platform for Internet Measurements called UANM (Unified Architecture for Network Measurement). The software platform currently offers available bandwidth measurement services in a unified architecture."
             },
             {
               "name": "TimeD",
-              "link": "timeDiv.html"
+              "link": "timeDiv.html",
+              "description": "The current Internet scenario poses several challenges to the infrastructure, and different approaches have been proposed in literature towards the Future Internet."
             },
             {
               "name": "Hidden routers",
-              "link": "drago.html"
+              "link": "drago.html",
+              "description": "Traceroute is probably the most famous networking tool widely adopted in both industry and research. Despite its long life, however, measurements based on Traceroute are potentially inaccurate, misleading or incomplete due to several unresolved issues."
             }
-          ]
+          ],
+          "sections": [],
+          "people": [
+            {
+              "name": "Giuseppe Panariello",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Baldo Del Gaudio",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Ettore Amato",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Alessandro Ferraiuolo",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Giansimone Perrino",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Carlo Ruggiero",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Rosario Mattera",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Rosa Guerra",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Antonino Esposito",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Pietro Marchetta"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Unified architecture for network measurement: The case of available bandwidth",
+              "authors": "G. Aceto, A. Botta, A. Pescapè, M. D’Arienzo",
+              "venue": "Journal of Network and Computer Applications",
+              "year": 2011,
+              "category": "journal",
+              "doi": "10.1016/j.jnca.2011.10.010",
+              "url": "https://doi.org/10.1016/j.jnca.2011.10.010",
+              "pdf": "http://wpage.unina.it/a.botta/pub/uanm-jnca.pdf"
+            },
+            {
+              "title": "UANM: a platform for experimenting with available bandwidth estimation tools",
+              "authors": "G. Aceto, A. Botta, A. Pescapè, M. D’Arienzo",
+              "venue": "The IEEE symposium on Computers and Communications",
+              "year": 2010,
+              "category": "conference",
+              "doi": "10.1109/iscc.2010.5546773",
+              "url": "https://doi.org/10.1109/iscc.2010.5546773",
+              "pdf": "http://wpage.unina.it/a.botta/pub/iscc2010.pdf"
+            },
+            {
+              "title": "Measuring Wireless Links Capacity",
+              "authors": "L. Angrisani, A. Botta, A. Pescapè, M. Vadursi",
+              "venue": "2006 1st International Symposium on Wireless Pervasive Computing",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/iswpc.2006.1613635",
+              "url": "https://doi.org/10.1109/iswpc.2006.1613635",
+              "pdf": "http://wpage.unina.it/pescape/doc/ISWPC2006pescape.pdf"
+            },
+            {
+              "title": "BET: A Hybrid Bandwidth Estimation Tool",
+              "authors": "A. Botta, S. D’Antonio, A. Pescapè, G. Ventre",
+              "venue": "11th International Conference on Parallel and Distributed Systems (ICPADS'05)",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/icpads.2005.103",
+              "url": "https://doi.org/10.1109/icpads.2005.103",
+              "pdf": "http://wpage.unina.it/pescape/doc/ICPADS2005pescape.pdf"
+            },
+            {
+              "title": "On the Performance of Bandwidth Estimation Tools",
+              "authors": "A. Botta, A. Pescapè, G. Ventre",
+              "venue": "2005 Systems Communications (ICW'05, ICHSN'05, ICMCS'05, SENET'05)",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1109/icw.2005.61",
+              "url": "https://doi.org/10.1109/icw.2005.61",
+              "pdf": "http://wpage.unina.it/pescape/doc/ICHSN2005pescape.pdf"
+            },
+            {
+              "title": "IP packet interleaving: Bridging the gap between theory and practice",
+              "authors": "A. Botta, A. Pescapè",
+              "venue": "2011 IEEE Symposium on Computers and Communications (ISCC)",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1109/iscc.2011.5983976",
+              "url": "https://doi.org/10.1109/iscc.2011.5983976",
+              "pdf": "http://wpage.unina.it/a.botta/pub/iscc2011.pdf"
+            },
+            {
+              "text": "Vinh Bui, Weiping Zhu, Alessio Botta, Antonio Pescapè, \"**[A Markovian Approach to Multi-path Data Transfer in Overlay Networks](http://wpage.unina.it/a.botta/pub/TPDS_MULTIPATH.pdf)**\", IEEE Transactions on Parallel and Distributed Systems, vol.21, no.10, pp.1398-1411, Oct. 2010."
+            },
+            {
+              "title": "Towards informed diversity in IP networks: techniques, issues, and solutions",
+              "authors": "A. Botta, G. Ventre, L. P. Cordella, A. Pescapè, E. Biersack",
+              "venue": "Ph. D. dissertation, University of Napoli Federico II, December 2009, http",
+              "year": 2009,
+              "category": "other",
+              "pdf": "TimeD/PhDThesis_Botta.pdf"
+            },
+            {
+              "title": "Packet interleaving from theory to practice",
+              "authors": "A. Botta, A. Pescapè",
+              "venue": "Research Report TR-DIS-INT-7-2009",
+              "year": 2009,
+              "category": "other",
+              "pdf": "pub/TR-DIS-INT-7-2009.pdf"
+            },
+            {
+              "title": "An MDP-Based Approach for Multipath Data Transmission over Wireless Networks",
+              "authors": "V. Q. Bui, W. Zhu, A. Botta, A. Pescapè",
+              "venue": "2008 IEEE International Conference on Communications",
+              "year": 2008,
+              "category": "conference",
+              "doi": "10.1109/icc.2008.57",
+              "url": "https://doi.org/10.1109/icc.2008.57",
+              "pdf": "http://wpage.unina.it/pescape/doc/S01S09P01.PDF"
+            },
+            {
+              "title": "DRAGO: Detecting, quantifying and locating hidden routers in Traceroute IP paths",
+              "authors": "P. Marchetta, A. Pescapè",
+              "venue": "2013 Proceedings IEEE INFOCOM",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1109/infcom.2013.6567144",
+              "url": "https://doi.org/10.1109/infcom.2013.6567144",
+              "pdf": "http://wpage.unina.it/pescape/doc/gi_infocom_2013_ca.pdf"
+            }
+          ],
+          "links": [],
+          "files": []
         },
         {
           "name": "High-performance networking",
-          "link": "np.html",
-          "tools": []
+          "slug": "high-performance-networking",
+          "summary": "Multi-core architectures for high-speed networking: network processors and GPGPUs used for traffic processing.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "",
+              "text": "In the context of activities on [ANTS (The Testbed on Autonomic NeTworkS)](http://www.comics.unina.it/index.php?option=com_content&task=view&id=45&Itemid=130) of the [Comics research group](http://www.comics.unina.it/), we are working on multi-core architectures suitable for high speed networking, such as Network Processors and GPGPUs."
+            },
+            {
+              "title": "Network Processors",
+              "text": "Intel Corporation kindly donated four network processor boards to University of Napoli:\n\n- Two of these boards are equipped with Intel IXP425@533MHz, 256MB SDRAM, two Intel PRO 2200 Wireless and two Ethernet cards.\n- The other two boards are equipped with Intel IXP2350@900MHz, 512MB DDR RAM with ECC, two Gigabit Ethernet and one Fast Ethernet cards.\n\nThe donation represents an important contribution to our research activities. The University of Napoli deeply appreciated Intel Corporation for its valuable support."
+            },
+            {
+              "title": "Technical Reports",
+              "text": "Alessio Botta, Antonio Pescapè,\"[How to set up and configure StarEast in Access Point Mode with Intel 2200 Wireless Network Interfaces](pub/TR-DIS-NP-2-2007.pdf)\", TR-DIS-NP-2-2007, Technical Report Dipartimento di Informatica e Sistemistica, Università di Napoli \"Federico II\"."
+            },
+            {
+              "title": "GPGPUs",
+              "text": "We equipped a high-end server with an NVIDIA [Tesla C1060](http://www.nvidia.com/docs/IO/43395/NV_DS_Tesla_C1060_US_Jan10_lores_r1.pdf) card (240 CUDA cores, 4GB GDDR3 memory), and an NVIDIA [Tesla C2075](http://www.nvidia.com/docs/IO/43395/NV_DS_Tesla_C2050_C2070_jul10_lores.pdf) card (448 CUDA cores, 6GB GDDR5 memory), kindly donated to us by NVIDIA, in order to exploit the CUDA framework for implementing high-speed complex packet processing. In details, we are currently exploiting CUDA to implement efficient traffic classfication techniques to be used into the [TIE](software/tie/start.html) platform."
+            }
+          ],
+          "people": [
+            {
+              "name": "Giuseppe Bruno",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Vincenzo Siressi",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Francesco Rendine",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Stelvio Troncone",
+              "role": "Student contributor"
+            },
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Walter de Donato"
+            }
+          ],
+          "papers": [
+            {
+              "title": "Networked Embedded Systems: A Quantitative Performance Comparison",
+              "authors": "A. Botta, W. de Donato, A. Pescapè, G. Ventre",
+              "venue": "IEEE GLOBECOM 2008 - 2008 IEEE Global Telecommunications Conference",
+              "year": 2008,
+              "category": "conference",
+              "doi": "10.1109/glocom.2008.ecp.312",
+              "url": "https://doi.org/10.1109/glocom.2008.ecp.312",
+              "pdf": "http://wpage.unina.it/pescape/doc/GC08.pdf"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "np.html"
+            }
+          ],
+          "files": []
         },
         {
           "name": "Network data management",
-          "link": "netdata.html",
-          "tools": []
+          "slug": "network-data-management",
+          "summary": "Techniques to store and manage huge amounts of network monitoring data: compressed representations and the reduction of traffic data sets.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "",
+              "text": "We are working on methodologies and techniques to manage huge amounts of monitoring data (OSNs, p2p, high speed links, ...) from both active and passive approaches."
+            },
+            {
+              "title": "Network data compression",
+              "text": "We are developing a compressed representation technique for network monitoring data that provides:\n\n- reduced memory footprint for stored data, trading off accuracy versus space occupation;\n- a wide class of operations allowed directly on compressed data with no need for decompression and with reduced time complexity.\n\nThe research has been partially conducted during a summer internship by Mr. Giuseppe Aceto at DOCOMO Innovations Inc. (formerly Docomo Communications Laboratories USA), Palo Alto, CA."
+            },
+            {
+              "title": "Network data reduction",
+              "text": "We are working on an entropy-based methodology to reduce network traffic data which provides several advantages:\n\n- there is no need to consider the entire data sets in the processing stage;\n- allows to work off-line on reduced data."
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Alberto Dainotti"
+            }
+          ],
+          "papers": [
+            {
+              "title": "An efficient storage technique for network monitoring data",
+              "authors": "G. Aceto, A. Botta, A. Pescapè, C. Westphal",
+              "venue": "2011 IEEE International Workshop on Measurements and Networking Proceedings (M&N)",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1109/iwmn.2011.6088479",
+              "url": "https://doi.org/10.1109/iwmn.2011.6088479",
+              "pdf": "http://wpage.unina.it/pescape/doc/06088479.pdf"
+            },
+            {
+              "title": "Entropy-Based Reduction of Traffic Data",
+              "authors": "A. Pescapè",
+              "venue": "IEEE Communications Letters",
+              "year": 2007,
+              "category": "journal",
+              "doi": "10.1109/lcomm.2007.061068",
+              "url": "https://doi.org/10.1109/lcomm.2007.061068",
+              "pdf": "http://wpage.unina.it/pescape/doc/comlet2007pescape.pdf"
+            },
+            {
+              "title": "Reducing Network Traffic Data Sets",
+              "authors": "A. Botta, A. Dainotti, A. Pescapè, G. Ventre",
+              "venue": "2007 IEEE International Conference on Communications",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/icc.2007.65",
+              "url": "https://doi.org/10.1109/icc.2007.65",
+              "pdf": "http://wpage.unina.it/pescape/doc/icc2007redpescape.pdf"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "netdata.html"
+            }
+          ],
+          "files": []
         },
         {
           "name": "Network security",
-          "link": "security.html",
-          "tools": []
+          "slug": "network-security",
+          "summary": "Traffic analysis for security: DoS detection, worm traffic, Internet-wide scans by botnets and Internet outages caused by censorship.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "",
+              "text": "We study network traffic for detecting anomalies and for better characterizing and understanding its behavior in presence of network worms, denial-of-service attacks, worldwide scanning activities orchestrated by botnets, and network outages and censorship policies:\n\n- in collaboration with CAIDA, we studied Internet outages and censorship activity during the Internet connectivity disruptions ordered by the regimes in Egypt and Libya in 2011.\n- we devised strategies and techniques for the detection of malware activity in the network and for better characterizing and understanding its behavior.\n- we developed a framework to conduct experimental analysis of routing attacks (RIP route ﬂapping and forcing, OSPF denial-of-service, ...)."
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Alberto Dainotti"
+            }
+          ],
+          "papers": [
+            {
+              "text": "A. Dainotti, R. Amman, E. Aben, K. C. Claffy, \"Extracting Benefit from Harm: Using Malware Pollution to Analyze the Impact of Political and Geophysical Events on the Internet\", ACM SIGCOMM Computer Communication Review, accepted for publication"
+            },
+            {
+              "title": "Analysis of country-wide internet outages caused by censorship",
+              "authors": "A. Dainotti, C. Squarcella, E. Aben, K. claffy, M. Chiesa, M. Russo, A. Pescapè",
+              "venue": "Proceedings of the 2011 ACM SIGCOMM conference on Internet measurement conference",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1145/2068816.2068818",
+              "url": "https://doi.org/10.1145/2068816.2068818",
+              "pdf": "http://wpage.unina.it/pescape/doc/06678649.pdf"
+            },
+            {
+              "title": "A cascade architecture for DoS attacks detection based on the wavelet transform",
+              "authors": "A. Dainotti, A. Pescapè, G. Ventre",
+              "venue": "Journal of Computer Security",
+              "year": 2009,
+              "category": "journal",
+              "doi": "10.3233/jcs-2009-0350",
+              "url": "https://doi.org/10.3233/jcs-2009-0350",
+              "pdf": "http://wpage.unina.it/alberto/papers/jocs.pdf"
+            },
+            {
+              "title": "Worm Traffic Analysis and Characterization",
+              "authors": "A. Dainotti, A. Pescapè, G. Ventre",
+              "venue": "2007 IEEE International Conference on Communications",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/icc.2007.241",
+              "url": "https://doi.org/10.1109/icc.2007.241",
+              "pdf": "http://wpage.unina.it/pescape/doc/icc2007wormpescape.pdf"
+            },
+            {
+              "title": "Wavelet-based Detection of DoS Attacks.",
+              "authors": "A. Dainotti, A. Pescapè, G. Ventre",
+              "year": 2006,
+              "category": "journal",
+              "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.705.3272",
+              "pdf": "http://wpage.unina.it/pescape/doc/globecom2006NISpescape.pdf"
+            },
+            {
+              "text": "Mario Hoffmann, Christos Xenakis, Stauraleni Kontopoulo, Markus Eisenhauer, Seppo Heikkinen, Antonio Pescapè, Hu Wang, \"Security and Trust\" Chapter in \"Technologies for the Wireless Future: Wireless World Research Forum (WWRF), Volume 2\", Rahim Tafazolli (Editor) ISBN: 0-470-02905-6, 520 pages, April 2006."
+            },
+            {
+              "title": "Experimental analysis of attacks against intradomain routing protocols",
+              "authors": "A. Pescapè, G. Ventre",
+              "venue": "Journal of Computer Security",
+              "year": 2005,
+              "category": "journal",
+              "doi": "10.3233/jcs-2005-13603",
+              "url": "https://doi.org/10.3233/jcs-2005-13603",
+              "pdf": "http://wpage.unina.it/pescape/doc/jcs2005pescape.pdf"
+            },
+            {
+              "title": "Experimental analysis of attacks against routing network infrastructures",
+              "authors": "A. Pescapè, G. Ventre",
+              "venue": "IEEE International Conference on Performance, Computing, and Communications, 2004",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1109/pccc.2004.1395110",
+              "url": "https://doi.org/10.1109/pccc.2004.1395110",
+              "pdf": "http://wpage.unina.it/pescape/doc/jcs2005pescape.pdf"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "security.html"
+            }
+          ],
+          "files": []
         },
         {
           "name": "Bioinformatics and e-Health",
-          "link": "bioinformatics.html",
-          "tools": []
+          "slug": "bioinformatics-and-e-health",
+          "summary": "Information and Communication Technologies applied to biomedical and health scenarios: data analysis for genetic and clinical data and e-health services.",
+          "image": "",
+          "tools": [],
+          "sections": [
+            {
+              "title": "",
+              "text": "We study how to apply Information and Communications Technologies to biomedical and health scenarios:\n\n- we implement data mining and machine learning approaches for analyzing large scale biological, clinic and genetic data;\n- we developed a framework to conduct experimental analysis on NGS data;\n- we implement scalable cloud-based solutions and decision support systems for managing large scale biological, clinic, and genetic data;\n- we implement networking solutions for e-health scenarios."
+            }
+          ],
+          "people": [
+            {
+              "name": "Antonio Pescapè"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Walter de Donato"
+            }
+          ],
+          "papers": [
+            {
+              "title": "The role of Information and Communication Technologies in healthcare: taxonomies, perspectives, and challenges",
+              "authors": "G. Aceto, V. Persico, A. Pescapè",
+              "venue": "Journal of Network and Computer Applications",
+              "year": 2018,
+              "category": "journal",
+              "doi": "10.1016/j.jnca.2018.02.008",
+              "url": "https://doi.org/10.1016/j.jnca.2018.02.008",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/aceto2018jnca.pdf"
+            },
+            {
+              "title": "A First Look at an Automated Pipeline for NGS-Based Breast-Cancer Diagnosis: The CArDIGAN Approach",
+              "authors": "G. Aceto, A. Montieri, V. Persico, A. Pescapè, V. D’Argenio, F. Salvatore, L. Pastore",
+              "venue": "2016 12th International Conference on Signal-Image Technology & Internet-Based Systems (SITIS)",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/sitis.2016.86",
+              "url": "https://doi.org/10.1109/sitis.2016.86",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/cardigan_citima.pdf"
+            },
+            {
+              "text": "Monika Grajzer, Michal Koziuk,Piotr Szczechowiak Antonio Pescapè, [Multi-Classification Approach for the Detection and Identification of eHealth Applications](http://wpage.unina.it/pescape/doc/1569593505.pdf), ICCCN 2012, 2nd International Workshop on Context-aware QoS Provisioning and Management for Emerging Networks, Applications and Services (ContextQoS), July 30 - August 2, 2012 in Munich, Germany"
+            },
+            {
+              "title": "Using fuzzy logic for improving clinical daily-care of β-thalassemia patients",
+              "authors": "S. Santini, A. Pescapè, A. S. Valente, V. Abate, G. Improta, M. Triassi, P. Ricchi, A. Filosa",
+              "venue": "2017 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.1109/fuzz-ieee.2017.8015545",
+              "url": "https://doi.org/10.1109/fuzz-ieee.2017.8015545",
+              "pdf": "pub/talassemia.pdf"
+            },
+            {
+              "title": "Socio-technical approach to engineer gigabit app performance for physicaltherapy-as-a-service",
+              "authors": "R. B. Antequera, P. P. Calyam, D. Chemodanov, W. de Donato, A. K. Mishra, A. Pescapè, M. Skubic",
+              "venue": "2017 IEEE 19th International Conference on e-Health Networking, Applications and Services (Healthcom)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.1109/healthcom.2017.8210768",
+              "url": "https://doi.org/10.1109/healthcom.2017.8210768"
+            }
+          ],
+          "links": [
+            {
+              "label": "Previous page of this topic",
+              "url": "bioinformatics.html"
+            }
+          ],
+          "files": []
         }
       ]
     }

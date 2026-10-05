@@ -81,23 +81,46 @@ def clean_topics(raw):
         if re.search(r'\s', value):
             raise ValueError(f'{what}: the link must not contain spaces')
         return value
-    areas = []
+
+    def one(value):
+        return re.sub(r'\s+', ' ', str(value or '')).strip()
+
+    areas, slugs = [], set()
     for area in raw.get('areas') or []:
-        title = str(area.get('title') or '').strip()
+        title = one(area.get('title'))
         if not title:
             raise ValueError('every area needs a title')
         topics = []
         for topic in area.get('topics') or []:
-            name = str(topic.get('name') or '').strip()
+            name = one(topic.get('name'))
             if not name:
                 raise ValueError(f'{title}: every topic needs a name')
+            slug = str(topic.get('slug') or '')
+            if not re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', slug) or slug in slugs:
+                raise ValueError(f'{name}: the page address is missing, not valid or used twice')
+            slugs.add(slug)
             tools = []
             for tool in topic.get('tools') or []:
-                tool_name = str(tool.get('name') or '').strip()
+                tool_name = one(tool.get('name'))
                 if not tool_name:
                     raise ValueError(f'{name}: every tool needs a name')
-                tools.append({'name': tool_name, 'link': link(tool.get('link'), tool_name)})
-            topics.append({'name': name, 'link': link(topic.get('link'), name), 'tools': tools})
+                item = {'name': tool_name, 'link': link(tool.get('link'), tool_name)}
+                if one(tool.get('description')):
+                    item['description'] = one(tool['description'])
+                tools.append(item)
+            topics.append({
+                'name': name, 'slug': slug, 'summary': one(topic.get('summary')), 'image': str(topic.get('image') or ''),
+                'tools': tools,
+                'sections': [{'title': one(x.get('title')), 'text': str(x.get('text') or '').strip()}
+                             for x in topic.get('sections') or [] if one(x.get('title')) or str(x.get('text') or '').strip()],
+                'people': [{k: v for k, v in {'name': one(x.get('name')), 'role': one(x.get('role')),
+                                              'link': link(x.get('link'), name)}.items() if v}
+                           for x in topic.get('people') or [] if one(x.get('name'))],
+                'papers': [x for x in topic.get('papers') or [] if one(x.get('title')) or one(x.get('text'))],
+                'links': [{'label': one(x.get('label')) or 'Link', 'url': link(x.get('url'), name)}
+                          for x in topic.get('links') or [] if str(x.get('url') or '').strip()],
+                'files': [x for x in topic.get('files') or [] if str(x.get('path') or '').startswith(f'files/topics/{slug}/')],
+            })
         areas.append({'title': title, 'topics': topics})
     return {'intro': str(raw.get('intro') or '').strip(), 'areas': areas}
 
@@ -256,9 +279,16 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             datasets = clean_datasets(payload['datasets']) if payload.get('datasets') is not None else None
             # Uploads: people photos (JPEG), collaboration logos (PNG) and dataset images (JPEG).
             kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png'),
-                     'images/datasets': (DATASET_IMAGES, 'jpg', 'jpeg')}
+                     'images/datasets': (DATASET_IMAGES, 'jpg', 'jpeg'),
+                     'images/topics': (os.path.join(ROOT, 'images', 'topics'), 'jpg', 'jpeg')}
             files = {}
             for path, url in (payload.get('photos') or {}).items():
+                if re.fullmatch(r'files/topics/[a-z0-9-]+/[A-Za-z0-9][A-Za-z0-9._-]*', path):   # any file of a topic page
+                    match = re.match(r'data:[^;,]*;base64,(.+)', url, re.S)
+                    if not match:
+                        raise ValueError(f'{path}: unexpected file format')
+                    files[os.path.join(ROOT, *path.split('/'))] = base64.b64decode(match.group(1))
+                    continue
                 folder, name = os.path.split(path)
                 if folder not in kinds or not re.fullmatch(rf'[a-z0-9_-]+\.{kinds[folder][1]}', name):
                     raise ValueError(f'unexpected upload path: {path}')

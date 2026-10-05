@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 """Rebuild the research topics of the Traffic group from data/topics.json.
 
-The data lists the research areas; each area has topics, and each topic an
-optional link and optional tools (name + link). Two places are generated:
+The data lists the research areas; each area has topics. A topic has a name,
+optional tools (name + link + description) and the content of its own page:
+summary, image, text sections, people, papers, links and files. Three places
+are generated:
 
-  index.html      the "Research topics & tools" section, between the TOPICS markers
-  every page      the "Topics" menu of the header, between the TOPICS-MENU markers
-                  (links are adjusted to the depth of each page)
+  topics/<slug>.html  one page per topic (pages of topics no longer in the data are removed)
+  index.html          the "Research topics & tools" section, between the TOPICS markers
+  every page          the "Topics" menu of the header, between the TOPICS-MENU markers
+                      (links are adjusted to the depth of each page)
+
+Text sections use a small markup, also explained in the editor:
+  empty line = new paragraph, ### subheading, "- " bullet, "1. " numbered item,
+  [label](address) link, **bold**, *italic*, `code`, ``` code block ```,
+  ![description](images/picture.png) on its own line = picture.
 
 Edit the data by hand or with the editor (admin/people/, "Topics" tab).
 
@@ -17,10 +25,17 @@ import json
 import os
 import re
 import sys
+import unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data', 'topics.json')
+PEOPLE = os.path.join(ROOT, 'data', 'people.json')
 HOME = os.path.join(ROOT, 'index.html')
+TEMPLATE = os.path.join(ROOT, 'collaborations.html')
+PAGES = os.path.join(ROOT, 'topics')
+PAGE_PREFIX = '../'
+CATEGORY_LABELS = {'journal': 'Journal', 'conference': 'Conference', 'book': 'Book chapter',
+                   'preprint': 'Preprint', 'other': 'Other'}
 START, END = '<!-- TOPICS:START -->', '<!-- TOPICS:END -->'
 MENU_START, MENU_END = '<!-- TOPICS-MENU:START -->', '<!-- TOPICS-MENU:END -->'
 SKIP_DIRS = {'.git', '.github', 'admin', 'data', 'scripts', 'node_modules'}
@@ -46,12 +61,27 @@ def attrs(url, prefix=''):
     return f'href="{esc(href(url, prefix))}"{extra}'
 
 
+def slugify(name):
+    text = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode().lower()
+    return re.sub(r'[^a-z0-9]+', '-', text).strip('-') or 'topic'
+
+
+def assign_slugs(data):
+    """Every topic gets the address of its page: the one in the data, else one made from its name."""
+    used = set()
+    for area in data.get('areas') or []:
+        for topic in area.get('topics') or []:
+            slug = topic.get('slug') or slugify(topic['name'])
+            base, n = slug, 2
+            while slug in used:
+                slug, n = f'{base}-{n}', n + 1
+            used.add(slug)
+            topic['_slug'] = slug
+
+
 def topic_target(topic):
-    """Where a topic leads: its own page, else its only tool, else the topics section."""
-    if topic.get('link'):
-        return topic['link']
-    tools = [t for t in topic.get('tools') or [] if t.get('link')]
-    return tools[0]['link'] if len(tools) == 1 else ''
+    """Every topic leads to its own page."""
+    return f'topics/{topic["_slug"]}.html'
 
 
 # --------------------------------------------------------------------------
@@ -72,8 +102,7 @@ def render_home(data):
                   '    <ul class="area-topics">']
         for topic in area.get('topics') or []:
             name = esc(topic['name'])
-            head = (f'<a {attrs(topic["link"])} class="area-topic">{name}</a>' if topic.get('link')
-                    else f'<span class="area-topic">{name}</span>')
+            head = f'<a {attrs(topic_target(topic))} class="area-topic">{name}</a>'
             chips = ''.join(f'<a {attrs(t["link"])}>{esc(t["name"])}{" ↗" if external(t["link"]) else ""}</a>'
                             if t.get('link') else f'<span>{esc(t["name"])}</span>'
                             for t in topic.get('tools') or [])
@@ -87,15 +116,13 @@ def render_home(data):
 # Header menu
 # --------------------------------------------------------------------------
 
-def render_menu(data, prefix, on_home):
-    section = '#topics' if on_home else f'{prefix}index.html#topics'
+def render_menu(data, prefix):
     areas = data.get('areas') or []
     lines = []
     for index, area in enumerate(areas):
         lines += ['<div class="mega-col">', f'  <p class="mega-heading">{esc(area["title"])}</p>']
         for topic in area.get('topics') or []:
-            target = topic_target(topic)
-            link = attrs(target, prefix) if target else f'href="{section}"'
+            link = attrs(topic_target(topic), prefix)
             tools = ' · '.join(esc(t['name']) for t in topic.get('tools') or [])
             small = f' <small>{tools}</small>' if tools else ''
             lines.append(f'  <a {link}>{esc(topic["name"])}{small}</a>')
@@ -103,6 +130,242 @@ def render_menu(data, prefix, on_home):
             lines.append(f'  <a href="{prefix}other.html">Other activities</a>')
         lines.append('</div>')
     return '\n'.join(' ' * 16 + line for line in lines)
+
+
+# --------------------------------------------------------------------------
+# Text markup of the sections (same rules as the preview of the editor)
+# --------------------------------------------------------------------------
+
+def inline(text, prefix):
+    out = []
+    for i, part in enumerate(re.split(r'`([^`]+)`', text)):
+        if i % 2:
+            out.append(f'<code>{esc(part)}</code>')
+            continue
+        part = esc(part)
+        part = re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)', lambda m: f'<a {attrs(html.unescape(m.group(2)), prefix)}>{m.group(1)}</a>', part)
+        part = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', part)
+        part = re.sub(r'(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])', r'<em>\1</em>', part)
+        out.append(part)
+    return ''.join(out)
+
+
+def markup(text, prefix):
+    blocks, para, items, kind = [], [], [], None
+    lines = (text or '').replace('\r', '').split('\n')
+
+    def flush():
+        nonlocal para, items, kind
+        if para:
+            blocks.append('<p>' + '<br>'.join(inline(line, prefix) for line in para) + '</p>')
+        if items:
+            blocks.append(f'<{kind}>' + ''.join(f'<li>{inline(item, prefix)}</li>' for item in items) + f'</{kind}>')
+        para, items, kind = [], [], None
+
+    i = 0
+    while i < len(lines):
+        line = lines[i].rstrip()
+        stripped = line.strip()
+        if stripped.startswith('```'):
+            flush()
+            code = []
+            i += 1
+            while i < len(lines) and not lines[i].strip().startswith('```'):
+                code.append(lines[i])
+                i += 1
+            blocks.append(f'<pre><code>{esc(chr(10).join(code))}</code></pre>')
+        elif not stripped:
+            flush()
+        elif stripped.startswith('### '):
+            flush()
+            blocks.append(f'<h3>{inline(stripped[4:], prefix)}</h3>')
+        elif re.fullmatch(r'!\[([^\]]*)\]\((\S+)\)', stripped):
+            flush()
+            alt, src = re.fullmatch(r'!\[([^\]]*)\]\((\S+)\)', stripped).groups()
+            blocks.append(f'<figure class="topic-figure"><img src="{esc(href(src, prefix))}" alt="{esc(alt)}" loading="lazy"></figure>')
+        elif re.match(r'[-*] ', stripped) or re.match(r'\d+[.)] ', stripped):
+            new_kind = 'ul' if re.match(r'[-*] ', stripped) else 'ol'
+            if para or (kind and kind != new_kind):
+                flush()
+            kind = new_kind
+            items.append(re.sub(r'^([-*]|\d+[.)]) ', '', stripped))
+        elif items and line.startswith('  '):
+            items[-1] += ' ' + stripped     # continuation of the previous item
+        else:
+            if items:
+                flush()
+            para.append(stripped)
+        i += 1
+    flush()
+    return '\n'.join(blocks)
+
+
+# --------------------------------------------------------------------------
+# Topic pages
+# --------------------------------------------------------------------------
+
+def frame(title, description, main):
+    """Header, menu and footer taken from an existing page of the site, one folder down."""
+    with open(TEMPLATE, encoding='utf-8') as f:
+        page = f.read()
+    head, rest = page.split('<main id="main">', 1)
+    _, tail = rest.split('</main>', 1)
+    up = lambda part: re.sub(r'(\s(?:href|src))="(?!https?:|//|/|#|mailto:|data:|\.\./)([^"]*)"',
+                             lambda m: f'{m.group(1)}="{PAGE_PREFIX}{m.group(2)}"', part)
+    page = up(head) + '<main id="main">\n' + main + '\n  </main>' + up(tail)
+    page = re.sub(r'<title>.*?</title>', f'<title>{esc(title)}</title>', page, count=1, flags=re.S)
+    page = re.sub(r'<meta name="description" content="[^"]*">',
+                  f'<meta name="description" content="{esc(description)}">', page, count=1)
+    return page.replace(' aria-current="page"', '')
+
+
+def name_key(name):
+    text = unicodedata.normalize('NFKD', name or '').encode('ascii', 'ignore').decode().lower()
+    return re.sub(r'[^a-z]+', ' ', text).strip()
+
+
+def group_people():
+    """Members and former members of the group, by name: their photo, role and homepage."""
+    with open(PEOPLE, encoding='utf-8') as f:
+        people = json.load(f)
+    everyone = [people.get('principal')] + (people.get('members') or []) + (people.get('alumni') or [])
+    return {name_key(p['name']): p for p in everyone if p}
+
+
+def people_html(topic, members):
+    cards, others = [], []
+    for person in topic.get('people') or []:
+        member = members.get(name_key(person.get('name')))
+        role = person.get('role') or (member or {}).get('role') or ''
+        link = person.get('link') or (member or {}).get('homepage') or (member or {}).get('scholar') or ''
+        name = esc(person['name'])
+        if link:
+            name = f'<a {attrs(link, PAGE_PREFIX)}>{name}</a>'
+        if member:
+            photo = href(member.get('photo') or 'images/pictures/placeholder.svg', PAGE_PREFIX)
+            cards.append(f'<li class="topic-person"><img src="{esc(photo)}" alt="" loading="lazy">'
+                         f'<span><strong>{name}</strong>' + (f'<small>{esc(role)}</small>' if role else '') + '</span></li>')
+        else:
+            others.append(f'<li>{name}' + (f' <small>· {esc(role)}</small>' if role else '') + '</li>')
+    out = ''
+    if cards:
+        out += f'<ul class="topic-people">{"".join(cards)}</ul>'
+    if others:
+        out += ('<p class="topic-label">Other contributors</p>' if cards else '') + f'<ul class="topic-others">{"".join(others)}</ul>'
+    return out
+
+
+def paper_html(paper):
+    """A paper chosen from the publication list (title, authors, venue…) or written by hand (text)."""
+    if paper.get('text'):
+        return f'<li class="pub">{inline(paper["text"], PAGE_PREFIX)}</li>'
+    title = esc(paper.get('title'))
+    if paper.get('url'):
+        title = f'<a {attrs(paper["url"], PAGE_PREFIX)}>{title}</a>'
+    authors = paper.get('authors') or ''
+    parts = [esc(', '.join(authors) if isinstance(authors, list) else authors), f'&ldquo;{title}&rdquo;']
+    if paper.get('venue'):
+        parts.append(f'<i>{esc(paper["venue"])}</i>')
+    if paper.get('year'):
+        parts.append(esc(str(paper['year'])))
+    kind = CATEGORY_LABELS.get(paper.get('category'))
+    out = (f'<span class="pub-kind">{kind}</span> ' if kind else '') + ', '.join(p for p in parts if p) + '.'
+    if paper.get('pdf'):
+        out += f' <a class="pub-pdf" {attrs(paper["pdf"], PAGE_PREFIX)}>PDF</a>'
+    return f'<li class="pub">{out}</li>'
+
+
+def section(title, body, alt=False, anchor=''):
+    ident = f' id="{anchor}"' if anchor else ''
+    return f'''
+    <section class="section page-body{' section-alt' if alt else ''}"{ident}>
+      <div class="container">
+        <h2 class="section-title topic-section-title">{esc(title)}</h2>
+{body}
+      </div>
+    </section>'''
+
+
+def topic_page(area, topic, members):
+    prefix = PAGE_PREFIX
+    crumbs = (f'<a href="{prefix}index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> '
+              f'<a href="{prefix}index.html#topics">Research topics</a> <span class="crumb-sep" aria-hidden="true">/</span> '
+              f'<span>{esc(area["title"])}</span>')
+    lead = f'\n        <p class="page-lead">{esc(topic["summary"])}</p>' if topic.get('summary') else ''
+    parts = [f'''    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">{crumbs}</nav>
+        <h1 class="page-title">{esc(topic["name"])}</h1>{lead}
+      </div>
+    </section>''']
+
+    body = []
+    if topic.get('image'):
+        body.append(f'<figure class="topic-figure topic-cover"><img src="{esc(href(topic["image"], prefix))}" alt=""></figure>')
+    for sec in topic.get('sections') or []:
+        if sec.get('title'):
+            body.append(f'<h2>{esc(sec["title"])}</h2>')
+        body.append(markup(sec.get('text'), prefix))
+    if body:
+        parts.append(f'''
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose topic-prose">
+{chr(10).join(body)}
+        </article>
+      </div>
+    </section>''')
+
+    tools = topic.get('tools') or []
+    if tools:
+        cards = []
+        for t in tools:
+            name = esc(t['name'])
+            title = f'<a {attrs(t["link"], prefix)}>{name}{" ↗" if external(t["link"]) else ""}</a>' if t.get('link') else name
+            desc = f'<p>{inline(t["description"], prefix)}</p>' if t.get('description') else ''
+            cards.append(f'          <li class="topic-tool"><strong>{title}</strong>{desc}</li>')
+        parts.append(section('Tools & projects', f'        <ul class="topic-tools">\n{chr(10).join(cards)}\n        </ul>', alt=True))
+
+    people = people_html(topic, members)
+    if people:
+        parts.append(section('People', '        ' + people))
+
+    papers = topic.get('papers') or []
+    if papers:
+        parts.append(section('Publications', '        <ul class="pub-list topic-pubs">\n' +
+                             '\n'.join('          ' + paper_html(p) for p in papers) + '\n        </ul>', alt=True, anchor='publications'))
+
+    links = [l for l in topic.get('links') or [] if l.get('url')]
+    files = [f for f in topic.get('files') or [] if f.get('path')]
+    if links or files:
+        items = [f'<li><a {attrs(f["path"], prefix)} download>{esc(f.get("label") or f["path"].split("/")[-1])}</a>'
+                 + (f' <small>{esc(f["size"])}</small>' if f.get('size') else '') + '</li>' for f in files]
+        items += [f'<li><a {attrs(l["url"], prefix)}>{esc(l.get("label") or l["url"])}{" ↗" if external(l["url"]) else ""}</a></li>'
+                  for l in links]
+        parts.append(section('Files & links', f'        <ul class="topic-links">{"".join(items)}</ul>'))
+
+    parts.append(f'''
+    <section class="section page-body">
+      <div class="container"><p class="topic-back"><a href="{prefix}index.html#topics">← All research topics</a></p></div>
+    </section>''')
+    description = topic.get('summary') or f'{topic["name"]}: research of the Traffic group, University of Napoli Federico II.'
+    return frame(f'{topic["name"]} | Research topics | Traffic', description, '\n'.join(parts))
+
+
+def build_pages(data):
+    members = group_people()
+    os.makedirs(PAGES, exist_ok=True)
+    written = set()
+    for area in data.get('areas') or []:
+        for topic in area.get('topics') or []:
+            name = f'{topic["_slug"]}.html'
+            with open(os.path.join(PAGES, name), 'w', encoding='utf-8') as f:
+                f.write(topic_page(area, topic, members))
+            written.add(name)
+    for name in os.listdir(PAGES):   # topics removed from the data
+        if name.endswith('.html') and name not in written:
+            os.remove(os.path.join(PAGES, name))
+    return len(written)
 
 
 def page_prefix(path):
@@ -126,6 +389,8 @@ def replace_block(text, start, end, block, indent):
 def build():
     with open(DATA, encoding='utf-8') as f:
         data = json.load(f)
+    assign_slugs(data)
+    pages = build_pages(data)
     menus = 0
     for path in html_pages():
         with open(path, 'rb') as f:
@@ -136,8 +401,7 @@ def build():
         page = raw.decode('utf-8')
         updated = page
         if MENU_START in page:
-            on_home = os.path.abspath(path) == HOME
-            updated = replace_block(updated, MENU_START, MENU_END, render_menu(data, page_prefix(path), on_home), ' ' * 16)
+            updated = replace_block(updated, MENU_START, MENU_END, render_menu(data, page_prefix(path)), ' ' * 16)
             menus += 1
         if os.path.abspath(path) == HOME:
             if START not in updated:
@@ -146,9 +410,9 @@ def build():
         if updated != page:
             with open(path, 'w', encoding='utf-8') as f:
                 f.write(updated)
-    return menus
+    return menus, pages
 
 
 if __name__ == '__main__':
-    count = build()
-    print(f'Research topics rebuilt: home section and the menu of {count} pages')
+    count, pages = build()
+    print(f'Research topics rebuilt: {pages} topic pages, home section and the menu of {count} pages')

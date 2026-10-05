@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet measurement and censorship | Research topics | Traffic</title>
+  <meta name="description" content="Measuring Internet censorship and shutdowns: the UBICA platform for user-based censorship detection, country case studies and the 2026 Iran shutdown.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Source+Sans+3:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#fcfcfd">
+  <script src="../js/theme-init.js?v=cf171adf"></script>
+  <link rel="stylesheet" href="../css/site.css?v=6d3aa5ee">
+  <script src="../js/site.js?v=9e61baa7" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+    </div>
+  </div>
+
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Traffic, home">
+        <img src="../images/traffic-mark.svg" alt="" class="brand-seal"><img src="../images/traffic-mark-dark.svg" alt="" class="brand-seal brand-seal--dark">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <!-- TOPICS-MENU:START -->
+                <div class="mega-col">
+                  <p class="mega-heading">Network Traffic Classification</p>
+                  <a href="../topics/encrypted-and-mobile-app-traffic-classification.html">Encrypted and mobile-app traffic classification <small>MIMETIC · DISTILLER · AI-powered traffic classification</small></a>
+                  <a href="../topics/incremental-and-few-shot-learning.html">Incremental and few-shot learning <small>MEMENTO · Meta Mimetic</small></a>
+                  <a href="../topics/explainable-ai-for-traffic-analysis.html">Explainable AI for traffic analysis <small>XAI survey (COMST) · Quantum ML</small></a>
+                  <a href="../topics/mobile-and-genai-app-traffic-datasets.html">Mobile and GenAI app traffic datasets <small>MIRAGE datasets · From prompts to packets</small></a>
+                  <a href="../topics/federated-traffic-classification.html">Federated Traffic Classification</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Network Traffic Generation &amp; Prediction</p>
+                  <a href="../topics/generative-ai-for-synthetic-traffic.html">Generative AI for synthetic traffic <small>Federated GenAI · Lightweight GenAI · Privacy-preserving traces</small></a>
+                  <a href="../topics/traffic-prediction.html">Traffic prediction <small>Multitask deep learning · Markov models</small></a>
+                  <a href="../topics/application-traffic-generation.html">Application traffic generation <small>Virtual environments</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Anomaly &amp; Intrusion Detection</p>
+                  <a href="../topics/adaptive-intrusion-detection-for-iot-and-iomt.html">Adaptive intrusion detection for IoT and IoMT <small>Federated NIDS · Attack-adaptive NIDS · IoMT · Few-shot NIDS</small></a>
+                  <a href="../topics/robust-and-explainable-detection.html">Robust and explainable detection <small>XAI-guided attacks · Cross-network transfer · MLOps · Quantum ML</small></a>
+                  <a href="../topics/network-anomaly-detection.html">Network anomaly detection <small>IoT benchmark · Data poisoning · XAI</small></a>
+                  <a href="../topics/malware-and-botnet-traffic.html">Malware and botnet traffic <small>Android malware · IoT botnets</small></a>
+                  <a href="../topics/federated-learning-nids.html">Federated Learning NIDS</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement &amp; Traffic Operations</p>
+                  <a href="../topics/internet-measurement-and-censorship.html">Internet measurement and censorship <small>Iran&#x27;s 2026 shutdown</small></a>
+                  <a href="../topics/path-tracing-and-topology.html">Path tracing and topology <small>Third-Party Addresses · TP-Traceroute · PYTHIA · Forwarding detours</small></a>
+                  <a href="../topics/generative-ai-for-network-management.html">Generative AI for network management <small>GenAI survey (TNSM) · Digital twins</small></a>
+                  <a href="../topics/active-probing.html">Active probing <small>IPPO Library</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Earlier research</p>
+                  <a href="../topics/cloud-monitoring-and-control.html">Cloud monitoring and control</a>
+                  <a href="../topics/software-defined-network-monitoring.html">Software-defined network monitoring</a>
+                  <a href="../topics/application-traffic-generation-2.html">Application traffic generation <small>D-ITG</small></a>
+                  <a href="../topics/broadband-performance.html">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="../topics/traffic-classification-tools.html">Traffic classification tools <small>TIE · Plab · WWAN</small></a>
+                  <a href="../topics/network-performance.html">Network performance <small>UANM · TimeD · Hidden routers</small></a>
+                  <a href="../topics/high-performance-networking.html">High-performance networking</a>
+                  <a href="../topics/network-data-management.html">Network data management</a>
+                  <a href="../topics/network-security.html">Network security</a>
+                  <a href="../topics/bioinformatics-and-e-health.html">Bioinformatics and e-Health</a>
+                  <a href="../other.html">Other activities</a>
+                </div>
+                <!-- TOPICS-MENU:END -->
+              </div>
+            </div>
+          </li>
+
+          <li><a href="../publications.html" class="nav-link">Publications</a></li>
+          <li><a href="../news.html" class="nav-link">News</a></li>
+
+          <li><a href="../datasets/" class="nav-link">Datasets</a></li>
+
+          <li><a href="../collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="../workshops.html" class="nav-link">Workshops &amp; Special Issues</a></li>
+          <li><a href="../visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="../index.html#topics">Research topics</a> <span class="crumb-sep" aria-hidden="true">/</span> <span>Measurement &amp; Traffic Operations</span></nav>
+        <h1 class="page-title">Internet measurement and censorship</h1>
+        <p class="page-lead">Measuring Internet censorship and shutdowns: the UBICA platform for user-based censorship detection, country case studies and the 2026 Iran shutdown.</p>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose topic-prose">
+<p>With the growing usage of Internet as a tool for spreading news and fostering discussions of any kind, Internet censorship has become more and more a concern and a subject of active research (e.g. see <a href="https://opennet.net/" target="_blank" rel="noopener">OpenNet Initiative</a> for reports about worldwide internet censorship). Several techniques can be employed by censors to impair or prevent altogether the access to information on the Internet, by acting at different layers (network and transport, or application) and at different control points (the user&#x27;s machine, the ISP, country border ASes, server side); moreover adopted censoring techniques change on geographic basis and in time.</p>
+<p>Measuring the occurrence of this practice and identifying the techniques employed are instrumental to scientifically document the phenomenon, detect possible side-effects affecting entities outside the censored network, raise the awareness of the users, and empower them with respect to political decisions. Also, these research activities provide insights useful for the design of circumvention techniques.</p>
+<figure class="topic-figure"><img src="../images/faculty_award.png" alt="" loading="lazy"></figure>
+<p>UBICA Project</p>
+<p>UBICA (User-based Internet Censorship Analysis) is a research project of University of Napoli &quot;Federico II&quot;, led by prof. Antonio Pescapè and partially funded by a Google Faculty Research Award in 2013.</p>
+<p>The research project aims at advancing the state of the art in the field of Internet censorship analysis implementing a multi-platform and open-source client (UBICA censorship monitor) to be distributed worldwide in order to perform a number of censorship tests, mainly traffic manipulations and content blocking. The UBICA censorship monitor will leverage a measurement and management infrastructure currently employed by the proposing research team for broadband network performance evaluation on national scale (HoBBIT) to provide easy deployment and update of new censorship tests, keep a low computational footprint on the hosts, and perform integrated analysis of the experimental results. By means of the UBICA censorship monitor we aim at collecting and analyzing (avoiding any concerns about user privacy) heterogeneous and independent data sources related to censors activity. The research project aims to: (i) improve the current state of the art in the field of censorship analysis; (ii) relate Quality of Service parameters, geographical location, and access technologies with the results of censorship tests; (iii) infer possible side-effects that censorship techniques enforced by a government in a country can have on a global scale; (iv) make available both the monitor source code and a set of anonymized collected data related to evidences of censorship.</p>
+<h2>Architecture</h2>
+<p>Thanks to a modular client design, new tests are deployed on user permission without reinstalling or even stopping the client, lowering the barrier to the deployment of new detection experiments. All tests perform active measurements, i.e. no information from user activity or user traffic is collected, avoiding possible concerns about user privacy, as the tests use automatically generated traffic to infer possible censorship. Some tests (namely, traffic manipulation ones) employ server-based helper applications: a server counterpart is deployed on the management infrastructure.</p>
+<p>In general, the destinations of probe traffic are of three types: (i) Internet services (DNS, open web proxies, TOR relays); (ii) web servers hosting content potentially subject to censorship; (iii) helper measurement servers.</p>
+<p>For the tests that check content blocking, the list of potential targets is generated on the management server, using several sources of information, such as the Herdict project, TOR relay lists, open proxy lists, worldwide popular social networking and news lists. The orchestration of the tests, the client update, the distribution of the targets lists as well as the collection and analysis of the results will be done by means of a management infrastructure, based on the HoBBIT project.</p>
+<figure class="topic-figure"><img src="../ubica_architecture.png" alt="" loading="lazy"></figure>
+<h2>Events</h2>
+<h3>May 2013</h3>
+<p>ETIC AICA &amp; Rotary International Prize awarded to Giuseppe Aceto for his PhD Thesis entitled &#x27;&#x27;Monitoring Internet censorship: the case of UBICA&#x27;&#x27; (<a href="http://www.aicanet.it/attivita/Vincitori%20ETIC-2014-15_%20def.pdf" target="_blank" rel="noopener">Announcement - in Italian</a>).</p>
+<h3>February 2013</h3>
+<p><a href="http://googleresearch.blogspot.it/2013/02/google-research-awards-winter-2013.html" target="_blank" rel="noopener">Google Faculty Award</a> granted to Antonio Pescapè for the <a href="http://services.google.com/fh/files/blogs/googlefras_february13.pdf" target="_blank" rel="noopener">UBICA (User-Based Internet Censorship Analysis) research project</a>.</p>
+<h3>April 30 2013</h3>
+<p>Test run of Alpha version of client</p>
+<h3>May 2013</h3>
+<p>Press release by <a href="http://denaro.it/blog/2013/05/13/web-libero-google-premia-ubica-mastino-napoletano-anti-censure/" target="_blank" rel="noopener">Il Denaro</a></p>
+<h3>May 2013</h3>
+<p>UBICA has been press released by <a href="http://www.news.unina.it/dettagli_area.jsp?ID=13593" target="_blank" rel="noopener">Unina News</a></p>
+<h3>June 2013</h3>
+<p>Presentation at the technical meetings of <a href="http://nalug.net/" target="_blank" rel="noopener">NaLUG</a></p>
+<h3>June 11 2013</h3>
+<p>Prototype of UBICA website with main reports (using mock data)</p>
+<h3>June 20 2013</h3>
+<p>Test run of Beta version of client</p>
+<h3>July 17 2013</h3>
+<p>Online meeting with researchers from NUST School of Electrical Engineering &amp; Computer Science, Pakistan and Georgia Technology Institute, GA, USA about censorship tests in Pakistan.</p>
+<h3>July 22-26, 2013</h3>
+<p>Poster presentation at University of Toronto, Connaught Summer Institute on Monitoring Internet Openness and Rights.</p>
+<p>Meetings with researchers, hacktivists and journalists involved in Internet Censorship.</p>
+<h3>August 5 2013</h3>
+<p>Online meeting with M-lab people to explore integration of UBICA in m-lab experiments</p>
+<h3>September 9 2013</h3>
+<p>Online meeting with OONI developers and M-lab people on m-lab deployment of censorship measurements</p>
+<h3>October 7 2013</h3>
+<p>Exposition of UBICA poster at <a href="http://mn2013.ieee-ims.org/" target="_blank" rel="noopener">2nd IEEE International Workshop M&amp;N 2013</a></p>
+<h3>October 14 2013</h3>
+<p>Talk &quot;Router-based and client-based platforms for performance measurement and censorship detection&quot; at the <a href="https://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroupAg&amp;LgZurich32" target="_blank" rel="noopener">IRTF Network Management Research Group meeting (Zurich, Switzerland)</a></p>
+<h3>October 26 2013</h3>
+<p>Talk at the <a href="http://www.linuxdaynapoli.org/it/agenda" target="_blank" rel="noopener">Linux Day 2013 in Napoli (in Italian)</a>, about Internet Censorship and its monitoring <a href="http://wpage.unina.it/giuseppe.aceto/pub/IC_linuxday2013_pescape_top.pdf" target="_blank" rel="noopener">(slides, in English)</a> and the UBICA project <a href="http://wpage.unina.it/giuseppe.aceto/pub/linuxday2013_aceto_ubica.pdf" target="_blank" rel="noopener">(slides, in English)</a>.</p>
+<h3>July 28-31, 2014</h3>
+<p>Participation to Citizen Lab Summer Institute on Monitoring Internet Openness and Rights, at University of Toronto.</p>
+<h3>March 16, 2015</h3>
+<p>Published and available online survey paper <a href="http://dx.doi.org/10.1016/j.comnet.2015.03.008" target="_blank" rel="noopener">Internet Censorship detection: A survey</a> focused on detection techniques and platforms.</p>
+<h3>April 24, 2015</h3>
+<p>Paper presentation at Universitat Politecnica de Cataunya, Barcelona (Spain) for the 7th International Workshop on Traffic Monitoring and Analysis (TMA&#x27;15)</p>
+<h3>December 4, 2015</h3>
+<p>Poster presentation at ACM CoNEXT Conference, Heidelberg</p>
+<h3>September, 2016</h3>
+<p>Paper presentation at IEEE 2nd International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow (RTSI), Bologna, Italy.</p>
+<h2>Related Projects</h2>
+<p>BISMark: the Broadband Internet Service Benchmark (<a href="http://projectbismark.net/" target="_blank" rel="noopener">http://projectbismark.net/</a>)</p>
+<p>HoBBIT: Host Based Broadband Internet Telemetry (<a href="http://hobbit.comics.unina.it/" target="_blank" rel="noopener">http://hobbit.comics.unina.it</a> )</p>
+<p>M-Lab: an open platform for researchers to deploy Internet measurement tools (<a href="http://measurementlab.net/" target="_blank" rel="noopener">http://measurementlab.net/</a> )</p>
+<p>PlanetLab: An open platform for developing, deploying, and accessing planetary-scale services (<a href="http://planet-lab.org/" target="_blank" rel="noopener">http://planet-lab.org</a>).</p>
+<p>Tor: Anonymity online (<a href="http://torproject.org/" target="_blank" rel="noopener">http://torproject.org</a>)</p>
+<p>Open Observatory of Network Interference (<a href="https://ooni.torproject.org/" target="_blank" rel="noopener">https://ooni.torproject.org/</a>)</p>
+<p>HerdictWeb: Help spot Web blockages (<a href="http://www.herdict.org/" target="_blank" rel="noopener">http://www.herdict.org/</a>)</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section page-body section-alt">
+      <div class="container">
+        <h2 class="section-title topic-section-title">Tools &amp; projects</h2>
+        <ul class="topic-tools">
+          <li class="topic-tool"><strong><a href="https://doi.org/10.48550/arxiv.2603.28753" target="_blank" rel="noopener">Iran&#x27;s 2026 shutdown ↗</a></strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <h2 class="section-title topic-section-title">People</h2>
+        <ul class="topic-people"><li class="topic-person"><img src="../images/pictures/antonio2.jpg" alt="" loading="lazy"><span><strong><a href="http://wpage.unina.it/pescape/" target="_blank" rel="noopener">Antonio Pescapè</a></strong><small>PI</small></span></li><li class="topic-person"><img src="../images/pictures/giuseppe_aceto.jpg" alt="" loading="lazy"><span><strong><a href="http://wpage.unina.it/giuseppe.aceto/" target="_blank" rel="noopener">Giuseppe Aceto</a></strong><small>Postdoc</small></span></li><li class="topic-person"><img src="../images/pictures/alessio.jpg" alt="" loading="lazy"><span><strong><a href="http://wpage.unina.it/a.botta" target="_blank" rel="noopener">Alessio Botta</a></strong><small>Associate Professor</small></span></li><li class="topic-person"><img src="../images/pictures/antonio_montieri.jpg" alt="" loading="lazy"><span><strong><a href="http://wpage.unina.it/antonio.montieri" target="_blank" rel="noopener">Antonio Montieri</a></strong><small>Tenure-Track Professor</small></span></li><li class="topic-person"><img src="../images/pictures/valerio.jpg" alt="" loading="lazy"><span><strong><a href="http://wpage.unina.it/valerio.persico" target="_blank" rel="noopener">Valerio Persico</a></strong><small>Associate Professor</small></span></li></ul>
+      </div>
+    </section>
+
+    <section class="section page-body section-alt" id="publications">
+      <div class="container">
+        <h2 class="section-title topic-section-title">Publications</h2>
+        <ul class="pub-list topic-pubs">
+          <li class="pub"><span class="pub-kind">Conference</span> G. Aceto, A. Montieri, A. Pescapè, &ldquo;<a href="https://doi.org/10.1007/978-3-319-48965-0_53" target="_blank" rel="noopener">Internet Censorship in Italy: A First Look at 3G/4G Networks</a>&rdquo;, <i>Lecture notes in computer science</i>, 2016. <a class="pub-pdf" href="http://wpage.unia.it/giuseppe.aceto/pub/aceto2016internet_CANS_poster.pdf" target="_blank" rel="noopener">PDF</a></li>
+          <li class="pub"><span class="pub-kind">Conference</span> G. Aceto, A. Botta, A. Pescapè, M. F. Awan, T. Ahmad, S. Qaisar, &ldquo;<a href="https://doi.org/10.1109/rtsi.2016.7740626" target="_blank" rel="noopener">Analyzing internet censorship in Pakistan</a>&rdquo;, <i>2016 IEEE 2nd International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow (RTSI)</i>, 2016. <a class="pub-pdf" href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2016analyzing.pdf" target="_blank" rel="noopener">PDF</a></li>
+          <li class="pub"><span class="pub-kind">Conference</span> S. Huang, G. Aceto, F. Cuadrado, S. Uhlig, A. Pescapè, &ldquo;Detecting Middlebox Interference on Applications&rdquo;, <i>ACM CONEXT 2015</i>, 2015. <a class="pub-pdf" href="https://wpage.unina.it/giuseppe.aceto/pub/CoNext2015StudentWorkshop-final12.pdf" target="_blank" rel="noopener">PDF</a></li>
+          <li class="pub"><span class="pub-kind">Conference</span> G. Aceto, A. Botta, A. Pescapè, N. Feamster, M. F. Awan, T. Ahmad, S. Qaisar, &ldquo;<a href="https://doi.org/10.1007/978-3-319-17172-2_10" target="_blank" rel="noopener">Monitoring Internet Censorship with UBICA</a>&rdquo;, <i>Lecture notes in computer science</i>, 2015. <a class="pub-pdf" href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2015monitoring_TMA.pdf" target="_blank" rel="noopener">PDF</a></li>
+          <li class="pub"><span class="pub-kind">Journal</span> G. Aceto, A. Pescapè, &ldquo;<a href="https://doi.org/10.1016/j.comnet.2015.03.008" target="_blank" rel="noopener">Internet Censorship detection: A survey</a>&rdquo;, <i>Computer Networks</i>, 2015. <a class="pub-pdf" href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2015internet_censorship_detection__a_survey.pdf" target="_blank" rel="noopener">PDF</a></li>
+          <li class="pub">Giuseppe Aceto, Nick Feamster, Antonio Pescapè &quot;<strong><a href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_poster.pdf" target="_blank" rel="noopener">User-side approach for censorship detection: home-router and client-based platforms</a></strong>&quot; (<a href="http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_abstract.pdf" target="_blank" rel="noopener">Abstract</a>), Connaught Summer Institute on Monitoring Internet Openness and Rights, University of Toronto July 22-26, 2013</li>
+          <li class="pub"><span class="pub-kind">Preprint</span> G. Aceto, V. Persico, A. Pescapè, &ldquo;<a href="https://doi.org/10.48550/arxiv.2603.28753" target="_blank" rel="noopener">Iran&#x27;s January 2026 Internet Shutdown: Public Data, Censorship Methods, and Circumvention Techniques</a>&rdquo;, <i>arXiv (Cornell University)</i>, 2026. <a class="pub-pdf" href="https://arxiv.org/pdf/2603.28753" target="_blank" rel="noopener">PDF</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <h2 class="section-title topic-section-title">Files &amp; links</h2>
+        <ul class="topic-links"><li><a href="../internetcensor.html">Previous page of this topic</a></li></ul>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container"><p class="topic-back"><a href="../index.html#topics">← All research topics</a></p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../images/traffic-mark-dark.svg" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="../people.html">People</a></li>
+          <li><a href="../publications.html">Publications</a></li>
+          <li><a href="../news.html">News</a></li>
+          <li><a href="../collaborations.html">Collaborations</a></li>
+          <li><a href="../visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -163,6 +163,25 @@
   .upload-state { font-size: .9rem; min-height: 1.2em; margin: 0 0 8px; }
   .upload-state.error { color: var(--danger); }
   .upload-state.ok { color: #1e6b37; font-weight: 600; }
+  #topics-app { grid-template-columns: minmax(0, 1fr) minmax(400px, 560px); }
+  @media (max-width: 900px) { #topics-app { grid-template-columns: 1fr; } }
+  .section-box { margin-bottom: 10px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfd; }
+  .section-box .tool-row { margin-bottom: 6px; }
+  .section-box textarea { margin-top: 0; }
+  .section-box .preview { margin: 8px 0 0; }
+  .markup-help { margin: 0 0 10px; font-size: .85rem; }
+  .markup-help summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+  .paper-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; align-items: start; margin-bottom: 6px; padding: 8px;
+    border: 1px solid var(--line); border-radius: 8px; background: #fbfcfd; font-size: .88rem; line-height: 1.4; }
+  .paper-row small { color: var(--muted); }
+  .paper-row .tools { display: flex; gap: 4px; }
+  .paper-row .tools button { padding: 3px 8px; font-size: .8rem; }
+  .paper-row textarea { margin-top: 0; font-size: .88rem; }
+  .paper-results { margin: -6px 0 12px; }
+  .paper-results .row { padding: 6px 10px; font-size: .86rem; }
+  .file-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 6px; align-items: center; margin-bottom: 6px; }
+  .file-row input { margin-top: 0; }
+  .file-row small { color: var(--muted); white-space: nowrap; }
   textarea.mono { font: .85rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; overflow-x: auto; }
 </style>
 </head>
@@ -469,19 +488,59 @@
 </template>
 
 <template id="topic-form">
-  <h2>Topic</h2>
+  <h2 id="t-heading">Topic</h2>
   <label>Area <select id="t-area"></select></label>
   <label>Name * <input id="t-name" required></label>
-  <label>Link <small>its page on this site (e.g. ippolib.html) or a full address; optional</small><input id="t-link" placeholder="page.html or https://…"></label>
-  <p class="fieldset-title">Tools &amp; projects <small style="text-transform:none;letter-spacing:0;font-weight:400">shown as chips; optional</small></p>
+  <div class="inline">
+    <label>Page address * <small id="t-slug-note"></small><input id="t-slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*"></label>
+    <a class="btn" id="t-open" target="_blank" rel="noopener">Open page ↗</a>
+  </div>
+  <label>Summary <small>one or two sentences under the title of the page</small><textarea id="t-summary" rows="3"></textarea></label>
+  <div class="photo dataset-img">
+    <img id="t-image-preview" alt="">
+    <div class="drop" id="t-drop" tabindex="0">Drop a picture for the page<br>or click to choose<br><small>optional · shown at the top</small></div>
+    <input type="file" id="t-image-file" accept="image/*" hidden>
+  </div>
+  <button type="button" id="t-image-remove" style="margin:-6px 0 14px">Remove picture</button>
+
+  <p class="fieldset-title">Text of the page</p>
+  <details class="hint markup-help"><summary>How to format the text</summary>
+    Empty line = new paragraph · <code>### Subheading</code> · <code>- bullet</code> · <code>1. numbered</code> ·
+    <code>[label](https://…)</code> link (or a page/file of this site, e.g. <code>pub/paper.pdf</code>) · <code>**bold**</code> ·
+    <code>*italic*</code> · <code>`code`</code> · a line with <code>```</code> before and after a code block ·
+    <code>![description](images/picture.png)</code> on its own line = picture.</details>
+  <div id="t-sections"></div>
+  <button type="button" id="t-add-section" style="margin-bottom:18px">+ Add section</button>
+
+  <p class="fieldset-title">Tools &amp; projects <small style="text-transform:none;letter-spacing:0;font-weight:400">also shown as chips in the home page</small></p>
   <div id="t-tools"></div>
-  <button type="button" id="t-add-tool" style="margin-bottom:14px">+ Add tool</button>
+  <button type="button" id="t-add-tool" style="margin-bottom:18px">+ Add tool</button>
+
+  <p class="fieldset-title">People <small style="text-transform:none;letter-spacing:0;font-weight:400">members of the group get their photo; role is optional</small></p>
+  <div id="t-people"></div>
+  <button type="button" id="t-add-person" style="margin-bottom:18px">+ Add person</button>
+
+  <p class="fieldset-title">Publications</p>
+  <div id="t-papers"></div>
+  <label>Add from the publication list <input id="t-paper-search" placeholder="Search title, author or DOI" autocomplete="off"></label>
+  <ul class="list paper-results" id="t-paper-results"></ul>
+  <button type="button" id="t-add-paper" style="margin-bottom:18px">+ Write one by hand</button>
+
+  <p class="fieldset-title">Files <small style="text-transform:none;letter-spacing:0;font-weight:400">slides, PDFs, small datasets (up to 25 MB; larger files: Zenodo)</small></p>
+  <div id="t-files"></div>
+  <label class="btn" style="display:inline-block;margin-bottom:18px;text-transform:none;letter-spacing:0;font-size:.9rem;color:var(--ink)">+ Add file<input type="file" id="t-file" hidden></label>
+
+  <p class="fieldset-title">Links</p>
+  <div id="t-links"></div>
+  <button type="button" id="t-add-link" style="margin-bottom:18px">+ Add link</button>
+
   <div class="actions">
     <button id="t-up">↑</button>
     <button id="t-down">↓</button>
     <button class="danger" id="t-delete">Delete topic</button>
   </div>
 </template>
+<datalist id="group-people"></datalist>
 
 <template id="collab-form">
   <h2 id="c-title">Collaboration</h2>
@@ -512,6 +571,8 @@
   const COLLABS_PATH = 'data/collaborations.json';
   const WORKSHOPS_PATH = 'data/workshops.json';
   const DATASETS_PATH = 'data/datasets.json';
+  const TOPIC_IMG_DIR = 'images/topics';
+  const TOPIC_FILE_DIR = 'files/topics';
   const DATASET_IMG_DIR = 'images/datasets';
   const ZENODO = 'https://zenodo.org';
   const ZENODO_KEY = 'traffic-zenodo-token';
@@ -534,7 +595,8 @@
   let events = { workshops: [], special_issues: [] }, selectedEvent = null;
   let downloads = null;              // rows read from the Google Sheet
   let datasets = { datasets: [] }, selectedDataset = null;   // data/datasets.json; selectedDataset: a dataset or 'page'
-  const newDatasets = new WeakSet();  // added in this session: their page address can still change
+  const newDatasets = new WeakSet();
+  const newTopics = new WeakSet();    // added in this session: their page address can still change  // added in this session: their page address can still change
   let uploading = false;             // a file is being sent to Zenodo
   let logos = new Set();             // file names already in images/logos
   const LOGO_DIR = 'images/logos';
@@ -609,29 +671,100 @@
   }
 
   function cleanTopics() {
+    const str = v => String(v ?? '').trim();
+    const one = v => str(v).replace(/\s+/g, ' ');
+    const slugs = new Set();
     return {
-      intro: String(topics.intro || '').trim(),
+      intro: str(topics.intro),
       areas: topics.areas.map(area => {
-        const title = String(area.title || '').trim();
+        const title = str(area.title);
         if (!title) throw new Error('Every area needs a title');
         return {
           title,
           topics: area.topics.map(topic => {
-            const name = String(topic.name || '').trim();
+            const name = str(topic.name);
             if (!name) throw new Error(`${title}: every topic needs a name`);
-            return {
-              name,
-              link: cleanLink(topic.link, name),
-              tools: (topic.tools || []).filter(t => String(t.name || '').trim() || String(t.link || '').trim()).map(t => {
-                const toolName = String(t.name || '').trim();
-                if (!toolName) throw new Error(`${name}: every tool needs a name`);
-                return { name: toolName, link: cleanLink(t.link, toolName) };
-              }),
-            };
+            const slug = str(topic.slug);
+            if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)) throw new Error(`${name}: the page address may only contain lowercase letters, digits and dashes`);
+            if (slugs.has(slug)) throw new Error(`${name}: another topic already uses the page address "${slug}"`);
+            slugs.add(slug);
+            const out = { name, slug, summary: one(topic.summary), image: str(topic.image) };
+            out.tools = (topic.tools || []).filter(t => str(t.name) || str(t.link)).map(t => {
+              if (!str(t.name)) throw new Error(`${name}: every tool needs a name`);
+              const tool = { name: one(t.name), link: cleanLink(t.link, one(t.name)) };
+              if (one(t.description)) tool.description = one(t.description);
+              return tool;
+            });
+            out.sections = (topic.sections || []).filter(x => str(x.title) || str(x.text))
+              .map(x => ({ title: one(x.title), text: str(x.text).replace(/\r/g, '') }));
+            out.people = (topic.people || []).filter(x => str(x.name)).map(x => {
+              const person = { name: one(x.name) };
+              if (one(x.role)) person.role = one(x.role);
+              if (str(x.link)) person.link = cleanLink(x.link, person.name);
+              return person;
+            });
+            out.papers = (topic.papers || []).filter(x => str(x.text) || str(x.title)).map(x => {
+              if (!('title' in x)) return { text: one(x.text) };
+              const paper = {};
+              for (const [k, v] of Object.entries(x)) if (!k.startsWith('_') && v !== '' && v != null) paper[k] = v;
+              return paper;
+            });
+            out.links = (topic.links || []).filter(x => str(x.url)).map(x => ({ label: one(x.label) || 'Link', url: cleanLink(x.url, name) }));
+            out.files = (topic.files || []).filter(x => str(x.path)).map(x => {
+              const file = { label: one(x.label) || x.path.split('/').pop(), path: x.path };
+              if (x.size) file.size = x.size;
+              return file;
+            });
+            return out;
           }),
         };
       }),
     };
+  }
+
+  // Text of the topic pages: same rules as markup() in scripts/build_topics.py (relative links point to the site root).
+  function markupInline(text) {
+    return String(text).split(/`([^`]+)`/).map((part, i) => {
+      if (i % 2) return `<code>${escHtml(part)}</code>`;
+      return escHtml(part)
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, label, url) => `<a href="${/^(https?:|mailto:|\/|#)/.test(url) ? url : '/' + url}" target="_blank" rel="noopener">${label}</a>`)
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/(^|[^*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])/g, '$1<em>$2</em>');
+    }).join('');
+  }
+
+  function markupHtml(text) {
+    const blocks = [];
+    let para = [], items = [], kind = null;
+    const flush = () => {
+      if (para.length) blocks.push('<p>' + para.map(markupInline).join('<br>') + '</p>');
+      if (items.length) blocks.push(`<${kind}>` + items.map(x => `<li>${markupInline(x)}</li>`).join('') + `</${kind}>`);
+      para = []; items = []; kind = null;
+    };
+    const lines = String(text || '').replace(/\r/g, '').split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].replace(/\s+$/, ''), t = line.trim();
+      let m;
+      if (t.startsWith('```')) {
+        flush();
+        const code = [];
+        while (++i < lines.length && !lines[i].trim().startsWith('```')) code.push(lines[i]);
+        blocks.push(`<pre><code>${escHtml(code.join('\n'))}</code></pre>`);
+      } else if (!t) flush();
+      else if (t.startsWith('### ')) { flush(); blocks.push(`<h3>${markupInline(t.slice(4))}</h3>`); }
+      else if ((m = t.match(/^!\[([^\]]*)\]\((\S+)\)$/))) {
+        flush();
+        blocks.push(`<img src="${escHtml(/^(https?:|\/|data:)/.test(m[2]) ? m[2] : '/' + m[2])}" alt="${escHtml(m[1])}" style="max-width:100%;max-height:200px">`);
+      } else if (/^([-*]|\d+[.)]) /.test(t)) {
+        const k = /^[-*] /.test(t) ? 'ul' : 'ol';
+        if (para.length || (kind && kind !== k)) flush();
+        kind = k;
+        items.push(t.replace(/^([-*]|\d+[.)]) /, ''));
+      } else if (items.length && line.startsWith('  ')) items[items.length - 1] += ' ' + t;
+      else { if (items.length) flush(); para.push(t); }
+    }
+    flush();
+    return blocks.join('');
   }
 
   function cleanCollabs() {
@@ -1046,9 +1179,11 @@
 
   function showTopicsIntro() {
     $('topics-editor').innerHTML = '<h2>Select an area or a topic</h2>' +
-      '<p class="hint">Click an area title to rename, move or delete it; click a topic to edit its name, link and tools. ' +
-      'Links to pages of this site are written as in the home page (e.g. <code>ippolib.html</code>); ' +
-      'they are adjusted automatically in the menu of every page.</p>';
+      '<p class="hint">Click an area title to rename, move or delete it. Click a topic to edit its own page ' +
+      '(<code>topics/&lt;address&gt;.html</code>): summary, text, tools, people, publications, files and links. ' +
+      'The home page and the Topics menu of every page link to these pages.</p>' +
+      '<p class="hint">Links to pages or files of this site are written from the site root (e.g. <code>ippolib.html</code>, ' +
+      '<code>pub/paper.pdf</code>): they are adjusted automatically.</p>';
   }
 
   function moveItem(list, index, dir) {
@@ -1072,7 +1207,9 @@
       head.querySelector('strong').textContent = area.title || '(untitled area)';
       head.addEventListener('click', event => {
         if (event.target.closest('button')) {
-          const topic = { name: '', link: '', tools: [] };
+          const topic = { name: '', slug: '', summary: '', image: '', tools: [], sections: [{ title: 'Description', text: '' }],
+            people: [], papers: [], links: [], files: [] };
+          newTopics.add(topic);
           area.topics.push(topic);
           markDirty('topics');
           selectTopic({ area, topic });
@@ -1089,7 +1226,9 @@
         li.innerHTML = '<div class="who"><strong></strong><small></small></div><div class="tags"></div>';
         li.querySelector('strong').textContent = topic.name || '(no name)';
         li.querySelector('small').textContent = (topic.tools || []).map(t => t.name).filter(Boolean).join(' · ');
-        if (!topic.link) li.querySelector('.tags').innerHTML = '<span class="tag missing">no page</span>';
+        const filled = topic.summary || (topic.sections || []).length || (topic.papers || []).length;
+        li.querySelector('.tags').innerHTML = filled
+          ? `<span class="tag">${(topic.papers || []).length} papers</span>` : '<span class="tag missing">empty page</span>';
         li.addEventListener('click', () => selectTopic({ area, topic }));
         list.appendChild(li);
       });
@@ -1128,6 +1267,7 @@
 
     const { topic } = ref;
     editor.appendChild($('topic-form').content.cloneNode(true));
+    for (const key of ['tools', 'sections', 'people', 'papers', 'links', 'files']) topic[key] = topic[key] || [];
     const areaSelect = $('t-area');
     topics.areas.forEach((a, i) => areaSelect.add(new Option(a.title || `Area ${i + 1}`, i)));
     areaSelect.value = topics.areas.indexOf(ref.area);
@@ -1137,45 +1277,248 @@
       ref.area.topics.push(topic);
       changedTopics();
     });
-    for (const field of ['name', 'link']) {
-      const input = $('t-' + field);
-      input.value = topic[field] || '';
-      input.addEventListener('input', () => { topic[field] = input.value; changedTopics(); });
-    }
-    const toolsBox = $('t-tools');
-    const renderTools = () => {
-      toolsBox.innerHTML = '';
-      (topic.tools || []).forEach((tool, i) => {
-        const row = document.createElement('div');
-        row.className = 'tool-row';
-        row.innerHTML = '<input placeholder="Name, e.g. D-ITG"><input placeholder="Link (optional)"><button type="button" title="Remove">✕</button>';
-        const [name, link] = row.querySelectorAll('input');
-        name.value = tool.name || '';
-        link.value = tool.link || '';
-        name.addEventListener('input', () => { tool.name = name.value; changedTopics(); });
-        link.addEventListener('input', () => { tool.link = link.value; changedTopics(); });
-        row.querySelector('button').addEventListener('click', () => { topic.tools.splice(i, 1); changedTopics(); renderTools(); });
-        toolsBox.appendChild(row);
+    const isNew = newTopics.has(topic);
+    const open = $('t-open');
+    const showOpen = () => {
+      open.href = `/topics/${topic.slug}.html`;
+      open.hidden = isNew;   // the page exists only after saving
+    };
+    $('t-heading').textContent = topic.name || 'New topic';
+    const name = $('t-name'), slug = $('t-slug'), summary = $('t-summary');
+    name.value = topic.name || '';
+    slug.value = topic.slug || '';
+    summary.value = topic.summary || '';
+    slug.readOnly = !isNew;
+    $('t-slug-note').textContent = isNew ? 'the page will be topics/<address>.html; fixed once saved' : 'fixed, so that links to the page keep working';
+    name.addEventListener('input', () => {
+      topic.name = name.value;
+      $('t-heading').textContent = name.value || 'New topic';
+      if (isNew && !topic._slugEdited) slug.value = topic.slug = datasetSlug(name.value);
+      changedTopics();
+    });
+    slug.addEventListener('input', () => { topic.slug = slug.value.trim(); topic._slugEdited = true; showOpen(); markDirty('topics'); });
+    summary.addEventListener('input', () => { topic.summary = summary.value; markDirty('topics'); });
+    showOpen();
+
+    // Picture
+    const preview = $('t-image-preview'), drop = $('t-drop'), imageFile = $('t-image-file');
+    const showImage = () => { preview.src = datasetImg(topic.image); $('t-image-remove').hidden = !topic.image; };
+    showImage();
+    const addImage = f => addTopicImage(topic, f, showImage);
+    drop.addEventListener('click', () => imageFile.click());
+    drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); imageFile.click(); } });
+    drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) addImage(e.dataTransfer.files[0]); });
+    imageFile.addEventListener('change', () => { if (imageFile.files[0]) addImage(imageFile.files[0]); });
+    $('t-image-remove').addEventListener('click', () => { topic.image = ''; showImage(); markDirty('topics'); });
+
+    // Text sections: title + text, with a live preview
+    const sectionsBox = $('t-sections');
+    const renderSections = () => {
+      sectionsBox.innerHTML = '';
+      topic.sections.forEach((sec, i) => {
+        const box = document.createElement('div');
+        box.className = 'section-box';
+        box.innerHTML = '<div class="tool-row" style="grid-template-columns:1fr auto auto auto"><input placeholder="Section title (optional)">' +
+          '<button type="button" title="Move up">↑</button><button type="button" title="Move down">↓</button><button type="button" title="Remove">✕</button></div>' +
+          '<textarea rows="7" placeholder="Text of the section"></textarea>' +
+          '<label class="check" style="margin:6px 0 0"><input type="checkbox"> Preview</label><div class="preview" hidden></div>';
+        const [title, text] = [box.querySelector('input'), box.querySelector('textarea')];
+        const [up, down, remove] = box.querySelectorAll('.tool-row button');
+        const toggle = box.querySelector('.check input'), view = box.querySelector('.preview');
+        title.value = sec.title || '';
+        text.value = sec.text || '';
+        text.rows = Math.min(24, Math.max(5, (sec.text || '').split('\n').length + 1));
+        const update = () => { if (toggle.checked) view.innerHTML = markupHtml(text.value); };
+        title.addEventListener('input', () => { sec.title = title.value; markDirty('topics'); });
+        text.addEventListener('input', () => { sec.text = text.value; update(); markDirty('topics'); });
+        toggle.addEventListener('change', () => { view.hidden = !toggle.checked; update(); });
+        up.addEventListener('click', () => { if (moveItem(topic.sections, i, -1)) { markDirty('topics'); renderSections(); } });
+        down.addEventListener('click', () => { if (moveItem(topic.sections, i, 1)) { markDirty('topics'); renderSections(); } });
+        remove.addEventListener('click', () => {
+          if ((sec.text || '').trim() && !confirm(`Remove the section "${sec.title || 'without title'}"?`)) return;
+          topic.sections.splice(i, 1);
+          markDirty('topics');
+          renderSections();
+        });
+        sectionsBox.appendChild(box);
       });
     };
-    renderTools();
-    $('t-add-tool').addEventListener('click', () => {
-      topic.tools = topic.tools || [];
-      topic.tools.push({ name: '', link: '' });
-      renderTools();
-      toolsBox.lastElementChild.querySelector('input').focus();
+    renderSections();
+    $('t-add-section').addEventListener('click', () => {
+      topic.sections.push({ title: '', text: '' });
+      markDirty('topics');
+      renderSections();
+      sectionsBox.lastElementChild.querySelector('input').focus();
     });
+
+    // Tools, people, links
+    $('t-add-tool').addEventListener('click', rowsEditor($('t-tools'), topic.tools, [
+      { key: 'name', placeholder: 'Name, e.g. D-ITG' },
+      { key: 'link', placeholder: 'Link (page of this site or https://…)' },
+      { key: 'description', placeholder: 'One line about it (optional)' }], changedTopics));
+    $('t-add-person').addEventListener('click', rowsEditor($('t-people'), topic.people, [
+      { key: 'name', placeholder: 'Name', list: 'group-people' },
+      { key: 'role', placeholder: 'Role on this topic (optional)' },
+      { key: 'link', placeholder: 'Link (optional)' }], () => markDirty('topics')));
+    $('t-add-link').addEventListener('click', rowsEditor($('t-links'), topic.links,
+      [{ key: 'label', placeholder: 'Label', width: '.8fr' }, { key: 'url', placeholder: 'https://… or a page of this site', width: '1.6fr' }],
+      () => markDirty('topics')));
+    const groupNames = [data.principal, ...data.members, ...data.alumni].filter(Boolean).map(p => p.name);
+    $('group-people').innerHTML = groupNames.map(n => `<option value="${escHtml(n)}">`).join('');
+
+    // Publications: chosen from data/publications.json or written by hand
+    const papersBox = $('t-papers');
+    const renderPapers = () => {
+      papersBox.innerHTML = '';
+      if (!topic.papers.length) papersBox.innerHTML = '<p class="hint">No publications yet.</p>';
+      topic.papers.forEach((paper, i) => {
+        const row = document.createElement('div');
+        row.className = 'paper-row';
+        row.innerHTML = '<div></div><div class="tools"><button type="button" title="Move up">↑</button><button type="button" title="Move down">↓</button><button type="button" title="Remove">✕</button></div>';
+        const body = row.firstElementChild;
+        if ('title' in paper) {
+          body.innerHTML = '<strong></strong><br><small></small>';
+          body.querySelector('strong').textContent = paper.title;
+          body.querySelector('small').textContent = [paper.authors, paper.venue, paper.year].filter(Boolean).join(' · ');
+        } else {
+          body.innerHTML = '<textarea rows="3" placeholder="Authors, &quot;[Title](https://…)&quot;, venue, year."></textarea>';
+          const text = body.querySelector('textarea');
+          text.value = paper.text || '';
+          text.addEventListener('input', () => { paper.text = text.value; markDirty('topics'); });
+        }
+        const [up, down, remove] = row.querySelectorAll('.tools button');
+        up.addEventListener('click', () => { if (moveItem(topic.papers, i, -1)) { markDirty('topics'); renderPapers(); } });
+        down.addEventListener('click', () => { if (moveItem(topic.papers, i, 1)) { markDirty('topics'); renderPapers(); } });
+        remove.addEventListener('click', () => { topic.papers.splice(i, 1); markDirty('topics'); renderPapers(); });
+        papersBox.appendChild(row);
+      });
+    };
+    renderPapers();
+    $('t-add-paper').addEventListener('click', () => {
+      topic.papers.push({ text: '' });
+      markDirty('topics');
+      renderPapers();
+      papersBox.lastElementChild.querySelector('textarea').focus();
+    });
+    const search = $('t-paper-search'), results = $('t-paper-results');
+    search.addEventListener('input', async () => {
+      const query = search.value.trim().toLowerCase();
+      results.innerHTML = '';
+      if (query.length < 3) return;
+      const all = await publicationList();
+      const words = query.split(/\s+/);
+      const chosen = new Set(topic.papers.map(p => p.doi || p.title));
+      const found = all.filter(p => !chosen.has(p.doi || p.title) &&
+        words.every(w => `${p.title} ${p.authors.join(' ')} ${p.doi} ${p.year}`.toLowerCase().includes(w))).slice(0, 8);
+      if (!found.length) results.innerHTML = '<li class="empty">No publication found</li>';
+      for (const p of found) {
+        const li = document.createElement('li');
+        li.className = 'row';
+        li.innerHTML = '<div class="who"><strong></strong><small></small></div><div class="tags"><span class="tag">+ Add</span></div>';
+        li.querySelector('strong').textContent = p.title;
+        li.querySelector('small').textContent = `${p.authors.join(', ')} · ${p.year}`;
+        li.addEventListener('click', () => {
+          const paper = { title: p.title, authors: p.authors.join(', '), venue: p.venue, year: p.year, category: p.category, doi: p.doi, url: p.url, pdf: p.pdf };
+          topic.papers.push(paper);
+          markDirty('topics');
+          renderPapers();
+          li.remove();
+        });
+        results.appendChild(li);
+      }
+    });
+
+    // Files, uploaded with the next save
+    const filesBox = $('t-files');
+    const renderFiles = () => {
+      filesBox.innerHTML = '';
+      topic.files.forEach((file, i) => {
+        const row = document.createElement('div');
+        row.className = 'file-row';
+        row.innerHTML = '<input placeholder="Label shown on the page"><small></small><button type="button" title="Remove">✕</button>';
+        const label = row.querySelector('input');
+        label.value = file.label || '';
+        row.querySelector('small').textContent = file.path.split('/').pop() + (file.size ? ' · ' + file.size : '') + (pending.has(file.path) ? ' · new' : '');
+        label.addEventListener('input', () => { file.label = label.value; markDirty('topics'); });
+        row.querySelector('button').addEventListener('click', () => { topic.files.splice(i, 1); markDirty('topics'); renderFiles(); });
+        filesBox.appendChild(row);
+      });
+    };
+    renderFiles();
+    $('t-file').addEventListener('change', () => {
+      const file = $('t-file').files[0];
+      $('t-file').value = '';
+      if (file) addTopicFile(topic, file, renderFiles);
+    });
+
     const move = dir => { if (moveItem(ref.area.topics, ref.area.topics.indexOf(topic), dir)) changedTopics(); };
     $('t-up').addEventListener('click', () => move(-1));
     $('t-down').addEventListener('click', () => move(1));
     $('t-delete').addEventListener('click', () => {
-      if (!confirm(`Delete the topic "${topic.name || 'untitled'}"?`)) return;
+      if (!confirm(`Delete the topic "${topic.name || 'untitled'}" and its page?`)) return;
       ref.area.topics.splice(ref.area.topics.indexOf(topic), 1);
       selectedTopic = null;
       changedTopics();
       showTopicsIntro();
     });
-    if (!topic.name) $('t-name').focus();
+    if (!topic.name) name.focus();
+  }
+
+  let publications = null;   // data/publications.json, read the first time a topic looks for a paper
+  async function publicationList() {
+    if (!publications) {
+      publications = fetch('/data/publications.json', { cache: 'no-store' }).then(r => r.json())
+        .then(list => list.filter(p => p.source !== 'legacy' && p.title))
+        .catch(() => { publications = null; return []; });
+    }
+    return publications;
+  }
+
+  // Topic pictures keep their proportions: scaled to at most 1600 px and saved as JPEG.
+  function addTopicImage(topic, file, done) {
+    if (!topic.slug) { alert('Enter the name first: it is used for the picture file name.'); return; }
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, 1600 / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(img.width * scale));
+      canvas.height = Math.max(1, Math.round(img.height * scale));
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(img.src);
+      const path = pending.has(topic.image) ? topic.image : `${TOPIC_IMG_DIR}/${topic.slug}.jpg`;
+      pending.set(path, canvas.toDataURL('image/jpeg', 0.86));
+      topic.image = path;
+      done();
+      markDirty('topics');
+    };
+    img.onerror = () => setStatus('This file is not an image the browser can read', 'error');
+    img.src = URL.createObjectURL(file);
+  }
+
+  // Any file, kept as it is in files/topics/<slug>/.
+  function addTopicFile(topic, file, done) {
+    if (!topic.slug) { alert('Enter the name first: it is used for the folder of the files.'); return; }
+    if (file.size > 25 * 1024 * 1024) {
+      alert(`${file.name} is ${human(file.size)}: files up to 25 MB can be added here. Put larger files on Zenodo and add a link.`);
+      return;
+    }
+    const clean = file.name.normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^A-Za-z0-9._-]+/g, '_').replace(/^[._]+/, '') || 'file';
+    const path = `${TOPIC_FILE_DIR}/${topic.slug}/${clean}`;
+    const reader = new FileReader();
+    reader.onload = () => {
+      pending.set(path, reader.result);
+      topic.files = topic.files.filter(f => f.path !== path);
+      topic.files.push({ label: file.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' '), path, size: human(file.size) });
+      done();
+      markDirty('topics');
+    };
+    reader.onerror = () => setStatus(`${file.name} could not be read`, 'error');
+    reader.readAsDataURL(file);
   }
 
   // ---------------------------------------------------------------- workshops & special issues
@@ -1959,16 +2302,19 @@
       ...[clean.principal, ...clean.members, ...clean.alumni].filter(Boolean).map(p => p.photo),
       ...[...cleanCollabsData.current, ...cleanCollabsData.past].map(c => c.logo),
       ...cleanDatasetsData.datasets.map(d => d.image),
+      ...cleanTopicsData.areas.flatMap(a => a.topics.flatMap(t => [t.image, ...t.files.map(f => f.path)])),
     ]);
     for (const path of [...pending.keys()]) if (!used.has(path)) pending.delete(path);
     $('save').disabled = true;
     setStatus('Saving…');
     try {
       const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData);
-      for (const path of pending.keys()) if (!path.startsWith(DATASET_IMG_DIR)) (path.startsWith(LOGO_DIR) ? logos : photos).add(path.split('/').pop());
+      for (const path of pending.keys()) if (/^images\/(pictures|logos)\//.test(path)) (path.startsWith(LOGO_DIR) ? logos : photos).add(path.split('/').pop());
       pending.clear();
       changed.clear();
-      datasets.datasets.forEach(ds => newDatasets.delete(ds));   // saved: their page address is now fixed
+      datasets.datasets.forEach(ds => newDatasets.delete(ds));
+      topics.areas.forEach(a => a.topics.forEach(t => newTopics.delete(t)));
+      if (selectedTopic && selectedTopic.topic) selectTopic(selectedTopic);   // saved: their page address is now fixed
       if (selectedDataset && selectedDataset !== 'page') selectDataset(selectedDataset);
       dirty = false;
       setStatus(message);
