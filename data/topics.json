@@ -65,7 +65,7 @@
           ]
         },
         {
-          "name": "Federated Learning",
+          "name": "Federated Traffic Classification",
           "link": "",
           "tools": []
         }
@@ -196,6 +196,11 @@
               "link": "https://doi.org/10.1109/bigdata59044.2023.10386602"
             }
           ]
+        },
+        {
+          "name": "Federated Learning NIDS",
+          "link": "",
+          "tools": []
         }
       ]
     },
