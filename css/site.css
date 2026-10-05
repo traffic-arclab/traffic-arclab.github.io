@@ -803,6 +803,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .citation { margin: var(--space-6) 0 0; padding: var(--space-5) var(--space-6); border-left: 3px solid var(--color-gold); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; background: var(--color-surface-alt); }
 .citation p { color: var(--color-ink); line-height: 1.65; }
 .citation-links { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-weight: 650; }
+.dataset-host { margin-top: var(--space-3); font-size: .9rem; color: var(--color-muted); }
 /* Download form */
 .gate { position: fixed; inset: 0; margin: auto; height: fit-content; width: min(620px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 0; border: 0; border-top: 3px solid var(--color-deep); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-ink); box-shadow: var(--shadow-float); }
 .gate::backdrop { background: rgba(10, 22, 38, .55); backdrop-filter: blur(2px); }

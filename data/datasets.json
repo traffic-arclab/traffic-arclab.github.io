@@ -17,7 +17,7 @@
       "new": true,
       "summary": "Traffic of 3 popular Generative AI mobile apps (ChatGPT, Copilot and Gemini), labeled with both the app and the generative activity performed.",
       "image": "images/datasets/mirage-genai-2025.jpg",
-      "file": "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-GenAI-2025.zip",
+      "file": "https://zenodo.org/records/23158569/files/MIRAGE-GenAI-2025.zip?download=1",
       "size": "243 MB",
       "format": "JSON",
       "facts": [
@@ -83,6 +83,10 @@
             "url": "https://doi.org/10.1016/j.comnet.2026.112237"
           }
         ]
+      },
+      "zenodo": {
+        "doi": "10.5281/zenodo.23158569",
+        "record": "https://zenodo.org/records/23158569"
       }
     },
     {
@@ -91,7 +95,7 @@
       "new": true,
       "summary": "Traffic of 20 popular mobile apps, labeled with both the app and the specific activity performed (chat, audio and video calls, gaming, streaming).",
       "image": "images/datasets/mirage-appact-2024.jpg",
-      "file": "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-AppAct-2024.zip",
+      "file": "https://zenodo.org/records/23158977/files/MIRAGE-AppAct-2024.zip?download=1",
       "size": "6.5 GB",
       "format": "JSON",
       "facts": [
@@ -309,6 +313,10 @@
         "title": "MIRAGE-APPxACT-2024: A Novel Dataset for Mobile App and Activity Traffic Analysis",
         "venue": "Under submission, 2024",
         "links": []
+      },
+      "zenodo": {
+        "doi": "10.5281/zenodo.23158977",
+        "record": "https://zenodo.org/records/23158977"
       }
     },
     {
@@ -317,7 +325,7 @@
       "new": false,
       "summary": "Traffic of Communication and Collaboration Mobile Apps (CCMA) that bloomed with the COVID-19 pandemic, labeled with both the app and the activity performed.",
       "image": "images/datasets/mirage-covid-ccma-2022.jpg",
-      "file": "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-COVID-CCMA-2022.zip",
+      "file": "https://zenodo.org/records/23158727/files/MIRAGE-COVID-CCMA-2022.zip?download=1",
       "size": "2.9 GB",
       "format": "JSON, pickle",
       "facts": [
@@ -454,6 +462,10 @@
             "url": "datasets/mirage-covid-ccma-2022.bib"
           }
         ]
+      },
+      "zenodo": {
+        "doi": "10.5281/zenodo.23158727",
+        "record": "https://zenodo.org/records/23158727"
       }
     },
     {
@@ -462,7 +474,7 @@
       "new": false,
       "summary": "Traffic of 14 video mobile apps with associated ground truth, collected between June 2019 and March 2020.",
       "image": "images/datasets/mirage-video.jpg",
-      "file": "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-Video.zip",
+      "file": "https://zenodo.org/records/23158634/files/MIRAGE-Video.zip?download=1",
       "size": "1.8 GB",
       "format": "",
       "facts": [
@@ -630,6 +642,10 @@
             "url": "https://www.sciencedirect.com/science/article/pii/S1389128621004564"
           }
         ]
+      },
+      "zenodo": {
+        "doi": "10.5281/zenodo.23158634",
+        "record": "https://zenodo.org/records/23158634"
       }
     },
     {
@@ -638,7 +654,7 @@
       "new": false,
       "summary": "The original MIRAGE dataset: human-generated mobile app traffic with associated ground truth, for advancing the state of the art in mobile traffic analysis.",
       "image": "images/datasets/mirage-2019.png",
-      "file": "https://traffic.comics.unina.it/mirage/MIRAGE/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz",
+      "file": "https://zenodo.org/records/23158592/files/MIRAGE-2019_traffic_dataset_downloadable_v2.tar.gz?download=1",
       "size": "1.4 GB",
       "format": "",
       "facts": [
@@ -868,6 +884,10 @@
             "url": "datasets/mirage-2019.bib"
           }
         ]
+      },
+      "zenodo": {
+        "doi": "10.5281/zenodo.23158592",
+        "record": "https://zenodo.org/records/23158592"
       }
     }
   ]

@@ -2,6 +2,37 @@
   "intro": "Workshops we organize and special issues we edit for the networking research community.",
   "workshops": [
     {
+      "acronym": "AI4DEMONS'26",
+      "year": 2026,
+      "title": "International Workshop on Artificial Intelligence for Data Engineering and Management Of Networked Systems",
+      "conference": "ACM CIKM 2026",
+      "dates": "8 November 2026",
+      "place": "Rome, Italy",
+      "link": "https://ai4demons.github.io/AI4DEMONS/",
+      "chairs": [
+        {
+          "name": "Andrea Vignali",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Francesco Cerasuolo",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Giancarlo Sperlì",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Una-May O'Reilly",
+          "affiliation": "MIT"
+        },
+        {
+          "name": "Erik Hemberg",
+          "affiliation": "MIT"
+        }
+      ]
+    },
+    {
       "acronym": "GenXNet'26",
       "year": 2026,
       "title": "International Workshop on Generative and eXplainable Artificial Intelligence for Networking",
@@ -131,6 +162,66 @@
     }
   ],
   "special_issues": [
+    {
+      "title": "Generative and Explainable AI for Security in Modern Networks",
+      "kind": "Special Issue",
+      "journal": "Computer Networks (Elsevier)",
+      "year": 2026,
+      "editors": [
+        {
+          "name": "Anca Delia Jurcut",
+          "affiliation": "University College Dublin"
+        },
+        {
+          "name": "Alfredo Nascita",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Francesco Cerasuolo",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Jonatan Krolikowski",
+          "affiliation": "Huawei Technologies France"
+        }
+      ],
+      "links": [
+        {
+          "label": "Call for papers (deadline 28 Feb 2027)",
+          "url": "https://www.sciencedirect.com/special-issue/337439/generative-and-explainable-ai-for-security-in-modern-networks"
+        }
+      ]
+    },
+    {
+      "title": "Generative and Explainable AI for Internet Traffic and Network Architectures",
+      "kind": "Special Issue",
+      "journal": "Computer Networks (Elsevier)",
+      "year": 2025,
+      "editors": [
+        {
+          "name": "Antonio Montieri",
+          "affiliation": "University of Napoli Federico II"
+        },
+        {
+          "name": "Danilo Giordano",
+          "affiliation": "Politecnico di Torino"
+        },
+        {
+          "name": "Claudio Fiandrino",
+          "affiliation": "IMDEA Networks Institute"
+        },
+        {
+          "name": "Jonatan Krolikowski",
+          "affiliation": "Huawei Technologies France"
+        }
+      ],
+      "links": [
+        {
+          "label": "Special issue",
+          "url": "https://www.sciencedirect.com/special-issue/10GR05GJ8QM"
+        }
+      ]
+    },
     {
       "title": "The New Era of Smart Cities: Sensors, Communication Technologies, and Applications",
       "kind": "Special Section",

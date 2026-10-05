@@ -5,8 +5,9 @@ Generates datasets/index.html (overview of the MIRAGE datasets) and one page
 per dataset (datasets/<slug>.html) with the site layout: header, menu and
 footer are taken from collaborations.html. Every download button opens a short
 form (js/datasets.js); the answers are sent to the Google Apps Script web app
-set in "form_endpoint" and then the download starts. The dataset files stay on
-the university server.
+set in "form_endpoint" and then the download starts. The files are served by
+Zenodo once a dataset has a "zenodo" entry (see scripts/zenodo_upload.py),
+otherwise by the address in "file".
 
 The original MIRAGE website in mirage/ is not touched.
 
@@ -79,6 +80,22 @@ def download_button(ds, label='Download'):
     return (f'<button type="button" class="btn btn-primary" data-download="{esc(ds["file"])}" '
             f'data-dataset="{esc(ds["name"])}">{esc(label)}'
             + (f' <span class="btn-note">{esc(ds["size"])}</span>' if ds.get('size') else '') + '</button>')
+
+
+def zenodo_note(ds):
+    z = ds.get('zenodo')
+    if not z:
+        return ''
+    return (f'\n            <p class="dataset-host">Hosted on <a href="{esc(z["record"])}" target="_blank" rel="noopener">Zenodo ↗</a>'
+            f' · DOI <a href="https://doi.org/{esc(z["doi"])}" target="_blank" rel="noopener">{esc(z["doi"])}</a></p>')
+
+
+def dataset_doi(ds):
+    z = ds.get('zenodo')
+    if not z:
+        return ''
+    return (f'\n          <p>To cite the dataset itself: {esc(ds["name"])}, Zenodo, '
+            f'<a href="https://doi.org/{esc(z["doi"])}" target="_blank" rel="noopener">doi:{esc(z["doi"])}</a>.</p>')
 
 
 def gate(data):
@@ -209,7 +226,7 @@ def dataset_page(data, ds):
             <div class="dataset-actions">
               {download_button(ds, 'Download the dataset')}
               <a href="#cite" class="btn btn-ghost">How to cite</a>
-            </div>
+            </div>{zenodo_note(ds)}
           </div>
           <figure class="dataset-figure"><img src="{esc(local(ds['image']))}" alt="{esc(ds['name'])}"></figure>
         </div>
@@ -236,7 +253,7 @@ def dataset_page(data, ds):
           <blockquote class="citation">
             <p>{esc(c['authors'])}, “{esc(c['title'])}”, <em>{esc(c['venue'])}</em>.</p>
             {f'<p class="citation-links">{links}</p>' if links else ''}
-          </blockquote>
+          </blockquote>{dataset_doi(ds)}
         </div>
         <aside class="openings">
           <p class="card-kicker">License</p>
