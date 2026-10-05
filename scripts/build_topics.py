@@ -103,9 +103,8 @@ def render_home(data):
         for topic in area.get('topics') or []:
             name = esc(topic['name'])
             head = f'<a {attrs(topic_target(topic))} class="area-topic">{name}</a>'
-            chips = ''.join(f'<a {attrs(t["link"])}>{esc(t["name"])}{" ↗" if external(t["link"]) else ""}</a>'
-                            if t.get('link') else f'<span>{esc(t["name"])}</span>'
-                            for t in topic.get('tools') or [])
+            # Chips lead to the tools section of the topic page, which links to each tool.
+            chips = ''.join(f'<a {attrs(topic_target(topic) + "#tools")}>{esc(t["name"])}</a>' for t in topic.get('tools') or [])
             lines.append(f'      <li>{head}' + (f'<div class="chips">{chips}</div>' if chips else '') + '</li>')
         lines += ['    </ul>', '  </article>']
     lines.append('</div>')
@@ -324,7 +323,7 @@ def topic_page(area, topic, members):
             title = f'<a {attrs(t["link"], prefix)}>{name}{" ↗" if external(t["link"]) else ""}</a>' if t.get('link') else name
             desc = f'<p>{inline(t["description"], prefix)}</p>' if t.get('description') else ''
             cards.append(f'          <li class="topic-tool"><strong>{title}</strong>{desc}</li>')
-        parts.append(section('Tools & projects', f'        <ul class="topic-tools">\n{chr(10).join(cards)}\n        </ul>', alt=True))
+        parts.append(section('Tools & projects', f'        <ul class="topic-tools">\n{chr(10).join(cards)}\n        </ul>', alt=True, anchor='tools'))
 
     people = people_html(topic, members)
     if people:
