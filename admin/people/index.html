@@ -7,8 +7,10 @@
 <title>Site editor · Traffic</title>
 <!--
   Editor for the People page (data/people.json), the News page (data/news.json)
-  the research topics (data/topics.json: home section and header menu) and the
-  Collaborations page (data/collaborations.json).
+  the research topics (data/topics.json: home section and header menu), the
+  Collaborations page (data/collaborations.json), the Workshops page
+  (data/workshops.json) and the Datasets pages (data/datasets.json; the dataset
+  files themselves are uploaded from the browser straight to Zenodo).
 
   - Locally, served by scripts/people_admin.py (http://localhost:8765): saving
     writes the files and rebuilds the pages on this computer.
@@ -145,6 +147,23 @@
   .dl-message { padding: 24px; color: var(--muted); text-align: center; }
   .dl-token { max-width: 520px; }
   .fieldset-title { margin: 6px 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .dataset-img img { width: 140px; height: 90px; object-fit: contain; object-position: center; background: #fff; }
+  .row img.thumb { width: 64px; height: 40px; object-fit: contain; background: #fff; border: 1px solid var(--line); }
+  .box { margin: 4px 0 18px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfd; }
+  .box h3 { margin: 0 0 10px; color: var(--title); font: 600 1rem var(--serif); }
+  .box .hint:last-child { margin-bottom: 0; }
+  .box-ok { border-color: #b9d8c2; background: #f2f9f4; }
+  .box dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0 0 10px; font-size: .9rem; }
+  .box dt { color: var(--muted); font-weight: 700; }
+  .box dd { margin: 0; overflow-wrap: anywhere; }
+  .box a { color: var(--accent); }
+  .or { margin: 14px 0 10px; color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-align: center; }
+  .progress { height: 10px; margin: 10px 0 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+  .progress span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .3s; }
+  .upload-state { font-size: .9rem; min-height: 1.2em; margin: 0 0 8px; }
+  .upload-state.error { color: var(--danger); }
+  .upload-state.ok { color: #1e6b37; font-weight: 600; }
+  textarea.mono { font: .85rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; overflow-x: auto; }
 </style>
 </head>
 <body>
@@ -156,6 +175,7 @@
     <button class="tab" role="tab" data-tab="topics" aria-selected="false">Topics</button>
     <button class="tab" role="tab" data-tab="collabs" aria-selected="false">Collaborations</button>
     <button class="tab" role="tab" data-tab="workshops" aria-selected="false">Workshops</button>
+    <button class="tab" role="tab" data-tab="datasets" aria-selected="false">Datasets</button>
     <button class="tab" role="tab" data-tab="downloads" aria-selected="false">Downloads</button>
   </nav>
   <span class="status" id="status">Loading…</span>
@@ -291,6 +311,95 @@
   <aside id="events-editor"></aside>
 </main>
 
+<main id="datasets-app" hidden>
+  <section>
+    <div class="group">
+      <h2>Datasets page</h2>
+      <ul class="list" id="datasets-page"></ul>
+    </div>
+    <div class="group">
+      <h2>Datasets <button id="add-dataset">+ Add dataset</button></h2>
+      <p class="hint">Shown in this order on the <strong>Datasets</strong> page; each one also gets its own page.</p>
+      <ul class="list" id="datasets-list"></ul>
+    </div>
+  </section>
+  <aside id="datasets-editor"></aside>
+</main>
+
+<template id="datasets-page-form">
+  <h2>Datasets page</h2>
+  <label>Intro <small>under the page title</small><textarea id="dp-intro" rows="4"></textarea></label>
+  <label>Award <textarea id="dp-award" rows="2"></textarea></label>
+  <label>MIRAGE paper <small>link</small><input id="dp-paper" type="url" placeholder="https://…"></label>
+  <label>Mailing list <small>link</small><input id="dp-mailing_list" type="url" placeholder="https://…"></label>
+  <label>Contact email <input id="dp-contact" type="email"></label>
+</template>
+
+<template id="dataset-form">
+  <h2 id="d-heading">Dataset</h2>
+  <label>Name * <small>e.g. MIRAGE-GenAI-2025</small><input id="d-name" required></label>
+  <label>Page address * <small id="d-slug-note"></small><input id="d-slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="mirage-genai-2025"></label>
+  <label class="check"><input type="checkbox" id="d-new"> Show the <strong>New</strong> tag</label>
+  <label>Summary * <small>one or two sentences, shown on the card and under the title</small><textarea id="d-summary" rows="3" required></textarea></label>
+  <div class="photo dataset-img">
+    <img id="d-image-preview" alt="">
+    <div class="drop" id="d-drop" tabindex="0">Drop the dataset image here<br>or click to choose<br><small>proportions are kept</small></div>
+    <input type="file" id="d-image-file" accept="image/*" hidden>
+  </div>
+
+  <p class="fieldset-title">Dataset file</p>
+  <div id="d-file-box"></div>
+
+  <label>Description <small>leave an empty line between paragraphs</small><textarea id="d-description" rows="8"></textarea></label>
+  <div class="two">
+    <label>Format <input id="d-format" placeholder="JSON"></label>
+    <label>Size <small>set by Zenodo</small><input id="d-size" placeholder="243 MB"></label>
+  </div>
+  <p class="fieldset-title">Key facts <small style="text-transform:none;letter-spacing:0;font-weight:400">shown as figures on the card and the page, e.g. Apps · 20</small></p>
+  <div id="d-facts"></div>
+  <button type="button" id="d-add-fact" style="margin-bottom:14px">+ Add fact</button>
+
+  <label>Apps table title <input id="d-apps_title" placeholder="Apps and activities"></label>
+  <label>Apps table <small>first line: column names; then one app per line. Separate the cells with | or paste rows straight from Excel.
+    A cell with a link (e.g. Google Play) becomes a link.</small><textarea id="d-apps" class="mono" rows="8" wrap="off"
+    placeholder="Package Name | App Name | Activities | Play Store Link&#10;com.discord | Discord | Chat, Videocall | https://play.google.com/store/apps/details?id=com.discord"></textarea></label>
+  <p class="hint" id="d-apps-count"></p>
+
+  <p class="fieldset-title">How to cite</p>
+  <label>Authors * <small>separated by commas; also used as authors on Zenodo</small><input id="d-c-authors" placeholder="Antonio Montieri, Alfredo Nascita, Antonio Pescapè"></label>
+  <label>Paper title * <input id="d-c-title"></label>
+  <label>Venue <small>journal or conference, year</small><input id="d-c-venue" placeholder="Computer Networks, 2026"></label>
+  <div id="d-c-links"></div>
+  <p class="hint" style="margin:-4px 0 6px">Links: a full address, or a file of this site such as <code>datasets/name.bib</code>.</p>
+  <button type="button" id="d-add-link" style="margin-bottom:14px">+ Add link (DOI, PDF, BibTeX…)</button>
+
+  <div class="actions">
+    <button id="d-up">↑ Move up</button>
+    <button id="d-down">↓ Move down</button>
+    <button class="danger" id="d-delete">Delete dataset</button>
+  </div>
+</template>
+
+<template id="zenodo-upload">
+  <div class="box">
+    <h3>Upload to Zenodo</h3>
+    <p class="hint">The file is sent from this computer straight to Zenodo and published as open access under the
+      dataset license, with the name, summary, description and authors written above. A published record cannot be deleted.</p>
+    <label>Zenodo token <small><a href="https://zenodo.org/account/settings/applications/tokens/new/" target="_blank" rel="noopener">create one ↗</a>
+      with the scopes deposit:write and deposit:actions</small><input id="z-token" type="password" autocomplete="off"></label>
+    <label class="check"><input type="checkbox" id="z-remember"> Remember the Zenodo token on this browser</label>
+    <label>File <input id="z-file" type="file"></label>
+    <button type="button" class="primary" id="z-upload">Upload and publish on Zenodo</button>
+    <div class="progress" hidden><span id="z-bar"></span></div>
+    <p class="upload-state" id="z-state"></p>
+    <p class="or">or</p>
+    <label>Already on Zenodo? <small>record number, as in zenodo.org/records/<strong>1234567</strong></small>
+      <span class="inline"><input id="z-record" inputmode="numeric" placeholder="1234567"><button type="button" id="z-link" style="margin:4px 0 0">Use this record</button></span></label>
+    <p class="or">or</p>
+    <label>Download address <small>a file hosted elsewhere</small><input id="d-file" type="url" placeholder="https://…"></label>
+  </div>
+</template>
+
 <main id="downloads-app" hidden>
   <section>
     <h2>Dataset downloads</h2>
@@ -402,6 +511,11 @@
   const TOPICS_PATH = 'data/topics.json';
   const COLLABS_PATH = 'data/collaborations.json';
   const WORKSHOPS_PATH = 'data/workshops.json';
+  const DATASETS_PATH = 'data/datasets.json';
+  const DATASET_IMG_DIR = 'images/datasets';
+  const ZENODO = 'https://zenodo.org';
+  const ZENODO_KEY = 'traffic-zenodo-token';
+  const ZENODO_LICENSES = { 'CC BY-NC-ND 4.0': 'cc-by-nc-nd-4.0' };   // site "short" name -> Zenodo license id
   const GROUP = 'University of Napoli Federico II';
   const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December'];
@@ -419,6 +533,9 @@
   let ghToken = null;                // GitHub token of the signed-in user (online)
   let events = { workshops: [], special_issues: [] }, selectedEvent = null;
   let downloads = null;              // rows read from the Google Sheet
+  let datasets = { datasets: [] }, selectedDataset = null;   // data/datasets.json; selectedDataset: a dataset or 'page'
+  const newDatasets = new WeakSet();  // added in this session: their page address can still change
+  let uploading = false;             // a file is being sent to Zenodo
   let logos = new Set();             // file names already in images/logos
   const LOGO_DIR = 'images/logos';
   const companiesFirst = (a, b) => (a.type !== 'company') - (b.type !== 'company');
@@ -567,6 +684,73 @@
     };
   }
 
+  // In the editor facts are {label, value}, the description is one text and the apps table is text;
+  // cleanDatasets() turns them back into the layout of data/datasets.json.
+  function cleanDatasets() {
+    const str = v => String(v ?? '').trim();
+    const one = v => str(v).replace(/\s+/g, ' ');
+    const url = (v, what) => {
+      const link = str(v);
+      if (link && !/^(https?:\/\/|mailto:)/.test(link)) throw new Error(`${what} must start with http:// or https://`);
+      return link;
+    };
+    const slugs = new Set();
+    const out = { ...datasets, intro: one(datasets.intro), award: one(datasets.award), contact: str(datasets.contact),
+      paper: url(datasets.paper, 'MIRAGE paper'), mailing_list: url(datasets.mailing_list, 'Mailing list') };
+    out.datasets = datasets.datasets.map(ds => {
+      const name = one(ds.name);
+      if (!name) throw new Error('Every dataset needs a name');
+      const slug = str(ds.slug);
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)) throw new Error(`${name}: the page address may only contain lowercase letters, digits and dashes`);
+      if (slugs.has(slug)) throw new Error(`${name}: another dataset already uses the page address "${slug}"`);
+      slugs.add(slug);
+      if (!one(ds.summary)) throw new Error(`${name}: the summary is required`);
+      if (!str(ds.image)) throw new Error(`${name}: add an image`);
+      if (!str(ds.file)) throw new Error(`${name}: upload the file to Zenodo, link a Zenodo record or enter the download address`);
+      const c = ds.citation || {};
+      if (!one(c.authors) || !one(c.title)) throw new Error(`${name}: authors and paper title of "How to cite" are required`);
+      const apps = ds._apps === undefined ? (ds.apps || { columns: [], rows: [] }) : parseApps(ds._apps, ds.apps);   // untouched tables stay as they are
+      const clean = {};
+      for (const [key, value] of Object.entries(ds)) if (!key.startsWith('_')) clean[key] = value;
+      Object.assign(clean, {
+        slug, name, new: Boolean(ds.new), summary: one(ds.summary), image: str(ds.image),
+        file: url(ds.file, `${name}: the download address`), size: one(ds.size), format: one(ds.format),
+        facts: (ds.facts || []).filter(f => one(f.label) || one(f.value)).map(f => [one(f.label), one(f.value)]),
+        description: str(ds._description ?? (ds.description || []).join('\n\n')).split(/\n\s*\n/).map(one).filter(Boolean),
+        apps_title: one(ds.apps_title) || 'Apps', apps,
+        citation: { authors: one(c.authors), title: one(c.title), venue: one(c.venue),
+          links: (c.links || []).filter(l => str(l.url)).map(l => ({ label: one(l.label) || 'Link', url: cleanLink(l.url, `${name}: citation link`) })) },
+      });
+      if (!ds.zenodo) delete clean.zenodo;
+      return clean;
+    });
+    return out;
+  }
+
+  // Apps table <-> text: one row per line, cells separated by tabs (pasted from a spreadsheet) or by |.
+  function appsText(apps) {
+    if (!apps || !(apps.columns || []).length) return '';
+    const cell = c => (c && typeof c === 'object' ? c.link : String(c ?? ''));
+    return [apps.columns, ...(apps.rows || [])].map(row => row.map(cell).join(' | ')).join('\n');
+  }
+
+  function parseApps(text, before) {
+    const texts = new Map();   // link -> its text, so that edited tables keep the existing ones
+    for (const row of (before && before.rows) || []) for (const c of row) if (c && typeof c === 'object') texts.set(c.link, c.text);
+    const lines = String(text || '').split('\n').filter(line => line.trim());
+    const split = line => {
+      const cells = line.split(line.includes('\t') ? '\t' : '|').map(c => c.trim());
+      while (cells.length && !cells.at(-1)) cells.pop();
+      return cells;
+    };
+    if (!lines.length) return { columns: [], rows: [] };
+    const [columns, ...rows] = lines.map(split);
+    return {
+      columns,
+      rows: rows.map(row => row.map(c => /^https?:\/\/\S+$/.test(c) ? { text: texts.get(c) || `${row[1] || row[0]} metadata`, link: c } : c)),
+    };
+  }
+
   // Same rules as scripts/build_news.py: [label](url) becomes a link, everything else is text.
   function renderNewsText(text) {
     const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -592,20 +776,20 @@
   // Local: scripts/people_admin.py writes the files and rebuilds people.html.
   const localBackend = {
     async load() {
-      const [people, list, newsFile, topicsFile, collabsFile, logosFile, workshopsFile] = await Promise.all(
-        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations', '/api/logos', '/api/workshops'].map(url => fetch(url)));
+      const [people, list, newsFile, topicsFile, collabsFile, logosFile, workshopsFile, datasetsFile] = await Promise.all(
+        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations', '/api/logos', '/api/workshops', '/api/datasets'].map(url => fetch(url)));
       return {
         data: await people.json(), photos: await list.json(), news: (await newsFile.json()).news,
         topics: await topicsFile.json(), collabs: await collabsFile.json(), logos: await logosFile.json(),
-        events: await workshopsFile.json(),
+        events: await workshopsFile.json(), datasets: await datasetsFile.json(),
       };
     },
-    async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData) {
+    async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData) {
       const res = await fetch('/api/save', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           data: clean, news: cleanNewsData, topics: cleanTopicsData, collaborations: cleanCollabsData, workshops: cleanEventsData,
-          photos: Object.fromEntries(pending),
+          datasets: cleanDatasetsData, photos: Object.fromEntries(pending),
         }),
       });
       const out = await res.json();
@@ -656,19 +840,21 @@
         return user ? user.login : null;
       },
       async load() {
-        const [file, list, newsFile, topicsFile, collabsFile, workshopsFile] = await Promise.all([
+        const [file, list, newsFile, topicsFile, collabsFile, workshopsFile, datasetsFile] = await Promise.all([
           api(`/repos/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${PHOTO_DIR}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${NEWS_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${TOPICS_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${COLLABS_PATH}?ref=${BRANCH}`),
           api(`/repos/${REPO}/contents/${WORKSHOPS_PATH}?ref=${BRANCH}`),
+          api(`/repos/${REPO}/contents/${DATASETS_PATH}?ref=${BRANCH}`),
         ]);
         baseSha[DATA_PATH] = file.sha;
         baseSha[NEWS_PATH] = newsFile.sha;
         baseSha[TOPICS_PATH] = topicsFile.sha;
         baseSha[COLLABS_PATH] = collabsFile.sha;
         baseSha[WORKSHOPS_PATH] = workshopsFile.sha;
+        baseSha[DATASETS_PATH] = datasetsFile.sha;
         const logoList = await api(`/repos/${REPO}/contents/${LOGO_DIR}?ref=${BRANCH}`).catch(() => []);
         return {
           data: JSON.parse(decodeBase64(file.content)),
@@ -677,13 +863,14 @@
           topics: JSON.parse(decodeBase64(topicsFile.content)),
           collabs: JSON.parse(decodeBase64(collabsFile.content)),
           events: JSON.parse(decodeBase64(workshopsFile.content)),
+          datasets: JSON.parse(decodeBase64(datasetsFile.content)),
           logos: Array.isArray(logoList) ? logoList.map(f => f.name) : [],
         };
       },
-      async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData) {
+      async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData) {
         const ref = await api(`/repos/${REPO}/git/ref/heads/${BRANCH}`);
         const head = await api(`/repos/${REPO}/git/commits/${ref.object.sha}`);
-        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH]) {
+        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH, DATASETS_PATH]) {
           const current = await api(`/repos/${REPO}/contents/${path}?ref=${ref.object.sha}`);
           if (current.sha !== baseSha[path]) {
             throw new Error('Someone else saved changes meanwhile. Reload the page (your unsaved edits will be lost) and redo them.');
@@ -695,6 +882,7 @@
           { path: TOPICS_PATH, mode: '100644', type: 'blob', content: serialize(cleanTopicsData) },
           { path: COLLABS_PATH, mode: '100644', type: 'blob', content: serialize(cleanCollabsData) },
           { path: WORKSHOPS_PATH, mode: '100644', type: 'blob', content: serialize(cleanEventsData) },
+          { path: DATASETS_PATH, mode: '100644', type: 'blob', content: serialize(cleanDatasetsData) },
         ];
         for (const [path, url] of pending) {
           const blob = await api(`/repos/${REPO}/git/blobs`, {
@@ -709,7 +897,7 @@
           method: 'POST', body: JSON.stringify({ message: commitMessage(), tree: newTree.sha, parents: [ref.object.sha] }),
         });
         await api(`/repos/${REPO}/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
-        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH]) {
+        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH, DATASETS_PATH]) {
           baseSha[path] = (await api(`/repos/${REPO}/contents/${path}?ref=${commit.sha}`)).sha;
         }
         return 'Saved · the site updates in about 2 minutes ' +
@@ -726,7 +914,7 @@
   }
 
   function commitMessage() {
-    const names = { people: 'People', news: 'News', topics: 'Topics', collabs: 'Collaborations', workshops: 'Workshops & Special Issues' };
+    const names = { people: 'People', news: 'News', topics: 'Topics', collabs: 'Collaborations', workshops: 'Workshops & Special Issues', datasets: 'Datasets' };
     const parts = Object.keys(names).filter(k => changed.has(k)).map(k => names[k]);
     if (!parts.length) parts.push('People');
     return `Update ${parts.length > 1 ? parts.slice(0, -1).join(', ') + ' and ' + parts.at(-1) : parts[0]} ` +
@@ -1098,6 +1286,350 @@
     showEventsIntro();
   }
 
+  // ---------------------------------------------------------------- datasets
+  const escHtml = t => String(t ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const datasetSlug = name => name.normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const datasetImg = path => (path ? pending.get(path) || '/' + path : PLACEHOLDER_LOGO);
+
+  function human(size) {   // same units as the site: 243 MB, 6.5 GB
+    const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+    let i = 0;
+    while (size >= 1024 && i < units.length - 1) { size /= 1024; i++; }
+    return (i >= 3 ? String(Math.round(size * 10) / 10) : String(Math.round(size))) + ' ' + units[i];
+  }
+
+  function showDatasetsIntro() {
+    $('datasets-editor').innerHTML = '<h2>Select a dataset or add a new one</h2>' +
+      '<p class="hint">To publish a new dataset: press <strong>+ Add dataset</strong>, fill in its details, upload the file to Zenodo ' +
+      '(or link a record already there) and press <strong>Save</strong>. The Datasets page and the page of the dataset are rebuilt automatically.</p>';
+  }
+
+  function renderDatasets() {
+    const page = $('datasets-page');
+    page.innerHTML = '';
+    const pageRow = document.createElement('li');
+    pageRow.className = 'row' + (selectedDataset === 'page' ? ' selected' : '');
+    pageRow.innerHTML = '<div class="who"><strong>Intro, award and links</strong><small>Text at the top and bottom of the Datasets page</small></div>';
+    pageRow.addEventListener('click', selectDatasetsPage);
+    page.appendChild(pageRow);
+
+    const list = $('datasets-list');
+    list.innerHTML = '';
+    if (!datasets.datasets.length) list.innerHTML = '<li class="empty">No datasets yet</li>';
+    datasets.datasets.forEach(ds => {
+      const li = document.createElement('li');
+      li.className = 'row' + (ds === selectedDataset ? ' selected' : '');
+      li.innerHTML = '<img class="thumb" alt=""><div class="who"><strong></strong><small></small></div><div class="tags"></div>';
+      li.querySelector('img').src = datasetImg(ds.image);
+      li.querySelector('strong').textContent = ds.name || '(new dataset)';
+      li.querySelector('small').textContent = ds.size || '';
+      const tags = li.querySelector('.tags');
+      const tag = (text, missing) => { const t = document.createElement('span'); t.className = 'tag' + (missing ? ' missing' : ''); t.textContent = text; tags.appendChild(t); };
+      if (ds.new) tag('New');
+      if (ds.zenodo) tag('Zenodo');
+      else if (ds.file) tag('Other server', true);
+      else tag('No file', true);
+      li.addEventListener('click', () => selectDataset(ds));
+      list.appendChild(li);
+    });
+  }
+
+  function selectDatasetsPage() {
+    selectedDataset = 'page';
+    renderDatasets();
+    const editor = $('datasets-editor');
+    editor.innerHTML = '';
+    editor.appendChild($('datasets-page-form').content.cloneNode(true));
+    for (const key of ['intro', 'award', 'paper', 'mailing_list', 'contact']) {
+      const input = $('dp-' + key);
+      input.value = datasets[key] || '';
+      input.addEventListener('input', () => { datasets[key] = input.value; markDirty('datasets'); });
+    }
+  }
+
+  function selectDataset(ds) {
+    selectedDataset = ds;
+    renderDatasets();
+    const editor = $('datasets-editor');
+    editor.innerHTML = '';
+    editor.appendChild($('dataset-form').content.cloneNode(true));
+    const changed = () => { markDirty('datasets'); renderDatasets(); };
+    const isNew = newDatasets.has(ds);
+    const bind = (id, get, set) => {
+      const input = $(id);
+      input.value = get() ?? '';
+      input.addEventListener('input', () => { set(input.value); changed(); });
+    };
+    $('d-heading').textContent = ds.name || 'New dataset';
+    bind('d-name', () => ds.name, v => {
+      ds.name = v;
+      $('d-heading').textContent = v || 'New dataset';
+      if (isNew && !ds._slugEdited) $('d-slug').value = ds.slug = datasetSlug(v);
+    });
+    bind('d-slug', () => ds.slug, v => { ds.slug = v.trim(); ds._slugEdited = true; });
+    $('d-slug').readOnly = !isNew;
+    $('d-slug-note').textContent = isNew
+      ? 'the page will be datasets/<address>.html; it cannot change once saved'
+      : 'fixed, so that links to the page keep working';
+    $('d-new').checked = Boolean(ds.new);
+    $('d-new').addEventListener('change', () => { ds.new = $('d-new').checked; changed(); });
+    for (const key of ['summary', 'format', 'size', 'apps_title']) bind('d-' + key, () => ds[key], v => { ds[key] = v; });
+    bind('d-description', () => ds._description ?? (ds.description || []).join('\n\n'), v => { ds._description = v; });
+    const countApps = () => {
+      const apps = parseApps(ds._apps ?? appsText(ds.apps));
+      $('d-apps-count').textContent = apps.columns.length
+        ? `${apps.rows.length} apps · columns: ${apps.columns.join(', ')}`
+        : 'No apps table: the section is left out of the page.';
+    };
+    bind('d-apps', () => ds._apps ?? appsText(ds.apps), v => { ds._apps = v; countApps(); });
+    countApps();
+    for (const key of ['authors', 'title', 'venue']) bind('d-c-' + key, () => ds.citation[key], v => { ds.citation[key] = v; });
+    ds.facts = ds.facts || [];
+    $('d-add-fact').addEventListener('click', rowsEditor($('d-facts'), ds.facts,
+      [{ key: 'label', placeholder: 'Label, e.g. Apps' }, { key: 'value', placeholder: 'Value, e.g. 20' }], changed));
+    $('d-add-link').addEventListener('click', rowsEditor($('d-c-links'), ds.citation.links,
+      [{ key: 'label', placeholder: 'Label, e.g. DOI', width: '.7fr' }, { key: 'url', placeholder: 'https://…', width: '1.6fr' }], changed));
+
+    const preview = $('d-image-preview'), drop = $('d-drop'), file = $('d-image-file');
+    preview.src = datasetImg(ds.image);
+    const addImage = f => addDatasetImage(ds, f, () => { preview.src = datasetImg(ds.image); });
+    drop.addEventListener('click', () => file.click());
+    drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); file.click(); } });
+    drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) addImage(e.dataTransfer.files[0]); });
+    file.addEventListener('change', () => { if (file.files[0]) addImage(file.files[0]); });
+
+    renderFileBox(ds);
+
+    const move = dir => {
+      const list = datasets.datasets, i = list.indexOf(ds), j = i + dir;
+      if (j < 0 || j >= list.length) return;
+      [list[i], list[j]] = [list[j], list[i]];
+      changed();
+    };
+    $('d-up').addEventListener('click', () => move(-1));
+    $('d-down').addEventListener('click', () => move(1));
+    $('d-delete').addEventListener('click', () => {
+      if (!confirm(`Remove "${ds.name || 'this dataset'}" from the site?` + (ds.zenodo ? '\nThe record on Zenodo is not touched.' : ''))) return;
+      datasets.datasets.splice(datasets.datasets.indexOf(ds), 1);
+      selectedDataset = null;
+      markDirty('datasets');
+      renderDatasets();
+      showDatasetsIntro();
+    });
+    if (!ds.name) $('d-name').focus();
+  }
+
+  // Dataset images keep their proportions: scaled to at most 1400 px and saved as JPEG.
+  function addDatasetImage(ds, file, done) {
+    if (!ds.slug) { alert('Enter the name (or the page address) first: it is used for the image file name.'); return; }
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, 1400 / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(img.width * scale));
+      canvas.height = Math.max(1, Math.round(img.height * scale));
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(img.src);
+      const path = pending.has(ds.image) ? ds.image : `${DATASET_IMG_DIR}/${ds.slug}.jpg`;
+      pending.set(path, canvas.toDataURL('image/jpeg', 0.86));
+      ds.image = path;
+      done();
+      markDirty('datasets');
+      renderDatasets();
+    };
+    img.onerror = () => setStatus('This file is not an image the browser can read', 'error');
+    img.src = URL.createObjectURL(file);
+  }
+
+  // Where the download button points: a Zenodo record, or any other address.
+  function renderFileBox(ds) {
+    const box = $('d-file-box');
+    box.innerHTML = '';
+    if (ds.zenodo) {
+      const name = decodeURIComponent((ds.file.split('/files/')[1] || '').split('?')[0]);
+      box.innerHTML = `<div class="box box-ok"><h3>On Zenodo</h3><dl>
+        <dt>Record</dt><dd><a href="${escHtml(ds.zenodo.record)}" target="_blank" rel="noopener">${escHtml(ds.zenodo.record.replace(/^https:\/\//, ''))} ↗</a></dd>
+        <dt>DOI</dt><dd>${escHtml(ds.zenodo.doi)}</dd><dt>File</dt><dd>${escHtml(name)}${ds.size ? ' · ' + escHtml(ds.size) : ''}</dd></dl>
+        <p class="hint">The download buttons of the site start this file. <button type="button" id="z-change">Use another file</button></p></div>`;
+      $('z-change').addEventListener('click', () => {
+        if (!confirm('Stop using this Zenodo record for the download? The record itself stays on Zenodo.')) return;
+        delete ds.zenodo;
+        ds.file = '';
+        ds.size = '';
+        $('d-size').value = '';
+        markDirty('datasets');
+        renderDatasets();
+        renderFileBox(ds);
+      });
+      return;
+    }
+    box.appendChild($('zenodo-upload').content.cloneNode(true));
+    try { $('z-token').value = sessionStorage.getItem(ZENODO_KEY) || localStorage.getItem(ZENODO_KEY) || ''; } catch (_) { /* nothing stored */ }
+    try { $('z-remember').checked = Boolean(localStorage.getItem(ZENODO_KEY)); } catch (_) { /* nothing stored */ }
+    const address = $('d-file');
+    address.value = ds.file || '';
+    address.addEventListener('input', () => { ds.file = address.value.trim(); markDirty('datasets'); renderDatasets(); });
+    $('z-upload').addEventListener('click', () => uploadToZenodo(ds));
+    $('z-link').addEventListener('click', () => linkZenodo(ds));
+    $('z-record').addEventListener('keydown', e => { if (e.key === 'Enter') linkZenodo(ds); });
+  }
+
+  function setZenodo(ds, id, doi, name, size) {
+    ds.file = `${ZENODO}/records/${id}/files/${encodeURIComponent(name)}?download=1`;
+    ds.zenodo = { doi, record: `${ZENODO}/records/${id}` };
+    ds.size = human(size);
+    markDirty('datasets');
+    setStatus('Dataset file on Zenodo · press <strong>Save</strong> to update the site', 'dirty');
+    renderDatasets();
+    if (selectedDataset === ds) selectDataset(ds);
+  }
+
+  async function zenodoApi(token, method, path, body) {
+    const res = await fetch(ZENODO + path, {
+      method,
+      headers: { Authorization: 'Bearer ' + token, ...(body ? { 'Content-Type': 'application/json' } : {}) },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    const out = res.status === 204 ? null : await res.json().catch(() => null);
+    if (!res.ok) {
+      let message = (out && out.message) || `error ${res.status}`;
+      if (out && Array.isArray(out.errors)) message += ' ' + out.errors.map(e => `${e.field}: ${e.message || e.messages}`).join('; ');
+      if (res.status === 401 || res.status === 403) message = 'the token was not accepted (it needs the scopes deposit:write and deposit:actions)';
+      throw new Error('Zenodo: ' + message);
+    }
+    return out;
+  }
+
+  function zenodoMetadata(ds) {
+    const one = v => String(v ?? '').trim().replace(/\s+/g, ' ');
+    const c = ds.citation;
+    const paragraphs = String(ds._description ?? (ds.description || []).join('\n\n')).split(/\n\s*\n/).map(one).filter(Boolean);
+    const creators = one(c.authors).split(',').map(one).filter(Boolean).map(a => {
+      const i = a.lastIndexOf(' ');
+      return { name: i > 0 ? `${a.slice(i + 1)}, ${a.slice(0, i)}` : a, affiliation: GROUP };
+    });
+    const meta = {
+      upload_type: 'dataset',
+      title: one(ds.name),
+      creators,
+      description: [one(ds.summary), ...paragraphs].map(p => `<p>${escHtml(p)}</p>`).join('') +
+        `<p>If you use ${escHtml(one(ds.name))}, please cite: ${escHtml(one(c.authors))}, "${escHtml(one(c.title))}"` +
+        (one(c.venue) ? `, ${escHtml(one(c.venue))}` : '') + '.</p>',
+      access_right: 'open',
+      license: ZENODO_LICENSES[(datasets.license || {}).short] || 'cc-by-nc-nd-4.0',
+      keywords: ['MIRAGE', 'mobile traffic', 'traffic classification', 'network traffic dataset', 'Android'],
+    };
+    const related = (c.links || []).filter(l => /doi\.org\//.test(l.url || ''))
+      .map(l => ({ identifier: l.url.trim(), relation: 'isDocumentedBy', resource_type: 'publication-article' }));
+    if (related.length) meta.related_identifiers = related;
+    return meta;
+  }
+
+  // PUT with progress (fetch cannot report upload progress).
+  function putFile(url, file, token, onProgress) {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('PUT', url);
+      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      xhr.setRequestHeader('Content-Type', 'application/octet-stream');
+      xhr.upload.onprogress = e => { if (e.lengthComputable) onProgress(e.loaded / e.total); };
+      xhr.onload = () => (xhr.status < 300 ? resolve() : reject(new Error(`Zenodo answered ${xhr.status} to the upload`)));
+      xhr.onerror = () => reject(new Error('the connection to Zenodo was lost'));
+      xhr.send(file);
+    });
+  }
+
+  async function uploadToZenodo(ds) {
+    // Elements captured now: the upload goes on even if another dataset is opened meanwhile.
+    const stateEl = $('z-state'), bar = $('z-bar'), button = $('z-upload');
+    const state = (text, kind = '') => { stateEl.textContent = text; stateEl.className = 'upload-state ' + kind; };
+    const token = $('z-token').value.trim();
+    const file = $('z-file').files[0];
+    if (!token) return state('Paste your Zenodo token first.', 'error');
+    if (!file) return state('Choose the file to upload.', 'error');
+    const c = ds.citation;
+    if (!String(ds.name || '').trim() || !String(ds.summary || '').trim() || !String(c.authors || '').trim() || !String(c.title || '').trim()) {
+      return state('Fill in name, summary, authors and paper title first: Zenodo uses them for the record.', 'error');
+    }
+    if (!confirm(`Publish "${file.name}" (${human(file.size)}) on Zenodo as ${ds.name}?\n\n` +
+      'The record becomes public and cannot be deleted. Keep this tab open until the upload ends.')) return;
+    try {
+      sessionStorage.setItem(ZENODO_KEY, token);
+      if ($('z-remember').checked) localStorage.setItem(ZENODO_KEY, token); else localStorage.removeItem(ZENODO_KEY);
+    } catch (_) { /* kept in the field only */ }
+
+    uploading = true;
+    button.disabled = true;
+    bar.parentElement.hidden = false;
+    const z = (method, path, body) => zenodoApi(token, method, path, body);
+    try {
+      let draft;
+      if (ds._draft) {   // an earlier attempt failed: reuse its draft instead of making a second record
+        draft = await z('GET', `/api/deposit/depositions/${ds._draft}`);
+        draft = await z('PUT', `/api/deposit/depositions/${draft.id}`, { metadata: zenodoMetadata(ds) });
+        for (const f of draft.files || []) await z('DELETE', `/api/deposit/depositions/${draft.id}/files/${f.id}`);
+      } else {
+        state('Creating the Zenodo record…');
+        draft = await z('POST', '/api/deposit/depositions', { metadata: { ...zenodoMetadata(ds), prereserve_doi: true } });
+        ds._draft = draft.id;
+      }
+      for (let attempt = 1; ; attempt++) {
+        try {
+          await putFile(`${draft.links.bucket}/${encodeURIComponent(file.name)}`, file, token, p => {
+            bar.style.width = (p * 100).toFixed(1) + '%';
+            state(`Uploading… ${Math.floor(p * 100)}% of ${human(file.size)}`);
+          });
+          break;
+        } catch (error) {
+          if (attempt === 3) throw error;
+          state(`${error.message}: trying again (attempt ${attempt + 1} of 3)…`, 'error');
+          await new Promise(resolve => setTimeout(resolve, 5000));
+        }
+      }
+      state('Publishing…');
+      const record = await z('POST', `/api/deposit/depositions/${draft.id}/actions/publish`);
+      delete ds._draft;
+      state('Published on Zenodo. Press Save to update the site.', 'ok');
+      setZenodo(ds, record.id, record.doi, file.name, file.size);
+    } catch (error) {
+      state(`${error.message}. Press the button again to retry: the same Zenodo draft is reused.`, 'error');
+    } finally {
+      uploading = false;
+      button.disabled = false;
+    }
+  }
+
+  async function linkZenodo(ds) {
+    const stateEl = $('z-state');
+    const state = (text, kind = '') => { stateEl.textContent = text; stateEl.className = 'upload-state ' + kind; };
+    const id = ($('z-record').value.trim().match(/(\d+)\/?$/) || [])[1];   // a number or a record address
+    if (!id) return state('Enter the number of the Zenodo record.', 'error');
+    state('Reading the record…');
+    try {
+      const res = await fetch(`${ZENODO}/api/records/${id}`);
+      if (!res.ok) return state(`Zenodo has no public record ${id}.`, 'error');
+      const record = await res.json();
+      let files = record.files || [];
+      if (!Array.isArray(files)) files = Object.values(files.entries || {});
+      if (!files.length) return state('This record has no public files.', 'error');
+      let file = files[0];
+      if (files.length > 1) {
+        const name = prompt('The record has several files. Which one should the download button start?\n\n' +
+          files.map(f => f.key).join('\n'), files[0].key);
+        file = files.find(f => f.key === (name || '').trim());
+        if (!file) return state('No file chosen.', 'error');
+      }
+      setZenodo(ds, record.id, record.doi || (record.pids && record.pids.doi && record.pids.doi.identifier), file.key, file.size);
+    } catch (error) {
+      state('Zenodo could not be reached: ' + error.message, 'error');
+    }
+  }
+
   // ---------------------------------------------------------------- downloads
   const dlMessage = text => { $('dl-message').textContent = text; $('dl-message').hidden = false; $('dl-table').hidden = true; };
 
@@ -1416,25 +1948,28 @@
   }
 
   async function save() {
-    let clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData;
+    let clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData;
     try {
       clean = cleanData(); cleanNewsData = cleanNews(); cleanTopicsData = cleanTopics();
-      cleanCollabsData = cleanCollabs(); cleanEventsData = cleanEvents();
+      cleanCollabsData = cleanCollabs(); cleanEventsData = cleanEvents(); cleanDatasetsData = cleanDatasets();
     }
     catch (error) { setStatus(error.message, 'error'); return; }
     // Only upload photos and logos that are still used by someone.
     const used = new Set([
       ...[clean.principal, ...clean.members, ...clean.alumni].filter(Boolean).map(p => p.photo),
       ...[...cleanCollabsData.current, ...cleanCollabsData.past].map(c => c.logo),
+      ...cleanDatasetsData.datasets.map(d => d.image),
     ]);
     for (const path of [...pending.keys()]) if (!used.has(path)) pending.delete(path);
     $('save').disabled = true;
     setStatus('Saving…');
     try {
-      const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData);
-      for (const path of pending.keys()) (path.startsWith(LOGO_DIR) ? logos : photos).add(path.split('/').pop());
+      const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData);
+      for (const path of pending.keys()) if (!path.startsWith(DATASET_IMG_DIR)) (path.startsWith(LOGO_DIR) ? logos : photos).add(path.split('/').pop());
       pending.clear();
       changed.clear();
+      datasets.datasets.forEach(ds => newDatasets.delete(ds));   // saved: their page address is now fixed
+      if (selectedDataset && selectedDataset !== 'page') selectDataset(selectedDataset);
       dirty = false;
       setStatus(message);
     } catch (error) {
@@ -1459,6 +1994,11 @@
     events = loaded.events || {};
     events.workshops = events.workshops || [];
     events.special_issues = events.special_issues || [];
+    datasets = loaded.datasets || {};
+    datasets.datasets = (datasets.datasets || []).map(ds => ({
+      ...ds, facts: (ds.facts || []).map(([label, value]) => ({ label, value })),
+      citation: { authors: '', title: '', venue: '', links: [], ...(ds.citation || {}) },
+    }));
     $('login').hidden = true;
     $('tabs').hidden = false;
     renderLists();
@@ -1470,7 +2010,9 @@
     showCollabsIntro();
     renderEvents();
     showEventsIntro();
-    showTab(['#news', '#topics', '#collabs', '#workshops', '#downloads'].includes(location.hash) ? location.hash.slice(1) : 'people');
+    renderDatasets();
+    showDatasetsIntro();
+    showTab(['#news', '#topics', '#collabs', '#workshops', '#datasets', '#downloads'].includes(location.hash) ? location.hash.slice(1) : 'people');
     setStatus('All changes saved');
   }
 
@@ -1482,10 +2024,11 @@
     $('collabs-app').hidden = tab !== 'collabs';
     $('downloads-app').hidden = tab !== 'downloads';
     $('workshops-app').hidden = tab !== 'workshops';
+    $('datasets-app').hidden = tab !== 'datasets';
     $('save').hidden = tab === 'downloads';
     if (tab === 'downloads' && downloads === null) loadDownloads();
     document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.tab === tab)));
-    $('open-page').href = { people: '/people.html', news: '/news.html', topics: '/index.html#topics', collabs: '/collaborations.html', workshops: '/workshops.html', downloads: '/datasets/' }[tab];
+    $('open-page').href = { people: '/people.html', news: '/news.html', topics: '/index.html#topics', collabs: '/collaborations.html', workshops: '/workshops.html', datasets: '/datasets/', downloads: '/datasets/' }[tab];
     history.replaceState(null, '', tab === 'people' ? location.pathname : '#' + tab);
   }
 
@@ -1579,6 +2122,7 @@
     $('collabs-app').hidden = true;
     $('downloads-app').hidden = true;
     $('workshops-app').hidden = true;
+    $('datasets-app').hidden = true;
     $('login').hidden = false;
     $('login-error').textContent = message;
     setStatus('Not signed in');
@@ -1603,6 +2147,15 @@
     markDirty('workshops');
     selectEvent({ group, item });
   }));
+  $('add-dataset').addEventListener('click', () => {
+    const ds = { slug: '', name: '', new: true, summary: '', image: '', file: '', size: '', format: 'JSON', facts: [],
+      description: [], apps_title: 'Apps and activities', apps: { columns: ['Package Name', 'App Name', 'Activities', 'Play Store Link'], rows: [] },
+      citation: { authors: '', title: '', venue: '', links: [] } };
+    newDatasets.add(ds);
+    datasets.datasets.unshift(ds);   // newest first, like the page
+    markDirty('datasets');
+    selectDataset(ds);
+  });
   $('dl-refresh').addEventListener('click', loadDownloads);
   $('dl-pdf').addEventListener('click', downloadPdf);
   $('dl-dataset').addEventListener('change', renderDownloads);
@@ -1643,7 +2196,7 @@
     dirty = false;
     location.reload();
   });
-  window.addEventListener('beforeunload', event => { if (dirty) event.preventDefault(); });
+  window.addEventListener('beforeunload', event => { if (dirty || uploading) event.preventDefault(); });
 
   if (LOCAL) {
     backend = localBackend;

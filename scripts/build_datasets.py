@@ -210,11 +210,24 @@ def apps_table(apps):
 def dataset_page(data, ds):
     lic = data['license']
     facts = ''.join(f'<div class="dataset-stat"><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>' for k, v in ds.get('facts', []))
-    paragraphs = '\n'.join(f'          <p>{esc(p)}</p>' for p in ds['description'])
+    paragraphs = '\n'.join(f'          <p>{esc(p)}</p>' for p in ds.get('description', []))
     c = ds['citation']
     links = ' '.join(f'<a href="{esc(local(link["url"]))}"{ext(link["url"])}>{esc(link["label"])}{" ↗" if ext(link["url"]) else ""}</a>'
                      for link in c.get('links', []))
     new = '<span class="tag tag-accent">New</span>' if ds.get('new') else ''
+    apps = ds.get('apps') or {}
+    apps_section = f'''
+    <section class="section page-body section-alt" aria-labelledby="apps-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="apps-title" class="section-title">{esc(ds.get('apps_title') or 'Apps')}</h2>
+          <p class="section-intro">{len(apps['rows'])} apps in the downloadable release.</p>
+        </div>
+{apps_table(apps)}
+      </div>
+    </section>
+''' if apps.get('columns') and apps.get('rows') else ''
+    venue = f', <em>{esc(c["venue"])}</em>' if c.get('venue') else ''
     main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), (ds['name'], '')], ds['name'], ds['summary'])}
 
     <section class="section page-body">
@@ -233,17 +246,7 @@ def dataset_page(data, ds):
         <dl class="dataset-stats">{facts}</dl>
       </div>
     </section>
-
-    <section class="section page-body section-alt" aria-labelledby="apps-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="apps-title" class="section-title">{esc(ds['apps_title'])}</h2>
-          <p class="section-intro">{len(ds['apps']['rows'])} apps in the downloadable release.</p>
-        </div>
-{apps_table(ds['apps'])}
-      </div>
-    </section>
-
+{apps_section}
     <section class="section page-body" id="cite" aria-labelledby="cite-title">
       <div class="container two-col">
         <div>
@@ -251,7 +254,7 @@ def dataset_page(data, ds):
           <p>If you use {esc(ds['name'])} for scientific papers, academic lectures, project reports or technical documents,
           please help us increase its impact by citing:</p>
           <blockquote class="citation">
-            <p>{esc(c['authors'])}, “{esc(c['title'])}”, <em>{esc(c['venue'])}</em>.</p>
+            <p>{esc(c['authors'])}, “{esc(c['title'])}”{venue}.</p>
             {f'<p class="citation-links">{links}</p>' if links else ''}
           </blockquote>{dataset_doi(ds)}
         </div>

@@ -6,7 +6,8 @@
 Serves the editor in admin/people/ (the same page that, online, commits to
 GitHub) together with the site itself, so the preview works at
 http://localhost:8765/people.html. Saving writes data/people.json,
-data/news.json, data/topics.json, data/collaborations.json and the new photos (cropped and resized in
+data/news.json, data/topics.json, data/collaborations.json, data/workshops.json,
+data/datasets.json and the new photos (cropped and resized in
 the browser to 600x720 JPEG, saved in images/pictures/) and rebuilds the pages
 through scripts/build_people.py, build_news.py, build_topics.py and
 build_collaborations.py.
@@ -25,6 +26,7 @@ import sys
 sys.dont_write_bytecode = True  # keep scripts/ free of __pycache__
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_collaborations  # noqa: E402
+import build_datasets  # noqa: E402
 import build_news  # noqa: E402
 import build_people  # noqa: E402
 import build_topics  # noqa: E402
@@ -34,6 +36,7 @@ import stamp_assets  # noqa: E402
 ROOT = build_people.ROOT
 PHOTOS = os.path.join(ROOT, 'images', 'pictures')
 LOGOS = os.path.join(ROOT, 'images', 'logos')
+DATASET_IMAGES = os.path.join(ROOT, 'images', 'datasets')
 PORT = int(os.environ.get('PORT', 8765))
 FIELDS = ('name', 'role', 'photo', 'affiliation', 'phone', 'emails', 'homepage', 'scholar')
 
@@ -164,6 +167,22 @@ def clean_workshops(raw):
             'special_issues': sorted(issues, key=lambda i: -i['year'])}
 
 
+def clean_datasets(raw):
+    """The editor already checks every field; here only what could break the pages."""
+    slugs = set()
+    for ds in raw.get('datasets') or []:
+        name = str(ds.get('name') or '').strip()
+        if not name:
+            raise ValueError('Every dataset needs a name')
+        if not re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', str(ds.get('slug') or '')) or ds['slug'] in slugs:
+            raise ValueError(f'{name}: the page address is missing, not valid or used twice')
+        slugs.add(ds['slug'])
+        for key in ('summary', 'image', 'file'):
+            if not str(ds.get(key) or '').strip():
+                raise ValueError(f'{name}: {key} is required')
+    return raw
+
+
 def write_json(path, data):
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -211,6 +230,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         elif self.path == '/api/workshops':
             with open(build_workshops.DATA, encoding='utf-8') as f:
                 self.send_json(200, json.load(f))
+        elif self.path == '/api/datasets':
+            with open(build_datasets.DATA, encoding='utf-8') as f:
+                self.send_json(200, json.load(f))
         elif self.path == '/api/photos':
             self.send_json(200, sorted(os.listdir(PHOTOS)))
         elif self.path == '/api/logos':
@@ -231,12 +253,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             collaborations = (clean_collaborations(payload['collaborations'])
                               if payload.get('collaborations') is not None else None)
             workshops = clean_workshops(payload['workshops']) if payload.get('workshops') is not None else None
-            # Uploads: people photos (JPEG) and collaboration logos (PNG).
-            kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png')}
+            datasets = clean_datasets(payload['datasets']) if payload.get('datasets') is not None else None
+            # Uploads: people photos (JPEG), collaboration logos (PNG) and dataset images (JPEG).
+            kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png'),
+                     'images/datasets': (DATASET_IMAGES, 'jpg', 'jpeg')}
             files = {}
             for path, url in (payload.get('photos') or {}).items():
                 folder, name = os.path.split(path)
-                if folder not in kinds or not re.fullmatch(rf'[a-z0-9_]+\.{kinds[folder][1]}', name):
+                if folder not in kinds or not re.fullmatch(rf'[a-z0-9_-]+\.{kinds[folder][1]}', name):
                     raise ValueError(f'unexpected upload path: {path}')
                 match = re.match(rf'data:image/{kinds[folder][2]};base64,(.+)', url, re.S)
                 if not match:
@@ -260,6 +284,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if workshops is not None:
                 write_json(build_workshops.DATA, workshops)
                 build_workshops.build()
+            if datasets is not None:
+                write_json(build_datasets.DATA, datasets)
+                build_datasets.build()
             stamp_assets.stamp()   # generated pages get the current CSS/JS versions
             self.send_json(200, {'ok': True})
         except (ValueError, KeyError, TypeError) as error:
