@@ -54,7 +54,7 @@
       "link": "https://www.unibo.it",
       "organization": "University of Bologna, Italy",
       "topic": "SDN controllers and AI-based network intrusion detection",
-      "logo": "",
+      "logo": "images/logos/university_of_bologna_italy.png",
       "papers": [
         {
           "title": "Multimodal contrastive learning-based network intrusion detection",
