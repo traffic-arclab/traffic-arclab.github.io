@@ -41,6 +41,14 @@
       ]
     },
     {
+      "name": "Deloitte",
+      "type": "company",
+      "link": "https://www.digita.unina.it",
+      "organization": "Deloitte Digital · Digita Academy, with the University of Napoli Federico II",
+      "topic": "Members of the group teach in the Digita Academy, the advanced training course started in 2017 by the University of Napoli Federico II and Deloitte Digital",
+      "logo": ""
+    },
+    {
       "name": "Franco Callegati",
       "type": "university",
       "link": "https://www.unibo.it",
