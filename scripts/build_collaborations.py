@@ -3,7 +3,8 @@
 
 The data holds the "current" and the "past" collaborations, each with the
 name of the contact person, its type ("company", "university" or "academic"),
-a link, the organization, the shared topic and an optional logo. A university
+a link, the organization, the shared topic, an optional logo and the joint
+papers (title, year, link), listed in a collapsible box of the card. A university
 (or another institution) is shown by its name, with the contact person as an
 optional detail. In each group companies come first, then universities.
 Everything between the COLLABORATIONS markers in collaborations.html is
@@ -65,6 +66,17 @@ def card(item):
         lines.append(f'  <p class="collab-org">{esc(item["organization"])}</p>')
     if item.get('topic'):
         lines.append(f'  <p class="collab-topic">{esc(item["topic"])}</p>')
+    papers = item.get('papers') or []
+    if papers:
+        count = f'{len(papers)} joint paper{"s" if len(papers) > 1 else ""}'
+        lines.append(f'  <details class="collab-papers"><summary>{count}</summary><ul>')
+        for p in papers:
+            title = esc(p['title'])
+            if p.get('url'):
+                title = f'<a href="{esc(p["url"])}" target="_blank" rel="noopener">{title}</a>'
+            year = f' <span class="collab-year">{p["year"]}</span>' if p.get('year') else ''
+            lines.append(f'    <li>{title}{year}</li>')
+        lines.append('  </ul></details>')
     lines.append('</li>')
     return lines
 

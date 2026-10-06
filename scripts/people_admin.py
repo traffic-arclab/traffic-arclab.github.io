@@ -142,6 +142,17 @@ def clean_collaborations(raw):
             what = entry['name'] or entry['organization']
             if entry['link'] and not re.match(r'https?://', entry['link']):
                 raise ValueError(f'{what}: the link must start with http:// or https://')
+            papers = []
+            for paper in item.get('papers') or []:
+                title = ' '.join(str(paper.get('title') or '').split())
+                if not title:
+                    continue
+                url = str(paper.get('url') or '').strip()
+                if url and not re.match(r'https?://', url):
+                    raise ValueError(f'{what}: paper links must start with http:// or https://')
+                papers.append({'title': title, 'year': int(paper['year']) if str(paper.get('year') or '').isdigit() else '', 'url': url})
+            if papers:
+                entry['papers'] = sorted(papers, key=lambda p: -(p['year'] or 0))
             items.append(entry)
         groups[group] = sorted(items, key=lambda i: {'company': 0, 'university': 1}.get(i['type'], 2))   # companies, then universities
     return groups

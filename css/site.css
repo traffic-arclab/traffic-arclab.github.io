@@ -655,6 +655,11 @@ a.area-topic:hover { color: var(--color-link); text-decoration-color: currentCol
 :root[data-theme="dark"] .collab-logo { padding: 4px 6px; border-radius: var(--radius-sm); background: #fff; }
 .collab--company { border-left-color: var(--color-gold); }
 .collab--university { border-left-color: var(--color-accent); }
+.collab-papers { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--color-soft-line); font-size: .9rem; }
+.collab-papers summary { cursor: pointer; color: var(--color-link); font-weight: 650; }
+.collab-papers ul { display: grid; gap: 8px; margin-top: 10px; list-style: none; }
+.collab-papers li { line-height: 1.45; }
+.collab-year { color: var(--color-muted); font-variant-numeric: tabular-nums; }
 .collab--university .collab-kind { background: var(--color-accent-soft); color: var(--color-accent-ink); }
 .news-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); gap: clamp(34px, 5vw, 80px); align-items: start; }
 .news-aside { position: sticky; top: calc(var(--header-h) + 24px); }

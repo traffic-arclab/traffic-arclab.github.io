@@ -6,7 +6,119 @@
       "link": "https://www.huawei.com/en/corporate-information/research-development",
       "organization": "",
       "topic": "Network Traffic and AI enabled Network",
-      "logo": "images/logos/huawei.png"
+      "logo": "images/logos/huawei.png",
+      "papers": [
+        {
+          "title": "Localizing and Exploiting Concept Areas in LLMs for Downstream Classification Tasks",
+          "year": 2025,
+          "url": "https://doi.org/10.1109/ijcnn64981.2025.11228856"
+        },
+        {
+          "title": "MEMENTO: A novel approach for class incremental learning of encrypted traffic",
+          "year": 2024,
+          "url": "https://doi.org/10.1016/j.comnet.2024.110374"
+        },
+        {
+          "title": "Benchmarking Class Incremental Learning in Deep Learning Traffic Classification",
+          "year": 2023,
+          "url": "https://doi.org/10.1109/tnsm.2023.3287430"
+        }
+      ]
+    },
+    {
+      "name": "Accenture",
+      "type": "company",
+      "link": "https://www.accenture.com/it-it",
+      "organization": "Accenture Italia, Milan (contact: Alessandro Vanacore)",
+      "topic": "Energy-efficient wireless sensor networks",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Learning-Based Adaptive Sensing for Energy-Efficient Wireless Sensor Networks",
+          "year": 2026,
+          "url": "https://doi.org/10.1109/jrfid.2026.3704663"
+        }
+      ]
+    },
+    {
+      "name": "Franco Callegati",
+      "type": "university",
+      "link": "https://www.unibo.it",
+      "organization": "University of Bologna, Italy",
+      "topic": "SDN controllers and AI-based network intrusion detection",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Multimodal contrastive learning-based network intrusion detection",
+          "year": 2026,
+          "url": "https://doi.org/10.1016/j.rineng.2026.111405"
+        },
+        {
+          "title": "Explainable Quantum Machine Learning for IoMT Security: Evaluating Quantum Advantage",
+          "year": 2026,
+          "url": "https://doi.org/10.1109/smartcomp-companion70724.2026.00031"
+        },
+        {
+          "title": "Flock: A Live Migration Protocol for SDN Controllers",
+          "year": 2019,
+          "url": "https://doi.org/10.1109/nfv-sdn47374.2019.9040146"
+        }
+      ]
+    },
+    {
+      "name": "Solange Rito Lima, Paulo Carvalho",
+      "type": "university",
+      "link": "https://www.uminho.pt",
+      "organization": "University of Minho (Centro ALGORITMI), Portugal",
+      "topic": "Machine learning for adaptive sensing in wireless sensor networks and data offloading in urban networks",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Learning-Based Adaptive Sensing for Energy-Efficient Wireless Sensor Networks",
+          "year": 2026,
+          "url": "https://doi.org/10.1109/jrfid.2026.3704663"
+        },
+        {
+          "title": "Leveraging Machine Learning for Self-adaptive Sensing in WSNs: an Energy-aware Approach",
+          "year": 2025,
+          "url": "https://doi.org/10.23919/splitech65624.2025.11091767"
+        },
+        {
+          "title": "Enhancing Data Offloading in Urban Networks via Machine Learning-based Mobility Prediction",
+          "year": 2025,
+          "url": "https://doi.org/10.23919/cnsm67658.2025.11297530"
+        }
+      ]
+    },
+    {
+      "name": "Anca Delia Jurcut",
+      "type": "university",
+      "link": "https://www.ucd.ie",
+      "organization": "University College Dublin, Ireland",
+      "topic": "Few-shot learning for resilient intrusion detection",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Rapid Few-Shot Learning for Resilient Multi-Domain Intrusion Detection",
+          "year": 2025,
+          "url": "https://doi.org/10.1109/globecom59602.2025.11432265"
+        }
+      ]
+    },
+    {
+      "name": "Giovanni Merlino",
+      "type": "university",
+      "link": "https://www.unime.it",
+      "organization": "University of Messina, Italy",
+      "topic": "Security, privacy and resource efficiency in IoT-Fog networks",
+      "logo": "",
+      "papers": [
+        {
+          "title": "An integration perspective of security, privacy, and resource efficiency in IoT-Fog networks: A comprehensive survey",
+          "year": 2025,
+          "url": "https://doi.org/10.1016/j.comnet.2025.111470"
+        }
+      ]
     }
   ],
   "past": [
@@ -16,7 +128,484 @@
       "link": "http://www.deutsche-telekom-laboratories.de/~karrer/",
       "organization": "Deutsche Telekom Laboratories, Berlin, Germany",
       "topic": "Analysis and performance evaluation of the MagNets WiFi backbone",
-      "logo": "images/logos/deutsche_telekom_laboratories_berlin_germany.png"
+      "logo": "images/logos/deutsche_telekom_laboratories_berlin_germany.png",
+      "papers": [
+        {
+          "title": "Challenges in Second-Generation Wireless Mesh Networks",
+          "year": 2008,
+          "url": "https://doi.org/10.1155/2008/274790"
+        },
+        {
+          "title": "High-speed backhaul networks: Myth or reality?",
+          "year": 2008,
+          "url": "https://doi.org/10.1016/j.comcom.2008.01.034"
+        },
+        {
+          "title": "Wireless Networks Test-beds: When Heterogeneity Plays with Us",
+          "year": 2008,
+          "url": "https://doi.org/10.1007/978-0-387-09777-0_16"
+        },
+        {
+          "title": "MagNets - experiences from deploying a joint research-operational next-generation wireless access network testbed",
+          "year": 2007,
+          "url": "https://doi.org/10.1109/tridentcom.2007.4444714"
+        },
+        {
+          "title": "High-speed wireless backbones: measurements from MagNets",
+          "year": 2007,
+          "url": "https://doi.org/10.1109/broadnets.2007.4550499"
+        },
+        {
+          "title": "2nd Generation Wireless Mesh Networks: Technical, Economical and Social Challenges",
+          "year": 2007,
+          "url": "https://doi.org/10.1109/fgcn.2007.2"
+        },
+        {
+          "title": "Experimental evaluation and characterization of the magnets wireless backbone",
+          "year": 2006,
+          "url": "https://doi.org/10.1145/1160987.1160994"
+        }
+      ]
+    },
+    {
+      "name": "Haiming Chen",
+      "type": "university",
+      "link": "https://www.nbu.edu.cn",
+      "organization": "Ningbo University, China",
+      "topic": "Edge computing for industrial IoT, software-defined IoT services and Wi-Fi based human sensing",
+      "logo": "",
+      "papers": [
+        {
+          "title": "MCOTM: Mobility-aware computation offloading and task migration for edge computing in industrial IoT",
+          "year": 2023,
+          "url": "https://doi.org/10.1016/j.future.2023.10.004"
+        },
+        {
+          "title": "Human behavior sensing: challenges and approaches",
+          "year": 2020,
+          "url": "https://doi.org/10.1007/s12652-020-01861-y"
+        },
+        {
+          "title": "Wi-CR: Human Action Counting and Recognition with Wi-Fi Signals",
+          "year": 2019,
+          "url": "https://doi.org/10.1109/cccs.2019.8888113"
+        },
+        {
+          "title": "eMES: Easing Maintenance of Entity Services in Service Oriented Software-Defined Internet of Things",
+          "year": 2019,
+          "url": "https://doi.org/10.1109/sds.2019.8768722"
+        },
+        {
+          "title": "A Formal Methodology for Easing Development and Maintenance of Entity Services in Service Oriented Software-Defined Internet of Things",
+          "year": 2019,
+          "url": "https://doi.org/10.1109/jiot.2019.2929285"
+        },
+        {
+          "title": "TaRad: A Thing-Centric Sensing System for Detecting Activities of Daily Living",
+          "year": 2019,
+          "url": "https://doi.org/10.1007/978-3-030-34914-1_34"
+        },
+        {
+          "title": "Evaluation of SDN-based bandwidth estimation in Mobile Broad Band networks",
+          "year": 2018,
+          "url": "https://doi.org/10.1109/apcc.2018.8633562"
+        }
+      ]
+    },
+    {
+      "name": "Flavio Esposito",
+      "type": "university",
+      "link": "https://www.slu.edu",
+      "organization": "Saint Louis University, USA",
+      "topic": "Network virtualization, SDN controllers and mobile traffic prediction",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Prediction of Mobile-App Network-Video-Traffic Aggregates using Multi-task Deep Learning",
+          "year": 2022,
+          "url": "https://doi.org/10.23919/ifipnetworking55013.2022.9829800"
+        },
+        {
+          "title": "A Near Optimal Reliable Orchestration Approach for Geo-Distributed Latency-Sensitive SFCs",
+          "year": 2020,
+          "url": "https://doi.org/10.1109/tnse.2020.2981630"
+        },
+        {
+          "title": "Scalable Provisioning of Virtual Network Functions via Supervised Learning",
+          "year": 2019,
+          "url": "https://doi.org/10.1109/netsoft.2019.8806638"
+        },
+        {
+          "title": "Flock: A Live Migration Protocol for SDN Controllers",
+          "year": 2019,
+          "url": "https://doi.org/10.1109/nfv-sdn47374.2019.9040146"
+        }
+      ]
+    },
+    {
+      "name": "Mohammad Shojafar",
+      "type": "university",
+      "link": "https://www.surrey.ac.uk",
+      "organization": "University of Surrey, UK",
+      "topic": "Secure task scheduling in SDN-based IoT-Fog networks",
+      "logo": "",
+      "papers": [
+        {
+          "title": "S-FoS: A secure workflow scheduling approach for performance optimization in SDN-based IoT-Fog networks",
+          "year": 2022,
+          "url": "https://doi.org/10.1016/j.jisa.2022.103404"
+        },
+        {
+          "title": "FUPE: A security driven task scheduling approach for SDN-based IoT–Fog networks",
+          "year": 2021,
+          "url": "https://doi.org/10.1016/j.jisa.2021.102853"
+        },
+        {
+          "title": "FPFTS: A joint fuzzy particle swarm optimization mobility‐aware approach to fog task scheduling algorithm for Internet of Things devices",
+          "year": 2020,
+          "url": "https://doi.org/10.1002/spe.2867"
+        }
+      ]
+    },
+    {
+      "name": "Timur Friedman, Renata Teixeira",
+      "type": "university",
+      "link": "https://www.lip6.fr",
+      "organization": "Sorbonne Université (LIP6, formerly UPMC), Paris, France",
+      "topic": "Bufferbloat, queuing delays and broadband measurement",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Distributed Active Measurement of Internet Queuing Delays",
+          "year": 2014,
+          "url": "https://doi.org/10.1007/978-3-319-04918-2_31"
+        },
+        {
+          "title": "Remotely Gauging Upstream Bufferbloat Delays",
+          "year": 2013,
+          "url": "https://doi.org/10.1007/978-3-642-36516-4_25"
+        },
+        {
+          "title": "Passive bufferbloat measurement exploiting transport layer information",
+          "year": 2013,
+          "url": "https://doi.org/10.1109/glocom.2013.6831525"
+        },
+        {
+          "title": "Measuring home broadband performance",
+          "year": 2012,
+          "url": "https://doi.org/10.1145/2366316.2366337"
+        },
+        {
+          "title": "Inferring the buffering delay of remote BitTorrent peers under LEDBAT vs TCP",
+          "year": 2012,
+          "url": "https://doi.org/10.1109/p2p.2012.6335819"
+        },
+        {
+          "title": "Broadband internet performance",
+          "year": 2011,
+          "url": "https://doi.org/10.1145/2018436.2018452"
+        },
+        {
+          "title": "Integration of 3G Connectivity in PlanetLab Europe",
+          "year": 2010,
+          "url": "https://doi.org/10.1007/s11036-010-0224-z"
+        },
+        {
+          "title": "Traffic analysis of peer-to-peer IPTV communities",
+          "year": 2008,
+          "url": "https://doi.org/10.1016/j.comnet.2008.09.024"
+        }
+      ]
+    },
+    {
+      "name": "Maurizio D’Arienzo, Francesco Palmieri",
+      "type": "university",
+      "link": "https://www.unicampania.it",
+      "organization": "University of Campania \"Luigi Vanvitelli\", Italy",
+      "topic": "Traffic modeling, bandwidth estimation and network measurement",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Unified architecture for network measurement: The case of available bandwidth",
+          "year": 2011,
+          "url": "https://doi.org/10.1016/j.jnca.2011.10.010"
+        },
+        {
+          "title": "UANM: a platform for experimenting with available bandwidth estimation tools",
+          "year": 2010,
+          "url": "https://doi.org/10.1109/iscc.2010.5546773"
+        },
+        {
+          "title": "Internet traffic modeling by means of Hidden Markov Models",
+          "year": 2008,
+          "url": "https://doi.org/10.1016/j.comnet.2008.05.004"
+        },
+        {
+          "title": "An HMM Approach to Internet Traffic Modeling",
+          "year": 2008,
+          "url": "https://openalex.org/W2166410671"
+        },
+        {
+          "title": "Transparent Network Configuration for Internet Telephony Traffic",
+          "year": 2007,
+          "url": "https://doi.org/10.1109/contel.2007.381888"
+        },
+        {
+          "title": "End-to-end packet-channel Bayesian model applied to heterogeneous wireless networks",
+          "year": 2005,
+          "url": "https://doi.org/10.1109/glocom.2005.1577673"
+        }
+      ]
+    },
+    {
+      "name": "Giulio Iannello",
+      "type": "university",
+      "link": "https://www.unicampus.it",
+      "organization": "Università Campus Bio-Medico di Roma, Italy",
+      "topic": "Heterogeneous wireless networks and Internet traffic modeling",
+      "logo": "",
+      "papers": [
+        {
+          "title": "An HMM Approach to Internet Traffic Modeling",
+          "year": 2008,
+          "url": "https://openalex.org/W2166410671"
+        },
+        {
+          "title": "Seamless internetworking of WLANs and cellular networks: architecture and performance issues in a mobile IPv6 scenario",
+          "year": 2005,
+          "url": "https://doi.org/10.1109/mwc.2005.1452857"
+        },
+        {
+          "title": "Analysis and Experimentation over Heterogeneous Wireless Networks",
+          "year": 2005,
+          "url": "https://doi.org/10.1109/tridnt.2005.13"
+        },
+        {
+          "title": "End-to-end packet-channel Bayesian model applied to heterogeneous wireless networks",
+          "year": 2005,
+          "url": "https://doi.org/10.1109/glocom.2005.1577673"
+        },
+        {
+          "title": "Measuring Quality of Service Parameters over Heterogeneous IP Networks",
+          "year": 2005,
+          "url": "https://doi.org/10.1007/978-3-540-31957-3_81"
+        },
+        {
+          "title": "Experimental Analysis of Heterogeneous Wireless Networks",
+          "year": 2004,
+          "url": "https://doi.org/10.1007/978-3-540-24643-5_14"
+        }
+      ]
+    },
+    {
+      "name": "Claudio Squarcella, Marco Chiesa",
+      "type": "university",
+      "link": "https://www.uniroma3.it",
+      "organization": "Roma Tre University, Italy",
+      "topic": "Internet outages caused by censorship and wireless sensor networks",
+      "logo": "",
+      "papers": [
+        {
+          "title": "A sleep scheduling approach based on learning automata for WSN partialcoverage",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.jnca.2016.12.022"
+        },
+        {
+          "title": "An efficient partial coverage algorithm for wireless sensor networks",
+          "year": 2016,
+          "url": "https://doi.org/10.1109/iscc.2016.7543788"
+        },
+        {
+          "title": "Analysis of Country-Wide Internet Outages Caused by Censorship",
+          "year": 2014,
+          "url": "https://doi.org/10.1109/tnet.2013.2291244"
+        }
+      ]
+    },
+    {
+      "name": "Vinh Bui, Weiping Zhu",
+      "type": "university",
+      "link": "https://www.unsw.edu.au",
+      "organization": "UNSW Sydney, Australia",
+      "topic": "Multipath data transfer and end-to-end delay forecasting",
+      "logo": "",
+      "papers": [
+        {
+          "title": "A Markovian Approach to Multipath Data Transfer in Overlay Networks",
+          "year": 2010,
+          "url": "https://doi.org/10.1109/tpds.2010.13"
+        },
+        {
+          "title": "An MDP-Based Approach for Multipath Data Transmission over Wireless Networks",
+          "year": 2008,
+          "url": "https://doi.org/10.1109/icc.2008.57"
+        },
+        {
+          "title": "Long Horizon End-to-End Delay Forecasts: A Multi-Step-Ahead Hybrid Approach",
+          "year": 2007,
+          "url": "https://doi.org/10.1109/iscc.2007.4381513"
+        }
+      ]
+    },
+    {
+      "name": "Sándor Molnár, Péter Megyesi",
+      "type": "university",
+      "link": "https://www.bme.hu",
+      "organization": "Budapest University of Technology and Economics, Hungary",
+      "topic": "Available bandwidth measurement in software-defined networks",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Challenges and solution for measuring available bandwidth in software defined networks",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.comcom.2016.12.004"
+        },
+        {
+          "title": "Available bandwidth measurement in software defined networks",
+          "year": 2016,
+          "url": "https://doi.org/10.1145/2851613.2851727"
+        }
+      ]
+    },
+    {
+      "name": "Ítalo Cunha",
+      "type": "university",
+      "link": "https://www.ufmg.br",
+      "organization": "Universidade Federal de Minas Gerais, Brazil",
+      "topic": "Internet path measurement and route prediction",
+      "logo": "",
+      "papers": [
+        {
+          "title": "How and how much traceroute confuses our understanding of network paths",
+          "year": 2016,
+          "url": "https://doi.org/10.1109/lanman.2016.7548847"
+        },
+        {
+          "title": "Sibyl : A Practical Internet Route Oracle",
+          "year": 2016,
+          "url": "https://openalex.org/W2310278244"
+        }
+      ]
+    },
+    {
+      "name": "Marília Curado",
+      "type": "university",
+      "link": "https://www.uc.pt",
+      "organization": "University of Coimbra, Portugal",
+      "topic": "Traffic management and QoE handover in heterogeneous wireless networks",
+      "logo": "",
+      "papers": [
+        {
+          "title": "A quality of experience handover system for heterogeneous multimedia wireless networks",
+          "year": 2013,
+          "url": "https://doi.org/10.1109/iccnc.2013.6504239"
+        },
+        {
+          "title": "Traffic Management",
+          "year": 2003,
+          "url": "https://doi.org/10.1007/978-3-540-45190-7_2"
+        }
+      ]
+    },
+    {
+      "name": "Sandford Bessler",
+      "type": "university",
+      "link": "",
+      "organization": "Telecommunications Research Center Vienna (FTW), Austria",
+      "topic": "Traffic engineering and DNS-based cybercrime detection",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Mining agile DNS traffic using graph analysis for cybercrime detection",
+          "year": 2016,
+          "url": "https://doi.org/10.1016/j.comnet.2016.02.009"
+        },
+        {
+          "title": "An open source traffic engineering toolbox",
+          "year": 2005,
+          "url": "https://doi.org/10.1016/j.comcom.2005.06.010"
+        }
+      ]
+    },
+    {
+      "name": "Ioannis Stavrakakis",
+      "type": "university",
+      "link": "https://www.uoa.gr",
+      "organization": "National and Kapodistrian University of Athens, Greece",
+      "topic": "Traffic management, security and trust",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Security and Trust",
+          "year": 2006,
+          "url": "https://doi.org/10.1002/0470030453.ch5"
+        },
+        {
+          "title": "Traffic Management",
+          "year": 2003,
+          "url": "https://doi.org/10.1007/978-3-540-45190-7_2"
+        }
+      ]
+    },
+    {
+      "name": "Ian Marsh",
+      "type": "university",
+      "link": "https://www.ri.se",
+      "organization": "Swedish Institute of Computer Science (now RISE), Sweden",
+      "topic": "Traffic engineering and traffic management",
+      "logo": "",
+      "papers": [
+        {
+          "title": "An open source traffic engineering toolbox",
+          "year": 2005,
+          "url": "https://doi.org/10.1016/j.comcom.2005.06.010"
+        },
+        {
+          "title": "Traffic Management",
+          "year": 2003,
+          "url": "https://doi.org/10.1007/978-3-540-45190-7_2"
+        }
+      ]
+    },
+    {
+      "name": "Pere Barlet-Ros",
+      "type": "university",
+      "link": "https://www.upc.edu",
+      "organization": "Universitat Politècnica de Catalunya, Spain",
+      "topic": "Traffic classification and traffic engineering",
+      "logo": "",
+      "papers": [
+        {
+          "title": "K-Dimensional Trees for Continuous Traffic Classification",
+          "year": 2010,
+          "url": "https://doi.org/10.1007/978-3-642-12365-8_11"
+        },
+        {
+          "title": "An open source traffic engineering toolbox",
+          "year": 2005,
+          "url": "https://doi.org/10.1016/j.comcom.2005.06.010"
+        }
+      ]
+    },
+    {
+      "name": "Leandro Pecchia",
+      "type": "university",
+      "link": "https://warwick.ac.uk",
+      "organization": "University of Warwick, UK",
+      "topic": "Artificial intelligence for e-health and wearable sensing",
+      "logo": "",
+      "papers": [
+        {
+          "title": "Precision Medicine and Artificial Intelligence: A Pilot Study on Deep Learning for Hypoglycemic Events Detection based on ECG",
+          "year": 2020,
+          "url": "https://doi.org/10.1038/s41598-019-56927-5"
+        },
+        {
+          "title": "Detection of melatonin-onset in real settings via wearable sensors and artificial intelligence. A pilot study",
+          "year": 2020,
+          "url": "https://doi.org/10.1016/j.bspc.2020.102386"
+        }
+      ]
     },
     {
       "name": "Cedric Westphal",
@@ -24,7 +613,19 @@
       "link": "http://www.docomolabsresearchers-usa.com/~cwestphal/",
       "organization": "DoCoMo USA Labs, Palo Alto, USA",
       "topic": "Compression of monitoring data",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Efficient Storage and Processing of High-Volume Network Monitoring Data",
+          "year": 2013,
+          "url": "https://doi.org/10.1109/tnsm.2013.011713.110215"
+        },
+        {
+          "title": "An efficient storage technique for network monitoring data",
+          "year": 2011,
+          "url": "https://doi.org/10.1109/iwmn.2011.6088479"
+        }
+      ]
     },
     {
       "name": "Renato Lo Cigno",
@@ -32,7 +633,29 @@
       "link": "http://disi.unitn.it/locigno/",
       "organization": "University of Trento, Italy",
       "topic": "Inter-vehicular communications",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Platooning Maneuvers in Vehicular Networks: A Distributed and Consensus-Based Approach",
+          "year": 2018,
+          "url": "https://doi.org/10.1109/tiv.2018.2886677"
+        },
+        {
+          "title": "A Consensus-Based Approach for Platooning with Intervehicular Communications and Its Validation in Realistic Scenarios",
+          "year": 2016,
+          "url": "https://doi.org/10.1109/tvt.2016.2585018"
+        },
+        {
+          "title": "A consensus-based approach for platooning with inter-vehicular communications",
+          "year": 2015,
+          "url": "https://doi.org/10.1109/infocom.2015.7218490"
+        },
+        {
+          "title": "An open source traffic engineering toolbox",
+          "year": 2005,
+          "url": "https://doi.org/10.1016/j.comcom.2005.06.010"
+        }
+      ]
     },
     {
       "name": "Ethan Katz-Bassett",
@@ -40,7 +663,29 @@
       "link": "http://www-bcf.usc.edu/~katzbass/",
       "organization": "University of Southern California, USA",
       "topic": "Internet measurement",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "How and how much traceroute confuses our understanding of network paths",
+          "year": 2016,
+          "url": "https://doi.org/10.1109/lanman.2016.7548847"
+        },
+        {
+          "title": "Sibyl : A Practical Internet Route Oracle",
+          "year": 2016,
+          "url": "https://openalex.org/W2310278244"
+        },
+        {
+          "title": "Dissecting Round Trip Time on the Slow Path with a Single Packet",
+          "year": 2014,
+          "url": "https://doi.org/10.1007/978-3-319-04918-2_9"
+        },
+        {
+          "title": "Don't trust traceroute (completely)",
+          "year": 2013,
+          "url": "https://doi.org/10.1145/2537148.2537155"
+        }
+      ]
     },
     {
       "name": "Mahesh K. Marina",
@@ -48,7 +693,14 @@
       "link": "http://homepages.inf.ed.ac.uk/mmarina/",
       "organization": "University of Edinburgh, UK",
       "topic": "Broadband performance monitoring",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Spatial Interpolation based Cellular Coverage Prediction with Crowdsourced Measurements",
+          "year": 2015,
+          "url": "https://doi.org/10.1145/2787394.2787395"
+        }
+      ]
     },
     {
       "name": "Pascal Mérindol",
@@ -56,7 +708,34 @@
       "link": "http://clarinet.u-strasbg.fr/~merindol/",
       "organization": "University of Strasbourg, France",
       "topic": "Network topologies",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "The Art of Detecting Forwarding Detours",
+          "year": 2021,
+          "url": "https://doi.org/10.1109/tnsm.2021.3062151"
+        },
+        {
+          "title": "Où un opérateur IP cache-t-il ses détours ?",
+          "year": 2021,
+          "url": "https://openalex.org/W3174432626"
+        },
+        {
+          "title": "Filtering the Noise to Reveal Inter-Domain Lies",
+          "year": 2019,
+          "url": "https://doi.org/10.23919/tma.2019.8784618"
+        },
+        {
+          "title": "Quantifying and mitigating IGMP filtering in topology discovery",
+          "year": 2012,
+          "url": "https://doi.org/10.1109/glocom.2012.6503388"
+        },
+        {
+          "title": "Topology Discovery at the Router Level: A New Hybrid Tool Targeting ISP Networks",
+          "year": 2011,
+          "url": "https://doi.org/10.1109/jsac.2011.111003"
+        }
+      ]
     },
     {
       "name": "Fabio Ricciato",
@@ -72,7 +751,29 @@
       "link": "http://www.cs.princeton.edu/~feamster/",
       "organization": "Princeton University, USA",
       "topic": "Network neutrality and broadband performance evaluation",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Monitoring Internet Censorship with UBICA",
+          "year": 2015,
+          "url": "https://doi.org/10.1007/978-3-319-17172-2_10"
+        },
+        {
+          "title": "Measuring home broadband performance",
+          "year": 2012,
+          "url": "https://doi.org/10.1145/2366316.2366337"
+        },
+        {
+          "title": "BISmark: A Platform for Broadband Internet and Home Network Research",
+          "year": 2012,
+          "url": "https://doi.org/10.2139/ssrn.2031341"
+        },
+        {
+          "title": "Broadband internet performance",
+          "year": 2011,
+          "url": "https://doi.org/10.1145/2018436.2018452"
+        }
+      ]
     },
     {
       "name": "Benoit Donnet",
@@ -80,7 +781,34 @@
       "link": "http://inl.info.ucl.ac.be/donnet",
       "organization": "Université catholique de Louvain, Belgium",
       "topic": "Topology discovery",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Hic Sunt Proxies: Unveiling Proxy Phenomena in Mobile Networks",
+          "year": 2019,
+          "url": "https://doi.org/10.23919/tma.2019.8784678"
+        },
+        {
+          "title": "Hic sunt NATs: Uncovering address translation with a smart traceroute",
+          "year": 2017,
+          "url": "https://doi.org/10.23919/tma.2017.8002924"
+        },
+        {
+          "title": "Quantifying and mitigating IGMP filtering in topology discovery",
+          "year": 2012,
+          "url": "https://doi.org/10.1109/glocom.2012.6503388"
+        },
+        {
+          "title": "Topology Discovery at the Router Level: A New Hybrid Tool Targeting ISP Networks",
+          "year": 2011,
+          "url": "https://doi.org/10.1109/jsac.2011.111003"
+        },
+        {
+          "title": "An open source traffic engineering toolbox",
+          "year": 2005,
+          "url": "https://doi.org/10.1016/j.comcom.2005.06.010"
+        }
+      ]
     },
     {
       "name": "Ernst Biersack",
@@ -88,7 +816,14 @@
       "link": "http://www.eurecom.fr/~btroup/erbi_page.html",
       "organization": "Eurécom, Sophia Antipolis, France",
       "topic": "Passive analysis of 3G/4G networks",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Performance footprints of heavy-users in 3G networks via empirical measurement",
+          "year": 2010,
+          "url": "https://openalex.org/W1823077104"
+        }
+      ]
     },
     {
       "name": "KC Claffy",
@@ -96,7 +831,39 @@
       "link": "http://www.caida.org/home/seniorstaff/kclaffy.xml",
       "organization": "Cooperative Association for Internet Data Analysis (CAIDA), San Diego, USA",
       "topic": "Traffic classification",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Sibyl : A Practical Internet Route Oracle",
+          "year": 2016,
+          "url": "https://openalex.org/W2310278244"
+        },
+        {
+          "title": "Traffic identification engine: an open platform for traffic classification",
+          "year": 2014,
+          "url": "https://doi.org/10.1109/mnet.2014.6786614"
+        },
+        {
+          "title": "Analysis of a “/0” Stealth Scan From a Botnet",
+          "year": 2014,
+          "url": "https://doi.org/10.1109/tnet.2013.2297678"
+        },
+        {
+          "title": "Analysis of Country-Wide Internet Outages Caused by Censorship",
+          "year": 2014,
+          "url": "https://doi.org/10.1109/tnet.2013.2291244"
+        },
+        {
+          "title": "Reviewing Traffic Classification",
+          "year": 2013,
+          "url": "https://doi.org/10.1007/978-3-642-36784-7_6"
+        },
+        {
+          "title": "Issues and future directions in traffic classification",
+          "year": 2012,
+          "url": "https://doi.org/10.1109/mnet.2012.6135854"
+        }
+      ]
     },
     {
       "name": "Dario Rossi",
@@ -104,7 +871,74 @@
       "link": "http://perso.infres.enst.fr/~drossi/",
       "organization": "TELECOM ParisTech (formerly ENST), France",
       "topic": "Impact of sampling on traffic monitoring and analysis, traffic classification",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "Lightweight GenAI for Network Traffic Generation: Fidelity, Augmentation, and Classification",
+          "year": 2026,
+          "url": "https://doi.org/10.48550/arxiv.2603.25507"
+        },
+        {
+          "title": "Localizing and Exploiting Concept Areas in LLMs for Downstream Classification Tasks",
+          "year": 2025,
+          "url": "https://doi.org/10.1109/ijcnn64981.2025.11228856"
+        },
+        {
+          "title": "MEMENTO: A novel approach for class incremental learning of encrypted traffic",
+          "year": 2024,
+          "url": "https://doi.org/10.1016/j.comnet.2024.110374"
+        },
+        {
+          "title": "Benchmarking Class Incremental Learning in Deep Learning Traffic Classification",
+          "year": 2023,
+          "url": "https://doi.org/10.1109/tnsm.2023.3287430"
+        },
+        {
+          "title": "Many or Few Samples?: Comparing Transfer, Contrastive and Meta-Learning in Encrypted Traffic Classification",
+          "year": 2023,
+          "url": "https://doi.org/10.23919/tma58422.2023.10198965"
+        },
+        {
+          "title": "A First Look at Class Incremental Learning in Deep Learning Mobile Traffic Classification",
+          "year": 2021,
+          "url": "https://doi.org/10.48550/arxiv.2107.04464"
+        },
+        {
+          "title": "Distributed Active Measurement of Internet Queuing Delays",
+          "year": 2014,
+          "url": "https://doi.org/10.1007/978-3-319-04918-2_31"
+        },
+        {
+          "title": "Reviewing Traffic Classification",
+          "year": 2013,
+          "url": "https://doi.org/10.1007/978-3-642-36784-7_6"
+        },
+        {
+          "title": "Remotely Gauging Upstream Bufferbloat Delays",
+          "year": 2013,
+          "url": "https://doi.org/10.1007/978-3-642-36516-4_25"
+        },
+        {
+          "title": "Passive bufferbloat measurement exploiting transport layer information",
+          "year": 2013,
+          "url": "https://doi.org/10.1109/glocom.2013.6831525"
+        },
+        {
+          "title": "Exploiting packet‐sampling measurements for traffic characterization and classification",
+          "year": 2012,
+          "url": "https://doi.org/10.1002/nem.1802"
+        },
+        {
+          "title": "Inferring the buffering delay of remote BitTorrent peers under LEDBAT vs TCP",
+          "year": 2012,
+          "url": "https://doi.org/10.1109/p2p.2012.6335819"
+        },
+        {
+          "title": "On the impact of sampling on traffic monitoring and analysis",
+          "year": 2010,
+          "url": "https://doi.org/10.1109/itc.2010.5608718"
+        }
+      ]
     },
     {
       "name": "Rajiv Chakravorty",
@@ -120,7 +954,19 @@
       "link": "http://www.ece.osu.edu/~calyam/",
       "organization": "The Ohio State University and Ohio Supercomputer Center, USA",
       "topic": "Multimedia traffic characterization and modeling",
-      "logo": ""
+      "logo": "",
+      "papers": [
+        {
+          "title": "A Near Optimal Reliable Orchestration Approach for Geo-Distributed Latency-Sensitive SFCs",
+          "year": 2020,
+          "url": "https://doi.org/10.1109/tnse.2020.2981630"
+        },
+        {
+          "title": "Socio-technical approach to engineer gigabit app performance for physicaltherapy-as-a-service",
+          "year": 2017,
+          "url": "https://doi.org/10.1109/healthcom.2017.8210768"
+        }
+      ]
     }
   ]
 }
