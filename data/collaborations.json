@@ -46,7 +46,7 @@
       "link": "https://www.digita.unina.it",
       "organization": "Deloitte Digital · Digita Academy, with the University of Napoli Federico II",
       "topic": "Digita Academy, the advanced training course started in 2017 by the University of Napoli Federico II and Deloitte Digital",
-      "logo": "images/logos/deloitte_digital_digita_academy_with_the_university_of_napoli_federico_ii.png"
+      "logo": "images/logos/deloitte_digital_digita_academy_with_the_university_of_napoli_federico_ii_2.png"
     },
     {
       "name": "Franco Callegati",
@@ -77,9 +77,9 @@
       "name": "Solange Rito Lima, Paulo Carvalho",
       "type": "university",
       "link": "https://www.uminho.pt",
-      "organization": "University of Minho (Centro ALGORITMI), Portugal",
+      "organization": "University of Minho , Braga, Portugal",
       "topic": "Machine learning for adaptive sensing in wireless sensor networks and data offloading in urban networks",
-      "logo": "",
+      "logo": "images/logos/university_of_minho_braga_portugal.png",
       "papers": [
         {
           "title": "Learning-Based Adaptive Sensing for Energy-Efficient Wireless Sensor Networks",
