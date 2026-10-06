@@ -104,7 +104,7 @@
       "link": "https://www.ucd.ie",
       "organization": "University College Dublin, Ireland",
       "topic": "Few-shot learning for resilient intrusion detection",
-      "logo": "",
+      "logo": "images/logos/university_college_dublin_ireland.png",
       "papers": [
         {
           "title": "Rapid Few-Shot Learning for Resilient Multi-Domain Intrusion Detection",
@@ -119,7 +119,7 @@
       "link": "https://www.unime.it",
       "organization": "University of Messina, Italy",
       "topic": "Security, privacy and resource efficiency in IoT-Fog networks",
-      "logo": "",
+      "logo": "images/logos/university_of_messina_italy.png",
       "papers": [
         {
           "title": "An integration perspective of security, privacy, and resource efficiency in IoT-Fog networks: A comprehensive survey",
