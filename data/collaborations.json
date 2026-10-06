@@ -181,7 +181,7 @@
       "link": "https://www.nbu.edu.cn",
       "organization": "Ningbo University, China",
       "topic": "Edge computing for industrial IoT, software-defined IoT services and Wi-Fi based human sensing",
-      "logo": "",
+      "logo": "images/logos/ningbo_university_china.png",
       "papers": [
         {
           "title": "MCOTM: Mobility-aware computation offloading and task migration for edge computing in industrial IoT",
@@ -256,7 +256,7 @@
       "link": "https://www.surrey.ac.uk",
       "organization": "University of Surrey, UK",
       "topic": "Secure task scheduling in SDN-based IoT-Fog networks",
-      "logo": "",
+      "logo": "images/logos/university_of_surrey_uk.png",
       "papers": [
         {
           "title": "S-FoS: A secure workflow scheduling approach for performance optimization in SDN-based IoT-Fog networks",
@@ -281,7 +281,7 @@
       "link": "https://www.lip6.fr",
       "organization": "Sorbonne Université (LIP6, formerly UPMC), Paris, France",
       "topic": "Bufferbloat, queuing delays and broadband measurement",
-      "logo": "",
+      "logo": "images/logos/sorbonne_universite_lip6_formerly_upmc_paris_france.png",
       "papers": [
         {
           "title": "Distributed Active Measurement of Internet Queuing Delays",
@@ -331,7 +331,7 @@
       "link": "https://www.unicampania.it",
       "organization": "University of Campania \"Luigi Vanvitelli\", Italy",
       "topic": "Traffic modeling, bandwidth estimation and network measurement",
-      "logo": "",
+      "logo": "images/logos/university_of_campania_luigi_vanvitelli_italy.png",
       "papers": [
         {
           "title": "Unified architecture for network measurement: The case of available bandwidth",
@@ -371,7 +371,7 @@
       "link": "https://www.unicampus.it",
       "organization": "Università Campus Bio-Medico di Roma, Italy",
       "topic": "Heterogeneous wireless networks and Internet traffic modeling",
-      "logo": "",
+      "logo": "images/logos/universita_campus_bio_medico_di_roma_italy.png",
       "papers": [
         {
           "title": "An HMM Approach to Internet Traffic Modeling",
