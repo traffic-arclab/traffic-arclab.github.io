@@ -654,6 +654,8 @@ a.area-topic:hover { color: var(--color-link); text-decoration-color: currentCol
 .collab-logo { max-width: 140px; max-height: 44px; margin-left: auto; object-fit: contain; }
 :root[data-theme="dark"] .collab-logo { padding: 4px 6px; border-radius: var(--radius-sm); background: #fff; }
 .collab--company { border-left-color: var(--color-gold); }
+.collab--university { border-left-color: var(--color-accent); }
+.collab--university .collab-kind { background: var(--color-accent-soft); color: var(--color-accent-ink); }
 .news-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); gap: clamp(34px, 5vw, 80px); align-items: start; }
 .news-aside { position: sticky; top: calc(var(--header-h) + 24px); }
 .news-year {
@@ -804,6 +806,20 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .citation p { color: var(--color-ink); line-height: 1.65; }
 .citation-links { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-weight: 650; }
 .dataset-host { margin-top: var(--space-3); font-size: .9rem; color: var(--color-muted); }
+/* Pages of the software sub-sites (D-ITG, Hynetd, Plab): local menu and old content */
+.subnav { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-6); }
+.subnav a { padding: 5px 11px; border: 1px solid var(--color-line); border-radius: 999px; background: var(--color-surface); color: var(--color-title);
+  font-size: .86rem; font-weight: 600; text-decoration: none; }
+.subnav a:hover { border-color: var(--color-accent); background: var(--color-accent-soft); }
+.subnav a[aria-current="page"] { border-color: var(--color-title); background: var(--color-title); color: var(--color-surface); }
+.legacy-prose { max-width: 92ch; }
+.legacy-prose img { max-width: 100%; height: auto; }
+.legacy-prose pre { padding: 14px 16px; overflow-x: auto; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-surface-alt); font-size: .86rem; line-height: 1.5; white-space: pre; }
+.legacy-table-wrap { overflow-x: auto; }
+.legacy-table { border-collapse: collapse; font-size: .94rem; }
+.legacy-table td, .legacy-table th { padding: 8px 12px; border: 1px solid var(--color-line); vertical-align: top; text-align: left; }
+.legacy-table th { background: var(--color-surface-alt); color: var(--color-title); }
+
 /* Topic pages (topics/*.html, scripts/build_topics.py) */
 .topic-section-title { margin-bottom: var(--space-6); }
 .topic-prose { max-width: 78ch; }

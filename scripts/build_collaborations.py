@@ -2,9 +2,10 @@
 """Rebuild the Collaborations page of the Traffic group from data/collaborations.json.
 
 The data holds the "current" and the "past" collaborations, each with the
-name of the contact person, its type ("company" or "academic"), a link, the
-organization, the shared topic and an optional logo. In each group the
-companies are listed first.
+name of the contact person, its type ("company", "university" or "academic"),
+a link, the organization, the shared topic and an optional logo. A university
+(or another institution) is shown by its name, with the contact person as an
+optional detail. In each group companies come first, then universities.
 Everything between the COLLABORATIONS markers in collaborations.html is
 regenerated; the rest of the page is left untouched. Edit the data by hand
 or with the editor (admin/people/, "Collaborations" tab).
@@ -28,25 +29,39 @@ def esc(text):
     return html.escape(text or '', quote=True)
 
 
+ORDER = {'company': 0, 'university': 1}
+
+
+def order(item):
+    return ORDER.get(item.get('type'), 2)
+
+
 def card(item):
-    name = esc(item['name'])
+    university = item.get('type') == 'university'
+    # A university is presented by its own name; the contact person, if any, goes below it.
+    name = esc(item.get('organization') if university and item.get('organization') else item['name'])
     link = item.get('link')
     if link:
         external = re.match(r'https?://', link)
         target = ' target="_blank" rel="noopener"' if external else ''
         name = f'<a href="{esc(link)}"{target}>{name}{" ↗" if external else ""}</a>'
     company = item.get('type') == 'company'
-    lines = [f'<li class="collab{" collab--company" if company else ""}">']
-    if item.get('logo') or company:
+    kind = 'Industry' if company else 'University' if university else ''
+    modifier = ' collab--company' if company else ' collab--university' if university else ''
+    lines = [f'<li class="collab{modifier}">']
+    if item.get('logo') or kind:
         lines.append('  <div class="collab-head">')
-        if company:
-            lines.append('    <span class="collab-kind">Industry</span>')
+        if kind:
+            lines.append(f'    <span class="collab-kind">{kind}</span>')
         if item.get('logo'):
             alt = esc(item.get('organization') or item['name'])
             lines.append(f'    <img class="collab-logo" src="{esc(item["logo"])}" alt="{alt}" loading="lazy">')
         lines.append('  </div>')
     lines.append(f'  <h3 class="collab-name">{name}</h3>')
-    if item.get('organization'):
+    if university:
+        if item.get('organization') and item.get('name'):
+            lines.append(f'  <p class="collab-org">Contact: {esc(item["name"])}</p>')
+    elif item.get('organization'):
         lines.append(f'  <p class="collab-org">{esc(item["organization"])}</p>')
     if item.get('topic'):
         lines.append(f'  <p class="collab-topic">{esc(item["topic"])}</p>')
@@ -62,8 +77,8 @@ def section(title, intro, items, alt):
     if intro:
         lines.append(f'      <p class="section-intro">{intro}</p>')
     lines += ['    </div>', '    <ul class="collab-grid">']
-    # Companies first, otherwise the order of the data file.
-    for item in sorted(items, key=lambda i: i.get('type') != 'company'):
+    # Companies, then universities, otherwise the order of the data file.
+    for item in sorted(items, key=order):
         lines += ['      ' + line for line in card(item)]
     lines += ['    </ul>', '  </div>', '</section>']
     return lines

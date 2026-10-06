@@ -16,12 +16,13 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SUBSITES = [
-    'mirage', 'cloudsurf', 'software/ITG', 'software/TD', 'software/Plab',
+    'mirage', 'cloudsurf',
     'genxnet2026', 'genxnet2025', 'aidcs2024', 'ICT4I40ws', 'IWNTA2021',
     'ADDITIONAL', 'XInternet', 'genai_prompts',
 ]
 # Plain legacy pages that rely on the browser's default body margins.
-FLUSH = ('software/ITG/', 'software/TD/', 'software/Plab/')
+# (D-ITG, Hynetd and Plab now use the layout of the site and are no longer sub-sites.)
+FLUSH = ()
 SKIP = {
     'software/ITG/images/png/images.html',  # auto-generated icon gallery, not a page
 }

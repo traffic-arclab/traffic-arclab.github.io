@@ -132,15 +132,18 @@ def clean_collaborations(raw):
         for item in raw.get(group) or []:
             entry = {key: ' '.join(str(item.get(key) or '').split())
                      for key in ('name', 'type', 'link', 'organization', 'topic', 'logo')}
-            entry['type'] = 'company' if entry['type'] == 'company' else 'academic'
+            entry['type'] = entry['type'] if entry['type'] in ('company', 'university') else 'academic'
             if entry['logo'] and not re.fullmatch(r'images/logos/[a-z0-9_]+\.png', entry['logo']):
                 raise ValueError(f'{entry["name"]}: unexpected logo path')
-            if not entry['name']:
+            if entry['type'] == 'university' and not entry['organization']:
+                raise ValueError('every university needs its name')
+            if entry['type'] != 'university' and not entry['name']:
                 raise ValueError('every collaboration needs a contact person')
+            what = entry['name'] or entry['organization']
             if entry['link'] and not re.match(r'https?://', entry['link']):
-                raise ValueError(f'{entry["name"]}: the link must start with http:// or https://')
+                raise ValueError(f'{what}: the link must start with http:// or https://')
             items.append(entry)
-        groups[group] = sorted(items, key=lambda i: i['type'] != 'company')   # companies first
+        groups[group] = sorted(items, key=lambda i: {'company': 0, 'university': 1}.get(i['type'], 2))   # companies, then universities
     return groups
 
 

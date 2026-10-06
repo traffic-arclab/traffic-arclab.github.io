@@ -1,257 +1,181 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<META NAME="Author" content="">
-<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
-Generator">
-<META NAME="Keywords" CONTENT="traffic,internet,
-generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
-<META NAME="revisit" CONTENT="3 days">
-<META NAME="ROBOTS" CONTENT="ALL">
-  <LINK href="../../style.css" type=text/css rel=stylesheet>
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35228304-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<!-- TRAFFIC global bar assets:START -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400..700&amp;display=swap">
-<link rel="stylesheet" href="../../css/traffic-bar.css?v=2caaa170">
-<script src="../../js/traffic-bar.js?v=1d98c933" defer></script>
-<!-- TRAFFIC global bar assets:END -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChangeLog | D-ITG | Traffic</title>
+  <meta name="description" content="D-ITG: ChangeLog. Traffic research group, University of Napoli Federico II.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Source+Sans+3:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../../images/traffic-mark.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#fcfcfd">
+  <script src="../../js/theme-init.js?v=cf171adf"></script>
+  <link rel="stylesheet" href="../../css/site.css?v=e5bf8286">
+  <script src="../../js/site.js?v=9e61baa7" defer></script>
 </head>
 <body>
-<!-- TRAFFIC global bar:START -->
-<div class="tgb tgb--flush" id="traffic-global-bar">
-  <div class="tgb__inner">
-    <a class="tgb__home" href="../../index.html" aria-label="TRAFFIC Research Group, home page">
-      <svg class="tgb__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3.5M7.5 3.5 3 8l4.5 4.5"/></svg>
-      <img class="tgb__seal" src="../../images/traffic-mark-dark.svg" alt="" width="26" height="26">
-      <span class="tgb__name"><b>TRAFFIC</b><span class="tgb__name-extra"> Research Group</span></span>
-      <span class="tgb__uni">Universit&agrave; degli Studi di Napoli Federico II</span>
-    </a>
-    <nav class="tgb__nav" aria-label="TRAFFIC Research Group">
-      <ul class="tgb__links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../people.html">People</a></li>
-          <li><a href="../../index.html#topics">Topics</a></li>
-          <li><a href="../../publications.html">Publications</a></li>
-          <li><a href="../../news.html">News</a></li>
-          <li><a href="../../collaborations.html">Collaborations</a></li>
-          <li><a href="../../visiting.html">Visiting</a></li>
-      </ul>
-      <details class="tgb__menu">
-        <summary class="tgb__summary"><span class="tgb__sr">TRAFFIC </span>Menu<svg class="tgb__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 3.5 3 3 3-3"/></svg></summary>
-        <div class="tgb__panel">
-          <span class="tgb__panel-title">TRAFFIC Research Group</span>
-          <ul>
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../people.html">People</a></li>
-          <li><a href="../../index.html#topics">Topics</a></li>
-          <li><a href="../../publications.html">Publications</a></li>
-          <li><a href="../../news.html">News</a></li>
-          <li><a href="../../collaborations.html">Collaborations</a></li>
-          <li><a href="../../visiting.html">Visiting</a></li>
-          </ul>
-        </div>
-      </details>
-    </nav>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+    </div>
   </div>
-</div>
-<!-- TRAFFIC global bar:END -->
-	<div class=title>
-		<table height="80">
-			<tbody>
-				<tr valign="center">
-					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
-					<td>
-						<table>
-							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
-							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
-						</table>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
-	</div>
-	<div class=pageArea>
-		<table width="100%">
-			<thead>
-				<tr valign="top">
-					<td width="20%" height="100%"></td>
-					<td width="80%" height="100%"></td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr valign="top">
-					<td height="100%" style="border-right:1px dotted #284279;">
-						<div class=linkArea>
-							<table border="0"  "height=100%">
-								<tbody>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
-										</td>
-									</tr>
-									<p> </p>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
-										</td>
-									</tr>
-								 	<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
-										</td>
-									</tr>
-<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
-										</td>
-									</tr>
 
-<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
-										</td>
-									</tr>
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../index.html" aria-label="Traffic, home">
+        <img src="../../images/traffic-mark.svg" alt="" class="brand-seal"><img src="../../images/traffic-mark-dark.svg" alt="" class="brand-seal brand-seal--dark">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
 
-								</tbody>
-							</table>
-						</div>
-					</td>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
 
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../people.html" class="nav-link">People</a></li>
 
-<td><div class=textArea>
-    <p> <font color="darkRed" size="+2">ChangeLog</font> </p>
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <!-- TOPICS-MENU:START -->
+                <div class="mega-col">
+                  <p class="mega-heading">Network Traffic Classification</p>
+                  <a href="../../topics/encrypted-and-mobile-app-traffic-classification.html">Encrypted and mobile-app traffic classification <small>MIMETIC · DISTILLER · AI-powered traffic classification</small></a>
+                  <a href="../../topics/incremental-and-few-shot-learning.html">Incremental and few-shot learning <small>MEMENTO · Meta Mimetic</small></a>
+                  <a href="../../topics/explainable-ai-for-traffic-analysis.html">Explainable AI for traffic analysis <small>XAI survey (COMST) · Quantum ML</small></a>
+                  <a href="../../topics/mobile-and-genai-app-traffic-datasets.html">Mobile and GenAI app traffic datasets <small>MIRAGE datasets · From prompts to packets</small></a>
+                  <a href="../../topics/federated-traffic-classification.html">Federated Traffic Classification</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Network Traffic Generation &amp; Prediction</p>
+                  <a href="../../topics/generative-ai-for-synthetic-traffic.html">Generative AI for synthetic traffic <small>Federated GenAI · Lightweight GenAI · Privacy-preserving traces</small></a>
+                  <a href="../../topics/traffic-prediction.html">Traffic prediction <small>Multitask deep learning · Markov models</small></a>
+                  <a href="../../topics/application-traffic-generation.html">Application traffic generation <small>Virtual environments</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Anomaly &amp; Intrusion Detection</p>
+                  <a href="../../topics/adaptive-intrusion-detection-for-iot-and-iomt.html">Adaptive intrusion detection for IoT and IoMT <small>Federated NIDS · Attack-adaptive NIDS · IoMT · Few-shot NIDS</small></a>
+                  <a href="../../topics/robust-and-explainable-detection.html">Robust and explainable detection <small>XAI-guided attacks · Cross-network transfer · MLOps · Quantum ML</small></a>
+                  <a href="../../topics/network-anomaly-detection.html">Network anomaly detection <small>IoT benchmark · Data poisoning · XAI</small></a>
+                  <a href="../../topics/malware-and-botnet-traffic.html">Malware and botnet traffic <small>Android malware · IoT botnets</small></a>
+                  <a href="../../topics/federated-learning-nids.html">Federated Learning NIDS</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement &amp; Traffic Operations</p>
+                  <a href="../../topics/internet-measurement-and-censorship.html">Internet measurement and censorship <small>Iran&#x27;s 2026 shutdown</small></a>
+                  <a href="../../topics/path-tracing-and-topology.html">Path tracing and topology <small>Third-Party Addresses · TP-Traceroute · PYTHIA · Forwarding detours · Hynetd</small></a>
+                  <a href="../../topics/generative-ai-for-network-management.html">Generative AI for network management <small>GenAI survey (TNSM) · Digital twins</small></a>
+                  <a href="../../topics/active-probing.html">Active probing <small>IPPO Library</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Earlier research</p>
+                  <a href="../../topics/cloud-monitoring-and-control.html">Cloud monitoring and control</a>
+                  <a href="../../topics/software-defined-network-monitoring.html">Software-defined network monitoring</a>
+                  <a href="../../topics/application-traffic-generation-2.html">Application traffic generation <small>D-ITG</small></a>
+                  <a href="../../topics/broadband-performance.html">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="../../topics/traffic-classification-tools.html">Traffic classification tools <small>TIE · Plab · WWAN</small></a>
+                  <a href="../../topics/network-performance.html">Network performance <small>UANM · TimeD · Hidden routers</small></a>
+                  <a href="../../topics/high-performance-networking.html">High-performance networking</a>
+                  <a href="../../topics/network-data-management.html">Network data management</a>
+                  <a href="../../topics/network-security.html">Network security</a>
+                  <a href="../../topics/bioinformatics-and-e-health.html">Bioinformatics and e-Health</a>
+                  <a href="../../other.html">Other activities</a>
+                </div>
+                <!-- TOPICS-MENU:END -->
+              </div>
+            </div>
+          </li>
+
+          <li><a href="../../publications.html" class="nav-link">Publications</a></li>
+          <li><a href="../../news.html" class="nav-link">News</a></li>
+
+          <li><a href="../../datasets/" class="nav-link">Datasets</a></li>
+
+          <li><a href="../../collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="../../workshops.html" class="nav-link">Workshops &amp; Special Issues</a></li>
+          <li><a href="../../visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="../../index.html#topics">Research topics</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="../../topics/application-traffic-generation-2.html">Application traffic generation</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="index.html">D-ITG</a></nav>
+        <h1 class="page-title">ChangeLog</h1>
+        <nav class="subnav" aria-label="D-ITG"><a href="index.html">D-ITG Home</a><a href="news.html">News</a><a href="authors.html">Authors</a><a href="documentation.html">Documentation</a><a href="link.html">Other Traffic Generators</a><a href="papers.html">D-ITG Publications</a><a href="download.html">Download</a><a href="FAQ.html">FAQ</a><a href="ChangeLog.html" aria-current="page">ChangeLog</a><a href="citings.html">Citings and Links</a><a href="papersciting.html">Citations</a><a href="projects.html">Research Projects</a><a href="registration.html">Registration</a><a href="webITG.html">Web D-ITG</a><a href="ditgpro.html">D-ITGPro</a><a href="third_party.html">Third-party software</a><a href="donation.html">Donations</a></nav>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose legacy-prose">
 
     <ul>
 	<li><b> v2.8.1</b><br>
-
 <br>New Features
 <ul>
 <li>    ITGSend
 <ul>
 <li>	Added -Fp to read payload content from file instead of using random bytes
-</ul>
+</li></ul>
 <li>    ITGDec
 <ul>
 <li>	Added -c option to generate a combined log including all the metrics
-</ul>
+</li></ul>
 <li>    Common
 <ul>
 <li>	Added -q option to ITGSend, ITGRecv and ITGLog to set the log buffer size
-</ul>
-</ul>
+</li></ul>
+</li></li></li></ul>
 <br>Improvements
 <ul>
 <li>    ITGSend
 <ul>
 <li>	Renamed onoff mode to bursty mode
 <li>	Improved inline help screen
-</ul>
+</li></li></ul>
 <li>    ITGRecv
 <ul>
 <li>	Improved thread management with explicit detach request upon creation
 <li>	Improved support for IPv6 on Windows (dual stack is now supported starting from Vista)
 <li>	Improved startup output on Windows with multiport=on
-</ul>
+</li></li></li></ul>
 <li>    ITGDec
 <ul>
 <li>	Forced buffer flush when generating Octave output to allow in-pipe live plotting
-</ul>
+</li></ul>
 <li>    Makefiles
 <ul>
 <li>	Improved Linux->Windows cross-compilation using Mingw
 <li>	Cleaned make output and inline help
 <li>	Added simple checks for dependencies with hints on errors
 <li>	Added a wrapper Makefile to select the right mk file depending on the operating system
-</ul>
+</li></li></li></li></ul>
 <li>    Common
 <ul>
 <li>	Added support for Apple OSX without IPv6 (tested on Leopard)
 <li>	Added support for FreeBSD without IPv6
 <li>	Reformatted most code to make it more readable
 <li>	Redirected all error messages to standard error
-</ul>
-</ul>
+</li></li></li></li></ul>
+</li></li></li></li></li></ul>
 <br>Bug Fixing
 <ul>
 <li>    ITGSend
@@ -265,7 +189,7 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Fixed RequestToSend: precise length and byte ordering on signaling channel
 <li>	Fixed destAddr allocation
 <li>	Fixed daemon mode crash on malformed incoming requests
-</ul>
+</li></li></li></li></li></li></li></li></li></ul>
 <li>    ITGRecv
 <ul>
 <li>	Fixed several long-term memory leaks
@@ -276,11 +200,11 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Fixed missing flowId assignment
 <li>	Fixed DS byte consistency in RTTM mode
 <li>	Fixed dirty sockaddr_in mallocs on OSX
-</ul>
+</li></li></li></li></li></li></li></li></ul>
 <li>    ITGplot
 <ul>
 <li>	Fixed compatibility issues with octave 3.6
-</ul>
+</li></ul>
 <li>    Common
 <ul>
 <li>	Fixed generation deadlock with minimum packet sizes and RTTM meter
@@ -288,11 +212,9 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Fixed compilation under Fedora 18, CentOS 6.3, and Debian 6.07
 <li>	Fixed PF_INET6 cross-OS portability
 <li>	Fixed IPv6 local-scope addresses management
-
-</ul>
-</ul>
+</li></li></li></li></li></ul>
+</li></li></li></li></ul>
 <li><b> v2.8.0-rc1: Beta</b><br>
-
 <br>New Features
 <ul>
 <li>    ITGSend
@@ -304,7 +226,7 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Added the possibility to specify both source and destination addresses and port numbers for the signaling channel: "-Sda" "-Sdp" "-Ssa" "-Ssp" options
 <li>	Added the possibility to bind to a specific interface for the signaling channel: "-Si" option
 <li>	Added the possibility to let ITGRecv decide the data destination port number: "-rp 0" option (set as default)
-</ul>
+</li></li></li></li></li></li></li></ul>
 <li>    ITGRecv 
 <ul>
 <li>	Added the possibility to change the signaling port number: "-Sp" option (ack to Grzegorz Lysko)
@@ -312,26 +234,26 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Added the possibility to bind to a specific interface for the signaling channel: "-Si" option
 <li>	Added the possibility to bind to a specific source address for data flows: "-a" option
 <li>	Added the possibility to receive multiple data flows on the same port number (only for TCP and UDP): requires "multiport=on" compile-time option
-</ul>
+</li></li></li></li></li></ul>
 <li>    ITGDec
 <ul>
 <li>	Added the possibility to customize the name of output files: "-j", "-d", "-b", "-p" options
-</ul>
+</li></ul>
 <li>    Common
 <ul>
 <li>	Added passive mode which enables ITGRecv to start the communication as a way to provide NAT traversal (only for TCP and UDP): "-H" option
-</ul>
-</ul>
+</li></ul>
+</li></li></li></li></ul>
 <br>Improvements
 <ul>
 <li>    ITGSend
 <ul>
 <li>	Improved the precision in respecting IDTs lower than 1 ms by polling: "-poll" option
-</ul>
+</li></ul>
 <li>    ITGRecv 
 <ul>
 <li>	Reorganized the parser with support for sub-options
-</ul>
+</li></ul>
 <li>    Common
 <ul>
 <li>	Adoption of portable integer types to avoid inconsistencies between different architectures
@@ -343,8 +265,8 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Enabled support for OSX (without ipv6)
 <li>	Enabled support for uclibxx (testend under OpenWRT)
 <li>	Improved console output to show version information and compile-time options
-</ul>
-</ul>
+</li></li></li></li></li></li></li></li></li></ul>
+</li></li></li></ul>
 <br>Bug Fixing
 <ul>
 <li>    ITGSend
@@ -356,7 +278,7 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Fixed the alignment of the SCTP preamble on 64 bit machines
 <li>	Fixed the generation of random payload content
 <li>	Fixed the generation delay to allow gaps without traffic
-</ul>
+</li></li></li></li></li></li></li></ul>
 <li>    ITGRecv
 <ul>
 <li>	Fixed the management of the TSP_CLOSED_ERR message
@@ -364,15 +286,15 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Fixed logging when receiving multiple flows using the sender-side "-x" option
 <li>	Fixed the packet counter to include the last packets
 <li>	Fixed remote logging when using sender-side "-p 2" option
-</ul>
+</li></li></li></li></li></ul>
 <li>    ITGDec
 <ul>
 <li>	Fixed loss burst rate computation
-</ul>
+</li></ul>
 <li>    ITGPlot
 <ul>
 <li>	Fixed to work with Octave 3.2
-</ul>
+</li></ul>
 <li>    Common
 <ul>
 <li>	Made strtok() thread-safe
@@ -381,101 +303,87 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Fixed the alignement of preamble fields between Linux and Windows
 <li>	Fixed compilation errors under Windows (mingw32 and DevC++)
 <li>	Fixed most warnings and debug messages
-</ul>
-<li>    
-</ul>
+</li></li></li></li></li></li></ul>
+</li></li></li></li></li></ul>
 <li><b> v2.7.0-Beta2: Beta</b><br>
-
 <br>Improvements
 <ul>
 <li>    Added support for 64 bit processors
 <li>    Adopted new version of newran library
-</ul>
+</li></li></ul>
 <br>Bug Fixing
 <ul>
 <li>    Corrected behavior of ITGRecv with DCCP in RTTM mode
 <li>    Corrected a bug in the compilation with SCTP enabled
 <li>    Corrected behavior of IPv6 under Windows
-
-</ul>
+</li></li></li></ul>
 <li><b> v2.7.0-Beta: Beta</b><br>
-
 <br>New Features
 <ul>
 <li>    Added Burst (aka On/Off) and Weibull traffic types
 <li>    Added the possibility to bind to a specific network interface
 <li>    ITGDec now reports the average loss-burst size also
-</ul>
+</li></li></li></ul>
 <br>Improvements
 <ul>
 <li>    Added support for compiling under Spark64 (thanks to Gerrit Renker)
-</ul>
+</li></ul>
 <br>Bug Fixing
 <ul>
 <li>    Fixed compilation errors with g++ 4.3.1
 <li>    Fixed a bug in ITGDec which caused an 'Error opening file ...' error
-
-</ul>
+</li></li></ul>
 <li><b> v2.6.1d: Stable</b><br>
-
 <br>License
 <ul>
 <li>    D-ITG is now released under GPLv3 license
-</ul>
+</li></ul>
 <br>Improvements
 <ul>
 <li>    Added MinGW makefile to compile Win32 binaries on linux
-</ul>
+</li></ul>
 <br>Bug Fixing
 <ul>
 <li>    Fixed a lot of warnings shown using gcc 4.2.3 version
-
-</ul>
+</li></ul>
 <li><b> v2.6.1c: Stable</b><br>
-
 <br>Bug Fixing
 <ul>
 <li>    Fixed problem related to ITGDec options -b, -j, -p and -d
 <li>    Addedd Sleep(1000) call into waitStopKey() functions to solve some timing problems
-
-</ul>
+</li></li></ul>
 <li><b> v2.6.1b: Stable</b><br>
-
 <br>Improvements
 <ul>
 <li>    Linux: simplified method to enable DCCP, SCTP and DEBUG without modifying "Makefile"
 <li>    Windows: simplified method to enable IPv6 and DEBUG without modifying "win.mk"
 <li>    Improved installation guide (see INSTALL file)
-</ul>
+</li></li></li></ul>
 <br>Bug Fixing
 <ul>
 <li>    Fixed compilation problem related to IPv6 DS byte setting with old kernel and libc versions
-
-</ul>
+</li></ul>
 <li><b> v2.6.1: Stable</b><br>
-
 <br>New Features
 <ul>
 <li>    Added modifications suggested by Volker Semken to let GUI work better
-</ul>
+</li></ul>
 <br>Bug Fixing
 <ul>
 <li>    Now IPv6 version works again both under Linux and Windows
 <li>    IPv6 DS byte now works correctly
 <li>    Now the Sender logfile pathname can contain spaces (only in command-line mode at the moment)
 <li>    A lot of warning fixed both under Linux and Windows
-
-</ul>
+</li></li></li></li></ul>
 <li><b> v2.6: Stable</b><br>
-
 <br>License
 <ul>
 <li>    D-ITG is no more released under GPL license. The new one is reported in the source package inside LICENSE file.
-</ul>
+</li></ul>
 <br>Manual
 <ul>
 <li>    The information related to the new features have been added.
-</ul>
+</li></ul>
 <br>Bug Fixing
 <ul>
 <li>    MSG_DONTWAIT flag under Windows;
@@ -483,10 +391,8 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>    Send time reported by remote log;
 <li>    Inter-departure time statistical distribution accuracy.
 <li>    Random number seed option.
-
-</ul>
+</li></li></li></li></li></ul>
 <li><b> v2.5: D-ITG 2.5 "INFOCOM 2007 Edition"</b><br>
-
 <br>New features
 <ul>
 <li>    Preliminary SCTP support.
@@ -498,10 +404,10 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	Reconstruction of receiver log files created by using the new log-info types (-r option).
 <li>	Printing of the inter departure time of each packet (-? option).
 <li>	Printing of the packet size of each packet (-j option).
-</ul>
+</li></li></li></ul>
 <li>    Improved version of the manual.
 <li>    Both an "install" and an "uninstall" options have been added to the Linux Makefile.
-</ul>
+</li></li></li></li></li></li></li></ul>
 <br>Bug Fixing
 <ul>
 <li>    A massive work of stability fixes has been done.
@@ -510,25 +416,19 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>	The management of the log files at receiver side;
 <li>	Parsing of multiple flows; 
 <li>	The decoding of log files.
-
-</ul>
-</ul>
+</li></li></li></ul>
+</li></li></ul>
 <li><b> v2.4: D-ITG 2.4(02) Decoder</b><br>
-
 <br>D-ITG Decoder
 <ul>
 <li>    Errors coming out with gcc v3.4 compiler have been fixed
-
-</ul>
+</li></ul>
 <li><b> v2.4: D-ITG 2.4 GUI</b><br>
-
 <br>D-ITG Graphical User Interface:
 <ul>
 <li>    This GUI is written in Java and should support any plattform D-ITG is and will be ported to. It supports all traffic settings of the version 2.4.
-
-</ul>
+</li></ul>
 <li><b> v2.4: Stable</b><br>
-
 <br>Bug Fixing
 <ul>
 <li>    Header VoIP packets
@@ -539,7 +439,7 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>    DS setting on Windows OSs
 <li>    log options (-L, -l, etc.): default value
 <li>    -f (TTL) option runs correctly on Linux OSs
-</ul>
+</li></li></li></li></li></li></li></li></ul>
 <br>Improvements
 <ul>
 <li>    Software architecture has been deeply revised and optimized
@@ -553,61 +453,73 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 <li>    Packet payload filled in a random fashion
 <li>    -P option (priority setting on Windows OSs)
 <li>    -X option (more log servers are available, see the manual for details)
-
-</ul>
+</li></li></li></li></li></li></li></li></li></li></li></ul>
 <li><b> v2.3: Stable</b><br>
-
 <ul>
 <li>    A lot of bugs fixed.
-
-</ul>
+</li></ul>
 <li><b> v2.1: Stable</b><br>
-
 <ul>
 <li>    Windows makefile and Windows binary files.
-
-</ul>
+</li></ul>
 <li><b> v2.0: Alpha</b><br>
-
 <ul>
 <li>    Multithread implementation and Windows version.
-
-</ul>
+</li></ul>
 <li><b> v1.1: Alpha</b><br>
-
 <ul>
 <li>    TCP communication with Log Server was fixed and the performance was improved.
-
-</ul>
+</li></ul>
 <li><b> v1.0: Alpha</b><br>
-
 <ul>
 <li>    TCP communication with Log Server was added.
-
-</ul>
+</li></ul>
 <li><b> v0.9: Alpha</b><br>
-
 <ul>
 <li>    The first distributed version was released. The "Log Server" was introduced.
-
-</ul>
+</li></ul>
 <li><b> v0.2: Alpha</b><br>
-
 <ul>
 <li>    TCP traffic generation was added.
-
-</ul>
+</li></ul>
 <li><b> v0.1: Alpha</b><br>
-
 <ul>
 <li>    The first version. Only sender and receiver were present. UDP was the supported protocol.
+    </li></ul>
+  </li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></li></ul>
+        </article>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../../images/traffic-mark-dark.svg" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="../../people.html">People</a></li>
+          <li><a href="../../publications.html">Publications</a></li>
+          <li><a href="../../news.html">News</a></li>
+          <li><a href="../../collaborations.html">Collaborations</a></li>
+          <li><a href="../../visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
 
-    </ul>
-    </p>
-  </div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</body></html>
+</body>
+</html>

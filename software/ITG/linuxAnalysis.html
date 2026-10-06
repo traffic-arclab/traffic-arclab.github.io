@@ -1,207 +1,133 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>..:: D-ITG, Distributed Internet Traffic Generator ::..</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<META NAME="Author" content="">
-<META NAME="Description" CONTENT="D-ITG - Distributed Internet Traffic
-Generator">
-<META NAME="Keywords" CONTENT="traffic,internet,
-generator,generation,ip,measurement,modeling,monitoring,management,simulation,sctp,emulation,delay,rttm,owdm,unina,throughput,jitter,napoli,grid,emulab,planetlab,glomosim,DoS,DDoS,Autonomic,distributed,packet,statistical,active,network,voip,tcp,udp,icmp,newran,random,distributions,passive,performance,IPv4,IPv6,Server,Client,D-ITG,ITG,DITG,Distributed Internet Traffic Generator,network,exponential,uniform,cauchy,normal,pareto,self similar,G.711,G.723,G.729,Voice Activity Detection,Compressed RTP,statistical characterization,packet size,inter departure time,inter packet time,inter arrival time,traffic matrix,traffic flows,peer to peer,p2p,inference,passive measurement,active measurement,survaivability,resilient networks testing,wireless networks,UMTS testing,GPRS testing,heterogeneous networks,cross layer analysis,anomaly detection,flash crowd,traffic spikes,traffic overload,Traffic anomalies,SNMP,IP flows,IP traffic,Network traffic characterization,DoS Attacks,CoolStreaming,traffic engineering,QoS routing,load balancing,ad hoc networks">
-<META NAME="revisit" CONTENT="3 days">
-<META NAME="ROBOTS" CONTENT="ALL">
-  <LINK href="../../style.css" type=text/css rel=stylesheet>
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35228304-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<!-- TRAFFIC global bar assets:START -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400..700&amp;display=swap">
-<link rel="stylesheet" href="../../css/traffic-bar.css?v=2caaa170">
-<script src="../../js/traffic-bar.js?v=1d98c933" defer></script>
-<!-- TRAFFIC global bar assets:END -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. Analysis and Performance Evaluation over Linux platform | D-ITG | Traffic</title>
+  <meta name="description" content="D-ITG: 1. Analysis and Performance Evaluation over Linux platform. Traffic research group, University of Napoli Federico II.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Source+Sans+3:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="../../images/traffic-mark.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#fcfcfd">
+  <script src="../../js/theme-init.js?v=cf171adf"></script>
+  <link rel="stylesheet" href="../../css/site.css?v=e5bf8286">
+  <script src="../../js/site.js?v=9e61baa7" defer></script>
 </head>
 <body>
-<!-- TRAFFIC global bar:START -->
-<div class="tgb tgb--flush" id="traffic-global-bar">
-  <div class="tgb__inner">
-    <a class="tgb__home" href="../../index.html" aria-label="TRAFFIC Research Group, home page">
-      <svg class="tgb__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3.5M7.5 3.5 3 8l4.5 4.5"/></svg>
-      <img class="tgb__seal" src="../../images/traffic-mark-dark.svg" alt="" width="26" height="26">
-      <span class="tgb__name"><b>TRAFFIC</b><span class="tgb__name-extra"> Research Group</span></span>
-      <span class="tgb__uni">Universit&agrave; degli Studi di Napoli Federico II</span>
-    </a>
-    <nav class="tgb__nav" aria-label="TRAFFIC Research Group">
-      <ul class="tgb__links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../people.html">People</a></li>
-          <li><a href="../../index.html#topics">Topics</a></li>
-          <li><a href="../../publications.html">Publications</a></li>
-          <li><a href="../../news.html">News</a></li>
-          <li><a href="../../collaborations.html">Collaborations</a></li>
-          <li><a href="../../visiting.html">Visiting</a></li>
-      </ul>
-      <details class="tgb__menu">
-        <summary class="tgb__summary"><span class="tgb__sr">TRAFFIC </span>Menu<svg class="tgb__chevron" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 3.5 3 3 3-3"/></svg></summary>
-        <div class="tgb__panel">
-          <span class="tgb__panel-title">TRAFFIC Research Group</span>
-          <ul>
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../people.html">People</a></li>
-          <li><a href="../../index.html#topics">Topics</a></li>
-          <li><a href="../../publications.html">Publications</a></li>
-          <li><a href="../../news.html">News</a></li>
-          <li><a href="../../collaborations.html">Collaborations</a></li>
-          <li><a href="../../visiting.html">Visiting</a></li>
-          </ul>
-        </div>
-      </details>
-    </nav>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Institutional bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Università degli Studi di Napoli <strong>Federico II</strong></span>
+      <span class="topbar-sep" aria-hidden="true">·</span>
+      <span>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</span>
+    </div>
   </div>
-</div>
-<!-- TRAFFIC global bar:END -->
-	<div class=title>
-		<table height="80">
-			<tbody>
-				<tr valign="center">
-					<td><img src="images/clip_image002.gif" width=80 height=80 border=0></td>
-					<td>
-						<table>
-							<tr><td>Universita' degli Studi di Napoli ''Federico II'' (Italy)</td><tr>
-							<tr><td>Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</td></tr>
-						</table>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div align="right"><font class="title"><b>D</b>-<b>ITG</b>, <b>D</b>istributed <b>I</b>nternet <b>T</b>raffic <b>G</b>enerator</font>&nbsp;</div>
-	</div>
-	<div class=pageArea>
-		<table width="100%">
-			<thead>
-				<tr valign="top">
-					<td width="20%" height="100%"></td>
-					<td width="80%" height="100%"></td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr valign="top">
-					<td height="100%" style="border-right:1px dotted #284279;">
-						<div class=linkArea>
-							<table border="0"  "height=100%">
-								<tbody>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="/"><img src="images/linkOpaque.gif" border="0">&nbsp;Traffic Home</a><br>
-										</td>
-									</tr>
-									<p> </p>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="index.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Home</a><br>
-										</td>
-									</tr>
-								 	<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="news.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> News</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="authors.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Authors</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="documentation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Documentation</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="link.html"><img src="images/linkOpaque.gif" border="0">&nbsp;Other Traffic Generators</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="papers.html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITG Publications</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="download.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Download</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="FAQ.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> FAQ</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="ChangeLog.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> ChangeLog</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="citings.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Citings and Links </a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="papersciting.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Citations</a>
-										</td>
-									</tr>
-<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="projects.html" type="text/html"><img src="images/linkOpaque.gif" border="0"> Research Projects</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="registration.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Registration</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="webITG.html" target='_blank' type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Web D-ITG</a>
-										</td>
-									</tr>
 
-<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="ditgpro.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;D-ITGPro</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="third_party.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Third-party software</a>
-										</td>
-									</tr>
-									<tr>
-										<td class="menuout" onmouseover="this.className='menuin'" onmouseout="this.className='menuout'">
-											<a class="menu" href="donation.html" type="text/html"><img src="images/linkOpaque.gif" border="0">&nbsp;Donations</a>
-										</td>
-									</tr>
+  <!-- Header + navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../index.html" aria-label="Traffic, home">
+        <img src="../../images/traffic-mark.svg" alt="" class="brand-seal"><img src="../../images/traffic-mark-dark.svg" alt="" class="brand-seal brand-seal--dark">
+        <span class="brand-text">
+          <span class="brand-name">Traffic <span class="brand-group">Research Group</span></span>
+          <span class="brand-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</span>
+        </span>
+      </a>
 
-								</tbody>
-							</table>
-						</div>
-					</td>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
 
-					<td>
-						<div class=textArea>
-							<p><h2>1. Analysis and Performance Evaluation over Linux platform</h2></p>
-							<p><h3>Linux Platform: local experimentation</h3></p>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../../index.html" class="nav-link">Home</a></li>
+          <li><a href="../../people.html" class="nav-link">People</a></li>
+
+          <li class="has-dropdown">
+            <button class="nav-link dropdown-toggle" aria-expanded="false">Topics</button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-grid">
+                <!-- TOPICS-MENU:START -->
+                <div class="mega-col">
+                  <p class="mega-heading">Network Traffic Classification</p>
+                  <a href="../../topics/encrypted-and-mobile-app-traffic-classification.html">Encrypted and mobile-app traffic classification <small>MIMETIC · DISTILLER · AI-powered traffic classification</small></a>
+                  <a href="../../topics/incremental-and-few-shot-learning.html">Incremental and few-shot learning <small>MEMENTO · Meta Mimetic</small></a>
+                  <a href="../../topics/explainable-ai-for-traffic-analysis.html">Explainable AI for traffic analysis <small>XAI survey (COMST) · Quantum ML</small></a>
+                  <a href="../../topics/mobile-and-genai-app-traffic-datasets.html">Mobile and GenAI app traffic datasets <small>MIRAGE datasets · From prompts to packets</small></a>
+                  <a href="../../topics/federated-traffic-classification.html">Federated Traffic Classification</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Network Traffic Generation &amp; Prediction</p>
+                  <a href="../../topics/generative-ai-for-synthetic-traffic.html">Generative AI for synthetic traffic <small>Federated GenAI · Lightweight GenAI · Privacy-preserving traces</small></a>
+                  <a href="../../topics/traffic-prediction.html">Traffic prediction <small>Multitask deep learning · Markov models</small></a>
+                  <a href="../../topics/application-traffic-generation.html">Application traffic generation <small>Virtual environments</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Anomaly &amp; Intrusion Detection</p>
+                  <a href="../../topics/adaptive-intrusion-detection-for-iot-and-iomt.html">Adaptive intrusion detection for IoT and IoMT <small>Federated NIDS · Attack-adaptive NIDS · IoMT · Few-shot NIDS</small></a>
+                  <a href="../../topics/robust-and-explainable-detection.html">Robust and explainable detection <small>XAI-guided attacks · Cross-network transfer · MLOps · Quantum ML</small></a>
+                  <a href="../../topics/network-anomaly-detection.html">Network anomaly detection <small>IoT benchmark · Data poisoning · XAI</small></a>
+                  <a href="../../topics/malware-and-botnet-traffic.html">Malware and botnet traffic <small>Android malware · IoT botnets</small></a>
+                  <a href="../../topics/federated-learning-nids.html">Federated Learning NIDS</a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Measurement &amp; Traffic Operations</p>
+                  <a href="../../topics/internet-measurement-and-censorship.html">Internet measurement and censorship <small>Iran&#x27;s 2026 shutdown</small></a>
+                  <a href="../../topics/path-tracing-and-topology.html">Path tracing and topology <small>Third-Party Addresses · TP-Traceroute · PYTHIA · Forwarding detours · Hynetd</small></a>
+                  <a href="../../topics/generative-ai-for-network-management.html">Generative AI for network management <small>GenAI survey (TNSM) · Digital twins</small></a>
+                  <a href="../../topics/active-probing.html">Active probing <small>IPPO Library</small></a>
+                </div>
+                <div class="mega-col">
+                  <p class="mega-heading">Earlier research</p>
+                  <a href="../../topics/cloud-monitoring-and-control.html">Cloud monitoring and control</a>
+                  <a href="../../topics/software-defined-network-monitoring.html">Software-defined network monitoring</a>
+                  <a href="../../topics/application-traffic-generation-2.html">Application traffic generation <small>D-ITG</small></a>
+                  <a href="../../topics/broadband-performance.html">Broadband performance <small>BISmark · HoBBIT</small></a>
+                  <a href="../../topics/traffic-classification-tools.html">Traffic classification tools <small>TIE · Plab · WWAN</small></a>
+                  <a href="../../topics/network-performance.html">Network performance <small>UANM · TimeD · Hidden routers</small></a>
+                  <a href="../../topics/high-performance-networking.html">High-performance networking</a>
+                  <a href="../../topics/network-data-management.html">Network data management</a>
+                  <a href="../../topics/network-security.html">Network security</a>
+                  <a href="../../topics/bioinformatics-and-e-health.html">Bioinformatics and e-Health</a>
+                  <a href="../../other.html">Other activities</a>
+                </div>
+                <!-- TOPICS-MENU:END -->
+              </div>
+            </div>
+          </li>
+
+          <li><a href="../../publications.html" class="nav-link">Publications</a></li>
+          <li><a href="../../news.html" class="nav-link">News</a></li>
+
+          <li><a href="../../datasets/" class="nav-link">Datasets</a></li>
+
+          <li><a href="../../collaborations.html" class="nav-link">Collaborations</a></li>
+          <li><a href="../../workshops.html" class="nav-link">Workshops &amp; Special Issues</a></li>
+          <li><a href="../../visiting.html" class="nav-link">Visiting</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="../../index.html#topics">Research topics</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="../../topics/application-traffic-generation-2.html">Application traffic generation</a> <span class="crumb-sep" aria-hidden="true">/</span> <a href="index.html">D-ITG</a></nav>
+        <h1 class="page-title">1. Analysis and Performance Evaluation over Linux platform</h1>
+        <nav class="subnav" aria-label="D-ITG"><a href="index.html">D-ITG Home</a><a href="news.html">News</a><a href="authors.html">Authors</a><a href="documentation.html">Documentation</a><a href="link.html">Other Traffic Generators</a><a href="papers.html">D-ITG Publications</a><a href="download.html">Download</a><a href="FAQ.html">FAQ</a><a href="ChangeLog.html">ChangeLog</a><a href="citings.html">Citings and Links</a><a href="papersciting.html">Citations</a><a href="projects.html">Research Projects</a><a href="registration.html">Registration</a><a href="webITG.html">Web D-ITG</a><a href="ditgpro.html">D-ITGPro</a><a href="third_party.html">Third-party software</a><a href="donation.html">Donations</a></nav>
+      </div>
+    </section>
+
+    <section class="section page-body">
+      <div class="container">
+        <article class="prose legacy-prose">
+
+							<h3>Linux Platform: local experimentation</h3>
 							<p>
 								In this case we study D-ITG performance at sender 
 								and receiver side by storing information at sender 
@@ -216,21 +142,19 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 								(distributed experimentation, sender and receiver 
 								over two distinct devices).
 							</p>
-							<div align="center">
-								<table align="center">
-									<tr align="center">
-										<td><IMG src="images/linuxReceiverDataRate.gif" width="270" height="168" border="0"></td>
-										<td><IMG src="images/linuxReceiverErrorRate.gif" width="283" height="167" border="0"></td>
+							<div>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
+									<tr>
+										<td><img src="images/linuxReceiverDataRate.gif" width="270" height="168"></td>
+										<td><img src="images/linuxReceiverErrorRate.gif" width="283" height="167"></td>
 									</tr>
-									<tr align="center">
-										<td><font size="-1"><strong>Figure 1: Local received data rate over <br>Linux platform (log at receiver side)</strong></font></td>
-										<td><font size="-1"><strong>Figure 2:  Local loss rate (%) over <br>Linux platform (log at receiver side)</strong></font></td>
-										
+									<tr>
+										<td><strong>Figure 1: Local received data rate over <br>Linux platform (log at receiver side)</strong></td>
+										<td><strong>Figure 2:  Local loss rate (%) over <br>Linux platform (log at receiver side)</strong></td>
 									</tr>
-									
-								</table>
+								</table></div>
 							</div>
-							<p><h4>Local experimentation with logging only at receiver side</h4></p>
+							<h4>Local experimentation with logging only at receiver side</h4>
 							<p>
 								Over Linux platform and by using the log file at the receiver side 
 								D-ITG presents the performance depicted in Figure 1. In Figure 2 the 
@@ -238,7 +162,6 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 								of the packet rate is reported. In the case of C=75000pkt/s, c=1024byte, 
 								t=60s D-ITG reaches a received data rate equal to 611Mbit/s with a 
 								percentage loss rate equal to 0.4%. 
-							</dp>
 							<p>
 								By using the same parameters, in Figure 3 a comparative analysis between 
 								traffic generators that can log at receiver side is reported. As far as
@@ -250,18 +173,17 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 								By using Iperf it is not possible to make a complete performance study, it 
 								is only possible to determine average values on the whole duration of the experiment. 
 							</p>
-							<div align="center">
-								<table align="center">
-									<tr align="center">
-										<td><IMG src="images/linuxImage006.gif" width="337" height="232" border="0"></td>
+							<div>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
+									<tr>
+										<td><img src="images/linuxImage006.gif" width="337" height="232"></td>
 										</tr>
-									<tr align="center">
-										<td><font size="-1"><strong>Figure 3: Comparative analysis of local received data rate over <br>Linux platform (log at receiver side)</strong></font></td>	
+									<tr>
+										<td><strong>Figure 3: Comparative analysis of local received data rate over <br>Linux platform (log at receiver side)</strong></td>	
 									</tr>
-									
-								</table>
+								</table></div>
 							</div>
-							<p><h4>Local experimentation with logging both at receiver and sender side </h4></p>
+							<h4>Local experimentation with logging both at receiver and sender side </h4>
 							<p>
 								Over a single Linux host and by using log file both at receiver and sender 
 								side D-ITG presents the performance depicted in Figure 4 and Figure 5. 
@@ -277,60 +199,56 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 								Finally, in this case Mtools presents a generated data rate higher than 
 								that one observed in Figure 3: this is due to the different packet rate (C).
 							</p>
-							<div align="center">
-								<table align="center">
-									<tr align="center">
-										<td><IMG src="images/linuxSenderComparativeAnalisys.gif" width="280" height="243" border="0"></td>
-										<td><IMG src="images/linuxImage010.gif" width="302" height="246" border="0"></td>
+							<div>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
+									<tr>
+										<td><img src="images/linuxSenderComparativeAnalisys.gif" width="280" height="243"></td>
+										<td><img src="images/linuxImage010.gif" width="302" height="246"></td>
 									</tr>
-									<tr align="center">
+									<tr>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 4: A comparative analysis with respect to  <br>
 												generated data rate over Linux platform (local <br>
 												and log at sender and receiver side)
-											</strong></font>
+											</strong>
 										</td>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 5: A comparative analysis with respect to <br>
 												received data rate over Linux platform (local <br>
 												and log at sender and receiver side)
-											</strong></font></td>
-										
+											</strong></td>
 									</tr>
-									
-								</table>
+								</table></div>
 							</div>
-							<p><h3>Linux Platform: distributed experimentation</h3></p>
+							<h3>Linux Platform: distributed experimentation</h3>
 							<p>
 								In this subsection we describe the results of the distributed experimentation over Linux platform. 
 								In this case we used the same operational mode of the section <em>"Linux Platform: local experimentation"</em>. 
 							</p>
-							<div align="center">
-								<table align="center">
-									<tr align="center">
-										<td><IMG src="images/linuxReceiverDataRate2.gif" width="280" height="185" border="0"></td>
-										<td><IMG src="images/linuxReceiverErrorRate2.gif" width="280" height="185" border="0"></td>
+							<div>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
+									<tr>
+										<td><img src="images/linuxReceiverDataRate2.gif" width="280" height="185"></td>
+										<td><img src="images/linuxReceiverErrorRate2.gif" width="280" height="185"></td>
 									</tr>
-									<tr align="center">
+									<tr>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 6: Distributed received data rate over Linux  <br>
 												platform (log at receiver side)
-											</strong></font>
+											</strong>
 										</td>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 7: Distributed loss rate (%) over Linux platform  <br>
 												(log at receiver side)
-											</strong></font></td>
-										
+											</strong></td>
 									</tr>
-									
-								</table>
+								</table></div>
 							</div>
-							<p><h4>Distributed experimentation with logging only at receiver side </h4></p>
+							<h4>Distributed experimentation with logging only at receiver side </h4>
 							<p>
 								Between two Linux devices and by using the log file at the receiver side 
 								D-ITG present the performance depicted in Figure 6. In Figure 7 a percentage 
@@ -341,28 +259,26 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 								that also over two distinct devices D-ITG is able to reach high performance. 
 								Figure 8 shows a comparative analysis between traffic generators over two distinct devices. 
 							</p>
-							<div align="center">
-								<table align="center">
-									<tr align="center">
-										<td><IMG src="images/linuxReceiverComparativeAnalysis2.gif" width="322" height="204" border="0"></td>
-										<td><IMG src="images/linuxRudeCrude.gif" width="299" height="204" border="0"></td>
+							<div>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
+									<tr>
+										<td><img src="images/linuxReceiverComparativeAnalysis2.gif" width="322" height="204"></td>
+										<td><img src="images/linuxRudeCrude.gif" width="299" height="204"></td>
 									</tr>
-									<tr align="center">
+									<tr>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 8: Distributed received data rate over<br> Linux
 												platform (log at receiver side)
-											</strong></font>
+											</strong>
 										</td>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 9: Distributed loss rate (%) over Linux <br>
 												platform (log at receiver side)
-											</strong></font></td>
-										
+											</strong></td>
 									</tr>
-									
-								</table>
+								</table></div>
 							</div>
 							<p>
 								Also in this case, D-ITG presents the best performance. It is important to 
@@ -376,23 +292,22 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 								a high packet rate. Regarding Iperf, we must take into account the observation
 								made at the end of the section <em>"Local experimentation with logging only at receiver side"</em>.
 							</p>
-							<div align="center">
-								<table align="center">
-									<tr align="center">
-										<td><IMG src="images/linuxImage020.gif" width="466" height="218" border="0"></td>
+							<div>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
+									<tr>
+										<td><img src="images/linuxImage020.gif" width="466" height="218"></td>
 									</tr>
-									<tr align="center">
+									<tr>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 10: Generated and received data rate over Linux devices
 												(distributed and log both at sender and receiver side)
-											</strong></font>
+											</strong>
 										</td>
 									</tr>
-									
-								</table>
+								</table></div>
 							</div>
-							<p><h3>Distributed experimentation with logging both at receiver and sender side</h3></p>
+							<h3>Distributed experimentation with logging both at receiver and sender side</h3>
 							<p>
 								Over two distinct Linux devices and by using log file both at 
 								receiver and sender side D-ITG presents the performance depicted 
@@ -413,47 +328,74 @@ generator,generation,ip,measurement,modeling,monitoring,management,simulation,sc
 								84Mbps at receiver side. Instead, D-ITG presents substantially the same 
 								performance both in the local and in the distributed experimentation. 
 							</p>
-							<div align="center">
-								<table align="center">
-									<tr align="center">
-										<td><IMG src="images/linuxImage021.gif" width="296" height="215" border="0"></td>
-										<td><IMG src="images/linuxImage022.gif" width="296" height="215" border="0"></td>
+							<div>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
+									<tr>
+										<td><img src="images/linuxImage021.gif" width="296" height="215"></td>
+										<td><img src="images/linuxImage022.gif" width="296" height="215"></td>
 									</tr>
-									<tr align="center">
+									<tr>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 11: G comparative analysis with  <br>
 												respect to generated data rate over <br>
 												Linux platform  (distributed and <br>
 												log at sender and receiver side)
-											</strong></font>
+											</strong>
 										</td>
 										<td>
-											<font size="-1"><strong>
+											<strong>
 												Figure 12: A comparative analysis with  <br>
 												respect to received data rate over  <br>
 												Linux platform (distributed and log<br>
 												at sender and receiver side)
-											</strong></font></td>
-										
+											</strong></td>
 									</tr>
-									
-								</table>
+								</table></div>
 							</div>
 							<p>
-								<table>
+								<div class="table-wrap legacy-table-wrap"><table class="legacy-table">
 									<tr>
-										<td><A href="comparativeAnalysis.html">Back</A></td>
-										<td><A href="comparativeAnalysis.html">Home</A></td>
-										<td><A href="windowsAnalysis.html">Next</A></td>
+										<td><a href="comparativeAnalysis.html">Back</a></td>
+										<td><a href="comparativeAnalysis.html">Home</a></td>
+										<td><a href="windowsAnalysis.html">Next</a></td>
 									</tr>
-								</table>
+								</table></div>
 							</p>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</p>
+						</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../../images/traffic-mark-dark.svg" alt="" class="footer-seal">
+        <div>
+          <p class="footer-name">Traffic Research Group</p>
+          <p class="footer-tagline"><span class="initial">N</span>etwork <span class="initial">M</span>onitoring and <span class="initial">M</span>easurements</p>
+          <p>Università degli Studi di Napoli Federico II<br>
+          Dipartimento di Ingegneria Elettrica e delle Tecnologie dell'Informazione (DIETI)</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <ul>
+          <li><a href="../../people.html">People</a></li>
+          <li><a href="../../publications.html">Publications</a></li>
+          <li><a href="../../news.html">News</a></li>
+          <li><a href="../../collaborations.html">Collaborations</a></li>
+          <li><a href="../../visiting.html">Visiting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>Interested in collaborating with us or in opportunities in Traffic? Write to
+        <a href="mailto:pescape@unina.it">Antonio Pescapè</a>.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

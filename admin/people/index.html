@@ -544,16 +544,16 @@
 
 <template id="collab-form">
   <h2 id="c-title">Collaboration</h2>
-  <label>Type <select id="c-type"><option value="academic">Academic / research</option><option value="company">Company (listed first)</option></select></label>
+  <label>Type <select id="c-type"><option value="academic">Academic / research (a contact person)</option><option value="university">University / institution</option><option value="company">Company (listed first)</option></select></label>
   <div class="photo logo-box">
     <img id="c-logo-preview" alt="">
     <div class="drop" id="c-drop" tabindex="0">Drop a logo here<br>or click to choose<br><small>optional · PNG with transparent background works best</small></div>
     <input type="file" id="c-file" accept="image/*" hidden>
   </div>
   <button type="button" id="c-logo-remove" style="margin:-6px 0 14px">Remove logo</button>
-  <label>Contact person * <input id="c-name" required placeholder="e.g. Dario Rossi"></label>
-  <label>Link <small>their homepage; the name becomes a link</small><input id="c-link" type="url" placeholder="https://…"></label>
-  <label>Organization <input id="c-organization" placeholder="University, lab or company, city, country"></label>
+  <label><span id="c-name-label">Contact person *</span> <input id="c-name" placeholder="e.g. Dario Rossi"></label>
+  <label>Link <small id="c-link-note">their homepage; the name becomes a link</small><input id="c-link" type="url" placeholder="https://…"></label>
+  <label><span id="c-organization-label">Organization</span> <input id="c-organization" placeholder="University, lab or company, city, country"></label>
   <label>Topic <small>what you work on together</small><textarea id="c-topic" rows="2"></textarea></label>
   <div class="actions">
     <button id="c-move"></button>
@@ -600,7 +600,8 @@
   let uploading = false;             // a file is being sent to Zenodo
   let logos = new Set();             // file names already in images/logos
   const LOGO_DIR = 'images/logos';
-  const companiesFirst = (a, b) => (a.type !== 'company') - (b.type !== 'company');
+  const collabRank = item => ({ company: 0, university: 1 }[item.type] ?? 2);
+  const companiesFirst = (a, b) => collabRank(a) - collabRank(b);   // companies, then universities
   const changed = new Set();         // 'people' and/or 'news', for the commit message
   let photos = new Set();            // file names already in images/pictures
   const pending = new Map();         // 'images/pictures/x.jpg' -> JPEG data URL, sent on save
@@ -771,9 +772,10 @@
     const clean = item => {
       const out = {};
       for (const key of ['name', 'type', 'link', 'organization', 'topic', 'logo']) out[key] = String(item[key] || '').trim().replace(/\s+/g, ' ');
-      out.type = out.type === 'company' ? 'company' : 'academic';
-      if (!out.name) throw new Error('Every collaboration needs a contact person');
-      if (out.link && !/^https?:\/\//.test(out.link)) throw new Error(`${out.name}: the link must start with http:// or https://`);
+      out.type = ['company', 'university'].includes(out.type) ? out.type : 'academic';
+      if (out.type === 'university' && !out.organization) throw new Error('Every university needs its name');
+      if (out.type !== 'university' && !out.name) throw new Error('Every collaboration needs a contact person');
+      if (out.link && !/^https?:\/\//.test(out.link)) throw new Error(`${out.name || out.organization}: the link must start with http:// or https://`);
       return out;
     };
     return { current: collabs.current.map(clean).sort(companiesFirst), past: collabs.past.map(clean).sort(companiesFirst) };
@@ -2159,9 +2161,11 @@
         li.className = 'row' + (selectedCollab && selectedCollab.item === item ? ' selected' : '');
         li.innerHTML = '<div class="who"><strong></strong><small></small></div><div class="tags"></div>' +
           '<div class="tools"><button data-dir="-1" title="Move up">↑</button><button data-dir="1" title="Move down">↓</button></div>';
-        li.querySelector('strong').textContent = item.name || '(no name)';
-        li.querySelector('small').textContent = [item.organization, item.topic].filter(Boolean).join(' — ');
+        const university = item.type === 'university';
+        li.querySelector('strong').textContent = (university ? item.organization || item.name : item.name) || '(no name)';
+        li.querySelector('small').textContent = (university ? [item.name, item.topic] : [item.organization, item.topic]).filter(Boolean).join(' — ');
         li.querySelector('.tags').innerHTML = (item.type === 'company' ? '<span class="tag">Company</span>' : '') +
+          (university ? '<span class="tag">University</span>' : '') +
           (item.logo ? '<span class="tag">Logo</span>' : '') + (item.link ? '' : '<span class="tag missing">no link</span>');
         li.addEventListener('click', event => {
           const dir = event.target.dataset.dir;
@@ -2181,10 +2185,23 @@
     const editor = $('collabs-editor');
     editor.innerHTML = '';
     editor.appendChild($('collab-form').content.cloneNode(true));
-    $('c-title').textContent = item.name || (group === 'current' ? 'New collaboration' : 'New past collaboration');
+    const heading = () => {
+      const title = item.type === 'university' ? item.organization || item.name : item.name;
+      $('c-title').textContent = title || (group === 'current' ? 'New collaboration' : 'New past collaboration');
+    };
+    // A university is shown by its name: the organization becomes required, the contact person optional.
+    const labels = () => {
+      const university = item.type === 'university';
+      $('c-name-label').textContent = university ? 'Contact person (optional)' : 'Contact person *';
+      $('c-organization-label').textContent = university ? 'University or institution *' : 'Organization';
+      $('c-organization').placeholder = university ? 'e.g. Politecnico di Torino, Italy' : 'University, lab or company, city, country';
+      $('c-link-note').textContent = university ? 'its website; the name becomes a link' : 'their homepage; the name becomes a link';
+      heading();
+    };
     const type = $('c-type');
-    type.value = item.type === 'company' ? 'company' : 'academic';
-    type.addEventListener('change', () => { item.type = type.value; markDirty('collabs'); renderCollabs(); });
+    type.value = ['company', 'university'].includes(item.type) ? item.type : 'academic';
+    type.addEventListener('change', () => { item.type = type.value; labels(); markDirty('collabs'); renderCollabs(); });
+    labels();
     const showLogo = () => {
       $('c-logo-preview').src = item.logo ? (pending.get(item.logo) || '/' + item.logo) : PLACEHOLDER_LOGO;
       $('c-logo-remove').hidden = !item.logo;
@@ -2203,7 +2220,7 @@
       input.value = item[field] || '';
       input.addEventListener('input', () => {
         item[field] = input.value;
-        if (field === 'name') $('c-title').textContent = input.value || 'New collaboration';
+        heading();
         markDirty('collabs');
         renderCollabs();
       });
@@ -2217,14 +2234,14 @@
       selectCollab({ group: other, item });
     });
     $('c-delete').addEventListener('click', () => {
-      if (!confirm(`Delete the collaboration with ${item.name || 'this contact'}?`)) return;
+      if (!confirm(`Delete the collaboration with ${(item.type === 'university' ? item.organization : item.name) || item.name || 'this contact'}?`)) return;
       collabs[group].splice(collabs[group].indexOf(item), 1);
       selectedCollab = null;
       markDirty('collabs');
       renderCollabs();
       showCollabsIntro();
     });
-    if (!item.name) $('c-name').focus();
+    if (!item.name && !item.organization) $(item.type === 'university' ? 'c-organization' : 'c-name').focus();
   }
 
   // Logos keep their proportions: scaled to fit 480x200 and saved as PNG (transparency is kept).

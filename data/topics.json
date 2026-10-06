@@ -39,17 +39,183 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Idio Guarino"
+            },
+            {
+              "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Walter de Donato"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Davide di Monda"
+            },
+            {
+              "name": "Vincenzo Spadari"
             }
           ],
           "papers": [
             {
-              "title": "MIMETIC: Mobile encrypted traffic classification using multimodal deep learning",
-              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "title": "A multimodal and perturbation-aware learning approach for robust traffic classification",
+              "authors": "I. Guarino, G. Bovenzi, A. Nascita, D. Ciuonzo, D. Carra, A. Pescapè",
               "venue": "Computer Networks",
-              "year": 2019,
+              "year": 2026,
               "category": "journal",
-              "doi": "10.1016/j.comnet.2019.106944",
-              "url": "https://doi.org/10.1016/j.comnet.2019.106944"
+              "doi": "10.1016/j.comnet.2026.112090",
+              "url": "https://doi.org/10.1016/j.comnet.2026.112090"
+            },
+            {
+              "title": "Analyzing the impact of shifts in encrypted mobile-app traffic on multimodal few-shot learning",
+              "authors": "D. Di Monda, G. Bovenzi, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111935",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111935"
+            },
+            {
+              "title": "From Entanglement to Explanation: Bridging Quantum ML and XAI for Network Traffic Classification",
+              "authors": "A. Nascita, I. Guarino, V. Spadari, D. Ciuonzo, A. Pescapè",
+              "venue": "2025 IEEE Virtual Conference on Communications (VCC)",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1109/vcc67261.2025.11351152",
+              "url": "https://doi.org/10.1109/vcc67261.2025.11351152"
+            },
+            {
+              "title": "Explainable federated class incremental learning for Encrypted Network Traffic classification",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111448",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111448"
+            },
+            {
+              "title": "Analyzing the Impact of Encryption on Traffic Classification through Explainable AI.",
+              "authors": "D. Di Monda, A. Nascita, R. Carillo, A. Pescapè",
+              "venue": "Networking",
+              "year": 2025,
+              "category": "conference"
+            },
+            {
+              "title": "Explainable Few-Shot Class Incremental Learning for Mobile Network Traffic Classification",
+              "authors": "F. Cerasuolo, G. Bovenzi, V. Spadari, D. Ciuonzo, A. Pescapè",
+              "venue": "GLOBECOM 2024 - 2024 IEEE Global Communications Conference",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/globecom52923.2024.10901329",
+              "url": "https://doi.org/10.1109/globecom52923.2024.10901329"
+            },
+            {
+              "title": "A Comparison Between Classical and Quantum Machine Learning for Mobile App Traffic Classification",
+              "authors": "V. Spadari, I. Guarino, D. Ciuonzo, A. Pescapè",
+              "venue": "2024 IEEE/ACM Symposium on Edge Computing (SEC)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/sec62691.2024.00053",
+              "url": "https://doi.org/10.1109/sec62691.2024.00053"
+            },
+            {
+              "title": "XAI for Interpretable Multimodal Architectures with Contextual Input in Mobile Network Traffic Classification",
+              "authors": "F. Cerasuolo, I. Guarino, V. Spadari, G. Aceto, A. Pescapè",
+              "venue": "2024 IFIP Networking Conference (IFIP Networking)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.23919/ifipnetworking62109.2024.10619769",
+              "url": "https://doi.org/10.23919/ifipnetworking62109.2024.10619769"
+            },
+            {
+              "title": "MEMENTO: A novel approach for class incremental learning of encrypted traffic",
+              "authors": "F. Cerasuolo, A. Nascita, G. Bovenzi, G. Aceto, D. Ciuonzo, A. Pescapè, D. Rossi",
+              "venue": "Computer Networks",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2024.110374",
+              "url": "https://doi.org/10.1016/j.comnet.2024.110374"
+            },
+            {
+              "title": "AI-Powered Internet Traffic Classification: Past, Present, and Future",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Communications Magazine",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1109/mcom.001.2300361",
+              "url": "https://doi.org/10.1109/mcom.001.2300361",
+              "pdf": "https://ieeexplore.ieee.org/ielx7/35/7593423/10355065.pdf"
+            },
+            {
+              "title": "Improving Performance, Reliability, and Feasibility in Multimodal Multitask Traffic Classification with XAI",
+              "authors": "A. Nascita, A. Montieri, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2023.3246794",
+              "url": "https://doi.org/10.1109/tnsm.2023.3246794",
+              "pdf": "https://ieeexplore.ieee.org/ielx7/4275028/5699970/10049138.pdf"
+            },
+            {
+              "title": "Explainable Mobile Traffic Classification: the Case of Incremental Learning",
+              "authors": "A. Nascita, F. Cerasuolo, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "Proceedings of the 2023 on Explainable and Safety Bounded, Fidelitous, Machine Learning for Networking",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1145/3630050.3630178",
+              "url": "https://doi.org/10.1145/3630050.3630178",
+              "pdf": "https://dl.acm.org/doi/pdf/10.1145/3630050.3630178"
+            },
+            {
+              "title": "Meta Mimetic: Few-Shot Classification of Mobile-App Encrypted Traffic via Multimodal Meta-Learning",
+              "authors": "G. Bovenzi, D. Di Monda, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2023 35th International Teletraffic Congress (ITC-35)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/itc-3560063.2023.10555634",
+              "url": "https://doi.org/10.1109/itc-3560063.2023.10555634"
+            },
+            {
+              "title": "Many or Few Samples?: Comparing Transfer, Contrastive and Meta-Learning in Encrypted Traffic Classification",
+              "authors": "I. Guarino, C. Wang, A. Finamore, A. Pescapè, D. Rossi",
+              "venue": "2023 7th Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.23919/tma58422.2023.10198965",
+              "url": "https://doi.org/10.23919/tma58422.2023.10198965"
+            },
+            {
+              "title": "Benchmarking Class Incremental Learning in Deep Learning Traffic Classification",
+              "authors": "G. Bovenzi, A. Nascita, L. Yang, A. Finamore, G. Aceto, D. Ciuonzo, A. Pescapè, D. Rossi",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2023.3287430",
+              "url": "https://doi.org/10.1109/tnsm.2023.3287430"
+            },
+            {
+              "title": "Few Shot Learning Approaches for Classifying Rare Mobile-App Encrypted Traffic Samples",
+              "authors": "G. Bovenzi, D. Di Monda, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE INFOCOM 2023 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/infocomwkshps57453.2023.10226104",
+              "url": "https://doi.org/10.1109/infocomwkshps57453.2023.10226104"
+            },
+            {
+              "title": "Contextual counters and multimodal Deep Learning for activity-level traffic classification of mobile communication apps during COVID-19 pandemic",
+              "authors": "I. Guarino, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2022,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2022.109452",
+              "url": "https://doi.org/10.1016/j.comnet.2022.109452"
             },
             {
               "title": "DISTILLER: Encrypted traffic classification via multimodal multitask deep learning",
@@ -61,14 +227,328 @@
               "url": "https://doi.org/10.1016/j.jnca.2021.102985"
             },
             {
-              "title": "AI-Powered Internet Traffic Classification: Past, Present, and Future",
-              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
-              "venue": "IEEE Communications Magazine",
-              "year": 2023,
+              "title": "Classification of Communication and Collaboration Apps via Advanced Deep-Learning Approaches",
+              "authors": "I. Guarino, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2021 IEEE 26th International Workshop on Computer Aided Modeling and Design of Communication Links and Networks (CAMAD)",
+              "year": 2021,
+              "category": "conference",
+              "doi": "10.1109/camad52502.2021.9617789",
+              "url": "https://doi.org/10.1109/camad52502.2021.9617789"
+            },
+            {
+              "title": "XAI Meets Mobile Traffic Classification: Understanding and Improving Multimodal Deep Learning Architectures",
+              "authors": "A. Nascita, A. Montieri, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2021,
               "category": "journal",
-              "doi": "10.1109/mcom.001.2300361",
-              "url": "https://doi.org/10.1109/mcom.001.2300361",
-              "pdf": "https://ieeexplore.ieee.org/ielx7/35/7593423/10355065.pdf"
+              "doi": "10.1109/tnsm.2021.3098157",
+              "url": "https://doi.org/10.1109/tnsm.2021.3098157"
+            },
+            {
+              "title": "Unveiling MIMETIC: Interpreting Deep Learning Traffic Classifiers via XAI Techniques",
+              "authors": "A. Nascita, A. Montieri, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "2021 IEEE International Conference on Cyber Security and Resilience (CSR)",
+              "year": 2021,
+              "category": "conference",
+              "doi": "10.1109/csr51186.2021.9527948",
+              "url": "https://doi.org/10.1109/csr51186.2021.9527948"
+            },
+            {
+              "title": "A First Look at Class Incremental Learning in Deep Learning Mobile Traffic Classification",
+              "authors": "G. Bovenzi, L. Yang, A. Finamore, G. Aceto, D. Ciuonzo, A. Pescapè, D. Rossi",
+              "venue": "arXiv (Cornell University)",
+              "year": 2021,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2107.04464",
+              "url": "https://doi.org/10.48550/arxiv.2107.04464",
+              "pdf": "https://arxiv.org/pdf/2107.04464"
+            },
+            {
+              "title": "Encrypted Multitask Traffic Classification via Multimodal Deep Learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Nascita, A. Pescapè",
+              "venue": "ICC 2021 - IEEE International Conference on Communications",
+              "year": 2021,
+              "category": "conference",
+              "doi": "10.1109/icc42927.2021.9500316",
+              "url": "https://doi.org/10.1109/icc42927.2021.9500316"
+            },
+            {
+              "title": "A Big Data-Enabled Hierarchical Framework for Traffic Classification",
+              "authors": "G. Bovenzi, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network Science and Engineering",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1109/tnse.2020.3009832",
+              "url": "https://doi.org/10.1109/tnse.2020.3009832"
+            },
+            {
+              "title": "Toward effective mobile encrypted traffic classification through deep learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "Neurocomputing",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.neucom.2020.05.036",
+              "url": "https://doi.org/10.1016/j.neucom.2020.05.036"
+            },
+            {
+              "title": "Methodologies for Mobile and Encrypted Traffic Classification via Machine Learning Approaches.",
+              "authors": "A. Montieri",
+              "venue": "University of Naples Federico II, Italy",
+              "year": 2020,
+              "category": "other"
+            },
+            {
+              "title": "MIMETIC: Mobile encrypted traffic classification using multimodal deep learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2019,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2019.106944",
+              "url": "https://doi.org/10.1016/j.comnet.2019.106944"
+            },
+            {
+              "title": "MIRAGE: Mobile-app Traffic Capture and Ground-truth Creation",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2019 4th International Conference on Computing, Communications and Security (ICCCS)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.1109/cccs.2019.8888137",
+              "url": "https://doi.org/10.1109/cccs.2019.8888137"
+            },
+            {
+              "title": "Know your Big Data Trade-offs when Classifying Encrypted Mobile Traffic with Deep Learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2019 Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.23919/tma.2019.8784565",
+              "url": "https://doi.org/10.23919/tma.2019.8784565"
+            },
+            {
+              "title": "A Dive into the Dark Web: Hierarchical Traffic Classification of Anonymity Tools",
+              "authors": "A. Montieri, D. Ciuonzo, G. Bovenzi, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network Science and Engineering",
+              "year": 2019,
+              "category": "journal",
+              "doi": "10.1109/tnse.2019.2901994",
+              "url": "https://doi.org/10.1109/tnse.2019.2901994"
+            },
+            {
+              "title": "Mobile Encrypted Traffic Classification Using Deep Learning: Experimental Evaluation, Lessons Learned, and Challenges",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2019,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2019.2899085",
+              "url": "https://doi.org/10.1109/tnsm.2019.2899085"
+            },
+            {
+              "title": "Speeding-Up DPI Traffic Classification with Chaining",
+              "authors": "H. Doroud, G. Aceto, W. de Donato, E. A. Jarchlo, A. Marín, C. D. Guerrero, A. Pescapè",
+              "venue": "2018 IEEE Global Communications Conference (GLOBECOM)",
+              "year": 2018,
+              "category": "conference",
+              "doi": "10.1109/glocom.2018.8648137",
+              "url": "https://doi.org/10.1109/glocom.2018.8648137"
+            },
+            {
+              "title": "Mobile Encrypted Traffic Classification Using Deep Learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "2018 Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2018,
+              "category": "conference",
+              "doi": "10.23919/tma.2018.8506558",
+              "url": "https://doi.org/10.23919/tma.2018.8506558"
+            },
+            {
+              "title": "Anonymity Services Tor, I2P, JonDonym: Classifying in the Dark (Web)",
+              "authors": "A. Montieri, D. Ciuonzo, G. Aceto, A. Pescapè",
+              "venue": "IEEE Transactions on Dependable and Secure Computing",
+              "year": 2018,
+              "category": "journal",
+              "doi": "10.1109/tdsc.2018.2804394",
+              "url": "https://doi.org/10.1109/tdsc.2018.2804394"
+            },
+            {
+              "title": "Traffic Classification of Mobile Apps through Multi-Classification",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "GLOBECOM 2017 - 2017 IEEE Global Communications Conference",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.1109/glocom.2017.8254059",
+              "url": "https://doi.org/10.1109/glocom.2017.8254059"
+            },
+            {
+              "title": "Multi-classification approaches for classifying mobile app traffic",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "Journal of Network and Computer Applications",
+              "year": 2017,
+              "category": "journal",
+              "doi": "10.1016/j.jnca.2017.11.007",
+              "url": "https://doi.org/10.1016/j.jnca.2017.11.007"
+            },
+            {
+              "title": "Anonymity Services Tor, I2P, JonDonym: Classifying in the Dark",
+              "authors": "A. Montieri, D. Ciuonzo, G. Aceto, A. Pescapè",
+              "venue": "International Test Conference",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.23919/itc.2017.8064342",
+              "url": "https://doi.org/10.23919/itc.2017.8064342"
+            },
+            {
+              "title": "Traffic identification engine: an open platform for traffic classification",
+              "authors": "W. de Donato, A. Pescapè, A. Dainotti",
+              "venue": "IEEE Network",
+              "year": 2014,
+              "category": "journal",
+              "doi": "10.1109/mnet.2014.6786614",
+              "url": "https://doi.org/10.1109/mnet.2014.6786614",
+              "pdf": "http://www.caida.org/publications/papers/2014/traffic_identification_engine/traffic_identification_engine.pdf"
+            },
+            {
+              "title": "TIE: Traffic Identification Engine",
+              "authors": "G. Aceto, A. Dainotti, W. de Donato, A. Pescapè",
+              "venue": "PIK - Praxis der Informationsverarbeitung und Kommunikation",
+              "year": 2013,
+              "category": "journal",
+              "doi": "10.1515/pik-2012-0063",
+              "url": "https://doi.org/10.1515/pik-2012-0063"
+            },
+            {
+              "title": "Reviewing Traffic Classification",
+              "authors": "S. Valenti, D. Rossi, A. Dainotti, A. Pescapè, A. Finamore, M. Mellia",
+              "venue": "Lecture notes in computer science",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-36784-7_6",
+              "url": "https://doi.org/10.1007/978-3-642-36784-7_6"
+            },
+            {
+              "title": "A Multi-Classification Approach for the Detection and Identification of eHealth Applications",
+              "authors": "M. Grajzer, M. Koziuk, P. Szczechowiak, A. Pescapè",
+              "venue": "2012 21st International Conference on Computer Communications and Networks (ICCCN)",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1109/icccn.2012.6289268",
+              "url": "https://doi.org/10.1109/icccn.2012.6289268",
+              "pdf": "http://wpage.unina.it/pescape/doc/1569593505.pdf"
+            },
+            {
+              "title": "Issues and future directions in traffic classification",
+              "authors": "A. Dainotti, A. Pescapè, K. claffy",
+              "venue": "IEEE Network",
+              "year": 2012,
+              "category": "journal",
+              "doi": "10.1109/mnet.2012.6135854",
+              "url": "https://doi.org/10.1109/mnet.2012.6135854",
+              "pdf": "http://wpage.unina.it/pescape/doc/06135854.pdf"
+            },
+            {
+              "title": "Traffic Classification through Joint Distributions of Packet-Level Statistics",
+              "authors": "A. Dainotti, A. Pescapè, H.-C. Kim",
+              "venue": "2011 IEEE Global Telecommunications Conference - GLOBECOM 2011",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1109/glocom.2011.6134093",
+              "url": "https://doi.org/10.1109/glocom.2011.6134093"
+            },
+            {
+              "title": "Using a Behaviour Knowledge Space Approach for Detecting Unknown IP Traffic Flows",
+              "authors": "A. Dainotti, A. Pescapè, C. Sansone, A. Quintavalle",
+              "venue": "Lecture notes in computer science",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-21557-5_38",
+              "url": "https://doi.org/10.1007/978-3-642-21557-5_38",
+              "pdf": "http://wpage.unina.it/alberto/papers/mcs2011.pdf"
+            },
+            {
+              "title": "Early Classification of Network Traffic through Multi-classification",
+              "authors": "A. Dainotti, A. Pescapè, C. Sansone",
+              "venue": "Lecture notes in computer science",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-20305-3_11",
+              "url": "https://doi.org/10.1007/978-3-642-20305-3_11",
+              "pdf": "http://wpage.unina.it/alberto/papers/tma2011.pdf"
+            },
+            {
+              "title": "Identification of Traffic Flows Hiding behind TCP Port 80",
+              "authors": "A. Dainotti, F. Gargiulo, L. I. Kuncheva, A. Pescapè, C. Sansone",
+              "venue": "2010 IEEE International Conference on Communications",
+              "year": 2010,
+              "category": "conference",
+              "doi": "10.1109/icc.2010.5502266",
+              "url": "https://doi.org/10.1109/icc.2010.5502266",
+              "pdf": "http://wpage.unina.it/alberto/papers/ICC2010.pdf"
+            },
+            {
+              "title": "PortLoad: Taking the Best of Two Worlds in Traffic Classification",
+              "authors": "G. Aceto, A. Dainotti, W. de Donato, A. Pescapè",
+              "venue": "2010 INFOCOM IEEE Conference on Computer Communications Workshops",
+              "year": 2010,
+              "category": "conference",
+              "doi": "10.1109/infcomw.2010.5466645",
+              "url": "https://doi.org/10.1109/infcomw.2010.5466645",
+              "pdf": "http://wpage.unina.it/alberto/papers/portload_infocom2010.pdf"
+            },
+            {
+              "title": "Metodo e sistema per la classificazione di flussi di traffico in una rete di comunicazione dati che utilizza firme basate sul contenuto del traffico",
+              "authors": "A. Pescapè, A. Dainotti, W. De Donato, G. Aceto",
+              "venue": "ITA",
+              "year": 2010,
+              "category": "other"
+            },
+            {
+              "title": "K-Dimensional Trees for Continuous Traffic Classification",
+              "authors": "V. Carela-Español, P. Barlet‐Ros, M. Solé-Simó, A. Dainotti, W. de Donato, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2010,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-12365-8_11",
+              "url": "https://doi.org/10.1007/978-3-642-12365-8_11",
+              "pdf": "http://wpage.unina.it/alberto/papers/tma2010.pdf"
+            },
+            {
+              "title": "TIE: A Community-Oriented Traffic Classification Platform",
+              "authors": "A. Dainotti, W. de Donato, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2009,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-01645-5_8",
+              "url": "https://doi.org/10.1007/978-3-642-01645-5_8"
+            },
+            {
+              "title": "RECIPE: Robust and Efficient traffic Classification in IP nEtworks",
+              "authors": "A. Pescapè, C. Sansone",
+              "venue": "Fridericiana Editrice Universitaria",
+              "year": 2009,
+              "category": "book"
+            },
+            {
+              "title": "Traffic classification and its applications to modern networks",
+              "authors": "M. Mellia, A. Pescapè, L. Salgarelli",
+              "venue": "Computer Networks",
+              "year": 2008,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2008.12.007",
+              "url": "https://doi.org/10.1016/j.comnet.2008.12.007"
+            },
+            {
+              "title": "Understanding Internet Traffic: Can We Classify the Unknown?",
+              "authors": "A. Dainotti, G. Ventre, L. P. Cordella, A. Pescapè, K. C. Claffy",
+              "year": 2008,
+              "category": "other"
+            },
+            {
+              "title": "Classification of Network Traffic via Packet-Level Hidden Markov Models",
+              "authors": "A. Dainotti, W. de Donato, A. Pescapè, P. S. Rossi",
+              "venue": "IEEE GLOBECOM 2008 - 2008 IEEE Global Telecommunications Conference",
+              "year": 2008,
+              "category": "conference",
+              "doi": "10.1109/glocom.2008.ecp.412",
+              "url": "https://doi.org/10.1109/glocom.2008.ecp.412"
             }
           ],
           "links": [],
@@ -114,9 +594,78 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Vincenzo Spadari"
+            },
+            {
+              "name": "Idio Guarino"
             }
           ],
           "papers": [
+            {
+              "title": "A Federated and Incremental Network Intrusion Detection System for IoT Emerging Threats",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2026,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2026.3675031",
+              "url": "https://doi.org/10.1109/tnsm.2026.3675031"
+            },
+            {
+              "title": "Analyzing the impact of shifts in encrypted mobile-app traffic on multimodal few-shot learning",
+              "authors": "D. Di Monda, G. Bovenzi, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111935",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111935"
+            },
+            {
+              "title": "Rapid Few-Shot Learning for Resilient Multi-Domain Intrusion Detection",
+              "authors": "D. Di Monda, F. Rustam, A. D. Jurcut, A. Pescapè",
+              "venue": "GLOBECOM 2025 - 2025 IEEE Global Communications Conference",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1109/globecom59602.2025.11432265",
+              "url": "https://doi.org/10.1109/globecom59602.2025.11432265"
+            },
+            {
+              "title": "Class Incremental Learning for Network-Agnostic Intrusion Detection Systems",
+              "authors": "F. Cerasuolo, G. Bovenzi, A. Montieri, A. Pescapè",
+              "venue": "2025 IEEE 9th Forum on Research and Technologies for Society and Industry (RTSI)",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1109/rtsi64020.2025.11212335",
+              "url": "https://doi.org/10.1109/rtsi64020.2025.11212335"
+            },
+            {
+              "title": "Explainable federated class incremental learning for Encrypted Network Traffic classification",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111448",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111448"
+            },
+            {
+              "title": "Attack-adaptive network intrusion detection systems for IoT networks through class incremental learning",
+              "authors": "F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111228",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111228"
+            },
+            {
+              "title": "Adaptable, incremental, and explainable network intrusion detection systems for internet of things",
+              "authors": "F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Engineering Applications of Artificial Intelligence",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.engappai.2025.110143",
+              "url": "https://doi.org/10.1016/j.engappai.2025.110143"
+            },
             {
               "title": "MEMENTO: A novel approach for class incremental learning of encrypted traffic",
               "authors": "F. Cerasuolo, A. Nascita, G. Bovenzi, G. Aceto, D. Ciuonzo, A. Pescapè, D. Rossi",
@@ -127,6 +676,33 @@
               "url": "https://doi.org/10.1016/j.comnet.2024.110374"
             },
             {
+              "title": "Explainable Few-Shot Class Incremental Learning for Mobile Network Traffic Classification",
+              "authors": "F. Cerasuolo, G. Bovenzi, V. Spadari, D. Ciuonzo, A. Pescapè",
+              "venue": "GLOBECOM 2024 - 2024 IEEE Global Communications Conference",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/globecom52923.2024.10901329",
+              "url": "https://doi.org/10.1109/globecom52923.2024.10901329"
+            },
+            {
+              "title": "Classifying attack traffic in IoT environments via few-shot learning",
+              "authors": "G. Bovenzi, D. Di Monda, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "Journal of Information Security and Applications",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1016/j.jisa.2024.103762",
+              "url": "https://doi.org/10.1016/j.jisa.2024.103762"
+            },
+            {
+              "title": "Few-Shot Class-Incremental Learning for Network Intrusion Detection Systems",
+              "authors": "D. Di Monda, A. Montieri, V. Persico, P. Voria, M. De Ieso, A. Pescapè",
+              "venue": "IEEE Open Journal of the Communications Society",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1109/ojcoms.2024.3481895",
+              "url": "https://doi.org/10.1109/ojcoms.2024.3481895"
+            },
+            {
               "title": "Meta Mimetic: Few-Shot Classification of Mobile-App Encrypted Traffic via Multimodal Meta-Learning",
               "authors": "G. Bovenzi, D. Di Monda, A. Montieri, V. Persico, A. Pescapè",
               "venue": "2023 35th International Teletraffic Congress (ITC-35)",
@@ -134,6 +710,71 @@
               "category": "conference",
               "doi": "10.1109/itc-3560063.2023.10555634",
               "url": "https://doi.org/10.1109/itc-3560063.2023.10555634"
+            },
+            {
+              "title": "Explainable Mobile Traffic Classification: the Case of Incremental Learning",
+              "authors": "A. Nascita, F. Cerasuolo, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "Proceedings of the 2023 on Explainable and Safety Bounded, Fidelitous, Machine Learning for Networking",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1145/3630050.3630178",
+              "url": "https://doi.org/10.1145/3630050.3630178",
+              "pdf": "https://dl.acm.org/doi/pdf/10.1145/3630050.3630178"
+            },
+            {
+              "title": "Many or Few Samples?: Comparing Transfer, Contrastive and Meta-Learning in Encrypted Traffic Classification",
+              "authors": "I. Guarino, C. Wang, A. Finamore, A. Pescapè, D. Rossi",
+              "venue": "2023 7th Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.23919/tma58422.2023.10198965",
+              "url": "https://doi.org/10.23919/tma58422.2023.10198965"
+            },
+            {
+              "title": "Benchmarking Class Incremental Learning in Deep Learning Traffic Classification",
+              "authors": "G. Bovenzi, A. Nascita, L. Yang, A. Finamore, G. Aceto, D. Ciuonzo, A. Pescapè, D. Rossi",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2023.3287430",
+              "url": "https://doi.org/10.1109/tnsm.2023.3287430"
+            },
+            {
+              "title": "Few Shot Learning Approaches for Classifying Rare Mobile-App Encrypted Traffic Samples",
+              "authors": "G. Bovenzi, D. Di Monda, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE INFOCOM 2023 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/infocomwkshps57453.2023.10226104",
+              "url": "https://doi.org/10.1109/infocomwkshps57453.2023.10226104"
+            },
+            {
+              "title": "IoT Botnet-Traffic Classification Using Few-Shot Learning",
+              "authors": "D. Di Monda, G. Bovenzi, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2023 IEEE International Conference on Big Data (BigData)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/bigdata59044.2023.10386602",
+              "url": "https://doi.org/10.1109/bigdata59044.2023.10386602"
+            },
+            {
+              "title": "Adaptive Intrusion Detection Systems: Class Incremental Learning for IoT Emerging Threats",
+              "authors": "F. Cerasuolo, G. Bovenzi, C. Marescalco, F. Cirillo, D. Ciuonzo, A. Pescapè",
+              "venue": "2023 IEEE International Conference on Big Data (BigData)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/bigdata59044.2023.10386129",
+              "url": "https://doi.org/10.1109/bigdata59044.2023.10386129"
+            },
+            {
+              "title": "A First Look at Class Incremental Learning in Deep Learning Mobile Traffic Classification",
+              "authors": "G. Bovenzi, L. Yang, A. Finamore, G. Aceto, D. Ciuonzo, A. Pescapè, D. Rossi",
+              "venue": "arXiv (Cornell University)",
+              "year": 2021,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2107.04464",
+              "url": "https://doi.org/10.48550/arxiv.2107.04464",
+              "pdf": "https://arxiv.org/pdf/2107.04464"
             }
           ],
           "links": [],
@@ -179,9 +820,50 @@
             },
             {
               "name": "Idio Guarino"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Davide di Monda"
             }
           ],
           "papers": [
+            {
+              "title": "XAI2CSI: Interpreting CSI with eXplainable AI for Human Activity Recognition",
+              "authors": "I. Guarino, A. Nascita, D. Ciuonzo, D. Carra, A. Pescapè",
+              "venue": "arXiv (Cornell University)",
+              "year": 2026,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2608.31034",
+              "url": "https://doi.org/10.48550/arxiv.2608.31034",
+              "pdf": "https://arxiv.org/pdf/2608.31034"
+            },
+            {
+              "title": "From Entanglement to Explanation: Bridging Quantum ML and XAI for Network Traffic Classification",
+              "authors": "A. Nascita, I. Guarino, V. Spadari, D. Ciuonzo, A. Pescapè",
+              "venue": "2025 IEEE Virtual Conference on Communications (VCC)",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1109/vcc67261.2025.11351152",
+              "url": "https://doi.org/10.1109/vcc67261.2025.11351152"
+            },
+            {
+              "title": "Analyzing the Impact of Encryption on Traffic Classification through Explainable AI.",
+              "authors": "D. Di Monda, A. Nascita, R. Carillo, A. Pescapè",
+              "venue": "Networking",
+              "year": 2025,
+              "category": "conference"
+            },
+            {
+              "title": "Explainable federated class incremental learning for Encrypted Network Traffic classification",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111448",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111448"
+            },
             {
               "title": "A Survey on Explainable Artificial Intelligence for Internet Traffic Classification and Prediction, and Intrusion Detection",
               "authors": "A. Nascita, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
@@ -199,6 +881,81 @@
               "category": "conference",
               "doi": "10.1109/sec62691.2024.00053",
               "url": "https://doi.org/10.1109/sec62691.2024.00053"
+            },
+            {
+              "title": "XAI for Interpretable Multimodal Architectures with Contextual Input in Mobile Network Traffic Classification",
+              "authors": "F. Cerasuolo, I. Guarino, V. Spadari, G. Aceto, A. Pescapè",
+              "venue": "2024 IFIP Networking Conference (IFIP Networking)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.23919/ifipnetworking62109.2024.10619769",
+              "url": "https://doi.org/10.23919/ifipnetworking62109.2024.10619769"
+            },
+            {
+              "title": "Explainable Deep-Learning Approaches for Packet-Level Traffic Prediction of Collaboration and Communication Mobile Apps",
+              "authors": "I. Guarino, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Open Journal of the Communications Society",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1109/ojcoms.2024.3366849",
+              "url": "https://doi.org/10.1109/ojcoms.2024.3366849",
+              "pdf": "https://ieeexplore.ieee.org/ielx7/8782661/8901158/10438860.pdf"
+            },
+            {
+              "title": "Explainable Few-Shot Class Incremental Learning for Mobile Network Traffic Classification",
+              "authors": "F. Cerasuolo, G. Bovenzi, V. Spadari, D. Ciuonzo, A. Pescapè",
+              "venue": "GLOBECOM 2024 - 2024 IEEE Global Communications Conference",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/globecom52923.2024.10901329",
+              "url": "https://doi.org/10.1109/globecom52923.2024.10901329"
+            },
+            {
+              "title": "Improving Performance, Reliability, and Feasibility in Multimodal Multitask Traffic Classification with XAI",
+              "authors": "A. Nascita, A. Montieri, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2023.3246794",
+              "url": "https://doi.org/10.1109/tnsm.2023.3246794",
+              "pdf": "https://ieeexplore.ieee.org/ielx7/4275028/5699970/10049138.pdf"
+            },
+            {
+              "title": "Explainable Mobile Traffic Classification: the Case of Incremental Learning",
+              "authors": "A. Nascita, F. Cerasuolo, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "Proceedings of the 2023 on Explainable and Safety Bounded, Fidelitous, Machine Learning for Networking",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1145/3630050.3630178",
+              "url": "https://doi.org/10.1145/3630050.3630178",
+              "pdf": "https://dl.acm.org/doi/pdf/10.1145/3630050.3630178"
+            },
+            {
+              "title": "Fine-Grained Traffic Prediction of Communication-and-Collaboration Apps Via Deep-Learning: A First Look at Explainability",
+              "authors": "I. Guarino, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "ICC 2023 - IEEE International Conference on Communications",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/icc45041.2023.10278874",
+              "url": "https://doi.org/10.1109/icc45041.2023.10278874"
+            },
+            {
+              "title": "XAI Meets Mobile Traffic Classification: Understanding and Improving Multimodal Deep Learning Architectures",
+              "authors": "A. Nascita, A. Montieri, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2021,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2021.3098157",
+              "url": "https://doi.org/10.1109/tnsm.2021.3098157"
+            },
+            {
+              "title": "Unveiling MIMETIC: Interpreting Deep Learning Traffic Classifiers via XAI Techniques",
+              "authors": "A. Nascita, A. Montieri, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "2021 IEEE International Conference on Cyber Security and Resilience (CSR)",
+              "year": 2021,
+              "category": "conference",
+              "doi": "10.1109/csr51186.2021.9527948",
+              "url": "https://doi.org/10.1109/csr51186.2021.9527948"
             }
           ],
           "links": [],
@@ -229,6 +986,18 @@
             },
             {
               "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Idio Guarino"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Valerio Persico"
             }
           ],
           "papers": [
@@ -240,6 +1009,42 @@
               "category": "journal",
               "doi": "10.1016/j.comnet.2026.112237",
               "url": "https://doi.org/10.1016/j.comnet.2026.112237"
+            },
+            {
+              "title": "Mirage-App×Act-2024: A Novel Dataset for Mobile App and Activity Traffic Analysis",
+              "authors": "I. Guarino, D. Ciuonzo, A. Montieri, A. Pescapè",
+              "venue": "2024 20th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/wimob61911.2024.10770459",
+              "url": "https://doi.org/10.1109/wimob61911.2024.10770459"
+            },
+            {
+              "title": "MIRAGE: Mobile-app Traffic Capture and Ground-truth Creation",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2019 4th International Conference on Computing, Communications and Security (ICCCS)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.1109/cccs.2019.8888137",
+              "url": "https://doi.org/10.1109/cccs.2019.8888137"
+            },
+            {
+              "title": "TCP port 80 traffic traces",
+              "authors": "A. Pescapè",
+              "venue": "Data Archiving and Networked Services (DANS)",
+              "year": 2017,
+              "category": "journal",
+              "doi": "10.17632/fmkm6f5rmz.2",
+              "url": "https://doi.org/10.17632/fmkm6f5rmz.2"
+            },
+            {
+              "title": "MSN Messenger traffic traces and time series (TCP port 1863)",
+              "authors": "A. Pescapè",
+              "venue": "Data Archiving and Networked Services (DANS)",
+              "year": 2017,
+              "category": "journal",
+              "doi": "10.17632/j5spg2yzxk.1",
+              "url": "https://doi.org/10.17632/j5spg2yzxk.1"
             }
           ],
           "links": [],
@@ -276,15 +1081,6 @@
           ],
           "papers": [
             {
-              "title": "Explainable federated class incremental learning for Encrypted Network Traffic classification",
-              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
-              "venue": "Computer Networks",
-              "year": 2025,
-              "category": "journal",
-              "doi": "10.1016/j.comnet.2025.111448",
-              "url": "https://doi.org/10.1016/j.comnet.2025.111448"
-            },
-            {
               "title": "Synthetic Network Traffic Generation via Federated Generative AI for Traffic Classification",
               "authors": "G. Mangiacapre, F. Cerasuolo, A. Nascita, D. Ciuonzo, A. Pescapè",
               "venue": "NOMS 2026-2026 IEEE Network Operations and Management Symposium",
@@ -292,6 +1088,15 @@
               "category": "conference",
               "doi": "10.1109/noms69089.2026.11668294",
               "url": "https://doi.org/10.1109/noms69089.2026.11668294"
+            },
+            {
+              "title": "Explainable federated class incremental learning for Encrypted Network Traffic classification",
+              "authors": "R. Carillo, F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111448",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111448"
             }
           ],
           "links": [],
@@ -376,6 +1181,15 @@
               "category": "journal",
               "doi": "10.1016/j.jnca.2024.103926",
               "url": "https://doi.org/10.1016/j.jnca.2024.103926"
+            },
+            {
+              "title": "Analysis and experimentation of an open distributed platform for synthetic",
+              "authors": "D. Emma, A. Pescapè, G. Ventre",
+              "venue": "Proceedings. 10th IEEE International Workshop on Future Trends of Distributed Computing Systems, 2004. FTDCS 2004.",
+              "year": 2004,
+              "category": "conference",
+              "doi": "10.1109/ftdcs.2004.1316627",
+              "url": "https://doi.org/10.1109/ftdcs.2004.1316627"
             }
           ],
           "links": [],
@@ -412,9 +1226,64 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Idio Guarino"
+            },
+            {
+              "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Walter de Donato"
+            },
+            {
+              "name": "Alessio Botta"
             }
           ],
           "papers": [
+            {
+              "title": "Explainable Deep-Learning Approaches for Packet-Level Traffic Prediction of Collaboration and Communication Mobile Apps",
+              "authors": "I. Guarino, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Open Journal of the Communications Society",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1109/ojcoms.2024.3366849",
+              "url": "https://doi.org/10.1109/ojcoms.2024.3366849",
+              "pdf": "https://ieeexplore.ieee.org/ielx7/8782661/8901158/10438860.pdf"
+            },
+            {
+              "title": "A Survey on Explainable Artificial Intelligence for Internet Traffic Classification and Prediction, and Intrusion Detection",
+              "authors": "A. Nascita, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Communications Surveys & Tutorials",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1109/comst.2024.3504955",
+              "url": "https://doi.org/10.1109/comst.2024.3504955"
+            },
+            {
+              "title": "Fine-Grained Traffic Prediction of Communication-and-Collaboration Apps Via Deep-Learning: A First Look at Explainability",
+              "authors": "I. Guarino, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "ICC 2023 - IEEE International Conference on Communications",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/icc45041.2023.10278874",
+              "url": "https://doi.org/10.1109/icc45041.2023.10278874"
+            },
+            {
+              "title": "Prediction of Mobile-App Network-Video-Traffic Aggregates using Multi-task Deep Learning",
+              "authors": "L. Pappone, F. Cerasuolo, V. Persico, D. Ciuonzo, A. Pescapè, F. Esposito",
+              "venue": "2022 IFIP Networking Conference (IFIP Networking)",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.23919/ifipnetworking55013.2022.9829800",
+              "url": "https://doi.org/10.23919/ifipnetworking55013.2022.9829800"
+            },
             {
               "title": "Packet-level prediction of mobile-app traffic using multitask Deep Learning",
               "authors": "A. Montieri, G. Bovenzi, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
@@ -432,6 +1301,79 @@
               "category": "journal",
               "doi": "10.1109/tnsm.2021.3051381",
               "url": "https://doi.org/10.1109/tnsm.2021.3051381"
+            },
+            {
+              "title": "Mobile Network Traffic Prediction Using High Order Markov Chains Trained At Multiple Granularity",
+              "authors": "I. Guarino, A. Nascita, G. Aceto, A. Pescapè",
+              "venue": "2021 IEEE 6th International Forum on Research and Technology for Society and Industry (RTSI)",
+              "year": 2021,
+              "category": "conference",
+              "doi": "10.1109/rtsi50628.2021.9597313",
+              "url": "https://doi.org/10.1109/rtsi50628.2021.9597313"
+            },
+            {
+              "title": "Characterizing and Modeling Traffic of Communication and Collaboration Apps Bloomed With COVID-19 Outbreak",
+              "authors": "I. Guarino, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2021 IEEE 6th International Forum on Research and Technology for Society and Industry (RTSI)",
+              "year": 2021,
+              "category": "conference",
+              "doi": "10.1109/rtsi50628.2021.9597263",
+              "url": "https://doi.org/10.1109/rtsi50628.2021.9597263"
+            },
+            {
+              "title": "Analysis of Prediction Techniques of Key Parameters in IP Networks",
+              "authors": "A. Pescapè",
+              "year": 2011,
+              "category": "journal",
+              "url": "http://wpage.unina.it/pescape/cit/Analysis%20of%20prediction%20techniques%20of%20key%20parameters%20in%20IP%20networks-TESI.pdf"
+            },
+            {
+              "title": "Internet traffic modeling by means of Hidden Markov Models",
+              "authors": "A. Dainotti, A. Pescapè, P. S. Rossi, F. Palmieri, G. Ventre",
+              "venue": "Computer Networks",
+              "year": 2008,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2008.05.004",
+              "url": "https://doi.org/10.1016/j.comnet.2008.05.004",
+              "pdf": "https://www.sciencedirect.com/science/article/pii/S138912860800162X"
+            },
+            {
+              "title": "Classification of Network Traffic via Packet-Level Hidden Markov Models",
+              "authors": "A. Dainotti, W. de Donato, A. Pescapè, P. S. Rossi",
+              "venue": "IEEE GLOBECOM 2008 - 2008 IEEE Global Telecommunications Conference",
+              "year": 2008,
+              "category": "conference",
+              "doi": "10.1109/glocom.2008.ecp.412",
+              "url": "https://doi.org/10.1109/glocom.2008.ecp.412"
+            },
+            {
+              "title": "Long Horizon End-to-End Delay Forecasts: A Multi-Step-Ahead Hybrid Approach",
+              "authors": "V. Q. Bui, W. Zhu, A. Pescapè, A. Botta",
+              "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/iscc.2007.4381513",
+              "url": "https://doi.org/10.1109/iscc.2007.4381513",
+              "pdf": "http://wpage.unina.it/pescape/doc/iscc2007pescape.pdf"
+            },
+            {
+              "title": "QRP07-2: An HMM Approach to Internet Traffic Modeling",
+              "authors": "A. Dainotti, A. Pescapè, P. S. Rossi, G. Iannello, F. Palmier, G. Ventre",
+              "venue": "Globecom",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/glocom.2006.453",
+              "url": "https://doi.org/10.1109/glocom.2006.453"
+            },
+            {
+              "title": "A packet-level Traffic Model of Starcraft",
+              "authors": "A. Dainotti, A. Pescapè, G. Ventre",
+              "venue": "Second International Workshop on Hot Topics in Peer-to-Peer Systems",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1109/hot-p2p.2005.4",
+              "url": "https://doi.org/10.1109/hot-p2p.2005.4",
+              "pdf": "http://wpage.unina.it/pescape/doc/hotp2p2005pescape.pdf"
             }
           ],
           "links": [],
@@ -464,6 +1406,12 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Alessio Botta"
             }
           ],
           "papers": [
@@ -475,6 +1423,46 @@
               "category": "conference",
               "doi": "10.1109/iscc55528.2022.9913058",
               "url": "https://doi.org/10.1109/iscc55528.2022.9913058"
+            },
+            {
+              "title": "A tool for the generation of realistic network workload for emerging networking scenarios",
+              "authors": "A. Botta, A. Dainotti, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2012,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2012.02.019",
+              "url": "https://doi.org/10.1016/j.comnet.2012.02.019",
+              "pdf": "http://wpage.unina.it/pescape/doc/workload_comnet_2012.pdf"
+            },
+            {
+              "title": "Do you know what you are generating?",
+              "authors": "A. Dainotti, A. Botta, A. Pescapè",
+              "venue": "Proceedings of the 2007 ACM CoNEXT conference on - CoNEXT '07",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1145/1364654.1364695",
+              "url": "https://doi.org/10.1145/1364654.1364695",
+              "pdf": "http://wpage.unina.it/pescape/doc/CONEXT2007pescape.pdf"
+            },
+            {
+              "title": "Searching for invariants in network games traffic",
+              "authors": "A. Dainotti, A. Botta, A. Pescapè, G. Ventre",
+              "venue": "Proceedings of the 2006 ACM CoNEXT conference on - CoNEXT '06",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1145/1368436.1368488",
+              "url": "https://doi.org/10.1145/1368436.1368488",
+              "pdf": "http://wpage.unina.it/pescape/doc/40.pdf"
+            },
+            {
+              "title": "A packet-level Traffic Model of Starcraft",
+              "authors": "A. Dainotti, A. Pescapè, G. Ventre",
+              "venue": "Second International Workshop on Hot Topics in Peer-to-Peer Systems",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1109/hot-p2p.2005.4",
+              "url": "https://doi.org/10.1109/hot-p2p.2005.4",
+              "pdf": "http://wpage.unina.it/pescape/doc/hotp2p2005pescape.pdf"
             }
           ],
           "links": [],
@@ -530,6 +1518,12 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Gabriele Mangiacapre"
+            },
+            {
+              "name": "Giuseppe Aceto"
             }
           ],
           "papers": [
@@ -543,15 +1537,6 @@
               "url": "https://doi.org/10.1109/tnsm.2026.3675031"
             },
             {
-              "title": "Attack-adaptive network intrusion detection systems for IoT networks through class incremental learning",
-              "authors": "F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
-              "venue": "Computer Networks",
-              "year": 2025,
-              "category": "journal",
-              "doi": "10.1016/j.comnet.2025.111228",
-              "url": "https://doi.org/10.1016/j.comnet.2025.111228"
-            },
-            {
               "title": "When New Attacks Emerge: Adaptive Intrusion Detection Systems for IoMT",
               "authors": "D. D’Ambrosio, F. Cerasuolo, A. Nascita, G. Bovenzi, A. Montieri, A. Pescapè",
               "venue": "2026 13th International Conference on Future Internet of Things and Cloud (FiCloud)",
@@ -561,6 +1546,60 @@
               "url": "https://doi.org/10.1109/ficloud70576.2026.00066"
             },
             {
+              "title": "Towards Privacy-Preserving and Continual Intrusion Detection Systems in Internet of Medical Things",
+              "authors": "G. Mangiacapre, F. Cerasuolo, A. Nascita, A. Montieri, A. Pescapè",
+              "venue": "2026 International Conference on Smart Applications, Communications and Networking (SmartNets)",
+              "year": 2026,
+              "category": "conference",
+              "doi": "10.1109/smartnets69662.2026.11604719",
+              "url": "https://doi.org/10.1109/smartnets69662.2026.11604719"
+            },
+            {
+              "title": "Trustworthy Network Intrusion Detection Systems for IoMT: Explainability and Optimization",
+              "authors": "D. D’Ambrosio, A. Nascita, A. Montieri, A. Pescapè",
+              "venue": "2026 IFIP Networking Conference (IFIP Networking)",
+              "year": 2026,
+              "category": "conference",
+              "doi": "10.23919/ifipnetworking70592.2026.11579151",
+              "url": "https://doi.org/10.23919/ifipnetworking70592.2026.11579151"
+            },
+            {
+              "title": "Attack-adaptive network intrusion detection systems for IoT networks through class incremental learning",
+              "authors": "F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111228",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111228"
+            },
+            {
+              "title": "Rapid Few-Shot Learning for Resilient Multi-Domain Intrusion Detection",
+              "authors": "D. Di Monda, F. Rustam, A. D. Jurcut, A. Pescapè",
+              "venue": "GLOBECOM 2025 - 2025 IEEE Global Communications Conference",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1109/globecom59602.2025.11432265",
+              "url": "https://doi.org/10.1109/globecom59602.2025.11432265"
+            },
+            {
+              "title": "Class Incremental Learning for Network-Agnostic Intrusion Detection Systems",
+              "authors": "F. Cerasuolo, G. Bovenzi, A. Montieri, A. Pescapè",
+              "venue": "2025 IEEE 9th Forum on Research and Technologies for Society and Industry (RTSI)",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1109/rtsi64020.2025.11212335",
+              "url": "https://doi.org/10.1109/rtsi64020.2025.11212335"
+            },
+            {
+              "title": "Adaptable, incremental, and explainable network intrusion detection systems for internet of things",
+              "authors": "F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Engineering Applications of Artificial Intelligence",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.engappai.2025.110143",
+              "url": "https://doi.org/10.1016/j.engappai.2025.110143"
+            },
+            {
               "title": "Few-Shot Class-Incremental Learning for Network Intrusion Detection Systems",
               "authors": "D. Di Monda, A. Montieri, V. Persico, P. Voria, M. De Ieso, A. Pescapè",
               "venue": "IEEE Open Journal of the Communications Society",
@@ -568,6 +1607,51 @@
               "category": "journal",
               "doi": "10.1109/ojcoms.2024.3481895",
               "url": "https://doi.org/10.1109/ojcoms.2024.3481895"
+            },
+            {
+              "title": "Classifying attack traffic in IoT environments via few-shot learning",
+              "authors": "G. Bovenzi, D. Di Monda, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "Journal of Information Security and Applications",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1016/j.jisa.2024.103762",
+              "url": "https://doi.org/10.1016/j.jisa.2024.103762"
+            },
+            {
+              "title": "Adaptive Intrusion Detection Systems: Class Incremental Learning for IoT Emerging Threats",
+              "authors": "F. Cerasuolo, G. Bovenzi, C. Marescalco, F. Cirillo, D. Ciuonzo, A. Pescapè",
+              "venue": "2023 IEEE International Conference on Big Data (BigData)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/bigdata59044.2023.10386129",
+              "url": "https://doi.org/10.1109/bigdata59044.2023.10386129"
+            },
+            {
+              "title": "Machine and Deep Learning Approaches for IoT Attack Classification",
+              "authors": "A. Nascita, F. Cerasuolo, D. Di Monda, J. T. A. Garcia, A. Montieri, A. Pescapè",
+              "venue": "IEEE INFOCOM 2022 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.1109/infocomwkshps54753.2022.9797971",
+              "url": "https://doi.org/10.1109/infocomwkshps54753.2022.9797971"
+            },
+            {
+              "title": "A Hierarchical Hybrid Intrusion Detection Approach in IoT Scenarios",
+              "authors": "G. Bovenzi, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "GLOBECOM 2020 - 2020 IEEE Global Communications Conference",
+              "year": 2020,
+              "category": "conference",
+              "doi": "10.1109/globecom42002.2020.9348167",
+              "url": "https://doi.org/10.1109/globecom42002.2020.9348167"
+            },
+            {
+              "title": "A Secure Adaptive Control for Cooperative Driving of Autonomous Connected Vehicles in the Presence of Heterogeneous Communication Delays and Cyberattacks",
+              "authors": "A. Petrillo, A. Pescapè, S. Santini",
+              "venue": "IEEE Transactions on Cybernetics",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1109/tcyb.2019.2962601",
+              "url": "https://doi.org/10.1109/tcyb.2019.2962601"
             }
           ],
           "links": [],
@@ -621,6 +1705,18 @@
             },
             {
               "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Ciro Guida"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Davide di Monda"
             }
           ],
           "papers": [
@@ -643,13 +1739,31 @@
               "url": "https://doi.org/10.1016/j.comnet.2026.112434"
             },
             {
-              "title": "An MLOps Framework for Explainable Network Intrusion Detection with MLflow",
-              "authors": "V. Spadari, F. Cerasuolo, G. Bovenzi, A. Pescapè",
-              "venue": "2024 IEEE Symposium on Computers and Communications (ISCC)",
-              "year": 2024,
+              "title": "Multimodal contrastive learning-based network intrusion detection",
+              "authors": "G. Bovenzi, I. Guarino, A. Pescapè",
+              "venue": "Results in Engineering",
+              "year": 2026,
+              "category": "journal",
+              "doi": "10.1016/j.rineng.2026.111405",
+              "url": "https://doi.org/10.1016/j.rineng.2026.111405"
+            },
+            {
+              "title": "Explainable Quantum Machine Learning for IoMT Security: Evaluating Quantum Advantage",
+              "authors": "V. Spadari, A. Nascita, I. Guarino, D. Ciuonzo, A. Pescapè",
+              "venue": "2026 IEEE International Conference on Smart Computing Workshops and Other Affiliated events (SmartComp Companion)",
+              "year": 2026,
               "category": "conference",
-              "doi": "10.1109/iscc61673.2024.10733700",
-              "url": "https://doi.org/10.1109/iscc61673.2024.10733700"
+              "doi": "10.1109/smartcomp-companion70724.2026.00031",
+              "url": "https://doi.org/10.1109/smartcomp-companion70724.2026.00031"
+            },
+            {
+              "title": "Trustworthy Network Intrusion Detection Systems for IoMT: Explainability and Optimization",
+              "authors": "D. D’Ambrosio, A. Nascita, A. Montieri, A. Pescapè",
+              "venue": "2026 IFIP Networking Conference (IFIP Networking)",
+              "year": 2026,
+              "category": "conference",
+              "doi": "10.23919/ifipnetworking70592.2026.11579151",
+              "url": "https://doi.org/10.23919/ifipnetworking70592.2026.11579151"
             },
             {
               "title": "Towards Network Intrusion Detection via Quantum Machine Learning: A Reality Check",
@@ -659,6 +1773,78 @@
               "category": "conference",
               "doi": "10.1109/infocomwkshps65812.2025.11152772",
               "url": "https://doi.org/10.1109/infocomwkshps65812.2025.11152772"
+            },
+            {
+              "title": "Adaptable, incremental, and explainable network intrusion detection systems for internet of things",
+              "authors": "F. Cerasuolo, G. Bovenzi, D. Ciuonzo, A. Pescapè",
+              "venue": "Engineering Applications of Artificial Intelligence",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.engappai.2025.110143",
+              "url": "https://doi.org/10.1016/j.engappai.2025.110143"
+            },
+            {
+              "title": "An MLOps Framework for Explainable Network Intrusion Detection with MLflow",
+              "authors": "V. Spadari, F. Cerasuolo, G. Bovenzi, A. Pescapè",
+              "venue": "2024 IEEE Symposium on Computers and Communications (ISCC)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/iscc61673.2024.10733700",
+              "url": "https://doi.org/10.1109/iscc61673.2024.10733700"
+            },
+            {
+              "title": "A Survey on Explainable Artificial Intelligence for Internet Traffic Classification and Prediction, and Intrusion Detection",
+              "authors": "A. Nascita, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "IEEE Communications Surveys & Tutorials",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1109/comst.2024.3504955",
+              "url": "https://doi.org/10.1109/comst.2024.3504955"
+            },
+            {
+              "title": "Interpretability and Complexity Reduction in Iot Network Anomaly Detection Via XAI",
+              "authors": "A. Nascita, R. Carillo, F. Giampetraglia, A. Iacono, V. Persico, A. Pescapè",
+              "venue": "2024 IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/icasspw62465.2024.10626031",
+              "url": "https://doi.org/10.1109/icasspw62465.2024.10626031"
+            },
+            {
+              "title": "Cross-Evaluation of Deep Learning-based Network Intrusion Detection Systems",
+              "authors": "C. Guida, A. Nascita, A. Montieri, A. Pescapè",
+              "venue": "2023 10th International Conference on Future Internet of Things and Cloud (FiCloud)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/ficloud58648.2023.00055",
+              "url": "https://doi.org/10.1109/ficloud58648.2023.00055"
+            },
+            {
+              "title": "Network anomaly detection methods in IoT environments via deep learning: A Fair comparison of performance and robustness",
+              "authors": "G. Bovenzi, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "Computers & Security",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.1016/j.cose.2023.103167",
+              "url": "https://doi.org/10.1016/j.cose.2023.103167"
+            },
+            {
+              "title": "On the use of Machine Learning Approaches for the Early Classification in Network Intrusion Detection",
+              "authors": "I. Guarino, G. Bovenzi, D. Di Monda, G. Aceto, D. Ciuonzo, A. Pescapè",
+              "venue": "2022 IEEE International Symposium on Measurements & Networking (M&N)",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.1109/mn55117.2022.9887775",
+              "url": "https://doi.org/10.1109/mn55117.2022.9887775"
+            },
+            {
+              "title": "Data Poisoning Attacks against Autoencoder-based Anomaly Detection Models: a Robustness Analysis",
+              "authors": "G. Bovenzi, A. Foggia, S. Santella, A. Testa, V. Persico, A. Pescapè",
+              "venue": "ICC 2022 - IEEE International Conference on Communications",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.1109/icc45855.2022.9838942",
+              "url": "https://doi.org/10.1109/icc45855.2022.9838942"
             }
           ],
           "links": [],
@@ -706,6 +1892,15 @@
           ],
           "papers": [
             {
+              "title": "Interpretability and Complexity Reduction in Iot Network Anomaly Detection Via XAI",
+              "authors": "A. Nascita, R. Carillo, F. Giampetraglia, A. Iacono, V. Persico, A. Pescapè",
+              "venue": "2024 IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)",
+              "year": 2024,
+              "category": "conference",
+              "doi": "10.1109/icasspw62465.2024.10626031",
+              "url": "https://doi.org/10.1109/icasspw62465.2024.10626031"
+            },
+            {
               "title": "Network anomaly detection methods in IoT environments via deep learning: A Fair comparison of performance and robustness",
               "authors": "G. Bovenzi, G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
               "venue": "Computers & Security",
@@ -722,15 +1917,6 @@
               "category": "conference",
               "doi": "10.1109/icc45855.2022.9838942",
               "url": "https://doi.org/10.1109/icc45855.2022.9838942"
-            },
-            {
-              "title": "Interpretability and Complexity Reduction in Iot Network Anomaly Detection Via XAI",
-              "authors": "A. Nascita, R. Carillo, F. Giampetraglia, A. Iacono, V. Persico, A. Pescapè",
-              "venue": "2024 IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)",
-              "year": 2024,
-              "category": "conference",
-              "doi": "10.1109/icasspw62465.2024.10626031",
-              "url": "https://doi.org/10.1109/icasspw62465.2024.10626031"
             }
           ],
           "links": [],
@@ -767,9 +1953,33 @@
             },
             {
               "name": "Antonio Montieri"
+            },
+            {
+              "name": "Francesco Cerasuolo"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Alberto Dainotti"
             }
           ],
           "papers": [
+            {
+              "title": "A Zero-Shot Evaluation of Large Language Models for Detecting Algorithmically Generated Domains",
+              "authors": "D. D’Ambrosio, F. Cerasuolo, A. Nascita, A. Montieri, A. Pescapè",
+              "year": 2026,
+              "category": "conference"
+            },
+            {
+              "title": "IoT Botnet-Traffic Classification Using Few-Shot Learning",
+              "authors": "D. Di Monda, G. Bovenzi, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2023 IEEE International Conference on Big Data (BigData)",
+              "year": 2023,
+              "category": "conference",
+              "doi": "10.1109/bigdata59044.2023.10386602",
+              "url": "https://doi.org/10.1109/bigdata59044.2023.10386602"
+            },
             {
               "title": "Hierarchical Classification of Android Malware Traffic",
               "authors": "G. Bovenzi, V. Persico, A. Pescapè, A. Piscitelli, V. Spadari",
@@ -780,13 +1990,42 @@
               "url": "https://doi.org/10.1109/trustcom56396.2022.00191"
             },
             {
-              "title": "IoT Botnet-Traffic Classification Using Few-Shot Learning",
-              "authors": "D. Di Monda, G. Bovenzi, A. Montieri, V. Persico, A. Pescapè",
-              "venue": "2023 IEEE International Conference on Big Data (BigData)",
-              "year": 2023,
+              "title": "A Comparison of Machine and Deep Learning Models for Detection and Classification of Android Malware Traffic",
+              "authors": "G. Bovenzi, F. Cerasuolo, A. Montieri, A. Nascita, V. Persico, A. Pescapè",
+              "venue": "2022 IEEE Symposium on Computers and Communications (ISCC)",
+              "year": 2022,
               "category": "conference",
-              "doi": "10.1109/bigdata59044.2023.10386602",
-              "url": "https://doi.org/10.1109/bigdata59044.2023.10386602"
+              "doi": "10.1109/iscc55528.2022.9912986",
+              "url": "https://doi.org/10.1109/iscc55528.2022.9912986"
+            },
+            {
+              "title": "Mining agile DNS traffic using graph analysis for cybercrime detection",
+              "authors": "A. Berger, A. D’Alconzo, W. N. Gansterer, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2016,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2016.02.009",
+              "url": "https://doi.org/10.1016/j.comnet.2016.02.009"
+            },
+            {
+              "title": "Analysis of a \"/0\" stealth scan from a botnet",
+              "authors": "A. Dainotti, A. King, K. claffy, F. Papale, A. Pescapè",
+              "venue": "Proceedings of the 2012 Internet Measurement Conference",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1145/2398776.2398778",
+              "url": "https://doi.org/10.1145/2398776.2398778",
+              "pdf": "https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F2398776.2398778&file=213.pdf"
+            },
+            {
+              "title": "Worm Traffic Analysis and Characterization",
+              "authors": "A. Dainotti, A. Pescapè, G. Ventre",
+              "venue": "2007 IEEE International Conference on Communications",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/icc.2007.241",
+              "url": "https://doi.org/10.1109/icc.2007.241",
+              "pdf": "http://wpage.unina.it/pescape/doc/icc2007wormpescape.pdf"
             }
           ],
           "links": [],
@@ -882,9 +2121,43 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Pietro Marchetta"
             }
           ],
           "papers": [
+            {
+              "title": "Iran's January 2026 Internet Shutdown: Public Data, Censorship Methods, and Circumvention Techniques",
+              "authors": "G. Aceto, V. Persico, A. Pescapè",
+              "venue": "arXiv (Cornell University)",
+              "year": 2026,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2603.28753",
+              "url": "https://doi.org/10.48550/arxiv.2603.28753",
+              "pdf": "https://arxiv.org/pdf/2603.28753"
+            },
+            {
+              "title": "A comprehensive survey on internet outages",
+              "authors": "G. Aceto, A. Botta, P. Marchetta, V. Persico, A. Pescapè",
+              "venue": "Journal of Network and Computer Applications",
+              "year": 2018,
+              "category": "journal",
+              "doi": "10.1016/j.jnca.2018.03.026",
+              "url": "https://doi.org/10.1016/j.jnca.2018.03.026"
+            },
+            {
+              "title": "Internet censorship in Italy: An analysis of 3G/4G networks",
+              "authors": "G. Aceto, A. Montieri, A. Pescapè",
+              "venue": "2017 IEEE International Conference on Communications (ICC)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.1109/icc.2017.7996467",
+              "url": "https://doi.org/10.1109/icc.2017.7996467"
+            },
             {
               "title": "Internet Censorship in Italy: A First Look at 3G/4G Networks",
               "authors": "G. Aceto, A. Montieri, A. Pescapè",
@@ -904,6 +2177,15 @@
               "doi": "10.1109/rtsi.2016.7740626",
               "url": "https://doi.org/10.1109/rtsi.2016.7740626",
               "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2016analyzing.pdf"
+            },
+            {
+              "title": "Communications and Privacy under Surveillance",
+              "authors": "Y. Lin, J. M. Voas, A. Pescapè, P. R. Müeller",
+              "venue": "Computer",
+              "year": 2016,
+              "category": "journal",
+              "doi": "10.1109/mc.2016.65",
+              "url": "https://doi.org/10.1109/mc.2016.65"
             },
             {
               "title": "Detecting Middlebox Interference on Applications",
@@ -934,17 +2216,23 @@
               "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2015internet_censorship_detection__a_survey.pdf"
             },
             {
-              "text": "Giuseppe Aceto, Nick Feamster, Antonio Pescapè \"**[User-side approach for censorship detection: home-router and client-based platforms](http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_poster.pdf)**\" ([Abstract](http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_abstract.pdf)), Connaught Summer Institute on Monitoring Internet Openness and Rights, University of Toronto July 22-26, 2013"
+              "title": "Analysis of macroscopic Internet Outages",
+              "authors": "A. Dainotti, R. Amman, E. Aben, C. Squarcella, M. Chiesa, M. Russo, et al.",
+              "year": 2012,
+              "category": "other"
             },
             {
-              "title": "Iran's January 2026 Internet Shutdown: Public Data, Censorship Methods, and Circumvention Techniques",
-              "authors": "G. Aceto, V. Persico, A. Pescapè",
-              "venue": "arXiv (Cornell University)",
-              "year": 2026,
-              "category": "preprint",
-              "doi": "10.48550/arxiv.2603.28753",
-              "url": "https://doi.org/10.48550/arxiv.2603.28753",
-              "pdf": "https://arxiv.org/pdf/2603.28753"
+              "title": "Analysis of country-wide internet outages caused by censorship",
+              "authors": "A. Dainotti, C. Squarcella, E. Aben, K. claffy, M. Chiesa, M. Russo, A. Pescapè",
+              "venue": "Proceedings of the 2011 ACM SIGCOMM conference on Internet measurement conference",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1145/2068816.2068818",
+              "url": "https://doi.org/10.1145/2068816.2068818",
+              "pdf": "http://wpage.unina.it/pescape/doc/06678649.pdf"
+            },
+            {
+              "text": "Giuseppe Aceto, Nick Feamster, Antonio Pescapè \"**[User-side approach for censorship detection: home-router and client-based platforms](http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_poster.pdf)**\" ([Abstract](http://wpage.unina.it/giuseppe.aceto/pub/aceto2013userside_abstract.pdf)), Connaught Summer Institute on Monitoring Internet Openness and Rights, University of Toronto July 22-26, 2013"
             }
           ],
           "links": [
@@ -979,6 +2267,11 @@
             {
               "name": "Forwarding detours",
               "link": "https://doi.org/10.1109/tnsm.2021.3062151"
+            },
+            {
+              "name": "Hynetd",
+              "link": "software/TD/",
+              "description": "Hybrid Network Topology Discovery: discovering network topologies at router level."
             }
           ],
           "sections": [],
@@ -999,9 +2292,115 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Antonio Montieri"
             }
           ],
           "papers": [
+            {
+              "title": "The Art of Detecting Forwarding Detours",
+              "authors": "J. M. Del Fiore, V. Persico, P. Mérindol, C. Pelsser, A. Pescapè",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2021,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2021.3062151",
+              "url": "https://doi.org/10.1109/tnsm.2021.3062151"
+            },
+            {
+              "title": "Où un opérateur IP cache-t-il ses détours ?",
+              "authors": "J. Del-Fiore, P. Mérindol, V. Persico, C. Pelsser, A. Pescapè",
+              "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+              "year": 2021,
+              "category": "conference",
+              "url": "https://hal.science/hal-03218858",
+              "pdf": "https://hal.science/hal-03218858v1/file/cores_2021.pdf"
+            },
+            {
+              "title": "Hic Sunt Proxies: Unveiling Proxy Phenomena in Mobile Networks",
+              "authors": "R. Zullo, A. Pescapè, K. Edeline, B. Donnet",
+              "venue": "2019 Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.23919/tma.2019.8784678",
+              "url": "https://doi.org/10.23919/tma.2019.8784678",
+              "pdf": "https://orbi.uliege.be/bitstream/2268/236225/1/paper.pdf"
+            },
+            {
+              "title": "Filtering the Noise to Reveal Inter-Domain Lies",
+              "authors": "J. M. Del Fiore, P. Mérindol, V. Persico, C. Pelsser, A. Pescapè",
+              "venue": "2019 Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.23919/tma.2019.8784618",
+              "url": "https://doi.org/10.23919/tma.2019.8784618"
+            },
+            {
+              "title": "Hic sunt NATs: Uncovering address translation with a smart traceroute",
+              "authors": "R. Zullo, A. Pescapè, K. Edeline, B. Donnet",
+              "venue": "2017 Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.23919/tma.2017.8002924",
+              "url": "https://doi.org/10.23919/tma.2017.8002924",
+              "pdf": "https://orbi.uliege.be/bitstream/2268/210725/1/paper.pdf"
+            },
+            {
+              "title": "Measuring Networks Using IP Options",
+              "authors": "P. Marchetta, V. Persico, G. Aceto, A. Botta, A. Pescapè",
+              "venue": "IEEE Network",
+              "year": 2017,
+              "category": "journal",
+              "doi": "10.1109/mnet.2017.1600070nm",
+              "url": "https://doi.org/10.1109/mnet.2017.1600070nm"
+            },
+            {
+              "title": "How and how much traceroute confuses our understanding of network paths",
+              "authors": "P. Marchetta, A. Montieri, V. Persico, A. Pescapè, Í. F. S. Cunha, E. Katz-Bassett",
+              "venue": "2016 IEEE International Symposium on Local and Metropolitan Area Networks (LANMAN)",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/lanman.2016.7548847",
+              "url": "https://doi.org/10.1109/lanman.2016.7548847"
+            },
+            {
+              "title": "Sibyl : A Practical Internet Route Oracle",
+              "authors": "Í. F. S. Cunha, P. Marchetta, M. Calder, Y.-C. Chiu, B. V. A. Machado, A. Pescapè, V. Giotsas, H. V. Madhyastha, E. Katz-Bassett",
+              "venue": "Lancaster EPrints (Lancaster University)",
+              "year": 2016,
+              "category": "book",
+              "url": "https://eprints.lancs.ac.uk/id/eprint/90222/1/nsdi16_paper_cunha.pdf",
+              "pdf": "https://eprints.lancs.ac.uk/id/eprint/90222/1/nsdi16_paper_cunha.pdf"
+            },
+            {
+              "title": "Mobile tracebox",
+              "authors": "R. Zullo, K. Edeline, A. Pescapè, B. Donnet",
+              "year": 2016,
+              "category": "other"
+            },
+            {
+              "title": "Experimenting with alternative path tracing solutions",
+              "authors": "P. Marchetta, W. de Donato, V. Persico, A. Pescapè",
+              "venue": "2015 IEEE Symposium on Computers and Communication (ISCC)",
+              "year": 2015,
+              "category": "conference",
+              "doi": "10.1109/iscc.2015.7405552",
+              "url": "https://doi.org/10.1109/iscc.2015.7405552",
+              "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/MarchettaISCC2015paper.pdf"
+            },
+            {
+              "title": "Issues, methodologies and solutions for Internet path tracing.",
+              "authors": "P. Marchetta, A. Pescapè, F. Garofalo",
+              "venue": "University of Naples Federico II, Italy",
+              "year": 2014,
+              "category": "other"
+            },
             {
               "title": "Detecting Third-Party Addresses in Traceroute Traces with IP Timestamp Option",
               "authors": "P. Marchetta, W. de Donato, A. Pescapè",
@@ -1011,6 +2410,34 @@
               "doi": "10.1007/978-3-642-36516-4_3",
               "url": "https://doi.org/10.1007/978-3-642-36516-4_3",
               "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/tpa_pam2013.pdf"
+            },
+            {
+              "title": "Pythia",
+              "authors": "P. Marchetta, V. Persico, A. Pescapè",
+              "venue": "Proceedings of the ninth ACM conference on Emerging networking experiments and technologies",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1145/2535372.2535413",
+              "url": "https://doi.org/10.1145/2535372.2535413"
+            },
+            {
+              "title": "Don't trust traceroute (completely)",
+              "authors": "P. Marchetta, V. Persico, A. Pescapè, E. Katz-Bassett",
+              "venue": "Proceedings of the 2013 workshop on Student workhop",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1145/2537148.2537155",
+              "url": "https://doi.org/10.1145/2537148.2537155"
+            },
+            {
+              "title": "DRAGO: Detecting, quantifying and locating hidden routers in Traceroute IP paths",
+              "authors": "P. Marchetta, A. Pescapè",
+              "venue": "2013 Proceedings IEEE INFOCOM",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1109/infcom.2013.6567144",
+              "url": "https://doi.org/10.1109/infcom.2013.6567144",
+              "pdf": "http://wpage.unina.it/pescape/doc/gi_infocom_2013_ca.pdf"
             },
             {
               "title": "Detecting third-party addresses in traceroute IP paths",
@@ -1023,16 +2450,72 @@
               "pdf": "https://dl.acm.org/doi/pdf/10.1145/2342356.2342384"
             },
             {
-              "text": "Pietro Marchetta, Valerio Persico, and Antonio Pescapè. [Pythia: yet another active probing technique for alias resolution](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf). In Proceedings of the ninth ACM conference on Emerging networking experiments and technologies (CoNEXT '13). ACM, New York, NY, USA, 229-234. DOI=10.1145/2535372.2535413 http://doi.acm.org/10.1145/2535372.2535413"
+              "title": "Quantifying and mitigating IGMP filtering in topology discovery",
+              "authors": "P. Marchetta, P. Mérindol, B. Donnet, A. Pescapè, J. Pansiot",
+              "venue": "2012 IEEE Global Communications Conference (GLOBECOM)",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1109/glocom.2012.6503388",
+              "url": "https://doi.org/10.1109/glocom.2012.6503388",
+              "pdf": "http://orbi.ulg.ac.be/bitstream/2268/130069/1/paper.pdf"
             },
             {
-              "title": "The Art of Detecting Forwarding Detours",
-              "authors": "J. M. Del Fiore, V. Persico, P. Mérindol, C. Pelsser, A. Pescapè",
-              "venue": "IEEE Transactions on Network and Service Management",
-              "year": 2021,
+              "title": "Topology Discovery at the Router Level: A New Hybrid Tool Targeting ISP Networks",
+              "authors": "P. Marchetta, P. Mérindol, B. Donnet, A. Pescapè, J. Pansiot",
+              "venue": "IEEE Journal on Selected Areas in Communications",
+              "year": 2011,
               "category": "journal",
-              "doi": "10.1109/tnsm.2021.3062151",
-              "url": "https://doi.org/10.1109/tnsm.2021.3062151"
+              "doi": "10.1109/jsac.2011.111003",
+              "url": "https://doi.org/10.1109/jsac.2011.111003",
+              "pdf": "https://orbi.uliege.be/bitstream/2268/107070/1/jsac_merlin.pdf"
+            },
+            {
+              "title": "The merlin topology discovery project",
+              "authors": "J. Pansiot, P. Mérindol, B. Donnet, A. Pescapè, P. Marchetta",
+              "year": 2011,
+              "category": "other"
+            },
+            {
+              "title": "An approach to the identification of network elements composing heterogeneous end-to-end paths",
+              "authors": "A. Botta, A. Pescapè, G. Ventre",
+              "venue": "Computer Networks",
+              "year": 2008,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2008.06.015",
+              "url": "https://doi.org/10.1016/j.comnet.2008.06.015",
+              "pdf": "https://www.sciencedirect.com/science/article/pii/S1389128608002120"
+            },
+            {
+              "title": "Discovering Topologies at Router Level: Part II",
+              "authors": "A. Botta, W. de Donato, A. Pescapè, G. Ventre",
+              "venue": "IEEE GLOBECOM 2007-2007 IEEE Global Telecommunications Conference",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/glocom.2007.511",
+              "url": "https://doi.org/10.1109/glocom.2007.511",
+              "pdf": "http://wpage.unina.it/pescape/doc/pescapeglobecom2007.pdf"
+            },
+            {
+              "title": "Identification of Network Bricks in Heterogeneous Scenarios",
+              "authors": "A. Botta, A. Pescapè, G. Ventre",
+              "venue": "Conference on Local Computer Networks",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/lcn.2006.322177",
+              "url": "https://doi.org/10.1109/lcn.2006.322177"
+            },
+            {
+              "title": "Discovering Topologies at Router Level",
+              "authors": "D. Emma, A. Pescapè, G. Ventre",
+              "venue": "Lecture notes in computer science",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1007/11567486_13",
+              "url": "https://doi.org/10.1007/11567486_13",
+              "pdf": "http://wpage.unina.it/pescape/doc/ipom05pescape.pdf"
+            },
+            {
+              "text": "Pietro Marchetta, Valerio Persico, and Antonio Pescapè. [Pythia: yet another active probing technique for alias resolution](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf). In Proceedings of the ninth ACM conference on Emerging networking experiments and technologies (CoNEXT '13). ACM, New York, NY, USA, 229-234. DOI=10.1145/2535372.2535413 http://doi.acm.org/10.1145/2535372.2535413"
             }
           ],
           "links": [],
@@ -1144,11 +2627,48 @@
             },
             {
               "name": "Valerio Persico"
+            },
+            {
+              "name": "Alessio Botta"
+            },
+            {
+              "name": "Giuseppe Aceto"
             }
           ],
           "papers": [
             {
-              "text": "Pietro Marchetta, Alessio Botta, Ethan Katz-Bassett, A. Pescapè, \"[Dissecting Round Trip Time on the Slow Path Using a One-Packet Approach](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaPAM14paper.pdf)\", Passive and Active Measurement (PAM) 2014, March, Los Angeles, USA."
+              "title": "Measuring Networks Using IP Options",
+              "authors": "P. Marchetta, V. Persico, G. Aceto, A. Botta, A. Pescapè",
+              "venue": "IEEE Network",
+              "year": 2017,
+              "category": "journal",
+              "doi": "10.1109/mnet.2017.1600070nm",
+              "url": "https://doi.org/10.1109/mnet.2017.1600070nm"
+            },
+            {
+              "title": "Distributed Active Measurement of Internet Queuing Delays",
+              "authors": "P. Casoria, D. Rossi, J. Augé, M.-O. Buob, T. Friedman, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2014,
+              "category": "conference",
+              "doi": "10.1007/978-3-319-04918-2_31",
+              "url": "https://doi.org/10.1007/978-3-319-04918-2_31"
+            },
+            {
+              "title": "Dissecting Round Trip Time on the Slow Path with a Single Packet",
+              "authors": "P. Marchetta, A. Botta, E. Katz-Bassett, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2014,
+              "category": "conference",
+              "doi": "10.1007/978-3-319-04918-2_9",
+              "url": "https://doi.org/10.1007/978-3-319-04918-2_9"
+            },
+            {
+              "title": "Actively monitoring bufferbloat, at a large-scale, from PlanetLab",
+              "authors": "P. Casoria, D. Rossi, J. Auge, M. O. Buob, T. Friedman, A. Pescapè",
+              "venue": "PAM 2014, Passive and Active Monitoring",
+              "year": 2014,
+              "category": "conference"
             },
             {
               "title": "Don't trust traceroute (completely)",
@@ -1161,9 +2681,6 @@
               "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13abstract.pdf"
             },
             {
-              "text": "Pietro Marchetta, Valerio Persico, Antonio Pescapè, \"[Pythia: Yet Another Active Probing Technique for Alias Resolution](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf)\", ACM CoNEXT 2013, Santa Barbara, California (USA), December 9-12, 2013"
-            },
-            {
               "title": "Detecting Third-Party Addresses in Traceroute Traces with IP Timestamp Option",
               "authors": "P. Marchetta, W. de Donato, A. Pescapè",
               "venue": "Lecture notes in computer science",
@@ -1172,6 +2689,16 @@
               "doi": "10.1007/978-3-642-36516-4_3",
               "url": "https://doi.org/10.1007/978-3-642-36516-4_3",
               "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/tpa_pam2013.pdf"
+            },
+            {
+              "title": "Remotely Gauging Upstream Bufferbloat Delays",
+              "authors": "C. Chirichella, D. Rossi, C. Testa, T. Friedman, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-36516-4_25",
+              "url": "https://doi.org/10.1007/978-3-642-36516-4_25",
+              "pdf": "http://wpage.unina.it/pescape/doc/13pam_utp_short.pdf"
             },
             {
               "title": "Detecting third-party addresses in traceroute IP paths",
@@ -1192,6 +2719,12 @@
               "doi": "10.1007/978-3-642-28537-0_19",
               "url": "https://doi.org/10.1007/978-3-642-28537-0_19",
               "pdf": "http://wpage.unina.it/pescape/doc/PAM2012paper19.pdf"
+            },
+            {
+              "text": "Pietro Marchetta, Alessio Botta, Ethan Katz-Bassett, A. Pescapè, \"[Dissecting Round Trip Time on the Slow Path Using a One-Packet Approach](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaPAM14paper.pdf)\", Passive and Active Measurement (PAM) 2014, March, Los Angeles, USA."
+            },
+            {
+              "text": "Pietro Marchetta, Valerio Persico, Antonio Pescapè, \"[Pythia: Yet Another Active Probing Technique for Alias Resolution](http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf)\", ACM CoNEXT 2013, Santa Barbara, California (USA), December 9-12, 2013"
             }
           ],
           "links": [
@@ -1269,9 +2802,76 @@
             },
             {
               "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Domenico Ciuonzo"
             }
           ],
           "papers": [
+            {
+              "title": "Characterization and analysis of cloud-to-user latency: The case of Azure and AWS",
+              "authors": "F. Palumbo, G. Aceto, A. Botta, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2020.107693",
+              "url": "https://doi.org/10.1016/j.comnet.2020.107693"
+            },
+            {
+              "title": "Computational intelligence intrusion detection techniques in mobile cloud computing environments: Review, taxonomy, and open research issues",
+              "authors": "S. S. Band, M. Fathi, A. T. Chronopoulos, A. Montieri, F. S. Palumbo, A. Pescapè",
+              "venue": "Journal of Information Security and Applications",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.jisa.2020.102582",
+              "url": "https://doi.org/10.1016/j.jisa.2020.102582"
+            },
+            {
+              "title": "Industry 4.0 and Health: Internet of Things, Big Data, and Cloud Computing for Healthcare 4.0",
+              "authors": "G. Aceto, V. Persico, A. Pescapè",
+              "venue": "Journal of Industrial Information Integration",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.jii.2020.100129",
+              "url": "https://doi.org/10.1016/j.jii.2020.100129"
+            },
+            {
+              "title": "Performance‐based service‐level agreement in cloud computing to optimise penalties and revenue",
+              "authors": "A. Badshah, A. Ghani, S. Shamshirband, G. Aceto, A. Pescapè",
+              "venue": "IET Communications",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1049/iet-com.2019.0855",
+              "url": "https://doi.org/10.1049/iet-com.2019.0855"
+            },
+            {
+              "title": "Characterizing Cloud-to-User Latency as Perceived by AWS and Azure Users Spread over the Globe",
+              "authors": "F. Palumbo, G. Aceto, A. Botta, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "2019 IEEE Global Communications Conference (GLOBECOM)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.1109/globecom38437.2019.9013343",
+              "url": "https://doi.org/10.1109/globecom38437.2019.9013343"
+            },
+            {
+              "title": "Software-Defined Cloud Computing: A Systematic Review on Latest Trends and Developments",
+              "authors": "A. A. Abbasi, A. Abbasi, S. Shamshirband, A. T. Chronopoulos, V. Persico, A. Pescapè",
+              "venue": "IEEE Access",
+              "year": 2019,
+              "category": "journal",
+              "doi": "10.1109/access.2019.2927822",
+              "url": "https://doi.org/10.1109/access.2019.2927822",
+              "pdf": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08758941.pdf"
+            },
+            {
+              "title": "Benchmarking big data architectures for social networks data processing using public cloud platforms",
+              "authors": "V. Persico, A. Pescapè, A. Picariello, G. Sperlí",
+              "venue": "Future Generation Computer Systems",
+              "year": 2018,
+              "category": "journal",
+              "doi": "10.1016/j.future.2018.05.068",
+              "url": "https://doi.org/10.1016/j.future.2018.05.068"
+            },
             {
               "title": "A Fuzzy Approach Based on Heterogeneous Metrics for Scaling Out Public Clouds",
               "authors": "V. Persico, D. Grimaldi, A. Pescapè, A. Salvi, S. Santini",
@@ -1323,6 +2923,13 @@
               "pdf": "http://wpage.unina.it/valerio.persico/pubs/cloudsurf.pdf"
             },
             {
+              "title": "Network monitoring in public clouds: issues, methodologies, and applications.",
+              "authors": "V. Persico, A. Pescapè, F. Garofalo",
+              "venue": "University of Naples Federico II, Italy",
+              "year": 2016,
+              "category": "other"
+            },
+            {
               "title": "Integration of Cloud computing and Internet of Things: A survey",
               "authors": "A. Botta, W. de Donato, V. Persico, A. Pescapè",
               "venue": "Future Generation Computer Systems",
@@ -1361,6 +2968,15 @@
               "doi": "10.1109/glocom.2015.7416997",
               "url": "https://doi.org/10.1109/glocom.2015.7416997",
               "pdf": "http://wpage.unina.it/valerio.persico/pubs/NetThroughputAzure.pdf"
+            },
+            {
+              "title": "Internet of Things and Cloud Services",
+              "authors": "M. Younas, I. U. Awan, A. Pescapè",
+              "venue": "Future Generation Computer Systems",
+              "year": 2015,
+              "category": "journal",
+              "doi": "10.1016/j.future.2015.11.019",
+              "url": "https://doi.org/10.1016/j.future.2015.11.019"
             },
             {
               "title": "On the Integration of Cloud Computing and Internet of Things",
@@ -1459,9 +3075,39 @@
             },
             {
               "name": "Alessio Botta"
+            },
+            {
+              "name": "Antonio Montieri"
             }
           ],
           "papers": [
+            {
+              "title": "BlockSD‐5GNet: Enhancing security of 5G network through blockchain‐SDN with ML‐based bandwidth prediction",
+              "authors": "A. Rahman, M. S. I. Khan, A. Montieri, M. J. Islam, M. R. Karim, M. Hasan, D. Kundu, M. K. Nasir, A. Pescapè",
+              "venue": "Transactions on Emerging Telecommunications Technologies",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1002/ett.4965",
+              "url": "https://doi.org/10.1002/ett.4965"
+            },
+            {
+              "title": "Flock: A Live Migration Protocol for SDN Controllers",
+              "authors": "C. Contoli, F. Palumbo, F. Esposito, F. Callegati, A. Pescapè",
+              "venue": "IEEE Conference Proceedings",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.1109/nfv-sdn47374.2019.9040146",
+              "url": "https://doi.org/10.1109/nfv-sdn47374.2019.9040146"
+            },
+            {
+              "title": "Evaluation of SDN-based bandwidth estimation in Mobile Broad Band networks",
+              "authors": "G. Aceto, F. Palumbo, V. Persico, H. Chen, A. Pescapè",
+              "venue": "2018 24th Asia-Pacific Conference on Communications (APCC)",
+              "year": 2018,
+              "category": "conference",
+              "doi": "10.1109/apcc.2018.8633562",
+              "url": "https://doi.org/10.1109/apcc.2018.8633562"
+            },
             {
               "title": "An experimental evaluation of the impact of heterogeneous scenarios and virtualization on the available bandwidth estimation tools",
               "authors": "G. Aceto, F. Palumbo, V. Persico, A. Pescapè",
@@ -1501,6 +3147,13 @@
               "doi": "10.1145/2851613.2851727",
               "url": "https://doi.org/10.1145/2851613.2851727",
               "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/megyesi2016available.pdf"
+            },
+            {
+              "title": "Available Bandwidth measurement in SDN",
+              "authors": "P. Megyesi, A. Botta, G. Aceto, A. Pescapè, S. Molnár",
+              "venue": "ACM SAC 2016",
+              "year": 2016,
+              "category": "conference"
             }
           ],
           "links": [
@@ -1573,6 +3226,16 @@
               "category": "other"
             },
             {
+              "title": "A tool for the generation of realistic network workload for emerging networking scenarios",
+              "authors": "A. Botta, A. Dainotti, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2012,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2012.02.019",
+              "url": "https://doi.org/10.1016/j.comnet.2012.02.019",
+              "pdf": "http://wpage.unina.it/pescape/doc/workload_comnet_2012.pdf"
+            },
+            {
               "title": "Do you trust your software-based traffic generator?",
               "authors": "A. Botta, A. Dainotti, A. Pescapè",
               "venue": "IEEE Communications Magazine",
@@ -1588,6 +3251,16 @@
               "venue": "INFOCOM 2007 DEMO Session",
               "year": 2007,
               "category": "conference"
+            },
+            {
+              "title": "Do you know what you are generating?",
+              "authors": "A. Dainotti, A. Botta, A. Pescapè",
+              "venue": "Proceedings of the 2007 ACM CoNEXT conference on - CoNEXT '07",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1145/1364654.1364695",
+              "url": "https://doi.org/10.1145/1364654.1364695",
+              "pdf": "http://wpage.unina.it/pescape/doc/CONEXT2007pescape.pdf"
             },
             {
               "title": "High Performance Internet Traffic Generators",
@@ -1634,6 +3307,15 @@
               "category": "conference",
               "url": "https://www.iris.unina.it/handle/11588/342336",
               "pdf": "http://wpage.unina.it/pescape/doc/T135_Pescape.pdf"
+            },
+            {
+              "title": "Analysis and experimentation of an open distributed platform for synthetic",
+              "authors": "D. Emma, A. Pescapè, G. Ventre",
+              "venue": "Proceedings. 10th IEEE International Workshop on Future Trends of Distributed Computing Systems, 2004. FTDCS 2004.",
+              "year": 2004,
+              "category": "conference",
+              "doi": "10.1109/ftdcs.2004.1316627",
+              "url": "https://doi.org/10.1109/ftdcs.2004.1316627"
             }
           ],
           "links": [
@@ -1678,9 +3360,33 @@
             },
             {
               "name": "Alessio Botta"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Valerio Persico"
             }
           ],
           "papers": [
+            {
+              "title": "Available Bandwidth vs. Achievable Throughput Measurements in 4G Mobile Networks",
+              "authors": "G. Aceto, F. Palumbo, V. Persico, A. Pescapè",
+              "venue": "Conference on Network and Service Management",
+              "year": 2018,
+              "category": "conference",
+              "url": "https://dblp.uni-trier.de/db/conf/cnsm/cnsm2018.html#AcetoPPP18"
+            },
+            {
+              "title": "Spatial Interpolation based Cellular Coverage Prediction with Crowdsourced Measurements",
+              "authors": "M. Molinari, M.-R. Fida, M. K. Marina, A. Pescapè",
+              "venue": "Proceedings of the 2015 ACM SIGCOMM Workshop on Crowdsourcing and Crowdsharing of Big (Internet) Data",
+              "year": 2015,
+              "category": "conference",
+              "doi": "10.1145/2787394.2787395",
+              "url": "https://doi.org/10.1145/2787394.2787395",
+              "pdf": "http://conferences.sigcomm.org/sigcomm/2015/pdf/papers/c2bid/p33.pdf"
+            },
             {
               "title": "HoBBIT: A Platform for Monitoring Broadband Performance from the User Network",
               "authors": "W. de Donato, A. Botta, A. Pescapè",
@@ -1702,6 +3408,13 @@
               "pdf": "http://wpage.unina.it/pescape/doc/06829965.pdf"
             },
             {
+              "title": "Actively monitoring bufferbloat, at a large-scale, from PlanetLab",
+              "authors": "P. Casoria, D. Rossi, J. Auge, M. O. Buob, T. Friedman, A. Pescapè",
+              "venue": "PAM 2014, Passive and Active Monitoring",
+              "year": 2014,
+              "category": "conference"
+            },
+            {
               "title": "New generation satellite broadband Internet services: Should ADSL and 3G worry?",
               "authors": "A. Botta, A. Pescapè",
               "venue": "2013 Proceedings IEEE INFOCOM",
@@ -1710,6 +3423,26 @@
               "doi": "10.1109/infcom.2013.6567151",
               "url": "https://doi.org/10.1109/infcom.2013.6567151",
               "pdf": "http://wpage.unina.it/pescape/doc/tma_infocom_2013_ca.pdf"
+            },
+            {
+              "title": "Passive bufferbloat measurement exploiting transport layer information",
+              "authors": "C. Chirichella, D. Rossi, C. Testa, T. Friedman, A. Pescapè",
+              "venue": "2013 IEEE Global Communications Conference (GLOBECOM)",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1109/glocom.2013.6831525",
+              "url": "https://doi.org/10.1109/glocom.2013.6831525",
+              "pdf": "http://wpage.unina.it/pescape/doc/utp_globecom_13.pdf"
+            },
+            {
+              "title": "Remotely Gauging Upstream Bufferbloat Delays",
+              "authors": "C. Chirichella, D. Rossi, C. Testa, T. Friedman, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-36516-4_25",
+              "url": "https://doi.org/10.1007/978-3-642-36516-4_25",
+              "pdf": "http://wpage.unina.it/pescape/doc/13pam_utp_short.pdf"
             },
             {
               "title": "BISmark: A Platform for Broadband Internet and Home Network Research",
@@ -1730,6 +3463,15 @@
               "url": "https://doi.org/10.1145/2366316.2366337"
             },
             {
+              "title": "Inferring the buffering delay of remote BitTorrent peers under LEDBAT vs TCP",
+              "authors": "C. Chirichella, D. Rossi, C. Testa, T. Friedman, A. Pescapè",
+              "venue": "2012 IEEE 12th International Conference on Peer-to-Peer Computing (P2P)",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1109/p2p.2012.6335819",
+              "url": "https://doi.org/10.1109/p2p.2012.6335819"
+            },
+            {
               "title": "Broadband internet performance",
               "authors": "S. Sundaresan, W. de Donato, N. Feamster, R. Teixeira, S. Crawford, A. Pescapè",
               "venue": "Proceedings of the ACM SIGCOMM 2011 conference",
@@ -1747,10 +3489,48 @@
               "category": "other"
             },
             {
+              "title": "A customer service assurance platform for mobile broadband networks",
+              "authors": "A. Botta, A. Pescapè, C. Guerrini, M. Mangri",
+              "venue": "IEEE Communications Magazine",
+              "year": 2011,
+              "category": "journal",
+              "doi": "10.1109/mcom.2011.6035823",
+              "url": "https://doi.org/10.1109/mcom.2011.6035823",
+              "pdf": "http://wpage.unina.it/a.botta/pub/COMMAG_UNINA_ACCANTO_O2.pdf"
+            },
+            {
               "title": "Benchmarking broadband internet with bismark",
               "authors": "S. Sundaresan, W. de Donato, N. Feamster, A. Pescapè, R. Teixeira",
               "year": 2010,
               "category": "conference"
+            },
+            {
+              "title": "Performance footprints of heavy-users in 3G networks via empirical measurement",
+              "authors": "A. Botta, A. Pescapè, G. Ventre, E. W. Biersack, S. Rugel",
+              "venue": "Modeling and Optimization in Mobile, Ad-Hoc and Wireless Networks",
+              "year": 2010,
+              "category": "journal",
+              "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.299.6578",
+              "pdf": "http://wpage.unina.it/a.botta/pub/winmee2010.pdf"
+            },
+            {
+              "title": "Integration of 3G Connectivity in PlanetLab Europe",
+              "authors": "A. Botta, R. Canonico, G. Di Stasi, A. Pescapè, G. Ventre, S. Fdida",
+              "venue": "Mobile Networks and Applications",
+              "year": 2010,
+              "category": "journal",
+              "doi": "10.1007/s11036-010-0224-z",
+              "url": "https://doi.org/10.1007/s11036-010-0224-z"
+            },
+            {
+              "title": "Providing UMTS connectivity to PlanetLab nodes",
+              "authors": "A. Botta, R. Canonico, G. Di Stasi, A. Pescapè, G. Ventre",
+              "venue": "Proceedings of the 2008 ACM CoNEXT Conference on - CONEXT '08",
+              "year": 2008,
+              "category": "conference",
+              "doi": "10.1145/1544012.1544086",
+              "url": "https://doi.org/10.1145/1544012.1544086",
+              "pdf": "http://wpage.unina.it/pescape/doc/ROADS08.pdf"
             }
           ],
           "links": [],
@@ -1768,7 +3548,7 @@
             },
             {
               "name": "Plab",
-              "link": "https://traffic.comics.unina.it/software/Plab"
+              "link": "software/Plab/"
             },
             {
               "name": "WWAN",
@@ -1807,9 +3587,50 @@
             },
             {
               "name": "Alessio Botta"
+            },
+            {
+              "name": "Walter de Donato"
+            },
+            {
+              "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Pietro Marchetta"
             }
           ],
           "papers": [
+            {
+              "title": "Traffic identification engine: an open platform for traffic classification",
+              "authors": "W. de Donato, A. Pescapè, A. Dainotti",
+              "venue": "IEEE Network",
+              "year": 2014,
+              "category": "journal",
+              "doi": "10.1109/mnet.2014.6786614",
+              "url": "https://doi.org/10.1109/mnet.2014.6786614",
+              "pdf": "http://www.caida.org/publications/papers/2014/traffic_identification_engine/traffic_identification_engine.pdf"
+            },
+            {
+              "title": "TIE: Traffic Identification Engine",
+              "authors": "G. Aceto, A. Dainotti, W. de Donato, A. Pescapè",
+              "venue": "PIK - Praxis der Informationsverarbeitung und Kommunikation",
+              "year": 2013,
+              "category": "journal",
+              "doi": "10.1515/pik-2012-0063",
+              "url": "https://doi.org/10.1515/pik-2012-0063"
+            },
+            {
+              "title": "Open Source Platforms for Internet Monitoring and Measurement",
+              "authors": "G. Aceto, A. Botta, W. de Donato, P. Marchetta, A. Pescapè, G. Ventre",
+              "venue": "2012 Eighth International Conference on Signal Image Technology and Internet Based Systems",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1109/sitis.2012.87",
+              "url": "https://doi.org/10.1109/sitis.2012.87",
+              "pdf": "http://wpage.unina.it/pescape/doc/SITIS2012.pdf"
+            },
             {
               "title": "A customer service assurance platform for mobile broadband networks",
               "authors": "A. Botta, A. Pescapè, C. Guerrini, M. Mangri",
@@ -1821,6 +3642,16 @@
               "pdf": "http://wpage.unina.it/a.botta/pub/COMMAG_UNINA_ACCANTO_O2.pdf"
             },
             {
+              "title": "Monitoring and measuring wireless network performance in the presence of middleboxes",
+              "authors": "A. Botta, A. Pescapè",
+              "venue": "2011 Eighth International Conference on Wireless On-Demand Network Systems and Services",
+              "year": 2011,
+              "category": "conference",
+              "doi": "10.1109/wons.2011.5720184",
+              "url": "https://doi.org/10.1109/wons.2011.5720184",
+              "pdf": "http://wpage.unina.it/a.botta/pub/wons2011.pdf"
+            },
+            {
               "title": "Performance footprints of heavy-users in 3G networks via empirical measurement",
               "authors": "A. Botta, A. Pescapè, G. Ventre, E. W. Biersack, S. Rugel",
               "venue": "Modeling and Optimization in Mobile, Ad-Hoc and Wireless Networks",
@@ -1830,14 +3661,30 @@
               "pdf": "http://wpage.unina.it/a.botta/pub/winmee2010.pdf"
             },
             {
-              "title": "Monitoring and measuring wireless network performance in the presence of middleboxes",
-              "authors": "A. Botta, A. Pescapè",
-              "venue": "2011 Eighth International Conference on Wireless On-Demand Network Systems and Services",
-              "year": 2011,
+              "title": "PortLoad: Taking the Best of Two Worlds in Traffic Classification",
+              "authors": "G. Aceto, A. Dainotti, W. de Donato, A. Pescapè",
+              "venue": "2010 INFOCOM IEEE Conference on Computer Communications Workshops",
+              "year": 2010,
               "category": "conference",
-              "doi": "10.1109/wons.2011.5720184",
-              "url": "https://doi.org/10.1109/wons.2011.5720184",
-              "pdf": "http://wpage.unina.it/a.botta/pub/wons2011.pdf"
+              "doi": "10.1109/infcomw.2010.5466645",
+              "url": "https://doi.org/10.1109/infcomw.2010.5466645",
+              "pdf": "http://wpage.unina.it/alberto/papers/portload_infocom2010.pdf"
+            },
+            {
+              "title": "TIE: A Community-Oriented Traffic Classification Platform",
+              "authors": "A. Dainotti, W. de Donato, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2009,
+              "category": "conference",
+              "doi": "10.1007/978-3-642-01645-5_8",
+              "url": "https://doi.org/10.1007/978-3-642-01645-5_8"
+            },
+            {
+              "title": "Plab: a packet capture and analysis architecture",
+              "authors": "A. Dainotti, A. Pescapè",
+              "venue": "Technical Report TR-DIS-122004, Dipartimento di Informatica eSistemistica",
+              "year": 2004,
+              "category": "other"
             }
           ],
           "links": [],
@@ -1914,9 +3761,61 @@
             },
             {
               "name": "Pietro Marchetta"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Alberto Dainotti"
             }
           ],
           "papers": [
+            {
+              "title": "Available Bandwidth vs. Achievable Throughput Measurements in 4G Mobile Networks",
+              "authors": "G. Aceto, F. Palumbo, V. Persico, A. Pescapè",
+              "venue": "Conference on Network and Service Management",
+              "year": 2018,
+              "category": "conference",
+              "url": "https://dblp.uni-trier.de/db/conf/cnsm/cnsm2018.html#AcetoPPP18"
+            },
+            {
+              "title": "An experimental evaluation of the impact of heterogeneous scenarios and virtualization on the available bandwidth estimation tools",
+              "authors": "G. Aceto, F. Palumbo, V. Persico, A. Pescapè",
+              "venue": "2017 IEEE International Workshop on Measurement and Networking (M&N)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.1109/iwmn.2017.8078402",
+              "url": "https://doi.org/10.1109/iwmn.2017.8078402"
+            },
+            {
+              "title": "IP packet interleaving for UDP bursty losses",
+              "authors": "A. Botta, A. Pescapè",
+              "venue": "Journal of Systems and Software",
+              "year": 2015,
+              "category": "journal",
+              "doi": "10.1016/j.jss.2015.07.048",
+              "url": "https://doi.org/10.1016/j.jss.2015.07.048"
+            },
+            {
+              "title": "DRAGO: Detecting, quantifying and locating hidden routers in Traceroute IP paths",
+              "authors": "P. Marchetta, A. Pescapè",
+              "venue": "2013 Proceedings IEEE INFOCOM",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1109/infcom.2013.6567144",
+              "url": "https://doi.org/10.1109/infcom.2013.6567144",
+              "pdf": "http://wpage.unina.it/pescape/doc/gi_infocom_2013_ca.pdf"
+            },
+            {
+              "title": "A quality of experience handover system for heterogeneous multimedia wireless networks",
+              "authors": "C. Quadros, E. Cerqueira, A. Neto, A. Pescapè, A. Riker, R. Immich, M. Curado",
+              "venue": "2013 International Conference on Computing, Networking and Communications (ICNC)",
+              "year": 2013,
+              "category": "conference",
+              "doi": "10.1109/iccnc.2013.6504239",
+              "url": "https://doi.org/10.1109/iccnc.2013.6504239",
+              "pdf": "http://wpage.unina.it/pescape/doc/ICNC2013.pdf"
+            },
             {
               "title": "Unified architecture for network measurement: The case of available bandwidth",
               "authors": "G. Aceto, A. Botta, A. Pescapè, M. D’Arienzo",
@@ -1926,46 +3825,6 @@
               "doi": "10.1016/j.jnca.2011.10.010",
               "url": "https://doi.org/10.1016/j.jnca.2011.10.010",
               "pdf": "http://wpage.unina.it/a.botta/pub/uanm-jnca.pdf"
-            },
-            {
-              "title": "UANM: a platform for experimenting with available bandwidth estimation tools",
-              "authors": "G. Aceto, A. Botta, A. Pescapè, M. D’Arienzo",
-              "venue": "The IEEE symposium on Computers and Communications",
-              "year": 2010,
-              "category": "conference",
-              "doi": "10.1109/iscc.2010.5546773",
-              "url": "https://doi.org/10.1109/iscc.2010.5546773",
-              "pdf": "http://wpage.unina.it/a.botta/pub/iscc2010.pdf"
-            },
-            {
-              "title": "Measuring Wireless Links Capacity",
-              "authors": "L. Angrisani, A. Botta, A. Pescapè, M. Vadursi",
-              "venue": "2006 1st International Symposium on Wireless Pervasive Computing",
-              "year": 2006,
-              "category": "conference",
-              "doi": "10.1109/iswpc.2006.1613635",
-              "url": "https://doi.org/10.1109/iswpc.2006.1613635",
-              "pdf": "http://wpage.unina.it/pescape/doc/ISWPC2006pescape.pdf"
-            },
-            {
-              "title": "BET: A Hybrid Bandwidth Estimation Tool",
-              "authors": "A. Botta, S. D’Antonio, A. Pescapè, G. Ventre",
-              "venue": "11th International Conference on Parallel and Distributed Systems (ICPADS'05)",
-              "year": 2006,
-              "category": "conference",
-              "doi": "10.1109/icpads.2005.103",
-              "url": "https://doi.org/10.1109/icpads.2005.103",
-              "pdf": "http://wpage.unina.it/pescape/doc/ICPADS2005pescape.pdf"
-            },
-            {
-              "title": "On the Performance of Bandwidth Estimation Tools",
-              "authors": "A. Botta, A. Pescapè, G. Ventre",
-              "venue": "2005 Systems Communications (ICW'05, ICHSN'05, ICMCS'05, SENET'05)",
-              "year": 2005,
-              "category": "conference",
-              "doi": "10.1109/icw.2005.61",
-              "url": "https://doi.org/10.1109/icw.2005.61",
-              "pdf": "http://wpage.unina.it/pescape/doc/ICHSN2005pescape.pdf"
             },
             {
               "title": "IP packet interleaving: Bridging the gap between theory and practice",
@@ -1978,7 +3837,24 @@
               "pdf": "http://wpage.unina.it/a.botta/pub/iscc2011.pdf"
             },
             {
-              "text": "Vinh Bui, Weiping Zhu, Alessio Botta, Antonio Pescapè, \"**[A Markovian Approach to Multi-path Data Transfer in Overlay Networks](http://wpage.unina.it/a.botta/pub/TPDS_MULTIPATH.pdf)**\", IEEE Transactions on Parallel and Distributed Systems, vol.21, no.10, pp.1398-1411, Oct. 2010."
+              "title": "UANM: a platform for experimenting with available bandwidth estimation tools",
+              "authors": "G. Aceto, A. Botta, A. Pescapè, M. D’Arienzo",
+              "venue": "The IEEE symposium on Computers and Communications",
+              "year": 2010,
+              "category": "conference",
+              "doi": "10.1109/iscc.2010.5546773",
+              "url": "https://doi.org/10.1109/iscc.2010.5546773",
+              "pdf": "http://wpage.unina.it/a.botta/pub/iscc2010.pdf"
+            },
+            {
+              "title": "A Markovian Approach to Multipath Data Transfer in Overlay Networks",
+              "authors": "V. Q. Bui, W. Zhu, A. Botta, A. Pescapè",
+              "venue": "IEEE Transactions on Parallel and Distributed Systems",
+              "year": 2010,
+              "category": "journal",
+              "doi": "10.1109/tpds.2010.13",
+              "url": "https://doi.org/10.1109/tpds.2010.13",
+              "pdf": "http://wpage.unina.it/a.botta/pub/TPDS_MULTIPATH.pdf"
             },
             {
               "title": "Towards informed diversity in IP networks: techniques, issues, and solutions",
@@ -2007,14 +3883,272 @@
               "pdf": "http://wpage.unina.it/pescape/doc/S01S09P01.PDF"
             },
             {
-              "title": "DRAGO: Detecting, quantifying and locating hidden routers in Traceroute IP paths",
-              "authors": "P. Marchetta, A. Pescapè",
-              "venue": "2013 Proceedings IEEE INFOCOM",
-              "year": 2013,
+              "title": "Challenges in Second-Generation Wireless Mesh Networks",
+              "authors": "R. P. Karrer, A. Pescapè, T. Huehn",
+              "venue": "EURASIP Journal on Wireless Communications and Networking",
+              "year": 2008,
+              "category": "journal",
+              "doi": "10.1155/2008/274790",
+              "url": "https://doi.org/10.1155/2008/274790",
+              "pdf": "https://jwcn-eurasipjournals.springeropen.com/counter/pdf/10.1155/2008/274790"
+            },
+            {
+              "title": "High-speed backhaul networks: Myth or reality?",
+              "authors": "R. P. Karrer, A. Botta, A. Pescapè",
+              "venue": "Computer Communications",
+              "year": 2008,
+              "category": "journal",
+              "doi": "10.1016/j.comcom.2008.01.034",
+              "url": "https://doi.org/10.1016/j.comcom.2008.01.034",
+              "pdf": "http://wpage.unina.it/pescape/doc/COMCOM3592.pdf"
+            },
+            {
+              "title": "Performance measurement of IEEE 802.11b-based networks affected by narrowband interference through cross-layer measurements",
+              "authors": "L. Angrisani, A. Pescapè, G. Ventre, M. Vadursi",
+              "venue": "IET Communications",
+              "year": 2008,
+              "category": "journal",
+              "doi": "10.1049/iet-com:20070017",
+              "url": "https://doi.org/10.1049/iet-com:20070017"
+            },
+            {
+              "title": "Wireless Networks Test-beds: When Heterogeneity Plays with Us",
+              "authors": "A. Botta, A. Pescapè, R. P. Karrer",
+              "venue": "Heterogeneous Wireless Access Networks",
+              "year": 2008,
+              "category": "book",
+              "doi": "10.1007/978-0-387-09777-0_16",
+              "url": "https://doi.org/10.1007/978-0-387-09777-0_16"
+            },
+            {
+              "title": "SCTP vs. TCP Delay and Packet Loss",
+              "authors": "M. K. Afzal, Aman-Ullah-Khan, A. Pescapè, Y. B. Zikria, S. Loreto",
+              "venue": "2007 IEEE International Multitopic Conference",
+              "year": 2007,
               "category": "conference",
-              "doi": "10.1109/infcom.2013.6567144",
-              "url": "https://doi.org/10.1109/infcom.2013.6567144",
-              "pdf": "http://wpage.unina.it/pescape/doc/gi_infocom_2013_ca.pdf"
+              "doi": "10.1109/inmic.2007.4557683",
+              "url": "https://doi.org/10.1109/inmic.2007.4557683",
+              "pdf": "http://wpage.unina.it/pescape/doc/04557683.pdf"
+            },
+            {
+              "title": "High-speed wireless backbones: measurements from MagNets",
+              "authors": "A. Botta, A. Pescapè, G. Ventre, R. P. Karrer",
+              "venue": "2007 Fourth International Conference on Broadband Communications, Networks and Systems (BROADNETS '07)",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/broadnets.2007.4550499",
+              "url": "https://doi.org/10.1109/broadnets.2007.4550499",
+              "pdf": "http://wpage.unina.it/pescape/doc/broadnets07.pdf"
+            },
+            {
+              "title": "Quality of service statistics over heterogeneous networks: Analysis and applications",
+              "authors": "A. Botta, A. Pescapè, G. Ventre",
+              "venue": "European Journal of Operational Research",
+              "year": 2007,
+              "category": "journal",
+              "doi": "10.1016/j.ejor.2007.07.022",
+              "url": "https://doi.org/10.1016/j.ejor.2007.07.022",
+              "pdf": "http://wpage.unina.it/pescape/doc/jorpescape2007.pdf"
+            },
+            {
+              "title": "SCTP performance evaluation over heterogeneous networks",
+              "authors": "A. Dainotti, S. Loreto, A. Pescapè, G. Ventre",
+              "venue": "Concurrency and Computation Practice and Experience",
+              "year": 2007,
+              "category": "journal",
+              "doi": "10.1002/cpe.1159",
+              "url": "https://doi.org/10.1002/cpe.1159",
+              "pdf": "http://wpage.unina.it/pescape/doc/sctp2007pescape.pdf"
+            },
+            {
+              "title": "MagNets - experiences from deploying a joint research-operational next-generation wireless access network testbed",
+              "authors": "R. P. Karrer, Í. Matyasovszki, A. Botta, A. Pescapè",
+              "venue": "2007 3rd International Conference on Testbeds and Research Infrastructure for the Development of Networks and Communities",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/tridentcom.2007.4444714",
+              "url": "https://doi.org/10.1109/tridentcom.2007.4444714",
+              "pdf": "http://wpage.unina.it/pescape/doc/tridentcom2007pescape.pdf"
+            },
+            {
+              "title": "2nd Generation Wireless Mesh Networks: Technical, Economical and Social Challenges",
+              "authors": "R. P. Karrer, A. Pescapè",
+              "venue": "Future Generation Communication and Networking (FGCN 2007)",
+              "year": 2007,
+              "category": "conference",
+              "doi": "10.1109/fgcn.2007.2",
+              "url": "https://doi.org/10.1109/fgcn.2007.2",
+              "pdf": "http://wpage.unina.it/pescape/doc/FGCN07.pdf"
+            },
+            {
+              "title": "Measuring Wireless Links Capacity",
+              "authors": "L. Angrisani, A. Botta, A. Pescapè, M. Vadursi",
+              "venue": "2006 1st International Symposium on Wireless Pervasive Computing",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/iswpc.2006.1613635",
+              "url": "https://doi.org/10.1109/iswpc.2006.1613635",
+              "pdf": "http://wpage.unina.it/pescape/doc/ISWPC2006pescape.pdf"
+            },
+            {
+              "title": "BET: A Hybrid Bandwidth Estimation Tool",
+              "authors": "A. Botta, S. D’Antonio, A. Pescapè, G. Ventre",
+              "venue": "11th International Conference on Parallel and Distributed Systems (ICPADS'05)",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/icpads.2005.103",
+              "url": "https://doi.org/10.1109/icpads.2005.103",
+              "pdf": "http://wpage.unina.it/pescape/doc/ICPADS2005pescape.pdf"
+            },
+            {
+              "title": "Experimental evaluation and characterization of the magnets wireless backbone",
+              "authors": "R. P. Karrer, Í. Matyasovszki, A. Botta, A. Pescapè",
+              "venue": "Proceedings of the 1st international workshop on Wireless network testbeds, experimental evaluation & characterization",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1145/1160987.1160994",
+              "url": "https://doi.org/10.1145/1160987.1160994"
+            },
+            {
+              "title": "Systematic performance modeling and characterization of heterogeneous IP networks",
+              "authors": "A. Botta, D. Emma, A. Pescapè, G. Ventre",
+              "venue": "Journal of Computer and System Sciences",
+              "year": 2006,
+              "category": "journal",
+              "doi": "10.1016/j.jcss.2005.12.003",
+              "url": "https://doi.org/10.1016/j.jcss.2005.12.003",
+              "pdf": "https://www.sciencedirect.com/science/article/pii/S0022000006000213/pdf"
+            },
+            {
+              "title": "Performance evaluation of the magnets backbone",
+              "authors": "A. Botta, I. Matyasovszki, A. Pescapè, R. Karrer",
+              "venue": "Deutsche Telekom Laboratories and University of Napoli” Federico II”, Tech. Rep",
+              "year": 2006,
+              "category": "other"
+            },
+            {
+              "title": "Measuring SCTP throughput and jitter over heterogeneous networks",
+              "authors": "D. Emma, S. Loreto, A. Pescapè, G. Ventre",
+              "venue": "20th International Conference on Advanced Information Networking and Applications - Volume 1 (AINA'06)",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/aina.2006.212",
+              "url": "https://doi.org/10.1109/aina.2006.212"
+            },
+            {
+              "title": "Magnets: an experimental wireless access network",
+              "authors": "R. Karrer",
+              "year": 2006,
+              "category": "other"
+            },
+            {
+              "title": "On the Performance of Bandwidth Estimation Tools",
+              "authors": "A. Botta, A. Pescapè, G. Ventre",
+              "venue": "2005 Systems Communications (ICW'05, ICHSN'05, ICMCS'05, SENET'05)",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1109/icw.2005.61",
+              "url": "https://doi.org/10.1109/icw.2005.61",
+              "pdf": "http://wpage.unina.it/pescape/doc/ICHSN2005pescape.pdf"
+            },
+            {
+              "title": "Seamless internetworking of WLANs and cellular networks: architecture and performance issues in a mobile IPv6 scenario",
+              "authors": "M. Bernaschi, F. Cacace, G. Iannello, S. Za, A. Pescapè",
+              "venue": "IEEE Personal Communications",
+              "year": 2005,
+              "category": "journal",
+              "doi": "10.1109/mwc.2005.1452857",
+              "url": "https://doi.org/10.1109/mwc.2005.1452857",
+              "pdf": "http://wpage.unina.it/pescape/doc/WCM2005pescape.pdf"
+            },
+            {
+              "title": "Analysis and Experimentation over Heterogeneous Wireless Networks",
+              "authors": "M. Bernaschi, A. Pescapè, F. Cacace, S. Za",
+              "venue": "First International Conference on Testbeds and Research Infrastructures for the DEvelopment of NeTworks and COMmunities",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1109/tridnt.2005.13",
+              "url": "https://doi.org/10.1109/tridnt.2005.13",
+              "pdf": "http://wpage.unina.it/pescape/doc/Tridentcom2005pescape.pdf"
+            },
+            {
+              "title": "Measuring Quality of Service Parameters over Heterogeneous IP Networks",
+              "authors": "A. Pescapè, L. Vollero, G. Iannello, G. Ventre",
+              "venue": "Lecture notes in computer science",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1007/978-3-540-31957-3_81",
+              "url": "https://doi.org/10.1007/978-3-540-31957-3_81"
+            },
+            {
+              "title": "Improving accuracy in available bandwidth estimation for IEEE 802.11-based ad hoc networks",
+              "authors": "A. Botta, A. Pescapè, G. Ventre",
+              "venue": "Proc. of IEEE Systems Communications",
+              "year": 2005,
+              "category": "conference"
+            },
+            {
+              "title": "End-to-end packet-channel Bayesian model applied to heterogeneous wireless networks",
+              "authors": "G. Iannello, F. Palmieri, A. Pescapè, P. S. Rossi",
+              "venue": "GLOBECOM '05. IEEE Global Telecommunications Conference, 2005.",
+              "year": 2005,
+              "category": "conference",
+              "doi": "10.1109/glocom.2005.1577673",
+              "url": "https://doi.org/10.1109/glocom.2005.1577673",
+              "pdf": "http://wpage.unina.it/pescape/doc/globecom2005pescape.pdf"
+            },
+            {
+              "title": "Dynamic Service Management in Heterogeneous Networks",
+              "authors": "M. D’Arienzo, A. Pescapè, G. Ventre",
+              "venue": "Journal of Network and Systems Management",
+              "year": 2004,
+              "category": "journal",
+              "doi": "10.1023/b:jons.0000043685.23085.21",
+              "url": "https://doi.org/10.1023/b:jons.0000043685.23085.21",
+              "pdf": "http://wpage.unina.it/pescape/doc/JSNM2004pescape.pdf"
+            },
+            {
+              "title": "Performance evaluation of heterogeneous network scenarios",
+              "authors": "A. Botta, D. Emma, S. Guadagno, A. Pescapè",
+              "venue": "Dipartimento di Informatica e Sistemistica Technical Report TR-DIS-102004",
+              "year": 2004,
+              "category": "other"
+            },
+            {
+              "title": "Performance analysis and experimentation of heterogeneous IP networks",
+              "authors": "G. Iannello, A. Pescapè, G. Ventre, L. Vollero",
+              "venue": "Preprint submitted to Elsevier Science",
+              "year": 2004,
+              "category": "preprint"
+            },
+            {
+              "title": "Experimental Analysis of Heterogeneous Wireless Networks",
+              "authors": "G. Iannello, A. Pescapè, G. Ventre, L. Vollero",
+              "venue": "Lecture notes in computer science",
+              "year": 2004,
+              "category": "conference",
+              "doi": "10.1007/978-3-540-24643-5_14",
+              "url": "https://doi.org/10.1007/978-3-540-24643-5_14"
+            },
+            {
+              "title": "An experimental analysis of Diffserv-MPLS interoperability",
+              "authors": "S. Avallone, M. Esposito, A. Pescapè, S. P. Romano, G. Ventre",
+              "venue": "10th International Conference on Telecommunications, 2003. ICT 2003.",
+              "year": 2003,
+              "category": "conference",
+              "doi": "10.1109/ictel.2003.1191235",
+              "url": "https://doi.org/10.1109/ictel.2003.1191235",
+              "pdf": "http://wpage.unina.it/pescape/doc/ICT2003pescape.pdf"
+            },
+            {
+              "title": "Measuring MPLS overhead",
+              "authors": "A. Pescapè, S. P. Romano, M. Esposito, S. Avallone, G. Ventre",
+              "year": 2002,
+              "category": "journal",
+              "url": "http://dl.acm.org/citation.cfm?id=838138.838156"
+            },
+            {
+              "text": "Vinh Bui, Weiping Zhu, Alessio Botta, Antonio Pescapè, \"**[A Markovian Approach to Multi-path Data Transfer in Overlay Networks](http://wpage.unina.it/a.botta/pub/TPDS_MULTIPATH.pdf)**\", IEEE Transactions on Parallel and Distributed Systems, vol.21, no.10, pp.1398-1411, Oct. 2010."
             }
           ],
           "links": [],
@@ -2069,9 +4203,37 @@
             },
             {
               "name": "Walter de Donato"
+            },
+            {
+              "name": "Giuseppe Aceto"
+            },
+            {
+              "name": "Ciro Guida"
+            },
+            {
+              "name": "Valerio Persico"
             }
           ],
           "papers": [
+            {
+              "title": "You've got a few GPUs, now what?! --- Experimenting with a Nano-Cluster for Distributed Training of AI Models",
+              "authors": "G. Aceto, C. Guida, V. Persico, A. Pescapè",
+              "venue": "Proceedings of the 1st Workshop on Inter-networking challenges for AI",
+              "year": 2025,
+              "category": "conference",
+              "doi": "10.1145/3769695.3771676",
+              "url": "https://doi.org/10.1145/3769695.3771676"
+            },
+            {
+              "title": "Astrophysical data mining with GPU. A case study: Genetic classification of globular clusters",
+              "authors": "S. Cavuoti, M. Garofalo, M. Brescia, M. Paolillo, A. Pescapè, G. O. Longo, G. Ventre",
+              "venue": "New Astronomy",
+              "year": 2013,
+              "category": "journal",
+              "doi": "10.1016/j.newast.2013.04.004",
+              "url": "https://doi.org/10.1016/j.newast.2013.04.004",
+              "pdf": "https://arxiv.org/pdf/1304.0597"
+            },
             {
               "title": "Networked Embedded Systems: A Quantitative Performance Comparison",
               "authors": "A. Botta, W. de Donato, A. Pescapè, G. Ventre",
@@ -2081,6 +4243,16 @@
               "doi": "10.1109/glocom.2008.ecp.312",
               "url": "https://doi.org/10.1109/glocom.2008.ecp.312",
               "pdf": "http://wpage.unina.it/pescape/doc/GC08.pdf"
+            },
+            {
+              "title": "High Performance Internet Traffic Generators",
+              "authors": "S. Avallone, D. Emma, A. Pescapè, G. Ventre",
+              "venue": "The Journal of Supercomputing",
+              "year": 2005,
+              "category": "journal",
+              "doi": "10.1007/s11227-006-0798-1",
+              "url": "https://doi.org/10.1007/s11227-006-0798-1",
+              "pdf": "http://wpage.unina.it/pescape/doc/JoS2006pescape.pdf"
             }
           ],
           "links": [
@@ -2123,9 +4295,83 @@
             },
             {
               "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Domenico Ciuonzo"
+            },
+            {
+              "name": "Antonio Montieri"
             }
           ],
           "papers": [
+            {
+              "title": "A Big Data-Enabled Hierarchical Framework for Traffic Classification",
+              "authors": "G. Bovenzi, G. Aceto, D. Ciuonzo, V. Persico, A. Pescapè",
+              "venue": "IEEE Transactions on Network Science and Engineering",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1109/tnse.2020.3009832",
+              "url": "https://doi.org/10.1109/tnse.2020.3009832"
+            },
+            {
+              "title": "Industry 4.0 and Health: Internet of Things, Big Data, and Cloud Computing for Healthcare 4.0",
+              "authors": "G. Aceto, V. Persico, A. Pescapè",
+              "venue": "Journal of Industrial Information Integration",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.jii.2020.100129",
+              "url": "https://doi.org/10.1016/j.jii.2020.100129"
+            },
+            {
+              "title": "Know your Big Data Trade-offs when Classifying Encrypted Mobile Traffic with Deep Learning",
+              "authors": "G. Aceto, D. Ciuonzo, A. Montieri, V. Persico, A. Pescapè",
+              "venue": "2019 Network Traffic Measurement and Analysis Conference (TMA)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.23919/tma.2019.8784565",
+              "url": "https://doi.org/10.23919/tma.2019.8784565"
+            },
+            {
+              "title": "Benchmarking big data architectures for social networks data processing using public cloud platforms",
+              "authors": "V. Persico, A. Pescapè, A. Picariello, G. Sperlí",
+              "venue": "Future Generation Computer Systems",
+              "year": 2018,
+              "category": "journal",
+              "doi": "10.1016/j.future.2018.05.068",
+              "url": "https://doi.org/10.1016/j.future.2018.05.068"
+            },
+            {
+              "title": "On the Network Performance of Amazon S3 Cloud-Storage Service",
+              "authors": "V. Persico, A. Montieri, A. Pescapè",
+              "venue": "2016 5th IEEE International Conference on Cloud Networking (Cloudnet)",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/cloudnet.2016.16",
+              "url": "https://doi.org/10.1109/cloudnet.2016.16"
+            },
+            {
+              "title": "Efficient Storage and Processing of High-Volume Network Monitoring Data",
+              "authors": "G. Aceto, A. Botta, A. Pescapè, C. Westphal",
+              "venue": "IEEE Transactions on Network and Service Management",
+              "year": 2013,
+              "category": "journal",
+              "doi": "10.1109/tnsm.2013.011713.110215",
+              "url": "https://doi.org/10.1109/tnsm.2013.011713.110215",
+              "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2013efficient_TNSM.pdf"
+            },
+            {
+              "title": "Exploiting packet‐sampling measurements for traffic characterization and classification",
+              "authors": "D. Tammaro, S. Valenti, D. Rossi, A. Pescapè",
+              "venue": "International Journal of Network Management",
+              "year": 2012,
+              "category": "journal",
+              "doi": "10.1002/nem.1802",
+              "url": "https://doi.org/10.1002/nem.1802",
+              "pdf": "http://wpage.unina.it/pescape/doc/pescape_12ijnm.pdf"
+            },
             {
               "title": "An efficient storage technique for network monitoring data",
               "authors": "G. Aceto, A. Botta, A. Pescapè, C. Westphal",
@@ -2135,6 +4381,16 @@
               "doi": "10.1109/iwmn.2011.6088479",
               "url": "https://doi.org/10.1109/iwmn.2011.6088479",
               "pdf": "http://wpage.unina.it/pescape/doc/06088479.pdf"
+            },
+            {
+              "title": "On the impact of sampling on traffic monitoring and analysis",
+              "authors": "A. Pescapè, D. Rossi, D. Tammaro, S. Valenti",
+              "venue": "2010 22nd International Teletraffic Congress (lTC 22)",
+              "year": 2010,
+              "category": "conference",
+              "doi": "10.1109/itc.2010.5608718",
+              "url": "https://doi.org/10.1109/itc.2010.5608718",
+              "pdf": "http://www.infres.enst.fr/%7Egagnaire/Workshop-Papers/paper-5.pdf"
             },
             {
               "title": "Entropy-Based Reduction of Traffic Data",
@@ -2183,11 +4439,131 @@
             },
             {
               "name": "Alberto Dainotti"
+            },
+            {
+              "name": "Valerio Persico"
+            },
+            {
+              "name": "Antonio Montieri"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Pietro Marchetta"
             }
           ],
           "papers": [
             {
-              "text": "A. Dainotti, R. Amman, E. Aben, K. C. Claffy, \"Extracting Benefit from Harm: Using Malware Pollution to Analyze the Impact of Political and Geophysical Events on the Internet\", ACM SIGCOMM Computer Communication Review, accepted for publication"
+              "title": "An integration perspective of security, privacy, and resource efficiency in IoT-Fog networks: A comprehensive survey",
+              "authors": "S. Javanmardi, A. Nascita, A. Pescapè, G. Merlino, M. L. Scarpa",
+              "venue": "Computer Networks",
+              "year": 2025,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2025.111470",
+              "url": "https://doi.org/10.1016/j.comnet.2025.111470"
+            },
+            {
+              "title": "BlockSD‐5GNet: Enhancing security of 5G network through blockchain‐SDN with ML‐based bandwidth prediction",
+              "authors": "A. Rahman, M. S. I. Khan, A. Montieri, M. J. Islam, M. R. Karim, M. Hasan, D. Kundu, M. K. Nasir, A. Pescapè",
+              "venue": "Transactions on Emerging Telecommunications Technologies",
+              "year": 2024,
+              "category": "journal",
+              "doi": "10.1002/ett.4965",
+              "url": "https://doi.org/10.1002/ett.4965"
+            },
+            {
+              "title": "Data Poisoning Attacks against Autoencoder-based Anomaly Detection Models: a Robustness Analysis",
+              "authors": "G. Bovenzi, A. Foggia, S. Santella, A. Testa, V. Persico, A. Pescapè",
+              "venue": "ICC 2022 - IEEE International Conference on Communications",
+              "year": 2022,
+              "category": "conference",
+              "doi": "10.1109/icc45855.2022.9838942",
+              "url": "https://doi.org/10.1109/icc45855.2022.9838942"
+            },
+            {
+              "title": "FUPE: A security driven task scheduling approach for SDN-based IoT–Fog networks",
+              "authors": "S. Javanmardi, M. Shojafar, R. M. Mohammadi, A. Nazari, V. Persico, A. Pescapè",
+              "venue": "Journal of Information Security and Applications",
+              "year": 2021,
+              "category": "journal",
+              "doi": "10.1016/j.jisa.2021.102853",
+              "url": "https://doi.org/10.1016/j.jisa.2021.102853"
+            },
+            {
+              "title": "Computational intelligence intrusion detection techniques in mobile cloud computing environments: Review, taxonomy, and open research issues",
+              "authors": "S. S. Band, M. Fathi, A. T. Chronopoulos, A. Montieri, F. S. Palumbo, A. Pescapè",
+              "venue": "Journal of Information Security and Applications",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.jisa.2020.102582",
+              "url": "https://doi.org/10.1016/j.jisa.2020.102582"
+            },
+            {
+              "title": "IPPO: A Privacy-Aware Architecture for Decentralized Data-sharing",
+              "authors": "M. Aiello, E. Cambiaso, R. Canonico, L. Maccari, M. Mellia, A. Pescapè, I. Vaccari",
+              "venue": "arXiv (Cornell University)",
+              "year": 2020,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2001.06420",
+              "url": "https://doi.org/10.48550/arxiv.2001.06420",
+              "pdf": "https://arxiv.org/pdf/2001.06420"
+            },
+            {
+              "title": "A collaborative approach for improving the security of vehicular scenarios: The case of platooning",
+              "authors": "A. Petrillo, A. Pescapè, S. Santini",
+              "venue": "Computer Communications",
+              "year": 2018,
+              "category": "journal",
+              "doi": "10.1016/j.comcom.2018.03.014",
+              "url": "https://doi.org/10.1016/j.comcom.2018.03.014"
+            },
+            {
+              "title": "A SVM-based detection approach for GPS spoofing attacks to UAV",
+              "authors": "G. Panice, S. Luongo, G. Gigante, D. Pascarella, C. Di Benedetto, A. Vozella, A. Pescapè",
+              "venue": "2017 23rd International Conference on Automation and Computing (ICAC)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.23919/iconac.2017.8081999",
+              "url": "https://doi.org/10.23919/iconac.2017.8081999"
+            },
+            {
+              "title": "A collaborative control strategy for platoons of autonomous vehicles in the presence of message falsification attacks",
+              "authors": "A. Petrillo, A. Pescapè, S. Santini",
+              "venue": "2017 5th IEEE International Conference on Models and Technologies for Intelligent Transportation Systems (MT-ITS)",
+              "year": 2017,
+              "category": "conference",
+              "doi": "10.1109/mtits.2017.8005648",
+              "url": "https://doi.org/10.1109/mtits.2017.8005648"
+            },
+            {
+              "title": "Mining agile DNS traffic using graph analysis for cybercrime detection",
+              "authors": "A. Berger, A. D’Alconzo, W. N. Gansterer, A. Pescapè",
+              "venue": "Computer Networks",
+              "year": 2016,
+              "category": "journal",
+              "doi": "10.1016/j.comnet.2016.02.009",
+              "url": "https://doi.org/10.1016/j.comnet.2016.02.009"
+            },
+            {
+              "title": "The Greenhouse Effect Attack",
+              "authors": "P. Marchetta, V. Persico, A. Pescapè",
+              "venue": "2014 IEEE Conference on Communications and Network Security",
+              "year": 2014,
+              "category": "conference",
+              "doi": "10.1109/cns.2014.6997532",
+              "url": "https://doi.org/10.1109/cns.2014.6997532",
+              "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/MarchettaCns14abstract.pdf"
+            },
+            {
+              "title": "Analysis of a \"/0\" stealth scan from a botnet",
+              "authors": "A. Dainotti, A. King, K. claffy, F. Papale, A. Pescapè",
+              "venue": "Proceedings of the 2012 Internet Measurement Conference",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1145/2398776.2398778",
+              "url": "https://doi.org/10.1145/2398776.2398778",
+              "pdf": "https://dl.acm.org/action/downloadSupplement?doi=10.1145%2F2398776.2398778&file=213.pdf"
             },
             {
               "title": "Analysis of country-wide internet outages caused by censorship",
@@ -2228,7 +4604,13 @@
               "pdf": "http://wpage.unina.it/pescape/doc/globecom2006NISpescape.pdf"
             },
             {
-              "text": "Mario Hoffmann, Christos Xenakis, Stauraleni Kontopoulo, Markus Eisenhauer, Seppo Heikkinen, Antonio Pescapè, Hu Wang, \"Security and Trust\" Chapter in \"Technologies for the Wireless Future: Wireless World Research Forum (WWRF), Volume 2\", Rahim Tafazolli (Editor) ISBN: 0-470-02905-6, 520 pages, April 2006."
+              "title": "NIS04-1: Wavelet-based Detection of DoS Attacks",
+              "authors": "A. Dainotti, A. Pescapè, G. Ventre",
+              "venue": "Globecom",
+              "year": 2006,
+              "category": "conference",
+              "doi": "10.1109/glocom.2006.279",
+              "url": "https://doi.org/10.1109/glocom.2006.279"
             },
             {
               "title": "Experimental analysis of attacks against intradomain routing protocols",
@@ -2249,6 +4631,19 @@
               "doi": "10.1109/pccc.2004.1395110",
               "url": "https://doi.org/10.1109/pccc.2004.1395110",
               "pdf": "http://wpage.unina.it/pescape/doc/jcs2005pescape.pdf"
+            },
+            {
+              "title": "IPSEC: PERFORMANCES DI UN CANALE TCP OVER WAN AL VARIARE DEI SERVIZI DI SICUREZZA OFFERTI DA UN CANALE",
+              "authors": "A. Pescapè, G. Ventre, G. B. Barone",
+              "venue": "AICA",
+              "year": 2002,
+              "category": "conference"
+            },
+            {
+              "text": "A. Dainotti, R. Amman, E. Aben, K. C. Claffy, \"Extracting Benefit from Harm: Using Malware Pollution to Analyze the Impact of Political and Geophysical Events on the Internet\", ACM SIGCOMM Computer Communication Review, accepted for publication"
+            },
+            {
+              "text": "Mario Hoffmann, Christos Xenakis, Stauraleni Kontopoulo, Markus Eisenhauer, Seppo Heikkinen, Antonio Pescapè, Hu Wang, \"Security and Trust\" Chapter in \"Technologies for the Wireless Future: Wireless World Research Forum (WWRF), Volume 2\", Rahim Tafazolli (Editor) ISBN: 0-470-02905-6, 520 pages, April 2006."
             }
           ],
           "links": [
@@ -2286,9 +4681,102 @@
             },
             {
               "name": "Walter de Donato"
+            },
+            {
+              "name": "Idio Guarino"
+            },
+            {
+              "name": "Alfredo Nascita"
+            },
+            {
+              "name": "Domenico Ciuonzo"
             }
           ],
           "papers": [
+            {
+              "title": "XAI2CSI: Interpreting CSI with eXplainable AI for Human Activity Recognition",
+              "authors": "I. Guarino, A. Nascita, D. Ciuonzo, D. Carra, A. Pescapè",
+              "venue": "arXiv (Cornell University)",
+              "year": 2026,
+              "category": "preprint",
+              "doi": "10.48550/arxiv.2608.31034",
+              "url": "https://doi.org/10.48550/arxiv.2608.31034",
+              "pdf": "https://arxiv.org/pdf/2608.31034"
+            },
+            {
+              "title": "A Biobanking System for Diagnostic Images: Architecture Development, COVID-19–Related Use Cases, and Performance Evaluation",
+              "authors": "G. Esposito, C. Allarà, M. Randon, M. L. Aiello, M. Salvatore, G. Aceto, A. Pescapè",
+              "venue": "JMIR Formative Research",
+              "year": 2023,
+              "category": "journal",
+              "doi": "10.2196/42505",
+              "url": "https://doi.org/10.2196/42505"
+            },
+            {
+              "title": "Detection of melatonin-onset in real settings via wearable sensors and artificial intelligence. A pilot study",
+              "authors": "R. Castaldo, M. Chappell, H. M. Byrne, P. F. Innominato, S. B. Hughes, A. Pescapè, L. Pecchia",
+              "venue": "Biomedical Signal Processing and Control",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.bspc.2020.102386",
+              "url": "https://doi.org/10.1016/j.bspc.2020.102386",
+              "pdf": "https://www.sciencedirect.com/science/article/pii/S1746809420304924?via%3Dihub"
+            },
+            {
+              "title": "A network performance view of a biobanking system for diagnostic images",
+              "authors": "G. Esposito, G. Pagliari, G. Coppola, M. Aiello, M. Salvatore, G. Aceto, A. Pescapè",
+              "venue": "2020 IEEE Symposium on Computers and Communications (ISCC)",
+              "year": 2020,
+              "category": "conference",
+              "doi": "10.1109/iscc50000.2020.9219662",
+              "url": "https://doi.org/10.1109/iscc50000.2020.9219662"
+            },
+            {
+              "title": "Human behavior sensing: challenges and approaches",
+              "authors": "X. Liu, H. Chen, A. Montieri, A. Pescapè",
+              "venue": "Journal of Ambient Intelligence and Humanized Computing",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1007/s12652-020-01861-y",
+              "url": "https://doi.org/10.1007/s12652-020-01861-y"
+            },
+            {
+              "title": "Industry 4.0 and Health: Internet of Things, Big Data, and Cloud Computing for Healthcare 4.0",
+              "authors": "G. Aceto, V. Persico, A. Pescapè",
+              "venue": "Journal of Industrial Information Integration",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1016/j.jii.2020.100129",
+              "url": "https://doi.org/10.1016/j.jii.2020.100129"
+            },
+            {
+              "title": "Precision Medicine and Artificial Intelligence: A Pilot Study on Deep Learning for Hypoglycemic Events Detection based on ECG",
+              "authors": "M. Porumb, S. Stranges, A. Pescapè, L. Pecchia",
+              "venue": "Scientific Reports",
+              "year": 2020,
+              "category": "journal",
+              "doi": "10.1038/s41598-019-56927-5",
+              "url": "https://doi.org/10.1038/s41598-019-56927-5",
+              "pdf": "https://www.nature.com/articles/s41598-019-56927-5.pdf"
+            },
+            {
+              "title": "Wi-CR: Human Action Counting and Recognition with Wi-Fi Signals",
+              "authors": "X. Liu, H. Chen, X. Jiang, J. Qian, G. Aceto, A. Pescapè",
+              "venue": "2019 4th International Conference on Computing, Communications and Security (ICCCS)",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.1109/cccs.2019.8888113",
+              "url": "https://doi.org/10.1109/cccs.2019.8888113"
+            },
+            {
+              "title": "TaRad: A Thing-Centric Sensing System for Detecting Activities of Daily Living",
+              "authors": "H. Chen, X. Liu, Z. P. Zhao, G. Aceto, A. Pescapè",
+              "venue": "Lecture notes in computer science",
+              "year": 2019,
+              "category": "conference",
+              "doi": "10.1007/978-3-030-34914-1_34",
+              "url": "https://doi.org/10.1007/978-3-030-34914-1_34"
+            },
             {
               "title": "The role of Information and Communication Technologies in healthcare: taxonomies, perspectives, and challenges",
               "authors": "G. Aceto, V. Persico, A. Pescapè",
@@ -2298,19 +4786,6 @@
               "doi": "10.1016/j.jnca.2018.02.008",
               "url": "https://doi.org/10.1016/j.jnca.2018.02.008",
               "pdf": "http://wpage.unina.it/valerio.persico/pubs/aceto2018jnca.pdf"
-            },
-            {
-              "title": "A First Look at an Automated Pipeline for NGS-Based Breast-Cancer Diagnosis: The CArDIGAN Approach",
-              "authors": "G. Aceto, A. Montieri, V. Persico, A. Pescapè, V. D’Argenio, F. Salvatore, L. Pastore",
-              "venue": "2016 12th International Conference on Signal-Image Technology & Internet-Based Systems (SITIS)",
-              "year": 2016,
-              "category": "conference",
-              "doi": "10.1109/sitis.2016.86",
-              "url": "https://doi.org/10.1109/sitis.2016.86",
-              "pdf": "http://wpage.unina.it/valerio.persico/pubs/cardigan_citima.pdf"
-            },
-            {
-              "text": "Monika Grajzer, Michal Koziuk,Piotr Szczechowiak Antonio Pescapè, [Multi-Classification Approach for the Detection and Identification of eHealth Applications](http://wpage.unina.it/pescape/doc/1569593505.pdf), ICCCN 2012, 2nd International Workshop on Context-aware QoS Provisioning and Management for Emerging Networks, Applications and Services (ContextQoS), July 30 - August 2, 2012 in Munich, Germany"
             },
             {
               "title": "Using fuzzy logic for improving clinical daily-care of β-thalassemia patients",
@@ -2330,6 +4805,29 @@
               "category": "conference",
               "doi": "10.1109/healthcom.2017.8210768",
               "url": "https://doi.org/10.1109/healthcom.2017.8210768"
+            },
+            {
+              "title": "A First Look at an Automated Pipeline for NGS-Based Breast-Cancer Diagnosis: The CArDIGAN Approach",
+              "authors": "G. Aceto, A. Montieri, V. Persico, A. Pescapè, V. D’Argenio, F. Salvatore, L. Pastore",
+              "venue": "2016 12th International Conference on Signal-Image Technology & Internet-Based Systems (SITIS)",
+              "year": 2016,
+              "category": "conference",
+              "doi": "10.1109/sitis.2016.86",
+              "url": "https://doi.org/10.1109/sitis.2016.86",
+              "pdf": "http://wpage.unina.it/valerio.persico/pubs/cardigan_citima.pdf"
+            },
+            {
+              "title": "A Multi-Classification Approach for the Detection and Identification of eHealth Applications",
+              "authors": "M. Grajzer, M. Koziuk, P. Szczechowiak, A. Pescapè",
+              "venue": "2012 21st International Conference on Computer Communications and Networks (ICCCN)",
+              "year": 2012,
+              "category": "conference",
+              "doi": "10.1109/icccn.2012.6289268",
+              "url": "https://doi.org/10.1109/icccn.2012.6289268",
+              "pdf": "http://wpage.unina.it/pescape/doc/1569593505.pdf"
+            },
+            {
+              "text": "Monika Grajzer, Michal Koziuk,Piotr Szczechowiak Antonio Pescapè, [Multi-Classification Approach for the Detection and Identification of eHealth Applications](http://wpage.unina.it/pescape/doc/1569593505.pdf), ICCCN 2012, 2nd International Workshop on Context-aware QoS Provisioning and Management for Emerging Networks, Applications and Services (ContextQoS), July 30 - August 2, 2012 in Munich, Germany"
             }
           ],
           "links": [
