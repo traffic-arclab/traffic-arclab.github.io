@@ -827,13 +827,14 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .two-col-center { align-items: center; }
 /* GenAI in numbers: one band per app, with its growth chart (drawn when it comes into view, see js/datasets.js) */
 .stat-bands { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.stat-band { position: relative; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: var(--space-5); align-items: center;
+.stat-band { position: relative; display: grid; grid-template-columns: 1fr; gap: var(--space-2); align-items: center;
   padding: 14px 18px; border: 1px solid var(--color-soft-line); border-radius: var(--radius-md); background: var(--color-surface-alt); }
-.stat-head { display: grid; gap: 2px; justify-items: start; }
+.stat-head { display: grid; gap: 2px; }
+.stat-head .stat-growth { margin: 0 0 0 auto; text-transform: none; letter-spacing: 0; }
 .stat-band p + p { margin-top: 0; }
 .stat-app { display: flex; gap: 8px; align-items: center; margin-bottom: 4px; color: var(--color-title); font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .stat-big { color: var(--color-title); font: 600 2rem/1.05 var(--font-serif); letter-spacing: -.01em; }
-.stat-big span { display: block; margin-top: 2px; color: var(--color-ink); font: 400 .82rem/1.3 var(--font-sans); letter-spacing: 0; }
+.stat-big span { margin-left: 6px; color: var(--color-ink); font: 400 .9rem/1.3 var(--font-sans); letter-spacing: 0; }
 .stat-date { color: var(--color-muted); font-size: .74rem; }
 .stat-date a, .stat-extra a { color: inherit; }
 .stat-growth { display: inline-block; margin-top: 6px; padding: 1px 7px; border-radius: 999px; background: var(--color-accent-soft); color: var(--color-accent-ink);
@@ -867,6 +868,11 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .stat-bands.is-carousel .stat-band { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .45s var(--ease-standard), visibility 0s .45s; }
 .stat-bands.is-carousel .stat-band.is-active { opacity: 1; visibility: visible; transition: opacity .45s var(--ease-standard); }
 .stat-controls { display: flex; gap: 10px; align-items: center; justify-content: flex-end; margin-top: var(--space-3); }
+/* dots on the same line as "Data and sources" */
+.stat-foot { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between; margin-top: var(--space-3); }
+.stat-foot .stat-data { flex: 1 1 auto; margin-top: 0; }
+.stat-foot .stat-data[open] { flex-basis: 100%; order: 2; }
+.stat-foot .stat-controls { margin-top: 0; }
 .stat-dots { display: flex; gap: 6px; }
 .stat-play { display: grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: none;
   color: var(--color-muted); cursor: pointer; }
@@ -903,6 +909,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .app-list-row .app-tags { grid-column: 2; justify-content: flex-start; }
 .genai-apps { padding: clamp(20px, 2.4vw, 30px); border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); }
 .genai-apps .card-kicker { margin-bottom: var(--space-4); }
+.genai-stats .card-kicker { margin-bottom: var(--space-3); }
 .app-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .app-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; padding: 12px 14px;
   border: 1px solid var(--color-soft-line); border-radius: var(--radius-md); background: var(--color-surface-alt); transition: border-color var(--duration-fast); }

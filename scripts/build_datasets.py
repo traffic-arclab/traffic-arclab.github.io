@@ -651,7 +651,7 @@ def users(millions):
 
 def growth_chart(app):
     """Area chart of one app over its own period and scale (inline SVG; js/datasets.js animates it into view)."""
-    W, H, L, R, T, B = 320, 104, 6, 44, 18, 20
+    W, H, L, R, T, B = 560, 90, 8, 46, 16, 20
     pts = app['points']
     months = lambda ym: int(ym[:4]) * 12 + int(ym[5:7]) - 1
     start, end = months(pts[0][0]), months(pts[-1][0])
@@ -707,10 +707,9 @@ def stats_card(data):
             + '</span></p>' for f in app.get('figures') or [])
         bands.append(f'''          <li class="stat-band">
             <div class="stat-head">
-              <p class="stat-app">{logo_mark(app.get('name', ''), ' app-logo-xs')}{esc(app.get('name'))}</p>
+              <p class="stat-app">{logo_mark(app.get('name', ''), ' app-logo-xs')}{esc(app.get('name'))}{growth}</p>
               <p class="stat-big">{esc(value_of(app, last[1]))} <span>{esc(app.get('metric'))}</span></p>
               <p class="stat-date">{esc(month_label(last[0]))}{source}</p>
-              {growth}
             </div>
             <div class="stat-plot">
               {growth_chart(app)}

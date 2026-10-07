@@ -19,12 +19,12 @@ document.querySelectorAll('[data-prompt-explorer]').forEach(explorer => {
 });
 
 // The bands of "GenAI in numbers" one at a time: every 5 seconds, with one dot per app and a small pause/play.
-// Hovering or focusing the card pauses it; with reduced motion it starts paused.
+// Keyboard focus inside the card holds it (so links can be reached); with reduced motion it starts paused.
 function carousel(box, bands) {
   const DELAY = 5000;
   const card = box.closest('.genai-stats') || box.parentElement;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let current = 0, timer = null, paused = still, held = false;
+  let current = 0, timer = null, paused = still, held = false, away = true;   // away: the card is not on screen
   box.classList.add('is-carousel');
   box.setAttribute('aria-roledescription', 'carousel');
   const bar = document.createElement('div');
@@ -39,7 +39,15 @@ function carousel(box, bands) {
     bar.querySelector('.stat-dots').append(dot);
     return dot;
   });
-  box.after(bar);
+  const details = card.querySelector('.stat-data');
+  if (details) {   // one line: "Data and sources" on the left, the dots on the right
+    const foot = document.createElement('div');
+    foot.className = 'stat-foot';
+    details.before(foot);
+    foot.append(details, bar);
+  } else {
+    box.after(bar);
+  }
   const play = bar.querySelector('.stat-play');
 
   function show(i) {
@@ -55,7 +63,7 @@ function carousel(box, bands) {
   }
   function restart() {
     clearInterval(timer);
-    timer = paused || held ? null : setInterval(() => show(current + 1), DELAY);
+    timer = paused || held || away ? null : setInterval(() => show(current + 1), DELAY);
     play.innerHTML = paused
       ? '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1.5v7l6-3.5z"/></svg>'
       : '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1.5h2.2v7H2zM5.8 1.5H8v7H5.8z"/></svg>';
@@ -63,11 +71,15 @@ function carousel(box, bands) {
     card.classList.toggle('is-paused', paused);
   }
   play.addEventListener('click', () => { paused = !paused; restart(); });
-  const hold = on => { held = on; restart(); };
-  card.addEventListener('mouseenter', () => hold(true));
-  card.addEventListener('mouseleave', () => hold(false));
-  card.addEventListener('focusin', () => hold(true));
-  card.addEventListener('focusout', () => { if (!card.contains(document.activeElement)) hold(false); });
+  const hold = on => { if (held !== on) { held = on; restart(); } };
+  card.addEventListener('focusin', event => hold(event.target.matches(':focus-visible')));   // not after a mouse click
+  card.addEventListener('focusout', () => setTimeout(() => hold(Boolean(card.querySelector(':focus-visible')))));
+  // the 5 seconds count only while the card is on screen
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => { away = !entry.isIntersecting; restart(); }, { threshold: 0.5 }).observe(card);
+  } else {
+    away = false;
+  }
   show(0);
   restart();
 }
