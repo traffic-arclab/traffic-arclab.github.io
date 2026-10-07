@@ -75,6 +75,10 @@
       ]
     }
   ],
+  "genai_coming_soon": [
+    "Claude",
+    "Perplexity"
+  ],
   "genai_stats": {
     "title": "GenAI in numbers",
     "apps": [

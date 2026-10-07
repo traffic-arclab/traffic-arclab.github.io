@@ -400,6 +400,8 @@
   <label>Apps and activities <small>row under the first section; one app per line: App name | package | activities separated by commas.
     Logos: see <strong>App logos</strong>.</small><textarea id="dp-genai_apps" class="mono" rows="5" wrap="off"
     placeholder="ChatGPT | com.openai.chatgpt | Textual, Multimodal"></textarea></label>
+  <label>Apps coming soon <small>under the apps; names separated by commas (e.g. Claude, Perplexity). Logos: see <strong>App logos</strong>.</small>
+    <input id="dp-genai_coming_soon"></label>
   <label>Prompts section: title <input data-page="genai_prompts_title"></label>
   <label>Prompts section: text <small>next to the prompt sets of the GenAI datasets (each dataset has its own, in its page)</small>
     <textarea data-page="genai_prompts" data-list rows="5"></textarea></label>
@@ -921,6 +923,7 @@
       paper: url(datasets.paper, 'MIRAGE paper'), mailing_list: url(datasets.mailing_list, 'Mailing list') };
     delete out._genai_apps;
     delete out._stats;
+    if (typeof datasets.genai_coming_soon === 'string') out.genai_coming_soon = datasets.genai_coming_soon.split(',').map(one).filter(Boolean);
     if (datasets._stats) {
       const st = datasets._stats, cells = line => line.split('|').map(one);
       out.genai_stats = {
@@ -1819,6 +1822,9 @@
     const editor = $('datasets-editor');
     editor.innerHTML = '';
     editor.appendChild($('datasets-page-form').content.cloneNode(true));
+    const soon = $('dp-genai_coming_soon');
+    soon.value = Array.isArray(datasets.genai_coming_soon) ? datasets.genai_coming_soon.join(', ') : (datasets.genai_coming_soon || '');
+    soon.addEventListener('input', () => { datasets.genai_coming_soon = soon.value; markDirty('datasets'); });
     const appsArea = $('dp-genai_apps');
     appsArea.value = datasets._genai_apps ?? (datasets.genai_apps || [])
       .map(a => [a.name, a.package || '', (a.activities || []).join(', ')].join(' | ')).join('\n');
@@ -1876,6 +1882,8 @@
       (ds.prompts?.apps || []).forEach(a => add(a.name, ds.name));
     });
     (datasets.genai_apps || []).forEach(a => add(a.name, 'GenAI page'));
+    (Array.isArray(datasets.genai_coming_soon) ? datasets.genai_coming_soon : String(datasets.genai_coming_soon || '').split(','))
+      .forEach(name => add(name, 'Coming soon'));
     return [...apps.entries()].sort((a, b) => a[1].name.localeCompare(b[1].name));
   }
 

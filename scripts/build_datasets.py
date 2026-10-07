@@ -507,6 +507,16 @@ def app_row(app, indent=12):
 {pad}</li>'''
 
 
+def coming_soon(data):
+    """Apps whose datasets are on the way ("genai_coming_soon"), under the apps of the GenAI page."""
+    names = [n for n in data.get('genai_coming_soon') or [] if str(n).strip()]
+    if not names:
+        return ''
+    items = ''.join(f'<li>{logo_mark(n, " app-logo-xs")}{esc(n)}</li>' for n in names)
+    return f'''
+          <div class="apps-soon"><span class="apps-soon-label">Coming soon</span><ul>{items}</ul></div>'''
+
+
 def apps_preview(data, genai):
     """The "Apps and activities" card of the GenAI page: the "genai_apps" list of data/datasets.json
     (edited in the admin page), or else the apps of the GenAI datasets."""
@@ -522,7 +532,7 @@ def apps_preview(data, genai):
           <p class="card-kicker">Apps and activities</p>
           <ul class="app-list app-list-row">
 {rows}
-          </ul>
+          </ul>{coming_soon(data)}
         </div>"""
 
 

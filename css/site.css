@@ -907,6 +907,11 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .app-list-row { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .app-list-row .app-row { grid-template-columns: auto minmax(0, 1fr); }
 .app-list-row .app-tags { grid-column: 2; justify-content: flex-start; }
+.apps-soon { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-top: var(--space-4); padding: 10px 14px;
+  border: 1px dashed var(--color-line); border-radius: var(--radius-md); }
+.apps-soon-label { color: var(--color-accent-ink); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.apps-soon ul { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0; padding: 0; list-style: none; }
+.apps-soon li { display: inline-flex; gap: 8px; align-items: center; color: var(--color-title); font-size: .92rem; font-weight: 600; }
 .genai-apps { padding: clamp(20px, 2.4vw, 30px); border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); }
 .genai-apps .card-kicker { margin-bottom: var(--space-4); }
 .genai-stats .card-kicker { margin-bottom: var(--space-3); }
