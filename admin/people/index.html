@@ -392,8 +392,8 @@
   <label>First section: title <input data-page="genai_why_title"></label>
   <label>First section: text <textarea id="dp-genai_rationale" rows="6"></textarea></label>
   <label>Numbers: title <small>card next to the first section: one band per app with its growth chart</small><input id="dp-stats-title" placeholder="GenAI in numbers"></label>
-  <label>Numbers: apps <small>one band per app, bands separated by an empty line. First line: App | measure (e.g. ChatGPT | weekly users);
-    then one chart point per line: year-month | users in millions | source link; any other line is an extra figure: value | text | date | source link</small>
+  <label>Numbers: apps <small>one band per app, bands separated by an empty line. First line: App | measure (e.g. ChatGPT | weekly users), with | x at the end when the values are growth multiples (1, 3 = 1×, 3×);
+    then one chart point per line: year-month | users in millions (or multiple) | source link; any other line is an extra figure: value | text | date | source link</small>
     <textarea id="dp-stats-apps" class="mono" rows="14" wrap="off" placeholder="ChatGPT | weekly users&#10;2023-11 | 100 | https://…&#10;2026-09 | 1200 | https://…&#10;2.5B | prompts every day | Jul 2025 | https://…"></textarea></label>
   <label>Numbers: note <small>under the charts</small><input id="dp-stats-note"></label>
   <label>Apps and activities <small>row under the first section; one app per line: App name | package | activities separated by commas.
@@ -925,14 +925,14 @@
       out.genai_stats = {
         title: one(st.title), note: one(st.note),
         apps: st.apps.split(/\n\s*\n/).map(block => block.split('\n').map(cells).filter(c => c[0])).filter(lines => lines.length)
-          .map(([[name, metric = ''], ...lines]) => {
+          .map(([[name, metric = '', unit = ''], ...lines]) => {
             const isPoint = c => /^\d{4}-\d{2}$/.test(c[0]);
             const points = lines.filter(isPoint).map(([date, value, source = '']) => {
               if (!(Number(value) >= 0) || value === '') throw new Error(`GenAI in numbers, ${name}: write each point as year-month | users in millions | link (e.g. 2025-10 | 800 | https://…)`);
               return [date, Number(value), source];
             }).sort((a, b) => a[0].localeCompare(b[0]));
             const figures = lines.filter(c => !isPoint(c)).map(([value, label = '', date = '', source = '']) => ({ value, label, date, source }));
-            return { name, metric, points, figures };
+            return { name, metric, ...(unit === 'x' ? { unit } : {}), points, figures };
           }),
       };
     }
@@ -1836,7 +1836,7 @@
     const st = datasets.genai_stats || {};
     datasets._stats = datasets._stats || {
       title: st.title || '', note: st.note || '',
-      apps: (st.apps || []).map(a => [`${a.name || ''} | ${a.metric || ''}`, ...(a.points || []).map(p => p.join(' | ')),
+      apps: (st.apps || []).map(a => [`${a.name || ''} | ${a.metric || ''}` + (a.unit ? ` | ${a.unit}` : ''), ...(a.points || []).map(p => p.join(' | ')),
         ...(a.figures || []).map(f => [f.value, f.label, f.date, f.source].map(v => v || '').join(' | '))].join('\n')).join('\n\n'),
     };
     for (const key of ['title', 'apps', 'note']) {

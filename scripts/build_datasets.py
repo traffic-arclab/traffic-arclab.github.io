@@ -630,6 +630,11 @@ def month_label(ym):
     return f'{MONTHS[int(month) - 1]} {year}'
 
 
+def value_of(app, v):
+    """A chart value as shown: users (in millions) or, for "unit": "x", a growth multiple (1×, 3×)."""
+    return f'{float(v):g}×' if app.get('unit') == 'x' else users(v)
+
+
 def users(millions):
     """100 -> 100M, 1200 -> 1.2B."""
     millions = float(millions)
@@ -654,17 +659,17 @@ def growth_chart(app):
     area = f'{x(pts[0][0]):.1f},{H - B} {line} {x(pts[-1][0]):.1f},{H - B}'
     metric = app.get('metric', '')
     dots = ''.join(
-        f'<g class="stat-pt" tabindex="0" style="--i: {i}" data-tip="{esc(month_label(p[0]))} · {esc(users(p[1]))} {esc(metric)}">'
+        f'<g class="stat-pt" tabindex="0" style="--i: {i}" data-tip="{esc(month_label(p[0]))} · {esc(value_of(app, p[1]))} {esc(metric)}">'
         f'<circle class="stat-hit" cx="{x(p[0]):.1f}" cy="{y(p[1]):.1f}" r="12"/>'
         f'<circle class="stat-dot" cx="{x(p[0]):.1f}" cy="{y(p[1]):.1f}" r="4"/></g>' for i, p in enumerate(pts))
     first, last = pts[0], pts[-1]
-    labels = (f'<text class="stat-val" x="{x(last[0]) + 8:.1f}" y="{y(last[1]) + 4:.1f}">{esc(users(last[1]))}</text>'
-              + (f'<text class="stat-val is-start" x="{x(first[0]):.1f}" y="{y(first[1]) - 9:.1f}">{esc(users(first[1]))}</text>'
+    labels = (f'<text class="stat-val" x="{x(last[0]) + 8:.1f}" y="{y(last[1]) + 4:.1f}">{esc(value_of(app, last[1]))}</text>'
+              + (f'<text class="stat-val is-start" x="{x(first[0]):.1f}" y="{y(first[1]) - 9:.1f}">{esc(value_of(app, first[1]))}</text>'
                  if len(pts) > 1 else '')
               + f'<text class="stat-x" x="{x(first[0]):.1f}" y="{H - 4}">{esc(month_label(first[0]))}</text>'
               + (f'<text class="stat-x" x="{x(last[0]):.1f}" y="{H - 4}" text-anchor="end">{esc(month_label(last[0]))}</text>'
                  if len(pts) > 1 else ''))
-    summary = ', '.join(f'{month_label(p[0])}: {users(p[1])}' for p in pts)
+    summary = ', '.join(f'{month_label(p[0])}: {value_of(app, p[1])}' for p in pts)
     return f'''<svg class="stat-svg" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(app.get('name'))}, {esc(metric)}: {esc(summary)}">
                 <defs><linearGradient id="{fade}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".22"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs>
                 <line class="stat-base" x1="{L}" x2="{W - R}" y1="{H - B}" y2="{H - B}"/>
@@ -685,7 +690,7 @@ def stats_card(data):
         pts = app['points']
         first, last = pts[0], pts[-1]
         growth = (f'<span class="stat-growth">×{float(last[1]) / float(first[1]):.1f} since {esc(month_label(first[0]))}</span>'
-                  .replace('.0 since', ' since') if len(pts) > 1 and float(first[1]) > 0 else '')
+                  .replace('.0 since', ' since') if len(pts) > 1 and float(first[1]) > 0 and app.get('unit') != 'x' else '')
         source = f' · <a href="{esc(last[2])}" target="_blank" rel="noopener">source ↗</a>' if len(last) > 2 and last[2] else ''
         extra = ''.join(
             f'<p class="stat-extra"><strong>{esc(f.get("value"))}</strong> {esc(f.get("label"))} '
@@ -695,7 +700,7 @@ def stats_card(data):
         bands.append(f'''          <li class="stat-band">
             <div class="stat-head">
               <p class="stat-app">{logo_mark(app.get('name', ''), ' app-logo-xs')}{esc(app.get('name'))}</p>
-              <p class="stat-big">{esc(users(last[1]))} <span>{esc(app.get('metric'))}</span></p>
+              <p class="stat-big">{esc(value_of(app, last[1]))} <span>{esc(app.get('metric'))}</span></p>
               <p class="stat-date">{esc(month_label(last[0]))}{source}</p>
               {growth}
             </div>
@@ -704,7 +709,7 @@ def stats_card(data):
               {extra}
             </div>
           </li>''')
-        rows += [f'<tr><td>{esc(app.get("name"))}</td><td>{esc(month_label(p[0]))}</td><td>{esc(users(p[1]))} {esc(app.get("metric"))}</td><td>'
+        rows += [f'<tr><td>{esc(app.get("name"))}</td><td>{esc(month_label(p[0]))}</td><td>{esc(value_of(app, p[1]))} {esc(app.get("metric"))}</td><td>'
                  + (f'<a href="{esc(p[2])}" target="_blank" rel="noopener">source ↗</a>' if len(p) > 2 and p[2] else '') + '</td></tr>'
                  for p in pts]
     note = f'<p class="genai-apps-source">{esc(st["note"])}</p>' if st.get('note') else ''

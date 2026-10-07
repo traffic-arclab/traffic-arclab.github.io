@@ -167,20 +167,27 @@
       },
       {
         "name": "Microsoft Copilot",
-        "metric": "monthly users",
+        "metric": "daily users of the Copilot app, growth in one year",
+        "unit": "x",
         "points": [
           [
-            "2025-07",
-            100,
-            "https://www.microsoft.com/en-us/investor/events/fy-2025/earnings-fy-2025-q4"
+            "2025-01",
+            1,
+            "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2"
           ],
           [
-            "2025-10",
-            150,
-            "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1"
+            "2026-01",
+            3,
+            "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2"
           ]
         ],
         "figures": [
+          {
+            "value": "150M",
+            "label": "monthly users of the Copilot apps",
+            "date": "Oct 2025",
+            "source": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1"
+          },
           {
             "value": "30M+",
             "label": "paid Microsoft 365 Copilot seats",
@@ -190,7 +197,7 @@
         ]
       }
     ],
-    "note": "Figures announced by OpenAI, Google and Microsoft (Copilot: the family of Copilot apps). Each chart has its own period and scale; weekly and monthly users are different measures."
+    "note": ""
   },
   "mailing_list": "https://groups.google.com/forum/#!forum/mirage-project",
   "contact": "antonio.montieri@unina.it",
