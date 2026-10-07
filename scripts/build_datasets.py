@@ -636,76 +636,87 @@ def users(millions):
     return f'{millions / 1000:g}B' if millions >= 1000 else f'{millions:g}M'
 
 
-def growth_chart(chart, start, end, top):
-    """One small line chart (inline SVG): users over time, same time span and scale as its neighbour."""
-    W, H, L, R, T, B = 300, 168, 38, 10, 12, 24   # size and margins
+def growth_chart(app):
+    """Area chart of one app over its own period and scale (inline SVG; js/datasets.js animates it into view)."""
+    W, H, L, R, T, B = 320, 104, 6, 44, 18, 20
+    pts = app['points']
     months = lambda ym: int(ym[:4]) * 12 + int(ym[5:7]) - 1
-    x = lambda ym: L + (months(ym) - start) / max(1, end - start) * (W - L - R)
-    y = lambda v: T + (1 - float(v) / top) * (H - T - B)
-    pts = chart.get('points') or []
-    step = top / 3
-    grid = ''.join(f'<line x1="{L}" x2="{W - R}" y1="{y(v):.1f}" y2="{y(v):.1f}"/>' for v in (step, 2 * step, top))
-    ylabels = ''.join(f'<text x="{L - 6}" y="{y(v) + 3.5:.1f}" text-anchor="end">{users(v) if v else "0"}</text>'
-                      for v in (0, step, 2 * step, top))
-    first_year, last_year = start // 12, end // 12
-    xlabels = ''.join(f'<text x="{x(f"{yr}-01"):.1f}" y="{H - 6}" text-anchor="middle">{yr}</text>'
-                      for yr in range(first_year + 1, last_year + 1))
+    start, end = months(pts[0][0]), months(pts[-1][0])
+    span = max(1, end - start)
+    # Each chart fits its own values (the trend is what matters; first and last values are labelled)
+    low, high = min(float(p[1]) for p in pts), max(float(p[1]) for p in pts)
+    bottom = max(0, low - (high - low) * .25) if high > low else 0
+    top = high + (high - bottom) * .08 if high > bottom else high * 1.1 or 1
+    x = lambda ym: L + (months(ym) - start) / span * (W - L - R)
+    y = lambda v: T + (1 - (float(v) - bottom) / (top - bottom)) * (H - T - B)
+    fade = f'stat-fade-{app_key(app.get("name", ""))}'
     line = ' '.join(f'{x(p[0]):.1f},{y(p[1]):.1f}' for p in pts)
-    area = f'{x(pts[0][0]):.1f},{y(0):.1f} {line} {x(pts[-1][0]):.1f},{y(0):.1f}' if pts else ''
+    area = f'{x(pts[0][0]):.1f},{H - B} {line} {x(pts[-1][0]):.1f},{H - B}'
+    metric = app.get('metric', '')
     dots = ''.join(
-        f'<g class="stat-pt" tabindex="0" data-tip="{esc(month_label(p[0]))} · {esc(users(p[1]))} {esc(chart.get("metric", ""))}">'
+        f'<g class="stat-pt" tabindex="0" style="--i: {i}" data-tip="{esc(month_label(p[0]))} · {esc(users(p[1]))} {esc(metric)}">'
         f'<circle class="stat-hit" cx="{x(p[0]):.1f}" cy="{y(p[1]):.1f}" r="12"/>'
-        f'<circle class="stat-dot" cx="{x(p[0]):.1f}" cy="{y(p[1]):.1f}" r="4"/></g>' for p in pts)
-    last = pts[-1] if pts else None
-    end_label = (f'<text class="stat-end" x="{x(last[0]) - 6:.1f}" y="{y(last[1]) - 9:.1f}" text-anchor="end">{esc(users(last[1]))}</text>'
-                 if last else '')
+        f'<circle class="stat-dot" cx="{x(p[0]):.1f}" cy="{y(p[1]):.1f}" r="4"/></g>' for i, p in enumerate(pts))
+    first, last = pts[0], pts[-1]
+    labels = (f'<text class="stat-val" x="{x(last[0]) + 8:.1f}" y="{y(last[1]) + 4:.1f}">{esc(users(last[1]))}</text>'
+              + (f'<text class="stat-val is-start" x="{x(first[0]):.1f}" y="{y(first[1]) - 9:.1f}">{esc(users(first[1]))}</text>'
+                 if len(pts) > 1 else '')
+              + f'<text class="stat-x" x="{x(first[0]):.1f}" y="{H - 4}">{esc(month_label(first[0]))}</text>'
+              + (f'<text class="stat-x" x="{x(last[0]):.1f}" y="{H - 4}" text-anchor="end">{esc(month_label(last[0]))}</text>'
+                 if len(pts) > 1 else ''))
     summary = ', '.join(f'{month_label(p[0])}: {users(p[1])}' for p in pts)
-    return f'''<figure class="stat-chart">
-              <figcaption><strong>{esc(chart.get('title'))}</strong> {esc(chart.get('metric'))}</figcaption>
-              <svg viewBox="0 0 {W} {H}" role="img" aria-label="{esc(chart.get('title'))}, {esc(chart.get('metric'))}: {esc(summary)}">
-                <g class="stat-grid">{grid}<line class="stat-base" x1="{L}" x2="{W - R}" y1="{y(0):.1f}" y2="{y(0):.1f}"/></g>
-                <g class="stat-axis">{ylabels}{xlabels}</g>
-                <polygon class="stat-area" points="{area}"/>
-                <polyline class="stat-line" points="{line}"/>
-                {end_label}{dots}
-              </svg>
-            </figure>'''
+    return f'''<svg class="stat-svg" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(app.get('name'))}, {esc(metric)}: {esc(summary)}">
+                <defs><linearGradient id="{fade}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".22"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs>
+                <line class="stat-base" x1="{L}" x2="{W - R}" y1="{H - B}" y2="{H - B}"/>
+                <polygon class="stat-area" points="{area}" fill="url(#{fade})"/>
+                <polyline class="stat-line" points="{line}" pathLength="1"/>
+                {labels}{dots}
+              </svg>'''
 
 
 def stats_card(data):
-    """The "GenAI in numbers" card: headline figures and the growth of the apps (data["genai_stats"])."""
+    """The "GenAI in numbers" card: one band per app with its latest figure and its growth (data["genai_stats"])."""
     st = data.get('genai_stats') or {}
-    tiles = ''.join(
-        f'<li class="stat-tile"><span class="stat-value">{esc(t.get("value"))}</span>'
-        f'<span class="stat-label">{esc(t.get("label"))}</span>'
-        f'<span class="stat-date">{esc(t.get("date"))}'
-        + (f' · <a href="{esc(t["source"])}" target="_blank" rel="noopener">source ↗</a>' if t.get('source') else '')
-        + '</span></li>' for t in st.get('tiles') or [])
-    charts = [c for c in st.get('charts') or [] if c.get('points')]
-    if not tiles and not charts:
+    apps = [a for a in st.get('apps') or [] if a.get('points')]
+    if not apps:
         return ''
-    months = lambda ym: int(ym[:4]) * 12 + int(ym[5:7]) - 1
-    all_points = [p for c in charts for p in c['points']]
-    figures = ''
-    if charts:
-        start = min(months(p[0]) for p in all_points) - 1
-        end = max(months(p[0]) for p in all_points) + 1
-        peak = max(float(p[1]) for p in all_points)
-        top = next(v for v in (300, 600, 900, 1200, 1500, 1800, 2400, 3000, 4500, 6000, peak) if v >= peak)
-        figures = '<div class="stat-charts">' + ''.join(growth_chart(c, start, end, top) for c in charts) + '</div>'
-        rows = ''.join(f'<tr><td>{esc(c.get("title"))}</td><td>{esc(month_label(p[0]))}</td><td>{esc(users(p[1]))} {esc(c.get("metric"))}</td>'
-                       f'<td>' + (f'<a href="{esc(p[2])}" target="_blank" rel="noopener">source ↗</a>' if len(p) > 2 and p[2] else '') + '</td></tr>'
-                       for c in charts for p in c['points'])
-        figures += f'''
-          <details class="stat-data"><summary>Data and sources</summary>
-            <table class="data-table data-table-compact"><thead><tr><th scope="col">App</th><th scope="col">Date</th><th scope="col">Users</th><th scope="col">Source</th></tr></thead>
-            <tbody>{rows}</tbody></table>
-          </details>'''
+    bands, rows = [], []
+    for app in apps:
+        pts = app['points']
+        first, last = pts[0], pts[-1]
+        growth = (f'<span class="stat-growth">×{float(last[1]) / float(first[1]):.1f} since {esc(month_label(first[0]))}</span>'
+                  .replace('.0 since', ' since') if len(pts) > 1 and float(first[1]) > 0 else '')
+        source = f' · <a href="{esc(last[2])}" target="_blank" rel="noopener">source ↗</a>' if len(last) > 2 and last[2] else ''
+        extra = ''.join(
+            f'<p class="stat-extra"><strong>{esc(f.get("value"))}</strong> {esc(f.get("label"))} '
+            f'<span>{esc(f.get("date"))}'
+            + (f' · <a href="{esc(f["source"])}" target="_blank" rel="noopener">source ↗</a>' if f.get('source') else '')
+            + '</span></p>' for f in app.get('figures') or [])
+        bands.append(f'''          <li class="stat-band">
+            <div class="stat-head">
+              <p class="stat-app">{logo_mark(app.get('name', ''), ' app-logo-xs')}{esc(app.get('name'))}</p>
+              <p class="stat-big">{esc(users(last[1]))} <span>{esc(app.get('metric'))}</span></p>
+              <p class="stat-date">{esc(month_label(last[0]))}{source}</p>
+              {growth}
+            </div>
+            <div class="stat-plot">
+              {growth_chart(app)}
+              {extra}
+            </div>
+          </li>''')
+        rows += [f'<tr><td>{esc(app.get("name"))}</td><td>{esc(month_label(p[0]))}</td><td>{esc(users(p[1]))} {esc(app.get("metric"))}</td><td>'
+                 + (f'<a href="{esc(p[2])}" target="_blank" rel="noopener">source ↗</a>' if len(p) > 2 and p[2] else '') + '</td></tr>'
+                 for p in pts]
     note = f'<p class="genai-apps-source">{esc(st["note"])}</p>' if st.get('note') else ''
     return f'''<aside class="genai-apps genai-stats">
           <p class="card-kicker">{esc(st.get('title') or 'GenAI in numbers')}</p>
-          <ul class="stat-tiles">{tiles}</ul>
-          {figures}
+          <ul class="stat-bands">
+{chr(10).join(bands)}
+          </ul>
+          <details class="stat-data"><summary>Data and sources</summary>
+            <table class="data-table data-table-compact"><thead><tr><th scope="col">App</th><th scope="col">Date</th><th scope="col">Users</th><th scope="col">Source</th></tr></thead>
+            <tbody>{''.join(rows)}</tbody></table>
+          </details>
           {note}
         </aside>'''
 
@@ -741,14 +752,14 @@ def genai_page(data):
     main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('GenAI Traffic Project', '')], 'GenAI Traffic Project', data.get('genai_intro') or GENAI_INTRO, 'genai')}
 
     <section class="section page-body" aria-labelledby="why-genai-title">
+      <div class="container">{apps_preview(data, genai)}
+      </div>
       <div class="container two-col two-col-center">
         <div>
           <h2 id="why-genai-title" class="section-title">{esc(page(data, 'genai_why_title'))}</h2>
 {rationale}
         </div>
         {stats_card(data)}
-      </div>
-      <div class="container">{apps_preview(data, genai)}
       </div>
     </section>
 {prompts_section}

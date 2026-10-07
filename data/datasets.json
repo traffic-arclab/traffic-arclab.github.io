@@ -76,35 +76,9 @@
   ],
   "genai_stats": {
     "title": "GenAI in numbers",
-    "tiles": [
+    "apps": [
       {
-        "value": "1.2B",
-        "label": "people use ChatGPT every week",
-        "date": "Sep 2026",
-        "source": "https://www.engadget.com/2271985/openai-dev-day-live-blog-chatgpt-news/"
-      },
-      {
-        "value": "950M",
-        "label": "monthly users of the Gemini app",
-        "date": "Jul 2026",
-        "source": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/"
-      },
-      {
-        "value": "2.5B",
-        "label": "prompts sent to ChatGPT every day",
-        "date": "Jul 2025",
-        "source": "https://techcrunch.com/2025/07/21/chatgpt-users-send-2-5-billion-prompts-a-day/"
-      },
-      {
-        "value": "150M+",
-        "label": "monthly users of the Microsoft Copilot apps",
-        "date": "Oct 2025",
-        "source": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1"
-      }
-    ],
-    "charts": [
-      {
-        "title": "ChatGPT",
+        "name": "ChatGPT",
         "metric": "weekly users",
         "points": [
           [
@@ -142,10 +116,18 @@
             1200,
             "https://www.engadget.com/2271985/openai-dev-day-live-blog-chatgpt-news/"
           ]
+        ],
+        "figures": [
+          {
+            "value": "2.5B",
+            "label": "prompts every day",
+            "date": "Jul 2025",
+            "source": "https://techcrunch.com/2025/07/21/chatgpt-users-send-2-5-billion-prompts-a-day/"
+          }
         ]
       },
       {
-        "title": "Gemini app",
+        "name": "Google Gemini",
         "metric": "monthly users",
         "points": [
           [
@@ -173,10 +155,42 @@
             950,
             "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/"
           ]
+        ],
+        "figures": [
+          {
+            "value": "×3",
+            "label": "daily users in one year",
+            "date": "Jul 2026",
+            "source": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/"
+          }
+        ]
+      },
+      {
+        "name": "Microsoft Copilot",
+        "metric": "monthly users",
+        "points": [
+          [
+            "2025-07",
+            100,
+            "https://www.microsoft.com/en-us/investor/events/fy-2025/earnings-fy-2025-q4"
+          ],
+          [
+            "2025-10",
+            150,
+            "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1"
+          ]
+        ],
+        "figures": [
+          {
+            "value": "30M+",
+            "label": "paid Microsoft 365 Copilot seats",
+            "date": "Jul 2026",
+            "source": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4"
+          }
         ]
       }
     ],
-    "note": "Figures announced by OpenAI, Google and Microsoft; weekly and monthly users are different measures."
+    "note": "Figures announced by OpenAI, Google and Microsoft (Copilot: the family of Copilot apps). Each chart has its own period and scale; weekly and monthly users are different measures."
   },
   "mailing_list": "https://groups.google.com/forum/#!forum/mirage-project",
   "contact": "antonio.montieri@unina.it",

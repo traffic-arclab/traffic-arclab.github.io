@@ -18,11 +18,23 @@ document.querySelectorAll('[data-prompt-explorer]').forEach(explorer => {
   if (buttons.length) show(buttons[0].dataset.promptApp);
 });
 
-// Growth charts: the value of a point on hover or keyboard focus
-document.querySelectorAll('.stat-charts').forEach(box => {
+// Growth charts: drawn when they come into view; the value of a point on hover or keyboard focus
+document.querySelectorAll('.stat-bands').forEach(box => {
+  const bands = box.querySelectorAll('.stat-band');
+  if ('IntersectionObserver' in window) {
+    const seen = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-drawn');
+      seen.unobserve(entry.target);
+    }), { threshold: 0.4 });
+    bands.forEach(band => seen.observe(band));
+  } else {
+    bands.forEach(band => band.classList.add('is-drawn'));
+  }
   const tip = document.createElement('div');
   tip.className = 'stat-tip';
   tip.hidden = true;
+  box.style.position = 'relative';
   box.append(tip);
   const show = point => {
     const dot = point.querySelector('.stat-dot').getBoundingClientRect(), area = box.getBoundingClientRect();

@@ -391,12 +391,10 @@
   <label>Intro <small>under the title; also on the card of the Datasets page</small><textarea id="dp-genai_intro" rows="3"></textarea></label>
   <label>First section: title <input data-page="genai_why_title"></label>
   <label>First section: text <textarea id="dp-genai_rationale" rows="6"></textarea></label>
-  <label>Numbers: title <small>card next to the first section</small><input id="dp-stats-title" placeholder="GenAI in numbers"></label>
-  <label>Numbers: figures <small>one per line: value | text | date | source link</small>
-    <textarea id="dp-stats-tiles" class="mono" rows="4" wrap="off" placeholder="1.2B | people use ChatGPT every week | Sep 2026 | https://…"></textarea></label>
-  <label>Numbers: growth charts <small>one chart per block, blocks separated by an empty line. First line: App | measure;
-    then one point per line: year-month | users in millions | source link</small>
-    <textarea id="dp-stats-charts" class="mono" rows="10" wrap="off" placeholder="ChatGPT | weekly users&#10;2023-11 | 100 | https://…&#10;2024-08 | 200 | https://…"></textarea></label>
+  <label>Numbers: title <small>card next to the first section: one band per app with its growth chart</small><input id="dp-stats-title" placeholder="GenAI in numbers"></label>
+  <label>Numbers: apps <small>one band per app, bands separated by an empty line. First line: App | measure (e.g. ChatGPT | weekly users);
+    then one chart point per line: year-month | users in millions | source link; any other line is an extra figure: value | text | date | source link</small>
+    <textarea id="dp-stats-apps" class="mono" rows="14" wrap="off" placeholder="ChatGPT | weekly users&#10;2023-11 | 100 | https://…&#10;2026-09 | 1200 | https://…&#10;2.5B | prompts every day | Jul 2025 | https://…"></textarea></label>
   <label>Numbers: note <small>under the charts</small><input id="dp-stats-note"></label>
   <label>Apps and activities <small>row under the first section; one app per line: App name | package | activities separated by commas.
     Logos: see <strong>App logos</strong>.</small><textarea id="dp-genai_apps" class="mono" rows="5" wrap="off"
@@ -421,7 +419,11 @@
   <label>Name * <small>e.g. MIRAGE-GenAI-2025</small><input id="d-name" required></label>
   <label>Page address * <small id="d-slug-note"></small><input id="d-slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="mirage-genai-2025"></label>
   <label class="check"><input type="checkbox" id="d-new"> Show the <strong>New</strong> tag</label>
-  <label class="check"><input type="checkbox" id="d-genai"> Show it in <strong>GenAI Traffic Project</strong> instead of MIRAGE Project</label>
+  <label>Project <small>the page (and menu entry) that lists this dataset</small>
+    <select id="d-genai">
+      <option value="mirage">MIRAGE Project</option>
+      <option value="genai">GenAI Traffic Project</option>
+    </select></label>
   <label>Summary * <small>one or two sentences, shown on the card and under the title</small><textarea id="d-summary" rows="3" required></textarea></label>
   <div class="photo dataset-img">
     <img id="d-image-preview" alt="">
@@ -922,18 +924,16 @@
       const st = datasets._stats, cells = line => line.split('|').map(one);
       out.genai_stats = {
         title: one(st.title), note: one(st.note),
-        tiles: st.tiles.split('\n').map(cells).filter(c => c[0])
-          .map(([value, label = '', date = '', source = '']) => ({ value, label, date, source })),
-        charts: st.charts.split(/\n\s*\n/).map(block => block.split('\n').map(cells).filter(c => c[0])).filter(lines => lines.length)
-          .map(([[title, metric = ''], ...points]) => ({
-            title, metric,
-            points: points.map(([date, value, source = '']) => {
-              if (!/^\d{4}-\d{2}$/.test(date) || !(Number(value) >= 0)) {
-                throw new Error(`Growth chart "${title}": write each point as year-month | users in millions | link (e.g. 2025-10 | 800 | https://…)`);
-              }
+        apps: st.apps.split(/\n\s*\n/).map(block => block.split('\n').map(cells).filter(c => c[0])).filter(lines => lines.length)
+          .map(([[name, metric = ''], ...lines]) => {
+            const isPoint = c => /^\d{4}-\d{2}$/.test(c[0]);
+            const points = lines.filter(isPoint).map(([date, value, source = '']) => {
+              if (!(Number(value) >= 0) || value === '') throw new Error(`GenAI in numbers, ${name}: write each point as year-month | users in millions | link (e.g. 2025-10 | 800 | https://…)`);
               return [date, Number(value), source];
-            }),
-          })),
+            }).sort((a, b) => a[0].localeCompare(b[0]));
+            const figures = lines.filter(c => !isPoint(c)).map(([value, label = '', date = '', source = '']) => ({ value, label, date, source }));
+            return { name, metric, points, figures };
+          }),
       };
     }
     // Texts of the pages: paragraphs and steps typed as text become lists
@@ -1836,10 +1836,10 @@
     const st = datasets.genai_stats || {};
     datasets._stats = datasets._stats || {
       title: st.title || '', note: st.note || '',
-      tiles: (st.tiles || []).map(t => [t.value, t.label, t.date, t.source].map(v => v || '').join(' | ')).join('\n'),
-      charts: (st.charts || []).map(c => [`${c.title || ''} | ${c.metric || ''}`, ...(c.points || []).map(p => p.join(' | '))].join('\n')).join('\n\n'),
+      apps: (st.apps || []).map(a => [`${a.name || ''} | ${a.metric || ''}`, ...(a.points || []).map(p => p.join(' | ')),
+        ...(a.figures || []).map(f => [f.value, f.label, f.date, f.source].map(v => v || '').join(' | '))].join('\n')).join('\n\n'),
     };
-    for (const key of ['title', 'tiles', 'charts', 'note']) {
+    for (const key of ['title', 'apps', 'note']) {
       const input = $('dp-stats-' + key);
       input.value = datasets._stats[key];
       input.addEventListener('input', () => { datasets._stats[key] = input.value; markDirty('datasets'); });
@@ -2061,8 +2061,8 @@
       : 'fixed, so that links to the page keep working';
     $('d-new').checked = Boolean(ds.new);
     $('d-new').addEventListener('change', () => { ds.new = $('d-new').checked; changed(); });
-    $('d-genai').checked = Boolean(ds.genai);
-    $('d-genai').addEventListener('change', () => { ds.genai = $('d-genai').checked; changed(); });
+    $('d-genai').value = ds.genai ? 'genai' : 'mirage';
+    $('d-genai').addEventListener('change', () => { ds.genai = $('d-genai').value === 'genai'; changed(); });
     for (const key of ['summary', 'format', 'size', 'apps_title']) bind('d-' + key, () => ds[key], v => { ds[key] = v; });
     bind('d-description', () => ds._description ?? (ds.description || []).join('\n\n'), v => { ds._description = v; });
     const countApps = () => {
