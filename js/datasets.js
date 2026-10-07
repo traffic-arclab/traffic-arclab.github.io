@@ -136,7 +136,12 @@ document.querySelectorAll('details.stat-data[data-swap]').forEach(details => {
   summary.setAttribute('aria-expanded', 'false');
   const wide = window.matchMedia('(min-width: 901px)');
   const swap = open => {
-    if (open) panel.querySelector('.table-wrap').append(table); else details.append(table);
+    if (open) {
+      panel.style.height = `${text.offsetHeight}px`;   // same height as the text it replaces: the row does not grow
+      panel.querySelector('.table-wrap').append(table);
+    } else {
+      details.append(table);
+    }
     panel.hidden = !open;
     text.hidden = open;
     details.classList.toggle('is-swapped', open);

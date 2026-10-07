@@ -887,8 +887,10 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .why-text .section-title { margin-bottom: var(--space-6); }
 .why-data[hidden], .why-text[hidden] { display: none; }
 .why-data { animation: why-in .35s var(--ease-standard); }
-.why-data .section-title { margin-bottom: var(--space-5); }
-.why-data .table-wrap { max-height: 520px; overflow: auto; }
+.why-data .section-title { margin-bottom: var(--space-4); }
+.why-data { display: flex; flex-direction: column; }
+.why-data .table-wrap { flex: 1; min-height: 0; overflow: auto; }
+.why-data .why-back { align-self: flex-start; }
 .why-data td:nth-child(2), .why-data td:nth-child(4) { white-space: nowrap; }
 .why-back { margin-top: var(--space-4); padding: 0; border: 0; background: none; color: var(--color-link); font: inherit; font-weight: 650; cursor: pointer; }
 .why-back:hover { text-decoration: underline; }
