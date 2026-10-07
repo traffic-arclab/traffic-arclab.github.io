@@ -582,10 +582,17 @@ def prompts_preview(genai):
             <ol class="prompt-tiles">{''.join(items)}</ol>
             <div class="prompt-set-foot">
               <p class="genai-apps-source">From <a href="{esc(ds['slug'])}.html">{esc(ds['name'])}</a> · the same prompts for every app</p>
-              <a href="{esc(ds['slug'])}.html#prompts" class="btn btn-primary">Explore prompts and answers →</a>
             </div>
           </article>''')
     return '\n'.join(cards)
+
+
+def prompts_buttons(genai):
+    """Link to the prompts and answers of each GenAI dataset with a prompt set, under the text of the Prompts section."""
+    sets = [ds for ds in genai if prompts_of(ds)]
+    links = ''.join(f'<a href="{esc(ds["slug"])}.html#prompts" class="btn btn-primary">Explore prompts and answers'
+                    + (f' of {esc(ds["name"])}' if len(sets) > 1 else '') + ' →</a>' for ds in sets)
+    return f'          <div class="prompts-cta">{links}</div>' if links else ''
 
 
 def prompt_explorer(ds, p):
@@ -737,6 +744,7 @@ def genai_page(data):
         <div>
           <h2 id="genai-prompts-title" class="section-title">{esc(page(data, 'genai_prompts_title'))}</h2>
 {paras(page(data, 'genai_prompts'))}
+{prompts_buttons(genai)}
         </div>
         <div class="prompt-sets">
 {prompts}
@@ -886,4 +894,6 @@ def build():
 
 if __name__ == '__main__':
     pages, menus = build()
+    import stamp_assets   # the new pages get the current CSS/JS versions, as the workflow does
+    stamp_assets.stamp()
     print(f'Datasets section rebuilt: {pages} pages in datasets/ and the menu of {menus} pages')

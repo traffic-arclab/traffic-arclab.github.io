@@ -948,6 +948,8 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .two-col .award { margin-top: var(--space-6); }
 .prompt-set-foot { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; margin-top: var(--space-4); }
 .prompt-set-foot .genai-apps-source { margin-top: 0; }
+.prompts-cta { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; max-width: 62ch; margin-top: var(--space-6); font-size: 1.0625rem; }
+.prompts-cta .btn { font-size: .92rem; }
 .prompt-label { display: block; color: var(--color-accent-ink); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .prompt-explorer { display: grid; gap: 10px; }
 .prompt-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-3); }
