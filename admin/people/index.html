@@ -348,7 +348,11 @@
 <template id="datasets-page-form">
   <h2>Datasets page</h2>
   <label>Intro <small>MIRAGE Project page</small><textarea id="dp-intro" rows="4"></textarea></label>
+  <label>Why MIRAGE <small>MIRAGE Project page; leave an empty line between paragraphs</small><textarea id="dp-mirage_rationale" rows="6"></textarea></label>
   <label>GenAI intro <small>GenAI Traffic Project page</small><textarea id="dp-genai_intro" rows="3"></textarea></label>
+  <label>GenAI apps and activities <small>card next to "Why GenAI traffic"; one app per line: App name | package | activities separated by commas.
+    The logo is shown when images/apps/ has one for the app.</small><textarea id="dp-genai_apps" class="mono" rows="5" wrap="off"
+    placeholder="ChatGPT | com.openai.chatgpt | Textual, Multimodal"></textarea></label>
   <label>Why GenAI traffic <small>GenAI Traffic Project page; leave an empty line between paragraphs</small><textarea id="dp-genai_rationale" rows="6"></textarea></label>
   <label>Award <textarea id="dp-award" rows="2"></textarea></label>
   <label>MIRAGE paper <small>link</small><input id="dp-paper" type="url" placeholder="https://…"></label>
@@ -843,8 +847,14 @@
     const slugs = new Set();
     const out = { ...datasets, intro: one(datasets.intro), genai_intro: one(datasets.genai_intro),
       genai_rationale: (Array.isArray(datasets.genai_rationale) ? datasets.genai_rationale.join('\n\n') : str(datasets.genai_rationale))
+        .split(/\n\s*\n/).map(one).filter(Boolean),
+      genai_apps: datasets._genai_apps === undefined ? (datasets.genai_apps || []) : datasets._genai_apps.split('\n')
+        .map(line => line.split('|').map(one)).filter(cells => cells[0])
+        .map(([name, pkg = '', acts = '']) => ({ name, package: pkg, activities: acts.split(',').map(one).filter(Boolean) })),
+      mirage_rationale: (Array.isArray(datasets.mirage_rationale) ? datasets.mirage_rationale.join('\n\n') : str(datasets.mirage_rationale))
         .split(/\n\s*\n/).map(one).filter(Boolean), award: one(datasets.award), contact: str(datasets.contact),
       paper: url(datasets.paper, 'MIRAGE paper'), mailing_list: url(datasets.mailing_list, 'Mailing list') };
+    delete out._genai_apps;
     out.datasets = datasets.datasets.map(ds => {
       const name = one(ds.name);
       if (!name) throw new Error('Every dataset needs a name');
@@ -1699,9 +1709,15 @@
     const editor = $('datasets-editor');
     editor.innerHTML = '';
     editor.appendChild($('datasets-page-form').content.cloneNode(true));
-    const rationale = $('dp-genai_rationale');
-    rationale.value = (datasets.genai_rationale || []).join('\n\n');
-    rationale.addEventListener('input', () => { datasets.genai_rationale = rationale.value; markDirty('datasets'); });
+    const appsArea = $('dp-genai_apps');
+    appsArea.value = datasets._genai_apps ?? (datasets.genai_apps || [])
+      .map(a => [a.name, a.package || '', (a.activities || []).join(', ')].join(' | ')).join('\n');
+    appsArea.addEventListener('input', () => { datasets._genai_apps = appsArea.value; markDirty('datasets'); });
+    for (const key of ['mirage_rationale', 'genai_rationale']) {   // paragraphs, one empty line between them
+      const area = $('dp-' + key);
+      area.value = Array.isArray(datasets[key]) ? datasets[key].join('\n\n') : (datasets[key] || '');
+      area.addEventListener('input', () => { datasets[key] = area.value; markDirty('datasets'); });
+    }
     for (const key of ['intro', 'genai_intro', 'award', 'paper', 'mailing_list', 'contact']) {
       const input = $('dp-' + key);
       input.value = datasets[key] || '';
