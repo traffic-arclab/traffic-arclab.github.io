@@ -11,9 +11,9 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=e6087bdc">
+  <link rel="stylesheet" href="../css/site.css?v=9f993aea">
   <script src="../js/site.js?v=9e61baa7" defer></script>
-  <script src="../js/datasets.js?v=b5525ac4" defer></script>
+  <script src="../js/datasets.js?v=5de20ff4" defer></script>
 </head>
 <body>
 
@@ -110,7 +110,7 @@
             <button class="nav-link dropdown-toggle is-current" aria-expanded="false">Datasets</button>
             <div class="dropdown">
               <a href="../datasets/mirage.html">MIRAGE Project <small>All the MIRAGE mobile-app traffic datasets</small></a>
-              <a href="../datasets/genai.html" aria-current="page">GenAI Traffic Project <small>Traffic of Generative AI apps</small></a>
+              <a href="../datasets/genai.html" aria-current="page">GenAI Traffic Project <small>Network Traffic of Generative AI apps</small></a>
             </div>
           </li>
           <!-- DATASETS-MENU:END -->
@@ -132,10 +132,50 @@
       </div>
     </section>
 
-    <section class="section page-body">
+    <section class="section page-body" aria-labelledby="rationale-title">
+      <div class="container two-col">
+        <div>
+          <h2 id="rationale-title" class="section-title">Rationale</h2>
+          <p>Generative AI chatbots are quickly becoming everyday apps on mobile devices, and the traffic they generate differs from that of traditional apps: answers are produced on the fly, text and images are generated on demand, and each provider relies on its own infrastructure.</p>
+          <p>The GenAI Traffic Project looks at these apps from the network viewpoint. Its datasets contain human-generated traffic of GenAI mobile apps, labeled with both the app and the generative activity performed, so that their traffic can be characterized, modeled and classified.</p>
+        </div>
+        <aside class="genai-apps">
+          <p class="card-kicker">Apps and activities</p>
+          <div class="table-wrap">
+            <table class="data-table data-table-compact">
+              <thead><tr><th scope="col">App</th><th scope="col">Generated content</th><th scope="col">Dataset</th></tr></thead>
+              <tbody><tr><td>ChatGPT</td><td>Textual (T), Multimodal (M)</td><td><a href="mirage-genai-2025.html#apps-title">MIRAGE-GenAI-2025</a></td></tr><tr><td>Microsoft Copilot</td><td>Textual (T), Multimodal (M)</td><td><a href="mirage-genai-2025.html#apps-title">MIRAGE-GenAI-2025</a></td></tr><tr><td>Google Gemini</td><td>Textual (T), Multimodal (M)</td><td><a href="mirage-genai-2025.html#apps-title">MIRAGE-GenAI-2025</a></td></tr></tbody>
+            </table>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section page-body section-alt" aria-labelledby="genai-prompts-title">
+      <div class="container two-col">
+        <div>
+          <h2 id="genai-prompts-title" class="section-title">Prompts</h2>
+          <p>Besides traffic collected with unconstrained prompts, every GenAI dataset includes a <strong>controlled part</strong>:
+          the same set of prompts is issued to every app, so that the traffic of different apps can be compared for the same request.</p>
+          <p>The prompts cover different tasks, from short factual questions to code, translation, summarization and image generation,
+          and are published together with the answers given by each app.</p>
+        </div>
+        <div class="prompt-sets">
+          <article class="prompt-set">
+            <p class="card-kicker">MIRAGE-GenAI-2025 · 10 prompts · 3 apps</p>
+            <ol class="prompt-set-list"><li><span class="prompt-label">Factual question</span> When was America discovered?</li><li><span class="prompt-label">Technical explanation</span> Describe the role of a router in a computer network and how it manages data traffic.</li><li><span class="prompt-label">General knowledge</span> Can you tell me what the most popular or commonly eaten foods in Italy are?</li><li><span class="prompt-label">Arithmetic</span> What is 20 percent of 2025?</li><li><span class="prompt-label">Code generation</span> Write a &quot;Hello, World!&quot; program in C.</li><li><span class="prompt-label">Up-to-date information</span> What cultural events are happening this month in Naples and Tokyo?</li><li><span class="prompt-label">Scientific writing</span> Write an abstract for a research paper that proposes an innovative technique for network…</li><li><span class="prompt-label">Translation</span> Translate the following text into Italian: When I was little, our family traveled to…</li><li><span class="prompt-label">Summarization</span> Summarize the following text in exactly two sentences: Last month, at a lab in Santa…</li><li><span class="prompt-label">Image generation</span> Give me an illustration of a person surfing on a wave in the ocean. The scene should show…</li></ol>
+            <div class="dataset-actions">
+              <a href="mirage-genai-2025.html#prompts" class="btn btn-primary">Explore prompts and answers</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section page-body" aria-labelledby="genai-datasets-title">
       <div class="container">
         <div class="section-head">
-          <h2 class="section-title">GenAI datasets</h2>
+          <h2 id="genai-datasets-title" class="section-title">GenAI datasets</h2>
           <p class="section-intro">Human-generated traffic of Generative AI apps, labeled with the app and the generative activity performed.</p>
         </div>
         <div class="dataset-grid">
@@ -156,21 +196,24 @@
       </div>
     </section>
 
-    <section class="section page-body section-alt">
-      <div class="container">
-        <div class="dataset-about">
-          <div>
-            <h2 class="section-title">Resources</h2>
-            <p>The prompts used to build the controlled part of the GenAI datasets, with the answers of each chatbot,
-            and the papers that describe and analyse the traffic.</p>
-          </div>
+    <section class="section page-body section-alt" aria-labelledby="genai-papers-title">
+      <div class="container two-col">
+        <div>
+          <h2 id="genai-papers-title" class="section-title">Papers</h2>
+          <p>If you use the GenAI datasets or the prompt sets, please cite:</p>
+          <blockquote class="citation">
+            <p>Antonio Montieri, Alfredo Nascita, Antonio Pescapè, “From Prompts to Packets: A View from the Network on ChatGPT, Copilot, and Gemini”, <em>Computer Networks, 2026, 112237, ISSN 1389-1286</em>.</p>
+            <p class="citation-links"><a href="https://doi.org/10.1016/j.comnet.2026.112237" target="_blank" rel="noopener">DOI ↗</a> <a href="https://arxiv.org/abs/2510.11269" target="_blank" rel="noopener">arXiv ↗</a></p>
+          </blockquote>
+        </div>
+        <aside class="openings">
+          <p class="card-kicker">More</p>
           <ul class="dataset-links">
-            <li><a href="../genai_prompts/">Prompts and answers of ChatGPT, Copilot and Gemini</a></li>
-            <li><a href="https://doi.org/10.1016/j.comnet.2026.112237" target="_blank" rel="noopener">“From Prompts to Packets: A View from the Network on ChatGPT, Copilot, and Gemini” ↗</a></li>
             <li><a href="../topics/mobile-and-genai-app-traffic-datasets.html">Research topic: mobile and GenAI app traffic datasets</a></li>
             <li><a href="mirage.html">MIRAGE Project datasets</a></li>
+            <li><a href="mailto:antonio.montieri@unina.it">Contact us about the datasets</a></li>
           </ul>
-        </div>
+        </aside>
       </div>
     </section>
 

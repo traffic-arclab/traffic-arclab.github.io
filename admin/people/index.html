@@ -349,6 +349,7 @@
   <h2>Datasets page</h2>
   <label>Intro <small>MIRAGE Project page</small><textarea id="dp-intro" rows="4"></textarea></label>
   <label>GenAI intro <small>GenAI Traffic Project page</small><textarea id="dp-genai_intro" rows="3"></textarea></label>
+  <label>GenAI rationale <small>GenAI Traffic Project page; leave an empty line between paragraphs</small><textarea id="dp-genai_rationale" rows="6"></textarea></label>
   <label>Award <textarea id="dp-award" rows="2"></textarea></label>
   <label>MIRAGE paper <small>link</small><input id="dp-paper" type="url" placeholder="https://…"></label>
   <label>Mailing list <small>link</small><input id="dp-mailing_list" type="url" placeholder="https://…"></label>
@@ -840,7 +841,9 @@
       return link;
     };
     const slugs = new Set();
-    const out = { ...datasets, intro: one(datasets.intro), genai_intro: one(datasets.genai_intro), award: one(datasets.award), contact: str(datasets.contact),
+    const out = { ...datasets, intro: one(datasets.intro), genai_intro: one(datasets.genai_intro),
+      genai_rationale: (Array.isArray(datasets.genai_rationale) ? datasets.genai_rationale.join('\n\n') : str(datasets.genai_rationale))
+        .split(/\n\s*\n/).map(one).filter(Boolean), award: one(datasets.award), contact: str(datasets.contact),
       paper: url(datasets.paper, 'MIRAGE paper'), mailing_list: url(datasets.mailing_list, 'Mailing list') };
     out.datasets = datasets.datasets.map(ds => {
       const name = one(ds.name);
@@ -1696,6 +1699,9 @@
     const editor = $('datasets-editor');
     editor.innerHTML = '';
     editor.appendChild($('datasets-page-form').content.cloneNode(true));
+    const rationale = $('dp-genai_rationale');
+    rationale.value = (datasets.genai_rationale || []).join('\n\n');
+    rationale.addEventListener('input', () => { datasets.genai_rationale = rationale.value; markDirty('datasets'); });
     for (const key of ['intro', 'genai_intro', 'award', 'paper', 'mailing_list', 'contact']) {
       const input = $('dp-' + key);
       input.value = datasets[key] || '';

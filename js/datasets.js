@@ -1,4 +1,19 @@
 /* Datasets: every download asks for a few details first (see scripts/build_datasets.py). */
+
+// Prompt explorer: the tabs choose which app's answers are shown (without JS every answer is shown).
+document.querySelectorAll('[data-prompt-explorer]').forEach(explorer => {
+  const tabs = explorer.querySelector('.prompt-tabs');
+  const buttons = [...tabs.querySelectorAll('[data-prompt-app]')];
+  const show = app => {
+    explorer.dataset.app = app;
+    buttons.forEach(b => b.setAttribute('aria-selected', String(b.dataset.promptApp === app)));
+    explorer.querySelectorAll('.prompt-answer').forEach(a => a.classList.toggle('is-shown', a.dataset.app === app));
+  };
+  buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.promptApp)));
+  tabs.hidden = false;
+  if (buttons.length) show(buttons[0].dataset.promptApp);
+});
+
 (() => {
   const gate = document.getElementById('download-gate');
   if (!gate) return;

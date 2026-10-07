@@ -10,6 +10,7 @@ on:
       - 'data/collaborations.json'
       - 'data/datasets.json'
       - 'data/workshops.json'
+      - 'data/prompts/**'
       - 'scripts/build_people.py'
       - 'scripts/build_news.py'
       - 'scripts/build_topics.py'
