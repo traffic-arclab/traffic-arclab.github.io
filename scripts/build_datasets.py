@@ -142,11 +142,13 @@ def frame(title, description, main, current=''):
     return page
 
 
-def hero(crumbs, title, lead=''):
+def hero(crumbs, title, lead='', theme=''):
+    """Page title band; theme 'mobile' or 'genai' picks the drawing in the background."""
     trail = ' <span class="crumb-sep" aria-hidden="true">/</span> '.join(
         f'<a href="{esc(href)}">{esc(label)}</a>' if href else f'<span>{esc(label)}</span>' for label, href in crumbs)
     lead_html = f'\n        <p class="page-lead">{esc(lead)}</p>' if lead else ''
-    return f'''    <section class="page-hero">
+    theme_class = f' page-hero-{theme}' if theme else ''
+    return f'''    <section class="page-hero{theme_class}">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">{trail}</nav>
         <h1 class="page-title">{esc(title)}</h1>{lead_html}
@@ -306,7 +308,7 @@ def mirage_page(data):
             <p>{esc(paper['authors'])}, “{esc(paper['title'])}”{venue}.</p>
             {f'<p class="citation-links">{links}</p>' if links else ''}
           </blockquote>'''
-    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('MIRAGE Project', '')], 'MIRAGE Project', data['intro'])}
+    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('MIRAGE Project', '')], 'MIRAGE Project', data['intro'], 'mobile')}
 
     <section class="section page-body" aria-labelledby="why-mirage-title">
       <div class="container two-col two-col-center">
@@ -493,7 +495,6 @@ def apps_wall(datasets, license_short):
 {icons}
           </ul>
           {chips_html}
-          <p class="genai-apps-source">From {len(datasets)} datasets · all released under {esc(license_short)}</p>
         </aside>"""
 
 
@@ -597,7 +598,7 @@ def genai_page(data):
             <p>{esc(c['authors'])}, “{esc(c['title'])}”{venue}.</p>
             {f'<p class="citation-links">{links}</p>' if links else ''}
           </blockquote>''')
-    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('GenAI Traffic Project', '')], 'GenAI Traffic Project', data.get('genai_intro') or GENAI_INTRO)}
+    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('GenAI Traffic Project', '')], 'GenAI Traffic Project', data.get('genai_intro') or GENAI_INTRO, 'genai')}
 
     <section class="section page-body" aria-labelledby="why-genai-title">
       <div class="container two-col two-col-center">
@@ -666,7 +667,8 @@ def dataset_page(data, ds):
     apps_section += prompt_explorer(ds, p) if p else ''
     venue = f', <em>{esc(c["venue"])}</em>' if c.get('venue') else ''
     home, home_label = ('genai.html', 'GenAI Traffic Project') if is_genai(ds) else ('mirage.html', 'MIRAGE Project')
-    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), (home_label, home), (ds['name'], '')], ds['name'], ds['summary'])}
+    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), (home_label, home), (ds['name'], '')], ds['name'], ds['summary'],
+                 'genai' if is_genai(ds) else 'mobile')}
 
     <section class="section page-body">
       <div class="container">

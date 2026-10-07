@@ -477,6 +477,15 @@ a.area-topic:hover { color: var(--color-link); text-decoration-color: currentCol
   background: url("../images/network-field.svg") center / contain no-repeat; opacity: .5; pointer-events: none;
 }
 :root[data-theme="dark"] .page-hero::after { opacity: .16; }
+/* Datasets: drawings of phones and apps (MIRAGE) or of chat and AI (GenAI), fading towards the title */
+.page-hero-mobile::after, .page-hero-genai::after {
+  top: -4%; right: 0; width: min(640px, 58vw); opacity: .8;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 45%), linear-gradient(to bottom, #000 70%, transparent);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 45%), linear-gradient(to bottom, #000 70%, transparent); mask-composite: intersect;
+}
+.page-hero-mobile::after { background-image: url("../images/mobile-field.svg"); }
+.page-hero-genai::after { background-image: url("../images/genai-field.svg"); }
+:root[data-theme="dark"] :is(.page-hero-mobile, .page-hero-genai)::after { opacity: .3; }
 .page-hero .container { position: relative; z-index: 1; }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; margin-bottom: var(--space-5); color: var(--color-muted); font-size: .84rem; font-weight: 600; letter-spacing: .01em; }
 .breadcrumb a { color: var(--color-link); text-decoration: underline; text-decoration-color: transparent; }
