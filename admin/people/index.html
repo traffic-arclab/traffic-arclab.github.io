@@ -347,7 +347,8 @@
 
 <template id="datasets-page-form">
   <h2>Datasets page</h2>
-  <label>Intro <small>under the page title</small><textarea id="dp-intro" rows="4"></textarea></label>
+  <label>Intro <small>MIRAGE project page</small><textarea id="dp-intro" rows="4"></textarea></label>
+  <label>GenAI intro <small>GenAI Traffic Projects page</small><textarea id="dp-genai_intro" rows="3"></textarea></label>
   <label>Award <textarea id="dp-award" rows="2"></textarea></label>
   <label>MIRAGE paper <small>link</small><input id="dp-paper" type="url" placeholder="https://…"></label>
   <label>Mailing list <small>link</small><input id="dp-mailing_list" type="url" placeholder="https://…"></label>
@@ -359,6 +360,7 @@
   <label>Name * <small>e.g. MIRAGE-GenAI-2025</small><input id="d-name" required></label>
   <label>Page address * <small id="d-slug-note"></small><input id="d-slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="mirage-genai-2025"></label>
   <label class="check"><input type="checkbox" id="d-new"> Show the <strong>New</strong> tag</label>
+  <label class="check"><input type="checkbox" id="d-genai"> Also show it in <strong>GenAI Traffic Projects</strong></label>
   <label>Summary * <small>one or two sentences, shown on the card and under the title</small><textarea id="d-summary" rows="3" required></textarea></label>
   <div class="photo dataset-img">
     <img id="d-image-preview" alt="">
@@ -838,7 +840,7 @@
       return link;
     };
     const slugs = new Set();
-    const out = { ...datasets, intro: one(datasets.intro), award: one(datasets.award), contact: str(datasets.contact),
+    const out = { ...datasets, intro: one(datasets.intro), genai_intro: one(datasets.genai_intro), award: one(datasets.award), contact: str(datasets.contact),
       paper: url(datasets.paper, 'MIRAGE paper'), mailing_list: url(datasets.mailing_list, 'Mailing list') };
     out.datasets = datasets.datasets.map(ds => {
       const name = one(ds.name);
@@ -856,7 +858,7 @@
       const clean = {};
       for (const [key, value] of Object.entries(ds)) if (!key.startsWith('_')) clean[key] = value;
       Object.assign(clean, {
-        slug, name, new: Boolean(ds.new), summary: one(ds.summary), image: str(ds.image),
+        slug, name, new: Boolean(ds.new), genai: Boolean(ds.genai), summary: one(ds.summary), image: str(ds.image),
         file: url(ds.file, `${name}: the download address`), size: one(ds.size), format: one(ds.format),
         facts: (ds.facts || []).filter(f => one(f.label) || one(f.value)).map(f => [one(f.label), one(f.value)]),
         description: str(ds._description ?? (ds.description || []).join('\n\n')).split(/\n\s*\n/).map(one).filter(Boolean),
@@ -1679,6 +1681,7 @@
       const tags = li.querySelector('.tags');
       const tag = (text, missing) => { const t = document.createElement('span'); t.className = 'tag' + (missing ? ' missing' : ''); t.textContent = text; tags.appendChild(t); };
       if (ds.new) tag('New');
+      if (ds.genai) tag('GenAI');
       if (ds.zenodo) tag('Zenodo');
       else if (ds.file) tag('Other server', true);
       else tag('No file', true);
@@ -1693,7 +1696,7 @@
     const editor = $('datasets-editor');
     editor.innerHTML = '';
     editor.appendChild($('datasets-page-form').content.cloneNode(true));
-    for (const key of ['intro', 'award', 'paper', 'mailing_list', 'contact']) {
+    for (const key of ['intro', 'genai_intro', 'award', 'paper', 'mailing_list', 'contact']) {
       const input = $('dp-' + key);
       input.value = datasets[key] || '';
       input.addEventListener('input', () => { datasets[key] = input.value; markDirty('datasets'); });
@@ -1726,6 +1729,8 @@
       : 'fixed, so that links to the page keep working';
     $('d-new').checked = Boolean(ds.new);
     $('d-new').addEventListener('change', () => { ds.new = $('d-new').checked; changed(); });
+    $('d-genai').checked = Boolean(ds.genai);
+    $('d-genai').addEventListener('change', () => { ds.genai = $('d-genai').checked; changed(); });
     for (const key of ['summary', 'format', 'size', 'apps_title']) bind('d-' + key, () => ds[key], v => { ds[key] = v; });
     bind('d-description', () => ds._description ?? (ds.description || []).join('\n\n'), v => { ds._description = v; });
     const countApps = () => {
