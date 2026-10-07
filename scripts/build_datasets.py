@@ -334,8 +334,20 @@ def short(text, size=90):
     return text if len(text) <= size else text[:size].rsplit(' ', 1)[0] + '…'
 
 
+APP_LOGOS = os.path.join(ROOT, 'images', 'apps')
+
+
+def app_logo(name, package=''):
+    """images/apps/<key>.svg when <key> appears in the app name or package (e.g. chatgpt, copilot, gemini)."""
+    text = f'{name} {package}'.lower()
+    for logo in sorted(os.listdir(APP_LOGOS)) if os.path.isdir(APP_LOGOS) else []:
+        if os.path.splitext(logo)[0] in text:
+            return f'images/apps/{logo}'
+    return ''
+
+
 def apps_preview(genai):
-    """Compact "Apps and activities" view of every GenAI dataset: app and generated content."""
+    """Compact "Apps and activities" view of every GenAI dataset: logo, app and generated content."""
     rows = []
     for ds in genai:
         apps = ds.get('apps') or {}
@@ -343,19 +355,27 @@ def apps_preview(genai):
         name_col = next((i for i, c in enumerate(cols) if 'app name' in c), 1)
         what_col = next((i for i, c in enumerate(cols) if 'content' in c or 'activit' in c), None)
         for row in apps.get('rows', []):
+            name, package = row[name_col], row[0] if name_col else ''
             what = row[what_col] if what_col is not None and what_col < len(row) else ''
-            rows.append(f'<tr><td>{esc(row[name_col])}</td><td>{esc(what)}</td>'
-                        f'<td><a href="{esc(ds["slug"])}.html#apps-title">{esc(ds["name"])}</a></td></tr>')
+            labels = [re.sub(r'\s*\(.*?\)', '', t).strip() for t in what.split(',')]
+            tags = ''.join(f'<span class="tag">{esc(t)}</span>' for t in labels if t)
+            logo = app_logo(name, package)
+            mark = (f'<img src="{esc(local(logo))}" alt="" width="28" height="28">' if logo
+                    else f'<span aria-hidden="true">{esc(name[:1])}</span>')
+            rows.append(f'''            <li class="app-row">
+              <span class="app-logo">{mark}</span>
+              <span class="app-name"><strong>{esc(name)}</strong><code>{esc(package)}</code></span>
+              <span class="app-tags">{tags}</span>
+            </li>''')
     if not rows:
         return ''
+    sources = ', '.join(f'<a href="{esc(ds["slug"])}.html#apps-title">{esc(ds["name"])}</a>' for ds in genai if (ds.get('apps') or {}).get('rows'))
     return f'''<aside class="genai-apps">
           <p class="card-kicker">Apps and activities</p>
-          <div class="table-wrap">
-            <table class="data-table data-table-compact">
-              <thead><tr><th scope="col">App</th><th scope="col">Generated content</th><th scope="col">Dataset</th></tr></thead>
-              <tbody>{''.join(rows)}</tbody>
-            </table>
-          </div>
+          <ul class="app-list">
+{chr(10).join(rows)}
+          </ul>
+          <p class="genai-apps-source">From {sources}</p>
         </aside>'''
 
 
@@ -366,13 +386,25 @@ def prompts_preview(genai):
         p = prompts_of(ds)
         if not p:
             continue
-        items = ''.join(f'<li><span class="prompt-label">{esc(q["label"])}</span> {esc(short(q["text"]))}</li>' for q in p['prompts'])
-        apps = ', '.join(a['name'] for a in p['apps'])
-        cards.append(f'''          <article class="prompt-set">
-            <p class="card-kicker">{esc(ds['name'])} · {len(p['prompts'])} prompts · {len(p['apps'])} apps</p>
-            <ol class="prompt-set-list">{items}</ol>
-            <div class="dataset-actions">
-              <a href="{esc(ds['slug'])}.html#prompts" class="btn btn-primary">Explore prompts and answers</a>
+        items = []
+        for i, q in enumerate(p['prompts'], 1):
+            multimodal = ' is-multimodal' if q.get('activity', '').lower() == 'multimodal' else ''
+            items.append(f'<li class="prompt-tile{multimodal}" title="{esc(q["text"])}"><span class="prompt-tile-num">{i:02d}</span>'
+                         f'<span class="prompt-tile-label">{esc(q["label"])}</span>'
+                         f'<span class="prompt-tile-text">{esc(short(q["text"], 70))}</span></li>')
+        logos = ''.join(f'<span class="app-logo app-logo-sm" title="{esc(a["name"])}">'
+                        + (f'<img src="{esc(local(app_logo(a["name"], a["key"])))}" alt="{esc(a["name"])}" width="18" height="18">'
+                           if app_logo(a['name'], a['key']) else esc(a['name'][:1]))
+                        + '</span>' for a in p['apps'])
+        cards.append(f'''          <article class="prompt-set genai-apps">
+            <div class="prompt-set-head">
+              <p class="card-kicker">Prompt set · {len(p['prompts'])} prompts</p>
+              <div class="app-stack" aria-label="Same prompts for {esc(', '.join(a['name'] for a in p['apps']))}">{logos}</div>
+            </div>
+            <ol class="prompt-tiles">{''.join(items)}</ol>
+            <div class="prompt-set-foot">
+              <p class="genai-apps-source">From <a href="{esc(ds['slug'])}.html">{esc(ds['name'])}</a> · the same prompts for every app</p>
+              <a href="{esc(ds['slug'])}.html#prompts" class="btn btn-primary">Explore prompts and answers →</a>
             </div>
           </article>''')
     return '\n'.join(cards)
@@ -419,7 +451,7 @@ def genai_page(data):
     prompts = prompts_preview(genai)
     prompts_section = f'''
     <section class="section page-body section-alt" aria-labelledby="genai-prompts-title">
-      <div class="container two-col">
+      <div class="container two-col two-col-center two-col-flip">
         <div>
           <h2 id="genai-prompts-title" class="section-title">Prompts</h2>
           <p>Besides traffic collected with unconstrained prompts, every GenAI dataset includes a <strong>controlled part</strong>:
@@ -445,10 +477,10 @@ def genai_page(data):
           </blockquote>''')
     main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('GenAI Traffic Project', '')], 'GenAI Traffic Project', data.get('genai_intro') or GENAI_INTRO)}
 
-    <section class="section page-body" aria-labelledby="rationale-title">
-      <div class="container two-col">
+    <section class="section page-body" aria-labelledby="why-genai-title">
+      <div class="container two-col two-col-center">
         <div>
-          <h2 id="rationale-title" class="section-title">Rationale</h2>
+          <h2 id="why-genai-title" class="section-title">Why GenAI traffic</h2>
 {rationale}
         </div>
         {apps_preview(genai)}
