@@ -10,6 +10,7 @@
     "mirage_how": [
       "Every MIRAGE dataset is collected with the same architecture, so that campaigns run in different years, with different apps and experimenters, produce traffic that can be compared and reused."
     ],
+    "mirage_steps_title": "From capture to release",
     "mirage_steps": [
       {
         "title": "Human experimenters",

@@ -90,7 +90,7 @@ Aggiorna la pagina **Workshops & Special Issues**. Le due liste sono mostrate su
 Aggiorna il menu **Datasets** e le sue pagine: *MIRAGE Project*, *GenAI Traffic Project* e una pagina per ogni dataset.
 
 - **Pages and menu**: tutti i testi delle pagine, divisi per pagina: frase della pagina Datasets, testi sotto le voci
-  del menu, titoli e testi delle sezioni, passi dell'architettura MIRAGE (uno per riga, `Titolo | testo`) e app della
+  del menu, titoli e testi delle sezioni, passi della card *From capture to release* di MIRAGE (titolo della card e un passo per riga, `Titolo | testo`) e app della
   card *Apps and activities* di GenAI (una per riga, `Nome | package | attività`), la card *GenAI in numbers*
   (una fascia per app, fasce separate da una riga vuota: la prima riga `App | misura`, poi un punto del grafico per riga
   `anno-mese | utenti in milioni | link alla fonte`; ogni altra riga è una cifra in più: `valore | testo | data | link alla fonte`). Lascia una riga vuota tra i paragrafi;
