@@ -9,9 +9,26 @@ document.querySelectorAll('[data-prompt-explorer]').forEach(explorer => {
     buttons.forEach(b => b.setAttribute('aria-selected', String(b.dataset.promptApp === app)));
     explorer.querySelectorAll('.prompt-answer').forEach(a => a.classList.toggle('is-shown', a.dataset.app === app));
   };
-  buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.promptApp)));
+  buttons.forEach(b => b.addEventListener('click', () => {
+    show(b.dataset.promptApp);
+    // the answers are inside the prompts: open the first one if all are closed, so the change is visible
+    if (!explorer.querySelector('.prompt-item[open]')) explorer.querySelector('.prompt-item')?.setAttribute('open', '');
+  }));
   tabs.hidden = false;
   if (buttons.length) show(buttons[0].dataset.promptApp);
+});
+
+// "Copy" next to a citation
+document.querySelectorAll('[data-copy]').forEach(button => {
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(button.dataset.copy);
+      button.textContent = 'Copied';
+    } catch (_) {
+      button.textContent = 'Select and copy the text';
+    }
+    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+  });
 });
 
 (() => {

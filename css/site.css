@@ -819,6 +819,9 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .citation { margin: var(--space-6) 0 0; padding: var(--space-5) var(--space-6); border-left: 3px solid var(--color-gold); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; background: var(--color-surface-alt); }
 .citation p { color: var(--color-ink); line-height: 1.65; }
 .citation-links { display: flex; gap: var(--space-4); margin-top: var(--space-3); font-weight: 650; }
+.citation-data { margin-top: var(--space-3); }
+.citation-copy { padding: 0; border: 0; background: none; color: var(--color-link); font: inherit; font-weight: 650; cursor: pointer; }
+.citation-copy:hover { text-decoration: underline; }
 .dataset-host { margin-top: var(--space-3); font-size: .9rem; color: var(--color-muted); }
 /* GenAI Traffic Project: apps preview, prompt sets and the prompt explorer of a dataset page */
 .two-col-center { align-items: center; }
@@ -862,6 +865,8 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .app-stack .app-logo + .app-logo { margin-left: -8px; }
 .app-logo-sm { width: 32px; height: 32px; border-radius: 9px; box-shadow: 0 0 0 2px var(--color-surface); }
 .app-logo-sm.is-initial { font-size: .8rem; }
+.app-logo-xs { width: 24px; height: 24px; border-radius: 7px; box-shadow: none; }
+.app-logo-xs.is-initial { font-size: .7rem; }
 .prompt-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
 .prompt-tile { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; row-gap: 1px; align-items: center; padding: 10px 12px;
   border: 1px solid var(--color-soft-line); border-radius: var(--radius-md); background: var(--color-surface-alt); transition: border-color var(--duration-fast); }
@@ -887,7 +892,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .prompt-label { display: block; color: var(--color-accent-ink); font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .prompt-explorer { display: grid; gap: 10px; }
 .prompt-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-3); }
-.prompt-tabs button { padding: 7px 14px; border: 1px solid var(--color-line); border-radius: 999px; background: var(--color-surface); color: var(--color-title);
+.prompt-tabs button { display: inline-flex; gap: 8px; align-items: center; padding: 6px 14px 6px 6px; border: 1px solid var(--color-line); border-radius: 999px; background: var(--color-surface); color: var(--color-title);
   font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer; }
 .prompt-tabs button:hover { border-color: var(--color-accent); }
 .prompt-tabs button[aria-selected="true"] { border-color: var(--color-title); background: var(--color-title); color: var(--color-surface); }
@@ -905,7 +910,6 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .prompt-explorer[data-app] .prompt-answer:not(.is-shown) { display: none; }
 .prompt-full { max-width: 80ch; color: var(--color-muted); font-size: .92rem; line-height: 1.6; }
 .prompt-full .prompt-answer-app { display: block; }
-.prompt-explorer[data-app] .prompt-answer .prompt-answer-app { display: none; }
 .prompt-answer-app { margin-bottom: var(--space-2); color: var(--color-accent-ink); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .prompt-answer { max-width: 80ch; padding-left: var(--space-4); border-left: 2px solid var(--color-accent-soft); color: var(--color-ink); line-height: 1.65; }
 .prompt-answer > * + * { margin-top: var(--space-3); }

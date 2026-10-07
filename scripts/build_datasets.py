@@ -170,12 +170,29 @@ def zenodo_note(ds):
             f' · DOI <a href="https://doi.org/{esc(z["doi"])}" target="_blank" rel="noopener">{esc(z["doi"])}</a></p>')
 
 
+def cite_name(full):
+    """"Antonio Pescapè" -> "Pescapè, A." (the author style of data citations)."""
+    parts = full.split()
+    return full if len(parts) < 2 else f'{parts[-1]}, ' + ' '.join(f'{p[0]}.' for p in parts[:-1])
+
+
 def dataset_doi(ds):
+    """Citation of the dataset itself, in the DataCite style Zenodo suggests:
+    Authors (Year). Title [Data set]. Zenodo. https://doi.org/..."""
     z = ds.get('zenodo')
     if not z:
         return ''
-    return (f'\n          <p>To cite the dataset itself: {esc(ds["name"])}, Zenodo, '
-            f'<a href="https://doi.org/{esc(z["doi"])}" target="_blank" rel="noopener">doi:{esc(z["doi"])}</a>.</p>')
+    names = [cite_name(n.strip()) for n in ds['citation']['authors'].split(',') if n.strip()]
+    authors = ', '.join(names[:-1]) + ', & ' + names[-1] if len(names) > 1 else ''.join(names)
+    year = f' ({z["year"]})' if z.get('year') else ''
+    url = f'https://doi.org/{z["doi"]}'
+    text = f'{authors}{year}. {ds["name"]} [Data set]. Zenodo. {url}'
+    return f'''
+          <p>To cite the dataset itself:</p>
+          <blockquote class="citation citation-data">
+            <p>{esc(authors)}{esc(year)}. <em>{esc(ds['name'])}</em> [Data set]. Zenodo. <a href="{esc(url)}" target="_blank" rel="noopener">{esc(url)}</a></p>
+            <p class="citation-links"><button type="button" class="citation-copy" data-copy="{esc(text)}">Copy</button></p>
+          </blockquote>'''
 
 
 def gate(data):
@@ -535,18 +552,18 @@ def prompts_preview(genai):
 
 def prompt_explorer(ds, p):
     """Every prompt of the set with the answer of each app (the app is chosen with the tabs, see js/datasets.js)."""
-    tabs = ''.join(f'<button type="button" role="tab" data-prompt-app="{esc(a["key"])}" aria-selected="false">{esc(a["name"])}</button>'
-                   for a in p['apps'])
+    tabs = ''.join(f'<button type="button" role="tab" data-prompt-app="{esc(a["key"])}" aria-selected="false">'
+                   f'{logo_mark(a["name"], " app-logo-xs")}{esc(a["name"])}</button>' for a in p['apps'])
     names = {a['key']: a['name'] for a in p['apps']}
     items = []
     for i, q in enumerate(p['prompts'], 1):
         # Answers come from the group's own pages (genai_prompts/), so their markup is kept; images get the right path.
         answers = ''.join(
-            f'<div class="prompt-answer" data-app="{esc(key)}"><p class="prompt-answer-app">{esc(names.get(key, key))}</p>'
+            f'<div class="prompt-answer" data-app="{esc(key)}"><p class="prompt-answer-app">Answer · {esc(names.get(key, key))}</p>'
             + re.sub(r'(\ssrc)="(?!https?:|/|\.\./)([^"]*)"', lambda m: f'{m.group(1)}="{PREFIX}{m.group(2)}"', answer)
             + '</div>'
             for key, answer in q['answers'].items())
-        items.append(f'''          <details class="prompt-item">
+        items.append(f'''          <details class="prompt-item"{' open' if i == 1 else ''}>
             <summary><span class="prompt-num">{i:02d}</span><span class="prompt-head"><span class="prompt-label">{esc(q['label'])} · {esc(q['activity'])}</span>
             <span class="prompt-text">{esc(short(q['text'], 160))}</span></span></summary>
             <div class="prompt-answers"><p class="prompt-full"><span class="prompt-answer-app">Prompt</span> {esc(q['text'])}</p>{answers}</div>

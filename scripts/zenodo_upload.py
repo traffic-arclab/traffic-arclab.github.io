@@ -33,6 +33,7 @@ Add --sandbox to try everything on sandbox.zenodo.org first (it needs its own to
 Standard library only.
 """
 import argparse
+import datetime
 import json
 import os
 import re
@@ -121,7 +122,7 @@ def find(data, slug):
 def save(data, slug, url, doi, record_url, size):
     ds = find(data, slug)
     ds['file'] = url
-    ds['zenodo'] = {'doi': doi, 'record': record_url}
+    ds['zenodo'] = {'doi': doi, 'record': record_url, 'year': datetime.date.today().year}   # year of the dataset citation
     ds['size'] = size
     with open(DATA, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

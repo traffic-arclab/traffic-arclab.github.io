@@ -1859,9 +1859,9 @@
     $('z-record').addEventListener('keydown', e => { if (e.key === 'Enter') linkZenodo(ds); });
   }
 
-  function setZenodo(ds, id, doi, name, size) {
+  function setZenodo(ds, id, doi, name, size, year = new Date().getFullYear()) {   // year: of the dataset citation
     ds.file = `${ZENODO}/records/${id}/files/${encodeURIComponent(name)}?download=1`;
-    ds.zenodo = { doi, record: `${ZENODO}/records/${id}` };
+    ds.zenodo = { doi, record: `${ZENODO}/records/${id}`, year };
     ds.size = human(size);
     markDirty('datasets');
     setStatus('Dataset file on Zenodo · press <strong>Save</strong> to update the site', 'dirty');
@@ -2004,7 +2004,8 @@
         file = files.find(f => f.key === (name || '').trim());
         if (!file) return state('No file chosen.', 'error');
       }
-      setZenodo(ds, record.id, record.doi || (record.pids && record.pids.doi && record.pids.doi.identifier), file.key, file.size);
+      setZenodo(ds, record.id, record.doi || (record.pids && record.pids.doi && record.pids.doi.identifier), file.key, file.size,
+        parseInt(record.metadata?.publication_date, 10) || undefined);
     } catch (error) {
       state('Zenodo could not be reached: ' + error.message, 'error');
     }

@@ -126,7 +126,8 @@
       },
       "zenodo": {
         "doi": "10.5281/zenodo.23158569",
-        "record": "https://zenodo.org/records/23158569"
+        "record": "https://zenodo.org/records/23158569",
+        "year": 2026
       }
     },
     {
@@ -356,7 +357,8 @@
       },
       "zenodo": {
         "doi": "10.5281/zenodo.23158977",
-        "record": "https://zenodo.org/records/23158977"
+        "record": "https://zenodo.org/records/23158977",
+        "year": 2026
       }
     },
     {
@@ -505,7 +507,8 @@
       },
       "zenodo": {
         "doi": "10.5281/zenodo.23158727",
-        "record": "https://zenodo.org/records/23158727"
+        "record": "https://zenodo.org/records/23158727",
+        "year": 2026
       }
     },
     {
@@ -685,7 +688,8 @@
       },
       "zenodo": {
         "doi": "10.5281/zenodo.23158634",
-        "record": "https://zenodo.org/records/23158634"
+        "record": "https://zenodo.org/records/23158634",
+        "year": 2026
       }
     },
     {
@@ -927,7 +931,8 @@
       },
       "zenodo": {
         "doi": "10.5281/zenodo.23158592",
-        "record": "https://zenodo.org/records/23158592"
+        "record": "https://zenodo.org/records/23158592",
+        "year": 2026
       }
     }
   ]
