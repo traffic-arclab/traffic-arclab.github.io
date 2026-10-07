@@ -10,7 +10,7 @@ on:
       - 'data/collaborations.json'
       - 'data/datasets.json'
       - 'data/workshops.json'
-      - 'data/prompts/**'
+      - 'images/apps/**'          # app logos uploaded in the admin page
       - 'scripts/build_people.py'
       - 'scripts/build_news.py'
       - 'scripts/build_topics.py'

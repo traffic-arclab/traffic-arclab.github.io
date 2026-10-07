@@ -85,7 +85,23 @@ Aggiorna la pagina **Workshops & Special Issues**. Le due liste sono mostrate su
   (il campo la suggerisce già); per gli esterni scrivi la loro università o azienda.
 - Clicca un elemento della lista per modificarlo; **Delete** lo elimina.
 
-## 3f. Chi ha scaricato i dataset (scheda Downloads)
+## 3f. Pagine dei dataset (scheda Datasets)
+
+Aggiorna il menu **Datasets** e le sue pagine: *MIRAGE Project*, *GenAI Traffic Project* e una pagina per ogni dataset.
+
+- **Pages and menu**: tutti i testi delle pagine, divisi per pagina: frase della pagina Datasets, testi sotto le voci
+  del menu, titoli e testi delle sezioni, passi dell'architettura MIRAGE (uno per riga, `Titolo | testo`) e app della
+  card *Apps and activities* di GenAI (una per riga, `Nome | package | attività`), la card *GenAI in numbers*
+  (numeri chiave, uno per riga: `valore | testo | data | link alla fonte`; grafici di crescita: un blocco per app, la prima
+  riga `App | misura`, poi un punto per riga `anno-mese | utenti in milioni | link alla fonte`). Lascia una riga vuota tra i paragrafi;
+  `**parole**` diventano in grassetto. Un campo vuoto mostra il testo predefinito.
+- **App logos**: le icone delle app. Clicca un'app (o trascinaci sopra un'immagine) per aggiungere o sostituire il logo;
+  meglio un'immagine quadrata. Le app senza logo mostrano l'iniziale.
+- **Un dataset**: oltre a descrizione, tabella delle app e citazione, puoi spuntare *GenAI Traffic Project* (il dataset
+  passa in quella pagina), correggere l'**anno** della citazione Zenodo e modificare il **prompt set**: per ogni prompt
+  etichetta, attività, testo e la risposta di ogni app (in HTML). Con **+ Add prompt** ne aggiungi uno, con ↑ ↓ cambi l'ordine.
+
+## 3g. Chi ha scaricato i dataset (scheda Downloads)
 
 La scheda **Downloads** mostra l'elenco di chi ha compilato il form prima di scaricare un dataset MIRAGE:
 data, nome, organizzazione, nazionalità, email (se indicata) e dataset, dal più recente.

@@ -18,6 +18,27 @@ document.querySelectorAll('[data-prompt-explorer]').forEach(explorer => {
   if (buttons.length) show(buttons[0].dataset.promptApp);
 });
 
+// Growth charts: the value of a point on hover or keyboard focus
+document.querySelectorAll('.stat-charts').forEach(box => {
+  const tip = document.createElement('div');
+  tip.className = 'stat-tip';
+  tip.hidden = true;
+  box.append(tip);
+  const show = point => {
+    const dot = point.querySelector('.stat-dot').getBoundingClientRect(), area = box.getBoundingClientRect();
+    tip.textContent = point.dataset.tip;
+    tip.style.left = `${dot.left + dot.width / 2 - area.left}px`;
+    tip.style.top = `${dot.top - area.top}px`;
+    tip.hidden = false;
+  };
+  box.querySelectorAll('.stat-pt').forEach(point => {
+    point.addEventListener('mouseenter', () => show(point));
+    point.addEventListener('focus', () => show(point));
+    point.addEventListener('mouseleave', () => { tip.hidden = true; });
+    point.addEventListener('blur', () => { tip.hidden = true; });
+  });
+});
+
 // "Copy" next to a citation
 document.querySelectorAll('[data-copy]').forEach(button => {
   button.addEventListener('click', async () => {

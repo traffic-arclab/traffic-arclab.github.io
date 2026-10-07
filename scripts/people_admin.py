@@ -291,9 +291,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                               if payload.get('collaborations') is not None else None)
             workshops = clean_workshops(payload['workshops']) if payload.get('workshops') is not None else None
             datasets = clean_datasets(payload['datasets']) if payload.get('datasets') is not None else None
-            # Uploads: people photos (JPEG), collaboration logos (PNG) and dataset images (JPEG).
+            # Uploads: people photos (JPEG), collaboration logos (PNG), dataset images (JPEG) and app logos (PNG).
             kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png'),
                      'images/datasets': (DATASET_IMAGES, 'jpg', 'jpeg'),
+                     'images/apps': (os.path.join(ROOT, 'images', 'apps'), 'png', 'png'),
                      'images/topics': (os.path.join(ROOT, 'images', 'topics'), 'jpg', 'jpeg')}
             files = {}
             for path, url in (payload.get('photos') or {}).items():

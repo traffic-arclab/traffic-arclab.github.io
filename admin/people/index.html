@@ -183,6 +183,23 @@
   .file-row input { margin-top: 0; }
   .file-row small { color: var(--muted); white-space: nowrap; }
   textarea.mono { font: .85rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; overflow-x: auto; }
+  /* Datasets: pages form, app logos and prompt sets */
+  .form-section { margin: 22px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--title); font: 600 1.05rem var(--serif); }
+  .form-section:first-of-type { margin-top: 4px; padding-top: 0; border-top: 0; }
+  .logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .logo-item { display: grid; justify-items: center; gap: 6px; padding: 12px 8px; border: 2px dashed transparent; border-radius: 8px; background: var(--bg);
+    text-align: center; cursor: pointer; }
+  .logo-item:hover, .logo-item.over { border-color: var(--accent); background: var(--accent-soft); }
+  .logo-item .logo-box { display: grid; place-items: center; width: 56px; height: 56px; overflow: hidden; border-radius: 13px; background: #fff;
+    border: 1px solid var(--line); color: var(--muted); font-weight: 700; }
+  .logo-item img { width: 100%; height: 100%; object-fit: cover; }
+  .logo-item strong { font-size: .85rem; color: var(--title); }
+  .logo-item small { font-size: .72rem; color: var(--muted); }
+  .logo-item.missing small { color: #8a5a12; font-weight: 700; }
+  .prompt-edit { margin-bottom: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+  .prompt-edit > summary { padding: 10px 12px; cursor: pointer; font-weight: 600; color: var(--title); }
+  .prompt-edit > div { padding: 4px 12px 12px; }
+  .prompt-edit textarea.mono { min-height: 90px; }
 </style>
 </head>
 <body>
@@ -346,18 +363,57 @@
 </main>
 
 <template id="datasets-page-form">
-  <h2>Datasets page</h2>
-  <label>Intro <small>MIRAGE Project page</small><textarea id="dp-intro" rows="4"></textarea></label>
-  <label>Why mobile traffic <small>MIRAGE Project page; leave an empty line between paragraphs</small><textarea id="dp-mirage_rationale" rows="6"></textarea></label>
-  <label>GenAI intro <small>GenAI Traffic Project page</small><textarea id="dp-genai_intro" rows="3"></textarea></label>
-  <label>GenAI apps and activities <small>card next to "Why GenAI traffic"; one app per line: App name | package | activities separated by commas.
-    The logo is shown when images/apps/ has one for the app.</small><textarea id="dp-genai_apps" class="mono" rows="5" wrap="off"
-    placeholder="ChatGPT | com.openai.chatgpt | Textual, Multimodal"></textarea></label>
-  <label>Why GenAI traffic <small>GenAI Traffic Project page; leave an empty line between paragraphs</small><textarea id="dp-genai_rationale" rows="6"></textarea></label>
+  <h2>Pages and menu</h2>
+  <p class="hint">Texts of the Datasets pages. Leave an empty line between paragraphs; <code>**words**</code> become bold.
+    An empty field shows the default text.</p>
+
+  <h3 class="form-section">Datasets page and menu</h3>
+  <label>Datasets page <small>text under the title of datasets/</small><textarea data-page="datasets_lead" rows="2"></textarea></label>
+  <label>Menu: MIRAGE Project <small>small text under the menu entry</small><input data-page="menu_mirage"></label>
+  <label>Menu: GenAI Traffic Project <small>small text under the menu entry</small><input data-page="menu_genai"></label>
+
+  <h3 class="form-section">MIRAGE Project page</h3>
+  <label>Intro <small>under the title; also on the card of the Datasets page</small><textarea id="dp-intro" rows="4"></textarea></label>
+  <label>First section: title <input data-page="mirage_why_title"></label>
+  <label>First section: text <textarea id="dp-mirage_rationale" rows="6"></textarea></label>
+  <label>Second section: title <input data-page="mirage_how_title"></label>
+  <label>Second section: text <textarea data-page="mirage_how" data-list rows="3"></textarea></label>
+  <label>Architecture steps <small>card next to the second section; one step per line: Title | text</small>
+    <textarea data-page="mirage_steps" data-steps class="mono" rows="5" wrap="off"></textarea></label>
   <label>Award <textarea id="dp-award" rows="2"></textarea></label>
+  <label>Datasets section: title <input data-page="mirage_datasets_title"></label>
+  <label>Datasets section: text <input data-page="mirage_datasets_intro"></label>
   <label>MIRAGE paper <small>link</small><input id="dp-paper" type="url" placeholder="https://…"></label>
   <label>Mailing list <small>link</small><input id="dp-mailing_list" type="url" placeholder="https://…"></label>
   <label>Contact email <input id="dp-contact" type="email"></label>
+
+  <h3 class="form-section">GenAI Traffic Project page</h3>
+  <label>Intro <small>under the title; also on the card of the Datasets page</small><textarea id="dp-genai_intro" rows="3"></textarea></label>
+  <label>First section: title <input data-page="genai_why_title"></label>
+  <label>First section: text <textarea id="dp-genai_rationale" rows="6"></textarea></label>
+  <label>Numbers: title <small>card next to the first section</small><input id="dp-stats-title" placeholder="GenAI in numbers"></label>
+  <label>Numbers: figures <small>one per line: value | text | date | source link</small>
+    <textarea id="dp-stats-tiles" class="mono" rows="4" wrap="off" placeholder="1.2B | people use ChatGPT every week | Sep 2026 | https://…"></textarea></label>
+  <label>Numbers: growth charts <small>one chart per block, blocks separated by an empty line. First line: App | measure;
+    then one point per line: year-month | users in millions | source link</small>
+    <textarea id="dp-stats-charts" class="mono" rows="10" wrap="off" placeholder="ChatGPT | weekly users&#10;2023-11 | 100 | https://…&#10;2024-08 | 200 | https://…"></textarea></label>
+  <label>Numbers: note <small>under the charts</small><input id="dp-stats-note"></label>
+  <label>Apps and activities <small>row under the first section; one app per line: App name | package | activities separated by commas.
+    Logos: see <strong>App logos</strong>.</small><textarea id="dp-genai_apps" class="mono" rows="5" wrap="off"
+    placeholder="ChatGPT | com.openai.chatgpt | Textual, Multimodal"></textarea></label>
+  <label>Prompts section: title <input data-page="genai_prompts_title"></label>
+  <label>Prompts section: text <small>next to the prompt sets of the GenAI datasets (each dataset has its own, in its page)</small>
+    <textarea data-page="genai_prompts" data-list rows="5"></textarea></label>
+  <label>Datasets section: title <input data-page="genai_datasets_title"></label>
+  <label>Datasets section: text <input data-page="genai_datasets_intro"></label>
+</template>
+
+<template id="app-logos-form">
+  <h2>App logos</h2>
+  <p class="hint">The icons of the apps on the Datasets pages. Click an app (or drop an image on it) to upload or replace its logo:
+    a square image works best, it is cropped to a square and saved as PNG. Apps without a logo show their initial.</p>
+  <ul class="logo-grid" id="logo-grid"></ul>
+  <input type="file" id="logo-file" accept="image/*" hidden>
 </template>
 
 <template id="dataset-form">
@@ -375,6 +431,8 @@
 
   <p class="fieldset-title">Dataset file</p>
   <div id="d-file-box"></div>
+  <label id="d-zyear-box">Citation year <small>year the dataset was published on Zenodo, used in "To cite the dataset itself"</small>
+    <input id="d-zyear" type="number" min="2000" max="2100" placeholder="2026"></label>
 
   <label>Description <small>leave an empty line between paragraphs</small><textarea id="d-description" rows="8"></textarea></label>
   <div class="two">
@@ -398,6 +456,10 @@
   <div id="d-c-links"></div>
   <p class="hint" style="margin:-4px 0 6px">Links: a full address, or a file of this site such as <code>datasets/name.bib</code>.</p>
   <button type="button" id="d-add-link" style="margin-bottom:14px">+ Add link (DOI, PDF, BibTeX…)</button>
+
+  <p class="fieldset-title">Prompt set <small style="text-transform:none;letter-spacing:0;font-weight:400">the same prompts issued to every app,
+    with their answers: shown on the dataset page and on the GenAI Traffic Project page</small></p>
+  <div id="d-prompts"></div>
 
   <div class="actions">
     <button id="d-up">↑ Move up</button>
@@ -855,6 +917,39 @@
         .split(/\n\s*\n/).map(one).filter(Boolean), award: one(datasets.award), contact: str(datasets.contact),
       paper: url(datasets.paper, 'MIRAGE paper'), mailing_list: url(datasets.mailing_list, 'Mailing list') };
     delete out._genai_apps;
+    delete out._stats;
+    if (datasets._stats) {
+      const st = datasets._stats, cells = line => line.split('|').map(one);
+      out.genai_stats = {
+        title: one(st.title), note: one(st.note),
+        tiles: st.tiles.split('\n').map(cells).filter(c => c[0])
+          .map(([value, label = '', date = '', source = '']) => ({ value, label, date, source })),
+        charts: st.charts.split(/\n\s*\n/).map(block => block.split('\n').map(cells).filter(c => c[0])).filter(lines => lines.length)
+          .map(([[title, metric = ''], ...points]) => ({
+            title, metric,
+            points: points.map(([date, value, source = '']) => {
+              if (!/^\d{4}-\d{2}$/.test(date) || !(Number(value) >= 0)) {
+                throw new Error(`Growth chart "${title}": write each point as year-month | users in millions | link (e.g. 2025-10 | 800 | https://…)`);
+              }
+              return [date, Number(value), source];
+            }),
+          })),
+      };
+    }
+    // Texts of the pages: paragraphs and steps typed as text become lists
+    const pages = { ...(datasets.pages || {}) };
+    for (const [key, value] of Object.entries(pages)) {
+      if (typeof value !== 'string') continue;
+      if (key === 'mirage_steps') {
+        pages[key] = value.split('\n').map(line => line.split('|').map(one)).filter(c => c[0])
+          .map(([title, ...text]) => ({ title, text: text.join(' | ') }));
+      } else if (['mirage_how', 'genai_prompts'].includes(key)) {
+        pages[key] = value.split(/\n\s*\n/).map(one).filter(Boolean);
+      } else {
+        pages[key] = one(value);
+      }
+    }
+    out.pages = pages;
     out.datasets = datasets.datasets.map(ds => {
       const name = one(ds.name);
       if (!name) throw new Error('Every dataset needs a name');
@@ -880,6 +975,16 @@
           links: (c.links || []).filter(l => str(l.url)).map(l => ({ label: one(l.label) || 'Link', url: cleanLink(l.url, `${name}: citation link`) })) },
       });
       if (!ds.zenodo) delete clean.zenodo;
+      if (ds.prompts) {
+        const p = ds.prompts;
+        clean.prompts = {
+          title: one(p.title), intro: one(p.intro), apps: (p.apps || []).filter(a => a.key),
+          prompts: (p.prompts || []).filter(q => str(q.text)).map(q => ({
+            label: one(q.label), activity: one(q.activity) || 'Textual', text: str(q.text),
+            answers: Object.fromEntries(Object.entries(q.answers || {}).map(([k, v]) => [k, str(v)]).filter(([, v]) => v)),
+          })),
+        };
+      }
       return clean;
     });
     return out;
@@ -1675,11 +1780,15 @@
   function renderDatasets() {
     const page = $('datasets-page');
     page.innerHTML = '';
-    const pageRow = document.createElement('li');
-    pageRow.className = 'row' + (selectedDataset === 'page' ? ' selected' : '');
-    pageRow.innerHTML = '<div class="who"><strong>Intro, award and links</strong><small>Text at the top and bottom of the Datasets page</small></div>';
-    pageRow.addEventListener('click', selectDatasetsPage);
-    page.appendChild(pageRow);
+    for (const [key, title, text, open] of [
+      ['page', 'Pages and menu', 'Texts of the Datasets, MIRAGE Project and GenAI Traffic Project pages', selectDatasetsPage],
+      ['logos', 'App logos', 'Icons of the apps', selectAppLogos]]) {
+      const row = document.createElement('li');
+      row.className = 'row' + (selectedDataset === key ? ' selected' : '');
+      row.innerHTML = `<div class="who"><strong>${title}</strong><small>${text}</small></div>`;
+      row.addEventListener('click', open);
+      page.appendChild(row);
+    }
 
     const list = $('datasets-list');
     list.innerHTML = '';
@@ -1723,6 +1832,207 @@
       input.value = datasets[key] || '';
       input.addEventListener('input', () => { datasets[key] = input.value; markDirty('datasets'); });
     }
+    // "GenAI in numbers": kept as typed (datasets._stats) until saved
+    const st = datasets.genai_stats || {};
+    datasets._stats = datasets._stats || {
+      title: st.title || '', note: st.note || '',
+      tiles: (st.tiles || []).map(t => [t.value, t.label, t.date, t.source].map(v => v || '').join(' | ')).join('\n'),
+      charts: (st.charts || []).map(c => [`${c.title || ''} | ${c.metric || ''}`, ...(c.points || []).map(p => p.join(' | '))].join('\n')).join('\n\n'),
+    };
+    for (const key of ['title', 'tiles', 'charts', 'note']) {
+      const input = $('dp-stats-' + key);
+      input.value = datasets._stats[key];
+      input.addEventListener('input', () => { datasets._stats[key] = input.value; markDirty('datasets'); });
+    }
+    // Texts of data/datasets.json "pages": strings, paragraphs (data-list) or steps (data-steps)
+    datasets.pages = datasets.pages || {};
+    $('datasets-editor').querySelectorAll('[data-page]').forEach(input => {
+      const key = input.dataset.page, value = datasets.pages[key];
+      input.value = typeof value === 'string' ? value
+        : 'steps' in input.dataset ? (value || []).map(st => `${st.title || ''} | ${st.text || ''}`).join('\n')
+        : (value || []).join('\n\n');
+      input.addEventListener('input', () => { datasets.pages[key] = input.value; markDirty('datasets'); });
+    });
+  }
+
+  // App logos: images/apps/<key>.png (uploaded here) or .svg (scripts/fetch_app_logos.py); the key is the name in a-z0-9.
+  const APP_LOGO_DIR = 'images/apps';
+  const SAME_LOGO = { zoomcloudmeetings: 'zoom' };   // as in scripts/build_datasets.py
+  const appKey = name => { const k = String(name).toLowerCase().replace(/[^a-z0-9]/g, ''); return SAME_LOGO[k] || k; };
+
+  function allApps() {
+    const apps = new Map();
+    const add = (name, where) => {
+      if (!name || !String(name).trim()) return;
+      const key = appKey(name);
+      if (!apps.has(key)) apps.set(key, { name: String(name).trim(), where: new Set() });
+      apps.get(key).where.add(where);
+    };
+    datasets.datasets.forEach(ds => {
+      const table = ds._apps === undefined ? (ds.apps || { columns: [], rows: [] }) : parseApps(ds._apps, ds.apps);
+      const found = (table.columns || []).findIndex(c => /app name/i.test(c)), col = found >= 0 ? found : 1;
+      (table.rows || []).forEach(row => add(row[col], ds.name));
+      (ds.prompts?.apps || []).forEach(a => add(a.name, ds.name));
+    });
+    (datasets.genai_apps || []).forEach(a => add(a.name, 'GenAI page'));
+    return [...apps.entries()].sort((a, b) => a[1].name.localeCompare(b[1].name));
+  }
+
+  function selectAppLogos() {
+    selectedDataset = 'logos';
+    renderDatasets();
+    const editor = $('datasets-editor');
+    editor.innerHTML = '';
+    editor.appendChild($('app-logos-form').content.cloneNode(true));
+    const grid = $('logo-grid'), file = $('logo-file');
+    let target = null;
+    for (const [key, app] of allApps()) {
+      const li = document.createElement('li');
+      li.className = 'logo-item';
+      li.title = 'Used in: ' + [...app.where].join(', ');
+      li.innerHTML = '<span class="logo-box"></span><strong></strong><small></small>';
+      li.querySelector('strong').textContent = app.name;
+      const box = li.querySelector('.logo-box'), note = li.querySelector('small');
+      const show = () => {
+        const uploaded = pending.get(`${APP_LOGO_DIR}/${key}.png`);
+        const img = document.createElement('img');
+        img.alt = '';
+        const sources = uploaded ? [uploaded] : [`/${APP_LOGO_DIR}/${key}.png`, `/${APP_LOGO_DIR}/${key}.svg`];
+        img.onerror = () => {
+          sources.shift();
+          if (sources.length) { img.src = sources[0]; return; }
+          box.textContent = app.name.slice(0, 1).toUpperCase();
+          note.textContent = 'No logo · click to add';
+          li.classList.add('missing');
+        };
+        img.onload = () => { note.textContent = uploaded ? 'New logo · press Save' : 'Click to replace'; li.classList.remove('missing'); };
+        box.innerHTML = '';
+        box.appendChild(img);
+        img.src = sources[0];
+      };
+      show();
+      const upload = f => addAppLogo(key, f, show);
+      li.addEventListener('click', () => { target = upload; file.value = ''; file.click(); });
+      li.addEventListener('dragover', e => { e.preventDefault(); li.classList.add('over'); });
+      li.addEventListener('dragleave', () => li.classList.remove('over'));
+      li.addEventListener('drop', e => { e.preventDefault(); li.classList.remove('over'); if (e.dataTransfer.files[0]) upload(e.dataTransfer.files[0]); });
+      grid.appendChild(li);
+    }
+    file.addEventListener('change', () => { if (file.files[0] && target) target(file.files[0]); });
+  }
+
+  // App logos are cropped to a square (centre) and saved as 192 px PNG.
+  function addAppLogo(key, file, done) {
+    const img = new Image();
+    img.onload = () => {
+      const side = Math.min(img.width, img.height), size = Math.min(192, side);
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = size;
+      canvas.getContext('2d').drawImage(img, (img.width - side) / 2, (img.height - side) / 2, side, side, 0, 0, size, size);
+      URL.revokeObjectURL(img.src);
+      pending.set(`${APP_LOGO_DIR}/${key}.png`, canvas.toDataURL('image/png'));
+      markDirty('datasets');
+      done();
+    };
+    img.onerror = () => setStatus('This file is not an image the browser can read', 'error');
+    img.src = URL.createObjectURL(file);
+  }
+
+  // Prompt set of a dataset: { title, intro, apps: [{key, name}], prompts: [{label, activity, text, answers: {key: html}}] }
+  function promptsEditor(ds, box, changed) {
+    const p = ds.prompts;
+    box.innerHTML = '';
+    if (!p) {
+      const add = document.createElement('button');
+      add.type = 'button';
+      add.textContent = '+ Add a prompt set';
+      add.addEventListener('click', () => {
+        ds.prompts = { title: 'Controlled prompt set', intro: '', apps: [], prompts: [] };
+        changed();
+        promptsEditor(ds, box, changed);
+      });
+      box.appendChild(add);
+      return;
+    }
+    p.apps = p.apps || [];
+    p.prompts = p.prompts || [];
+    const field = (label, value, set, { area = false, rows = 3, mono = false, hint = '' } = {}) => {
+      const l = document.createElement('label');
+      l.innerHTML = label + (hint ? ` <small>${hint}</small>` : '');
+      const input = document.createElement(area ? 'textarea' : 'input');
+      if (area) input.rows = rows;
+      if (mono) { input.className = 'mono'; input.wrap = 'off'; }
+      input.value = value ?? '';
+      input.addEventListener('input', () => { set(input.value); changed(); });
+      l.appendChild(input);
+      return l;
+    };
+    box.appendChild(field('Title', p.title, v => { p.title = v; }));
+    box.appendChild(field('Intro', p.intro, v => { p.intro = v; }, { area: true, rows: 2 }));
+    const appsField = field('Apps', p.apps.map(a => `${a.key} | ${a.name}`).join('\n'), v => {
+      p.apps = v.split('\n').map(line => line.split('|').map(c => c.trim())).filter(c => c[0])
+        .map(([key, name]) => ({ key: key.toLowerCase().replace(/[^a-z0-9]/g, ''), name: name || key }));
+    }, { area: true, rows: 3, mono: true, hint: 'one per line: key | App name (e.g. chatgpt | ChatGPT); the key links the answers to the app' });
+    appsField.querySelector('textarea').addEventListener('change', () => promptsEditor(ds, box, changed));   // new apps: new answer fields
+    box.appendChild(appsField);
+
+    p.prompts.forEach((q, i) => {
+      q.answers = q.answers || {};
+      const item = document.createElement('details');
+      item.className = 'prompt-edit';
+      if (q._open) item.open = true;
+      item.addEventListener('toggle', () => { q._open = item.open; });
+      const summary = document.createElement('summary');
+      const title = () => { summary.textContent = `${String(i + 1).padStart(2, '0')} · ${q.label || 'New prompt'} · ${(q.text || '').slice(0, 60)}`; };
+      title();
+      item.appendChild(summary);
+      const body = document.createElement('div');
+      body.appendChild(field('Label', q.label, v => { q.label = v; title(); }, { hint: 'e.g. Code generation' }));
+      body.appendChild(field('Activity', q.activity, v => { q.activity = v; }, { hint: 'Textual or Multimodal' }));
+      body.appendChild(field('Prompt', q.text, v => { q.text = v; title(); }, { area: true, rows: 3 }));
+      p.apps.forEach(a => body.appendChild(field(`Answer · ${a.name}`, q.answers[a.key], v => { q.answers[a.key] = v; },
+        { area: true, rows: 6, mono: true, hint: 'HTML, e.g. &lt;p&gt;…&lt;/p&gt;; images: &lt;img src="genai_prompts/file.png" alt=""&gt;' })));
+      const actions = document.createElement('div');
+      actions.className = 'actions';
+      const button = (text, fn, danger) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = text;
+        if (danger) b.className = 'danger';
+        b.addEventListener('click', () => { fn(); changed(); promptsEditor(ds, box, changed); });
+        actions.appendChild(b);
+      };
+      const swap = j => { if (j >= 0 && j < p.prompts.length) [p.prompts[i], p.prompts[j]] = [p.prompts[j], p.prompts[i]]; };
+      button('↑', () => swap(i - 1));
+      button('↓', () => swap(i + 1));
+      button('Delete prompt', () => { if (confirm('Delete this prompt and its answers?')) p.prompts.splice(i, 1); }, true);
+      body.appendChild(actions);
+      item.appendChild(body);
+      box.appendChild(item);
+    });
+    const actions = document.createElement('div');
+    actions.className = 'actions';
+    actions.style.marginBottom = '14px';
+    const add = document.createElement('button');
+    add.type = 'button';
+    add.textContent = '+ Add prompt';
+    add.addEventListener('click', () => {
+      p.prompts.push({ label: '', activity: 'Textual', text: '', answers: {}, _open: true });
+      changed();
+      promptsEditor(ds, box, changed);
+    });
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'danger';
+    remove.textContent = 'Remove the prompt set';
+    remove.addEventListener('click', () => {
+      if (!confirm('Remove the whole prompt set of this dataset?')) return;
+      delete ds.prompts;
+      changed();
+      promptsEditor(ds, box, changed);
+    });
+    actions.append(add, remove);
+    box.appendChild(actions);
   }
 
   function selectDataset(ds) {
@@ -1781,6 +2091,19 @@
     file.addEventListener('change', () => { if (file.files[0]) addImage(file.files[0]); });
 
     renderFileBox(ds);
+    const showYear = () => {
+      $('d-zyear-box').hidden = !ds.zenodo;
+      $('d-zyear').value = ds.zenodo?.year ?? '';
+    };
+    showYear();
+    $('d-zyear').addEventListener('input', () => {
+      if (!ds.zenodo) return;
+      const year = parseInt($('d-zyear').value, 10);
+      if (year) ds.zenodo.year = year; else delete ds.zenodo.year;
+      markDirty('datasets');
+    });
+    $('d-file-box').addEventListener('click', () => setTimeout(showYear));   // linking a Zenodo record there sets ds.zenodo
+    promptsEditor(ds, $('d-prompts'), () => markDirty('datasets'));
 
     const move = dir => {
       const list = datasets.datasets, i = list.indexOf(ds), j = i + dir;
@@ -2402,7 +2725,7 @@
       ...cleanDatasetsData.datasets.map(d => d.image),
       ...cleanTopicsData.areas.flatMap(a => a.topics.flatMap(t => [t.image, ...t.files.map(f => f.path)])),
     ]);
-    for (const path of [...pending.keys()]) if (!used.has(path)) pending.delete(path);
+    for (const path of [...pending.keys()]) if (!used.has(path) && !path.startsWith(`${APP_LOGO_DIR}/`)) pending.delete(path);   // app logos: always kept
     $('save').disabled = true;
     setStatus('Saving…');
     try {
@@ -2413,7 +2736,8 @@
       datasets.datasets.forEach(ds => newDatasets.delete(ds));
       topics.areas.forEach(a => a.topics.forEach(t => newTopics.delete(t)));
       if (selectedTopic && selectedTopic.topic) selectTopic(selectedTopic);   // saved: their page address is now fixed
-      if (selectedDataset && selectedDataset !== 'page') selectDataset(selectedDataset);
+      if (selectedDataset && typeof selectedDataset === 'object') selectDataset(selectedDataset);
+      else if (selectedDataset === 'logos') selectAppLogos();   // shows the saved logos
       dirty = false;
       setStatus(message);
     } catch (error) {
