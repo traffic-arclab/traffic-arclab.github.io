@@ -311,7 +311,7 @@ def mirage_page(data):
     <section class="section page-body" aria-labelledby="why-mirage-title">
       <div class="container two-col two-col-center">
         <div>
-          <h2 id="why-mirage-title" class="section-title">Why MIRAGE</h2>
+          <h2 id="why-mirage-title" class="section-title">Why mobile traffic</h2>
 {rationale}
         </div>
         {apps_wall(mirage, data['license']['short'])}
@@ -397,6 +397,7 @@ def short(text, size=90):
 
 APP_LOGOS = os.path.join(ROOT, 'images', 'apps')
 SAME_LOGO = {'zoomcloudmeetings': 'zoom'}   # apps listed under two names
+WALL_SIZE = 40   # icons on the MIRAGE Project page: a multiple of 10, 8 and 5 (icons per row)
 
 
 def app_key(name):
@@ -404,9 +405,12 @@ def app_key(name):
 
 
 def app_logo(name):
-    """images/apps/<key>.svg (see scripts/fetch_app_logos.py), or '' when the app has no logo."""
-    logo = f'{SAME_LOGO.get(app_key(name), app_key(name))}.svg'
-    return f'images/apps/{logo}' if os.path.exists(os.path.join(APP_LOGOS, logo)) else ''
+    """images/apps/<key>.svg or .png (see scripts/fetch_app_logos.py), or '' when the app has no logo."""
+    base = SAME_LOGO.get(app_key(name), app_key(name))
+    for logo in (f'{base}.svg', f'{base}.png'):
+        if os.path.exists(os.path.join(APP_LOGOS, logo)):
+            return f'images/apps/{logo}'
+    return ''
 
 
 def logo_mark(name, extra=''):
@@ -472,16 +476,19 @@ def apps_wall(datasets, license_short):
         cols = [c.lower() for c in apps_def.get('columns', [])]
         act_col = next((i for i, c in enumerate(cols) if 'activit' in c), None)
         for app, row in zip(app_entries(apps_def), apps_def.get('rows', [])):
-            apps.setdefault(app_logo(app['name']) or app['name'].lower(), (app['name'], ds))   # Zoom = ZOOM Cloud Meetings
+            k = app_logo(app['name']) or app['name'].lower()   # Zoom = ZOOM Cloud Meetings
+            apps.setdefault(k, [app['name'], ds, 0])[2] += 1
             if act_col is not None and act_col < len(row):
                 activities += [t.strip() for t in str(row[act_col]).split(',') if t.strip() and t.strip() not in activities]
-    ordered = sorted(apps.values(), key=lambda x: (not app_logo(x[0]), x[0].lower()))
+    # A selection that fills whole rows (10, 8 or 5 per row): apps with a logo, the most present first.
+    chosen = sorted(apps.values(), key=lambda x: (not app_logo(x[0]), -x[2], x[0].lower()))[:WALL_SIZE]
     icons = '\n'.join(f'            <li><a href="{esc(ds["slug"])}.html#apps-title" title="{esc(name)} · {esc(ds["name"])}">'
-                      f'{logo_mark(name)}<span class="sr-only">{esc(name)}</span></a></li>' for name, ds in ordered)
+                      f'{logo_mark(name)}<span class="sr-only">{esc(name)}</span></a></li>'
+                      for name, ds, _ in sorted(chosen, key=lambda x: x[0].lower()))
     chips = ''.join(f'<span class="tag">{esc(a)}</span>' for a in activities)
     chips_html = f'<div class="app-activities"><span class="app-activities-label">Activities</span>{chips}</div>' if chips else ''
     return f"""<aside class="genai-apps">
-          <p class="card-kicker">Apps and activities · {len(apps)} apps</p>
+          <p class="card-kicker">Apps and activities</p>
           <ul class="app-wall">
 {icons}
           </ul>
