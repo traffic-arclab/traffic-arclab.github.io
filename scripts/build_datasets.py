@@ -718,7 +718,7 @@ def stats_card(data):
           <ul class="stat-bands">
 {chr(10).join(bands)}
           </ul>
-          <details class="stat-data"><summary>Data and sources</summary>
+          <details class="stat-data" data-swap="why-genai" data-back="{esc(page(data, 'genai_why_title'))}"><summary>Data and sources</summary>
             <table class="data-table data-table-compact"><thead><tr><th scope="col">App</th><th scope="col">Date</th><th scope="col">Users</th><th scope="col">Source</th></tr></thead>
             <tbody>{''.join(rows)}</tbody></table>
           </details>
@@ -760,9 +760,11 @@ def genai_page(data):
       <div class="container">{apps_preview(data, genai)}
       </div>
       <div class="container two-col two-col-center">
-        <div>
-          <h2 id="why-genai-title" class="section-title">{esc(page(data, 'genai_why_title'))}</h2>
+        <div class="why-swap" id="why-genai">
+          <div class="why-text">
+            <h2 id="why-genai-title" class="section-title">{esc(page(data, 'genai_why_title'))}</h2>
 {rationale}
+          </div>
         </div>
         {stats_card(data)}
       </div>

@@ -11,9 +11,9 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=4062dd93">
+  <link rel="stylesheet" href="../css/site.css?v=0b0ed845">
   <script src="../js/site.js?v=9e61baa7" defer></script>
-  <script src="../js/datasets.js" defer></script>
+  <script src="../js/datasets.js?v=90ff75e3" defer></script>
 </head>
 <body>
 
@@ -156,10 +156,12 @@
         </div>
       </div>
       <div class="container two-col two-col-center">
-        <div>
-          <h2 id="why-genai-title" class="section-title">Why GenAI traffic</h2>
+        <div class="why-swap" id="why-genai">
+          <div class="why-text">
+            <h2 id="why-genai-title" class="section-title">Why GenAI traffic</h2>
           <p>Generative AI chatbots are quickly becoming everyday apps on mobile devices, and the traffic they generate differs from that of traditional apps: answers are produced on the fly, text and images are generated on demand, and each provider relies on its own infrastructure.</p>
           <p>The GenAI Traffic Project looks at these apps from the network viewpoint. Its datasets contain human-generated traffic of GenAI mobile apps, labeled with both the app and the generative activity performed, so that their traffic can be characterized, modeled and classified.</p>
+          </div>
         </div>
         <aside class="genai-apps genai-stats">
           <p class="card-kicker">GenAI in numbers</p>
@@ -215,11 +217,11 @@
                 <polyline class="stat-line" points="6.0,71.8 276.0,22.9" pathLength="1"/>
                 <text class="stat-val" x="284.0" y="26.9">3×</text><text class="stat-val is-start" x="6.0" y="62.8">1×</text><text class="stat-x" x="6.0" y="100">Jan 2025</text><text class="stat-x" x="276.0" y="100" text-anchor="end">Jan 2026</text><g class="stat-pt" tabindex="0" style="--i: 0" data-tip="Jan 2025 · 1× daily users of the Copilot app, growth in one year"><circle class="stat-hit" cx="6.0" cy="71.8" r="12"/><circle class="stat-dot" cx="6.0" cy="71.8" r="4"/></g><g class="stat-pt" tabindex="0" style="--i: 1" data-tip="Jan 2026 · 3× daily users of the Copilot app, growth in one year"><circle class="stat-hit" cx="276.0" cy="22.9" r="12"/><circle class="stat-dot" cx="276.0" cy="22.9" r="4"/></g>
               </svg>
-              <p class="stat-extra"><strong>150M</strong> monthly users of the Copilot apps <span>Oct 2025 · <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1" target="_blank" rel="noopener">source ↗</a></span></p><p class="stat-extra"><strong>30M+</strong> paid Microsoft 365 Copilot seats <span>Jul 2026 · <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4" target="_blank" rel="noopener">source ↗</a></span></p>
+              <p class="stat-extra"><strong>150M</strong> monthly users of Microsoft Copilot <span>Oct 2025 · <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q1" target="_blank" rel="noopener">source ↗</a></span></p><p class="stat-extra"><strong>30M+</strong> paid Microsoft 365 Copilot seats <span>Jul 2026 · <a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4" target="_blank" rel="noopener">source ↗</a></span></p>
             </div>
           </li>
           </ul>
-          <details class="stat-data"><summary>Data and sources</summary>
+          <details class="stat-data" data-swap="why-genai" data-back="Why GenAI traffic"><summary>Data and sources</summary>
             <table class="data-table data-table-compact"><thead><tr><th scope="col">App</th><th scope="col">Date</th><th scope="col">Users</th><th scope="col">Source</th></tr></thead>
             <tbody><tr><td>ChatGPT</td><td>Nov 2023</td><td>100M weekly users</td><td><a href="https://techcrunch.com/2023/11/06/openais-chatgpt-now-has-100-million-weekly-active-users/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>ChatGPT</td><td>Aug 2024</td><td>200M weekly users</td><td><a href="https://techcrunch.com/2025/12/22/chatgpt-everything-to-know-about-the-ai-chatbot/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>ChatGPT</td><td>Dec 2024</td><td>300M weekly users</td><td><a href="https://techcrunch.com/2025/12/22/chatgpt-everything-to-know-about-the-ai-chatbot/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>ChatGPT</td><td>Feb 2025</td><td>400M weekly users</td><td><a href="https://techcrunch.com/2025/12/22/chatgpt-everything-to-know-about-the-ai-chatbot/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>ChatGPT</td><td>Aug 2025</td><td>700M weekly users</td><td><a href="https://techcrunch.com/2025/12/22/chatgpt-everything-to-know-about-the-ai-chatbot/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>ChatGPT</td><td>Oct 2025</td><td>800M weekly users</td><td><a href="https://techcrunch.com/2025/10/06/sam-altman-says-chatgpt-has-hit-800m-weekly-active-users/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>ChatGPT</td><td>Sep 2026</td><td>1.2B weekly users</td><td><a href="https://www.engadget.com/2271985/openai-dev-day-live-blog-chatgpt-news/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>Google Gemini</td><td>May 2025</td><td>400M monthly users</td><td><a href="https://www.androidauthority.com/gemini-app-user-growth-3580587/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>Google Gemini</td><td>Jul 2025</td><td>450M monthly users</td><td><a href="https://www.androidauthority.com/gemini-app-user-growth-3580587/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>Google Gemini</td><td>Oct 2025</td><td>650M monthly users</td><td><a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204425000087/googexhibit991q32025.htm" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>Google Gemini</td><td>Feb 2026</td><td>750M monthly users</td><td><a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>Google Gemini</td><td>Jul 2026</td><td>950M monthly users</td><td><a href="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>Microsoft Copilot</td><td>Jan 2025</td><td>1× daily users of the Copilot app, growth in one year</td><td><a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2" target="_blank" rel="noopener">source ↗</a></td></tr><tr><td>Microsoft Copilot</td><td>Jan 2026</td><td>3× daily users of the Copilot app, growth in one year</td><td><a href="https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q2" target="_blank" rel="noopener">source ↗</a></td></tr></tbody></table>
           </details>

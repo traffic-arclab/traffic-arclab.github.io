@@ -858,6 +858,21 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .stat-data { margin-top: var(--space-4); font-size: .86rem; }
 .stat-data summary { color: var(--color-link); font-weight: 600; cursor: pointer; }
 .stat-data .data-table { margin-top: var(--space-3); }
+/* "Data and sources" opened in the left column, in place of the text (js/datasets.js) */
+.why-text > p strong { color: var(--color-ink); }
+.why-text > p { max-width: 62ch; margin-top: var(--space-4); color: var(--color-muted); font-size: 1.0625rem; line-height: 1.72; }
+.why-text .section-title { margin-bottom: var(--space-6); }
+.why-data[hidden], .why-text[hidden] { display: none; }
+.why-data { animation: why-in .35s var(--ease-standard); }
+.why-data .section-title { margin-bottom: var(--space-5); }
+.why-data .table-wrap { max-height: 520px; overflow: auto; }
+.why-data td:nth-child(2), .why-data td:nth-child(4) { white-space: nowrap; }
+.why-back { margin-top: var(--space-4); padding: 0; border: 0; background: none; color: var(--color-link); font: inherit; font-weight: 650; cursor: pointer; }
+.why-back:hover { text-decoration: underline; }
+.stat-data.is-swapped summary { color: var(--color-title); }
+.stat-data.is-swapped summary::after { content: " ←"; }
+@keyframes why-in { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .why-data { animation: none; } }
 @media (prefers-reduced-motion: no-preference) {
   :root.js .stat-band .stat-line { stroke-dasharray: 1; stroke-dashoffset: 1; }
   :root.js .stat-band :is(.stat-area, .stat-val, .stat-dot) { opacity: 0; }

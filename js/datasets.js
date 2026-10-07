@@ -51,6 +51,41 @@ document.querySelectorAll('.stat-bands').forEach(box => {
   });
 });
 
+// "Data and sources": on wide screens the table opens in the left column, in place of the text next to the card
+document.querySelectorAll('details.stat-data[data-swap]').forEach(details => {
+  const column = document.getElementById(details.dataset.swap);
+  const text = column && column.querySelector('.why-text');
+  const table = details.querySelector('table');
+  if (!text || !table) return;
+  const panel = document.createElement('div');
+  panel.className = 'why-data';
+  panel.id = `${column.id}-data`;
+  panel.hidden = true;
+  panel.innerHTML = '<h2 class="section-title">Data and sources</h2><div class="table-wrap"></div><button type="button" class="why-back"></button>';
+  panel.querySelector('.why-back').textContent = `← ${details.dataset.back || 'Back'}`;
+  column.append(panel);
+  const summary = details.querySelector('summary');
+  summary.setAttribute('aria-controls', panel.id);
+  summary.setAttribute('aria-expanded', 'false');
+  const wide = window.matchMedia('(min-width: 901px)');
+  const swap = open => {
+    if (open) panel.querySelector('.table-wrap').append(table); else details.append(table);
+    panel.hidden = !open;
+    text.hidden = open;
+    details.classList.toggle('is-swapped', open);
+    summary.setAttribute('aria-expanded', String(open));
+  };
+  summary.addEventListener('click', event => {
+    if (!wide.matches) return;   // narrow screens: the table opens in the card, as without JS
+    event.preventDefault();
+    details.open = false;
+    swap(panel.hidden);
+    if (!panel.hidden) panel.querySelector('.why-back').focus({ preventScroll: true });
+  });
+  panel.querySelector('.why-back').addEventListener('click', () => { swap(false); summary.focus(); });
+  wide.addEventListener('change', () => { if (!wide.matches && !panel.hidden) swap(false); });
+});
+
 // "Copy" next to a citation
 document.querySelectorAll('[data-copy]').forEach(button => {
   button.addEventListener('click', async () => {
