@@ -861,13 +861,17 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 /* Carousel (js/datasets.js): the card as tall as the text next to it, one band at a time */
 .two-col-center > .genai-stats { align-self: stretch; display: flex; flex-direction: column; }
 .stat-bands.is-carousel { flex: 1; display: grid; align-content: center; }
+/* one band at a time: no box inside the card */
+.stat-bands.is-carousel .stat-band { padding: 4px 0; border: 0; background: none; }
+.stat-bands.is-carousel .stat-dot { stroke: var(--color-surface); }
 .stat-bands.is-carousel .stat-band { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .45s var(--ease-standard), visibility 0s .45s; }
 .stat-bands.is-carousel .stat-band.is-active { opacity: 1; visibility: visible; transition: opacity .45s var(--ease-standard); }
-.stat-controls { display: flex; gap: 6px; align-items: center; margin-top: var(--space-3); }
-.stat-ctl { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid var(--color-line); border-radius: 50%;
-  background: var(--color-surface); color: var(--color-title); font-size: .7rem; line-height: 1; cursor: pointer; }
-.stat-ctl:hover { border-color: var(--color-accent); color: var(--color-link); }
-.stat-dots { display: flex; gap: 6px; margin-left: auto; }
+.stat-controls { display: flex; gap: 10px; align-items: center; justify-content: flex-end; margin-top: var(--space-3); }
+.stat-dots { display: flex; gap: 6px; }
+.stat-play { display: grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: none;
+  color: var(--color-muted); cursor: pointer; }
+.stat-play:hover { color: var(--color-link); }
+.stat-play svg { width: 10px; height: 10px; fill: currentColor; }
 .stat-dot-btn { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: var(--color-line); cursor: pointer; transition: background-color var(--duration-fast), width var(--duration-fast); }
 .stat-dot-btn[aria-current="true"] { width: 22px; border-radius: 5px; background: var(--color-accent); }
 @media (prefers-reduced-motion: reduce) { .stat-bands.is-carousel .stat-band { transition: none; } }

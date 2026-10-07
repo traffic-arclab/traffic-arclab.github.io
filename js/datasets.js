@@ -18,7 +18,7 @@ document.querySelectorAll('[data-prompt-explorer]').forEach(explorer => {
   if (buttons.length) show(buttons[0].dataset.promptApp);
 });
 
-// The bands of "GenAI in numbers" one at a time: every 5 seconds, with back, pause/play, next and one dot per app.
+// The bands of "GenAI in numbers" one at a time: every 5 seconds, with one dot per app and a small pause/play.
 // Hovering or focusing the card pauses it; with reduced motion it starts paused.
 function carousel(box, bands) {
   const DELAY = 5000;
@@ -29,10 +29,7 @@ function carousel(box, bands) {
   box.setAttribute('aria-roledescription', 'carousel');
   const bar = document.createElement('div');
   bar.className = 'stat-controls';
-  bar.innerHTML = '<button type="button" class="stat-ctl" data-go="-1" aria-label="Previous app">◀</button>'
-    + '<button type="button" class="stat-ctl stat-play"></button>'
-    + '<button type="button" class="stat-ctl" data-go="1" aria-label="Next app">▶</button>'
-    + '<span class="stat-dots"></span>';
+  bar.innerHTML = '<span class="stat-dots"></span><button type="button" class="stat-play"></button>';
   const dots = bands.map((band, i) => {
     const dot = document.createElement('button');
     dot.type = 'button';
@@ -59,11 +56,12 @@ function carousel(box, bands) {
   function restart() {
     clearInterval(timer);
     timer = paused || held ? null : setInterval(() => show(current + 1), DELAY);
-    play.textContent = paused ? '▶' : '❚❚';
+    play.innerHTML = paused
+      ? '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1.5v7l6-3.5z"/></svg>'
+      : '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1.5h2.2v7H2zM5.8 1.5H8v7H5.8z"/></svg>';
     play.setAttribute('aria-label', paused ? 'Play' : 'Pause');
     card.classList.toggle('is-paused', paused);
   }
-  bar.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => { show(current + Number(b.dataset.go)); restart(); }));
   play.addEventListener('click', () => { paused = !paused; restart(); });
   const hold = on => { held = on; restart(); };
   card.addEventListener('mouseenter', () => hold(true));
