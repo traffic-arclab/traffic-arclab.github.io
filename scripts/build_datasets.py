@@ -5,7 +5,7 @@ Generates the Datasets section with the site layout (header, menu and footer
 are taken from collaborations.html):
 
   datasets/index.html   landing page that leads to the two collections below
-  datasets/mirage.html  "MIRAGE Project": every MIRAGE dataset
+  datasets/mirage.html  "MIRAGE Project": the datasets not marked "genai"
   datasets/genai.html   "GenAI Traffic Project": the datasets marked "genai"
   datasets/<slug>.html  one page per dataset
 
@@ -253,7 +253,8 @@ def collection_card(kicker, title, href, summary, image, datasets):
 
 def index_page(data):
     """Landing page of the section: one card per collection (the same two pages as the menu)."""
-    mirage, genai = data['datasets'], [ds for ds in data['datasets'] if is_genai(ds)]
+    mirage = [ds for ds in data['datasets'] if not is_genai(ds)]
+    genai = [ds for ds in data['datasets'] if is_genai(ds)]
     image = lambda items: items[0]['image'] if items else ''
     cards = '\n'.join([
         collection_card('Project', 'MIRAGE Project', 'mirage.html', data['intro'], image(mirage[::-1]), mirage),
@@ -282,7 +283,7 @@ def mirage_page(data):
           <p class="section-intro">Human-generated mobile-app traffic with ground truth, captured with the MIRAGE architecture.</p>
         </div>
         <div class="dataset-grid">
-{dataset_cards(data, data['datasets'])}
+{dataset_cards(data, [ds for ds in data['datasets'] if not is_genai(ds)])}
         </div>
       </div>
     </section>
@@ -342,7 +343,7 @@ def genai_page(data):
             <li><a href="../genai_prompts/">Prompts and answers of ChatGPT, Copilot and Gemini</a></li>
             {''.join(papers)}
             <li><a href="../topics/mobile-and-genai-app-traffic-datasets.html">Research topic: mobile and GenAI app traffic datasets</a></li>
-            <li><a href="mirage.html">All MIRAGE datasets</a></li>
+            <li><a href="mirage.html">MIRAGE Project datasets</a></li>
           </ul>
         </div>
       </div>
