@@ -880,7 +880,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
   :root.js .stat-band.is-drawn .stat-area { opacity: 1; transition: opacity .8s .5s; }
   :root.js .stat-band.is-drawn :is(.stat-val, .stat-dot) { opacity: 1; transition: opacity .3s calc(.25s + var(--i, 4) * .12s); }
 }
-.genai-apps-wide { margin-bottom: clamp(32px, 4vw, 52px); }
+.genai-apps-wide { margin-top: clamp(32px, 4vw, 52px); }
 .app-list-row { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .app-list-row .app-row { grid-template-columns: auto minmax(0, 1fr); }
 .app-list-row .app-tags { grid-column: 2; justify-content: flex-start; }

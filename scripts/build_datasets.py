@@ -757,8 +757,6 @@ def genai_page(data):
     main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('GenAI Traffic Project', '')], 'GenAI Traffic Project', data.get('genai_intro') or GENAI_INTRO, 'genai')}
 
     <section class="section page-body" aria-labelledby="why-genai-title">
-      <div class="container">{apps_preview(data, genai)}
-      </div>
       <div class="container two-col two-col-center">
         <div class="why-swap" id="why-genai">
           <div class="why-text">
@@ -767,6 +765,8 @@ def genai_page(data):
           </div>
         </div>
         {stats_card(data)}
+      </div>
+      <div class="container">{apps_preview(data, genai)}
       </div>
     </section>
 {prompts_section}
