@@ -31,6 +31,8 @@
     ],
     "mirage_datasets_title": "MIRAGE datasets",
     "mirage_datasets_intro": "Human-generated mobile-app traffic with ground truth, captured with the MIRAGE architecture.",
+    "genai_eyebrow": "From Prompts to Packets",
+    "genai_title": "GenAI Traffic Datasets",
     "genai_why_title": "Why GenAI traffic",
     "genai_prompts_title": "Prompts",
     "genai_prompts": [

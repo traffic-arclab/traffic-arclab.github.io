@@ -491,6 +491,7 @@ a.area-topic:hover { color: var(--color-link); text-decoration-color: currentCol
 .breadcrumb a { color: var(--color-link); text-decoration: underline; text-decoration-color: transparent; }
 .breadcrumb a:hover { text-decoration-color: currentColor; }
 .crumb-sep { color: var(--color-strong-line); }
+.page-eyebrow { margin-bottom: var(--space-2); color: var(--color-accent-ink); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .page-title { max-width: 26ch; color: var(--color-title); font: 600 clamp(2.15rem, 4vw, 3.3rem)/1.1 var(--font-serif); letter-spacing: -.024em; text-wrap: balance; overflow-wrap: break-word; }
 .page-intro { max-width: 72ch; margin-top: var(--space-5); color: var(--color-muted); font-size: 1.05rem; line-height: 1.65; }
 .page-body { padding-block: clamp(44px, 5.5vw, 76px) clamp(56px, 7vw, 96px); }

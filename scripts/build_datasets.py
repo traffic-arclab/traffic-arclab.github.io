@@ -56,6 +56,7 @@ PAGE_DEFAULTS = {
     ],
     'mirage_datasets_title': 'MIRAGE datasets',
     'mirage_datasets_intro': 'Human-generated mobile-app traffic with ground truth, captured with the MIRAGE architecture.',
+    'genai_title': 'GenAI Traffic Project',
     'genai_why_title': 'Why GenAI traffic',
     'genai_prompts_title': 'Prompts',
     'genai_prompts': [
@@ -187,8 +188,8 @@ def frame(title, description, main, current=''):
     return page
 
 
-def hero(crumbs, title, lead='', theme=''):
-    """Page title band; theme 'mobile' or 'genai' picks the drawing in the background."""
+def hero(crumbs, title, lead='', theme='', eyebrow=''):
+    """Page title band; theme 'mobile' or 'genai' picks the drawing in the background; eyebrow: small text above the title."""
     trail = ' <span class="crumb-sep" aria-hidden="true">/</span> '.join(
         f'<a href="{esc(href)}">{esc(label)}</a>' if href else f'<span>{esc(label)}</span>' for label, href in crumbs)
     lead_html = f'\n        <p class="page-lead">{esc(lead)}</p>' if lead else ''
@@ -196,7 +197,7 @@ def hero(crumbs, title, lead='', theme=''):
     return f'''    <section class="page-hero{theme_class}">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">{trail}</nav>
-        <h1 class="page-title">{esc(title)}</h1>{lead_html}
+        {f'<p class="page-eyebrow">{esc(eyebrow)}</p>' if eyebrow else ''}<h1 class="page-title">{esc(title)}</h1>{lead_html}
       </div>
     </section>'''
 
@@ -772,7 +773,8 @@ def genai_page(data):
             <p>{esc(c['authors'])}, “{esc(c['title'])}”{venue}.</p>
             {f'<p class="citation-links">{links}</p>' if links else ''}
           </blockquote>''')
-    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('GenAI Traffic Project', '')], 'GenAI Traffic Project', data.get('genai_intro') or GENAI_INTRO, 'genai')}
+    main = f'''{hero([('Home', '../index.html'), ('Datasets', 'index.html'), ('GenAI Traffic Project', '')], page(data, 'genai_title'), data.get('genai_intro') or GENAI_INTRO, 'genai',
+                 (data.get('pages') or {}).get('genai_eyebrow', ''))}
 
     <section class="section page-body" aria-labelledby="why-genai-title">
       <div class="container two-col two-col-center">
