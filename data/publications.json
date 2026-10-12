@@ -31,7 +31,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2026 International Conference on Smart Applications, Communications and Networking (SmartNets)",
+  "venue": "International Conference on Smart Applications, Communications and Networking (SmartNets)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -54,7 +54,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2026 13th International Conference on Future Internet of Things and Cloud (FiCloud)",
+  "venue": "International Conference on Future Internet of Things and Cloud (FiCloud)",
   "volume": "",
   "issue": "",
   "pages": "428-433",
@@ -138,7 +138,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2026 IFIP Networking Conference (IFIP Networking)",
+  "venue": "IFIP Networking Conference (IFIP Networking)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -159,7 +159,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2026 IFIP Networking Conference (IFIP Networking)",
+  "venue": "IFIP Networking Conference (IFIP Networking)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -181,7 +181,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "NOMS 2026-2026 IEEE Network Operations and Management Symposium",
+  "venue": "IEEE Network Operations and Management Symposium (NOMS)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -286,7 +286,7 @@
   "authors": [
    "A. Vanacore",
    "A. Pescapè",
-   "P. M. Carvalho",
+   "P. Carvalho",
    "S. R. Lima"
   ],
   "venue": "IEEE Journal of Radio Frequency Identification",
@@ -376,7 +376,7 @@
    "A. D. Jurcut",
    "A. Pescapè"
   ],
-  "venue": "GLOBECOM 2025 - 2025 IEEE Global Communications Conference",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "3097-3102",
@@ -419,7 +419,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "2025 IEEE Virtual Conference on Communications (VCC)",
+  "venue": "IEEE Virtual Conference on Communications (VCC)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -436,13 +436,13 @@
   "title": "Enhancing Data Offloading in Urban Networks via Machine Learning-based Mobility Prediction",
   "authors": [
    "I. Mangiacapra",
-   "P. M. Carvalho",
+   "P. Carvalho",
    "A. Montieri",
    "A. Pescapè",
    "E. Lima",
    "S. R. Lima"
   ],
-  "venue": "2025 21st International Conference on Network and Service Management (CNSM)",
+  "venue": "International Conference on Network and Service Management (CNSM)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -484,7 +484,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2025 12th International Conference on Future Internet of Things and Cloud (FiCloud)",
+  "venue": "International Conference on Future Internet of Things and Cloud (FiCloud)",
   "volume": "",
   "issue": "",
   "pages": "381-388",
@@ -568,10 +568,10 @@
   "authors": [
    "A. Vanacore",
    "A. Pescapè",
-   "P. M. Carvalho",
+   "P. Carvalho",
    "S. R. Lima"
   ],
-  "venue": "2025 10th International Conference on Smart and Sustainable Technologies (SpliTech)",
+  "venue": "International Conference on Smart and Sustainable Technologies (SpliTech)",
   "volume": "",
   "issue": "",
   "pages": "1-7",
@@ -655,7 +655,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "2025 International Conference on Artificial Intelligence in Information and Communication (ICAIIC)",
+  "venue": "International Conference on Artificial Intelligence in Information and Communication (ICAIIC)",
   "volume": "",
   "issue": "",
   "pages": "0087-0092",
@@ -689,7 +689,7 @@
   "category": "journal",
   "doi": "10.1109/tnsm.2025.3543022",
   "url": "https://doi.org/10.1109/tnsm.2025.3543022",
-  "pdf": "",
+  "pdf": "https://arxiv.org/pdf/2502.08576",
   "source": "openalex"
  },
  {
@@ -764,7 +764,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "GLOBECOM 2024 - 2024 IEEE Global Communications Conference",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1299-1304",
@@ -785,7 +785,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "2024 IEEE/ACM Symposium on Edge Computing (SEC)",
+  "venue": "IEEE/ACM Symposium on Edge Computing (SEC)",
   "volume": "",
   "issue": "",
   "pages": "461-467",
@@ -829,7 +829,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2024 20th International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob)",
+  "venue": "International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob)",
   "volume": "",
   "issue": "",
   "pages": "663-666",
@@ -850,7 +850,7 @@
    "G. Bovenzi",
    "A. Pescapè"
   ],
-  "venue": "2024 IEEE Symposium on Computers and Communications (ISCC)",
+  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -896,7 +896,7 @@
    "G. Aceto",
    "A. Pescapè"
   ],
-  "venue": "2024 IFIP Networking Conference (IFIP Networking)",
+  "venue": "IFIP Networking Conference (IFIP Networking)",
   "volume": "",
   "issue": "",
   "pages": "757-762",
@@ -941,7 +941,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2024 IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)",
+  "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing Workshops (ICASSPW)",
   "volume": "",
   "issue": "",
   "pages": "325-329",
@@ -1101,7 +1101,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2023 IEEE International Conference on Big Data (BigData)",
+  "venue": "IEEE International Conference on Big Data (BigData)",
   "volume": "",
   "issue": "",
   "pages": "3284-3293",
@@ -1124,7 +1124,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "2023 IEEE International Conference on Big Data (BigData)",
+  "venue": "IEEE International Conference on Big Data (BigData)",
   "volume": "",
   "issue": "",
   "pages": "3547-3555",
@@ -1165,7 +1165,7 @@
    "G. Esposito",
    "C. Allarà",
    "M. Randon",
-   "M. L. Aiello",
+   "M. Aiello",
    "M. Salvatore",
    "G. Aceto",
    "A. Pescapè"
@@ -1238,7 +1238,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2023 35th International Teletraffic Congress (ITC-35)",
+  "venue": "International Teletraffic Congress",
   "volume": "",
   "issue": "",
   "pages": "1-9",
@@ -1280,7 +1280,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2023 10th International Conference on Future Internet of Things and Cloud (FiCloud)",
+  "venue": "International Conference on Future Internet of Things and Cloud (FiCloud)",
   "volume": "",
   "issue": "",
   "pages": "328-335",
@@ -1302,7 +1302,7 @@
    "A. Pescapè",
    "D. Rossi"
   ],
-  "venue": "2023 7th Network Traffic Measurement and Analysis Conference (TMA)",
+  "venue": "Network Traffic Measurement and Analysis Conference (TMA)",
   "volume": "",
   "issue": "",
   "pages": "1-10",
@@ -1311,7 +1311,7 @@
   "category": "conference",
   "doi": "10.23919/tma58422.2023.10198965",
   "url": "https://doi.org/10.23919/tma58422.2023.10198965",
-  "pdf": "",
+  "pdf": "https://arxiv.org/pdf/2305.12432",
   "source": "openalex"
  },
  {
@@ -1350,7 +1350,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "ICC 2023 - IEEE International Conference on Communications",
+  "venue": "International Conference on Communications",
   "volume": "",
   "issue": "",
   "pages": "1609-1615",
@@ -1372,7 +1372,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "IEEE INFOCOM 2023 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
+  "venue": "IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1499,7 +1499,7 @@
   "authors": [
    "S. Javanmardi",
    "M. Shojafar",
-   "R. M. Mohammadi",
+   "R. Mohammadi",
    "V. Persico",
    "A. Pescapè"
   ],
@@ -1525,7 +1525,7 @@
    "A. Piscitelli",
    "V. Spadari"
   ],
-  "venue": "2022 IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)",
+  "venue": "IEEE International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)",
   "volume": "",
   "issue": "",
   "pages": "1354-1359",
@@ -1586,30 +1586,6 @@
   "source": "openalex"
  },
  {
-  "id": "W4390075713",
-  "title": "A Biobanking System for Diagnostic Images: Architecture Development, COVID-19–Related Use Cases, and Performance Evaluation (Preprint)",
-  "authors": [
-   "G. Esposito",
-   "C. Allarà",
-   "M. Randon",
-   "M. L. Aiello",
-   "M. Salvatore",
-   "G. Aceto",
-   "A. Pescapè"
-  ],
-  "venue": "",
-  "volume": "",
-  "issue": "",
-  "pages": "",
-  "date": "2022-09-06",
-  "year": 2022,
-  "category": "preprint",
-  "doi": "10.2196/preprints.42505",
-  "url": "https://doi.org/10.2196/preprints.42505",
-  "pdf": "",
-  "source": "openalex"
- },
- {
   "id": "W4297099939",
   "title": "On the use of Machine Learning Approaches for the Early Classification in Network Intrusion Detection",
   "authors": [
@@ -1620,7 +1596,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "2022 IEEE International Symposium on Measurements & Networking (M&N)",
+  "venue": "IEEE International Symposium on Measurements & Networking (M&N)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1642,7 +1618,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2022 IEEE Symposium on Computers and Communications (ISCC)",
+  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1665,7 +1641,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2022 IEEE Symposium on Computers and Communications (ISCC)",
+  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1688,7 +1664,7 @@
    "A. Pescapè",
    "F. Esposito"
   ],
-  "venue": "2022 IFIP Networking Conference (IFIP Networking)",
+  "venue": "IFIP Networking Conference (IFIP Networking)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1711,7 +1687,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "ICC 2022 - IEEE International Conference on Communications",
+  "venue": "International Conference on Communications",
   "volume": "",
   "issue": "",
   "pages": "5427-5432",
@@ -1734,7 +1710,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "IEEE INFOCOM 2022 - IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
+  "venue": "IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1825,7 +1801,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2021 IEEE 26th International Workshop on Computer Aided Modeling and Design of Communication Links and Networks (CAMAD)",
+  "venue": "IEEE International Workshop on Computer Aided Modeling and Design of Communication Links and Networks (CAMAD)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1846,7 +1822,7 @@
    "G. Aceto",
    "A. Pescapè"
   ],
-  "venue": "2021 IEEE 6th International Forum on Research and Technology for Society and Industry (RTSI)",
+  "venue": "IEEE International Forum on Research and Technology for Society and Industry (RTSI)",
   "volume": "",
   "issue": "",
   "pages": "394-399",
@@ -1869,7 +1845,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2021 IEEE 6th International Forum on Research and Technology for Society and Industry (RTSI)",
+  "venue": "IEEE International Forum on Research and Technology for Society and Industry (RTSI)",
   "volume": "",
   "issue": "",
   "pages": "400-405",
@@ -1915,7 +1891,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2021 IEEE International Conference on Cyber Security and Resilience (CSR)",
+  "venue": "IEEE International Conference on Cyber Security and Resilience (CSR)",
   "volume": "",
   "issue": "",
   "pages": "455-460",
@@ -1961,7 +1937,7 @@
    "A. Nascita",
    "A. Pescapè"
   ],
-  "venue": "ICC 2021 - IEEE International Conference on Communications",
+  "venue": "International Conference on Communications",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1979,7 +1955,7 @@
   "authors": [
    "S. Javanmardi",
    "M. Shojafar",
-   "R. M. Mohammadi",
+   "R. Mohammadi",
    "A. Nazari",
    "V. Persico",
    "A. Pescapè"
@@ -2075,7 +2051,7 @@
    "A. Pescapè",
    "M. Hasan",
    "M. Sookhak",
-   "A. Mosavi"
+   "A. H. Mosavi"
   ],
   "venue": "IEEE Access",
   "volume": "9",
@@ -2118,7 +2094,7 @@
    "M. Homaei",
    "S. S. Band",
    "A. Pescapè",
-   "A. Mosavi"
+   "A. H. Mosavi"
   ],
   "venue": "IEEE Access",
   "volume": "9",
@@ -2140,7 +2116,7 @@
    "M. Chappell",
    "H. M. Byrne",
    "P. F. Innominato",
-   "S. B. Hughes",
+   "S. Hughes",
    "A. Pescapè",
    "L. Pecchia"
   ],
@@ -2166,7 +2142,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "GLOBECOM 2020 - 2020 IEEE Global Communications Conference",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-7",
@@ -2209,7 +2185,7 @@
    "M. Fathi",
    "A. T. Chronopoulos",
    "A. Montieri",
-   "F. S. Palumbo",
+   "F. Palumbo",
    "A. Pescapè"
   ],
   "venue": "Journal of Information Security and Applications",
@@ -2539,7 +2515,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2019 IEEE Global Communications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -2561,7 +2537,7 @@
    "F. Callegati",
    "A. Pescapè"
   ],
-  "venue": "IEEE Conference Proceedings",
+  "venue": "IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN)",
   "volume": "2019",
   "issue": "",
   "pages": "1-5",
@@ -2648,7 +2624,7 @@
    "A. Pescapè",
    "F. Verde"
   ],
-  "venue": "2019 IEEE 30th Annual International Symposium on Personal, Indoor and Mobile Radio Communications (PIMRC)",
+  "venue": "IEEE International Symposium on Personal, Indoor and Mobile Radio Communications (PIMRC)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -2689,7 +2665,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2019 Sixth International Conference on Software Defined Systems (SDS)",
+  "venue": "International Conference on Software Defined Systems (SDS)",
   "volume": "50",
   "issue": "",
   "pages": "80-87",
@@ -2710,7 +2686,7 @@
    "W. Muhammad",
    "A. Pescapè"
   ],
-  "venue": "2019 IEEE Conference on Network Softwarization (NetSoft)",
+  "venue": "IEEE Conference on Network Softwarization",
   "volume": "",
   "issue": "",
   "pages": "",
@@ -2732,7 +2708,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2019 Network Traffic Measurement and Analysis Conference (TMA)",
+  "venue": "Network Traffic Measurement and Analysis Conference (TMA)",
   "volume": "",
   "issue": "",
   "pages": "121-128",
@@ -2753,7 +2729,7 @@
    "K. Edeline",
    "B. Donnet"
   ],
-  "venue": "2019 Network Traffic Measurement and Analysis Conference (TMA)",
+  "venue": "Network Traffic Measurement and Analysis Conference (TMA)",
   "volume": "",
   "issue": "",
   "pages": "227-232",
@@ -2775,7 +2751,7 @@
    "C. Pelsser",
    "A. Pescapè"
   ],
-  "venue": "2019 Network Traffic Measurement and Analysis Conference (TMA)",
+  "venue": "Network Traffic Measurement and Analysis Conference (TMA)",
   "volume": "",
   "issue": "",
   "pages": "17-24",
@@ -2791,7 +2767,7 @@
   "id": "W2936183552",
   "title": "Distributed detection with fuzzy censoring sensors in the presence of noise uncertainty",
   "authors": [
-   "A. Mohammadi",
+   "A. R. Mohammadi",
    "S. H. Javadi",
    "D. Ciuonzo",
    "V. Persico",
@@ -2858,7 +2834,7 @@
   "authors": [
    "H. Chen",
    "X. Liu",
-   "Z. P. Zhao",
+   "Z. Zhao",
    "G. Aceto",
    "A. Pescapè"
   ],
@@ -2995,7 +2971,7 @@
    "C. D. Guerrero",
    "A. Pescapè"
   ],
-  "venue": "2018 IEEE Global Communications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3017,7 +2993,7 @@
    "H. Chen",
    "A. Pescapè"
   ],
-  "venue": "2018 24th Asia-Pacific Conference on Communications (APCC)",
+  "venue": "Asia-Pacific Conference on Communications (APCC)",
   "volume": "",
   "issue": "",
   "pages": "263-268",
@@ -3080,7 +3056,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2018 Network Traffic Measurement and Analysis Conference (TMA)",
+  "venue": "Network Traffic Measurement and Analysis Conference (TMA)",
   "volume": "",
   "issue": "",
   "pages": "1-8",
@@ -3227,7 +3203,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "GLOBECOM 2017 - 2017 IEEE Global Communications Conference",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3272,7 +3248,7 @@
    "A. Pescapè",
    "M. Skubic"
   ],
-  "venue": "2017 IEEE 19th International Conference on e-Health Networking, Applications and Services (Healthcom)",
+  "venue": "IEEE International Conference on e-Health Networking, Applications and Services (Healthcom)",
   "volume": "",
   "issue": "",
   "pages": "1-7",
@@ -3293,7 +3269,7 @@
    "G. Aceto",
    "A. Pescapè"
   ],
-  "venue": "International Test Conference",
+  "venue": "International Teletraffic Congress",
   "volume": "",
   "issue": "",
   "pages": "81-89",
@@ -3338,7 +3314,7 @@
    "A. Vozella",
    "A. Pescapè"
   ],
-  "venue": "2017 23rd International Conference on Automation and Computing (ICAC)",
+  "venue": "International Conference on Automation and Computing (ICAC)",
   "volume": "",
   "issue": "",
   "pages": "1-11",
@@ -3363,7 +3339,7 @@
    "P. Ricchi",
    "A. Filosa"
   ],
-  "venue": "2017 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
+  "venue": "Proceedings of ... IEEE International Conference on Fuzzy Systems",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3384,7 +3360,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "2017 Network Traffic Measurement and Analysis Conference (TMA)",
+  "venue": "Network Traffic Measurement and Analysis Conference (TMA)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3405,7 +3381,7 @@
    "K. Edeline",
    "B. Donnet"
   ],
-  "venue": "2017 Network Traffic Measurement and Analysis Conference (TMA)",
+  "venue": "Network Traffic Measurement and Analysis Conference (TMA)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3425,7 +3401,7 @@
    "A. Pescapè",
    "S. Santini"
   ],
-  "venue": "2017 5th IEEE International Conference on Models and Technologies for Intelligent Transportation Systems (MT-ITS)",
+  "venue": "IEEE International Conference on Models and Technologies for Intelligent Transportation Systems",
   "volume": "",
   "issue": "",
   "pages": "110-115",
@@ -3445,7 +3421,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2017 IEEE International Conference on Communications (ICC)",
+  "venue": "International Conference on Communications",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3635,7 +3611,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "IEEE Conference Proceedings",
+  "venue": "Globecom",
   "volume": "2016",
   "issue": "",
   "pages": "1-7",
@@ -3697,7 +3673,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2016 5th IEEE International Conference on Cloud Networking (Cloudnet)",
+  "venue": "IEEE International Conference on Cloud Networking",
   "volume": "",
   "issue": "",
   "pages": "113-118",
@@ -3717,10 +3693,10 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2016 IEEE 2nd International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow (RTSI)",
+  "venue": "IEEE International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow",
   "volume": "",
   "issue": "",
-  "pages": "1-6",
+  "pages": "",
   "date": "2016-09-01",
   "year": 2016,
   "category": "conference",
@@ -3740,7 +3716,7 @@
    "T. Ahmad",
    "S. Qaisar"
   ],
-  "venue": "2016 IEEE 2nd International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow (RTSI)",
+  "venue": "IEEE International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3786,7 +3762,7 @@
    "Í. F. S. Cunha",
    "E. Katz-Bassett"
   ],
-  "venue": "2016 IEEE International Symposium on Local and Metropolitan Area Networks (LANMAN)",
+  "venue": "IEEE International Symposium on Local and Metropolitan Area Networks (LANMAN)",
   "volume": "",
   "issue": "",
   "pages": "1-7",
@@ -3828,8 +3804,8 @@
    "A. M. Tulino",
    "A. Pescapè"
   ],
-  "venue": "IEEE Conference Proceedings",
-  "volume": "3",
+  "venue": "IFIP Networking Conference (IFIP Networking)",
+  "volume": "2016",
   "issue": "",
   "pages": "332-340",
   "date": "2016-05-01",
@@ -3850,7 +3826,7 @@
    "A. Pescapè",
    "S. Molnár"
   ],
-  "venue": "Proceedings of the 31st Annual ACM Symposium on Applied Computing",
+  "venue": "ACM Symposium on Applied Computing",
   "volume": "",
   "issue": "",
   "pages": "651-657",
@@ -4025,7 +4001,7 @@
    "F. Salvatore",
    "L. Pastore"
   ],
-  "venue": "2016 12th International Conference on Signal-Image Technology & Internet-Based Systems (SITIS)",
+  "venue": "International Conference on Signal-Image Technology & Internet-Based Systems (SITIS)",
   "volume": "3",
   "issue": "",
   "pages": "507-514",
@@ -4066,7 +4042,7 @@
    "A. Botta",
    "A. Pescapè"
   ],
-  "venue": "2015 IEEE Global Communications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -4088,7 +4064,7 @@
    "A. Salvi",
    "S. Santini"
   ],
-  "venue": "2015 IEEE Global Communications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-7",
@@ -4338,7 +4314,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2014 IEEE Conference on Communications and Network Security",
+  "venue": "IEEE Conference on Communications and Network Security",
   "volume": "",
   "issue": "",
   "pages": "516-517",
@@ -4381,7 +4357,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2014 International Conference on Future Internet of Things and Cloud",
+  "venue": "International Conference on Future Internet of Things and Cloud (FiCloud)",
   "volume": "",
   "issue": "",
   "pages": "23-30",
@@ -4645,7 +4621,7 @@
    "T. Friedman",
    "A. Pescapè"
   ],
-  "venue": "2013 IEEE Global Communications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "2963-2968",
@@ -4728,7 +4704,7 @@
    "A. Botta",
    "A. Pescapè"
   ],
-  "venue": "2013 Proceedings IEEE INFOCOM",
+  "venue": "IEEE Conference on Computer Communications (INFOCOM)",
   "volume": "",
   "issue": "",
   "pages": "3279-3284",
@@ -4747,7 +4723,7 @@
    "P. Marchetta",
    "A. Pescapè"
   ],
-  "venue": "2013 Proceedings IEEE INFOCOM",
+  "venue": "IEEE Conference on Computer Communications (INFOCOM)",
   "volume": "",
   "issue": "",
   "pages": "3237-3242",
@@ -4934,7 +4910,7 @@
    "R. Immich",
    "M. Curado"
   ],
-  "venue": "2013 International Conference on Computing, Networking and Communications (ICNC)",
+  "venue": "2012 International Conference on Computing, Networking and Communications (ICNC)",
   "volume": "",
   "issue": "",
   "pages": "1064-1068",
@@ -4973,7 +4949,7 @@
    "A. Pescapè",
    "J. Pansiot"
   ],
-  "venue": "2012 IEEE Global Communications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1871-1876",
@@ -4995,7 +4971,7 @@
    "F. Papale",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the 2012 Internet Measurement Conference",
+  "venue": "Internet Measurement Conference",
   "volume": "",
   "issue": "",
   "pages": "1-14",
@@ -5018,7 +4994,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "2012 Eighth International Conference on Signal Image Technology and Internet Based Systems",
+  "venue": "International Conference on Signal-Image Technology and Internet-Based Systems (SITIS)",
   "volume": "",
   "issue": "",
   "pages": "563-570",
@@ -5039,7 +5015,7 @@
    "W. de Donato",
    "A. Pescapè"
   ],
-  "venue": "2012 IEEE 1st International Conference on Cloud Networking (CLOUDNET)",
+  "venue": "IEEE International Conference on Cloud Networking",
   "volume": "",
   "issue": "",
   "pages": "63-67",
@@ -5084,7 +5060,7 @@
    "T. Friedman",
    "A. Pescapè"
   ],
-  "venue": "2012 IEEE 12th International Conference on Peer-to-Peer Computing (P2P)",
+  "venue": "IEEE International Conference on Peer-to-Peer Computing (P2P)",
   "volume": "55",
   "issue": "",
   "pages": "77-78",
@@ -5127,7 +5103,7 @@
    "W. de Donato",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the ACM SIGCOMM 2012 conference on Applications, technologies, architectures, and protocols for computer communication",
+  "venue": "ACM SIGCOMM Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication (SIGCOMM)",
   "volume": "",
   "issue": "",
   "pages": "109-110",
@@ -5148,7 +5124,7 @@
    "P. Szczechowiak",
    "A. Pescapè"
   ],
-  "venue": "2012 21st International Conference on Computer Communications and Networks (ICCCN)",
+  "venue": "Proceedings/Proceedings - International Conference on Computer Communications and Networks",
   "volume": "6613",
   "issue": "",
   "pages": "1-6",
@@ -5434,7 +5410,7 @@
    "A. Pescapè",
    "H.-C. Kim"
   ],
-  "venue": "2011 IEEE Global Telecommunications Conference - GLOBECOM 2011",
+  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -5499,7 +5475,7 @@
    "F. Granelli",
    "A. Pescapè"
   ],
-  "venue": "Cloud Computing",
+  "venue": "CRC Press eBooks",
   "volume": "",
   "issue": "",
   "pages": "91-107",
@@ -5586,7 +5562,7 @@
    "S. Crawford",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the ACM SIGCOMM 2011 conference",
+  "venue": "ACM SIGCOMM Conference (SIGCOMM)",
   "volume": "",
   "issue": "",
   "pages": "134-145",
@@ -5605,7 +5581,7 @@
    "A. Botta",
    "A. Pescapè"
   ],
-  "venue": "2011 IEEE Symposium on Computers and Communications (ISCC)",
+  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
   "volume": "33",
   "issue": "",
   "pages": "1022-1029",
@@ -5684,7 +5660,7 @@
    "A. Botta",
    "A. Pescapè"
   ],
-  "venue": "2011 Eighth International Conference on Wireless On-Demand Network Systems and Services",
+  "venue": "International Conference on Wireless On-Demand Network Systems and Services (WONS)",
   "volume": "7",
   "issue": "",
   "pages": "146-149",
@@ -5799,7 +5775,7 @@
    "D. Tammaro",
    "S. Valenti"
   ],
-  "venue": "2010 22nd International Teletraffic Congress (lTC 22)",
+  "venue": "International Teletraffic Congress",
   "volume": "",
   "issue": "",
   "pages": "1-8",
@@ -5884,7 +5860,7 @@
    "A. Pescapè",
    "C. Sansone"
   ],
-  "venue": "2010 IEEE International Conference on Communications",
+  "venue": "International Conference on Communications",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -5926,7 +5902,7 @@
    "G. Di Stasi",
    "A. Pescapè",
    "G. Ventre",
-   "S. Fdida"
+   "S. F. B"
   ],
   "venue": "Mobile Networks and Applications",
   "volume": "15",
@@ -5944,7 +5920,7 @@
   "id": "W2136672287",
   "title": "A Markovian Approach to Multipath Data Transfer in Overlay Networks",
   "authors": [
-   "V. Q. Bui",
+   "V. Bui",
    "W. Zhu",
    "A. Botta",
    "A. Pescapè"
@@ -6311,7 +6287,7 @@
   "authors": [
    "R. P. Karrer",
    "A. Pescapè",
-   "T. Huehn"
+   "T. Hühn"
   ],
   "venue": "EURASIP Journal on Wireless Communications and Networking",
   "volume": "2008",
@@ -6439,7 +6415,7 @@
    "A. Pescapè",
    "R. P. Karrer"
   ],
-  "venue": "Heterogeneous Wireless Access Networks",
+  "venue": "Springer eBooks",
   "volume": "",
   "issue": "",
   "pages": "1-17",
@@ -6501,7 +6477,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "Proceedings of the 2008 ACM CoNEXT Conference on - CONEXT '08",
+  "venue": "ACM Conference on Emerging Networking Experiments and Technologies (CoNEXT)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -6522,7 +6498,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "IEEE GLOBECOM 2008 - 2008 IEEE Global Telecommunications Conference",
+  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -6543,7 +6519,7 @@
    "A. Pescapè",
    "P. S. Rossi"
   ],
-  "venue": "IEEE GLOBECOM 2008 - 2008 IEEE Global Telecommunications Conference",
+  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
   "volume": "15",
   "issue": "",
   "pages": "1-5",
@@ -6559,12 +6535,12 @@
   "id": "W2127794634",
   "title": "An MDP-Based Approach for Multipath Data Transmission over Wireless Networks",
   "authors": [
-   "V. Q. Bui",
+   "V. Bui",
    "W. Zhu",
    "A. Botta",
    "A. Pescapè"
   ],
-  "venue": "2008 IEEE International Conference on Communications",
+  "venue": "International Conference on Communications",
   "volume": "1",
   "issue": "",
   "pages": "268-274",
@@ -6586,7 +6562,7 @@
    "Y. B. Zikria",
    "S. Loreto"
   ],
-  "venue": "2007 IEEE International Multitopic Conference",
+  "venue": "IEEE International Multitopic Conference (INMIC)",
   "volume": "4",
   "issue": "",
   "pages": "1-5",
@@ -6628,7 +6604,7 @@
    "G. Ventre",
    "R. P. Karrer"
   ],
-  "venue": "2007 Fourth International Conference on Broadband Communications, Networks and Systems (BROADNETS '07)",
+  "venue": "International Conference on Broadband Communications, Networks and Systems (BROADNETS)",
   "volume": "",
   "issue": "",
   "pages": "680-689",
@@ -6664,7 +6640,7 @@
   "id": "W1982226541",
   "title": "Long Horizon End-to-End Delay Forecasts: A Multi-Step-Ahead Hybrid Approach",
   "authors": [
-   "V. Q. Bui",
+   "V. Bui",
    "W. Zhu",
    "A. Pescapè",
    "A. Botta"
@@ -6689,7 +6665,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "2007 IEEE International Conference on Communications",
+  "venue": "International Conference on Communications",
   "volume": "",
   "issue": "",
   "pages": "1435-1442",
@@ -6730,7 +6706,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "2007 IEEE International Conference on Communications",
+  "venue": "International Conference on Communications",
   "volume": "",
   "issue": "",
   "pages": "350-356",
@@ -6830,7 +6806,7 @@
    "A. Botta",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the 2007 ACM CoNEXT conference on - CoNEXT '07",
+  "venue": "ACM Conference on Emerging Networking Experiments and Technologies (CoNEXT)",
   "volume": "",
   "issue": "",
   "pages": "1",
@@ -6933,7 +6909,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "11th International Conference on Parallel and Distributed Systems (ICPADS'05)",
+  "venue": "International Conference on Parallel and Distributed Systems",
   "volume": "2",
   "issue": "",
   "pages": "520-524",
@@ -6995,7 +6971,7 @@
    "A. Pescapè",
    "M. Vadursi"
   ],
-  "venue": "2006 1st International Symposium on Wireless Pervasive Computing",
+  "venue": "International Symposium on Wireless Pervasive Computing",
   "volume": "",
   "issue": "",
   "pages": "1-5",
@@ -7074,7 +7050,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "Proceedings of the 2006 ACM CoNEXT conference on - CoNEXT '06",
+  "venue": "ACM Conference on Emerging Networking Experiments and Technologies (CoNEXT)",
   "volume": "",
   "issue": "",
   "pages": "1",
@@ -7242,7 +7218,7 @@
   "authors": [
    "H. Abachi",
    "R. Abdullah",
-   "S. P. Ahuja",
+   "S. Ahuja",
    "J. M. Alghazo",
    "D. Andresen",
    "H. R. Arabnia",
@@ -7457,7 +7433,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "IEEE International Conference on Performance, Computing, and Communications, 2004",
+  "venue": "International Performance, Computing, and Communications Conference",
   "volume": "",
   "issue": "",
   "pages": "609-615",
@@ -7627,7 +7603,7 @@
    "A. Pescapè",
    "P. S. Rossi"
   ],
-  "venue": "GLOBECOM '05. IEEE Global Telecommunications Conference, 2005.",
+  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
   "volume": "",
   "issue": "",
   "pages": "6 pp.",
@@ -7785,7 +7761,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "2004 IEEE/IFIP Network Operations and Management Symposium (IEEE Cat. No.04CH37507)",
+  "venue": "IEEE/IFIP Network Operations and Management Symposium (NOMS)",
   "volume": "41",
   "issue": "",
   "pages": "351-364",
@@ -7807,7 +7783,7 @@
    "S. P. Romano",
    "G. Ventre"
   ],
-  "venue": "24th International Conference on Distributed Computing Systems Workshops, 2004. Proceedings.",
+  "venue": "International Conference on Distributed Computing Systems Workshops",
   "volume": "",
   "issue": "",
   "pages": "30-35",
@@ -7820,14 +7796,14 @@
   "source": "openalex"
  },
  {
-  "id": "scholar-transparentandautomaticslamanagementmovi",
+  "id": "W2591498069",
   "title": "Transparent and Automatic SLA Management: moving towards Proactive Networks",
   "authors": [
-   "M. D'Arienzo",
+   "D. Maurizio",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "",
+  "venue": "Archivio Istituzionale della Ricerca - Università degli Studi della Campania \"Luigi Vanvitelli\"",
   "volume": "",
   "issue": "",
   "pages": "",
@@ -7835,9 +7811,9 @@
   "year": 2004,
   "category": "conference",
   "doi": "",
-  "url": "",
+  "url": "http://hdl.handle.net/11591/213518",
   "pdf": "",
-  "source": "scholar"
+  "source": "openalex"
  },
  {
   "id": "scholar-plabapacketcaptureandanalysisarchitectur",
@@ -8099,7 +8075,7 @@
    "G. Karlsson",
    "J. W. Roberts",
    "I. Stavrakakis",
-   "A. J. L. Alves",
+   "A. Alves",
    "S. Avallone",
    "F. Boavida",
    "S. D’Antonio",
@@ -8235,7 +8211,7 @@
    "V. Vecchio",
    "G. Ventre"
   ],
-  "venue": "Quality Education @ a Distance",
+  "venue": "Springer eBooks",
   "volume": "",
   "issue": "",
   "pages": "83-92",
