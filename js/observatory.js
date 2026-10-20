@@ -17,9 +17,7 @@
   const heroInput = document.getElementById('obs-q');
   const searchForm = document.getElementById('obs-search-form');
   const aiUrl = searchForm.dataset.ai || '';
-  const grouped = document.getElementById('obs-group');
   const sort = document.getElementById('obs-sort');
-  const count = document.getElementById('obs-count');
   const empty = document.getElementById('obs-empty');
   const clear = document.getElementById('obs-clear');
   const activeBox = document.getElementById('obs-active');
@@ -30,12 +28,14 @@
   const groups = [...new Set(boxes.map(b => b.name))];
   const label = box => box.closest('label').querySelector('.obs-facet-label').textContent;
   const expanded = new Set();
+  // The keyword search: what is typed in the title bar (with the assistant, only when it falls back to keywords).
+  let keywords = '';
 
   // ------------------------------------------------------------ search and facets
   function state() {
     const chosen = {};
     boxes.filter(b => b.checked).forEach(b => (chosen[b.name] = chosen[b.name] || []).push(b.value));
-    const words = barInput.value.toLowerCase().split(/\s+/).filter(Boolean);
+    const words = keywords.toLowerCase().split(/\s+/).filter(Boolean);
     return { chosen, words };
   }
 
@@ -61,20 +61,18 @@
   function update(push = true) {
     const { chosen, words } = state();
     const filtering = words.length > 0 || Object.keys(chosen).length > 0;
-    let shown = 0, hits = 0;
-    const families = new Set();
+    let shown = 0;
     order(rows.slice()).forEach(row => list.appendChild(row));
     rows.forEach(row => {
       const hit = passes(row, chosen, words);
-      // while grouping, family members are folded under the head row unless the family is open;
+      // family members are folded under the head record unless the family is open;
       // a search or a filter shows every matching record
-      const folded = grouped.checked && !filtering && row.dataset.head === 'false' && !expanded.has(row.dataset.family);
+      const folded = !filtering && row.dataset.head === 'false' && !expanded.has(row.dataset.family);
       row.hidden = !hit || folded;
-      row.classList.toggle('is-member', grouped.checked && row.dataset.head === 'false' && !row.hidden);
-      if (hit) { hits++; families.add(row.dataset.family); }
+      row.classList.toggle('is-member', row.dataset.head === 'false' && !row.hidden);
       if (!row.hidden) shown++;
     });
-    document.querySelectorAll('.obs-family').forEach(b => { b.hidden = filtering || !grouped.checked; });
+    document.querySelectorAll('.obs-family').forEach(b => { b.hidden = filtering; });
 
     // facet counts: how many records each value would give with the other filters unchanged;
     // the bar under each value is its share of the largest value of the group
@@ -99,15 +97,12 @@
 
     // active filters, each removable
     const chips = [];
-    if (words.length) chips.push(`<button type="button" class="obs-chip" data-remove="q">“${esc(barInput.value.trim())}” <span aria-hidden="true">×</span><span class="visually-hidden">Remove the search</span></button>`);
+    if (words.length) chips.push(`<button type="button" class="obs-chip" data-remove="q">“${esc(keywords.trim())}” <span aria-hidden="true">×</span><span class="visually-hidden">Remove the search</span></button>`);
     boxes.filter(b => b.checked).forEach(b => chips.push(
       `<button type="button" class="obs-chip" data-remove="${esc(b.name)}:${esc(b.value)}">${esc(label(b))} <span aria-hidden="true">×</span><span class="visually-hidden">Remove this filter</span></button>`));
     activeBox.innerHTML = chips.join('');
     activeBox.hidden = chips.length === 0;
 
-    count.innerHTML = filtering
-      ? `<strong>${hits}</strong> of ${rows.length} records match, from ${families.size} families`
-      : grouped.checked ? `<strong>${families.size}</strong> families · ${rows.length} records` : `<strong>${rows.length}</strong> records`;
     empty.hidden = shown > 0;
     clear.hidden = !filtering;
     if (push) saveUrl(chosen);
@@ -137,20 +132,18 @@
   // The search is kept in the address, so a search can be shared or bookmarked.
   function saveUrl(chosen) {
     const params = new URLSearchParams();
-    if (barInput.value.trim()) params.set('q', barInput.value.trim());
+    if (keywords.trim()) params.set('q', keywords.trim());
     Object.entries(chosen).forEach(([g, values]) => params.set(g, values.join(',')));
     if (sort.value !== 'catalogue') params.set('sort', sort.value);
-    if (!grouped.checked) params.set('group', '0');
     const query = params.toString();
     history.replaceState(null, '', query ? `?${query}${location.hash}` : location.pathname + location.hash);
   }
 
   function loadUrl() {
     const params = new URLSearchParams(location.search);
-    heroInput.value = barInput.value = params.get('q') || '';
+    heroInput.value = keywords = params.get('q') || '';
     boxes.forEach(b => { b.checked = (params.get(b.name) || '').split(',').includes(b.value); });
     if (params.get('sort') && [...sort.options].some(o => o.value === params.get('sort'))) sort.value = params.get('sort');
-    if (params.get('group') === '0') grouped.checked = false;
     boxes.filter(b => b.checked).forEach(b => b.closest('details').open = true);
     return params.toString() !== '';
   }
@@ -159,30 +152,27 @@
     document.getElementById('catalogue').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
 
-  // The search bar of the page title and the one above the results are the same search.
-  const barInput = document.getElementById('obs-q2');
+  // The title bar filters the catalogue while typing; with the assistant it is sent on submit only.
   let typing;
-  // With the assistant, the title bar is sent on submit only and the table keeps its own keyword search.
-  [heroInput, barInput].forEach(input => input.addEventListener('input', () => {
-    if (aiUrl && input === heroInput) return;
-    (input === heroInput ? barInput : heroInput).value = input.value;
+  heroInput.addEventListener('input', () => {
+    if (aiUrl) return;
+    keywords = heroInput.value;
     clearTimeout(typing);
     typing = setTimeout(update, 120);
-  }));
+  });
   searchForm.addEventListener('submit', e => {
     e.preventDefault();
     if (aiUrl && heroInput.value.trim()) return aiSearch(heroInput.value.trim());
-    barInput.value = heroInput.value;
+    keywords = heroInput.value;
     update();
     toResults();
   });
   boxes.forEach(b => b.addEventListener('change', () => update()));
-  grouped.addEventListener('change', () => update());
   sort.addEventListener('change', () => update());
   activeBox.addEventListener('click', e => {
     const chip = e.target.closest('[data-remove]');
     if (!chip) return;
-    if (chip.dataset.remove === 'q') heroInput.value = barInput.value = '';
+    if (chip.dataset.remove === 'q') heroInput.value = keywords = '';
     else {
       const [g, v] = chip.dataset.remove.split(':');
       boxes.find(b => b.name === g && b.value === v).checked = false;
@@ -190,7 +180,7 @@
     update();
   });
   clear.addEventListener('click', () => {
-    heroInput.value = barInput.value = '';
+    heroInput.value = keywords = '';
     boxes.forEach(b => { b.checked = false; });
     update();
   });
@@ -248,10 +238,10 @@
         ${item('Security task', esc(r.task))}
         ${item('Domain', esc(r.domain))}
         ${item('Traffic data', esc((r.data || []).join(', ')))}
-        ${item('Access', r.access === 'request' ? 'On request' : 'Not restricted, as far as documented')}
+        ${item('Access', r.access === 'request' ? 'On request' : 'Open')}
         ${item('Source', source)}
         ${item('Original publication', paper)}
-        ${item('Audit notes', esc(r.notes))}
+        ${item('Notes', esc(r.notes))}
       </dl>
       ${cautions ? `<ul class="obs-cautions">${cautions}</ul>` : ''}
       <div class="gate-actions">
@@ -339,7 +329,7 @@
     } catch (err) {
       if (ticket !== searching) return;
       // Without the assistant the request becomes a keyword search of the table.
-      barInput.value = query;
+      keywords = query;
       update();
       aiPanel.innerHTML = `<div class="obs-ai-head"><p class="obs-ai-title">${esc(err.message)}</p><button type="button" class="pub-clear" data-ai-close>Close</button></div>
         <p class="obs-ai-answer">Showing the keyword matches of “${esc(query)}” instead.</p>`;
