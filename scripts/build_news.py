@@ -7,7 +7,7 @@ as [label](url). Items are shown newest first, grouped by year and month
 the NEWS markers in news.html is regenerated; the rest of the page is left
 untouched. The home page shows the latest items in its Highlights rotator,
 reading them from news.html. Edit the data by hand or with the editor
-(admin/people/, "News" tab).
+(admin/people/, "News" tab). An item with "hidden": true is kept in the data but not shown.
 
 Standard library only.
 """
@@ -45,7 +45,7 @@ def sort_key(item):
 
 
 def render(news):
-    news = sorted(news, key=sort_key)   # stable: same-month items keep their order
+    news = sorted((i for i in news if not i.get('hidden')), key=sort_key)   # stable: same-month items keep their order
     years = []
     for item in news:
         if not years or years[-1][0] != item['year']:

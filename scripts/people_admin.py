@@ -71,7 +71,7 @@ def clean_news(raw):
             raise ValueError(f'"{text[:40]}...": the year is not valid')
         if month not in MONTHS:
             raise ValueError(f'"{text[:40]}...": choose a month')
-        items.append({'year': year, 'month': month, 'text': text})
+        items.append({'year': year, 'month': month, 'text': text, **({'hidden': True} if item.get('hidden') else {})})
     return {'news': sorted(items, key=build_news.sort_key)}
 
 

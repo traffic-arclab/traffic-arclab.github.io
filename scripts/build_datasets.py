@@ -129,9 +129,10 @@ def render_menu(prefix, current=''):
         for key, label, href, note in COLLECTIONS)
     import build_observatory   # here, not at the top: build_observatory imports this module
     badge = build_observatory.new_badge()
+    hidden = {'observatory'} if build_observatory.is_hidden() else set()   # work in progress: reachable only by its link
     extra = ''.join(
         f'\n{MENU_INDENT}<li><a href="{prefix}{path}" class="nav-link nav-link-stack"{mark(key)}>{stack(label)}{badge if key == "observatory" else ""}</a></li>'
-        for key, label, path in MENU_EXTRA)
+        for key, label, path in MENU_EXTRA if key not in hidden)
     return f'''{MENU_INDENT}<li class="has-dropdown">
 {MENU_INDENT}  <button class="nav-link dropdown-toggle" aria-expanded="false">Datasets</button>
 {MENU_INDENT}  <div class="dropdown">

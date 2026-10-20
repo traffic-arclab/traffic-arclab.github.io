@@ -7,6 +7,10 @@
 The home page also gets a band that presents the Observatory
 (between the OBSERVATORY-FEATURE markers), with a "New" badge until "new_until".
 
+While "hidden" is true (work in progress) the page is still built at its address, but
+it is not linked anywhere: no top-bar entry, no home band, and search engines are asked
+not to index it (the news items marked "hidden" are skipped by build_news.py).
+
 The page has the site layout (header, menu and footer, through build_datasets.frame)
 and its own address, https://traffic-arclab.github.io/observatory/, so it can be
 shared on its own. It has its own entry, "Cybersecurity Observatory", in the top bar of every page (written by build_datasets.render_menu).
@@ -211,6 +215,10 @@ def load():
         return json.load(f)
 
 
+def is_hidden(data=None):
+    return bool((data or load()).get('hidden'))
+
+
 def is_new(data=None):
     """The "New" badge is shown until the "new_until" date of data/observatory.json (included)."""
     until = (data or load()).get('new_until')
@@ -258,7 +266,8 @@ def update_features(data):
         if FEATURE_START not in page:
             continue
         prefix = '../' * rel.count(os.sep)
-        updated = site.replace_block(page, FEATURE_START, FEATURE_END, feature(prefix, data), '    ')
+        band = '' if is_hidden(data) else feature(prefix, data)
+        updated = site.replace_block(page, FEATURE_START, FEATURE_END, band, '    ')
         if updated != page:
             with open(path, 'w', encoding='utf-8') as f:
                 f.write(updated)
@@ -626,6 +635,8 @@ def observatory_page(data):
     page = site.frame(f'{data["title"]} | Traffic',
                       'Curated catalogue of network-traffic datasets for AI-based cybersecurity, linked to their papers and distribution sources.',
                       main, 'observatory')
+    if is_hidden(data):
+        page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
     # frame() adds the Datasets script; this page has its own.
     page = re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>',
                   '\n  <script src="../js/observatory.js" defer></script>', page, count=1)

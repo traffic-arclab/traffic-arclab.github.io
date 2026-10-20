@@ -1,5 +1,6 @@
 {
   "title": "Cybersecurity Observatory",
+  "hidden": true,
   "eyebrow": "AI Cybersecurity Dataset Observatory",
   "tagline": "Discover Datasets for AI in Cybersecurity. Now all in one place.",
   "lead": "A curated catalogue of network-traffic datasets for AI-based cybersecurity: what each dataset contains, where it is distributed and which paper introduced it.",

@@ -736,7 +736,7 @@
   }
 
   function cleanNews() {
-    const out = news.map(n => ({ year: Number(n.year), month: n.month, text: String(n.text || '').trim().replace(/\s+/g, ' ') }));
+    const out = news.map(n => ({ year: Number(n.year), month: n.month, text: String(n.text || '').trim().replace(/\s+/g, ' '), ...(n.hidden ? { hidden: true } : {}) }));
     for (const n of out) {
       if (!n.text) throw new Error('Every news item needs a text');
       if (!Number.isInteger(n.year) || n.year < 1990 || n.year > 2100) throw new Error(`"${n.text.slice(0, 40)}…": the year is not valid`);

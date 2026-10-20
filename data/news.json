@@ -3,6 +3,7 @@
     {
       "year": 2026,
       "month": "October",
+      "hidden": true,
       "text": "We have launched the [Cybersecurity Observatory](observatory/), a curated catalogue of network-traffic datasets for AI-based cybersecurity: 252 records from enterprise, IoT, industrial, wireless and vehicular networks, each linked to its original paper and distribution source. Researchers can submit new datasets through the Observatory page."
     },
     {
