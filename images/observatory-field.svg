@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="620" viewBox="0 0 720 620" fill="none" aria-hidden="true">
+  <!-- Scaled and raised so that the whole observatory stays above the fade at the bottom of the page title band -->
+  <g transform="translate(158 -30) scale(.78)">
+  <!-- Network constellation in the sky -->
+  <g stroke="#8fafc8" stroke-width="1" opacity=".42">
+    <path d="M512 74 598 52 678 108 640 192 560 150 512 74M560 150 640 192 700 250M598 52 560 150M678 108 700 250"/>
+    <path d="M440 210 512 74M440 210 560 150" stroke-dasharray="4 9"/>
+  </g>
+  <g fill="#a9c3d4">
+    <circle cx="512" cy="74" r="4"/><circle cx="598" cy="52" r="5"/><circle cx="678" cy="108" r="4"/>
+    <circle cx="640" cy="192" r="5"/><circle cx="560" cy="150" r="4"/><circle cx="700" cy="250" r="4"/><circle cx="440" cy="210" r="3"/>
+  </g>
+  <g fill="#7fb7db">
+    <circle cx="598" cy="52" r="10" opacity=".22"/><circle cx="640" cy="192" r="10" opacity=".22"/>
+  </g>
+  <!-- Field of view of the telescope -->
+  <g stroke="#8fafc8" stroke-width="1" opacity=".45" stroke-dasharray="3 8">
+    <path d="M423 283 343 210M437 297 362 226"/>
+  </g>
+  <!-- Lens: a magnified group of nodes under the crosshair -->
+  <g stroke="#8fafc8" stroke-width="1.5" opacity=".6">
+    <circle cx="300" cy="166" r="70"/>
+    <circle cx="300" cy="166" r="58" stroke-width="1" opacity=".6"/>
+  </g>
+  <g stroke="#8fafc8" stroke-width="1" opacity=".45">
+    <path d="M300 96v24M300 212v24M230 166h24M346 166h24"/>
+    <path d="M272 186 300 150 334 176 272 186M300 150 318 132"/>
+  </g>
+  <g fill="#7fb7db">
+    <circle cx="300" cy="166" r="70" opacity=".08"/>
+    <circle cx="300" cy="150" r="5"/><circle cx="272" cy="186" r="4" opacity=".8"/><circle cx="334" cy="176" r="4" opacity=".8"/><circle cx="318" cy="132" r="3" opacity=".7"/>
+    <circle cx="300" cy="150" r="11" opacity=".22"/>
+  </g>
+  <!-- Observatory: dome with an open slit, telescope and base -->
+  <g stroke="#8fafc8" stroke-width="1.5" opacity=".6" stroke-linejoin="round">
+    <path d="M448 470a112 112 0 0 1 224 0Z"/>
+    <path d="M545 360v110M575 360v110" stroke-width="1"/>
+    <path d="M569.9 410.1 439.9 280.1 420.1 299.9 550.1 429.9Z"/>
+    <ellipse cx="430" cy="290" rx="16" ry="6" transform="rotate(45 430 290)"/>
+    <path d="M440 470h240v92H440Z"/>
+    <path d="M540 562v-50a20 20 0 0 1 40 0v50" stroke-width="1"/>
+    <path d="M440 492h240" stroke-width="1" opacity=".6"/>
+  </g>
+  <g fill="#7fb7db">
+    <path d="M545 366h30v104h-30Z" opacity=".16"/>
+    <path d="M448 470a112 112 0 0 1 224 0Z" opacity=".06"/>
+  </g>
+  <!-- Horizon -->
+  <path d="M360 562h360" stroke="#8fafc8" stroke-width="1" opacity=".4"/>
+  <path d="M390 584h300" stroke="#8fafc8" stroke-width="1" opacity=".22" stroke-dasharray="6 10"/>
+  <!-- Stars -->
+  <g fill="#7fb7db">
+    <path d="M430 40c2.5 18 10.5 26 28 28.5-17.5 2.5-25.5 10.5-28 28.5-2.5-18-10.5-26-28-28.5 17.5-2.5 25.5-10.5 28-28.5Z" opacity=".5"/>
+    <path d="M690 318c1.6 11 6.5 16 17.5 17.5-11 1.6-16 6.5-17.5 17.5-1.6-11-6.5-16-17.5-17.5 11-1.6 16-6.5 17.5-17.5Z" opacity=".45"/>
+    <path d="M396 400c1.2 8 4.8 11.6 12.8 12.8-8 1.2-11.6 4.8-12.8 12.8-1.2-8-4.8-11.6-12.8-12.8 8-1.2 11.6-4.8 12.8-12.8Z" opacity=".4"/>
+  </g>
+  <g fill="#a9c3d4" opacity=".7">
+    <circle cx="480" cy="300" r="2"/><circle cx="660" cy="290" r="2"/><circle cx="380" cy="80" r="2"/><circle cx="700" cy="30" r="2"/>
+  </g>
+  </g>
+</svg>

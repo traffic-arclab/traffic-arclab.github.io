@@ -3,6 +3,11 @@
     {
       "year": 2026,
       "month": "October",
+      "text": "We have launched the [Cybersecurity Observatory](observatory/), a curated catalogue of network-traffic datasets for AI-based cybersecurity: 252 records from enterprise, IoT, industrial, wireless and vehicular networks, each linked to its original paper and distribution source. Researchers can submit new datasets through the Observatory page."
+    },
+    {
+      "year": 2026,
+      "month": "October",
       "text": "We will hold [GenXNet'26](genxnet2026/), the International Workshop on Generative and eXplainable Artificial Intelligence for Networking, in conjunction with IEEE WiMob 2026 (14–16 October 2026, Avignon, France)."
     },
     {

@@ -126,8 +126,8 @@ def build():
     page = re.sub(r'<meta name="description" content="[^"]*">',
                   '<meta name="description" content="Workshops organized and special issues edited by the Traffic research group.">', page, count=1)
     page = page.replace(' aria-current="page"', '')
-    page = page.replace('class="nav-link">Workshops &amp; Special Issues</a>',
-                        'class="nav-link" aria-current="page">Workshops &amp; Special Issues</a>')
+    page = page.replace('class="nav-link nav-link-stack"><span class="nav-stack"><span>Workshops',
+                        'class="nav-link nav-link-stack" aria-current="page"><span class="nav-stack"><span>Workshops')
     with open(PAGE, 'w', encoding='utf-8') as f:
         f.write(page)
 

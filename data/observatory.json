@@ -1,0 +1,2988 @@
+{
+  "title": "Cybersecurity Observatory",
+  "eyebrow": "AI Cybersecurity Dataset Observatory",
+  "tagline": "Network-attack datasets for AI security, all in one place.",
+  "lead": "A curated catalogue of network-traffic datasets for AI-based cybersecurity: what each dataset contains, where it is distributed and which paper introduced it.",
+  "snapshot": "2026-10-15",
+  "new_until": "2027-01-31",
+  "feature_title": "A curated catalogue of network-attack datasets for AI",
+  "feature_text": "Traffic datasets for intrusion detection, malware and C2 analysis and anomaly detection, linked to their original papers and distribution sources. Researchers can also submit new datasets.",
+  "contact": "pescape@unina.it",
+  "cc": [
+    "gabriele.mangiacapre@unina.it",
+    "francesco.cerasuolo@unina.it"
+  ],
+  "submit_endpoint": "",
+  "ai_endpoint": "",
+  "about": [
+    "Many datasets are used to evaluate AI methods for intrusion detection, malware and command-and-control analysis, and anomaly detection, but the same dataset name often refers to different releases, captures and derived feature tables.",
+    "The Observatory records every dataset at the level of the **release and its distributed artifacts**, and links it to its original publication and distribution source."
+  ],
+  "eligibility": "A dataset is included when it distributes recorded network communications (packet captures, flow records, wireless frames, CAN or V2X messages, protocol logs) or features demonstrably derived from them, whatever the security task. Host-only telemetry, malware binaries and sensor time series without a network-traffic component are not eligible on their own.",
+  "units": [
+    {
+      "name": "Family",
+      "text": "A named line of related collections (e.g. the Stratosphere Malware Capture Facility)."
+    },
+    {
+      "name": "Release",
+      "text": "A documented distribution at a given stage (e.g. IoT-23 v1)."
+    },
+    {
+      "name": "Capture",
+      "text": "A single acquisition event or scenario inside a release."
+    },
+    {
+      "name": "Artifact",
+      "text": "A file or package actually delivered to researchers (full PCAP, flow-only archive, CSV)."
+    }
+  ],
+  "records": [
+    {
+      "id": "cicids2017",
+      "name": "CICIDS2017",
+      "url": "https://www.unb.ca/cic/datasets/ids-2017.html",
+      "task": "IDS binary/multiclass",
+      "domain": "Network",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Sharafaldin, Lashkari & Ghorbani, ICISSP 2018",
+        "doi": "10.5220/0006639801080116"
+      },
+      "notes": "Landing page documents PCAP and derived CSV flows; equivalence between public CSV versions and the packets used to derive them is unverified."
+    },
+    {
+      "id": "cse-cic-ids2018",
+      "name": "CSE-CIC-IDS2018",
+      "url": "https://www.unb.ca/cic/datasets/ids-2018.html",
+      "task": "IDS binary/multiclass",
+      "domain": "Network",
+      "data": [
+        "PCAP",
+        "CSV",
+        "logs"
+      ]
+    },
+    {
+      "id": "unsw-nb15",
+      "name": "UNSW-NB15",
+      "url": "https://research.unsw.edu.au/projects/unsw-nb15-dataset",
+      "task": "IDS multiclass",
+      "domain": "Network",
+      "data": [
+        "PCAP",
+        "Argus",
+        "Bro",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Moustafa & Slay, MilCIS 2015",
+        "doi": "10.1109/MilCIS.2015.7348942"
+      },
+      "notes": "Official distribution documented (PCAP, Argus/Bro, CSV); whether every derivative keeps the original packet information needs a file audit."
+    },
+    {
+      "id": "ctu-13",
+      "name": "CTU-13",
+      "url": "https://www.stratosphereips.org/datasets-ctu13",
+      "task": "Botnet detection",
+      "domain": "Network/Botnet",
+      "data": [
+        "PCAP",
+        "Argus flows"
+      ],
+      "paper": {
+        "cite": "García et al., Computers & Security 2014",
+        "doi": "10.1016/j.cose.2014.05.011"
+      },
+      "notes": "Scenario-level provenance: capture identity matters when building train/test splits; PCAP coverage differs across releases."
+    },
+    {
+      "id": "bot-iot",
+      "name": "BoT-IoT",
+      "url": "https://research.unsw.edu.au/projects/bot-iot-dataset",
+      "task": "IoT botnet IDS",
+      "domain": "IoT",
+      "data": [
+        "PCAP",
+        "Argus",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Koroniotis et al., Future Generation Computer Systems 2019",
+        "doi": "10.1016/j.future.2019.05.041"
+      },
+      "notes": "The full collection and the ~5% extraction are described separately: class proportions measured on the subset must not be attributed to the full dataset."
+    },
+    {
+      "id": "ton-iot",
+      "name": "ToN-IoT",
+      "url": "https://research.unsw.edu.au/projects/toniot-datasets",
+      "task": "IoT/IIoT IDS",
+      "domain": "IoT/IIoT",
+      "data": [
+        "Network flows",
+        "telemetry",
+        "logs"
+      ],
+      "paper": {
+        "cite": "Alsaedi et al., IEEE Access 2020",
+        "doi": "10.1109/ACCESS.2020.3022862"
+      },
+      "notes": "Mixed-modality family: only the network-traffic components are eligible; host and telemetry records are excluded."
+    },
+    {
+      "id": "iot-23",
+      "name": "IoT-23",
+      "url": "https://www.stratosphereips.org/datasets-iot23",
+      "task": "Malware/IoT IDS",
+      "domain": "IoT",
+      "data": [
+        "PCAP",
+        "Zeek logs"
+      ],
+      "paper": {
+        "cite": "Garcia, Parmisano & Erquiaga, Zenodo 2020",
+        "doi": "10.5281/zenodo.4743746"
+      },
+      "notes": "20 malicious and 3 benign captures; the full archive (~21 GB, PCAP + Zeek labels) and the flow-only archive (~8.8 GB) are different representations, not separate datasets. v1 and v2 must not be mixed."
+    },
+    {
+      "id": "ciciot2023",
+      "name": "CICIoT2023",
+      "url": "https://www.unb.ca/cic/datasets/iotdataset-2023.html",
+      "task": "IoT attack classification",
+      "domain": "IoT",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Neto et al., Sensors 2023",
+        "doi": "10.3390/s23135941"
+      },
+      "notes": "Check per-attack capture and the equivalence between PCAP and CSV releases."
+    },
+    {
+      "id": "wustl-ehms-2020",
+      "name": "WUSTL-EHMS-2020",
+      "url": "https://www.cse.wustl.edu/~jain/ehms/index.html",
+      "task": "Healthcare IDS",
+      "domain": "IoMT",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "ciciomt2024",
+      "name": "CICIoMT2024",
+      "url": "https://www.unb.ca/cic/datasets/iomt-dataset-2024.html",
+      "task": "IoMT multiprotocol IDS",
+      "domain": "IoMT",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "cic-iot-diad-2024",
+      "name": "CIC IoT-DIAD 2024",
+      "url": "https://www.unb.ca/cic/datasets/iot-diad-2024.html",
+      "task": "Device ID and anomaly detection",
+      "domain": "IoT",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "hcrl-car-hacking",
+      "name": "HCRL Car-Hacking",
+      "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/car-hacking-dataset",
+      "task": "CAN IDS",
+      "domain": "Automotive CAN",
+      "data": [
+        "CAN logs"
+      ],
+      "paper": {
+        "cite": "HCRL official release page"
+      },
+      "notes": "CAN-frame records, not Ethernet/IP packets; the originating collection paper is unconfirmed."
+    },
+    {
+      "id": "veremi",
+      "name": "VeReMi",
+      "url": "https://github.com/VeReMi-dataset/VeReMi-dataset.github.io/blob/main/veremi.md",
+      "task": "Misbehavior detection",
+      "domain": "Vehicular V2X",
+      "data": [
+        "V2X message logs"
+      ],
+      "family": "VeReMi",
+      "paper": {
+        "cite": "van der Heijden, Lukaseder & Kargl, SecureComm 2018",
+        "doi": "10.1007/978-3-030-01701-9_18"
+      },
+      "notes": "Simulated V2X message logs for misbehavior detection, not IP packet captures."
+    },
+    {
+      "id": "veremi-extension",
+      "name": "VeReMi Extension",
+      "url": "https://github.com/VeReMi-dataset/VeReMi-dataset.github.io/blob/main/veremi-extension.md",
+      "task": "Misbehavior detection",
+      "domain": "Vehicular V2X",
+      "data": [
+        "V2X message logs"
+      ],
+      "family": "VeReMi"
+    },
+    {
+      "id": "veremi-nextgen",
+      "name": "VeReMi NextGen",
+      "url": "https://github.com/VeReMi-dataset/VeReMi-NextGen",
+      "task": "Misbehavior detection",
+      "domain": "Vehicular V2X",
+      "data": [
+        "V2X message logs"
+      ],
+      "family": "VeReMi"
+    },
+    {
+      "id": "uav-nidd",
+      "name": "UAV-NIDD",
+      "url": "https://github.com/CyberSaR-KAUST/UAV-Intrusion-Detection-Dataset",
+      "task": "UAV IDS",
+      "domain": "UAV/Drones",
+      "data": [
+        "PCAP",
+        "feature tables"
+      ]
+    },
+    {
+      "id": "uavids-2025",
+      "name": "UAVIDS-2025",
+      "url": "https://zenodo.org/records/15336998",
+      "task": "UAV swarm IDS",
+      "domain": "UAV/Drones",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "gcs-nidd",
+      "name": "GCS-NIDD",
+      "url": "https://github.com/CyberSaR-KAUST/UAV-GCS-Intrusion-Detection-Dataset-UAV-GCS-IDS-",
+      "task": "GCS-UAV IDS",
+      "domain": "UAV/Drones",
+      "data": [
+        "PCAP",
+        "features"
+      ]
+    },
+    {
+      "id": "nf-unsw-nb15-v2",
+      "name": "NF-UNSW-NB15-v2",
+      "url": "https://www.cyber.uq.edu.au/node/824",
+      "task": "Cross-dataset NIDS",
+      "domain": "Network",
+      "data": [
+        "CSV NetFlow"
+      ],
+      "family": "NetFlow NIDS v2 (UQ)",
+      "derived_from": "UNSW-NB15"
+    },
+    {
+      "id": "nf-ton-iot-v2",
+      "name": "NF-ToN-IoT-v2",
+      "url": "https://www.cyber.uq.edu.au/node/824",
+      "task": "Cross-dataset NIDS",
+      "domain": "IoT/IIoT",
+      "data": [
+        "CSV NetFlow"
+      ],
+      "family": "NetFlow NIDS v2 (UQ)",
+      "derived_from": "ToN-IoT"
+    },
+    {
+      "id": "nf-bot-iot-v2",
+      "name": "NF-BoT-IoT-v2",
+      "url": "https://www.cyber.uq.edu.au/node/824",
+      "task": "Cross-dataset NIDS",
+      "domain": "IoT",
+      "data": [
+        "CSV NetFlow"
+      ],
+      "family": "NetFlow NIDS v2 (UQ)",
+      "derived_from": "BoT-IoT"
+    },
+    {
+      "id": "nf-cse-cic-ids2018-v2",
+      "name": "NF-CSE-CIC-IDS2018-v2",
+      "url": "https://www.cyber.uq.edu.au/node/824",
+      "task": "Cross-dataset NIDS",
+      "domain": "Network",
+      "data": [
+        "CSV NetFlow"
+      ],
+      "family": "NetFlow NIDS v2 (UQ)",
+      "derived_from": "CSE-CIC-IDS2018"
+    },
+    {
+      "id": "nf-uq-nids-v2",
+      "name": "NF-UQ-NIDS-v2",
+      "url": "https://www.cyber.uq.edu.au/node/824",
+      "task": "Cross-dataset NIDS",
+      "domain": "Network",
+      "data": [
+        "CSV NetFlow"
+      ],
+      "family": "NetFlow NIDS v2 (UQ)",
+      "derived_from": "the four NF-v2 datasets"
+    },
+    {
+      "id": "edge-iiotset",
+      "name": "Edge-IIoTset",
+      "url": "https://www.kaggle.com/datasets/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot",
+      "task": "Federated/centralized IDS",
+      "domain": "IoT/IIoT",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "n-baiot",
+      "name": "N-BaIoT",
+      "url": "https://archive.ics.uci.edu/dataset/442/detection+of+iot+botnet+attacks+n+baiot",
+      "task": "IoT botnet detection",
+      "domain": "IoT",
+      "data": [
+        "Feature tables"
+      ],
+      "paper": {
+        "cite": "Meidan et al., IEEE Pervasive Computing 2018",
+        "doi": "10.1109/MPRV.2018.03367731"
+      },
+      "notes": "Device-level leakage: validate on unseen devices."
+    },
+    {
+      "id": "swat",
+      "name": "SWaT",
+      "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets/",
+      "access": "request",
+      "task": "Cyberphysical anomaly detection",
+      "domain": "ICS/OT",
+      "data": [
+        "Sensor/actuator time series",
+        "some network releases"
+      ],
+      "paper": {
+        "cite": "Goh et al., CRITIS 2016 (LNCS 2017)",
+        "doi": "10.1007/978-3-319-71368-7_8"
+      },
+      "notes": "Access on request. Process-only releases (sensor/actuator CSV) are not traffic-eligible; only releases with network captures qualify."
+    },
+    {
+      "id": "wadi",
+      "name": "WADI",
+      "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets/",
+      "access": "request",
+      "task": "Cyberphysical anomaly detection",
+      "domain": "ICS/OT",
+      "data": [
+        "Sensor/actuator time series"
+      ]
+    },
+    {
+      "id": "datasense-cic-iiot-2025",
+      "name": "DataSense CIC IIoT 2025",
+      "url": "https://www.unb.ca/cic/datasets/iiot-dataset-2025.html",
+      "task": "Attack detection / classification",
+      "domain": "IIoT;ICS",
+      "data": [
+        "Network packets",
+        "sensor time series",
+        "logs"
+      ]
+    },
+    {
+      "id": "tabulariotattack-2024",
+      "name": "TabularIoTAttack-2024",
+      "url": "https://www.unb.ca/cic/datasets/tabular-iot-attack-2024.html",
+      "task": "Attack detection",
+      "domain": "IoT;multi-domain",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "genis",
+      "name": "GeNIS",
+      "url": "https://zenodo.org/records/14919237",
+      "task": "Intrusion detection",
+      "domain": "Enterprise;network",
+      "data": [
+        "PCAPNG",
+        "CSV"
+      ]
+    },
+    {
+      "id": "cyber4ot",
+      "name": "Cyber4OT",
+      "url": "https://zenodo.org/records/15005190",
+      "task": "ICS intrusion detection",
+      "domain": "OT;ICS;Modbus",
+      "data": [
+        "Packet traces"
+      ]
+    },
+    {
+      "id": "zero-swarm-modbus-normal-and-malicious",
+      "name": "Zero-SWARM Modbus Normal and Malicious",
+      "url": "https://zenodo.org/records/15082260",
+      "task": "Attack / anomaly detection",
+      "domain": "IIoT;Modbus;OT",
+      "data": [
+        "PCAP"
+      ]
+    },
+    {
+      "id": "dnp3-intrusion-detection-dataset",
+      "name": "DNP3 Intrusion Detection Dataset",
+      "url": "https://zenodo.org/records/7348493",
+      "task": "IDS",
+      "domain": "Smart grid;ICS;DNP3",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Radoglou-Grammatikis et al., Zenodo 2022"
+      },
+      "notes": "Archive identified; representation to be inspected on acquisition."
+    },
+    {
+      "id": "iec-60870-5-104-intrusion-detection-dataset",
+      "name": "IEC 60870-5-104 Intrusion Detection Dataset",
+      "url": "https://zenodo.org/records/7108614",
+      "task": "IDS",
+      "domain": "Smart grid;SCADA",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "lorawan-network-attacks-guard",
+      "name": "LoRaWAN Network Attacks (GUARD)",
+      "url": "https://zenodo.org/records/6637445",
+      "task": "Attack/anomaly detection",
+      "domain": "LoRaWAN;LPWAN",
+      "data": [
+        "TXT message dump"
+      ]
+    },
+    {
+      "id": "6tischset-2026",
+      "name": "6TiSCHSet-2026",
+      "url": "https://zenodo.org/records/22113022",
+      "task": "IDS, leakage-aware benchmark",
+      "domain": "Wireless sensor;6TiSCH;IoT",
+      "data": [
+        "PCAP",
+        "CSV",
+        "LOG"
+      ]
+    },
+    {
+      "id": "marsim",
+      "name": "MARSIM",
+      "url": "https://zenodo.org/records/8202802",
+      "task": "Spoofing/anomaly detection",
+      "domain": "Maritime;GNSS spoofing",
+      "data": [
+        "PCAP"
+      ]
+    },
+    {
+      "id": "uav-ton-iot",
+      "name": "UAV-ToN-IoT",
+      "url": "https://zenodo.org/records/18740310",
+      "task": "IDS",
+      "domain": "UAV;FANET",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "uav-ground-telemetry-ids",
+      "name": "UAV Ground Telemetry IDS",
+      "url": "https://zenodo.org/records/19086193",
+      "task": "Anomaly/intrusion detection",
+      "domain": "UAV;telemetry",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "5g-nidd",
+      "name": "5G-NIDD",
+      "url": "https://github.com/yushan1986/5g-nidd",
+      "task": "IDS",
+      "domain": "5G;mobile core",
+      "data": [
+        "Network-feature files",
+        "verify"
+      ]
+    },
+    {
+      "id": "hikari-2021",
+      "name": "HIKARI-2021",
+      "url": "https://zenodo.org/records/5111946",
+      "task": "Encrypted-traffic IDS",
+      "domain": "TLS;encrypted traffic;network",
+      "data": [
+        "PCAP",
+        "CSV",
+        "PKL"
+      ],
+      "paper": {
+        "cite": "Applied Sciences 11(17) 7868, 2021",
+        "doi": "10.3390/app11177868"
+      },
+      "notes": "Benign traffic plus encrypted synthetic attack traffic; not operational attacks."
+    },
+    {
+      "id": "ctu-idseval-6",
+      "name": "CTU-IDSEVAL-6",
+      "url": "https://zenodo.org/records/21027042",
+      "task": "IDS evaluation",
+      "domain": "Network;C2;malware",
+      "data": [
+        "Captures",
+        "Zeek flows"
+      ]
+    },
+    {
+      "id": "semi-synthetic-lorawan-jamming-dataset",
+      "name": "Semi-Synthetic LoRaWAN Jamming Dataset",
+      "url": "https://zenodo.org/records/22043018",
+      "task": "Jamming/battery depletion detection",
+      "domain": "LoRaWAN;wireless IoT",
+      "data": [
+        "Tabular records"
+      ]
+    },
+    {
+      "id": "hcrl-can-survival-analysis",
+      "name": "HCRL CAN Survival Analysis",
+      "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets",
+      "task": "In-vehicle IDS",
+      "domain": "Automotive;CAN",
+      "data": [
+        "CAN trace files"
+      ]
+    },
+    {
+      "id": "unimore-bus-off",
+      "name": "UNIMORE Bus-Off",
+      "url": "https://weblab.ing.unimore.it/people/stabili/resources/",
+      "task": "Attack detection",
+      "domain": "Automotive;CAN",
+      "data": [
+        "CAN traces"
+      ]
+    },
+    {
+      "id": "unimore-daga",
+      "name": "UNIMORE DAGA",
+      "url": "https://weblab.ing.unimore.it/people/stabili/resources/",
+      "task": "Attack detection",
+      "domain": "Automotive;CAN",
+      "data": [
+        "CAN traces"
+      ]
+    },
+    {
+      "id": "epic",
+      "name": "EPIC",
+      "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets",
+      "access": "request",
+      "task": "Attack/anomaly detection",
+      "domain": "Electrical power;ICS",
+      "data": [
+        "Cyber-physical testbed records"
+      ]
+    },
+    {
+      "id": "batadal",
+      "name": "BATADAL",
+      "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets",
+      "access": "request",
+      "task": "Attack detection",
+      "domain": "Water distribution;ICS",
+      "data": [
+        "Water-system time series"
+      ]
+    },
+    {
+      "id": "ustc-tfc2016",
+      "name": "USTC-TFC2016",
+      "url": "https://github.com/davidyslu/USTC-TFC2016",
+      "task": "Malware family and application traffic classification",
+      "domain": "Malware traffic / Encrypted traffic",
+      "data": [
+        "PCAP",
+        "7z"
+      ],
+      "paper": {
+        "cite": "Repository only (original paper unresolved)"
+      },
+      "notes": "Malware and benign PCAP files are publicly enumerated; capture provenance and independence from CTU collections are unconfirmed."
+    },
+    {
+      "id": "iscxvpn2016",
+      "name": "ISCXVPN2016",
+      "url": "https://www.unb.ca/cic/datasets/vpn.html",
+      "task": "Encrypted application identification; benign baseline",
+      "domain": "Encrypted / VPN traffic",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "iscxtor2016",
+      "name": "ISCXTor2016",
+      "url": "https://www.unb.ca/cic/datasets/tor.html",
+      "task": "Tor/nonTor classification; supporting baseline",
+      "domain": "Tor / Darknet / Encrypted traffic",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "cic-ddos2019",
+      "name": "CIC-DDoS2019",
+      "url": "https://www.unb.ca/cic/datasets/ddos-2019.html",
+      "task": "DDoS detection and attack family classification",
+      "domain": "DDoS / IPS",
+      "data": [
+        "PCAP",
+        "CSV",
+        "system logs"
+      ]
+    },
+    {
+      "id": "cic-aagm2017",
+      "name": "CIC-AAGM2017",
+      "url": "https://www.unb.ca/cic/datasets/android-adware.html",
+      "task": "Android network malware and adware classification",
+      "domain": "Android / Malware traffic",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "cic-andmal2017",
+      "name": "CIC-AndMal2017",
+      "url": "https://www.unb.ca/cic/datasets/andmal2017.html",
+      "task": "Android malware traffic characterization",
+      "domain": "Android / Malware traffic",
+      "data": [
+        "PCAP",
+        "traffic features (verify)"
+      ]
+    },
+    {
+      "id": "cicmaldroid2020",
+      "name": "CICMalDroid2020",
+      "url": "https://www.unb.ca/cic/datasets/maldroid-2020.html",
+      "task": "Dynamic behavior malware classification",
+      "domain": "Android / Malware behavior",
+      "data": [
+        "CSV",
+        "APK",
+        "behavior logs"
+      ]
+    },
+    {
+      "id": "cccs-cic-andmal2020",
+      "name": "CCCS-CIC-AndMal2020",
+      "url": "https://www.unb.ca/cic/datasets/andmal2020.html",
+      "task": "Malware family classification",
+      "domain": "Android / Malware behavior",
+      "data": [
+        "APK",
+        "behavior features"
+      ]
+    },
+    {
+      "id": "cic-bell-dns2021",
+      "name": "CIC-Bell-DNS2021",
+      "url": "https://www.unb.ca/cic/datasets/dns-2021.html",
+      "task": "Malware, spam, phishing domain detection",
+      "domain": "DNS / Malicious domain identification",
+      "data": [
+        "CSV"
+      ]
+    },
+    {
+      "id": "cic-bell-dns-exf-2021",
+      "name": "CIC-Bell-DNS-EXF-2021",
+      "url": "https://www.unb.ca/cic/datasets/dns-exf-2021.html",
+      "task": "DNS exfiltration detection",
+      "domain": "DNS tunneling / exfiltration",
+      "data": [
+        "DNS traffic/features (verify)"
+      ]
+    },
+    {
+      "id": "cic-ynu-iotmal2026",
+      "name": "CIC-YNU-IoTMal2026",
+      "url": "https://www.unb.ca/cic/datasets/ynu-iot-2026.html",
+      "task": "IoT malware behavior and network classification",
+      "domain": "IoT malware multi-architecture",
+      "data": [
+        "Parquet",
+        "STRACE",
+        "SAR",
+        "network captures"
+      ]
+    },
+    {
+      "id": "stratosphere-malware-capture-facility",
+      "name": "Stratosphere Malware Capture Facility",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic and C2 analysis",
+      "domain": "Malware / C2 / Botnet",
+      "data": [
+        "PCAP",
+        "flow metadata"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "malwaretraffic-liveness-annotated",
+      "name": "MalwareTraffic (liveness-annotated)",
+      "url": "https://github.com/Root0ne/malware-pcap-dataset",
+      "task": "C2 liveness, malware classification",
+      "domain": "Sandbox malware / C2",
+      "data": [
+        "PCAP.gz",
+        "JSONL",
+        "CSV",
+        "Zeek",
+        "Suricata"
+      ]
+    },
+    {
+      "id": "awid",
+      "name": "AWID",
+      "url": "https://icsdweb.aegean.gr/awid/",
+      "access": "request",
+      "task": "Wireless attack identification",
+      "domain": "Wi-Fi 802.11 / Wireless intrusion",
+      "data": [
+        "Packet records",
+        "CSV"
+      ],
+      "family": "AWID",
+      "paper": {
+        "cite": "Kolias et al., IEEE Communications Surveys & Tutorials 2016",
+        "doi": "10.1109/COMST.2015.2402161"
+      },
+      "notes": "802.11 frame-level evidence: MAC-layer semantics are not equivalent to an IP-flow table."
+    },
+    {
+      "id": "awid3",
+      "name": "AWID3",
+      "url": "https://icsdweb.aegean.gr/awid/",
+      "access": "request",
+      "task": "Wi-Fi enterprise intrusion classification",
+      "domain": "Wi-Fi WPA2 Enterprise",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "family": "AWID"
+    },
+    {
+      "id": "h23q",
+      "name": "H23Q",
+      "url": "https://icsdweb.aegean.gr/awid/",
+      "access": "request",
+      "task": "Modern encrypted web/QUIC attack detection",
+      "domain": "HTTP/2 HTTP/3 QUIC / Web attacks",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "mawi-samplepoint-f",
+      "name": "MAWI samplepoint-F",
+      "url": "https://mawi.nezu.wide.ad.jp/mawi/",
+      "task": "Anomaly and network behavior research",
+      "domain": "Internet backbone / anomaly",
+      "data": [
+        "PCAP header traces"
+      ],
+      "family": "MAWI",
+      "paper": {
+        "cite": "MAWI Working Group traffic archive",
+        "doi": ""
+      },
+      "notes": "Long-term backbone packet traces; labels are not implicit and annotation availability differs from packet availability."
+    },
+    {
+      "id": "mawilab",
+      "name": "MAWILab",
+      "url": "https://www.fukuda-lab.org/mawilab/",
+      "task": "Attack/anomaly classification",
+      "domain": "Internet backbone / attack anomalies",
+      "data": [
+        "CSV",
+        "XML labels",
+        "MAWI PCAP"
+      ],
+      "family": "MAWI",
+      "derived_from": "MAWI samplepoint-F (labels)"
+    },
+    {
+      "id": "csic-2010-http",
+      "name": "CSIC 2010 HTTP",
+      "url": "https://github.com/msudol/Web-Application-Attack-Datasets",
+      "task": "Web attack request classification",
+      "domain": "Web application / WAF",
+      "data": [
+        "HTTP request traces",
+        "CSV representations"
+      ]
+    },
+    {
+      "id": "ecml-pkdd-2007-web-attacks",
+      "name": "ECML-PKDD 2007 Web attacks",
+      "url": "https://github.com/msudol/Web-Application-Attack-Datasets",
+      "task": "Malicious web request detection",
+      "domain": "Web application / WAF",
+      "data": [
+        "HTTP requests",
+        "CSV representations"
+      ]
+    },
+    {
+      "id": "malware-traffic-analysis-net-captures",
+      "name": "Malware-Traffic-Analysis.net captures",
+      "url": "https://www.malware-traffic-analysis.net/",
+      "task": "Malware campaign analysis; C2 detection",
+      "domain": "Malware campaigns / forensics",
+      "data": [
+        "PCAP",
+        "archives"
+      ]
+    },
+    {
+      "id": "netresec-public-pcap-index",
+      "name": "NETRESEC public PCAP index",
+      "url": "https://www.netresec.com/?page=pcapfiles",
+      "task": "Malware and intrusion forensics",
+      "domain": "Network forensics / malware",
+      "data": [
+        "PCAP links"
+      ]
+    },
+    {
+      "id": "maccdc",
+      "name": "MACCDC",
+      "url": "https://docs.suricata.io/en/latest/public-data-sets.html",
+      "task": "Network forensics, intrusion analysis",
+      "domain": "Cyber defense / IPS",
+      "data": [
+        "PCAP"
+      ]
+    },
+    {
+      "id": "cic-iscx-2012",
+      "name": "CIC-ISCX 2012",
+      "url": "https://www.unb.ca/cic/datasets/ids.html",
+      "task": "Intrusion/anomaly detection",
+      "domain": "Enterprise / intrusion",
+      "data": [
+        "PCAP",
+        "flows"
+      ]
+    },
+    {
+      "id": "cira-cic-dohbrw2020",
+      "name": "CIRA-CIC-DoHBrw2020",
+      "url": "https://www.unb.ca/cic/datasets/index.html",
+      "task": "DoH traffic / malicious DoH detection",
+      "domain": "DNS-over-HTTPS / covert channels",
+      "data": [
+        "CSV",
+        "PCAP (verify)"
+      ]
+    },
+    {
+      "id": "cic-darknet2020",
+      "name": "CIC-Darknet2020",
+      "url": "https://www.unb.ca/cic/datasets/index.html",
+      "task": "Darknet encrypted traffic classification",
+      "domain": "Darknet / Tor / VPN",
+      "data": [
+        "CSV",
+        "traffic traces (verify)"
+      ]
+    },
+    {
+      "id": "ctu-malware-capture-botnet-1",
+      "name": "CTU-Malware-Capture-Botnet-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-2",
+      "name": "CTU-Malware-Capture-Botnet-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-3",
+      "name": "CTU-Malware-Capture-Botnet-3",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-4",
+      "name": "CTU-Malware-Capture-Botnet-4",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-5",
+      "name": "CTU-Malware-Capture-Botnet-5",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-6",
+      "name": "CTU-Malware-Capture-Botnet-6",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-7",
+      "name": "CTU-Malware-Capture-Botnet-7",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-8",
+      "name": "CTU-Malware-Capture-Botnet-8",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-9",
+      "name": "CTU-Malware-Capture-Botnet-9",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-10",
+      "name": "CTU-Malware-Capture-Botnet-10",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-11",
+      "name": "CTU-Malware-Capture-Botnet-11",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-12",
+      "name": "CTU-Malware-Capture-Botnet-12",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-13",
+      "name": "CTU-Malware-Capture-Botnet-13",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-14",
+      "name": "CTU-Malware-Capture-Botnet-14",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-15",
+      "name": "CTU-Malware-Capture-Botnet-15",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-16",
+      "name": "CTU-Malware-Capture-Botnet-16",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-17",
+      "name": "CTU-Malware-Capture-Botnet-17",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-18",
+      "name": "CTU-Malware-Capture-Botnet-18",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-19",
+      "name": "CTU-Malware-Capture-Botnet-19",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-20",
+      "name": "CTU-Malware-Capture-Botnet-20",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-21",
+      "name": "CTU-Malware-Capture-Botnet-21",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-22",
+      "name": "CTU-Malware-Capture-Botnet-22",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-23",
+      "name": "CTU-Malware-Capture-Botnet-23",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-24",
+      "name": "CTU-Malware-Capture-Botnet-24",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-25-1",
+      "name": "CTU-Malware-Capture-Botnet-25-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-25-2",
+      "name": "CTU-Malware-Capture-Botnet-25-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-25-3",
+      "name": "CTU-Malware-Capture-Botnet-25-3",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-25-4",
+      "name": "CTU-Malware-Capture-Botnet-25-4",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-25-5",
+      "name": "CTU-Malware-Capture-Botnet-25-5",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-25-6",
+      "name": "CTU-Malware-Capture-Botnet-25-6",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-26",
+      "name": "CTU-Malware-Capture-Botnet-26",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-27",
+      "name": "CTU-Malware-Capture-Botnet-27",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-28",
+      "name": "CTU-Malware-Capture-Botnet-28",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-31-1",
+      "name": "CTU-Malware-Capture-Botnet-31-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-31",
+      "name": "CTU-Malware-Capture-Botnet-31",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-35-1",
+      "name": "CTU-Malware-Capture-Botnet-35-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-42",
+      "name": "CTU-Malware-Capture-Botnet-42",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-43",
+      "name": "CTU-Malware-Capture-Botnet-43",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-44",
+      "name": "CTU-Malware-Capture-Botnet-44",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-45",
+      "name": "CTU-Malware-Capture-Botnet-45",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-46",
+      "name": "CTU-Malware-Capture-Botnet-46",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-47",
+      "name": "CTU-Malware-Capture-Botnet-47",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-48",
+      "name": "CTU-Malware-Capture-Botnet-48",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-49",
+      "name": "CTU-Malware-Capture-Botnet-49",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-50",
+      "name": "CTU-Malware-Capture-Botnet-50",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-51",
+      "name": "CTU-Malware-Capture-Botnet-51",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-52",
+      "name": "CTU-Malware-Capture-Botnet-52",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-53",
+      "name": "CTU-Malware-Capture-Botnet-53",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-54",
+      "name": "CTU-Malware-Capture-Botnet-54",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-59",
+      "name": "CTU-Malware-Capture-Botnet-59",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-60",
+      "name": "CTU-Malware-Capture-Botnet-60",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-61",
+      "name": "CTU-Malware-Capture-Botnet-61",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-64",
+      "name": "CTU-Malware-Capture-Botnet-64",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-65",
+      "name": "CTU-Malware-Capture-Botnet-65",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-66-1",
+      "name": "CTU-Malware-Capture-Botnet-66-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-69",
+      "name": "CTU-Malware-Capture-Botnet-69",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-71",
+      "name": "CTU-Malware-Capture-Botnet-71",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-73",
+      "name": "CTU-Malware-Capture-Botnet-73",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-78-1",
+      "name": "CTU-Malware-Capture-Botnet-78-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-78-2",
+      "name": "CTU-Malware-Capture-Botnet-78-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-83-1",
+      "name": "CTU-Malware-Capture-Botnet-83-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-83-2",
+      "name": "CTU-Malware-Capture-Botnet-83-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-89-1",
+      "name": "CTU-Malware-Capture-Botnet-89-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-90",
+      "name": "CTU-Malware-Capture-Botnet-90",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-91",
+      "name": "CTU-Malware-Capture-Botnet-91",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-92",
+      "name": "CTU-Malware-Capture-Botnet-92",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-104-1",
+      "name": "CTU-Malware-Capture-Botnet-104-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-107-1",
+      "name": "CTU-Malware-Capture-Botnet-107-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-108-1",
+      "name": "CTU-Malware-Capture-Botnet-108-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-109-1",
+      "name": "CTU-Malware-Capture-Botnet-109-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic analysis / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-110-1",
+      "name": "CTU-Malware-Capture-Botnet-110-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-110-2",
+      "name": "CTU-Malware-Capture-Botnet-110-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-110-3",
+      "name": "CTU-Malware-Capture-Botnet-110-3",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-110-4",
+      "name": "CTU-Malware-Capture-Botnet-110-4",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-110-5",
+      "name": "CTU-Malware-Capture-Botnet-110-5",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-110-6",
+      "name": "CTU-Malware-Capture-Botnet-110-6",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-111-1",
+      "name": "CTU-Malware-Capture-Botnet-111-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-111-2",
+      "name": "CTU-Malware-Capture-Botnet-111-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-111-3",
+      "name": "CTU-Malware-Capture-Botnet-111-3",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-111-4",
+      "name": "CTU-Malware-Capture-Botnet-111-4",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-111-5",
+      "name": "CTU-Malware-Capture-Botnet-111-5",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-112-1",
+      "name": "CTU-Malware-Capture-Botnet-112-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-112-2",
+      "name": "CTU-Malware-Capture-Botnet-112-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-112-3",
+      "name": "CTU-Malware-Capture-Botnet-112-3",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-112-4",
+      "name": "CTU-Malware-Capture-Botnet-112-4",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-113-1",
+      "name": "CTU-Malware-Capture-Botnet-113-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-114-1",
+      "name": "CTU-Malware-Capture-Botnet-114-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-114-2",
+      "name": "CTU-Malware-Capture-Botnet-114-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-114-3",
+      "name": "CTU-Malware-Capture-Botnet-114-3",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-114-4",
+      "name": "CTU-Malware-Capture-Botnet-114-4",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-115-1",
+      "name": "CTU-Malware-Capture-Botnet-115-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-116-1",
+      "name": "CTU-Malware-Capture-Botnet-116-1",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-116-2",
+      "name": "CTU-Malware-Capture-Botnet-116-2",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-116-3",
+      "name": "CTU-Malware-Capture-Botnet-116-3",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-malware-capture-botnet-116-4",
+      "name": "CTU-Malware-Capture-Botnet-116-4",
+      "url": "https://www.stratosphereips.org/datasets-malware",
+      "task": "Malware traffic / C2",
+      "domain": "Malware / Botnet / C2",
+      "data": [
+        "PCAP",
+        "ancillary logs (capture-dependent)"
+      ],
+      "family": "Stratosphere Malware Capture Facility"
+    },
+    {
+      "id": "ctu-mixed-capture-1",
+      "name": "CTU-Mixed-Capture-1",
+      "url": "https://www.stratosphereips.org/datasets-mixed",
+      "task": "Mixed benign/malicious detection",
+      "domain": "Malware / Mixed traffic",
+      "data": [
+        "PCAP/flow (capture-dependent)"
+      ],
+      "family": "Stratosphere Mixed Captures"
+    },
+    {
+      "id": "ctu-mixed-capture-2",
+      "name": "CTU-Mixed-Capture-2",
+      "url": "https://www.stratosphereips.org/datasets-mixed",
+      "task": "Mixed benign/malicious detection",
+      "domain": "Malware / Mixed traffic",
+      "data": [
+        "PCAP/flow (capture-dependent)"
+      ],
+      "family": "Stratosphere Mixed Captures"
+    },
+    {
+      "id": "ctu-mixed-capture-3",
+      "name": "CTU-Mixed-Capture-3",
+      "url": "https://www.stratosphereips.org/datasets-mixed",
+      "task": "Mixed benign/malicious detection",
+      "domain": "Malware / Mixed traffic",
+      "data": [
+        "PCAP/flow (capture-dependent)"
+      ],
+      "family": "Stratosphere Mixed Captures"
+    },
+    {
+      "id": "ctu-mixed-capture-4",
+      "name": "CTU-Mixed-Capture-4",
+      "url": "https://www.stratosphereips.org/datasets-mixed",
+      "task": "Mixed benign/malicious detection",
+      "domain": "Malware / Mixed traffic",
+      "data": [
+        "PCAP/flow (capture-dependent)"
+      ],
+      "family": "Stratosphere Mixed Captures"
+    },
+    {
+      "id": "ctu-mixed-capture-5",
+      "name": "CTU-Mixed-Capture-5",
+      "url": "https://www.stratosphereips.org/datasets-mixed",
+      "task": "Mixed benign/malicious detection",
+      "domain": "Malware / Mixed traffic",
+      "data": [
+        "PCAP/flow (capture-dependent)"
+      ],
+      "family": "Stratosphere Mixed Captures"
+    },
+    {
+      "id": "ctu-normal-4-only-dns",
+      "name": "CTU-Normal-4-only-DNS",
+      "url": "https://www.stratosphereips.org/datasets-normal",
+      "task": "Benign modelling / false positives",
+      "domain": "Benign network traffic",
+      "data": [
+        "PCAP or binetflow (capture-dependent)"
+      ],
+      "family": "Stratosphere Normal Captures"
+    },
+    {
+      "id": "ctu-normal-5",
+      "name": "CTU-Normal-5",
+      "url": "https://www.stratosphereips.org/datasets-normal",
+      "task": "Benign modelling / false positives",
+      "domain": "Benign network traffic",
+      "data": [
+        "PCAP or binetflow (capture-dependent)"
+      ],
+      "family": "Stratosphere Normal Captures"
+    },
+    {
+      "id": "ctu-normal-6",
+      "name": "CTU-Normal-6",
+      "url": "https://www.stratosphereips.org/datasets-normal",
+      "task": "Benign modelling / false positives",
+      "domain": "Benign network traffic",
+      "data": [
+        "PCAP or binetflow (capture-dependent)"
+      ],
+      "family": "Stratosphere Normal Captures"
+    },
+    {
+      "id": "anoshift",
+      "name": "AnoShift",
+      "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md",
+      "task": "Network cybersecurity / anomaly detection",
+      "domain": "Network / drift",
+      "data": [
+        "Feature dataset"
+      ]
+    },
+    {
+      "id": "cremev2",
+      "name": "CREMEv2",
+      "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md",
+      "task": "Network cybersecurity / anomaly detection",
+      "domain": "Network / IDS",
+      "data": [
+        "Flows"
+      ]
+    },
+    {
+      "id": "cesnet-timeseries24",
+      "name": "CESNET-TimeSeries24",
+      "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md",
+      "task": "Network cybersecurity / anomaly detection",
+      "domain": "ISP / backbone",
+      "data": [
+        "Flow time series"
+      ]
+    },
+    {
+      "id": "usb-ids-tc",
+      "name": "USB-IDS-TC",
+      "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md",
+      "task": "Network cybersecurity / anomaly detection",
+      "domain": "Network / DoS",
+      "data": [
+        "Flows"
+      ]
+    },
+    {
+      "id": "lycos-unicas-ids2018",
+      "name": "LycoS-Unicas-IDS2018",
+      "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md",
+      "task": "Network cybersecurity / anomaly detection",
+      "domain": "Network / IDS",
+      "data": [
+        "Flows"
+      ]
+    },
+    {
+      "id": "hornet-honeypot-dataset",
+      "name": "Hornet honeypot dataset",
+      "url": "https://www.stratosphereips.org/",
+      "task": "Network cybersecurity / anomaly detection",
+      "domain": "Honeypots / enterprise",
+      "data": [
+        "Traffic captures"
+      ]
+    },
+    {
+      "id": "dedale",
+      "name": "DEDALE",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/datasets/dedale/",
+      "task": "APT multi-stage / lateral movement",
+      "domain": "Enterprise / APT",
+      "data": [
+        "PCAP, NetFlow, Zeek"
+      ]
+    },
+    {
+      "id": "casinolimit",
+      "name": "CasinoLimit",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "MITRE ATT&CK CTF techniques",
+      "domain": "Enterprise / CTF",
+      "data": [
+        "NetFlow"
+      ]
+    },
+    {
+      "id": "flnet2023",
+      "name": "FLNET2023",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/datasets/flnet2023/",
+      "task": "DDoS, web exploits, infiltration",
+      "domain": "ISP / Federated IDS",
+      "data": [
+        "PCAP, CSV flow features"
+      ]
+    },
+    {
+      "id": "unr-idd",
+      "name": "UNR-IDD",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "SDN attack detection",
+      "domain": "SDN",
+      "data": [
+        "Port statistics, flow-derived features"
+      ]
+    },
+    {
+      "id": "ait-log-dataset",
+      "name": "AIT Log Dataset",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Enterprise attack detection",
+      "domain": "Enterprise / APT",
+      "data": [
+        "PCAP, Suricata, DNS / VPN logs"
+      ]
+    },
+    {
+      "id": "od-ids2022",
+      "name": "OD-IDS2022",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "access": "request",
+      "task": "Intrusion detection",
+      "domain": "Enterprise",
+      "data": [
+        "NetFlow"
+      ]
+    },
+    {
+      "id": "otfr-security-datasets-atomic",
+      "name": "OTFR Security Datasets - Atomic",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "ATT&CK atomic simulations",
+      "domain": "Enterprise / Attack emulation",
+      "data": [
+        "Some scenarios: PCAP"
+      ],
+      "family": "OTFR Security Datasets"
+    },
+    {
+      "id": "otfr-security-datasets-lsass-campaign",
+      "name": "OTFR Security Datasets - LSASS Campaign",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "LSASS exploitation",
+      "domain": "Enterprise / Attack emulation",
+      "data": [
+        "PCAP, Zeek"
+      ],
+      "family": "OTFR Security Datasets"
+    },
+    {
+      "id": "pwnjutsu",
+      "name": "PWNJUTSU",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Red-team traffic for detection",
+      "domain": "Enterprise / Red team",
+      "data": [
+        "PCAP, mixed host-network logs"
+      ]
+    },
+    {
+      "id": "asnm-datasets",
+      "name": "ASNM Datasets",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Buffer overflow attack detection",
+      "domain": "Enterprise / Exploitation",
+      "data": [
+        "Custom flow features"
+      ]
+    },
+    {
+      "id": "ngids-ds",
+      "name": "NGIDS-DS",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Intrusion detection",
+      "domain": "Enterprise",
+      "data": [
+        "PCAP, host features"
+      ]
+    },
+    {
+      "id": "biblio-us17",
+      "name": "Biblio-US17",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Web request anomaly detection",
+      "domain": "Web / Enterprise",
+      "data": [
+        "HTTP request-derived features"
+      ]
+    },
+    {
+      "id": "ugr16",
+      "name": "UGR16",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Realistic anomaly detection",
+      "domain": "ISP / Enterprise",
+      "data": [
+        "NetFlow"
+      ]
+    },
+    {
+      "id": "comprehensive-multi-source-cyber-security-events-lanl",
+      "name": "Comprehensive Multi-Source Cyber-Security Events (LANL)",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Red team / APT detection",
+      "domain": "Enterprise / Attack provenance",
+      "data": [
+        "Network flows, DNS, red-team logs"
+      ]
+    },
+    {
+      "id": "twente-2009",
+      "name": "Twente 2009",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Honeypot intrusion detection",
+      "domain": "Honeypot",
+      "data": [
+        "NetFlow"
+      ]
+    },
+    {
+      "id": "isot-botnet",
+      "name": "ISOT Botnet",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Botnet detection",
+      "domain": "Botnet / Enterprise",
+      "data": [
+        "PCAP"
+      ]
+    },
+    {
+      "id": "cdx-ctf-2009",
+      "name": "CDX CTF 2009",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Attack analysis",
+      "domain": "CTF / Enterprise",
+      "data": [
+        "PCAP, IDS alerts"
+      ]
+    },
+    {
+      "id": "tuids",
+      "name": "TUIDS",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "DoS detection",
+      "domain": "Enterprise / DoS",
+      "data": [
+        "PCAP, NetFlow"
+      ]
+    },
+    {
+      "id": "vast-challenge-2011",
+      "name": "VAST Challenge 2011",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Network forensics",
+      "domain": "Enterprise / Forensics",
+      "data": [
+        "PCAP, firewall and IDS logs"
+      ]
+    },
+    {
+      "id": "vast-challenge-2012",
+      "name": "VAST Challenge 2012",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Botnet forensics",
+      "domain": "Enterprise / Botnet",
+      "data": [
+        "Snort, firewall logs derived from traffic"
+      ]
+    },
+    {
+      "id": "ndsec-1",
+      "name": "NDSec-1",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/related_work/",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / NIDS",
+      "data": [
+        "Network data",
+        "confirm representation"
+      ]
+    },
+    {
+      "id": "sshcure",
+      "name": "SSHCure",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/related_work/",
+      "task": "SSH attack detection",
+      "domain": "SSH / Enterprise",
+      "data": [
+        "SSH traffic features / NetFlow"
+      ]
+    },
+    {
+      "id": "cidds-001",
+      "name": "CIDDS-001",
+      "url": "https://www.hs-coburg.de/forschen/cidds-coburg-intrusion-detection-data-sets/",
+      "task": "Intrusion detection",
+      "domain": "Cloud / Enterprise",
+      "data": [
+        "CSV flows"
+      ],
+      "family": "CIDDS"
+    },
+    {
+      "id": "cidds-002",
+      "name": "CIDDS-002",
+      "url": "https://www.hs-coburg.de/forschen/cidds-coburg-intrusion-detection-data-sets/",
+      "task": "Intrusion detection",
+      "domain": "Enterprise",
+      "data": [
+        "CSV flows"
+      ],
+      "family": "CIDDS"
+    },
+    {
+      "id": "ciciov2024",
+      "name": "CICIoV2024",
+      "url": "https://www.unb.ca/cic/datasets/iov-dataset-2024.html",
+      "task": "CAN spoofing and DoS",
+      "domain": "Automotive / CAN",
+      "data": [
+        "CAN frames, CSV features"
+      ]
+    },
+    {
+      "id": "cic-pqc-oav-v1-2025",
+      "name": "CIC-PQC_OAV v1 2025",
+      "url": "https://www.unb.ca/cic/datasets/pqc-oav-dataset-2025.html",
+      "task": "TLS/PQC anomalies",
+      "domain": "Encrypted traffic / PQC",
+      "data": [
+        "Traffic-derived handshake features (CSV)"
+      ]
+    },
+    {
+      "id": "cic-modbus-2023",
+      "name": "CIC Modbus 2023",
+      "url": "https://www.unb.ca/cic/datasets/index.html",
+      "task": "ICS protocol attack detection",
+      "domain": "OT / Modbus",
+      "data": [
+        "Network protocol data",
+        "confirm formats"
+      ]
+    },
+    {
+      "id": "cicev2023",
+      "name": "CICEV2023",
+      "url": "https://www.unb.ca/cic/datasets/index.html",
+      "task": "DDoS detection",
+      "domain": "DDoS / Network",
+      "data": [
+        "Network traffic",
+        "verify files"
+      ]
+    },
+    {
+      "id": "i-sec-ids",
+      "name": "I-Sec-IDS",
+      "url": "https://fkie-cad.github.io/COMIDDS/",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / NIDS",
+      "data": [
+        "Network data",
+        "confirm format"
+      ]
+    },
+    {
+      "id": "kyoto-2006",
+      "name": "Kyoto 2006+",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/related_work/",
+      "task": "Anomaly detection",
+      "domain": "Honeypot / Enterprise",
+      "data": [
+        "Flow-derived features"
+      ]
+    },
+    {
+      "id": "darpa-1998",
+      "name": "DARPA 1998",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Intrusion detection",
+      "domain": "Military / Enterprise",
+      "data": [
+        "tcpdump PCAP"
+      ],
+      "family": "DARPA / KDD"
+    },
+    {
+      "id": "kdd-cup-1999",
+      "name": "KDD Cup 1999",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Intrusion detection legacy",
+      "domain": "Network / Legacy benchmark",
+      "data": [
+        "Connection features"
+      ],
+      "family": "DARPA / KDD",
+      "derived_from": "DARPA 1998"
+    },
+    {
+      "id": "nsl-kdd",
+      "name": "NSL-KDD",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Intrusion detection legacy",
+      "domain": "Network / Legacy benchmark",
+      "data": [
+        "Connection features"
+      ],
+      "family": "DARPA / KDD",
+      "derived_from": "KDD Cup 1999",
+      "paper": {
+        "cite": "Tavallaee et al., IEEE CISDA 2009",
+        "doi": "10.1109/CISDA.2009.5356528"
+      },
+      "notes": "Legacy benchmark derived from KDD Cup 1999; redundancy and benchmark distortion are documented."
+    },
+    {
+      "id": "gurekddcup",
+      "name": "gureKDDCup",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "task": "Payload feature IDS",
+      "domain": "Network / Legacy benchmark",
+      "data": [
+        "Connection features"
+      ]
+    },
+    {
+      "id": "nitro-5g-cybersecurity-exercise",
+      "name": "NITRO 5G Cybersecurity Exercise",
+      "url": "https://zenodo.org/records/23058085",
+      "task": "5G security; ML traffic analysis",
+      "domain": "5G / IoT / Cyber range",
+      "data": [
+        "PCAP"
+      ]
+    },
+    {
+      "id": "cam-lds-network-captures",
+      "name": "CAM-LDS network captures",
+      "url": "https://zenodo.org/records/18701095",
+      "task": "APT / network forensics",
+      "domain": "Enterprise / Attack scenarios",
+      "data": [
+        "PCAP archives"
+      ]
+    },
+    {
+      "id": "pdmfc-ai4cyber-sc3-3",
+      "name": "PDMFC AI4CYBER SC3.3",
+      "url": "https://zenodo.org/records/16943481",
+      "task": "Attack classification",
+      "domain": "Enterprise / Cyber range",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "pdmfc-shennina-hping-nmap-ddos-pcaps",
+      "name": "PDMFC Shennina HPing Nmap DDoS PCAPs",
+      "url": "https://zenodo.org/records/15649231",
+      "task": "Attack classification; IPS evaluation",
+      "domain": "Enterprise / Exploitation",
+      "data": [
+        "PCAP",
+        "alert metadata"
+      ]
+    },
+    {
+      "id": "annotated-encrypted-network-traffic-rysavy",
+      "name": "Annotated Encrypted Network Traffic (Rysavy)",
+      "url": "https://zenodo.org/records/18336960",
+      "access": "request",
+      "task": "TLS malware/application classification",
+      "domain": "Encrypted TLS / Malware",
+      "data": [
+        "Parquet",
+        "PCAP on request"
+      ]
+    },
+    {
+      "id": "power-system-digital-twin-mininet-traffic",
+      "name": "Power-System Digital Twin Mininet Traffic",
+      "url": "https://zenodo.org/records/23055644",
+      "task": "Scanning detection",
+      "domain": "Smart grid / Power systems",
+      "data": [
+        "PCAPNG"
+      ]
+    },
+    {
+      "id": "tqh-c2-encrypted-command-control",
+      "name": "TQH-C2 encrypted command-control",
+      "url": "https://zenodo.org/records/22732327",
+      "task": "Encrypted C2 detection",
+      "domain": "Encrypted C2 / TLS / QUIC",
+      "data": [
+        "PCAP",
+        "Parquet",
+        "Zeek logs",
+        "JSONL"
+      ]
+    },
+    {
+      "id": "unraveled",
+      "name": "Unraveled",
+      "url": "https://fkie-cad.github.io/COMIDDS/content/datasets/unraveled/",
+      "task": "Attack lifecycle classification",
+      "domain": "Enterprise / APT",
+      "data": [
+        "PCAP",
+        "NFStream CSV",
+        "Snort"
+      ]
+    },
+    {
+      "id": "iot-sfc-v2",
+      "name": "IoT-SFC v2",
+      "url": "https://zenodo.org/records/22055639",
+      "task": "IoT IDS multiclass",
+      "domain": "IoT / IIoT / MQTT",
+      "data": [
+        "CSV",
+        "Zeek logs"
+      ]
+    },
+    {
+      "id": "gem-can-v3",
+      "name": "GEM-CAN v3",
+      "url": "https://zenodo.org/records/19161139",
+      "task": "CAN injection/DoS",
+      "domain": "Automotive / Autonomous vehicle",
+      "data": [
+        "CAN frames CSV",
+        "JSON"
+      ]
+    },
+    {
+      "id": "gotham-device-level-iot-network-traffic",
+      "name": "Gotham Device-Level IoT Network Traffic",
+      "url": "https://zenodo.org/records/14502760",
+      "task": "Non-IID federated IDS; botnet/C2",
+      "domain": "IoT / Smart city / FL",
+      "data": [
+        "PCAP",
+        "CSV"
+      ]
+    },
+    {
+      "id": "minids-multi-domain-vehicle-networks",
+      "name": "MINIDS multi-domain vehicle networks",
+      "url": "https://zenodo.org/records/19429093",
+      "task": "Multi-domain vehicular IDS",
+      "domain": "Automotive / CAN / Ethernet",
+      "data": [
+        "CAN CSV",
+        "Ethernet PCAP"
+      ]
+    },
+    {
+      "id": "iot-window-based-rl-traffic-representation",
+      "name": "IoT Window-Based RL Traffic Representation",
+      "url": "https://zenodo.org/records/19238988",
+      "task": "RL traffic analysis",
+      "domain": "IoT / Reinforcement learning",
+      "data": [
+        "Window features derived from PCAP"
+      ]
+    },
+    {
+      "id": "safe-nid-packet-level-payload-labels",
+      "name": "SAFE-NID packet-level payload labels",
+      "url": "https://zenodo.org/records/15046995",
+      "task": "Self-attention packet classification",
+      "domain": "Network / IDS",
+      "data": [
+        "Packet-level labeled representations"
+      ]
+    },
+    {
+      "id": "iot-communication-protocol-overhead-dataset",
+      "name": "IoT Communication Protocol Overhead Dataset",
+      "url": "https://zenodo.org/records/22102718",
+      "task": "Benign reference; representation learning",
+      "domain": "IoT / Protocols / Benign",
+      "data": [
+        "PCAP",
+        "processed results"
+      ]
+    },
+    {
+      "id": "kitsune-network-attack-dataset",
+      "name": "Kitsune Network Attack Dataset",
+      "url": "https://archive.ics.uci.edu/dataset/516/kitsune+network+attack+dataset",
+      "task": "IoT botnet and network attack detection",
+      "domain": "IoT; IP video surveillance",
+      "data": [
+        "PCAP (truncated)",
+        "Per-packet features CSV",
+        "Labels"
+      ],
+      "paper": {
+        "cite": "Mirsky et al., NDSS 2018 (Kitsune)"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. Nine attacks: reconnaissance, man-in-the-middle, DoS and Mirai botnet.",
+      "origin": "web"
+    },
+    {
+      "id": "insdn",
+      "name": "InSDN",
+      "url": "https://aseados.ucd.ie/datasets/SDN/",
+      "task": "SDN intrusion detection",
+      "domain": "SDN",
+      "data": [
+        "Network traffic (formats to verify)"
+      ],
+      "paper": {
+        "cite": "Elsayed, Le-Khac, Jurcut, IEEE Access 2020",
+        "doi": "10.1109/ACCESS.2020.3022633"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. DoS, DDoS, brute force, web attacks, exploitation, probing and botnet. Licence CC BY-NC 4.0.",
+      "origin": "web"
+    },
+    {
+      "id": "litnet-2020",
+      "name": "LITNET-2020",
+      "url": "https://github.com/Grigaliunas/electronics9050800/",
+      "task": "IDS on real network flows",
+      "domain": "Academic ISP network (LITNET, Lithuania)",
+      "data": [
+        "NetFlow records"
+      ],
+      "paper": {
+        "cite": "Damasevicius et al., Electronics 2020",
+        "doi": "10.3390/electronics9050800"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. Real academic network, 85 flow features, 12 attack types.",
+      "origin": "web"
+    },
+    {
+      "id": "uwf-zeekdata22",
+      "name": "UWF-ZeekData22",
+      "url": "https://datasets.uwf.edu",
+      "task": "ATT&CK tactic detection",
+      "domain": "Enterprise / ATT&CK",
+      "data": [
+        "Zeek logs",
+        "Parquet",
+        "PCAP (custom format)",
+        "CSV subset"
+      ],
+      "paper": {
+        "cite": "Bagui et al., Data 2023",
+        "doi": "10.3390/data8010018"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. Zeek logs labelled with MITRE ATT&CK tactics. The labelled PCAPs use a custom binary format.",
+      "origin": "web"
+    },
+    {
+      "id": "wustl-iiot-2021",
+      "name": "WUSTL-IIoT-2021",
+      "url": "https://classes.engineering.wustl.edu/~jain/iiot2/index.html",
+      "task": "IIoT intrusion detection",
+      "domain": "IIoT",
+      "data": [
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Zolanvari et al., IEEE Internet of Things Journal 2019"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. DoS, reconnaissance, command injection and backdoor. Same group as WUSTL-EHMS-2020.",
+      "origin": "web"
+    },
+    {
+      "id": "mqtt-iot-ids2020",
+      "name": "MQTT-IoT-IDS2020",
+      "url": "https://ieee-dataport.org/open-access/mqtt-iot-ids2020-mqtt-internet-things-intrusion-detection-dataset",
+      "task": "MQTT IoT intrusion detection",
+      "domain": "IoT / MQTT",
+      "data": [
+        "PCAP",
+        "Packet and flow features CSV"
+      ],
+      "paper": {
+        "cite": "Hindy et al., INC 2020"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. Scans, SSH brute force and MQTT brute force. Dataset doi:10.21227/bhxy-ep04.",
+      "origin": "web"
+    },
+    {
+      "id": "tii-ssrc-23",
+      "name": "TII-SSRC-23",
+      "url": "https://www.kaggle.com/datasets/daniaherzalla/tii-ssrc-23",
+      "task": "IDS multiclass",
+      "domain": "Network",
+      "data": [
+        "PCAP",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Herzalla, Lunardi, Andreoni Lopez, arXiv 2023",
+        "doi": "10.48550/arXiv.2310.10661"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. DDoS, brute force, Mirai and information gathering.",
+      "origin": "web"
+    },
+    {
+      "id": "road-ornl",
+      "name": "ROAD (ORNL)",
+      "url": "https://www.ornl.gov/publication/comprehensive-guide-can-ids-data-and-introduction-road-dataset",
+      "task": "CAN IDS with real attacks",
+      "domain": "Automotive CAN",
+      "data": [
+        "CAN logs",
+        "Signal time series"
+      ],
+      "paper": {
+        "cite": "Verma et al., PLoS ONE 2024",
+        "doi": "10.48550/arXiv.2012.14600"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. Real fuzzing, fabrication and masquerade attacks on one vehicle. The link is the ORNL publication page.",
+      "origin": "web"
+    },
+    {
+      "id": "syncan",
+      "name": "SynCAN",
+      "url": "https://github.com/etas/SynCAN",
+      "task": "Signal-level CAN IDS",
+      "domain": "Automotive CAN (synthetic)",
+      "data": [
+        "CAN signal CSV"
+      ],
+      "paper": {
+        "cite": "Hanselmann et al., IEEE Access 2020 (CANet)"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. Synthetic signal-level CAN data with five attack types. The repository is archived (2023).",
+      "origin": "web"
+    },
+    {
+      "id": "cicevse2024",
+      "name": "CICEVSE2024",
+      "url": "https://www.unb.ca/cic/datasets/evse-dataset-2024.html",
+      "task": "Attack detection on EV chargers",
+      "domain": "EV charging / Smart grid",
+      "data": [
+        "Network traffic",
+        "Power consumption",
+        "Host event logs"
+      ],
+      "notes": "Found online on 2026-10-20, not in the reference list. Reconnaissance and DoS (network), backdoor and cryptojacking (host).",
+      "origin": "web"
+    },
+    {
+      "id": "cicapt-iiot2024",
+      "name": "CICAPT-IIoT2024",
+      "url": "https://www.unb.ca/cic/datasets/iiot-dataset-2024.html",
+      "task": "APT detection",
+      "domain": "IIoT / APT",
+      "data": [
+        "Network traffic",
+        "Host provenance logs"
+      ],
+      "paper": {
+        "cite": "Ghiasvand et al., arXiv 2024",
+        "doi": "10.48550/arXiv.2407.11278"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. APT29-like campaign: more than 20 techniques in eight tactics.",
+      "origin": "web"
+    },
+    {
+      "id": "x-iiotid",
+      "name": "X-IIoTID",
+      "url": "https://ieee-dataport.org/documents/x-iiotid-connectivity-and-device-agnostic-intrusion-dataset-industrial-internet-things",
+      "task": "IIoT intrusion detection",
+      "domain": "IIoT",
+      "data": [
+        "Network traffic features",
+        "Host resources",
+        "Logs and alerts"
+      ],
+      "paper": {
+        "cite": "Al-Hawawreh, Sitnikova, Aboutorab, IEEE Internet of Things Journal 2022"
+      },
+      "notes": "Found online on 2026-10-20, not in the reference list. Multi-view features; also published on Kaggle.",
+      "origin": "web"
+    },
+    {
+      "id": "caida-ddos-2007",
+      "name": "CAIDA DDoS Attack 2007",
+      "url": "https://www.caida.org/catalog/datasets/ddos-20070804_dataset/",
+      "task": "DDoS detection",
+      "domain": "Internet backbone / DDoS",
+      "data": [
+        "PCAP (anonymised, no payload)"
+      ],
+      "access": "request",
+      "notes": "Found online on 2026-10-20, not in the reference list. One hour of a real DDoS attack (4 August 2007), about 21 GB uncompressed. Academic access on request.",
+      "origin": "web"
+    },
+    {
+      "id": "iscx-botnet-2014",
+      "name": "ISCX Botnet 2014",
+      "url": "https://www.unb.ca/cic/datasets/botnet.html",
+      "task": "Botnet detection",
+      "domain": "Botnet / Malware",
+      "data": [
+        "PCAP"
+      ],
+      "derived_from": "ISOT Botnet, CIC-ISCX 2012 and CTU-13",
+      "notes": "Found online on 2026-10-20, not in the reference list. Merges traffic of ISOT, ISCX 2012 and CTU-13 (already in the catalogue): not an independent acquisition.",
+      "origin": "web"
+    },
+    {
+      "id": "lycos-ids2017",
+      "name": "LYCOS-IDS2017",
+      "url": "https://lycos-ids.univ-lemans.fr/",
+      "task": "IDS binary/multiclass",
+      "domain": "Network",
+      "data": [
+        "Corrected flow features CSV"
+      ],
+      "derived_from": "CICIDS2017",
+      "notes": "Found online on 2026-10-20, not in the reference list. CICIDS2017 traffic with the flows extracted again by a corrected tool.",
+      "origin": "web"
+    }
+  ]
+}

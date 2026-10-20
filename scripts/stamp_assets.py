@@ -16,7 +16,7 @@ import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = ['css/site.css', 'css/traffic-bar.css', 'js/site.js', 'js/theme-init.js', 'js/datasets.js',
-          'js/traffic-bar.js', 'js/publications.js']
+          'js/traffic-bar.js', 'js/publications.js', 'js/observatory.js']
 SKIP_DIRS = {'.git', '.github', 'data', 'scripts', 'node_modules'}
 
 
