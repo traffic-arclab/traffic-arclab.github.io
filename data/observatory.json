@@ -1,8 +1,11 @@
 {
-  "title": "Cybersecurity Observatory",
+  "title": "AI Cybersecurity Dataset Observatory",
   "hidden": true,
+  "group_datasets": false,
+  "updated": "2026-10-21",
   "eyebrow": "AI Cybersecurity Dataset Observatory",
   "tagline": "Discover Datasets for AI in Cybersecurity. Now all in one place.",
+  "description": "An open catalogue of the network-traffic datasets used to train and evaluate AI for cybersecurity, from intrusion and botnet detection to industrial, vehicular and wireless security. For each dataset: what it contains, where to get it and the paper that introduced it.",
   "lead": "A curated catalogue of network-traffic datasets for AI-based cybersecurity: what each dataset contains, where it is distributed and which paper introduced it.",
   "snapshot": "2026-10-15",
   "new_until": "2027-01-31",
@@ -65,7 +68,11 @@
         "PCAP",
         "CSV",
         "logs"
-      ]
+      ],
+      "paper": {
+        "cite": "Sharafaldin et al., ICISSP 2018",
+        "doi": "10.5220/0006639801080116"
+      }
     },
     {
       "id": "unsw-nb15",
@@ -175,7 +182,11 @@
       "domain": "IoMT",
       "data": [
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Hady et al., IEEE Access 2020",
+        "doi": "10.1109/access.2020.3000421"
+      }
     },
     {
       "id": "ciciomt2024",
@@ -186,7 +197,11 @@
       "data": [
         "PCAP",
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Dadkhah et al., Internet of Things 2024",
+        "doi": "10.1016/j.iot.2024.101351"
+      }
     },
     {
       "id": "cic-iot-diad-2024",
@@ -208,7 +223,8 @@
         "CAN logs"
       ],
       "paper": {
-        "cite": "HCRL official release page"
+        "cite": "Seo et al., PST 2018",
+        "doi": "10.1109/pst.2018.8514157"
       },
       "notes": "CAN-frame records, not Ethernet/IP packets; the originating collection paper is unconfirmed."
     },
@@ -237,7 +253,11 @@
       "data": [
         "V2X message logs"
       ],
-      "family": "VeReMi"
+      "family": "VeReMi",
+      "paper": {
+        "cite": "Kamel et al., IEEE ICC 2020",
+        "doi": "10.1109/icc40277.2020.9149132"
+      }
     },
     {
       "id": "veremi-nextgen",
@@ -259,7 +279,11 @@
       "data": [
         "PCAP",
         "feature tables"
-      ]
+      ],
+      "paper": {
+        "cite": "Hadi et al., IEEE Transactions on Network Science and Engineering 2025",
+        "doi": "10.1109/tnse.2025.3553442"
+      }
     },
     {
       "id": "uavids-2025",
@@ -269,7 +293,11 @@
       "domain": "UAV/Drones",
       "data": [
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Zeng et al., IEEE CNS 2025",
+        "doi": "10.1109/cns66487.2025.11194990"
+      }
     },
     {
       "id": "gcs-nidd",
@@ -292,7 +320,11 @@
         "CSV NetFlow"
       ],
       "family": "NetFlow NIDS v2 (UQ)",
-      "derived_from": "UNSW-NB15"
+      "derived_from": "UNSW-NB15",
+      "paper": {
+        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "doi": "10.1007/s11036-021-01843-0"
+      }
     },
     {
       "id": "nf-ton-iot-v2",
@@ -304,7 +336,11 @@
         "CSV NetFlow"
       ],
       "family": "NetFlow NIDS v2 (UQ)",
-      "derived_from": "ToN-IoT"
+      "derived_from": "ToN-IoT",
+      "paper": {
+        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "doi": "10.1007/s11036-021-01843-0"
+      }
     },
     {
       "id": "nf-bot-iot-v2",
@@ -316,7 +352,11 @@
         "CSV NetFlow"
       ],
       "family": "NetFlow NIDS v2 (UQ)",
-      "derived_from": "BoT-IoT"
+      "derived_from": "BoT-IoT",
+      "paper": {
+        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "doi": "10.1007/s11036-021-01843-0"
+      }
     },
     {
       "id": "nf-cse-cic-ids2018-v2",
@@ -328,7 +368,11 @@
         "CSV NetFlow"
       ],
       "family": "NetFlow NIDS v2 (UQ)",
-      "derived_from": "CSE-CIC-IDS2018"
+      "derived_from": "CSE-CIC-IDS2018",
+      "paper": {
+        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "doi": "10.1007/s11036-021-01843-0"
+      }
     },
     {
       "id": "nf-uq-nids-v2",
@@ -340,7 +384,11 @@
         "CSV NetFlow"
       ],
       "family": "NetFlow NIDS v2 (UQ)",
-      "derived_from": "the four NF-v2 datasets"
+      "derived_from": "the four NF-v2 datasets",
+      "paper": {
+        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "doi": "10.1007/s11036-021-01843-0"
+      }
     },
     {
       "id": "edge-iiotset",
@@ -350,7 +398,11 @@
       "domain": "IoT/IIoT",
       "data": [
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Ferrag et al., IEEE Access 2022",
+        "doi": "10.1109/access.2022.3165809"
+      }
     },
     {
       "id": "n-baiot",
@@ -393,7 +445,11 @@
       "domain": "ICS/OT",
       "data": [
         "Sensor/actuator time series"
-      ]
+      ],
+      "paper": {
+        "cite": "Ahmed et al., CySWATER 2017",
+        "doi": "10.1145/3055366.3055375"
+      }
     },
     {
       "id": "datasense-cic-iiot-2025",
@@ -405,7 +461,11 @@
         "Network packets",
         "sensor time series",
         "logs"
-      ]
+      ],
+      "paper": {
+        "cite": "Firouzi et al., Electronics 2025",
+        "doi": "10.3390/electronics14204095"
+      }
     },
     {
       "id": "tabulariotattack-2024",
@@ -436,7 +496,11 @@
       "domain": "OT;ICS;Modbus",
       "data": [
         "Packet traces"
-      ]
+      ],
+      "paper": {
+        "cite": "Cabaj et al., SoftwareX 2025",
+        "doi": "10.1016/j.softx.2025.102196"
+      }
     },
     {
       "id": "zero-swarm-modbus-normal-and-malicious",
@@ -459,7 +523,8 @@
         "CSV"
       ],
       "paper": {
-        "cite": "Radoglou-Grammatikis et al., Zenodo 2022"
+        "cite": "Radoglou-Grammatikis et al., ARES 2020",
+        "doi": "10.1145/3407023.3409314"
       },
       "notes": "Archive identified; representation to be inspected on acquisition."
     },
@@ -504,7 +569,11 @@
       "domain": "Maritime;GNSS spoofing",
       "data": [
         "PCAP"
-      ]
+      ],
+      "paper": {
+        "cite": "Spravil et al., Journal of Marine Science and Engineering 2023",
+        "doi": "10.3390/jmse11050928"
+      }
     },
     {
       "id": "uav-ton-iot",
@@ -535,7 +604,11 @@
       "data": [
         "Network-feature files",
         "verify"
-      ]
+      ],
+      "paper": {
+        "cite": "Siriwardhana et al., IEEE Data Descriptions 2025",
+        "doi": "10.1109/ieeedata.2025.3592888"
+      }
     },
     {
       "id": "hikari-2021",
@@ -573,7 +646,11 @@
       "domain": "LoRaWAN;wireless IoT",
       "data": [
         "Tabular records"
-      ]
+      ],
+      "paper": {
+        "cite": "Pourghasem et al., Future Internet 2026",
+        "doi": "10.3390/fi18010038"
+      }
     },
     {
       "id": "hcrl-can-survival-analysis",
@@ -583,7 +660,11 @@
       "domain": "Automotive;CAN",
       "data": [
         "CAN trace files"
-      ]
+      ],
+      "paper": {
+        "cite": "Han et al., Vehicular Communications 2018",
+        "doi": "10.1016/j.vehcom.2018.09.004"
+      }
     },
     {
       "id": "unimore-bus-off",
@@ -603,7 +684,11 @@
       "domain": "Automotive;CAN",
       "data": [
         "CAN traces"
-      ]
+      ],
+      "paper": {
+        "cite": "Stabili et al., IEEE Transactions on Vehicular Technology 2022",
+        "doi": "10.1109/tvt.2022.3190721"
+      }
     },
     {
       "id": "epic",
@@ -614,7 +699,11 @@
       "domain": "Electrical power;ICS",
       "data": [
         "Cyber-physical testbed records"
-      ]
+      ],
+      "paper": {
+        "cite": "Adepu et al., LNCS 2019",
+        "doi": "10.1007/978-3-030-12786-2_3"
+      }
     },
     {
       "id": "batadal",
@@ -625,7 +714,11 @@
       "domain": "Water distribution;ICS",
       "data": [
         "Water-system time series"
-      ]
+      ],
+      "paper": {
+        "cite": "Taormina et al., Journal of Water Resources Planning and Management 2018",
+        "doi": "10.1061/(asce)wr.1943-5452.0000969"
+      }
     },
     {
       "id": "ustc-tfc2016",
@@ -638,7 +731,8 @@
         "7z"
       ],
       "paper": {
-        "cite": "Repository only (original paper unresolved)"
+        "cite": "Wei Wang et al., ICOIN 2017",
+        "doi": "10.1109/icoin.2017.7899588"
       },
       "notes": "Malware and benign PCAP files are publicly enumerated; capture provenance and independence from CTU collections are unconfirmed."
     },
@@ -651,7 +745,11 @@
       "data": [
         "PCAP",
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Draper-Gil et al., ICISSP 2016",
+        "doi": "10.5220/0005740704070414"
+      }
     },
     {
       "id": "iscxtor2016",
@@ -662,7 +760,11 @@
       "data": [
         "PCAP",
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Habibi Lashkari et al., ICISSP 2017",
+        "doi": "10.5220/0006105602530262"
+      }
     },
     {
       "id": "cic-ddos2019",
@@ -674,7 +776,11 @@
         "PCAP",
         "CSV",
         "system logs"
-      ]
+      ],
+      "paper": {
+        "cite": "Sharafaldin et al., ICCST 2019",
+        "doi": "10.1109/ccst.2019.8888419"
+      }
     },
     {
       "id": "cic-aagm2017",
@@ -685,7 +791,11 @@
       "data": [
         "PCAP",
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Lashkari et al., PST 2017",
+        "doi": "10.1109/pst.2017.00035"
+      }
     },
     {
       "id": "cic-andmal2017",
@@ -696,7 +806,11 @@
       "data": [
         "PCAP",
         "traffic features (verify)"
-      ]
+      ],
+      "paper": {
+        "cite": "Lashkari et al., ICCST 2018",
+        "doi": "10.1109/ccst.2018.8585560"
+      }
     },
     {
       "id": "cicmaldroid2020",
@@ -708,7 +822,11 @@
         "CSV",
         "APK",
         "behavior logs"
-      ]
+      ],
+      "paper": {
+        "cite": "Mahdavifar et al., IEEE DASC 2020",
+        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech49142.2020.00094"
+      }
     },
     {
       "id": "cccs-cic-andmal2020",
@@ -719,7 +837,11 @@
       "data": [
         "APK",
         "behavior features"
-      ]
+      ],
+      "paper": {
+        "cite": "Rahali et al., ICCNS 2020",
+        "doi": "10.1145/3442520.3442522"
+      }
     },
     {
       "id": "cic-bell-dns2021",
@@ -729,7 +851,11 @@
       "domain": "DNS / Malicious domain identification",
       "data": [
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Mahdavifar et al., IEEE DASC 2021",
+        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech52372.2021.00024"
+      }
     },
     {
       "id": "cic-bell-dns-exf-2021",
@@ -739,7 +865,11 @@
       "domain": "DNS tunneling / exfiltration",
       "data": [
         "DNS traffic/features (verify)"
-      ]
+      ],
+      "paper": {
+        "cite": "Mahdavifar et al., ICCNS 2021",
+        "doi": "10.1145/3507509.3507520"
+      }
     },
     {
       "id": "cic-ynu-iotmal2026",
@@ -809,7 +939,11 @@
         "PCAP",
         "CSV"
       ],
-      "family": "AWID"
+      "family": "AWID",
+      "paper": {
+        "cite": "Chatzoglou et al., IEEE Access 2021",
+        "doi": "10.1109/access.2021.3061609"
+      }
     },
     {
       "id": "h23q",
@@ -821,7 +955,11 @@
       "data": [
         "PCAP",
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Chatzoglou et al., Computers & Security 2023",
+        "doi": "10.1016/j.cose.2022.103051"
+      }
     },
     {
       "id": "mawi-samplepoint-f",
@@ -833,10 +971,6 @@
         "PCAP header traces"
       ],
       "family": "MAWI",
-      "paper": {
-        "cite": "MAWI Working Group traffic archive",
-        "doi": ""
-      },
       "notes": "Long-term backbone packet traces; labels are not implicit and annotation availability differs from packet availability."
     },
     {
@@ -851,7 +985,11 @@
         "MAWI PCAP"
       ],
       "family": "MAWI",
-      "derived_from": "MAWI samplepoint-F (labels)"
+      "derived_from": "MAWI samplepoint-F (labels)",
+      "paper": {
+        "cite": "Fontugne et al., ACM CoNEXT 2010",
+        "doi": "10.1145/1921168.1921179"
+      }
     },
     {
       "id": "csic-2010-http",
@@ -915,7 +1053,11 @@
       "data": [
         "PCAP",
         "flows"
-      ]
+      ],
+      "paper": {
+        "cite": "Shiravi et al., Computers & Security 2012",
+        "doi": "10.1016/j.cose.2011.12.012"
+      }
     },
     {
       "id": "cira-cic-dohbrw2020",
@@ -926,7 +1068,11 @@
       "data": [
         "CSV",
         "PCAP (verify)"
-      ]
+      ],
+      "paper": {
+        "cite": "MontazeriShatoori et al., IEEE DASC 2020",
+        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech49142.2020.00026"
+      }
     },
     {
       "id": "cic-darknet2020",
@@ -937,7 +1083,11 @@
       "data": [
         "CSV",
         "traffic traces (verify)"
-      ]
+      ],
+      "paper": {
+        "cite": "Habibi Lashkari et al., ICCNS 2020",
+        "doi": "10.1145/3442520.3442521"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-1",
@@ -2175,7 +2325,11 @@
       "domain": "Network / drift",
       "data": [
         "Feature dataset"
-      ]
+      ],
+      "paper": {
+        "cite": "Dragoi et al., NeurIPS 2022",
+        "doi": "10.52202/068431-2381"
+      }
     },
     {
       "id": "cremev2",
@@ -2185,7 +2339,11 @@
       "domain": "Network / IDS",
       "data": [
         "Flows"
-      ]
+      ],
+      "paper": {
+        "cite": "Bui et al., Journal of Network and Computer Applications 2021",
+        "doi": "10.1016/j.jnca.2021.103212"
+      }
     },
     {
       "id": "cesnet-timeseries24",
@@ -2195,7 +2353,11 @@
       "domain": "ISP / backbone",
       "data": [
         "Flow time series"
-      ]
+      ],
+      "paper": {
+        "cite": "Koumar et al., Scientific Data 2025",
+        "doi": "10.1038/s41597-025-04603-x"
+      }
     },
     {
       "id": "usb-ids-tc",
@@ -2205,7 +2367,11 @@
       "domain": "Network / DoS",
       "data": [
         "Flows"
-      ]
+      ],
+      "paper": {
+        "cite": "Catillo et al., IEEE/IFIP DSN 2021",
+        "doi": "10.1109/dsn-w52860.2021.00012"
+      }
     },
     {
       "id": "lycos-unicas-ids2018",
@@ -2215,7 +2381,11 @@
       "domain": "Network / IDS",
       "data": [
         "Flows"
-      ]
+      ],
+      "paper": {
+        "cite": "Catillo et al., IEEE/IFIP DSN 2023",
+        "doi": "10.1109/dsn-s58398.2023.00038"
+      }
     },
     {
       "id": "hornet-honeypot-dataset",
@@ -2225,7 +2395,11 @@
       "domain": "Honeypots / enterprise",
       "data": [
         "Traffic captures"
-      ]
+      ],
+      "paper": {
+        "cite": "Valeros & Garcia, Data in Brief 2022",
+        "doi": "10.1016/j.dib.2022.107795"
+      }
     },
     {
       "id": "dedale",
@@ -2245,7 +2419,11 @@
       "domain": "Enterprise / CTF",
       "data": [
         "NetFlow"
-      ]
+      ],
+      "paper": {
+        "cite": "Kilian et al., RAID 2025",
+        "doi": "10.1109/raid67961.2025.00039"
+      }
     },
     {
       "id": "flnet2023",
@@ -2255,7 +2433,11 @@
       "domain": "ISP / Federated IDS",
       "data": [
         "PCAP, CSV flow features"
-      ]
+      ],
+      "paper": {
+        "cite": "Kumar et al., IEEE MILCOM 2023",
+        "doi": "10.1109/milcom58377.2023.10356272"
+      }
     },
     {
       "id": "unr-idd",
@@ -2265,7 +2447,11 @@
       "domain": "SDN",
       "data": [
         "Port statistics, flow-derived features"
-      ]
+      ],
+      "paper": {
+        "cite": "Das et al., TechRxiv 2022",
+        "doi": "10.36227/techrxiv.19877311"
+      }
     },
     {
       "id": "ait-log-dataset",
@@ -2275,7 +2461,11 @@
       "domain": "Enterprise / APT",
       "data": [
         "PCAP, Suricata, DNS / VPN logs"
-      ]
+      ],
+      "paper": {
+        "cite": "Landauer et al., IEEE Transactions on Dependable and Secure Computing 2023",
+        "doi": "10.1109/tdsc.2022.3201582"
+      }
     },
     {
       "id": "od-ids2022",
@@ -2318,7 +2508,11 @@
       "domain": "Enterprise / Red team",
       "data": [
         "PCAP, mixed host-network logs"
-      ]
+      ],
+      "paper": {
+        "cite": "Berady et al., IEEE Transactions on Network and Service Management 2022",
+        "doi": "10.1109/tnsm.2022.3183476"
+      }
     },
     {
       "id": "asnm-datasets",
@@ -2328,7 +2522,11 @@
       "domain": "Enterprise / Exploitation",
       "data": [
         "Custom flow features"
-      ]
+      ],
+      "paper": {
+        "cite": "Homoliak et al., IEEE Access 2020",
+        "doi": "10.1109/access.2020.3001768"
+      }
     },
     {
       "id": "ngids-ds",
@@ -2338,7 +2536,11 @@
       "domain": "Enterprise",
       "data": [
         "PCAP, host features"
-      ]
+      ],
+      "paper": {
+        "cite": "Haider et al., Journal of Network and Computer Applications 2017",
+        "doi": "10.1016/j.jnca.2017.03.018"
+      }
     },
     {
       "id": "biblio-us17",
@@ -2348,7 +2550,11 @@
       "domain": "Web / Enterprise",
       "data": [
         "HTTP request-derived features"
-      ]
+      ],
+      "paper": {
+        "cite": "Diaz-Verdejo et al., European Interdisciplinary Cybersecurity Conference 2024",
+        "doi": "10.1145/3655693.3661319"
+      }
     },
     {
       "id": "ugr16",
@@ -2358,7 +2564,11 @@
       "domain": "ISP / Enterprise",
       "data": [
         "NetFlow"
-      ]
+      ],
+      "paper": {
+        "cite": "Maciá-Fernández et al., Computers & Security 2018",
+        "doi": "10.1016/j.cose.2017.11.004"
+      }
     },
     {
       "id": "comprehensive-multi-source-cyber-security-events-lanl",
@@ -2368,7 +2578,11 @@
       "domain": "Enterprise / Attack provenance",
       "data": [
         "Network flows, DNS, red-team logs"
-      ]
+      ],
+      "paper": {
+        "cite": "Kent, Dynamic Networks and Cyber-Security (book) 2016",
+        "doi": "10.1142/9781786340757_0002"
+      }
     },
     {
       "id": "twente-2009",
@@ -2378,7 +2592,11 @@
       "domain": "Honeypot",
       "data": [
         "NetFlow"
-      ]
+      ],
+      "paper": {
+        "cite": "Sperotto et al., LNCS 2009",
+        "doi": "10.1007/978-3-642-04968-2_4"
+      }
     },
     {
       "id": "isot-botnet",
@@ -2388,7 +2606,11 @@
       "domain": "Botnet / Enterprise",
       "data": [
         "PCAP"
-      ]
+      ],
+      "paper": {
+        "cite": "Saad et al., PST 2011",
+        "doi": "10.1109/pst.2011.5971980"
+      }
     },
     {
       "id": "cdx-ctf-2009",
@@ -2408,7 +2630,11 @@
       "domain": "Enterprise / DoS",
       "data": [
         "PCAP, NetFlow"
-      ]
+      ],
+      "paper": {
+        "cite": "Gogoi et al., CCIS 2012",
+        "doi": "10.1007/978-3-642-32129-0_34"
+      }
     },
     {
       "id": "vast-challenge-2011",
@@ -2449,7 +2675,11 @@
       "domain": "SSH / Enterprise",
       "data": [
         "SSH traffic features / NetFlow"
-      ]
+      ],
+      "paper": {
+        "cite": "Hofstede et al., ACM SIGCOMM CCR 2014",
+        "doi": "10.1145/2677046.2677050"
+      }
     },
     {
       "id": "cidds-001",
@@ -2481,7 +2711,11 @@
       "domain": "Automotive / CAN",
       "data": [
         "CAN frames, CSV features"
-      ]
+      ],
+      "paper": {
+        "cite": "Neto et al., Internet of Things 2024",
+        "doi": "10.1016/j.iot.2024.101209"
+      }
     },
     {
       "id": "cic-pqc-oav-v1-2025",
@@ -2513,7 +2747,11 @@
       "data": [
         "Network traffic",
         "verify files"
-      ]
+      ],
+      "paper": {
+        "cite": "Kim et al., PST 2023",
+        "doi": "10.1109/pst58708.2023.10320202"
+      }
     },
     {
       "id": "i-sec-ids",
@@ -2534,7 +2772,11 @@
       "domain": "Honeypot / Enterprise",
       "data": [
         "Flow-derived features"
-      ]
+      ],
+      "paper": {
+        "cite": "Song et al., BADGERS 2011",
+        "doi": "10.1145/1978672.1978676"
+      }
     },
     {
       "id": "darpa-1998",
@@ -2545,7 +2787,11 @@
       "data": [
         "tcpdump PCAP"
       ],
-      "family": "DARPA / KDD"
+      "family": "DARPA / KDD",
+      "paper": {
+        "cite": "Lippmann et al., DISCEX None",
+        "doi": "10.1109/discex.2000.821506"
+      }
     },
     {
       "id": "kdd-cup-1999",
@@ -2673,7 +2919,11 @@
         "PCAP",
         "NFStream CSV",
         "Snort"
-      ]
+      ],
+      "paper": {
+        "cite": "Myneni et al., Computer Networks 2023",
+        "doi": "10.1016/j.comnet.2023.109688"
+      }
     },
     {
       "id": "iot-sfc-v2",
@@ -2695,7 +2945,11 @@
       "data": [
         "CAN frames CSV",
         "JSON"
-      ]
+      ],
+      "paper": {
+        "cite": "Tavasoli et al., Data in Brief 2026",
+        "doi": "10.1016/j.dib.2026.112805"
+      }
     },
     {
       "id": "gotham-device-level-iot-network-traffic",
@@ -2762,7 +3016,8 @@
         "Labels"
       ],
       "paper": {
-        "cite": "Mirsky et al., NDSS 2018 (Kitsune)"
+        "cite": "Mirsky et al., NDSS 2018",
+        "doi": "10.14722/ndss.2018.23204"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Nine attacks: reconnaissance, man-in-the-middle, DoS and Mirai botnet.",
       "origin": "web"
@@ -2828,7 +3083,8 @@
         "CSV features"
       ],
       "paper": {
-        "cite": "Zolanvari et al., IEEE Internet of Things Journal 2019"
+        "cite": "Zolanvari et al., IEEE Internet of Things Journal 2019",
+        "doi": "10.1109/jiot.2019.2912022"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. DoS, reconnaissance, command injection and backdoor. Same group as WUSTL-EHMS-2020.",
       "origin": "web"
@@ -2844,7 +3100,8 @@
         "Packet and flow features CSV"
       ],
       "paper": {
-        "cite": "Hindy et al., INC 2020"
+        "cite": "Hindy et al., LNNS 2021",
+        "doi": "10.1007/978-3-030-64758-2_6"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Scans, SSH brute force and MQTT brute force. Dataset doi:10.21227/bhxy-ep04.",
       "origin": "web"
@@ -2877,8 +3134,8 @@
         "Signal time series"
       ],
       "paper": {
-        "cite": "Verma et al., PLoS ONE 2024",
-        "doi": "10.48550/arXiv.2012.14600"
+        "cite": "Verma et al., PLOS ONE 2024",
+        "doi": "10.1371/journal.pone.0296879"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Real fuzzing, fabrication and masquerade attacks on one vehicle. The link is the ORNL publication page.",
       "origin": "web"
@@ -2893,7 +3150,8 @@
         "CAN signal CSV"
       ],
       "paper": {
-        "cite": "Hanselmann et al., IEEE Access 2020 (CANet)"
+        "cite": "Hanselmann et al., IEEE Access 2020",
+        "doi": "10.1109/access.2020.2982544"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Synthetic signal-level CAN data with five attack types. The repository is archived (2023).",
       "origin": "web"
@@ -2910,7 +3168,11 @@
         "Host event logs"
       ],
       "notes": "Found online on 2026-10-20, not in the reference list. Reconnaissance and DoS (network), backdoor and cryptojacking (host).",
-      "origin": "web"
+      "origin": "web",
+      "paper": {
+        "cite": "Buedi et al., Research Square 2024",
+        "doi": "10.21203/rs.3.rs-4046330/v1"
+      }
     },
     {
       "id": "cicapt-iiot2024",
@@ -2941,7 +3203,8 @@
         "Logs and alerts"
       ],
       "paper": {
-        "cite": "Al-Hawawreh, Sitnikova, Aboutorab, IEEE Internet of Things Journal 2022"
+        "cite": "Al-Hawawreh et al., IEEE Internet of Things Journal 2022",
+        "doi": "10.1109/jiot.2021.3102056"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Multi-view features; also published on Kaggle.",
       "origin": "web"
@@ -2970,7 +3233,11 @@
       ],
       "derived_from": "ISOT Botnet, CIC-ISCX 2012 and CTU-13",
       "notes": "Found online on 2026-10-20, not in the reference list. Merges traffic of ISOT, ISCX 2012 and CTU-13 (already in the catalogue): not an independent acquisition.",
-      "origin": "web"
+      "origin": "web",
+      "paper": {
+        "cite": "Biglar Beigi et al., IEEE CNS 2014",
+        "doi": "10.1109/cns.2014.6997492"
+      }
     },
     {
       "id": "lycos-ids2017",
@@ -2983,7 +3250,11 @@
       ],
       "derived_from": "CICIDS2017",
       "notes": "Found online on 2026-10-20, not in the reference list. CICIDS2017 traffic with the flows extracted again by a corrected tool.",
-      "origin": "web"
+      "origin": "web",
+      "paper": {
+        "cite": "Rosay et al., ICISSP 2022",
+        "doi": "10.5220/0010774000003120"
+      }
     }
   ]
 }

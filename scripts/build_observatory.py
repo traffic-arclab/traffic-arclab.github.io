@@ -199,7 +199,13 @@ def our_records():
 
 
 def all_records(data):
-    return our_records() + data['records']
+    # the group's own datasets are listed only with "group_datasets": true
+    return (our_records() if data.get('group_datasets') else []) + data['records']
+
+
+def updated(data):
+    """The date of the last update of the catalogue ("updated", else the date of the reference list)."""
+    return date.fromisoformat(data.get('updated') or data['snapshot'])
 
 
 # --------------------------------------------------------------------------
@@ -234,8 +240,8 @@ def feature(prefix, data=None):
     data = data or load()
     records = all_records(data)
     families = len({r.get('family') or r['name'] for r in records})
-    snap = date.fromisoformat(data['snapshot'])
-    facts = [('Catalogue records', len(records)), ('Independent families', families), ('Updated', f'{snap.day} {snap:%b %Y}')]
+    snap = updated(data)
+    facts = [('Catalogue records', len(records)), ('Independent families', families), ('Last update', f'{snap.day} {snap:%b %Y}')]
     facts_html = '\n'.join(f'          <div><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd></div>' for t, v in facts)
     badge = new_badge(data)
     return f'''    <section class="obs-feature" aria-labelledby="obs-feature-title">
@@ -280,11 +286,11 @@ def update_features(data):
 # --------------------------------------------------------------------------
 
 def stats(data, records, families):
-    snap = date.fromisoformat(data['snapshot'])
+    snap = updated(data)
     items = [
         ('Catalogue records', len(records), 'versions, captures and collections'),
         ('Independent families', len(families), 'after grouping captures and derivatives'),
-        ('Updated', f'{snap.day} {snap:%b %Y}', 'counts refer to this date'),
+        ('Last update', f'{snap.day} {snap:%b %Y}', 'counts refer to this date'),
     ]
     return '\n'.join(f'''          <div class="dataset-stat"><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd><p class="obs-stat-note">{esc(n)}</p></div>'''
                      for t, v, n in items)
@@ -428,6 +434,7 @@ def engine(data, records, families):
       <div class="container obs-engine-inner">
         <h1 id="obs-engine-title" class="obs-engine-title">{MARK}<span>{esc(data['title'])}</span></h1>
         <p class="obs-engine-tagline">{esc(data.get('tagline') or data['lead'])}</p>
+        {f'<p class="obs-engine-desc">{esc(data["description"])}</p>' if data.get('description') else ''}
 {ai_modes(data)}        <form class="obs-search" role="search" action="#catalogue" id="obs-search-form"{ai_attrs(data)}>
           <label for="obs-q" class="visually-hidden">Search the catalogue</label>
           <input type="search" id="obs-q" name="q" placeholder="{search_hint(data, records)}" autocomplete="off" spellcheck="false" maxlength="500">
@@ -437,6 +444,7 @@ def engine(data, records, families):
         <ul class="obs-engine-stats" aria-label="The catalogue in numbers">
           <li><strong>{len(records)}</strong> records</li>
           <li><strong>{len(families)}</strong> independent families</li>
+          <li>last update <strong>{updated(data).day} {updated(data):%b %Y}</strong></li>
         </ul>
         <div class="obs-engine-submit">
           <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
@@ -476,9 +484,17 @@ def item(rec):
         marks += '<span class="tag">On request</span>'
     if rec['_mixed']:
         marks += '<span class="tag" title="Part of the data is not network traffic: the traffic component must be verified">Mixed modality</span>'
-    source = (f'<a href="{esc(rec["url"])}">Our dataset page</a>' if rec['_ours'] else
-              f'<a href="{esc(rec["url"])}" target="_blank" rel="noopener">{"Index" if rec["_index"] else "Official page"}<span class="visually-hidden"> (opens in a new tab)</span></a>'
-              + (f'<span class="obs-sub">via {esc(rec["_index"])}</span>' if rec['_index'] else '')) if rec.get('url') else '—'
+    new_tab = '<span class="visually-hidden"> (opens in a new tab)</span>'
+    links = []
+    if rec.get('url'):
+        links.append(f'<a href="{esc(rec["url"])}">Dataset page</a>' if rec['_ours'] else
+                     f'<a href="{esc(rec["url"])}" target="_blank" rel="noopener"'
+                     + (f' title="Listed in the {esc(rec["_index"])}">Dataset index' if rec['_index'] else '>Download page') + f'{new_tab}</a>')
+    paper = rec.get('paper') or {}
+    paper_url = f'https://doi.org/{paper["doi"]}' if paper.get('doi') else paper.get('url')
+    if paper_url:
+        links.append(f'<a href="{esc(paper_url)}" target="_blank" rel="noopener" class="obs-paper" title="{esc(paper.get("cite", ""))}">Paper{new_tab}</a>')
+    source = ''.join(links) or '—'
     data = rec.get('data') or []
     chips = ''.join(f'<li>{esc(d)}</li>' for d in data[:4]) + (f'<li class="obs-more">+{len(data) - 4}</li>' if len(data) > 4 else '')
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
@@ -590,13 +606,13 @@ def observatory_page(data):
             </div>
             <div class="obs-active" id="obs-active" hidden></div>
             <div class="obs-list-wrap">
-              <div class="obs-list-head" aria-hidden="true"><span>Dataset</span><span>Domain</span><span>Security task</span><span>Traffic data</span><span>Source</span></div>
+              <div class="obs-list-head" aria-hidden="true"><span>Dataset</span><span>Domain</span><span>Security task</span><span>Traffic data</span><span>Links</span></div>
               <div class="obs-list" id="obs-list">
 {rows}
               </div>
               <p class="pub-empty" id="obs-empty" hidden>No dataset matches this search. Try fewer words or remove a filter.</p>
             </div>
-            <p class="obs-note">Counts are catalogue records of the {date.fromisoformat(data['snapshot']).day} {date.fromisoformat(data['snapshot']):%B %Y} snapshot, not estimates of how many datasets are available.</p>
+            <p class="obs-note">Counts refer to the catalogue as of {updated(data).day} {updated(data):%B %Y}.</p>
           </div>
         </div>
       </div>
