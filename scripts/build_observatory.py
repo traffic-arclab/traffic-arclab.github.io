@@ -26,11 +26,12 @@ The domain filter is the paper table of the record, else it is computed, with th
 groups, from the free-text fields of each record.
 
 The rows of a paper table that has been reviewed (tab:rev-enterprise for now) carry its columns:
-"artifact" {traces, derived}, "acquisition" (real, hybrid, emulated), "labeling" (binary, multiclass,
+"artifact" {traces, derived}, "acquisition" (real, hybrid, emulated, mix), "labeling" (binary, multiclass,
 weak, none), "classes" {benign, attack, benign_subclasses}, "attack_families" (keys of FAMILIES; null
 when not documented, then the attack filter is computed from the text), "derivation_tool" and
 "size" {gb, count}. "parents" lists the ids of the records a dataset is derived from: the dialog of a
-parent shows its derived datasets as small cards, and the one of a child links back to its parents.
+parent shows its derived datasets as small cards, and the one of a child links back to its parents;
+"derived": true marks a derivative whose source is not yet identified.
 
 The form sends the submissions to the Google Apps Script web app in "submit_endpoint"
 (scripts/google-apps-script/dataset-downloads.gs, sheet "Observatory submissions");
@@ -198,6 +199,8 @@ def enrich(records):
         parents = [by_id[p] for p in rec.get('parents') or [] if p in by_id]
         if parents:
             rec['derived_from'] = ', '.join(p['name'] for p in parents)
+        elif rec.get('derived'):   # marked as derived in its paper table, the source is not yet in the catalogue
+            rec['derived_from'] = 'an earlier capture (not yet identified)'
         for p in parents:
             p['_children'].append(rec)
     for rec in records:
@@ -391,7 +394,8 @@ def facets():
         ('format', 'Traffic data', [(k, label) for k, label, _ in FORMATS], True),
         ('tool', 'File format and tools', [(k, label) for k, label, _ in TOOLS], False),
         ('access', 'Access', list(ACCESS.items()), False),
-        ('acquisition', 'Acquisition', [('real', 'Real devices'), ('hybrid', 'Real and simulated devices'), ('emulated', 'Emulated or simulated')], False),
+        ('acquisition', 'Acquisition', [('real', 'Real devices'), ('hybrid', 'Real and simulated devices'), ('emulated', 'Emulated or simulated'),
+                                        ('mix', 'Merge of sources')], False),
         ('labeling', 'Labels', [('binary', 'Binary'), ('multiclass', 'Multiclass'), ('weak', 'Weak or heuristic'), ('none', 'No labels')], False),
         ('source', 'Source', [('ours', 'Released by the Traffic group'), ('official', 'Official page'), ('index', 'Secondary index')], True),
         ('modality', 'Modality', [('traffic', 'Network traffic only'), ('mixed', 'Mixed modality')], False),

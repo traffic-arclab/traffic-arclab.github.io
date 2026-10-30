@@ -246,11 +246,11 @@
   const item = (label, value) => value ? `<dt>${label}</dt><dd>${value}</dd>` : '';
   const ACCESS = {registration: 'Registration', request: 'On request', restricted: 'Registration or request', undocumented: 'Not documented'};
   // the columns of the paper tables
-  const ACQUISITION = {real: 'Real devices', hybrid: 'Real and simulated devices', emulated: 'Emulated or simulated'};
+  const ACQUISITION = {real: 'Real devices', hybrid: 'Real and simulated devices', emulated: 'Emulated or simulated', mix: 'Merge of sources'};
   const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', none: 'None'};
   const FAMILIES = {bruteforce: 'Brute force', 'botnet-c2': 'Botnet / C2', dos: '(D)DoS', exfiltration: 'Exfiltration',
     lateral: 'Infiltration / lateral movement', malware: 'Malware / backdoor / worm', scanning: 'Reconnaissance / scan',
-    exploitation: 'Exploitation', web: 'Web', other: 'Other', attck: 'MITRE ATT&CK tactics'};
+    exploitation: 'Exploitation', web: 'Web', other: 'Other (incl. spoofing/MitM, protocol-specific)', attck: 'MITRE ATT&CK tactics'};
   const tbc = v => esc(String(v).replace(/\?$/, ' (to be confirmed)'));   // "5?" in the tables: to be confirmed
   const paperLink = p => p.doi ? `https://doi.org/${p.doi}` : p.url;
   // how the distribution source of the record was checked

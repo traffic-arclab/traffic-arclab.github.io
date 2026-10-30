@@ -223,13 +223,36 @@
       ],
       "paper": {
         "cite": "Koroniotis et al., Future Generation Computer Systems 2019",
+        "title": "Towards the development of realistic botnet dataset in the Internet of Things for network forensic analytics: Bot-IoT dataset",
         "doi": "10.1016/j.future.2019.05.041"
       },
       "notes": "The full collection and the ~5% extraction are described separately: class proportions measured on the subset must not be attributed to the full dataset.",
       "category": "iot",
       "year": "2018",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "exfiltration",
+        "scanning"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "gb": "69.3",
+        "count": "72M records"
+      }
     },
     {
       "id": "ton-iot",
@@ -243,14 +266,37 @@
         "logs"
       ],
       "paper": {
-        "cite": "Alsaedi et al., IEEE Access 2020",
-        "doi": "10.1109/ACCESS.2020.3022862"
+        "cite": "Moustafa, Sustainable Cities and Society 2021",
+        "title": "A new distributed architecture for evaluating AI-based security systems at the edge: Network TON_IoT datasets",
+        "doi": "10.1016/j.scs.2021.102994"
       },
       "notes": "Mixed-modality family: only the network-traffic components are eligible; host and telemetry records are excluded.",
       "category": "iot",
       "year": "2020",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "malware",
+        "scanning",
+        "exploitation",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "Zeek"
     },
     {
       "id": "iot-23",
@@ -264,13 +310,36 @@
       ],
       "paper": {
         "cite": "Garcia, Parmisano & Erquiaga, Zenodo 2020",
+        "title": "IoT-23: A labeled dataset with malicious and benign IoT network traffic",
         "doi": "10.5281/zenodo.4743746"
       },
       "notes": "20 malicious and 3 benign captures; the full archive (~21 GB, PCAP + Zeek labels) and the flow-only archive (~8.8 GB) are different representations, not separate datasets. v1 and v2 must not be mixed.",
       "category": "iot",
       "year": "2020",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "dos",
+        "malware",
+        "scanning"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "gb": "21"
+      }
     },
     {
       "id": "ciciot2023",
@@ -284,13 +353,39 @@
       ],
       "paper": {
         "cite": "Neto et al., Sensors 2023",
+        "title": "CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment",
         "doi": "10.3390/s23135941"
       },
       "notes": "Check per-attack capture and the equivalence between PCAP and CSV releases.",
       "category": "iot",
       "year": "2023",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "33"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "dpkt (custom)",
+      "size": {
+        "gb": "548"
+      }
     },
     {
       "id": "wustl-ehms-2020",
@@ -303,12 +398,32 @@
       ],
       "paper": {
         "cite": "Hady et al., IEEE Access 2020",
-        "doi": "10.1109/access.2020.3000421"
+        "title": "Intrusion Detection System for Healthcare Systems Using Medical and Network Data: A Comparison Study",
+        "doi": "10.1109/ACCESS.2020.3000421"
       },
       "category": "iot",
       "year": "2020",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "other"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "count": "16.3k records"
+      }
     },
     {
       "id": "ciciomt2024",
@@ -322,12 +437,31 @@
       ],
       "paper": {
         "cite": "Dadkhah et al., Internet of Things 2024",
+        "title": "CICIoMT2024: A benchmark dataset for multi-protocol security assessment in IoMT",
         "doi": "10.1016/j.iot.2024.101351"
       },
       "category": "iot",
       "year": "2024",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "18"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ]
     },
     {
       "id": "cic-iot-diad-2024",
@@ -341,7 +475,30 @@
       "category": "iot",
       "year": "2024",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "33"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "derived": true
     },
     {
       "id": "hcrl-car-hacking",
@@ -480,7 +637,8 @@
       ],
       "family": "NetFlow NIDS v2 (UQ)",
       "paper": {
-        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "cite": "Sarhan, Layeghy & Portmann, Mobile Networks and Applications 2022",
+        "title": "Towards a Standard Feature Set for Network Intrusion Detection System Datasets",
         "doi": "10.1007/s11036-021-01843-0"
       },
       "category": "enterprise",
@@ -525,7 +683,8 @@
       ],
       "family": "NetFlow NIDS v2 (UQ)",
       "paper": {
-        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "cite": "Sarhan, Layeghy & Portmann, Mobile Networks and Applications 2022",
+        "title": "Towards a Standard Feature Set for Network Intrusion Detection System Datasets",
         "doi": "10.1007/s11036-021-01843-0"
       },
       "category": "iot",
@@ -534,7 +693,32 @@
       "evidence": "verified",
       "parents": [
         "ton-iot"
-      ]
+      ],
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "malware",
+        "scanning",
+        "exploitation",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "nProbe",
+      "size": {
+        "count": "16.9M flows"
+      }
     },
     {
       "id": "nf-bot-iot-v2",
@@ -547,7 +731,8 @@
       ],
       "family": "NetFlow NIDS v2 (UQ)",
       "paper": {
-        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "cite": "Sarhan, Layeghy & Portmann, Mobile Networks and Applications 2022",
+        "title": "Towards a Standard Feature Set for Network Intrusion Detection System Datasets",
         "doi": "10.1007/s11036-021-01843-0"
       },
       "category": "iot",
@@ -556,7 +741,28 @@
       "evidence": "verified",
       "parents": [
         "bot-iot"
-      ]
+      ],
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "exfiltration",
+        "scanning"
+      ],
+      "derivation_tool": "nProbe",
+      "size": {
+        "count": "37.8M flows"
+      }
     },
     {
       "id": "nf-cse-cic-ids2018-v2",
@@ -569,7 +775,8 @@
       ],
       "family": "NetFlow NIDS v2 (UQ)",
       "paper": {
-        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "cite": "Sarhan, Layeghy & Portmann, Mobile Networks and Applications 2022",
+        "title": "Towards a Standard Feature Set for Network Intrusion Detection System Datasets",
         "doi": "10.1007/s11036-021-01843-0"
       },
       "category": "enterprise",
@@ -615,7 +822,8 @@
       ],
       "family": "NetFlow NIDS v2 (UQ)",
       "paper": {
-        "cite": "Sarhan et al., Mobile Networks and Applications 2021",
+        "cite": "Sarhan, Layeghy & Portmann, Mobile Networks and Applications 2022",
+        "title": "Towards a Standard Feature Set for Network Intrusion Detection System Datasets",
         "doi": "10.1007/s11036-021-01843-0"
       },
       "category": "enterprise",
@@ -667,12 +875,37 @@
       ],
       "paper": {
         "cite": "Ferrag et al., IEEE Access 2022",
-        "doi": "10.1109/access.2022.3165809"
+        "title": "Edge-IIoTset: A New Comprehensive Realistic Cyber Security Dataset of IoT and IIoT Applications for Centralized and Federated Learning",
+        "doi": "10.1109/ACCESS.2022.3165809"
       },
       "category": "iot",
       "year": "2022",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "14"
+      },
+      "attack_families": [
+        "dos",
+        "malware",
+        "scanning",
+        "exploitation",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "Zeek, tshark?",
+      "size": {
+        "gb": "1.5"
+      }
     },
     {
       "id": "n-baiot",
@@ -685,13 +918,36 @@
       ],
       "paper": {
         "cite": "Meidan et al., IEEE Pervasive Computing 2018",
+        "title": "N-BaIoT—Network-Based Detection of IoT Botnet Attacks Using Deep Autoencoders",
         "doi": "10.1109/MPRV.2018.03367731"
       },
       "notes": "Device-level leakage: validate on unseen devices.",
       "category": "iot",
       "year": "2018",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "dos",
+        "scanning"
+      ],
+      "derivation_tool": "AfterImage",
+      "size": {
+        "gb": "1.7",
+        "count": "7.1M records"
+      }
     },
     {
       "id": "swat",
@@ -735,7 +991,7 @@
     },
     {
       "id": "datasense-cic-iiot-2025",
-      "name": "DataSense CIC IIoT 2025",
+      "name": "DataSense: CIC IIoT Dataset 2025",
       "url": "https://www.unb.ca/cic/datasets/iiot-dataset-2025.html",
       "task": "Attack detection / classification",
       "domain": "IIoT;ICS",
@@ -747,11 +1003,39 @@
       "paper": {
         "cite": "Firouzi et al., Electronics 2025",
         "doi": "10.3390/electronics14204095"
-      }
+      },
+      "category": "iot",
+      "year": "2025",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "49"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "malware",
+        "scanning",
+        "web",
+        "other"
+      ],
+      "size": {
+        "count": "1.8B packets"
+      },
+      "evidence": "verified"
     },
     {
       "id": "tabulariotattack-2024",
-      "name": "TabularIoTAttack-2024",
+      "name": "CIC-BCCC-NRC TabularIoTAttack-2024",
       "url": "https://www.unb.ca/cic/datasets/tabular-iot-attack-2024.html",
       "task": "Attack detection",
       "domain": "IoT;multi-domain",
@@ -762,7 +1046,32 @@
       "year": "2024",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2",
+        "dos",
+        "exfiltration",
+        "malware",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": ">1M records"
+      },
+      "derived": true
     },
     {
       "id": "genis",
@@ -1261,7 +1570,24 @@
       "year": "2026",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "derivation_tool": "tshark"
     },
     {
       "id": "stratosphere-malware-capture-facility",
@@ -4111,7 +4437,7 @@
     {
       "id": "iot-sfc-v2",
       "name": "IoT-SFC v2",
-      "url": "https://zenodo.org/records/22055639",
+      "url": "https://data.mendeley.com/datasets/j9xffc2psb/5",
       "task": "IoT IDS multiclass",
       "domain": "IoT / IIoT / MQTT",
       "data": [
@@ -4121,7 +4447,31 @@
       "category": "iot",
       "year": "2026",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "14"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "gb": "13.9",
+        "count": "49.9M records"
+      }
     },
     {
       "id": "gem-can-v3",
@@ -4144,7 +4494,7 @@
     },
     {
       "id": "gotham-device-level-iot-network-traffic",
-      "name": "Gotham Device-Level IoT Network Traffic",
+      "name": "Gotham Dataset 2025",
       "url": "https://zenodo.org/records/14502760",
       "task": "Non-IID federated IDS; botnet/C2",
       "domain": "IoT / Smart city / FL",
@@ -4155,7 +4505,31 @@
       "category": "iot",
       "year": "2025",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "gb": "23.8"
+      }
     },
     {
       "id": "minids-multi-domain-vehicle-networks",
@@ -4170,7 +4544,7 @@
     },
     {
       "id": "iot-window-based-rl-traffic-representation",
-      "name": "IoT Window-Based RL Traffic Representation",
+      "name": "IoT-WinRL (Labeled IoT Window-Based Random Network Pattern Dataset for Reinforcement Learning)",
       "url": "https://zenodo.org/records/19238988",
       "task": "RL traffic analysis",
       "domain": "IoT / Reinforcement learning",
@@ -4180,7 +4554,32 @@
       "category": "iot",
       "year": "2026",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "custom",
+      "size": {
+        "gb": "0.0087"
+      },
+      "derived": true
     },
     {
       "id": "safe-nid-packet-level-payload-labels",
@@ -4248,6 +4647,7 @@
       ],
       "paper": {
         "cite": "Mirsky et al., NDSS 2018",
+        "title": "Kitsune: An Ensemble of Autoencoders for Online Network Intrusion Detection",
         "doi": "10.14722/ndss.2018.23204"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Nine attacks: reconnaissance, man-in-the-middle, DoS and Mirai botnet.",
@@ -4255,7 +4655,30 @@
       "category": "iot",
       "year": "2018",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "AfterImage",
+      "size": {
+        "gb": "17.7",
+        "count": "27.2M packets"
+      }
     },
     {
       "id": "insdn",
@@ -4348,7 +4771,11 @@
         "doi": "10.1109/jiot.2019.2912022"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. DoS, reconnaissance, command injection and backdoor. Same group as WUSTL-EHMS-2020.",
-      "origin": "web"
+      "origin": "web",
+      "category": "iot",
+      "year": "2021",
+      "representation": "Derived only",
+      "evidence": "verified"
     },
     {
       "id": "mqtt-iot-ids2020",
@@ -4361,7 +4788,8 @@
         "Packet and flow features CSV"
       ],
       "paper": {
-        "cite": "Hindy et al., LNNS 2021",
+        "cite": "Hindy et al., INC 2020 (LNNS 2021)",
+        "title": "Machine Learning Based IoT Intrusion Detection System: An MQTT Case Study (MQTT-IoT-IDS2020 Dataset)",
         "doi": "10.1007/978-3-030-64758-2_6"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Scans, SSH brute force and MQTT brute force. Dataset doi:10.21227/bhxy-ep04.",
@@ -4370,7 +4798,27 @@
       "year": "2020",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "bruteforce",
+        "scanning"
+      ],
+      "derivation_tool": "dpkt (custom)",
+      "size": {
+        "gb": "1.35"
+      }
     },
     {
       "id": "tii-ssrc-23",
@@ -4473,14 +4921,36 @@
       "notes": "Found online on 2026-10-20, not in the reference list. Reconnaissance and DoS (network), backdoor and cryptojacking (host).",
       "origin": "web",
       "paper": {
-        "cite": "Buedi et al., Research Square 2024",
-        "doi": "10.21203/rs.3.rs-4046330/v1"
+        "cite": "Buedi et al., DBSec 2024",
+        "title": "Enhancing EV Charging Station Security Using a Multi-dimensional Dataset: CICEVSE2024",
+        "doi": "10.1007/978-3-031-65172-4_11"
       },
       "category": "iot",
       "year": "2024",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "dos",
+        "malware",
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "36"
+      }
     },
     {
       "id": "cicapt-iiot2024",
@@ -4494,10 +4964,35 @@
       ],
       "paper": {
         "cite": "Ghiasvand et al., arXiv 2024",
-        "doi": "10.48550/arXiv.2407.11278"
+        "title": "CICAPT-IIOT: A provenance-based APT attack dataset for IIoT environment",
+        "url": "https://arxiv.org/abs/2407.11278"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. APT29-like campaign: more than 20 techniques in eight tactics.",
-      "origin": "web"
+      "notes": "Derived records: SPADE provenance graphs and packet CSV.",
+      "origin": "web",
+      "category": "iot",
+      "year": "2024",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "attck"
+      ],
+      "derivation_tool": "SPADE",
+      "size": {
+        "gb": "10"
+      },
+      "evidence": "verified"
     },
     {
       "id": "x-iiotid",
@@ -4511,11 +5006,44 @@
         "Logs and alerts"
       ],
       "paper": {
-        "cite": "Al-Hawawreh et al., IEEE Internet of Things Journal 2022",
-        "doi": "10.1109/jiot.2021.3102056"
+        "cite": "Al-Hawawreh, Sitnikova & Aboutorab, IEEE Internet of Things Journal 2022",
+        "title": "X-IIoTID: A Connectivity-Agnostic and Device-Agnostic Intrusion Data Set for Industrial Internet of Things",
+        "doi": "10.1109/JIOT.2021.3102056"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Multi-view features; also published on Kaggle.",
-      "origin": "web"
+      "origin": "web",
+      "category": "iot",
+      "year": "2021",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "18"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "exfiltration",
+        "lateral",
+        "malware",
+        "scanning",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "custom",
+      "size": {
+        "count": "821k records"
+      },
+      "evidence": "verified"
     },
     {
       "id": "caida-ddos-2007",
@@ -5353,7 +5881,7 @@
     },
     {
       "id": "unsw-iot-attack-mud",
-      "name": "UNSW IoT Attack (MUD) Dataset",
+      "name": "UNSW IoT Attack Traces (MUD)",
       "url": "https://iotanalytics.unsw.edu.au/attack-data",
       "task": "IoT attack detection",
       "domain": "IoT / Smart home",
@@ -5364,7 +5892,32 @@
       "category": "iot",
       "year": "2018",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "custom (MUD counters)",
+      "size": {
+        "count": "30 daily PCAP files"
+      },
+      "paper": {
+        "cite": "Hamza et al., ACM SOSR 2019",
+        "title": "Detecting Volumetric Attacks on IoT Devices via SDN-Based Monitoring of MUD Activity",
+        "doi": "10.1145/3314148.3314352"
+      }
     },
     {
       "id": "unsw-iot-traffic-traces",
@@ -5379,12 +5932,33 @@
       "category": "iot",
       "year": "2018",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0"
+      },
+      "attack_families": [],
+      "size": {
+        "count": "20 daily PCAP files"
+      },
+      "paper": {
+        "cite": "Sivanathan et al., IEEE Transactions on Mobile Computing 2019",
+        "title": "Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics",
+        "doi": "10.1109/TMC.2018.2866249"
+      }
     },
     {
       "id": "iot-network-intrusion-dataset-kang",
       "name": "IoT Network Intrusion Dataset (Kang et al. 2019)",
-      "url": "https://ieee-dataport.org/open-access/iot-network-intrusion-dataset",
+      "url": "https://doi.org/10.21227/q70p-q449",
       "task": "IoT intrusion detection",
       "domain": "IoT / Smart home",
       "data": [
@@ -5394,7 +5968,30 @@
       "year": "2019",
       "representation": "PCAP",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "0.82",
+        "count": "42 PCAP files"
+      }
     },
     {
       "id": "dad-iot-mqtt",
@@ -5413,7 +6010,25 @@
       "category": "iot",
       "year": "2020",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "other"
+      ],
+      "size": {
+        "count": "7 days"
+      }
     },
     {
       "id": "ecu-ioht",
@@ -5427,12 +6042,34 @@
       ],
       "paper": {
         "cite": "Ahmed et al., Ad Hoc Networks 2021",
+        "title": "ECU-IoHT: A dataset for analyzing cyberattacks in Internet of Health Things",
         "doi": "10.1016/j.adhoc.2021.102621"
       },
       "category": "iot",
       "year": "2020",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "count": "111k records"
+      },
+      "notes": "Dataset DOI: 10.25958/5f1f97b837aca."
     },
     {
       "id": "iotid20",
@@ -5444,15 +6081,40 @@
         "CICFlowMeter CSV"
       ],
       "paper": {
-        "cite": "Ullah & Mahmoud, Canadian AI 2020"
+        "cite": "Ullah & Mahmoud, Canadian AI 2020",
+        "title": "A Scheme for Generating a Dataset for Anomalous Activity Detection in IoT Networks",
+        "doi": "10.1007/978-3-030-47358-7_52"
       },
       "category": "iot",
       "year": "2020",
       "representation": "Derived only",
-      "evidence": "secondary",
+      "evidence": "verified",
       "parents": [
         "iot-network-intrusion-dataset-kang"
-      ]
+      ],
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "625k flows"
+      }
     },
     {
       "id": "medbiot",
@@ -5466,13 +6128,34 @@
       ],
       "paper": {
         "cite": "Guerra-Manzanares et al., ICISSP 2020",
+        "title": "MedBIoT: Generation of an IoT Botnet Dataset in a Medium-sized IoT Network",
         "doi": "10.5220/0009187802070218"
       },
       "notes": "83 real and emulated devices; Mirai, BashLite and Torii botnets.",
       "category": "iot",
       "year": "2020",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "scanning"
+      ],
+      "derivation_tool": "AfterImage (Kitsune features)",
+      "size": {
+        "count": "17.8M packets"
+      }
     },
     {
       "id": "mqttset",
@@ -5486,12 +6169,31 @@
       ],
       "paper": {
         "cite": "Vaccari et al., Sensors 2020",
+        "title": "MQTTset, a New Dataset for Machine Learning Techniques on MQTT",
         "doi": "10.3390/s20226578"
       },
       "category": "iot",
       "year": "2020",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "tshark?"
     },
     {
       "id": "cic-iot-dataset-2022",
@@ -5507,7 +6209,28 @@
       "year": "2022",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos"
+      ],
+      "paper": {
+        "cite": "Dadkhah et al., PST 2022",
+        "title": "Towards the Development of a Realistic Multidimensional IoT Profiling Dataset",
+        "doi": "10.1109/PST55820.2022.9851966"
+      }
     },
     {
       "id": "rt-iot2022",
@@ -5521,12 +6244,39 @@
       "category": "iot",
       "year": "2022",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "Zeek (Flowmeter)",
+      "size": {
+        "count": "123k records"
+      },
+      "paper": {
+        "cite": "Sharmila & Nagapadma, Cybersecurity 2023",
+        "title": "Quantized autoencoder (QAE) intrusion detection system for anomaly detection in resource-constrained IoT devices using RT-IoT2022 dataset",
+        "doi": "10.1186/s42400-023-00178-5"
+      }
     },
     {
       "id": "aci-iot-2023",
       "name": "ACI-IoT-2023",
-      "url": "https://www.kaggle.com/datasets/emilynack/aci-iot-network-traffic-dataset-2023",
+      "url": "https://doi.org/10.21227/qacj-3x32",
       "task": "IoT intrusion detection",
       "domain": "IoT",
       "data": [
@@ -5537,7 +6287,29 @@
       "year": "2023",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "11"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "32",
+        "count": "1.2M flows"
+      }
     },
     {
       "id": "dos-ddos-mqtt-iot",
@@ -5557,7 +6329,22 @@
       "category": "iot",
       "year": "2023",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "dos"
+      ]
     },
     {
       "id": "rosids23",
@@ -5577,12 +6364,29 @@
       "category": "iot",
       "year": "2023",
       "representation": "PCAP + derived",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter"
     },
     {
       "id": "iot-dh",
       "name": "IoT-DH Dataset",
-      "url": "https://data.mendeley.com/datasets/8dns3xbckv",
+      "url": "https://data.mendeley.com/datasets/8dns3xbckv/1",
       "task": "DDoS detection",
       "domain": "IoT / Honeypot",
       "data": [
@@ -5595,7 +6399,23 @@
       "category": "iot",
       "year": "2024",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "Argus"
     },
     {
       "id": "rospace",
@@ -5615,7 +6435,28 @@
       "category": "iot",
       "year": "2024",
       "representation": "Derived only",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "dos",
+        "scanning"
+      ],
+      "derivation_tool": "tshark, custom",
+      "size": {
+        "gb": "40.5",
+        "count": "30.2M records"
+      }
     },
     {
       "id": "bccc-iot-ids-zwave-2025",
@@ -5630,8 +6471,25 @@
       "category": "iot",
       "year": "2025",
       "representation": "PCAP + derived",
-      "evidence": "secondary",
-      "access": "restricted"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": "81 / 24"
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "20000",
+        "count": ">1B records"
+      }
     },
     {
       "id": "bccc-iot-mqtt-ids-2025",
@@ -5646,8 +6504,27 @@
       "category": "iot",
       "year": "2025",
       "representation": "PCAP + derived",
-      "evidence": "secondary",
-      "access": "restricted"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "MQTTFlowLyzer"
     },
     {
       "id": "dalhousie-nims-iot-2025-2",
@@ -5663,8 +6540,20 @@
       "category": "iot",
       "year": "2025",
       "representation": "PCAP",
-      "evidence": "secondary",
-      "access": "restricted"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null
     },
     {
       "id": "dalhousie-nims-iot-2025-1",
@@ -5681,7 +6570,27 @@
       "year": "2025",
       "representation": "PCAP",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "scanning"
+      ],
+      "derivation_tool": "Tranalyzer2",
+      "size": {
+        "gb": "3.9"
+      }
     },
     {
       "id": "mqtt-uad",
@@ -5700,7 +6609,26 @@
       "category": "iot",
       "year": "2025",
       "representation": "Derived only",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "size": {
+        "gb": "0.079",
+        "count": "285k packets"
+      }
     },
     {
       "id": "nf-ton-iot-v3",
@@ -5715,10 +6643,41 @@
       "category": "iot",
       "year": "2025",
       "representation": "Derived only",
-      "evidence": "secondary",
+      "evidence": "verified",
       "parents": [
         "ton-iot"
-      ]
+      ],
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "exfiltration",
+        "malware",
+        "scanning",
+        "exploitation",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "nProbe",
+      "size": {
+        "count": "44.5M flows (NF-ToN-IoT-v3 and NF-BoT-IoT-v3 together)"
+      },
+      "paper": {
+        "cite": "Luay et al., arXiv 2025",
+        "title": "Temporal Analysis of NetFlow Datasets for Network Intrusion Detection Systems",
+        "url": "https://arxiv.org/abs/2503.04404"
+      }
     },
     {
       "id": "nf-bot-iot-v3",
@@ -5733,10 +6692,41 @@
       "category": "iot",
       "year": "2025",
       "representation": "Derived only",
-      "evidence": "secondary",
+      "evidence": "verified",
       "parents": [
         "bot-iot"
-      ]
+      ],
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "exfiltration",
+        "malware",
+        "scanning",
+        "exploitation",
+        "web",
+        "other"
+      ],
+      "derivation_tool": "nProbe",
+      "size": {
+        "count": "44.5M flows (NF-ToN-IoT-v3 and NF-BoT-IoT-v3 together)"
+      },
+      "paper": {
+        "cite": "Luay et al., arXiv 2025",
+        "title": "Temporal Analysis of NetFlow Datasets for Network Intrusion Detection Systems",
+        "url": "https://arxiv.org/abs/2503.04404"
+      }
     },
     {
       "id": "unsw-iotraffic",
@@ -5753,12 +6743,29 @@
       "category": "iot",
       "year": "2025",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0"
+      },
+      "attack_families": [],
+      "size": {
+        "gb": "26.9",
+        "count": "4.9M flows"
+      }
     },
     {
       "id": "cyberflowiot-gicap",
       "name": "CyberFlowIoT-GICAP",
-      "url": "https://riubu.ubu.es/handle/10259/11273",
+      "url": "https://hdl.handle.net/10259/11273",
       "task": "IoT attack detection",
       "domain": "IoT / MQTT",
       "data": [
@@ -5768,7 +6775,20 @@
       "category": "iot",
       "year": "2026",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": null
     },
     {
       "id": "latam-ddos-iot",
@@ -5785,7 +6805,32 @@
       "year": "2022",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "gb": "31.6",
+        "count": "80.3M flows"
+      },
+      "paper": {
+        "cite": "Almaraz-Rivera et al., IEEE Access 2022",
+        "title": "Toward the Protection of IoT Networks: Introducing the LATAM-DDoS-IoT Dataset",
+        "doi": "10.1109/ACCESS.2022.3211513"
+      }
     },
     {
       "id": "iomt-trafficdata",
@@ -5800,7 +6845,28 @@
       "category": "iot",
       "year": "2023",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "2.7"
+      },
+      "paper": {
+        "cite": "Areia et al., IEEE Access 2024",
+        "title": "IoMT-TrafficData: Dataset and Tools for Benchmarking Intrusion Detection in Internet of Medical Things",
+        "doi": "10.1109/ACCESS.2024.3437214"
+      }
     },
     {
       "id": "mqtteeb-d",
@@ -5815,7 +6881,25 @@
       "category": "iot",
       "year": "2025",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "exploitation"
+      ],
+      "derivation_tool": "PyShark"
     },
     {
       "id": "android-mischief",
