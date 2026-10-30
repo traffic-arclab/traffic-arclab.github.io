@@ -17,8 +17,20 @@ shared on its own. It has its own entry, "Cybersecurity Observatory", in the top
 
 The records come from the Excel list (scripts/import_observatory.py) plus what is
 added by hand in the JSON: "origin": "web" (found online, not in the reference list), "family",
-"derived_from", "paper" {cite, doi} and "notes". Domain, task and data type groups
-used by the filters are computed here from the free-text fields of each record.
+"derived_from", "paper" {cite, doi} and "notes". The records of the paper tables also have
+"category" (the table: enterprise, iot, malware, industrial, automotive, v2x, uav, 5g), "year",
+"representation" (PCAP, PCAP + derived, Derived only, Bus / V2X msgs, Unclear), "evidence" (how the
+distribution source was checked: verified, secondary, publisher, unconfirmed) and "access"
+(registration, request, restricted = registration or request, undocumented; open when missing).
+The domain filter is the paper table of the record, else it is computed, with the task and data type
+groups, from the free-text fields of each record.
+
+The rows of a paper table that has been reviewed (tab:rev-enterprise for now) carry its columns:
+"artifact" {traces, derived}, "acquisition" (real, hybrid, emulated), "labeling" (binary, multiclass,
+weak, none), "classes" {benign, attack, benign_subclasses}, "attack_families" (keys of FAMILIES; null
+when not documented, then the attack filter is computed from the text), "derivation_tool" and
+"size" {gb, count}. "parents" lists the ids of the records a dataset is derived from: the dialog of a
+parent shows its derived datasets as small cards, and the one of a child links back to its parents.
 
 The form sends the submissions to the Google Apps Script web app in "submit_endpoint"
 (scripts/google-apps-script/dataset-downloads.gs, sheet "Observatory submissions");
@@ -46,21 +58,24 @@ DATA = os.path.join(ROOT, 'data', 'observatory.json')
 OUT = os.path.join(ROOT, 'observatory')
 esc = site.esc
 
-# First matching rule wins: the order matters (e.g. "Android / Malware" is Mobile, not Malware).
+# A record listed in one of the paper tables has its table in "category" (one of the keys of
+# DOMAINS that are paper tables); the others get the first matching rule: the order matters
+# (e.g. "Android / Malware" is Mobile, not Malware).
 DOMAINS = [
-    ('vehicular', 'Vehicular (CAN, V2X)', r'CAN|V2X|Automotive|vehicle|IoV'),
+    ('v2x', 'Vehicular V2X', r'V2X|VANET'),
+    ('automotive', 'Automotive (CAN, Ethernet)', r'CAN|Automotive|vehicle|IoV'),
     ('uav', 'UAV and drones', r'UAV|Drone|FANET'),
-    ('industrial', 'Industrial and smart grid', r'ICS|\bOT\b|Modbus|DNP3|SCADA|Smart grid|Power|Water|Electrical'),
-    ('healthcare', 'Healthcare (IoMT)', r'IoMT'),
-    ('wireless', 'Wireless, LPWAN and 5G', r'Wi-Fi|802\.11|LoRaWAN|LPWAN|Wireless|5G|Maritime'),
-    ('iot', 'IoT and IIoT', r'IoT'),
+    ('industrial', 'ICS and OT', r'ICS|\bOT\b|Modbus|DNP3|SCADA|Smart grid|Power|Water|Electrical'),
+    ('5g', '5G and mobile core', r'5G'),
+    ('wireless', 'Wireless and LPWAN', r'Wi-Fi|802\.11|LoRaWAN|LPWAN|Wireless|Maritime'),
+    ('iot', 'IoT, IIoT and IoMT', r'IoT|IoMT'),
     ('mobile', 'Mobile (Android)', r'Android'),
     ('malware', 'Malware, botnet and C2', r'Malware|Botnet|C2|Sandbox'),
     ('encrypted', 'Encrypted, DNS and darknet', r'TLS|Encrypted|VPN|Tor\b|Darknet|DNS|QUIC|PQC'),
     ('web', 'Web applications', r'\bWeb\b|HTTP'),
     ('backbone', 'Internet backbone and ISP', r'backbone|ISP'),
     ('benign', 'Benign reference traffic', r'Benign'),
-    ('enterprise', 'Enterprise and general networks', r''),
+    ('enterprise', 'Enterprise and general IP', r''),
 ]
 TASKS = [
     ('malware', 'Malware and C2 traffic', r'Malware|C2|Botnet|botnet'),
@@ -82,7 +97,10 @@ ATTACKS = [
     ('ddos', 'DDoS and DoS', r'DDoS|\bDoS\b|Bus-Off|battery depletion'),
     ('c2', 'Command and control', r'\bC2\b|command-control|command and control'),
     ('malware', 'Malware', r'[Mm]alware|MalDroid|AndMal|[Aa]dware'),
-    ('apt', 'APT and multi-stage', r'\bAPT\b|[Ll]ateral|[Mm]ulti-stage|[Rr]ed.team|ATT&CK|lifecycle'),
+    ('apt', 'APT and multi-stage', r'\bAPT\b|[Mm]ulti-stage|[Rr]ed.team|lifecycle'),
+    ('attck', 'MITRE ATT&CK tactics', r'ATT&CK'),
+    ('lateral', 'Infiltration and lateral movement', r'[Ll]ateral|[Ii]nfiltration'),
+    ('bruteforce', 'Brute force', r'[Bb]rute.force'),
     ('web', 'Web attacks', r'[Ww]eb (attack|request|exploit)|WAF|HTTP request|web/QUIC attack'),
     ('spoofing', 'Spoofing and injection', r'[Ss]poof|[Ii]njection|[Mm]isbehavior'),
     ('jamming', 'Jamming', r'[Jj]amming'),
@@ -90,6 +108,10 @@ ATTACKS = [
     ('scanning', 'Scanning', r'[Ss]canning|Nmap'),
     ('exploitation', 'Exploitation', r'[Ee]xploit|[Bb]uffer overflow|LSASS'),
 ]
+# The attack families of the paper tables, as filter values of ATTACKS ("other" has none).
+FAMILIES = {'bruteforce': ['bruteforce'], 'botnet-c2': ['botnet', 'c2'], 'dos': ['ddos'], 'exfiltration': ['exfiltration'],
+            'lateral': ['lateral'], 'malware': ['malware'], 'scanning': ['scanning'], 'exploitation': ['exploitation'],
+            'web': ['web'], 'other': [], 'attck': ['attck']}
 PROTOCOLS = [
     ('modbus', 'Modbus', r'Modbus'),
     ('dnp3', 'DNP3', r'DNP3'),
@@ -135,6 +157,11 @@ def group(text, rules):
     return next(key for key, _, pattern in rules if re.search(pattern, text or ''))
 
 
+def domain_of(rec):
+    """The paper table of the record, else the domain matched on its free text."""
+    return rec.get('category') or group(rec.get('domain', ''), DOMAINS)
+
+
 def formats_of(rec):
     text = ' '.join(rec.get('data') or [])
     return [key for key, _, pattern in FORMATS if re.search(pattern, text)]
@@ -156,7 +183,7 @@ def enrich(records):
     """Adds the groups used by the filters and the family head of every record."""
     families = {}
     for rec in records:
-        rec['_domain'] = group(rec.get('domain', ''), DOMAINS)
+        rec['_domain'] = domain_of(rec)
         rec['_task'] = group(rec.get('task', ''), TASKS)
         rec['_formats'] = formats_of(rec)
         rec['_family'] = rec.get('family') or rec['name']
@@ -164,6 +191,17 @@ def enrich(records):
         rec['_mixed'] = bool(NON_TRAFFIC.search(' '.join(rec.get('data') or [])))
         rec['_ours'] = bool(rec.get('_ours'))
         families.setdefault(rec['_family'], []).append(rec)
+    by_id = {rec['id']: rec for rec in records}
+    for rec in records:
+        rec['_children'] = []
+    for rec in records:
+        parents = [by_id[p] for p in rec.get('parents') or [] if p in by_id]
+        if parents:
+            rec['derived_from'] = ', '.join(p['name'] for p in parents)
+        for p in parents:
+            p['_children'].append(rec)
+    for rec in records:
+        rec['_children'].sort(key=lambda c: c.get('year') or '')
     for name, members in families.items():
         head = next((r for r in members if r['name'] == name), members[0])
         for rec in members:
@@ -300,9 +338,13 @@ def facet_values(rec):
     """Every filter value of a record, as group:value (the groups of FACETS)."""
     about = ' '.join([rec['name'], rec.get('task', ''), rec.get('domain', '')])
     data = ' '.join(rec.get('data') or [])
-    out = {'domain': [rec['_domain']], 'attack': matches(about, ATTACKS), 'protocol': matches(f'{about} {data}', PROTOCOLS),
+    families = rec.get('attack_families')
+    attacks = (sorted({v for f in families for v in FAMILIES[f]}, key=[k for k, *_ in ATTACKS].index)
+               if families is not None else matches(about, ATTACKS))
+    out = {'domain': [rec['_domain']], 'attack': attacks, 'protocol': matches(f'{about} {data}', PROTOCOLS),
            'task': [rec['_task']], 'format': rec['_formats'], 'tool': matches(data, TOOLS),
            'access': [rec.get('access') or 'open'],
+           'acquisition': [rec['acquisition']] if rec.get('acquisition') else [], 'labeling': rec.get('labeling') or [],
            'source': ['ours' if rec['_ours'] else 'index' if rec['_index'] else 'official'],
            'origin': ['group' if rec['_ours'] else 'web' if rec.get('origin') == 'web' else 'list'],
            'modality': ['mixed' if rec['_mixed'] else 'traffic'], 'paper': ['yes' if rec.get('paper') else 'no'],
@@ -335,6 +377,10 @@ def ai_catalogue(data, records):
             'ids': [r['id'] for r in records if r['_head']], 'text': '\n'.join(lines)}
 
 
+ACCESS = {'open': 'Open', 'registration': 'Registration', 'request': 'On request',
+          'restricted': 'Registration or request', 'undocumented': 'Not documented'}
+
+
 def facets():
     """The filter groups: (key, title, [(value, label)], open by default)."""
     return [
@@ -344,7 +390,9 @@ def facets():
         ('task', 'Security task', [(k, label) for k, label, _ in TASKS], False),
         ('format', 'Traffic data', [(k, label) for k, label, _ in FORMATS], True),
         ('tool', 'File format and tools', [(k, label) for k, label, _ in TOOLS], False),
-        ('access', 'Access', [('open', 'Not restricted'), ('request', 'On request')], False),
+        ('access', 'Access', list(ACCESS.items()), False),
+        ('acquisition', 'Acquisition', [('real', 'Real devices'), ('hybrid', 'Real and simulated devices'), ('emulated', 'Emulated or simulated')], False),
+        ('labeling', 'Labels', [('binary', 'Binary'), ('multiclass', 'Multiclass'), ('weak', 'Weak or heuristic'), ('none', 'No labels')], False),
         ('source', 'Source', [('ours', 'Released by the Traffic group'), ('official', 'Official page'), ('index', 'Secondary index')], True),
         ('modality', 'Modality', [('traffic', 'Network traffic only'), ('mixed', 'Mixed modality')], False),
         ('paper', 'Original publication', [('yes', 'Paper identified'), ('no', 'Not yet linked')], False),
@@ -428,8 +476,23 @@ def ai_chat(data):
 '''
 
 
+def citation(data):
+    """The paper to cite for the Observatory ("citation" of data/observatory.json), next to the submit call."""
+    cite = data.get('citation')
+    if not cite:
+        return '', ''
+    # the two lines of the cite block face the two lines of the submit call; the authors are a row below
+    return f'''          <div class="obs-cite">
+            <p class="obs-cite-kicker">Cite this work</p>
+            <p class="obs-cite-title">{esc(cite['title'])}</p>
+          </div>
+''', f'''          <p class="obs-cite-by">{esc(', '.join(cite['authors']))} · {esc(cite['affiliation'])}</p>
+'''
+
+
 def engine(data, records, families):
     """The opening of the page: a search engine home, on a night sky with the observatory drawing."""
+    cite, cite_by = citation(data)
     return f'''    <section class="obs-engine" aria-labelledby="obs-engine-title">
       <div class="container obs-engine-inner">
         <h1 id="obs-engine-title" class="obs-engine-title">{MARK}<span>{esc(data['title'])}</span></h1>
@@ -446,10 +509,12 @@ def engine(data, records, families):
           <li><strong>{len(families)}</strong> independent families</li>
           <li>last update <strong>{updated(data).day} {updated(data):%b %Y}</strong></li>
         </ul>
-        <div class="obs-engine-submit">
-          <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
-          <a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
-        </div>
+        <div class="obs-engine-foot">
+{cite}          <div class="obs-engine-submit">
+            <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
+            <a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
+          </div>
+{cite_by}        </div>
       </div>
     </section>'''
 
@@ -475,13 +540,16 @@ def item(rec):
         family = f'<span class="obs-sub">Family: {esc(rec["_family"])}</span>'
     if rec.get('derived_from'):
         family += f'<span class="obs-sub">Derived from {esc(rec["derived_from"])}</span>'
+    if rec['_children']:
+        n = len(rec['_children'])
+        family += f'<span class="obs-sub">{n} derived dataset{"s" if n > 1 else ""}</span>'
     marks = ''
     if rec['_ours']:
         marks += '<span class="tag tag-accent">Traffic group</span>'
     if rec.get('origin') == 'web':
         marks += '<span class="tag tag-new" title="Found online, not in the reference list">Found online</span>'
-    if rec.get('access') == 'request':
-        marks += '<span class="tag">On request</span>'
+    if rec.get('access') in ('registration', 'request', 'restricted'):
+        marks += f'<span class="tag">{ACCESS[rec["access"]]}</span>'
     if rec['_mixed']:
         marks += '<span class="tag" title="Part of the data is not network traffic: the traffic component must be verified">Mixed modality</span>'
     new_tab = '<span class="visually-hidden"> (opens in a new tab)</span>'
@@ -561,10 +629,17 @@ def submit_form(data):
 
 def page_data(records):
     """The record details shown in the dialog (the table carries only what the filters need)."""
-    keep = ('id', 'name', 'url', 'task', 'domain', 'data', 'access', 'family', 'derived_from', 'paper', 'notes')
+    keep = ('id', 'name', 'url', 'task', 'domain', 'year', 'data', 'representation', 'access', 'evidence', 'family', 'derived_from',
+            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents')
+    table = ('artifact', 'classes', 'attack_families')   # kept also when empty: an empty list is "none", a missing one "not documented"
     out = []
     for r in records:
         item = {k: r[k] for k in keep if r.get(k)}
+        item.update({k: r[k] for k in table if k in r})
+        if r.get('size'):
+            item['volume'] = r['size']
+        if r['_children']:
+            item['children'] = [c['id'] for c in r['_children']]
         item.update(size=r['_size'], index=r['_index'], mixed=r['_mixed'], ours=r['_ours'],
                     domainGroup=label_of(DOMAINS, r['_domain']))
         out.append(item)
@@ -651,6 +726,9 @@ def observatory_page(data):
     page = site.frame(f'{data["title"]} | Traffic',
                       'Curated catalogue of network-traffic datasets for AI-based cybersecurity, linked to their papers and distribution sources.',
                       main, 'observatory')
+    # the Observatory is an English page: the university in the top bar and the footer of the template too
+    page = (page.replace('Università degli Studi di Napoli <strong>Federico II</strong>', 'University of Napoli <strong>Federico II</strong>')
+            .replace('Università degli Studi di Napoli Federico II', 'University of Napoli Federico II'))
     if is_hidden(data):
         page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
     # frame() adds the Datasets script; this page has its own.

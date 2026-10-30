@@ -218,18 +218,67 @@
   const dialog = document.getElementById('obs-dialog');
   const body = dialog.querySelector('[data-dialog-body]');
   const item = (label, value) => value ? `<dt>${label}</dt><dd>${value}</dd>` : '';
+  const ACCESS = {registration: 'Registration', request: 'On request', restricted: 'Registration or request', undocumented: 'Not documented'};
+  // the columns of the paper tables
+  const ACQUISITION = {real: 'Real devices', hybrid: 'Real and simulated devices', emulated: 'Emulated or simulated'};
+  const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', none: 'None'};
+  const FAMILIES = {bruteforce: 'Brute force', 'botnet-c2': 'Botnet / C2', dos: '(D)DoS', exfiltration: 'Exfiltration',
+    lateral: 'Infiltration / lateral movement', malware: 'Malware / backdoor / worm', scanning: 'Reconnaissance / scan',
+    exploitation: 'Exploitation', web: 'Web', other: 'Other', attck: 'MITRE ATT&CK tactics'};
+  const tbc = v => esc(String(v).replace(/\?$/, ' (to be confirmed)'));   // "5?" in the tables: to be confirmed
+  const paperLink = p => p.doi ? `https://doi.org/${p.doi}` : p.url;
+  // how the distribution source of the record was checked
+  const EVIDENCE = {verified: 'Verified on the official page', secondary: 'Secondary source only',
+    publisher: 'Publisher link only', unconfirmed: 'Not confirmed (data may not be published yet)'};
+
+  function artifacts(a) {
+    if (a === undefined) return '';
+    if (a === null) return 'Not documented';
+    return a.traces && a.derived ? 'Network traces and derived records' : a.traces ? 'Network traces only' : a.derived ? 'Derived records only' : '';
+  }
+
+  function classes(c) {
+    if (!c) return '';
+    const benign = c.benign === null ? 'benign class not documented'
+      : c.benign ? 'benign class' + (c.benign_subclasses ? ` (${c.benign_subclasses} subclasses)` : '') : 'no benign class';
+    const attack = c.attack === null ? 'attack classes not specified' : c.attack === 'n.d.' ? 'attack classes not documented'
+      : `${tbc(c.attack)} attack class${c.attack === '1' ? '' : 'es'}`;
+    return `${benign[0].toUpperCase()}${benign.slice(1)}, ${attack}`;
+  }
+
+  function attackFamilies(f) {
+    if (f === undefined) return '';
+    if (f === null) return 'Not documented';
+    return f.length ? `<ul class="obs-chips">${f.map(k => `<li>${esc(FAMILIES[k])}</li>`).join('')}</ul>` : 'None (benign or unlabelled traffic)';
+  }
+
+  // A derived dataset in the dialog of its parent: a small card with its links.
+  function mini(c) {
+    const links = [c.url && `<a href="${esc(c.url)}" target="_blank" rel="noopener">Download page</a>`,
+      c.paper && paperLink(c.paper) && `<a href="${esc(paperLink(c.paper))}" target="_blank" rel="noopener">Paper</a>`].filter(Boolean).join('');
+    const meta = [c.year, c.derivation_tool, c.representation].filter(Boolean).map(esc).join(' · ');
+    return `<li class="obs-mini">
+      <button type="button" class="obs-mini-name" data-open="${esc(c.id)}">${esc(c.name)}</button>
+      ${meta ? `<p class="obs-mini-meta">${meta}</p>` : ''}
+      ${links ? `<p class="obs-mini-links">${links}</p>` : ''}
+    </li>`;
+  }
 
   function details(r) {
-    const paper = r.paper ? esc(r.paper.cite) + (r.paper.doi
-      ? ` · <a href="https://doi.org/${esc(r.paper.doi)}" target="_blank" rel="noopener">doi:${esc(r.paper.doi)}</a>`
-      : r.paper.url ? ` · <a href="${esc(r.paper.url)}" target="_blank" rel="noopener">Read the paper</a>` : '') : '';
+    const paper = r.paper ? esc(r.paper.cite) + (r.paper.title ? `<br><em>${esc(r.paper.title)}</em>` : '') + (r.paper.doi
+      ? `<br><a href="https://doi.org/${esc(r.paper.doi)}" target="_blank" rel="noopener">doi:${esc(r.paper.doi)}</a>`
+      : r.paper.url ? `<br><a href="${esc(r.paper.url)}" target="_blank" rel="noopener">Read the paper</a>` : '') : '';
+    const parents = (r.parents || []).filter(id => byId[id])
+      .map(id => `<button type="button" class="obs-link" data-open="${esc(id)}">${esc(byId[id].name)}</button>`).join(', ');
+    const children = (r.children || []).map(id => byId[id]).filter(Boolean);
+    const volume = r.volume ? [r.volume.gb && `${esc(r.volume.gb)} GB`, esc(r.volume.count)].filter(Boolean).join(' · ') : '';
     const source = r.ours ? `<a href="${esc(r.url)}">Dataset page on this site, with the download</a>`
       : r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.url)}</a>`
       + (r.index ? `<br><small>This link is a secondary index (${esc(r.index)}), not the official release page.</small>` : '') : '';
     const cautions = [
       r.mixed && 'Part of the distributed data is not network traffic: only the traffic component is eligible, and it must be identified at file level.',
       r.size > 1 && `This record belongs to the ${esc(r.family || r.name)} family (${r.size} records): captures and derivatives of one family are not independent datasets.`,
-      r.derived_from && `Derived from ${esc(r.derived_from)}: not an independent acquisition.`,
+      r.derived_from && !parents && `Derived from ${esc(r.derived_from)}: not an independent acquisition.`,
     ].filter(Boolean).map(t => `<li>${t}</li>`).join('');
     body.innerHTML = `
       <p class="card-kicker">${esc(r.domainGroup)}</p>
@@ -237,21 +286,39 @@
       <dl class="obs-dl">
         ${item('Security task', esc(r.task))}
         ${item('Domain', esc(r.domain))}
+        ${item('Year', esc(r.year))}
         ${item('Traffic data', esc((r.data || []).join(', ')))}
-        ${item('Access', r.access === 'request' ? 'On request' : 'Open')}
+        ${item('Representation', esc(r.representation))}
+        ${item('Artifacts', artifacts(r.artifact))}
+        ${item('Acquisition', ACQUISITION[r.acquisition])}
+        ${item('Labels', (r.labeling || []).map(l => LABELS[l]).join(', '))}
+        ${item('Classes', classes(r.classes))}
+        ${item('Attack families', attackFamilies(r.attack_families))}
+        ${item('Derivation tool', tbc(r.derivation_tool || '').trim())}
+        ${item('Size', volume)}
+        ${item('Access', ACCESS[r.access] || 'Open')}
         ${item('Source', source)}
+        ${item('Source check', EVIDENCE[r.evidence])}
         ${item('Original publication', paper)}
+        ${item('Derived from', parents && `${parents} <small>(not an independent acquisition)</small>`)}
         ${item('Notes', esc(r.notes))}
       </dl>
+      ${children.length ? `<section class="obs-derived" aria-label="Derived datasets">
+        <p class="card-kicker">Derived datasets (${children.length})</p>
+        <ul class="obs-minis">${children.map(mini).join('')}</ul>
+      </section>` : ''}
       ${cautions ? `<ul class="obs-cautions">${cautions}</ul>` : ''}
       <div class="gate-actions">
         <a class="btn btn-ghost" href="#submit" data-report="${esc(r.name)}">Report a correction</a>
       </div>`;
+    // a parent or a derived dataset opens in the same dialog
+    body.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => details(byId[b.dataset.open])));
+    body.scrollTop = 0;
     body.querySelector('[data-report]').addEventListener('click', e => {
       dialog.close();
       prefill(e.currentTarget.dataset.report, r.url);
     });
-    dialog.showModal();
+    if (!dialog.open) dialog.showModal();
   }
 
   list.addEventListener('click', e => {
@@ -269,7 +336,7 @@
   function pick(r, why, rank) {
     const tags = [r.ours && '<span class="tag tag-accent">Traffic group</span>',
       r.size > 1 && `<span class="tag">Family · ${r.size} records</span>`,
-      r.access === 'request' && '<span class="tag">On request</span>'].filter(Boolean).join('');
+      ['registration', 'request', 'restricted'].includes(r.access) && `<span class="tag">${ACCESS[r.access]}</span>`].filter(Boolean).join('');
     return `<li class="obs-pick">
       <span class="obs-pick-rank" aria-hidden="true">${rank}</span>
       <div class="obs-pick-body">
