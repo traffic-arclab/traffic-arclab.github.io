@@ -1435,6 +1435,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 [data-domain="automotive"] { --dom: #d9822b; } [data-domain="uav"] { --dom: #8e6bd1; }
 [data-domain="industrial"] { --dom: #b5543c; } [data-domain="v2x"] { --dom: #d0567f; }
 [data-domain="5g"] { --dom: #1f7a5c; }       [data-domain="ddos"] { --dom: #8c5a2b; }
+[data-domain="sdn"] { --dom: #2f6fb0; }
 [data-domain="wireless"] { --dom: #23a197; }   [data-domain="iot"] { --dom: #3a8bd6; }
 [data-domain="mobile"] { --dom: #4f9a3a; }     [data-domain="malware"] { --dom: #c9384a; }
 [data-domain="encrypted"] { --dom: #5563d9; }  [data-domain="web"] { --dom: #c39a17; }

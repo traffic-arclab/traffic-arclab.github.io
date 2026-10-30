@@ -74,6 +74,7 @@ DOMAINS = [
     ('iot', 'IoT, IIoT and IoMT', r'IoT|IoMT'),
     ('mobile', 'Mobile (Android)', r'Android'),
     ('malware', 'Malware, botnet and C2', r'Malware|Botnet|C2|Sandbox'),
+    ('sdn', 'SDN and cloud', r'\bSDN\b|[Cc]loud'),
     ('ddos', 'DDoS', r'DDoS|\bDoS\b'),
     ('encrypted', 'Encrypted and darknet', r'TLS|Encrypted|VPN|Tor\b|Darknet|QUIC|PQC'),
     ('web', 'DNS and web', r'DNS|DoH|\bWeb\b|HTTP'),

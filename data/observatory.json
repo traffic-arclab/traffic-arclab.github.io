@@ -4467,9 +4467,36 @@
         "Port statistics, flow-derived features"
       ],
       "paper": {
-        "cite": "Das et al., TechRxiv 2022",
-        "doi": "10.36227/techrxiv.19877311"
-      }
+        "cite": "Das et al., IEEE CCNC 2023",
+        "title": "UNR-IDD: Intrusion Detection Dataset using Network Port Statistics",
+        "doi": "10.1109/CCNC51644.2023.10059640"
+      },
+      "notes": "Preprint: Das et al., TechRxiv 2022 (10.36227/techrxiv.19877311).",
+      "category": "sdn",
+      "year": "2023",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "ONOS (port statistics)",
+      "size": {
+        "gb": "0.0053"
+      },
+      "evidence": "verified"
     },
     {
       "id": "ait-log-dataset",
@@ -6005,11 +6032,40 @@
         "Network traffic (formats to verify)"
       ],
       "paper": {
-        "cite": "Elsayed, Le-Khac, Jurcut, IEEE Access 2020",
+        "cite": "Elsayed, Le-Khac & Jurcut, IEEE Access 2020",
+        "title": "InSDN: A Novel SDN Intrusion Dataset",
         "doi": "10.1109/ACCESS.2020.3022633"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. DoS, DDoS, brute force, web attacks, exploitation, probing and botnet. Licence CC BY-NC 4.0.",
-      "origin": "web"
+      "origin": "web",
+      "category": "sdn",
+      "year": "2020",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "exploitation",
+        "web"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "344k flows"
+      },
+      "evidence": "verified"
     },
     {
       "id": "litnet-2020",
@@ -10502,6 +10558,128 @@
         "cic-bell-dns-exf-2021"
       ],
       "notes": "6 sub-categories of light/heavy exfiltration and malicious DNS; benign class not documented.",
+      "evidence": "verified"
+    },
+    {
+      "id": "isot-cid",
+      "name": "ISOT Cloud Intrusion Detection Dataset (ISOT-CID)",
+      "url": "https://onlineacademiccommunity.uvic.ca/isot/2022/11/25/cloud-security-datasets/",
+      "task": "Cloud intrusion detection",
+      "domain": "SDN / cloud",
+      "data": [
+        "PCAP",
+        "system logs"
+      ],
+      "paper": {
+        "cite": "Aldribi, Traoré, Moa & Nwamuo, Computers & Security 2020",
+        "title": "Hypervisor-based cloud intrusion detection through online multivariate statistical change tracking",
+        "doi": "10.1016/j.cose.2019.101646"
+      },
+      "category": "sdn",
+      "year": "2018",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
+      "access": "request",
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "malware",
+        "scanning",
+        "web",
+        "other"
+      ],
+      "size": {
+        "gb": ">8000"
+      },
+      "notes": "Binary labels per packet (from the list of benign hosts) over about 16 attack types. More than 8 TB.",
+      "evidence": "verified"
+    },
+    {
+      "id": "sdn-ddos-ahuja",
+      "name": "DDoS attack SDN Dataset (SDN DDoS)",
+      "url": "https://doi.org/10.17632/jxpfjc64kr.1",
+      "task": "DDoS detection in SDN",
+      "domain": "SDN / cloud",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Ahuja, Singal & Mukhopadhyay, Mendeley Data 2020",
+        "title": "DDOS attack SDN Dataset",
+        "doi": "10.17632/jxpfjc64kr.1"
+      },
+      "category": "sdn",
+      "year": "2020",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "Ryu (custom stats)",
+      "size": {
+        "count": "104k records"
+      },
+      "notes": "Emulated in Mininet with a Ryu controller.",
+      "evidence": "verified"
+    },
+    {
+      "id": "bccc-cpacket-cloud-ddos-2024",
+      "name": "BCCC-cPacket-Cloud-DDoS-2024",
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/cloud-ddos-attacks-bccc-cpacket-cloud-ddos-2024/",
+      "task": "Cloud DDoS detection",
+      "domain": "SDN / cloud",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2024",
+        "title": "Cloud DDoS Attacks (BCCC-cPacket-Cloud-DDoS-2024)",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/cloud-ddos-attacks-bccc-cpacket-cloud-ddos-2024/"
+      },
+      "category": "sdn",
+      "year": "2024",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "17"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "NTLFlowLyzer",
+      "notes": "26 labels: 17 DDoS scenarios plus benign activities.",
       "evidence": "verified"
     }
   ]
