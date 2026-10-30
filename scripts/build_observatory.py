@@ -31,7 +31,8 @@ weak, none), "classes" {benign, attack, benign_subclasses}, "attack_families" (k
 when not documented, then the attack filter is computed from the text), "derivation_tool" and
 "size" {gb, count}. "parents" lists the ids of the records a dataset is derived from: the dialog of a
 parent shows its derived datasets as small cards, and the one of a child links back to its parents;
-"derived": true marks a derivative whose source is not yet identified.
+"parents_text" names sources that are not catalogue records (shown as text), and "derived": true marks
+a derivative whose source is not yet identified.
 
 The form sends the submissions to the Google Apps Script web app in "submit_endpoint"
 (scripts/google-apps-script/dataset-downloads.gs, sheet "Observatory submissions");
@@ -197,8 +198,8 @@ def enrich(records):
         rec['_children'] = []
     for rec in records:
         parents = [by_id[p] for p in rec.get('parents') or [] if p in by_id]
-        if parents:
-            rec['derived_from'] = ', '.join(p['name'] for p in parents)
+        if parents or rec.get('parents_text'):   # "parents_text": sources that are not catalogue records
+            rec['derived_from'] = ', '.join([p['name'] for p in parents] + (rec.get('parents_text') or []))
         elif rec.get('derived'):   # marked as derived in its paper table, the source is not yet in the catalogue
             rec['derived_from'] = 'an earlier capture (not yet identified)'
         for p in parents:
@@ -636,7 +637,7 @@ def submit_form(data):
 def page_data(records):
     """The record details shown in the dialog (the table carries only what the filters need)."""
     keep = ('id', 'name', 'url', 'task', 'domain', 'year', 'data', 'representation', 'access', 'evidence', 'family', 'derived_from',
-            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents')
+            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text')
     table = ('artifact', 'classes', 'attack_families')   # kept also when empty: an empty list is "none", a missing one "not documented"
     out = []
     for r in records:

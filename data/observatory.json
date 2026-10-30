@@ -498,7 +498,7 @@
         "other"
       ],
       "derivation_tool": "CICFlowMeter",
-      "derived": true
+      "notes": "New capture: 33 distinct attacks conducted within an IoT topology of 105 devices (CICIoT2023 is related work, not a source)."
     },
     {
       "id": "hcrl-car-hacking",
@@ -1071,7 +1071,20 @@
       "size": {
         "count": ">1M records"
       },
-      "derived": true
+      "parents": [
+        "iot-network-intrusion-dataset-kang",
+        "mqtt-iot-ids2020",
+        "ton-iot",
+        "cic-iot-dataset-2022",
+        "edge-iiotset",
+        "ciciot2023",
+        "aci-iot-2023",
+        "ciciomt2024"
+      ],
+      "parents_text": [
+        "UQ IoT 2022"
+      ],
+      "notes": "Merges nine datasets listed as \"Original dataset\" on the official page; UQ IoT 2022 is not in the catalogue."
     },
     {
       "id": "genis",
@@ -5868,7 +5881,7 @@
       ],
       "derivation_tool": "nProbe",
       "size": {
-        "count": "20.1M flows"
+        "count": "20,115,529 flows"
       },
       "paper": {
         "cite": "Luay et al., arXiv 2025",
@@ -6651,7 +6664,7 @@
         "traces": false,
         "derived": true
       },
-      "acquisition": "mix",
+      "acquisition": "hybrid",
       "labeling": [
         "multiclass"
       ],
@@ -6662,7 +6675,6 @@
       "attack_families": [
         "bruteforce",
         "dos",
-        "exfiltration",
         "malware",
         "scanning",
         "exploitation",
@@ -6671,13 +6683,14 @@
       ],
       "derivation_tool": "nProbe",
       "size": {
-        "count": "44.5M flows (NF-ToN-IoT-v3 and NF-BoT-IoT-v3 together)"
+        "count": "27,520,260 flows"
       },
       "paper": {
         "cite": "Luay et al., arXiv 2025",
         "title": "Temporal Analysis of NetFlow Datasets for Network Intrusion Detection Systems",
         "url": "https://arxiv.org/abs/2503.04404"
-      }
+      },
+      "notes": "16,792,214 benign and 10,728,046 attack flows; attack classes: DDoS, XSS, Password, Scanning, Injection, DoS, Backdoor, MITM, Ransomware."
     },
     {
       "id": "nf-bot-iot-v3",
@@ -6700,7 +6713,7 @@
         "traces": false,
         "derived": true
       },
-      "acquisition": "mix",
+      "acquisition": "emulated",
       "labeling": [
         "multiclass"
       ],
@@ -6709,24 +6722,20 @@
         "attack": "4"
       },
       "attack_families": [
-        "bruteforce",
         "dos",
         "exfiltration",
-        "malware",
-        "scanning",
-        "exploitation",
-        "web",
-        "other"
+        "scanning"
       ],
       "derivation_tool": "nProbe",
       "size": {
-        "count": "44.5M flows (NF-ToN-IoT-v3 and NF-BoT-IoT-v3 together)"
+        "count": "16,993,808 flows"
       },
       "paper": {
         "cite": "Luay et al., arXiv 2025",
         "title": "Temporal Analysis of NetFlow Datasets for Network Intrusion Detection Systems",
         "url": "https://arxiv.org/abs/2503.04404"
-      }
+      },
+      "notes": "51,989 benign and 16,881,819 attack flows; attack classes: DoS, DDoS, Reconnaissance, Theft. The benign and attack counts of the source page add up to 16,933,808, not to its stated total."
     },
     {
       "id": "unsw-iotraffic",

@@ -295,7 +295,8 @@
       ? `<br><a href="https://doi.org/${esc(r.paper.doi)}" target="_blank" rel="noopener">doi:${esc(r.paper.doi)}</a>`
       : r.paper.url ? `<br><a href="${esc(r.paper.url)}" target="_blank" rel="noopener">Read the paper</a>` : '') : '';
     const parents = (r.parents || []).filter(id => byId[id])
-      .map(id => `<button type="button" class="obs-link" data-open="${esc(id)}">${esc(byId[id].name)}</button>`).join(', ');
+      .map(id => `<button type="button" class="obs-link" data-open="${esc(id)}">${esc(byId[id].name)}</button>`)
+      .concat((r.parents_text || []).map(t => `${esc(t)} <small>(not in the catalogue)</small>`)).join(', ');
     const children = (r.children || []).map(id => byId[id]).filter(Boolean);
     const volume = r.volume ? [r.volume.gb && `${esc(r.volume.gb)} GB`, esc(r.volume.count)].filter(Boolean).join(' · ') : '';
     const source = r.ours ? `<a href="${esc(r.url)}">Dataset page on this site, with the download</a>`
