@@ -540,6 +540,8 @@ def item(rec):
         family = f'<span class="obs-sub">Family: {esc(rec["_family"])}</span>'
     if rec.get('derived_from'):
         family += f'<span class="obs-sub">Derived from {esc(rec["derived_from"])}</span>'
+    if rec.get('year'):
+        family = f'<span class="obs-sub obs-year">{esc(rec["year"])}</span>' + family
     if rec['_children']:
         n = len(rec['_children'])
         family += f'<span class="obs-sub">{n} derived dataset{"s" if n > 1 else ""}</span>'
@@ -673,7 +675,7 @@ def observatory_page(data):
             <section class="obs-ai" id="obs-ai" aria-live="polite" aria-label="AI-assisted results" hidden></section>
             <div class="obs-bar">
               <button type="button" class="btn btn-ghost obs-facets-toggle" id="obs-facets-toggle" aria-controls="obs-facets" aria-expanded="false">Filters<span id="obs-facets-n"></span></button>
-              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="name">Name A–Z</option></select></label>
+              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="year-desc">Year, newest first</option><option value="year">Year, oldest first</option><option value="size-desc">Size, largest first</option><option value="classes-desc">Attack classes, most first</option><option value="families-desc">Attack families, most first</option><option value="derived-desc">Derived datasets, most first</option><option value="family-desc">Family size, largest first</option><option value="domain">Domain</option><option value="access">Access, open first</option><option value="paper">Paper identified first</option></select></label>
               <div class="obs-view" role="group" aria-label="Layout">
                 <button type="button" data-view="cards" aria-pressed="true" title="Cards"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg><span class="visually-hidden">Cards</span></button>
                 <button type="button" data-view="table" aria-pressed="false" title="Table"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3h13M1.5 8h13M1.5 13h13"/></svg><span class="visually-hidden">Table</span></button>

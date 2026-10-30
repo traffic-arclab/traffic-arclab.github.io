@@ -47,14 +47,40 @@
     return words.every(w => row.dataset.search.includes(w));
   }
 
+  // Sort keys of the "Sort by" menu: the value of a record and the direction (1 ascending, -1 descending).
+  // Records without the value go last; ties are broken by name.
+  const firstNumber = v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); return m ? parseFloat(m[0]) : null; };
+  const ACCESS_RANK = {open: 0, registration: 1, restricted: 2, request: 3, undocumented: 4};
+  const SORTS = {
+    'name': [r => r.name.toLowerCase(), 1],
+    'name-desc': [r => r.name.toLowerCase(), -1],
+    'year-desc': [r => firstNumber(r.year), -1],
+    'year': [r => firstNumber(r.year), 1],
+    'size-desc': [r => r.volume && r.volume.gb ? firstNumber(r.volume.gb) : null, -1],
+    'classes-desc': [r => r.classes ? firstNumber(r.classes.attack) : null, -1],
+    'families-desc': [r => r.attack_families ? r.attack_families.length : null, -1],
+    'derived-desc': [r => (r.children || []).length || null, -1],
+    'family-desc': [r => r.size > 1 ? r.size : null, -1],
+    'domain': [r => r.domainGroup.toLowerCase(), 1],
+    'access': [r => ACCESS_RANK[r.access || 'open'], 1],
+    'paper': [r => r.paper ? 0 : 1, 1],
+  };
+
   function order(list) {
     const key = sort.value;
-    if (key === 'catalogue') return list.sort((a, b) => a._order - b._order);
-    const value = row => row.querySelector('.obs-name').textContent.toLowerCase();
-    const cmp = (a, b) => value(a).localeCompare(value(b));
-    // family members stay right after their head row
+    if (!SORTS[key]) return list.sort((a, b) => a._order - b._order);
+    const [value, dir] = SORTS[key];
+    const name = row => byId[row.dataset.id].name.toLowerCase();
+    const cmp = (a, b) => {
+      const va = value(byId[a.dataset.id]), vb = value(byId[b.dataset.id]);
+      if (va === null && vb !== null) return 1;
+      if (vb === null && va !== null) return -1;
+      if (va !== null && va !== vb) return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * dir;
+      return name(a).localeCompare(name(b));
+    };
+    // family members stay right after their head row, in catalogue order
     const heads = list.filter(r => r.dataset.head === 'true').sort(cmp);
-    const members = list.filter(r => r.dataset.head !== 'true');
+    const members = list.filter(r => r.dataset.head !== 'true').sort((a, b) => a._order - b._order);
     return heads.flatMap(h => [h, ...members.filter(m => m.dataset.family === h.dataset.family)]);
   }
 
