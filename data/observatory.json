@@ -2536,7 +2536,31 @@
         "PCAP header traces"
       ],
       "family": "MAWI",
-      "notes": "Long-term backbone packet traces; labels are not implicit and annotation availability differs from packet availability."
+      "notes": "Long-term backbone packet traces; labels are not implicit and annotation availability differs from packet availability.",
+      "paper": {
+        "cite": "Cho, Mitsuya & Kato, USENIX ATC FREENIX 2000",
+        "title": "Traffic Data Repository at the WIDE Project"
+      },
+      "category": "backbone",
+      "year": "2006",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "count": "daily traces"
+      },
+      "evidence": "verified"
     },
     {
       "id": "mawilab",
@@ -2551,12 +2575,39 @@
       ],
       "family": "MAWI",
       "paper": {
-        "cite": "Fontugne et al., ACM CoNEXT 2010",
+        "cite": "Fontugne, Borgnat, Abry & Fukuda, ACM CoNEXT 2010",
+        "title": "MAWILab: Combining Diverse Anomaly Detectors for Automated Anomaly Labeling and Performance Benchmarking",
         "doi": "10.1145/1921168.1921179"
       },
       "parents": [
         "mawi-samplepoint-f"
-      ]
+      ],
+      "category": "backbone",
+      "year": "2010",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "SCANN (4 detectors)",
+      "size": {
+        "count": "daily labels"
+      },
+      "notes": "Weak labels from the consensus of 4 detectors: anomalous, suspicious and notice, plus benign.",
+      "evidence": "verified"
     },
     {
       "id": "csic-2010-http",
@@ -4260,16 +4311,39 @@
     {
       "id": "cesnet-timeseries24",
       "name": "CESNET-TimeSeries24",
-      "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md",
+      "url": "https://zenodo.org/records/13382427",
       "task": "Network cybersecurity / anomaly detection",
       "domain": "ISP / backbone",
       "data": [
         "Flow time series"
       ],
       "paper": {
-        "cite": "Koumar et al., Scientific Data 2025",
+        "cite": "Koumar, Hynek, Čejka & Šiška, Scientific Data 2025",
+        "title": "CESNET-TimeSeries24: Time Series Dataset for Network Traffic Anomaly Detection and Forecasting",
         "doi": "10.1038/s41597-025-04603-x"
-      }
+      },
+      "category": "backbone",
+      "year": "2024",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "ipfixprobe?",
+      "size": {
+        "count": "270k IP time series"
+      },
+      "notes": "Unlabelled time series of CESNET backbone traffic, for anomaly detection and forecasting.",
+      "evidence": "verified"
     },
     {
       "id": "usb-ids-tc",
@@ -4454,8 +4528,35 @@
       ],
       "paper": {
         "cite": "Kumar et al., IEEE MILCOM 2023",
-        "doi": "10.1109/milcom58377.2023.10356272"
-      }
+        "title": "FLNET2023: Realistic Network Intrusion Detection Dataset for Federated Learning",
+        "doi": "10.1109/MILCOM58377.2023.10356272"
+      },
+      "category": "backbone",
+      "year": "2023",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "dos",
+        "lateral",
+        "web"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "176"
+      },
+      "notes": "Emulated ISP-like topology.",
+      "evidence": "verified"
     },
     {
       "id": "unr-idd",
@@ -4822,8 +4923,8 @@
     },
     {
       "id": "ugr16",
-      "name": "UGR16",
-      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "name": "UGR'16",
+      "url": "https://nesg.ugr.es/nesg-ugr16/",
       "task": "Realistic anomaly detection",
       "domain": "ISP / Enterprise",
       "data": [
@@ -4831,8 +4932,36 @@
       ],
       "paper": {
         "cite": "Maciá-Fernández et al., Computers & Security 2018",
+        "title": "UGR'16: A new dataset for the evaluation of cyclostationarity-based network IDSs",
         "doi": "10.1016/j.cose.2017.11.004"
-      }
+      },
+      "category": "backbone",
+      "year": "2016",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "nfdump",
+      "size": {
+        "gb": "236"
+      },
+      "notes": "Real ISP traffic with attacks injected in the last 30 days; labels are background vs attack.",
+      "evidence": "verified"
     },
     {
       "id": "comprehensive-multi-source-cyber-security-events-lanl",
@@ -6077,11 +6206,38 @@
         "NetFlow records"
       ],
       "paper": {
-        "cite": "Damasevicius et al., Electronics 2020",
+        "cite": "Damaševičius et al., Electronics 2020",
+        "title": "LITNET-2020: An Annotated Real-World Network Flow Dataset for Network Intrusion Detection",
         "doi": "10.3390/electronics9050800"
       },
       "notes": "Found online on 2026-10-20, not in the reference list. Real academic network, 85 flow features, 12 attack types.",
-      "origin": "web"
+      "origin": "web",
+      "category": "backbone",
+      "year": "2020",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "12"
+      },
+      "attack_families": [
+        "dos",
+        "malware",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "nfdump (nfcapd)",
+      "size": {
+        "gb": "1.2"
+      },
+      "evidence": "verified"
     },
     {
       "id": "uwf-zeekdata22",
@@ -10680,6 +10836,83 @@
       ],
       "derivation_tool": "NTLFlowLyzer",
       "notes": "26 labels: 17 DDoS scenarios plus benign activities.",
+      "evidence": "verified"
+    },
+    {
+      "id": "caida-anonymized-traces",
+      "name": "CAIDA Anonymized Internet Traces (2008–2019)",
+      "url": "https://www.caida.org/catalog/datasets/passive_dataset/",
+      "task": "Backbone traffic characterisation",
+      "domain": "Internet backbone / ISP",
+      "data": [
+        "PCAP (anonymized)"
+      ],
+      "paper": {
+        "cite": "Center for Applied Internet Data Analysis (CAIDA)",
+        "title": "The CAIDA UCSD Anonymized Internet Traces (2008–2019)",
+        "url": "https://www.caida.org/catalog/datasets/passive_dataset/"
+      },
+      "category": "backbone",
+      "year": "2008–2019",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
+      "access": "request",
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "count": "1 h per month"
+      },
+      "notes": "Unlabelled backbone traces, one hour per month.",
+      "evidence": "verified"
+    },
+    {
+      "id": "roedunet-simargl2021",
+      "name": "RoEduNet-SIMARGL2021",
+      "url": "https://doi.org/10.3390/s21134319",
+      "task": "Intrusion detection",
+      "domain": "Internet backbone / ISP",
+      "data": [
+        "Flow records (nProbe)"
+      ],
+      "paper": {
+        "cite": "Mihailescu et al., Sensors 2021",
+        "title": "The Proposition and Evaluation of the RoEduNet-SIMARGL2021 Network Intrusion Detection Dataset",
+        "doi": "10.3390/s21134319"
+      },
+      "notes": "Real network traffic with attacks from a lab setup. Download link: see the paper.",
+      "category": "backbone",
+      "year": "2021",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "scanning"
+      ],
+      "derivation_tool": "nProbe",
+      "size": {
+        "count": "≈12M flows"
+      },
       "evidence": "verified"
     }
   ]
