@@ -1645,7 +1645,33 @@
       "paper": {
         "cite": "Pourghasem et al., Future Internet 2026",
         "doi": "10.3390/fi18010038"
-      }
+      },
+      "category": "wireless",
+      "year": "2026",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "size": {
+        "gb": "0.037",
+        "count": "230k records"
+      },
+      "derived": true,
+      "notes": "Real LoRaWAN traces with semi-synthetic jamming and battery-depletion attacks; the parent capture is still to be identified.",
+      "evidence": "verified"
     },
     {
       "id": "hcrl-can-survival-analysis",
@@ -2189,9 +2215,8 @@
     },
     {
       "id": "awid",
-      "name": "AWID",
+      "name": "AWID2",
       "url": "https://icsdweb.aegean.gr/awid/",
-      "access": "request",
       "task": "Wireless attack identification",
       "domain": "Wi-Fi 802.11 / Wireless intrusion",
       "data": [
@@ -2201,15 +2226,41 @@
       "family": "AWID",
       "paper": {
         "cite": "Kolias et al., IEEE Communications Surveys & Tutorials 2016",
-        "doi": "10.1109/COMST.2015.2402161"
+        "doi": "10.1109/COMST.2015.2402161",
+        "title": "Intrusion Detection in 802.11 Networks: Empirical Evaluation of Threats and a Public Dataset"
       },
-      "notes": "802.11 frame-level evidence: MAC-layer semantics are not equivalent to an IP-flow table."
+      "notes": "802.11 frame-level evidence: MAC-layer semantics are not equivalent to an IP-flow table. Attack classes: 3 major classes (CLS), 15 individual attacks (ATK).",
+      "category": "wireless",
+      "year": "2015",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3 / 15"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "exploitation"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "gb": "11.7"
+      },
+      "evidence": "verified"
     },
     {
       "id": "awid3",
       "name": "AWID3",
       "url": "https://icsdweb.aegean.gr/awid/",
-      "access": "request",
       "task": "Wi-Fi enterprise intrusion classification",
       "domain": "Wi-Fi WPA2 Enterprise",
       "data": [
@@ -2218,9 +2269,37 @@
       ],
       "family": "AWID",
       "paper": {
-        "cite": "Chatzoglou et al., IEEE Access 2021",
-        "doi": "10.1109/access.2021.3061609"
-      }
+        "cite": "Chatzoglou, Kambourakis & Kolias, IEEE Access 2021",
+        "title": "Empirical Evaluation of Attacks Against IEEE 802.11 Enterprise Networks: The AWID3 Dataset",
+        "doi": "10.1109/ACCESS.2021.3061609"
+      },
+      "category": "wireless",
+      "year": "2021",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "13"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "malware",
+        "spoofing",
+        "exploitation",
+        "web"
+      ],
+      "derivation_tool": "tshark?",
+      "evidence": "verified"
     },
     {
       "id": "h23q",
@@ -9375,6 +9454,88 @@
         "cite": "Wehbe et al., 2024 (source to be completed)",
         "title": "5G flow-based datasets"
       }
+    },
+    {
+      "id": "wsn-ds",
+      "name": "WSN-DS",
+      "url": "https://doi.org/10.1155/2016/4731953",
+      "task": "Intrusion detection",
+      "domain": "Wireless sensor networks (WSN)",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Almomani, Al-Kasasbeh & Al-Akhras, Journal of Sensors 2016",
+        "title": "WSN-DS: A Dataset for Intrusion Detection Systems in Wireless Sensor Networks",
+        "doi": "10.1155/2016/4731953"
+      },
+      "notes": "Simulated in NS-2 with the LEACH routing protocol; blackhole, grayhole, flooding and scheduling attacks.",
+      "category": "wireless",
+      "year": "2016",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "NS-2 (trace)",
+      "size": {
+        "count": "375k records"
+      },
+      "evidence": "verified"
+    },
+    {
+      "id": "wpa3-attacks",
+      "name": "WPA3 Attacks Dataset",
+      "url": "",
+      "task": "Wi-Fi intrusion detection",
+      "domain": "Wi-Fi 802.11 (WPA3)",
+      "data": [
+        "PCAP",
+        "Wireshark fields"
+      ],
+      "paper": {
+        "cite": "WPA3 Attacks Dataset, 2026 (source to be completed)",
+        "title": "WPA3 Attacks Dataset"
+      },
+      "notes": "Download location not yet identified.",
+      "category": "wireless",
+      "year": "2026",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "12"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "Wireshark (fields)",
+      "size": {
+        "count": "15 min"
+      },
+      "evidence": "verified"
     }
   ]
 }
