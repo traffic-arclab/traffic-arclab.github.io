@@ -206,10 +206,11 @@ strong, b { font-weight: 650; }
 .initial { color: var(--color-gold); }
 .nav-list { display: flex; align-items: center; gap: 2px; list-style: none; }
 .nav-list > li { position: relative; }
-/* a thin rule between the menu entries, like the one of the brand name (not in the mobile menu, which has its own lines) */
+/* a hairline between the menu entries that fades out at both ends (not in the mobile menu, which has its own lines) */
 .nav-list > li + li::before {
-  content: ""; position: absolute; left: -1.5px; top: 50%; width: 1px; height: 16px; transform: translateY(-50%);
-  background: var(--color-strong-line); pointer-events: none;
+  content: ""; position: absolute; left: -1.5px; top: 50%; width: 1px; height: 22px; transform: translateY(-50%);
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--color-gold) 55%, var(--color-strong-line)) 50%, transparent);
+  opacity: .75; pointer-events: none;
 }
 .nav-link {
   display: flex; align-items: center; min-height: 44px; padding: 9px clamp(8px, .75vw, 13px);
