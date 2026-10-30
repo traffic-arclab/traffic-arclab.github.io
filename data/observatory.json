@@ -201,7 +201,8 @@
         "Argus flows"
       ],
       "paper": {
-        "cite": "García et al., Computers & Security 2014",
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
         "doi": "10.1016/j.cose.2014.05.011"
       },
       "notes": "Classes: benign and botnet traffic, plus unlabelled background traffic.",
@@ -1765,7 +1766,8 @@
       ],
       "paper": {
         "cite": "Lashkari et al., PST 2017",
-        "doi": "10.1109/pst.2017.00035"
+        "title": "Towards a Network-Based Framework for Android Malware Detection and Characterization",
+        "doi": "10.1109/PST.2017.00035"
       },
       "category": "malware",
       "year": "2017",
@@ -1803,8 +1805,9 @@
         "traffic features (verify)"
       ],
       "paper": {
-        "cite": "Lashkari et al., ICCST 2018",
-        "doi": "10.1109/ccst.2018.8585560"
+        "cite": "Lashkari, Kadir, Taheri & Ghorbani, ICCST 2018",
+        "title": "Toward Developing a Systematic Approach to Generate Benchmark Android Malware Datasets and Classification",
+        "doi": "10.1109/CCST.2018.8585560"
       },
       "category": "malware",
       "year": "2017",
@@ -1845,7 +1848,8 @@
       ],
       "paper": {
         "cite": "Mahdavifar et al., IEEE DASC 2020",
-        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech49142.2020.00094"
+        "title": "Dynamic Android Malware Category Classification using Semi-Supervised Deep Learning",
+        "doi": "10.1109/DASC-PICom-CBDCom-CyberSciTech49142.2020.00094"
       },
       "category": "malware",
       "year": "2020",
@@ -1884,6 +1888,7 @@
       ],
       "paper": {
         "cite": "Rahali et al., ICCNS 2020",
+        "title": "DIDroid: Android Malware Classification and Characterization Using Deep Image Learning",
         "doi": "10.1145/3442520.3442522"
       },
       "category": "malware",
@@ -1909,7 +1914,7 @@
       "size": {
         "count": "400k apps"
       },
-      "notes": "Records produced in an Android emulator."
+      "notes": "Records produced in an Android emulator. CIC also cites Keyes et al. (EntropLyzer, 2021) for this dataset."
     },
     {
       "id": "cic-bell-dns2021",
@@ -2188,7 +2193,8 @@
       ],
       "size": {
         "count": "one capture per blog post"
-      }
+      },
+      "notes": "Maintained by Brad Duncan."
     },
     {
       "id": "netresec-public-pcap-index",
@@ -4268,7 +4274,8 @@
       ],
       "paper": {
         "cite": "Saad et al., PST 2011",
-        "doi": "10.1109/pst.2011.5971980"
+        "title": "Detecting P2P botnets through network behavior analysis and machine learning",
+        "doi": "10.1109/PST.2011.5971980"
       },
       "category": "malware",
       "year": "2010",
@@ -4355,7 +4362,7 @@
     {
       "id": "vast-challenge-2012",
       "name": "VAST Challenge 2012",
-      "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
+      "url": "https://visualdata.wustl.edu/varepository/benchmarks.php",
       "task": "Botnet forensics",
       "domain": "Enterprise / Botnet",
       "data": [
@@ -5711,8 +5718,9 @@
       "notes": "Found online on 2026-10-20, not in the reference list. Merges traffic of ISOT, ISCX 2012 and CTU-13 (already in the catalogue): not an independent acquisition.",
       "origin": "web",
       "paper": {
-        "cite": "Biglar Beigi et al., IEEE CNS 2014",
-        "doi": "10.1109/cns.2014.6997492"
+        "cite": "Biglar Beigi, Hadian Jazi, Stakhanova & Ghorbani, IEEE CNS 2014",
+        "title": "Towards effective feature selection in machine learning-based botnet detection approaches",
+        "doi": "10.1109/CNS.2014.6997492"
       },
       "category": "malware",
       "year": "2014",
@@ -7589,7 +7597,8 @@
       "derivation_tool": "Zeek",
       "size": {
         "gb": "0.41"
-      }
+      },
+      "notes": "Published by Valeros & Garcia (Stratosphere Laboratory), 2020."
     },
     {
       "id": "netml-challenge",
@@ -7624,6 +7633,11 @@
       "derivation_tool": "Intel flow library",
       "size": {
         "count": "484k flows"
+      },
+      "paper": {
+        "cite": "Barut et al., arXiv 2020",
+        "title": "NetML: A Challenge for Network Traffic Analytics",
+        "url": "https://arxiv.org/abs/2004.13006"
       }
     },
     {
@@ -7663,7 +7677,12 @@
       },
       "parents": [
         "cic-andmal2017"
-      ]
+      ],
+      "paper": {
+        "cite": "Taheri, Kadir & Lashkari, ICCST 2019",
+        "title": "Extensible Android Malware Detection and Family Classification Using Network-Flows and API-Calls",
+        "doi": "10.1109/CCST.2019.8888430"
+      }
     },
     {
       "id": "mta-kdd-19",
@@ -7675,7 +7694,8 @@
         "Feature tables"
       ],
       "paper": {
-        "cite": "Letteri et al., ITASEC 2020",
+        "cite": "Letteri, Della Penna, Di Vita & Grifa, ITASEC 2020 (CEUR-WS 2597)",
+        "title": "MTA-KDD'19: A Dataset for Malware Traffic Detection",
         "url": "https://arxiv.org/abs/2009.11347"
       },
       "notes": "Download link not found.",
@@ -7737,6 +7757,11 @@
       ],
       "size": {
         "count": "5 PCAP files"
+      },
+      "paper": {
+        "cite": "Alenazi, Traore, Ganame & Woungang, ISDDC 2017 (LNCS 10618)",
+        "title": "Holistic Model for HTTP Botnet Detection Based on DNS Traffic Analysis",
+        "doi": "10.1007/978-3-319-69155-8_1"
       }
     },
     {
