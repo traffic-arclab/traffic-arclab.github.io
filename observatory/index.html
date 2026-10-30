@@ -12,7 +12,7 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=758d66bb">
+  <link rel="stylesheet" href="../css/site.css?v=cac2ce99">
   <script src="../js/site.js?v=9e61baa7" defer></script>
   <script src="../js/observatory.js?v=7fc9ca6a" defer></script>
 </head>
@@ -2823,54 +2823,63 @@
           <p>Many datasets are used to evaluate AI methods for intrusion detection, malware and command-and-control analysis, and anomaly detection, but the same dataset name often refers to different releases, captures and derived feature tables.</p>
           <p>The Observatory records every dataset at the level of the <strong>release and its distributed artifacts</strong>, and links it to its original publication and distribution source.</p>
         </div>
-        <figure class="obs-model" aria-labelledby="obs-model-title">
-          <figcaption><h3 class="obs-model-title" id="obs-model-title">Entity model</h3><p>Each dataset of the Observatory is described by the same entity model as the paper: the dataset at the centre, linked to ten entities. The five above it describe where the dataset comes from (dashed lines are optional associations: not every dataset has a family, a paper or a derivation tool); the five below describe what it contains and how to get it. Every value is also a filter of the catalogue: select one to see the datasets that have it.</p></figcaption>
-          <div class="obs-m-row obs-m-top">
-            <div class="obs-m-card is-optional">
-              <h3>Family<span class="obs-m-opt">optional</span></h3>
-              <p>The named line of related collections the dataset belongs to, e.g. the Stratosphere Malware Capture Facility. Datasets of one family share sources and are not independent.</p><ul><li><a href="?lineage=member#catalogue">Part of a family</a></li></ul>
+        <details class="obs-model">
+          <summary>
+            <span class="obs-m-sum"><span class="obs-model-title">Entity model</span>
+              <span class="obs-m-lead">How every dataset is described: the dataset and the ten entities linked to it, as in the paper.</span></span>
+            <span class="obs-m-chev" aria-hidden="true"></span>
+          </summary>
+          <div class="obs-m-body">
+            <p class="obs-m-intro">Each dataset of the Observatory is described by the same entity model as the paper: the dataset at the centre, linked to ten entities. The five above it describe where the dataset comes from (dashed lines are optional associations: not every dataset has a family, a paper or a derivation tool); the five below describe what it contains and how to get it. Every value is also a filter of the catalogue: select one to see the datasets that have it.</p>
+            <p class="obs-m-band">Where it comes from</p>
+            <div class="obs-m-row obs-m-top">
+              <div class="obs-m-card is-optional">
+                <h4>Family<span class="obs-m-opt">optional</span></h4>
+                <p>The named line of related collections the dataset belongs to, e.g. the Stratosphere Malware Capture Facility. Datasets of one family share sources and are not independent.</p><ul><li><a class="obs-m-val" href="?lineage=member#catalogue">Part of a family</a></li></ul>
+              </div>
+              <div class="obs-m-card is-optional">
+                <h4>Paper<span class="obs-m-opt">optional</span></h4>
+                <p>The publications that introduce or use the dataset; each card links the original one.</p><ul><li><a class="obs-m-val" href="?paper=yes#catalogue">Paper identified</a></li></ul>
+              </div>
+              <div class="obs-m-card">
+                <h4>Lineage</h4>
+                <p>Whether the dataset is a new acquisition or is derived from another dataset (a re-extraction, a subset, a merge). A derived dataset links its parents, and a parent shows its derived datasets.</p><ul><li><a class="obs-m-val" href="?lineage=original#catalogue">Original</a></li><li><a class="obs-m-val" href="?lineage=derived#catalogue">Derived</a></li></ul>
+              </div>
+              <div class="obs-m-card">
+                <h4>Labeling</h4>
+                <p>How traffic is labelled: one benign/attack label, one label per attack class, or labels inferred from heuristics such as IDS alerts or file names.</p><ul><li><a class="obs-m-val" href="?labeling=binary#catalogue">Binary</a></li><li><a class="obs-m-val" href="?labeling=multiclass#catalogue">Multi-class</a></li><li><a class="obs-m-val" href="?labeling=weak#catalogue">Weak / Heuristic</a></li></ul>
+              </div>
+              <div class="obs-m-card is-optional">
+                <h4>Derivation Tool<span class="obs-m-opt">optional</span></h4>
+                <p>The tool that produced the derived artifacts from the traces, when there are any (e.g. CICFlowMeter, Zeek, Argus, nfdump).</p>
+              </div>
             </div>
-            <div class="obs-m-card is-optional">
-              <h3>Paper<span class="obs-m-opt">optional</span></h3>
-              <p>The publications that introduce or use the dataset; each card links the original one.</p><ul><li><a href="?paper=yes#catalogue">Paper identified</a></li></ul>
+            <div class="obs-m-core"><span>Dataset</span></div>
+            <div class="obs-m-row obs-m-bottom">
+              <div class="obs-m-card">
+                <h4>Domain</h4>
+                <p>The application domain: one of the paper tables, which also gives the colour of the card.</p><ul><li><a class="obs-m-val" href="?domain=v2x#catalogue"><span class="obs-dot" data-domain="v2x" aria-hidden="true"></span>Vehicular V2X</a></li><li><a class="obs-m-val" href="?domain=automotive#catalogue"><span class="obs-dot" data-domain="automotive" aria-hidden="true"></span>Automotive (CAN, Ethernet)</a></li><li><a class="obs-m-val" href="?domain=uav#catalogue"><span class="obs-dot" data-domain="uav" aria-hidden="true"></span>UAV and drones</a></li><li><a class="obs-m-val" href="?domain=industrial#catalogue"><span class="obs-dot" data-domain="industrial" aria-hidden="true"></span>ICS and OT</a></li><li><a class="obs-m-val" href="?domain=5g#catalogue"><span class="obs-dot" data-domain="5g" aria-hidden="true"></span>5G and mobile core</a></li><li><a class="obs-m-val" href="?domain=wireless#catalogue"><span class="obs-dot" data-domain="wireless" aria-hidden="true"></span>Wireless and LPWAN</a></li><li><a class="obs-m-val" href="?domain=iot#catalogue"><span class="obs-dot" data-domain="iot" aria-hidden="true"></span>IoT, IIoT and IoMT</a></li><li><a class="obs-m-val" href="?domain=mobile#catalogue"><span class="obs-dot" data-domain="mobile" aria-hidden="true"></span>Mobile (Android)</a></li><li><a class="obs-m-val" href="?domain=malware#catalogue"><span class="obs-dot" data-domain="malware" aria-hidden="true"></span>Malware, botnet and C2</a></li><li><a class="obs-m-val" href="?domain=sdn#catalogue"><span class="obs-dot" data-domain="sdn" aria-hidden="true"></span>SDN and cloud</a></li><li><a class="obs-m-val" href="?domain=ddos#catalogue"><span class="obs-dot" data-domain="ddos" aria-hidden="true"></span>DDoS</a></li><li><a class="obs-m-val" href="?domain=encrypted#catalogue"><span class="obs-dot" data-domain="encrypted" aria-hidden="true"></span>Encrypted and darknet</a></li><li><a class="obs-m-val" href="?domain=web#catalogue"><span class="obs-dot" data-domain="web" aria-hidden="true"></span>DNS and web</a></li><li><a class="obs-m-val" href="?domain=backbone#catalogue"><span class="obs-dot" data-domain="backbone" aria-hidden="true"></span>Internet backbone and ISP</a></li><li><a class="obs-m-val" href="?domain=honeypot#catalogue"><span class="obs-dot" data-domain="honeypot" aria-hidden="true"></span>Honeypots</a></li><li><a class="obs-m-val" href="?domain=benign#catalogue"><span class="obs-dot" data-domain="benign" aria-hidden="true"></span>Benign reference traffic</a></li><li><a class="obs-m-val" href="?domain=enterprise#catalogue"><span class="obs-dot" data-domain="enterprise" aria-hidden="true"></span>Enterprise and general IP</a></li></ul>
+              </div>
+              <div class="obs-m-card">
+                <h4>Capture Scenario</h4>
+                <p>Where the traffic was captured: on real devices and networks, in a simulator or emulator, or in a testbed that mixes the two.</p><ul><li><a class="obs-m-val" href="?acquisition=real#catalogue">Real Devices</a></li><li><a class="obs-m-val" href="?acquisition=emulated#catalogue">Simulated / Emulated</a></li><li><a class="obs-m-val" href="?acquisition=hybrid#catalogue">Hybrid</a></li></ul>
+              </div>
+              <div class="obs-m-card">
+                <h4>Attack Families</h4>
+                <p>The kinds of attack the dataset covers, grouped in common families across the tables.</p><ul><li><a class="obs-m-val" href="?attack=bruteforce#catalogue">Brute Force</a></li><li><a class="obs-m-val" href="?attack=botnet#catalogue">Botnet / C2</a></li><li><a class="obs-m-val" href="?attack=ddos#catalogue">(D)DoS</a></li><li><a class="obs-m-val" href="?attack=exfiltration#catalogue">Exfiltration</a></li><li><a class="obs-m-val" href="?attack=lateral#catalogue">Infiltration / Lateral Movement</a></li><li><a class="obs-m-val" href="?attack=malware#catalogue">Malware / Backdoor / Worm</a></li><li><a class="obs-m-val" href="?attack=scanning#catalogue">Reconnaissance / Scan</a></li><li><a class="obs-m-val" href="?attack=exploitation#catalogue">Exploitation</a></li><li><a class="obs-m-val" href="?attack=web#catalogue">Web</a></li><li><span class="obs-m-val">Other</span></li><li><a class="obs-m-val" href="?attack=attck#catalogue">MITRE ATT&amp;CK tactics</a></li></ul>
+              </div>
+              <div class="obs-m-card">
+                <h4>Artifact</h4>
+                <p>What is actually delivered to researchers: the network traces themselves (packets, CAN or V2X messages) and/or information derived from them (flows, feature tables).</p><ul><li><a class="obs-m-val" href="?format=packets#catalogue">Network Traces</a></li><li><a class="obs-m-val" href="?format=features#catalogue">Derived Information</a></li></ul>
+              </div>
+              <div class="obs-m-card">
+                <h4>Access Route</h4>
+                <p>How the artifacts are obtained: a direct download, a download after registration, or a request to the authors.</p><ul><li><a class="obs-m-val" href="?access=open#catalogue">Open direct</a></li><li><a class="obs-m-val" href="?access=registration#catalogue">Registration</a></li><li><a class="obs-m-val" href="?access=request#catalogue">Request</a></li></ul>
+              </div>
             </div>
-            <div class="obs-m-card">
-              <h3>Lineage</h3>
-              <p>Whether the dataset is a new acquisition or is derived from another dataset (a re-extraction, a subset, a merge). A derived dataset links its parents, and a parent shows its derived datasets.</p><ul><li><a href="?lineage=original#catalogue">Original</a></li><li><a href="?lineage=derived#catalogue">Derived</a></li></ul>
-            </div>
-            <div class="obs-m-card">
-              <h3>Labeling</h3>
-              <p>How traffic is labelled: one benign/attack label, one label per attack class, or labels inferred from heuristics such as IDS alerts or file names.</p><ul><li><a href="?labeling=binary#catalogue">Binary</a></li><li><a href="?labeling=multiclass#catalogue">Multi-class</a></li><li><a href="?labeling=weak#catalogue">Weak / Heuristic</a></li></ul>
-            </div>
-            <div class="obs-m-card is-optional">
-              <h3>Derivation Tool<span class="obs-m-opt">optional</span></h3>
-              <p>The tool that produced the derived artifacts from the traces, when there are any (e.g. CICFlowMeter, Zeek, Argus, nfdump).</p>
-            </div>
+            <p class="obs-m-band">What it contains and how to get it</p>
           </div>
-          <div class="obs-m-core"><span>Dataset</span></div>
-          <div class="obs-m-row obs-m-bottom">
-            <div class="obs-m-card">
-              <h3>Domain</h3>
-              <p>The application domain: one of the paper tables, which also gives the colour of the card.</p><ul><li><a href="?domain=v2x#catalogue" class="obs-m-dom" data-domain="v2x">Vehicular V2X</a></li><li><a href="?domain=automotive#catalogue" class="obs-m-dom" data-domain="automotive">Automotive (CAN, Ethernet)</a></li><li><a href="?domain=uav#catalogue" class="obs-m-dom" data-domain="uav">UAV and drones</a></li><li><a href="?domain=industrial#catalogue" class="obs-m-dom" data-domain="industrial">ICS and OT</a></li><li><a href="?domain=5g#catalogue" class="obs-m-dom" data-domain="5g">5G and mobile core</a></li><li><a href="?domain=wireless#catalogue" class="obs-m-dom" data-domain="wireless">Wireless and LPWAN</a></li><li><a href="?domain=iot#catalogue" class="obs-m-dom" data-domain="iot">IoT, IIoT and IoMT</a></li><li><a href="?domain=mobile#catalogue" class="obs-m-dom" data-domain="mobile">Mobile (Android)</a></li><li><a href="?domain=malware#catalogue" class="obs-m-dom" data-domain="malware">Malware, botnet and C2</a></li><li><a href="?domain=sdn#catalogue" class="obs-m-dom" data-domain="sdn">SDN and cloud</a></li><li><a href="?domain=ddos#catalogue" class="obs-m-dom" data-domain="ddos">DDoS</a></li><li><a href="?domain=encrypted#catalogue" class="obs-m-dom" data-domain="encrypted">Encrypted and darknet</a></li><li><a href="?domain=web#catalogue" class="obs-m-dom" data-domain="web">DNS and web</a></li><li><a href="?domain=backbone#catalogue" class="obs-m-dom" data-domain="backbone">Internet backbone and ISP</a></li><li><a href="?domain=honeypot#catalogue" class="obs-m-dom" data-domain="honeypot">Honeypots</a></li><li><a href="?domain=benign#catalogue" class="obs-m-dom" data-domain="benign">Benign reference traffic</a></li><li><a href="?domain=enterprise#catalogue" class="obs-m-dom" data-domain="enterprise">Enterprise and general IP</a></li></ul>
-            </div>
-            <div class="obs-m-card">
-              <h3>Capture Scenario</h3>
-              <p>Where the traffic was captured: on real devices and networks, in a simulator or emulator, or in a testbed that mixes the two.</p><ul><li><a href="?acquisition=real#catalogue">Real Devices</a></li><li><a href="?acquisition=emulated#catalogue">Simulated / Emulated</a></li><li><a href="?acquisition=hybrid#catalogue">Hybrid</a></li></ul>
-            </div>
-            <div class="obs-m-card">
-              <h3>Attack Families</h3>
-              <p>The kinds of attack the dataset covers, grouped in common families across the tables.</p><ul><li><a href="?attack=bruteforce#catalogue">Brute Force</a></li><li><a href="?attack=botnet#catalogue">Botnet / C2</a></li><li><a href="?attack=ddos#catalogue">(D)DoS</a></li><li><a href="?attack=exfiltration#catalogue">Exfiltration</a></li><li><a href="?attack=lateral#catalogue">Infiltration / Lateral Movement</a></li><li><a href="?attack=malware#catalogue">Malware / Backdoor / Worm</a></li><li><a href="?attack=scanning#catalogue">Reconnaissance / Scan</a></li><li><a href="?attack=exploitation#catalogue">Exploitation</a></li><li><a href="?attack=web#catalogue">Web</a></li><li>Other</li><li><a href="?attack=attck#catalogue">MITRE ATT&amp;CK tactics</a></li></ul>
-            </div>
-            <div class="obs-m-card">
-              <h3>Artifact</h3>
-              <p>What is actually delivered to researchers: the network traces themselves (packets, CAN or V2X messages) and/or information derived from them (flows, feature tables).</p><ul><li><a href="?format=packets#catalogue">Network Traces</a></li><li><a href="?format=features#catalogue">Derived Information</a></li></ul>
-            </div>
-            <div class="obs-m-card">
-              <h3>Access Route</h3>
-              <p>How the artifacts are obtained: a direct download, a download after registration, or a request to the authors.</p><ul><li><a href="?access=open#catalogue">Open direct</a></li><li><a href="?access=registration#catalogue">Registration</a></li><li><a href="?access=request#catalogue">Request</a></li></ul>
-            </div>
-          </div>
-        </figure>
+        </details>
         <figure class="obs-rep" aria-labelledby="obs-rep-title">
           <figcaption><h3 class="obs-model-title" id="obs-rep-title">Records by domain and distributed representation</h3>
             <p>Each paper table is one application domain. Its records are split by what they distribute: the bar shows the split, the columns give the counts. Select a domain to see its datasets.</p></figcaption>

@@ -615,13 +615,14 @@ def domain_table(records):
 
 
 def entity_model(data):
-    """The entity model of the paper: the dataset at the centre, five entities above it (where it comes from,
-    dashed when optional) and five below (what it contains and how to get it); each value links to its filter."""
+    """The entity model of the paper, closed by default: the dataset at the centre, five entities above it
+    (where it comes from, dashed when optional) and five below (what it contains and how to get it);
+    each value is a pill that opens the catalogue with its filter."""
     def value(i):
         if not i.get('filter'):
-            return esc(i['label'])
-        dom = f' class="obs-m-dom" data-domain="{i["domain"]}"' if i.get('domain') else ''
-        return f'<a href="?{esc(i["filter"].replace(":", "="))}#catalogue"{dom}>{esc(i["label"])}</a>'
+            return f'<span class="obs-m-val">{esc(i["label"])}</span>'
+        dot = f'<span class="obs-dot" data-domain="{i["domain"]}" aria-hidden="true"></span>' if i.get('domain') else ''
+        return f'<a class="obs-m-val" href="?{esc(i["filter"].replace(":", "="))}#catalogue">{dot}{esc(i["label"])}</a>'
 
     def card(e):
         items = e['items']
@@ -629,24 +630,33 @@ def entity_model(data):
             items = [{'label': label, 'filter': f'domain:{k}', 'domain': k} for k, label, _ in DOMAINS]
         values = ''.join(f'<li>{value(i)}</li>' for i in items)
         optional = e.get('optional')
-        return (f'            <div class="obs-m-card{" is-optional" if optional else ""}">\n'
-                f'              <h3>{esc(e["name"])}{"<span class=\"obs-m-opt\">optional</span>" if optional else ""}</h3>\n'
-                f'              <p>{esc(e["text"])}</p>{f"<ul>{values}</ul>" if values else ""}\n'
-                f'            </div>')
+        return (f'              <div class="obs-m-card{" is-optional" if optional else ""}">\n'
+                f'                <h4>{esc(e["name"])}{"<span class=\"obs-m-opt\">optional</span>" if optional else ""}</h4>\n'
+                f'                <p>{esc(e["text"])}</p>{f"<ul>{values}</ul>" if values else ""}\n'
+                f'              </div>')
 
     m = data['model']
     top = '\n'.join(card(e) for e in m['top'])
     bottom = '\n'.join(card(e) for e in m['bottom'])
-    return f'''        <figure class="obs-model" aria-labelledby="obs-model-title">
-          <figcaption><h3 class="obs-model-title" id="obs-model-title">Entity model</h3><p>{esc(data['model_intro'])}</p></figcaption>
-          <div class="obs-m-row obs-m-top">
+    return f'''        <details class="obs-model">
+          <summary>
+            <span class="obs-m-sum"><span class="obs-model-title">Entity model</span>
+              <span class="obs-m-lead">How every dataset is described: the dataset and the ten entities linked to it, as in the paper.</span></span>
+            <span class="obs-m-chev" aria-hidden="true"></span>
+          </summary>
+          <div class="obs-m-body">
+            <p class="obs-m-intro">{esc(data['model_intro'])}</p>
+            <p class="obs-m-band">Where it comes from</p>
+            <div class="obs-m-row obs-m-top">
 {top}
-          </div>
-          <div class="obs-m-core"><span>Dataset</span></div>
-          <div class="obs-m-row obs-m-bottom">
+            </div>
+            <div class="obs-m-core"><span>Dataset</span></div>
+            <div class="obs-m-row obs-m-bottom">
 {bottom}
+            </div>
+            <p class="obs-m-band">What it contains and how to get it</p>
           </div>
-        </figure>'''
+        </details>'''
 
 
 def item(rec):
