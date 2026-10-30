@@ -23,8 +23,8 @@ added by hand in the JSON: "origin": "web" (found online, not in the reference l
 distribution source was checked: verified, secondary, publisher, unconfirmed) and "access"
 (registration, request, restricted = registration or request, undocumented, unavailable = withdrawn or
 not yet released; open when missing).
-The domain filter is the paper table of the record, else it is computed, with the task and data type
-groups, from the free-text fields of each record.
+The domain filter is the paper table of the record (else "not yet in a paper table"); the task and data type
+groups are computed from the free-text fields of each record.
 
 The rows of a paper table that has been reviewed (tab:rev-enterprise for now) carry its columns:
 "artifact" {traces, derived}, "acquisition" (real, hybrid, emulated, mix), "labeling" (binary, multiclass,
@@ -61,9 +61,9 @@ DATA = os.path.join(ROOT, 'data', 'observatory.json')
 OUT = os.path.join(ROOT, 'observatory')
 esc = site.esc
 
-# A record listed in one of the paper tables has its table in "category" (one of the keys of
-# DOMAINS that are paper tables); the others get the first matching rule: the order matters
-# (e.g. "Android / Malware" is Mobile, not Malware).
+# The 17 categories of the paper tables: a record listed in one of them has its table in "category",
+# which alone gives its domain filter and colour (the others are UNCLASSIFIED). The patterns are no
+# longer used to guess a category from the free text.
 DOMAINS = [
     ('v2x', 'Vehicular V2X', r'V2X|VANET'),
     ('automotive', 'Automotive (CAN, Ethernet)', r'CAN|Automotive|vehicle|IoV'),
@@ -170,14 +170,17 @@ NON_TRAFFIC = re.compile(r'telemetry|sensor|time series|APK|behavior|host', re.I
 INDEX_HOSTS = {'fkie-cad.github.io': 'COMIDDS index', 'github.com/xGoldy': 'NID datasets survey list',
                'www.netresec.com': 'NETRESEC index'}
 
+# A record not yet in one of the paper tables: no category, no colour, only its free-text labels.
+UNCLASSIFIED = ('none', 'Not yet in a paper table', r'')
+
 
 def group(text, rules):
     return next(key for key, _, pattern in rules if re.search(pattern, text or ''))
 
 
 def domain_of(rec):
-    """The paper table of the record, else the domain matched on its free text."""
-    return rec.get('category') or group(rec.get('domain', ''), DOMAINS)
+    """The paper table of the record: the 17 categories (and their colours) come only from the tables."""
+    return rec.get('category') or UNCLASSIFIED[0]
 
 
 def formats_of(rec):
@@ -194,7 +197,7 @@ def index_source(url):
 
 
 def label_of(rules, key):
-    return next(label for k, label, _ in rules if k == key)
+    return next(label for k, label, _ in rules + ([UNCLASSIFIED] if rules is DOMAINS else []) if k == key)
 
 
 def enrich(records):
@@ -405,7 +408,7 @@ ACCESS = {'open': 'Open', 'registration': 'Registration', 'request': 'On request
 def facets():
     """The filter groups: (key, title, [(value, label)], open by default)."""
     return [
-        ('domain', 'Domain', [(k, label) for k, label, _ in DOMAINS], True),
+        ('domain', 'Domain', [(k, label) for k, label, _ in DOMAINS + [UNCLASSIFIED]], True),
         ('attack', 'Attack type', [(k, label) for k, label, _ in ATTACKS], True),
         ('protocol', 'Protocol', [(k, label) for k, label, _ in PROTOCOLS], True),
         ('task', 'Security task', [(k, label) for k, label, _ in TASKS], False),
@@ -436,7 +439,7 @@ def facet_panel(records):
         values = [(v, label) for v, label in values if counts.get(f'{key}:{v}')]
         # long groups show their most frequent values first, and only the first ones until "Show all"
         if len(values) > FACET_TOP:
-            values.sort(key=lambda vl: -counts[f'{key}:{vl[0]}'])
+            values.sort(key=lambda vl: (vl[0] == UNCLASSIFIED[0], -counts[f'{key}:{vl[0]}']))   # the records not yet in a table last
         options = '\n'.join(
             f'''                <label class="obs-facet{' is-extra' if i >= FACET_TOP else ''}"{f' data-domain="{esc(v)}"' if key == 'domain' else ''}><input type="checkbox" name="{key}" value="{esc(v)}">'''
             + (f'<span class="obs-dot" data-domain="{esc(v)}" aria-hidden="true"></span>' if key == 'domain' else '')
@@ -541,11 +544,12 @@ def engine(data, records, families):
     </section>'''
 
 
-def domain_pills(category, text):
-    """The category (one of the 17 of DOMAINS) as a filled pill, then the subcategories of the free-text
-    domain ("LoRaWAN;wireless IoT", "Encrypted / VPN traffic") as one light pill each."""
+def domain_pills(key, text):
+    """The category (one of the 17 paper tables of DOMAINS) as a filled pill, then all the labels of the
+    free-text domain ("LoRaWAN;wireless IoT", "Encrypted / VPN traffic") as one light pill each."""
+    category = '' if key == UNCLASSIFIED[0] else label_of(DOMAINS, key)
     parts = [p.strip() for p in re.split(r';| / ', text or '') if p.strip() and p.strip().lower() != category.lower()]
-    return ('<span class="obs-pills">' + f'<span class="obs-pill obs-pill-cat">{esc(category)}</span>'
+    return ('<span class="obs-pills">' + (f'<span class="obs-pill obs-pill-cat">{esc(category)}</span>' if category else '')
             + ''.join(f'<span class="obs-pill">{esc(p)}</span>' for p in parts) + '</span>')
 
 
@@ -601,7 +605,7 @@ def item(rec):
     chips = ''.join(f'<li>{esc(d)}</li>' for d in data[:4]) + (f'<li class="obs-more">+{len(data) - 4}</li>' if len(data) > 4 else '')
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
     return f'''              <article class="obs-item" {attr}>
-                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(label_of(DOMAINS, rec['_domain']), rec.get('domain'))}</p>
+                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec['_domain'], rec.get('domain'))}</p>
                 <div class="obs-c-name"><h3><button type="button" class="obs-name" data-open="{esc(rec['id'])}">{esc(rec['name'])}</button></h3>{family}{f'<span class="obs-marks">{marks}</span>' if marks else ''}</div>
                 <p class="obs-c-task">{esc(rec.get('task') or '—')}</p>
                 <ul class="obs-c-data" aria-label="Traffic data">{chips or '<li>—</li>'}</ul>
