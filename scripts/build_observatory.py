@@ -109,6 +109,8 @@ ATTACKS = [
     ('jamming', 'Jamming', r'[Jj]amming'),
     ('fuzzing', 'Fuzzing', r'[Ff]uzz'),
     ('replay', 'Replay', r'[Rr]eplay'),
+    ('timing', 'Timing (delayed messages)', r'[Dd]elayed message'),
+    ('sybil', 'Sybil', r'[Ss]ybil'),
     ('exfiltration', 'Exfiltration and tunneling', r'[Ee]xfiltration|[Tt]unnel|covert'),
     ('scanning', 'Scanning', r'[Ss]canning|Nmap'),
     ('exploitation', 'Exploitation', r'[Ee]xploit|[Bb]uffer overflow|LSASS'),
@@ -118,7 +120,9 @@ FAMILIES = {'bruteforce': ['bruteforce'], 'botnet-c2': ['botnet', 'c2'], 'dos': 
             'lateral': ['lateral'], 'malware': ['malware'], 'scanning': ['scanning'], 'exploitation': ['exploitation'],
             'web': ['web'], 'other': [], 'attck': ['attck'],
             # the families of the automotive table
-            'fuzzing': ['fuzzing'], 'spoofing': ['spoofing'], 'replay': ['replay']}
+            'fuzzing': ['fuzzing'], 'spoofing': ['spoofing'], 'replay': ['replay'],
+            # the families of the V2X table
+            'falsification': ['spoofing'], 'timing': ['timing'], 'sybil': ['sybil']}
 PROTOCOLS = [
     ('modbus', 'Modbus', r'Modbus'),
     ('dnp3', 'DNP3', r'DNP3'),

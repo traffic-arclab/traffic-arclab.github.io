@@ -573,13 +573,34 @@
       "family": "VeReMi",
       "paper": {
         "cite": "van der Heijden, Lukaseder & Kargl, SecureComm 2018",
+        "title": "VeReMi: A Dataset for Comparable Evaluation of Misbehavior Detection in VANETs",
         "doi": "10.1007/978-3-030-01701-9_18"
       },
       "notes": "Simulated V2X message logs for misbehavior detection, not IP packet captures.",
       "category": "v2x",
       "year": "2018",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "falsification",
+        "other"
+      ],
+      "size": {
+        "gb": "3.6",
+        "count": "225 simulations"
+      }
     },
     {
       "id": "veremi-extension",
@@ -593,12 +614,36 @@
       "family": "VeReMi",
       "paper": {
         "cite": "Kamel et al., IEEE ICC 2020",
-        "doi": "10.1109/icc40277.2020.9149132"
+        "title": "VeReMi Extension: A Dataset for Comparable Evaluation of Misbehavior Detection in VANETs",
+        "doi": "10.1109/ICC40277.2020.9149132"
       },
       "category": "v2x",
       "year": "2020",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "19"
+      },
+      "attack_families": [
+        "dos",
+        "falsification",
+        "replay",
+        "timing",
+        "sybil",
+        "other"
+      ],
+      "size": {
+        "count": "3.2M messages"
+      }
     },
     {
       "id": "veremi-nextgen",
@@ -613,7 +658,27 @@
       "category": "v2x",
       "year": "2026",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "15"
+      },
+      "attack_families": [
+        "dos",
+        "falsification",
+        "replay",
+        "timing",
+        "other"
+      ],
+      "notes": "Binary labels (attacker 0/1 per message); the attack type is given by the subset."
     },
     {
       "id": "uav-nidd",
@@ -8576,7 +8641,7 @@
     },
     {
       "id": "goncalves-vanet",
-      "name": "Gonçalves VANET Synthesized Security Datasets",
+      "name": "V2X Security Threats (Gonçalves et al. synthesized VANET datasets)",
       "url": "https://doi.org/10.5281/zenodo.4304411",
       "task": "Misbehavior detection",
       "domain": "Vehicular V2X (VANET)",
@@ -8587,12 +8652,31 @@
       "category": "v2x",
       "year": "2020",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "dos",
+        "falsification"
+      ],
+      "size": {
+        "gb": "0.536"
+      }
     },
     {
       "id": "ddos-vanets-yang",
       "name": "DDoS Attacks Dataset in VANETs (Yang et al.)",
-      "url": "",
+      "url": "https://github.com/YangFanAHU/DDoS-attacks-dataset-in-VANETs",
       "task": "DDoS detection",
       "domain": "Vehicular V2X (VANET)",
       "data": [
@@ -8602,11 +8686,26 @@
         "cite": "Zhong, Yang et al., WASA 2022",
         "doi": "10.1007/978-3-031-19211-1_21"
       },
-      "notes": "Download location not yet identified: see the paper.",
       "category": "v2x",
       "year": "2022",
       "representation": "Bus / V2X msgs",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "falsification"
+      ]
     },
     {
       "id": "misbehaviorx",
@@ -8617,12 +8716,29 @@
       "data": [
         "V2X message logs"
       ],
-      "notes": "Needs an IEEE DataPort subscription.",
+      "notes": "Needs an IEEE DataPort account.",
       "category": "v2x",
       "year": "2024",
       "representation": "Bus / V2X msgs",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "68"
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "0.992",
+        "count": ">1M messages"
+      }
     },
     {
       "id": "cyber-physical-uav",
