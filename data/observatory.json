@@ -4428,8 +4428,8 @@
     },
     {
       "id": "hornet-honeypot-dataset",
-      "name": "Hornet honeypot dataset",
-      "url": "https://www.stratosphereips.org/",
+      "name": "Hornet 15",
+      "url": "https://www.stratosphereips.org/hornet-network-dataset-of-geographically-placed-honeypots",
       "task": "Network cybersecurity / anomaly detection",
       "domain": "Honeypots / enterprise",
       "data": [
@@ -4437,8 +4437,32 @@
       ],
       "paper": {
         "cite": "Valeros & Garcia, Data in Brief 2022",
+        "title": "Hornet 15: Network dataset of geographically placed honeypots",
         "doi": "10.1016/j.dib.2022.107795"
-      }
+      },
+      "family": "Hornet",
+      "category": "honeypot",
+      "year": "2021",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "Argus?",
+      "size": {
+        "count": "2.1M flows (15 days)"
+      },
+      "notes": "8 cloud honeypots in 8 cities; all traffic is unsolicited, so it has no labels.",
+      "evidence": "verified"
     },
     {
       "id": "dedale",
@@ -5005,7 +5029,7 @@
     },
     {
       "id": "twente-2009",
-      "name": "Twente 2009",
+      "name": "Twente Labeled (Labeled Dataset for Intrusion Detection)",
       "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
       "task": "Honeypot intrusion detection",
       "domain": "Honeypot",
@@ -5013,9 +5037,36 @@
         "NetFlow"
       ],
       "paper": {
-        "cite": "Sperotto et al., LNCS 2009",
+        "cite": "Sperotto, Sadre, van Vliet & Pras, IPOM 2009 (LNCS 5843)",
+        "title": "A Labeled Data Set for Flow-Based Intrusion Detection",
         "doi": "10.1007/978-3-642-04968-2_4"
-      }
+      },
+      "category": "honeypot",
+      "year": "2008",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "bruteforce",
+        "scanning",
+        "exploitation"
+      ],
+      "derivation_tool": "NetFlow (v5)",
+      "size": {
+        "gb": "1.9"
+      },
+      "notes": "University of Twente honeypot; IDS alerts semi-automatically correlated to flows. SSH/FTP brute force.",
+      "evidence": "verified"
     },
     {
       "id": "isot-botnet",
@@ -5470,16 +5521,40 @@
     {
       "id": "kyoto-2006",
       "name": "Kyoto 2006+",
-      "url": "https://fkie-cad.github.io/COMIDDS/content/related_work/",
+      "url": "http://www.takakura.com/Kyoto_data/",
       "task": "Anomaly detection",
       "domain": "Honeypot / Enterprise",
       "data": [
         "Flow-derived features"
       ],
       "paper": {
-        "cite": "Song et al., BADGERS 2011",
+        "cite": "Song, Takakura, Okabe, Eto, Inoue & Nakao, BADGERS 2011",
+        "title": "Statistical Analysis of Honeypot Data and Building of Kyoto 2006+ Dataset for NIDS Evaluation",
         "doi": "10.1145/1978672.1978676"
-      }
+      },
+      "category": "honeypot",
+      "year": "2006",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": null,
+      "derivation_tool": "Zeek (Bro, 24 features)",
+      "size": {
+        "gb": "5",
+        "count": "806M records"
+      },
+      "notes": "Kyoto University honeypots. Classes: normal, known attack, unknown attack; weak labels from IDS, antivirus and shellcode-detector alerts.",
+      "evidence": "verified"
     },
     {
       "id": "darpa-1998",
@@ -10913,6 +10988,45 @@
       "size": {
         "count": "≈12M flows"
       },
+      "evidence": "verified"
+    },
+    {
+      "id": "ctu-hornet-65-niner",
+      "name": "CTU Hornet 65 Niner",
+      "url": "https://www.stratosphereips.org/hornet-network-dataset-of-geographically-placed-honeypots",
+      "task": "Honeypot traffic analysis",
+      "domain": "Honeypot",
+      "data": [
+        "Zeek logs"
+      ],
+      "family": "Hornet",
+      "paper": {
+        "cite": "Stratosphere Laboratory, 2024",
+        "title": "CTU Hornet 65 Niner",
+        "url": "https://www.stratosphereips.org/hornet-network-dataset-of-geographically-placed-honeypots"
+      },
+      "category": "honeypot",
+      "year": "2024",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "Zeek",
+      "size": {
+        "gb": "2.1",
+        "count": "65 days"
+      },
+      "notes": "9 cloud honeypots in 9 cities; all traffic is unsolicited, so it has no labels.",
       "evidence": "verified"
     }
   ]

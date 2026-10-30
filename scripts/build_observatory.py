@@ -79,6 +79,7 @@ DOMAINS = [
     ('encrypted', 'Encrypted and darknet', r'TLS|Encrypted|VPN|Tor\b|Darknet|QUIC|PQC'),
     ('web', 'DNS and web', r'DNS|DoH|\bWeb\b|HTTP'),
     ('backbone', 'Internet backbone and ISP', r'backbone|ISP'),
+    ('honeypot', 'Honeypots', r'[Hh]oneypot'),
     ('benign', 'Benign reference traffic', r'Benign'),
     ('enterprise', 'Enterprise and general IP', r''),
 ]
