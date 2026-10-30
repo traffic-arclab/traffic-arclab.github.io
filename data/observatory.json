@@ -698,12 +698,32 @@
       "category": "uav",
       "year": "2025",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "replay",
+        "scanning",
+        "spoofing",
+        "other"
+      ]
     },
     {
       "id": "uavids-2025",
       "name": "UAVIDS-2025",
-      "url": "https://zenodo.org/records/15336998",
+      "url": "https://ieee-dataport.org/documents/uavids-2025-benchmark-dataset-intrusion-detection-uav-networks-using-machine-learning",
       "task": "UAV swarm IDS",
       "domain": "UAV/Drones",
       "data": [
@@ -717,7 +737,28 @@
       "year": "2025",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "size": {
+        "gb": "0.019",
+        "count": "122k flows"
+      },
+      "notes": "Simulated in NS-3. Also on Zenodo: https://zenodo.org/records/15336998."
     },
     {
       "id": "gcs-nidd",
@@ -732,7 +773,30 @@
       "category": "uav",
       "year": "2026",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "replay",
+        "scanning",
+        "spoofing",
+        "other"
+      ],
+      "size": {
+        "count": "149k records"
+      }
     },
     {
       "id": "nf-unsw-nb15-v2",
@@ -8767,7 +8831,7 @@
     },
     {
       "id": "cyber-physical-uav",
-      "name": "Cyber-Physical Dataset for UAVs Under Normal Operations and Cyber-Attacks",
+      "name": "UAV Cyber-Physical (Cyber-Physical Dataset for UAVs Under Normal Operations and Cyber-Attacks)",
       "url": "https://ieee-dataport.org/documents/cyber-physical-dataset-uavs-under-normal-operations-and-cyber-attacks",
       "task": "UAV IDS",
       "domain": "UAV/Drones",
@@ -8780,7 +8844,29 @@
       "year": "2023",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "replay",
+        "spoofing",
+        "injection"
+      ],
+      "derivation_tool": "custom (Python)?",
+      "size": {
+        "gb": "0.0059"
+      }
     },
     {
       "id": "isot-drone",
@@ -8795,7 +8881,29 @@
       "category": "uav",
       "year": "2024",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "replay",
+        "spoofing",
+        "injection"
+      ],
+      "derivation_tool": "custom (CICIoT2023-based)",
+      "size": {
+        "gb": ">23"
+      },
+      "notes": "Binary labels: benign vs anomalous."
     },
     {
       "id": "5gad-2022",

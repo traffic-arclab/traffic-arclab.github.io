@@ -253,7 +253,8 @@
     lateral: 'Infiltration / lateral movement', malware: 'Malware / backdoor / worm', scanning: 'Reconnaissance / scan',
     exploitation: 'Exploitation', web: 'Web', other: 'Other (e.g. spoofing/MitM, spam, click fraud, protocol-specific)', attck: 'MITRE ATT&CK tactics',
     fuzzing: 'Fuzzing', spoofing: 'Spoofing / fabrication / masquerade', replay: 'Replay',
-    falsification: 'Data falsification (position, speed, acceleration, heading)', timing: 'Timing (delayed messages)', sybil: 'Sybil'};
+    falsification: 'Data falsification (position, speed, acceleration, heading)', timing: 'Timing (delayed messages)', sybil: 'Sybil',
+    injection: 'False data / command injection, payload manipulation'};
   const tbc = v => esc(String(v).replace(/\?$/, ' (to be confirmed)'));   // "5?" in the tables: to be confirmed
   const paperLink = p => p.doi ? `https://doi.org/${p.doi}` : p.url;
   // how the distribution source of the record was checked
