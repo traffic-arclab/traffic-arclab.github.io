@@ -248,7 +248,7 @@
     unavailable: 'Not available (withdrawn or not yet released)'};
   // the columns of the paper tables
   const ACQUISITION = {real: 'Real devices', hybrid: 'Real and simulated devices', emulated: 'Emulated or simulated', mix: 'Merge of sources'};
-  const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', none: 'None'};
+  const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', multilabel: 'Multi-label', none: 'None'};
   const FAMILIES = {bruteforce: 'Brute force', 'botnet-c2': 'Botnet / C2', dos: '(D)DoS', exfiltration: 'Exfiltration',
     lateral: 'Infiltration / lateral movement', malware: 'Malware / backdoor / worm', scanning: 'Reconnaissance / scan',
     exploitation: 'Exploitation', web: 'Web', other: 'Other (e.g. spoofing/MitM, spam, click fraud, protocol-specific)', attck: 'MITRE ATT&CK tactics',

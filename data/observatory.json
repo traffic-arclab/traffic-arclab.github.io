@@ -1999,9 +1999,35 @@
         "system logs"
       ],
       "paper": {
-        "cite": "Sharafaldin et al., ICCST 2019",
-        "doi": "10.1109/ccst.2019.8888419"
-      }
+        "cite": "Sharafaldin, Lashkari, Hakak & Ghorbani, ICCST 2019",
+        "title": "Developing Realistic Distributed Denial of Service (DDoS) Attack Dataset and Taxonomy",
+        "doi": "10.1109/CCST.2019.8888419"
+      },
+      "category": "ddos",
+      "year": "2019",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "13"
+      },
+      "attack_families": [
+        "dos",
+        "scanning"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "24.4"
+      },
+      "evidence": "verified"
     },
     {
       "id": "cic-aagm2017",
@@ -2177,7 +2203,31 @@
       "paper": {
         "cite": "Mahdavifar et al., IEEE DASC 2021",
         "doi": "10.1109/dasc-picom-cbdcom-cyberscitech52372.2021.00024"
-      }
+      },
+      "category": "web",
+      "year": "2021",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "derivation_tool": "custom (32 features)",
+      "size": {
+        "count": "413k records"
+      },
+      "evidence": "verified"
     },
     {
       "id": "cic-bell-dns-exf-2021",
@@ -2191,7 +2241,32 @@
       "paper": {
         "cite": "Mahdavifar et al., ICCNS 2021",
         "doi": "10.1145/3507509.3507520"
-      }
+      },
+      "category": "web",
+      "year": "2021",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "exfiltration"
+      ],
+      "derivation_tool": "custom (30 features)",
+      "size": {
+        "gb": "0.271",
+        "count": "1.0M records"
+      },
+      "evidence": "verified"
     },
     {
       "id": "cic-ynu-iotmal2026",
@@ -2412,7 +2487,6 @@
       "id": "h23q",
       "name": "H23Q",
       "url": "https://icsdweb.aegean.gr/awid/",
-      "access": "request",
       "task": "Modern encrypted web/QUIC attack detection",
       "domain": "HTTP/2 HTTP/3 QUIC / Web attacks",
       "data": [
@@ -2422,7 +2496,35 @@
       "paper": {
         "cite": "Chatzoglou et al., Computers & Security 2023",
         "doi": "10.1016/j.cose.2022.103051"
-      }
+      },
+      "category": "web",
+      "year": "2022",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "web",
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "gb": "30",
+        "count": "10.4M packets"
+      },
+      "notes": "10 HTTP/2 and HTTP/3 (QUIC) attacks grouped in 4 classes.",
+      "evidence": "verified"
     },
     {
       "id": "mawi-samplepoint-f",
@@ -2458,25 +2560,69 @@
     },
     {
       "id": "csic-2010-http",
-      "name": "CSIC 2010 HTTP",
+      "name": "HTTP Dataset CSIC 2010",
       "url": "https://github.com/msudol/Web-Application-Attack-Datasets",
       "task": "Web attack request classification",
       "domain": "Web application / WAF",
       "data": [
         "HTTP request traces",
         "CSV representations"
-      ]
+      ],
+      "category": "web",
+      "year": "2010",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "web"
+      ],
+      "size": {
+        "count": "61k requests"
+      },
+      "evidence": "verified"
     },
     {
       "id": "ecml-pkdd-2007-web-attacks",
-      "name": "ECML-PKDD 2007 Web attacks",
+      "name": "ECML/PKDD 2007 Discovery Challenge (Analyzing Web Traffic)",
       "url": "https://github.com/msudol/Web-Application-Attack-Datasets",
       "task": "Malicious web request detection",
       "domain": "Web application / WAF",
       "data": [
         "HTTP requests",
         "CSV representations"
-      ]
+      ],
+      "category": "web",
+      "year": "2007",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "web"
+      ],
+      "size": {
+        "count": "50k requests"
+      },
+      "evidence": "verified"
     },
     {
       "id": "malware-traffic-analysis-net-captures",
@@ -2608,8 +2754,8 @@
     },
     {
       "id": "cira-cic-dohbrw2020",
-      "name": "CIRA-CIC-DoHBrw2020",
-      "url": "https://www.unb.ca/cic/datasets/index.html",
+      "name": "CIRA-CIC-DoHBrw-2020",
+      "url": "https://www.unb.ca/cic/datasets/dohbrw-2020.html",
       "task": "DoH traffic / malicious DoH detection",
       "domain": "DNS-over-HTTPS / covert channels",
       "data": [
@@ -2619,7 +2765,32 @@
       "paper": {
         "cite": "MontazeriShatoori et al., IEEE DASC 2020",
         "doi": "10.1109/dasc-picom-cbdcom-cyberscitech49142.2020.00026"
-      }
+      },
+      "category": "web",
+      "year": "2020",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "exfiltration"
+      ],
+      "derivation_tool": "DoHMeter",
+      "size": {
+        "count": "1.2M flows"
+      },
+      "notes": "Two layers: DoH vs non-DoH, then benign vs malicious DoH.",
+      "evidence": "verified"
     },
     {
       "id": "cic-darknet2020",
@@ -4103,16 +4274,40 @@
     {
       "id": "usb-ids-tc",
       "name": "USB-IDS-TC",
-      "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md",
+      "url": "https://idsdata.ding.unisannio.it/usbidstc.html",
       "task": "Network cybersecurity / anomaly detection",
       "domain": "Network / DoS",
       "data": [
         "Flows"
       ],
       "paper": {
-        "cite": "Catillo et al., IEEE/IFIP DSN 2021",
-        "doi": "10.1109/dsn-w52860.2021.00012"
-      }
+        "cite": "Catillo, Del Vecchio, Ocone, Pecchia & Villano, DSN-W 2021",
+        "title": "USB-IDS-1: a Public Multilayer Dataset of Labeled Network Flows for IDS Evaluation",
+        "doi": "10.1109/DSN-W52860.2021.00012"
+      },
+      "notes": "Dataset page: Catillo et al., USB-IDS-TC (the bib gives 2024, the table 2025).",
+      "category": "ddos",
+      "year": "2025",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "count": "8 scenarios"
+      },
+      "evidence": "verified"
     },
     {
       "id": "lycos-unicas-ids2018",
@@ -4571,7 +4766,32 @@
       "paper": {
         "cite": "Diaz-Verdejo et al., European Interdisciplinary Cybersecurity Conference 2024",
         "doi": "10.1145/3655693.3661319"
-      }
+      },
+      "category": "web",
+      "year": "2017",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "request",
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "web"
+      ],
+      "size": {
+        "gb": "6",
+        "count": "48M requests"
+      },
+      "notes": "Attack vs normal from IDS alerts with 4 confidence levels.",
+      "evidence": "verified"
     },
     {
       "id": "ugr16",
@@ -6216,9 +6436,36 @@
       "data": [
         "PCAP (anonymised, no payload)"
       ],
+      "notes": "One hour of a real DDoS attack (4 August 2007) seen by the CAIDA backbone telescope; attack-only trace, no labels. Academic access on request.",
+      "origin": "web",
+      "paper": {
+        "cite": "Center for Applied Internet Data Analysis (CAIDA), 2007",
+        "title": "The CAIDA UCSD DDoS Attack 2007 Dataset",
+        "url": "https://www.caida.org/catalog/datasets/ddos-20070804_dataset/"
+      },
+      "category": "ddos",
+      "year": "2007",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
       "access": "request",
-      "notes": "Found online on 2026-10-20, not in the reference list. One hour of a real DDoS attack (4 August 2007), about 21 GB uncompressed. Academic access on request.",
-      "origin": "web"
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": false,
+        "attack": "1"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "21"
+      },
+      "evidence": "verified"
     },
     {
       "id": "iscx-botnet-2014",
@@ -9969,6 +10216,292 @@
       "derivation_tool": "NTLFlowLyzer",
       "derived": true,
       "notes": "5 networks. Derived from earlier captures not yet identified.",
+      "evidence": "verified"
+    },
+    {
+      "id": "darpa-2000",
+      "name": "DARPA 2000 Intrusion Detection Scenario Specific Datasets (LLDOS 1.0 / 2.0.2)",
+      "url": "https://archive.ll.mit.edu/ideval/data/2000/LLS_DDOS_2.0.2.html",
+      "task": "Multi-stage DDoS scenario detection",
+      "domain": "DDoS",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "MIT Lincoln Laboratory, 2000",
+        "title": "2000 DARPA Intrusion Detection Scenario Specific Datasets (LLDOS 1.0 and 2.0.2)",
+        "url": "https://archive.ll.mit.edu/ideval/data/2000/LLS_DDOS_2.0.2.html"
+      },
+      "category": "ddos",
+      "year": "2000",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": "5 phases"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "exploitation"
+      ],
+      "size": {
+        "count": "2 scenarios"
+      },
+      "notes": "Five attack phases of a multi-stage DDoS (sadmind exploitation); per-phase ground truth from XML alerts and session lists.",
+      "evidence": "verified"
+    },
+    {
+      "id": "cic-dos-2017",
+      "name": "CIC DoS Dataset (2017)",
+      "url": "https://www.unb.ca/cic/datasets/dos-dataset.html",
+      "task": "Application-layer DoS detection",
+      "domain": "DDoS",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Jazi, Gonzalez, Stakhanova & Ghorbani, Computer Networks 2017",
+        "title": "Detecting HTTP-based application layer DoS attacks on web servers in the presence of sampling",
+        "doi": "10.1016/j.comnet.2017.03.018"
+      },
+      "category": "ddos",
+      "year": "2017",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
+      "access": "unavailable",
+      "acquisition": "mix",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "4.6"
+      },
+      "parents": [
+        "cic-iscx-2012"
+      ],
+      "notes": "Application-layer DoS attacks mixed into the ISCX-IDS2012 background. Labels not documented.",
+      "evidence": "verified"
+    },
+    {
+      "id": "boun-ddos",
+      "name": "Boğaziçi University DDoS Dataset (BOUN DDoS)",
+      "url": "https://doi.org/10.1016/j.dib.2020.106187",
+      "task": "DDoS detection",
+      "domain": "DDoS",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Erhan & Anarım, Data in Brief 2020",
+        "title": "Boğaziçi University distributed denial of service dataset",
+        "doi": "10.1016/j.dib.2020.106187"
+      },
+      "notes": "University campus backbone with injected floods; attack packets identified by the victim IP. Download link: see the paper.",
+      "category": "ddos",
+      "year": "2020",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "registration",
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "Wireshark (CSV)",
+      "size": {
+        "gb": "0.166"
+      },
+      "evidence": "verified"
+    },
+    {
+      "id": "bccc-udp-quic-ids-2025",
+      "name": "BCCC-UDP-QUIC-IDS-2025",
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/",
+      "task": "UDP / QUIC DDoS detection",
+      "domain": "DDoS",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2025",
+        "title": "BCCC-UDP-QUIC-IDS-2025",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+      },
+      "category": "ddos",
+      "year": "2025",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "UDP/QUICFlowLyzer",
+      "size": {
+        "count": "1.2M flows"
+      },
+      "notes": "7 attacks plus a benign and a suspicious class.",
+      "evidence": "verified"
+    },
+    {
+      "id": "sr-bh-2020",
+      "name": "SR-BH 2020",
+      "url": "",
+      "task": "Web attack classification (CAPEC)",
+      "domain": "DNS / web",
+      "data": [
+        "HTTP requests",
+        "ModSecurity logs"
+      ],
+      "paper": {
+        "cite": "Riera et al., 2022 (source to be completed)",
+        "title": "SR-BH 2020"
+      },
+      "notes": "Multi-label CAPEC classes. Download location not yet identified.",
+      "category": "web",
+      "year": "2020",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "multilabel"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "12"
+      },
+      "attack_families": [
+        "web"
+      ],
+      "derivation_tool": "ModSecurity",
+      "size": {
+        "gb": "0.436"
+      },
+      "evidence": "verified"
+    },
+    {
+      "id": "bccc-cira-cic-dohbrw-2020",
+      "name": "BCCC-CIRA-CIC-DoHBrw-2020",
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/",
+      "task": "Malicious DoH detection",
+      "domain": "DNS / web",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), 2023 (source to be completed)",
+        "title": "BCCC-CIRA-CIC-DoHBrw-2020",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+      },
+      "category": "web",
+      "year": "2023",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "exfiltration"
+      ],
+      "derivation_tool": "SMOTE",
+      "size": {
+        "count": "500k records"
+      },
+      "parents": [
+        "cira-cic-dohbrw2020"
+      ],
+      "notes": "Rebalanced with SMOTE.",
+      "evidence": "verified"
+    },
+    {
+      "id": "bccc-cic-bell-dns-2024",
+      "name": "BCCC-CIC-Bell-DNS-2024",
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/",
+      "task": "Malicious DNS and DNS exfiltration detection",
+      "domain": "DNS / web",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), 2024 (source to be completed)",
+        "title": "BCCC-CIC-Bell-DNS-2024",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+      },
+      "category": "web",
+      "year": "2024",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": "6"
+      },
+      "attack_families": [
+        "exfiltration",
+        "malware"
+      ],
+      "derivation_tool": "ALFlowLyzer",
+      "parents": [
+        "cic-bell-dns2021",
+        "cic-bell-dns-exf-2021"
+      ],
+      "notes": "6 sub-categories of light/heavy exfiltration and malicious DNS; benign class not documented.",
       "evidence": "verified"
     }
   ]
