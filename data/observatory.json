@@ -520,7 +520,12 @@
         "other"
       ],
       "derivation_tool": "CICFlowMeter",
-      "notes": "New capture: 33 distinct attacks conducted within an IoT topology of 105 devices (CICIoT2023 is related work, not a source)."
+      "notes": "New capture: 33 distinct attacks conducted within an IoT topology of 105 devices (CICIoT2023 is related work, not a source).",
+      "paper": {
+        "cite": "Canadian Institute for Cybersecurity, 2024",
+        "title": "CIC IoT-DIAD 2024",
+        "url": "https://www.unb.ca/cic/datasets/iot-diad-2024.html"
+      }
     },
     {
       "id": "hcrl-car-hacking",
@@ -679,7 +684,12 @@
         "timing",
         "other"
       ],
-      "notes": "Binary labels (attacker 0/1 per message); the attack type is given by the subset."
+      "notes": "Binary labels (attacker 0/1 per message); the attack type is given by the subset.",
+      "paper": {
+        "cite": "VeReMi NextGen, 2026",
+        "title": "VeReMi NextGen",
+        "url": "https://github.com/VeReMi-dataset/VeReMi-NextGen"
+      }
     },
     {
       "id": "uav-nidd",
@@ -796,6 +806,11 @@
       ],
       "size": {
         "count": "149k records"
+      },
+      "paper": {
+        "cite": "CyberSaR Lab, KAUST, 2026",
+        "title": "GCS-NIDD: UAV Ground Control Station Intrusion Detection Dataset",
+        "url": "https://github.com/CyberSaR-KAUST/UAV-GCS-Intrusion-Detection-Dataset-UAV-GCS-IDS-"
       }
     },
     {
@@ -1298,7 +1313,12 @@
       "parents_text": [
         "UQ IoT 2022"
       ],
-      "notes": "Merges nine datasets listed as \"Original dataset\" on the official page; UQ IoT 2022 is not in the catalogue."
+      "notes": "Merges nine datasets listed as \"Original dataset\" on the official page; UQ IoT 2022 is not in the catalogue.",
+      "paper": {
+        "cite": "Canadian Institute for Cybersecurity, 2024",
+        "title": "CIC-BCCC-NRC TabularIoTAttack-2024",
+        "url": "https://www.unb.ca/cic/datasets/tabular-iot-attack-2024.html"
+      }
     },
     {
       "id": "genis",
@@ -1459,7 +1479,12 @@
         "exploitation",
         "other"
       ],
-      "derivation_tool": "CICFlowMeter, custom (IEC 104 parser)"
+      "derivation_tool": "CICFlowMeter, custom (IEC 104 parser)",
+      "paper": {
+        "cite": "Radoglou-Grammatikis et al., Zenodo 2022",
+        "title": "IEC 60870-5-104 Intrusion Detection Dataset",
+        "url": "https://zenodo.org/records/7108614"
+      }
     },
     {
       "id": "lorawan-network-attacks-guard",
@@ -1666,7 +1691,12 @@
       },
       "attack_families": [
         "other"
-      ]
+      ],
+      "paper": {
+        "cite": "WEBLab, University of Modena & Reggio Emilia, 2019",
+        "title": "UNIMORE Bus-Off dataset",
+        "url": "https://weblab.ing.unimore.it/people/stabili/resources/"
+      }
     },
     {
       "id": "unimore-daga",
@@ -2041,7 +2071,12 @@
         "botnet-c2",
         "malware"
       ],
-      "derivation_tool": "tshark"
+      "derivation_tool": "tshark",
+      "paper": {
+        "cite": "Canadian Institute for Cybersecurity, 2026",
+        "title": "CIC-YNU-IoTMal Dataset 2026",
+        "url": "https://www.unb.ca/cic/datasets/ynu-iot-2026.html"
+      }
     },
     {
       "id": "stratosphere-malware-capture-facility",
@@ -2078,7 +2113,12 @@
       "size": {
         "count": "≈292 captures"
       },
-      "notes": "Classes: benign and malware traffic, plus unlabelled background traffic."
+      "notes": "Classes: benign and malware traffic, plus unlabelled background traffic.",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "malwaretraffic-liveness-annotated",
@@ -2118,7 +2158,12 @@
       "size": {
         "count": "3.4k PCAP files"
       },
-      "notes": "Attack classes are malware families (362)."
+      "notes": "Attack classes are malware families (362).",
+      "paper": {
+        "cite": "MalwareTraffic: liveness-annotated malware PCAP dataset, 2026",
+        "title": "MalwareTraffic: liveness-annotated malware PCAP dataset",
+        "url": "https://github.com/Root0ne/malware-pcap-dataset"
+      }
     },
     {
       "id": "awid",
@@ -2258,7 +2303,12 @@
       "size": {
         "count": "one capture per blog post"
       },
-      "notes": "Maintained by Brad Duncan."
+      "notes": "Maintained by Brad Duncan.",
+      "paper": {
+        "cite": "Duncan",
+        "title": "Malware-Traffic-Analysis.net",
+        "url": "https://www.malware-traffic-analysis.net/"
+      }
     },
     {
       "id": "netresec-public-pcap-index",
@@ -2298,7 +2348,12 @@
         "benign": null,
         "attack": null
       },
-      "attack_families": null
+      "attack_families": null,
+      "paper": {
+        "cite": "NETRESEC AB",
+        "title": "MACCDC -- Mid-Atlantic Collegiate Cyber Defense Competition captures",
+        "url": "https://www.netresec.com/?page=MACCDC"
+      }
     },
     {
       "id": "cic-iscx-2012",
@@ -3547,7 +3602,12 @@
       "size": {
         "count": "5 captures"
       },
-      "evidence": "verified"
+      "evidence": "verified",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Mixed Captures",
+        "url": "https://www.stratosphereips.org/datasets-mixed"
+      }
     },
     {
       "id": "ctu-mixed-capture-1",
@@ -3657,6 +3717,11 @@
       "derivation_tool": "Argus, Zeek",
       "size": {
         "count": "20 captures"
+      },
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Normal Captures",
+        "url": "https://www.stratosphereips.org/datasets-normal"
       }
     },
     {
@@ -4086,6 +4151,11 @@
       ],
       "size": {
         "gb": "0.13"
+      },
+      "paper": {
+        "cite": "Open Threat Research Forge",
+        "title": "Security Datasets",
+        "url": "https://github.com/OTRF/Security-Datasets"
       }
     },
     {
@@ -4120,6 +4190,11 @@
       "derivation_tool": "Zeek",
       "size": {
         "gb": "1"
+      },
+      "paper": {
+        "cite": "Open Threat Research Forge",
+        "title": "Security Datasets",
+        "url": "https://github.com/OTRF/Security-Datasets"
       }
     },
     {
@@ -4421,6 +4496,11 @@
       ],
       "size": {
         "gb": "9.3"
+      },
+      "paper": {
+        "cite": "IEEE VAST Challenge, 2011",
+        "title": "VAST Challenge 2011, Mini Challenge 2: Computer Networking Operations",
+        "url": "https://visualdata.wustl.edu/varepository/benchmarks.php"
       }
     },
     {
@@ -4453,6 +4533,11 @@
       ],
       "size": {
         "gb": "2.9"
+      },
+      "paper": {
+        "cite": "IEEE VAST Challenge, 2012",
+        "title": "VAST Challenge 2012: Bank of Money network security",
+        "url": "https://visualdata.wustl.edu/varepository/benchmarks.php"
       }
     },
     {
@@ -4672,7 +4757,12 @@
         "scanning",
         "exploitation",
         "other"
-      ]
+      ],
+      "paper": {
+        "cite": "Canadian Institute for Cybersecurity, 2023",
+        "title": "CIC Modbus Dataset 2023",
+        "url": "https://www.unb.ca/cic/datasets/modbus-2023.html"
+      }
     },
     {
       "id": "cicev2023",
@@ -4723,6 +4813,11 @@
       "size": {
         "gb": "0.07",
         "count": "268k flows"
+      },
+      "paper": {
+        "cite": "Serinelli et al., Zenodo 2022",
+        "title": "I-Sec-IDS Datasets",
+        "doi": "10.5281/zenodo.6657210"
       }
     },
     {
@@ -4954,7 +5049,12 @@
       "size": {
         "gb": "182"
       },
-      "notes": "Label description in Zenodo record 18861762."
+      "notes": "Label description in Zenodo record 18861762.",
+      "paper": {
+        "cite": "Zenodo 2026",
+        "title": "CAM-LDS network captures",
+        "url": "https://zenodo.org/records/18701095"
+      }
     },
     {
       "id": "pdmfc-ai4cyber-sc3-3",
@@ -5096,6 +5196,11 @@
       "size": {
         "gb": "13.9",
         "count": "49.9M records"
+      },
+      "paper": {
+        "cite": "Mendeley Data 2026",
+        "title": "IoT-SFC v2",
+        "url": "https://data.mendeley.com/datasets/j9xffc2psb/5"
       }
     },
     {
@@ -5174,6 +5279,11 @@
       "derivation_tool": "tshark",
       "size": {
         "gb": "23.8"
+      },
+      "paper": {
+        "cite": "Zenodo 2025",
+        "title": "Gotham Device-Level IoT Network Traffic",
+        "url": "https://zenodo.org/records/14502760"
       }
     },
     {
@@ -5224,7 +5334,12 @@
       "size": {
         "gb": "0.0087"
       },
-      "derived": true
+      "derived": true,
+      "paper": {
+        "cite": "Zenodo 2026",
+        "title": "Labeled IoT Window-Based Random Network Pattern Dataset for Reinforcement Learning",
+        "url": "https://zenodo.org/records/19238988"
+      }
     },
     {
       "id": "safe-nid-packet-level-payload-labels",
@@ -5266,7 +5381,12 @@
         "cicids2017",
         "unsw-nb15"
       ],
-      "notes": "One Zenodo record with packet-level labels for CIC-IDS2017 (49.3 GB, 14 attack classes) and UNSW-NB15 (12.7 GB, 9 attack classes)."
+      "notes": "One Zenodo record with packet-level labels for CIC-IDS2017 (49.3 GB, 14 attack classes) and UNSW-NB15 (12.7 GB, 9 attack classes).",
+      "paper": {
+        "cite": "Zenodo 2025",
+        "title": "SAFE-NID: packet-level payload labels for CIC-IDS2017 and UNSW-NB15",
+        "url": "https://zenodo.org/records/15046995"
+      }
     },
     {
       "id": "iot-communication-protocol-overhead-dataset",
@@ -6191,6 +6311,11 @@
       "derivation_tool": "nProbe",
       "size": {
         "count": "15.1M flows"
+      },
+      "paper": {
+        "cite": "APPRAISE H2020 project, Kaggle 2023",
+        "title": "APPRAISE H2020 Real Labelled NetFlow Dataset",
+        "url": "https://www.kaggle.com/datasets/ittibydgoszcz/appraise-h2020-real-labelled-netflow-dataset"
       }
     },
     {
@@ -6229,6 +6354,11 @@
       "size": {
         "gb": "170",
         "count": "99M flows"
+      },
+      "paper": {
+        "cite": "Bendl et al., Zenodo 2023",
+        "title": "CTU-SME-11: a labeled dataset with real benign and malicious network traffic mimicking a small medium-size enterprise environment",
+        "doi": "10.5281/zenodo.7958259"
       }
     },
     {
@@ -6269,7 +6399,12 @@
       "derivation_tool": "NTLFlowLyzer",
       "parents": [
         "cicids2017"
-      ]
+      ],
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2024",
+        "title": "Intrusion Detection Dataset BCCC-CIC-IDS2017",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/intrusion-detection-dataset-bccc-cic-ids2017/"
+      }
     },
     {
       "id": "cic-unsw-nb15-augmented",
@@ -6310,7 +6445,12 @@
       },
       "parents": [
         "unsw-nb15"
-      ]
+      ],
+      "paper": {
+        "cite": "Canadian Institute for Cybersecurity, 2024",
+        "title": "UNSW-NB15 Augmented Dataset (CIC UNSW-NB15)",
+        "url": "https://www.unb.ca/cic/datasets/cic-unsw-nb15.html"
+      }
     },
     {
       "id": "uwf-zeekdata24",
@@ -6392,7 +6532,12 @@
       },
       "parents": [
         "cse-cic-ids2018"
-      ]
+      ],
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2025",
+        "title": "Large-Scale Intrusion Detection Dataset BCCC-CSE-CIC-IDS2018",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/large-scale-intrusion-detection-dataset-bccc-cse-cic-ids2018/"
+      }
     },
     {
       "id": "nf-unsw-nb15-v3",
@@ -6562,7 +6707,11 @@
       },
       "parents": [
         "cse-cic-ids2018"
-      ]
+      ],
+      "paper": {
+        "cite": "CSE-CIC-IDS2018 v2 (source to be completed)",
+        "title": "CSE-CIC-IDS2018 v2"
+      }
     },
     {
       "id": "nf-cse-cic-ids2018-v3",
@@ -6723,6 +6872,11 @@
       "size": {
         "gb": "0.82",
         "count": "42 PCAP files"
+      },
+      "paper": {
+        "cite": "Kang et al., IEEE Dataport 2019",
+        "title": "IoT Network Intrusion Dataset",
+        "doi": "10.21227/q70p-q449"
       }
     },
     {
@@ -7041,6 +7195,11 @@
       "size": {
         "gb": "32",
         "count": "1.2M flows"
+      },
+      "paper": {
+        "cite": "Bastian et al., IEEE Dataport 2023",
+        "title": "ACI IoT Network Traffic Dataset 2023",
+        "doi": "10.21227/qacj-3x32"
       }
     },
     {
@@ -7221,6 +7380,11 @@
       "size": {
         "gb": "20000",
         "count": ">1B records"
+      },
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2025",
+        "title": "BCCC-IoT-IDS-Zwave-2025",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
       }
     },
     {
@@ -7256,7 +7420,12 @@
         "scanning",
         "other"
       ],
-      "derivation_tool": "MQTTFlowLyzer"
+      "derivation_tool": "MQTTFlowLyzer",
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2025",
+        "title": "BCCC-IoT-MQTT-IDS-2025",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+      }
     },
     {
       "id": "dalhousie-nims-iot-2025-2",
@@ -7285,7 +7454,12 @@
         "benign": null,
         "attack": null
       },
-      "attack_families": null
+      "attack_families": null,
+      "paper": {
+        "cite": "NIMS Lab, Dalhousie University, IEEE Dataport 2025",
+        "title": "Dalhousie NIMS Lab Attack IoT Dataset 2025-2",
+        "url": "https://ieee-dataport.org/documents/dalhousie-nims-lab-attack-iot-dataset-2025-2"
+      }
     },
     {
       "id": "dalhousie-nims-iot-2025-1",
@@ -7322,6 +7496,11 @@
       "derivation_tool": "Tranalyzer2",
       "size": {
         "gb": "3.9"
+      },
+      "paper": {
+        "cite": "NIMS Lab, Dalhousie University, IEEE Dataport 2025",
+        "title": "Dalhousie NIMS Lab IoT Attack Dataset 2025-1",
+        "url": "https://ieee-dataport.org/documents/dalhousie-nims-lab-iot-attack-dataset-2025-1"
       }
     },
     {
@@ -7488,6 +7667,11 @@
       "size": {
         "gb": "26.9",
         "count": "4.9M flows"
+      },
+      "paper": {
+        "cite": "UNSW IoT Analytics, 2025",
+        "title": "UNSW-IoTraffic",
+        "url": "https://iotanalytics.unsw.edu.au/unsw-iotraffic.html"
       }
     },
     {
@@ -7516,7 +7700,12 @@
         "benign": true,
         "attack": "1"
       },
-      "attack_families": null
+      "attack_families": null,
+      "paper": {
+        "cite": "CyberFlowIoT-GICAP: Labelled IoT flow-based traffic dataset, 2026",
+        "title": "CyberFlowIoT-GICAP: Labelled IoT flow-based traffic dataset",
+        "url": "https://hdl.handle.net/10259/11273"
+      }
     },
     {
       "id": "latam-ddos-iot",
@@ -7627,7 +7816,11 @@
         "dos",
         "exploitation"
       ],
-      "derivation_tool": "PyShark"
+      "derivation_tool": "PyShark",
+      "paper": {
+        "cite": "MQTTEEB-D, 2025 (source to be completed)",
+        "title": "MQTTEEB-D"
+      }
     },
     {
       "id": "android-mischief",
@@ -7662,7 +7855,12 @@
       "size": {
         "gb": "0.41"
       },
-      "notes": "Published by Valeros & Garcia (Stratosphere Laboratory), 2020."
+      "notes": "Published by Valeros & Garcia (Stratosphere Laboratory), 2020.",
+      "paper": {
+        "cite": "Valeros & Garcia, Stratosphere Laboratory 2020",
+        "title": "Android Mischief Dataset",
+        "url": "https://www.stratosphereips.org/android-mischief-dataset"
+      }
     },
     {
       "id": "netml-challenge",
@@ -7936,6 +8134,11 @@
       "attack_families": null,
       "size": {
         "gb": "0.35"
+      },
+      "paper": {
+        "cite": "NETRESEC AB, 2015",
+        "title": "4SICS Geek Lounge ICS PCAP files",
+        "url": "https://www.netresec.com/?page=PCAP4SICS"
       }
     },
     {
@@ -8093,6 +8296,11 @@
       "size": {
         "gb": "0.024",
         "count": "108k records"
+      },
+      "paper": {
+        "cite": "Pinto et al., IEEE Dataport 2020",
+        "title": "M2M using OPC UA",
+        "url": "https://ieee-dataport.org/open-access/m2m-using-opc-ua"
       }
     },
     {
@@ -8251,6 +8459,11 @@
       "derivation_tool": "ICSFlowGenerator",
       "size": {
         "count": "1.8M packets"
+      },
+      "paper": {
+        "cite": "Westermo Network Technologies, 2023",
+        "title": "Westermo network traffic data set",
+        "url": "https://github.com/westermo/network-traffic-dataset"
       }
     },
     {
@@ -8288,6 +8501,11 @@
       "derivation_tool": "Wireshark, custom",
       "size": {
         "count": "2.6M records"
+      },
+      "paper": {
+        "cite": "Zenodo 2025",
+        "title": "ICSCASD-MPLC",
+        "url": "https://zenodo.org/records/16351397"
       }
     },
     {
@@ -8523,6 +8741,11 @@
       ],
       "size": {
         "count": "≈1 h of normal traffic"
+      },
+      "paper": {
+        "cite": "Hacking & Countermeasure Research Lab (HCRL), Korea University, IEEE Dataport 2022",
+        "title": "CAN-FD Intrusion Dataset",
+        "url": "https://ieee-dataport.org/documents/can-fd-intrusion-dataset"
       }
     },
     {
@@ -8684,7 +8907,12 @@
         "gb": "0.10",
         "count": "1.7 h"
       },
-      "notes": "Dataset DOI: 10.4121/uuid:b74b4928-c377-4585-9432-2004dfa20a5d (Dupont, Lekidis, den Hartog & Etalle)."
+      "notes": "Dataset DOI: 10.4121/uuid:b74b4928-c377-4585-9432-2004dfa20a5d (Dupont, Lekidis, den Hartog & Etalle).",
+      "paper": {
+        "cite": "Dupont et al., 4TU.ResearchData 2019",
+        "title": "Automotive Controller Area Network (CAN) Bus Intrusion Dataset v2",
+        "doi": "10.4121/uuid:b74b4928-c377-4585-9432-2004dfa20a5d"
+      }
     },
     {
       "id": "can-mirgu",
@@ -8760,6 +8988,11 @@
       ],
       "size": {
         "gb": "0.536"
+      },
+      "paper": {
+        "cite": "Gonçalves et al., Zenodo 2020",
+        "title": "Synthesized datasets for VANET security threats",
+        "doi": "10.5281/zenodo.4304411"
       }
     },
     {
@@ -8827,6 +9060,10 @@
       "size": {
         "gb": "0.992",
         "count": ">1M messages"
+      },
+      "paper": {
+        "cite": "MisbehaviorX, 2024 (source to be completed)",
+        "title": "MisbehaviorX"
       }
     },
     {
@@ -8866,6 +9103,11 @@
       "derivation_tool": "custom (Python)?",
       "size": {
         "gb": "0.0059"
+      },
+      "paper": {
+        "cite": "IEEE Dataport 2023",
+        "title": "Cyber-Physical Dataset for UAVs Under Normal Operations and Cyber-Attacks",
+        "url": "https://ieee-dataport.org/documents/cyber-physical-dataset-uavs-under-normal-operations-and-cyber-attacks"
       }
     },
     {
@@ -8903,7 +9145,12 @@
       "size": {
         "gb": ">23"
       },
-      "notes": "Binary labels: benign vs anomalous."
+      "notes": "Binary labels: benign vs anomalous.",
+      "paper": {
+        "cite": "ISOT Research Lab, University of Victoria, 2024",
+        "title": "ISOT Drone Anomaly Detection Dataset",
+        "url": "https://onlineacademiccommunity.uvic.ca/isot/"
+      }
     },
     {
       "id": "5gad-2022",
