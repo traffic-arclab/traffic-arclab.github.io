@@ -88,6 +88,7 @@
     const { chosen, words } = state();
     const filtering = words.length > 0 || Object.keys(chosen).length > 0;
     let shown = 0;
+    document.querySelector('.obs-list-wrap').scrollTop = 0;   // the list scrolls inside its own box
     order(rows.slice()).forEach(row => list.appendChild(row));
     rows.forEach(row => {
       const hit = passes(row, chosen, words);
