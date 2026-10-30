@@ -1461,7 +1461,12 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .obs-item:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--dom) 45%, var(--color-line)); box-shadow: var(--shadow-md); }
 .obs-item.is-member { border-style: dashed; background: var(--color-surface-alt); box-shadow: none; }
 .obs-c-domain { grid-area: domain; display: flex; align-items: center; gap: 7px; min-width: 0; color: var(--color-muted); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.obs-c-domain span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.obs-pills { display: flex; flex-wrap: nowrap; gap: 5px; min-width: 0; overflow: hidden; }
+.obs-pill { flex: none; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, var(--dom, var(--color-subtle)) 13%, transparent);
+  color: color-mix(in srgb, var(--dom, var(--color-muted)) 72%, var(--color-ink)); font-size: .74rem; font-weight: 600; letter-spacing: .01em; line-height: 1.5; text-transform: none; white-space: nowrap; }
+.obs-pill:last-child { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.obs-dl .obs-pills { flex-wrap: wrap; }
+.obs-dl .obs-pill { font-size: .8rem; font-weight: 600; letter-spacing: 0; }
 .obs-c-name { grid-area: name; min-width: 0; }
 .obs-c-name h3 { margin: 0; font: 600 1.2rem/1.25 var(--font-serif); letter-spacing: -.01em; }
 .obs-item .obs-name { display: inline; color: var(--color-title); text-decoration: none; overflow-wrap: anywhere; }
@@ -1486,7 +1491,8 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
   .is-table .obs-item.is-member .obs-c-name { padding-left: 18px; }
   .is-table .obs-c-name h3 { font: 700 .98rem/1.35 var(--font-sans); letter-spacing: 0; }
   .is-table .obs-c-domain { color: var(--color-ink); font-size: .88rem; font-weight: 500; letter-spacing: 0; text-transform: none; }
-  .is-table .obs-c-domain span:last-child { white-space: normal; }
+  .is-table .obs-pills { flex-wrap: wrap; }
+  .is-table .obs-pill { text-transform: none; letter-spacing: 0; font-weight: 600; font-size: .78rem; }
   .is-table .obs-c-src { flex-direction: column; padding: 0; border: 0; }
 }
 @media (max-width: 760px) {

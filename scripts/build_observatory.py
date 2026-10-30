@@ -541,6 +541,12 @@ def engine(data, records, families):
     </section>'''
 
 
+def domain_pills(text):
+    """The free-text domain ("LoRaWAN;wireless IoT", "Encrypted / VPN traffic") as one pill per part."""
+    parts = [p.strip() for p in re.split(r';| / ', text) if p.strip()]
+    return '<span class="obs-pills">' + ''.join(f'<span class="obs-pill">{esc(p)}</span>' for p in parts) + '</span>'
+
+
 def item(rec):
     """One record: a card, or a row of the table view (the same markup, laid out by css)."""
     attrs = {
@@ -593,7 +599,7 @@ def item(rec):
     chips = ''.join(f'<li>{esc(d)}</li>' for d in data[:4]) + (f'<li class="obs-more">+{len(data) - 4}</li>' if len(data) > 4 else '')
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
     return f'''              <article class="obs-item" {attr}>
-                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span><span>{esc(rec.get('domain') or label_of(DOMAINS, rec['_domain']))}</span></p>
+                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec.get('domain') or label_of(DOMAINS, rec['_domain']))}</p>
                 <div class="obs-c-name"><h3><button type="button" class="obs-name" data-open="{esc(rec['id'])}">{esc(rec['name'])}</button></h3>{family}{f'<span class="obs-marks">{marks}</span>' if marks else ''}</div>
                 <p class="obs-c-task">{esc(rec.get('task') or '—')}</p>
                 <ul class="obs-c-data" aria-label="Traffic data">{chips or '<li>—</li>'}</ul>
@@ -667,7 +673,7 @@ def page_data(records):
         if r['_children']:
             item['children'] = [c['id'] for c in r['_children']]
         item.update(size=r['_size'], index=r['_index'], mixed=r['_mixed'], ours=r['_ours'],
-                    domainGroup=label_of(DOMAINS, r['_domain']))
+                    domainGroup=label_of(DOMAINS, r['_domain']), domainKey=r['_domain'])
         out.append(item)
     payload = json.dumps({'records': out}, ensure_ascii=False, separators=(',', ':'))
     return payload.replace('</', '<\\/')

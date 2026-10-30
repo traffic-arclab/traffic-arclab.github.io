@@ -317,7 +317,8 @@
       <h2 id="obs-dialog-title" class="gate-title">${esc(r.name)}</h2>
       <dl class="obs-dl">
         ${item('Security task', esc(r.task))}
-        ${item('Domain', esc(r.domain))}
+        ${item('Domain', r.domain && `<span class="obs-pills" data-domain="${esc(r.domainKey)}">${r.domain.split(/;| \/ /).map(p => p.trim()).filter(Boolean)
+          .map(p => `<span class="obs-pill">${esc(p)}</span>`).join('')}</span>`)}
         ${item('Year', esc(r.year))}
         ${item('Traffic data', esc((r.data || []).join(', ')))}
         ${item('Representation', esc(r.representation))}
@@ -373,7 +374,7 @@
       <span class="obs-pick-rank" aria-hidden="true">${rank}</span>
       <div class="obs-pick-body">
         <div class="obs-pick-head"><button type="button" class="obs-pick-name" data-open="${esc(r.id)}">${esc(r.name)}</button>${tags}</div>
-        <p class="obs-pick-meta">${esc(r.domain)} · ${esc(r.task)}</p>
+        <p class="obs-pick-meta">${esc((r.domain || '').split(/;| \/ /).map(p => p.trim()).filter(Boolean).join(' · '))} · ${esc(r.task)}</p>
         ${why ? `<p class="obs-pick-why"><strong>Why</strong> ${esc(why)}</p>` : ''}
       </div>
     </li>`;
