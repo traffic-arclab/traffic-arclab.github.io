@@ -32,24 +32,6 @@
     "The Observatory records every dataset at the level of the **release and its distributed artifacts**, and links it to its original publication and distribution source."
   ],
   "eligibility": "A dataset is included when it distributes recorded network communications (packet captures, flow records, wireless frames, CAN or V2X messages, protocol logs) or features demonstrably derived from them, whatever the security task. Host-only telemetry, malware binaries and sensor time series without a network-traffic component are not eligible on their own.",
-  "units": [
-    {
-      "name": "Family",
-      "text": "A named line of related collections (e.g. the Stratosphere Malware Capture Facility)."
-    },
-    {
-      "name": "Release",
-      "text": "A documented distribution at a given stage (e.g. IoT-23 v1)."
-    },
-    {
-      "name": "Capture",
-      "text": "A single acquisition event or scenario inside a release."
-    },
-    {
-      "name": "Artifact",
-      "text": "A file or package actually delivered to researchers (full PCAP, flow-only archive, CSV)."
-    }
-  ],
   "records": [
     {
       "id": "cicids2017",
@@ -4083,7 +4065,8 @@
       "category": "malware",
       "year": "2015",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "ctu-mixed-capture-2",
@@ -4098,7 +4081,8 @@
       "category": "malware",
       "year": "2015",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "ctu-mixed-capture-3",
@@ -4113,7 +4097,8 @@
       "category": "malware",
       "year": "2016",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "ctu-mixed-capture-4",
@@ -4128,7 +4113,8 @@
       "category": "malware",
       "year": "2016",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "ctu-mixed-capture-5",
@@ -4143,7 +4129,8 @@
       "category": "malware",
       "year": "2016",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "ctu-normal-captures",
@@ -4197,7 +4184,8 @@
       "family": "CTU Normal Captures",
       "category": "enterprise",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "ctu-normal-5",
@@ -4211,7 +4199,8 @@
       "family": "CTU Normal Captures",
       "category": "enterprise",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "ctu-normal-6",
@@ -4225,7 +4214,8 @@
       "family": "CTU Normal Captures",
       "category": "enterprise",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "table_row": false
     },
     {
       "id": "anoshift",
@@ -11029,5 +11019,176 @@
       "notes": "9 cloud honeypots in 9 cities; all traffic is unsolicited, so it has no labels.",
       "evidence": "verified"
     }
-  ]
+  ],
+  "model_intro": "Each dataset of the Observatory is described by the same entity model as the paper: the dataset at the centre, linked to ten entities. The five above it describe where the dataset comes from (dashed lines are optional associations: not every dataset has a family, a paper or a derivation tool); the five below describe what it contains and how to get it. Every value is also a filter of the catalogue: select one to see the datasets that have it.",
+  "model": {
+    "top": [
+      {
+        "name": "Family",
+        "optional": true,
+        "text": "The named line of related collections the dataset belongs to, e.g. the Stratosphere Malware Capture Facility. Datasets of one family share sources and are not independent.",
+        "items": [
+          {
+            "label": "Part of a family",
+            "filter": "lineage:member"
+          }
+        ]
+      },
+      {
+        "name": "Paper",
+        "optional": true,
+        "text": "The publications that introduce or use the dataset; each card links the original one.",
+        "items": [
+          {
+            "label": "Paper identified",
+            "filter": "paper:yes"
+          }
+        ]
+      },
+      {
+        "name": "Lineage",
+        "text": "Whether the dataset is a new acquisition or is derived from another dataset (a re-extraction, a subset, a merge). A derived dataset links its parents, and a parent shows its derived datasets.",
+        "items": [
+          {
+            "label": "Original",
+            "filter": "lineage:original"
+          },
+          {
+            "label": "Derived",
+            "filter": "lineage:derived"
+          }
+        ]
+      },
+      {
+        "name": "Labeling",
+        "text": "How traffic is labelled: one benign/attack label, one label per attack class, or labels inferred from heuristics such as IDS alerts or file names.",
+        "items": [
+          {
+            "label": "Binary",
+            "filter": "labeling:binary"
+          },
+          {
+            "label": "Multi-class",
+            "filter": "labeling:multiclass"
+          },
+          {
+            "label": "Weak / Heuristic",
+            "filter": "labeling:weak"
+          }
+        ]
+      },
+      {
+        "name": "Derivation Tool",
+        "optional": true,
+        "text": "The tool that produced the derived artifacts from the traces, when there are any (e.g. CICFlowMeter, Zeek, Argus, nfdump).",
+        "items": []
+      }
+    ],
+    "bottom": [
+      {
+        "name": "Domain",
+        "text": "The application domain: one of the paper tables, which also gives the colour of the card.",
+        "items": "domains"
+      },
+      {
+        "name": "Capture Scenario",
+        "text": "Where the traffic was captured: on real devices and networks, in a simulator or emulator, or in a testbed that mixes the two.",
+        "items": [
+          {
+            "label": "Real Devices",
+            "filter": "acquisition:real"
+          },
+          {
+            "label": "Simulated / Emulated",
+            "filter": "acquisition:emulated"
+          },
+          {
+            "label": "Hybrid",
+            "filter": "acquisition:hybrid"
+          }
+        ]
+      },
+      {
+        "name": "Attack Families",
+        "text": "The kinds of attack the dataset covers, grouped in common families across the tables.",
+        "items": [
+          {
+            "label": "Brute Force",
+            "filter": "attack:bruteforce"
+          },
+          {
+            "label": "Botnet / C2",
+            "filter": "attack:botnet"
+          },
+          {
+            "label": "(D)DoS",
+            "filter": "attack:ddos"
+          },
+          {
+            "label": "Exfiltration",
+            "filter": "attack:exfiltration"
+          },
+          {
+            "label": "Infiltration / Lateral Movement",
+            "filter": "attack:lateral"
+          },
+          {
+            "label": "Malware / Backdoor / Worm",
+            "filter": "attack:malware"
+          },
+          {
+            "label": "Reconnaissance / Scan",
+            "filter": "attack:scanning"
+          },
+          {
+            "label": "Exploitation",
+            "filter": "attack:exploitation"
+          },
+          {
+            "label": "Web",
+            "filter": "attack:web"
+          },
+          {
+            "label": "Other"
+          },
+          {
+            "label": "MITRE ATT&CK tactics",
+            "filter": "attack:attck"
+          }
+        ]
+      },
+      {
+        "name": "Artifact",
+        "text": "What is actually delivered to researchers: the network traces themselves (packets, CAN or V2X messages) and/or information derived from them (flows, feature tables).",
+        "items": [
+          {
+            "label": "Network Traces",
+            "filter": "format:packets"
+          },
+          {
+            "label": "Derived Information",
+            "filter": "format:features"
+          }
+        ]
+      },
+      {
+        "name": "Access Route",
+        "text": "How the artifacts are obtained: a direct download, a download after registration, or a request to the authors.",
+        "items": [
+          {
+            "label": "Open direct",
+            "filter": "access:open"
+          },
+          {
+            "label": "Registration",
+            "filter": "access:registration"
+          },
+          {
+            "label": "Request",
+            "filter": "access:request"
+          }
+        ]
+      }
+    ]
+  }
 }

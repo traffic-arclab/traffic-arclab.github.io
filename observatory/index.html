@@ -12,7 +12,7 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=84323b9b">
+  <link rel="stylesheet" href="../css/site.css?v=758d66bb">
   <script src="../js/site.js?v=9e61baa7" defer></script>
   <script src="../js/observatory.js?v=7fc9ca6a" defer></script>
 </head>
@@ -2819,21 +2819,88 @@
     <section class="section page-body" id="about">
       <div class="container">
         <div class="section-head"><h2 class="section-title">About the Observatory</h2></div>
-        <div class="obs-about">
-          <div class="prose">
+        <div class="prose obs-about">
           <p>Many datasets are used to evaluate AI methods for intrusion detection, malware and command-and-control analysis, and anomaly detection, but the same dataset name often refers to different releases, captures and derived feature tables.</p>
           <p>The Observatory records every dataset at the level of the <strong>release and its distributed artifacts</strong>, and links it to its original publication and distribution source.</p>
-          </div>
-          <aside class="obs-units" aria-label="Units of analysis">
-            <p class="card-kicker">Units of analysis</p>
-            <ul>
-            <li><strong>Family</strong> A named line of related collections (e.g. the Stratosphere Malware Capture Facility).</li>
-            <li><strong>Release</strong> A documented distribution at a given stage (e.g. IoT-23 v1).</li>
-            <li><strong>Capture</strong> A single acquisition event or scenario inside a release.</li>
-            <li><strong>Artifact</strong> A file or package actually delivered to researchers (full PCAP, flow-only archive, CSV).</li>
-            </ul>
-          </aside>
         </div>
+        <figure class="obs-model" aria-labelledby="obs-model-title">
+          <figcaption><h3 class="obs-model-title" id="obs-model-title">Entity model</h3><p>Each dataset of the Observatory is described by the same entity model as the paper: the dataset at the centre, linked to ten entities. The five above it describe where the dataset comes from (dashed lines are optional associations: not every dataset has a family, a paper or a derivation tool); the five below describe what it contains and how to get it. Every value is also a filter of the catalogue: select one to see the datasets that have it.</p></figcaption>
+          <div class="obs-m-row obs-m-top">
+            <div class="obs-m-card is-optional">
+              <h3>Family<span class="obs-m-opt">optional</span></h3>
+              <p>The named line of related collections the dataset belongs to, e.g. the Stratosphere Malware Capture Facility. Datasets of one family share sources and are not independent.</p><ul><li><a href="?lineage=member#catalogue">Part of a family</a></li></ul>
+            </div>
+            <div class="obs-m-card is-optional">
+              <h3>Paper<span class="obs-m-opt">optional</span></h3>
+              <p>The publications that introduce or use the dataset; each card links the original one.</p><ul><li><a href="?paper=yes#catalogue">Paper identified</a></li></ul>
+            </div>
+            <div class="obs-m-card">
+              <h3>Lineage</h3>
+              <p>Whether the dataset is a new acquisition or is derived from another dataset (a re-extraction, a subset, a merge). A derived dataset links its parents, and a parent shows its derived datasets.</p><ul><li><a href="?lineage=original#catalogue">Original</a></li><li><a href="?lineage=derived#catalogue">Derived</a></li></ul>
+            </div>
+            <div class="obs-m-card">
+              <h3>Labeling</h3>
+              <p>How traffic is labelled: one benign/attack label, one label per attack class, or labels inferred from heuristics such as IDS alerts or file names.</p><ul><li><a href="?labeling=binary#catalogue">Binary</a></li><li><a href="?labeling=multiclass#catalogue">Multi-class</a></li><li><a href="?labeling=weak#catalogue">Weak / Heuristic</a></li></ul>
+            </div>
+            <div class="obs-m-card is-optional">
+              <h3>Derivation Tool<span class="obs-m-opt">optional</span></h3>
+              <p>The tool that produced the derived artifacts from the traces, when there are any (e.g. CICFlowMeter, Zeek, Argus, nfdump).</p>
+            </div>
+          </div>
+          <div class="obs-m-core"><span>Dataset</span></div>
+          <div class="obs-m-row obs-m-bottom">
+            <div class="obs-m-card">
+              <h3>Domain</h3>
+              <p>The application domain: one of the paper tables, which also gives the colour of the card.</p><ul><li><a href="?domain=v2x#catalogue" class="obs-m-dom" data-domain="v2x">Vehicular V2X</a></li><li><a href="?domain=automotive#catalogue" class="obs-m-dom" data-domain="automotive">Automotive (CAN, Ethernet)</a></li><li><a href="?domain=uav#catalogue" class="obs-m-dom" data-domain="uav">UAV and drones</a></li><li><a href="?domain=industrial#catalogue" class="obs-m-dom" data-domain="industrial">ICS and OT</a></li><li><a href="?domain=5g#catalogue" class="obs-m-dom" data-domain="5g">5G and mobile core</a></li><li><a href="?domain=wireless#catalogue" class="obs-m-dom" data-domain="wireless">Wireless and LPWAN</a></li><li><a href="?domain=iot#catalogue" class="obs-m-dom" data-domain="iot">IoT, IIoT and IoMT</a></li><li><a href="?domain=mobile#catalogue" class="obs-m-dom" data-domain="mobile">Mobile (Android)</a></li><li><a href="?domain=malware#catalogue" class="obs-m-dom" data-domain="malware">Malware, botnet and C2</a></li><li><a href="?domain=sdn#catalogue" class="obs-m-dom" data-domain="sdn">SDN and cloud</a></li><li><a href="?domain=ddos#catalogue" class="obs-m-dom" data-domain="ddos">DDoS</a></li><li><a href="?domain=encrypted#catalogue" class="obs-m-dom" data-domain="encrypted">Encrypted and darknet</a></li><li><a href="?domain=web#catalogue" class="obs-m-dom" data-domain="web">DNS and web</a></li><li><a href="?domain=backbone#catalogue" class="obs-m-dom" data-domain="backbone">Internet backbone and ISP</a></li><li><a href="?domain=honeypot#catalogue" class="obs-m-dom" data-domain="honeypot">Honeypots</a></li><li><a href="?domain=benign#catalogue" class="obs-m-dom" data-domain="benign">Benign reference traffic</a></li><li><a href="?domain=enterprise#catalogue" class="obs-m-dom" data-domain="enterprise">Enterprise and general IP</a></li></ul>
+            </div>
+            <div class="obs-m-card">
+              <h3>Capture Scenario</h3>
+              <p>Where the traffic was captured: on real devices and networks, in a simulator or emulator, or in a testbed that mixes the two.</p><ul><li><a href="?acquisition=real#catalogue">Real Devices</a></li><li><a href="?acquisition=emulated#catalogue">Simulated / Emulated</a></li><li><a href="?acquisition=hybrid#catalogue">Hybrid</a></li></ul>
+            </div>
+            <div class="obs-m-card">
+              <h3>Attack Families</h3>
+              <p>The kinds of attack the dataset covers, grouped in common families across the tables.</p><ul><li><a href="?attack=bruteforce#catalogue">Brute Force</a></li><li><a href="?attack=botnet#catalogue">Botnet / C2</a></li><li><a href="?attack=ddos#catalogue">(D)DoS</a></li><li><a href="?attack=exfiltration#catalogue">Exfiltration</a></li><li><a href="?attack=lateral#catalogue">Infiltration / Lateral Movement</a></li><li><a href="?attack=malware#catalogue">Malware / Backdoor / Worm</a></li><li><a href="?attack=scanning#catalogue">Reconnaissance / Scan</a></li><li><a href="?attack=exploitation#catalogue">Exploitation</a></li><li><a href="?attack=web#catalogue">Web</a></li><li>Other</li><li><a href="?attack=attck#catalogue">MITRE ATT&amp;CK tactics</a></li></ul>
+            </div>
+            <div class="obs-m-card">
+              <h3>Artifact</h3>
+              <p>What is actually delivered to researchers: the network traces themselves (packets, CAN or V2X messages) and/or information derived from them (flows, feature tables).</p><ul><li><a href="?format=packets#catalogue">Network Traces</a></li><li><a href="?format=features#catalogue">Derived Information</a></li></ul>
+            </div>
+            <div class="obs-m-card">
+              <h3>Access Route</h3>
+              <p>How the artifacts are obtained: a direct download, a download after registration, or a request to the authors.</p><ul><li><a href="?access=open#catalogue">Open direct</a></li><li><a href="?access=registration#catalogue">Registration</a></li><li><a href="?access=request#catalogue">Request</a></li></ul>
+            </div>
+          </div>
+        </figure>
+        <figure class="obs-rep" aria-labelledby="obs-rep-title">
+          <figcaption><h3 class="obs-model-title" id="obs-rep-title">Records by domain and distributed representation</h3>
+            <p>Each paper table is one application domain. Its records are split by what they distribute: the bar shows the split, the columns give the counts. Select a domain to see its datasets.</p></figcaption>
+          <div class="obs-rep-scroll">
+            <table class="obs-rep-table">
+              <thead><tr><th scope="col">Category</th><th scope="col" class="obs-rep-total"><i>n</i></th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Split</span></th><th scope="col" class="obs-rep-n"><span class="obs-rep-key obs-rep-pktder" aria-hidden="true"></span>Pkt + derived</th><th scope="col" class="obs-rep-n"><span class="obs-rep-key obs-rep-pkt" aria-hidden="true"></span>Pkt only</th><th scope="col" class="obs-rep-n"><span class="obs-rep-key obs-rep-der" aria-hidden="true"></span>Derived</th><th scope="col" class="obs-rep-n"><span class="obs-rep-key obs-rep-bus" aria-hidden="true"></span>Bus / V2X</th><th scope="col" class="obs-rep-n"><span class="obs-rep-key obs-rep-unclear" aria-hidden="true"></span>Unclear</th></tr></thead>
+              <tbody>
+              <tr><th scope="row"><a href="?domain=enterprise#catalogue"><span class="obs-dot" data-domain="enterprise" aria-hidden="true"></span>Enterprise and general IP</a></th><td class="obs-rep-total">56</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:100.0%"><span class="obs-rep-pktder" style="flex-grow:17" title="Pkt + derived: 17"></span><span class="obs-rep-pkt" style="flex-grow:8" title="Pkt only: 8"></span><span class="obs-rep-der" style="flex-grow:30" title="Derived: 30"></span><span class="obs-rep-unclear" style="flex-grow:1" title="Unclear: 1"></span></span></td><td class="obs-rep-n">17</td><td class="obs-rep-n">8</td><td class="obs-rep-n">30</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n">1</td></tr>
+              <tr><th scope="row"><a href="?domain=iot#catalogue"><span class="obs-dot" data-domain="iot" aria-hidden="true"></span>IoT, IIoT and IoMT</a></th><td class="obs-rep-total">51</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:91.1%"><span class="obs-rep-pktder" style="flex-grow:28" title="Pkt + derived: 28"></span><span class="obs-rep-pkt" style="flex-grow:4" title="Pkt only: 4"></span><span class="obs-rep-der" style="flex-grow:19" title="Derived: 19"></span></span></td><td class="obs-rep-n">28</td><td class="obs-rep-n">4</td><td class="obs-rep-n">19</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=industrial#catalogue"><span class="obs-dot" data-domain="industrial" aria-hidden="true"></span>ICS and OT</a></th><td class="obs-rep-total">21</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:37.5%"><span class="obs-rep-pktder" style="flex-grow:10" title="Pkt + derived: 10"></span><span class="obs-rep-pkt" style="flex-grow:5" title="Pkt only: 5"></span><span class="obs-rep-der" style="flex-grow:6" title="Derived: 6"></span></span></td><td class="obs-rep-n">10</td><td class="obs-rep-n">5</td><td class="obs-rep-n">6</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=automotive#catalogue"><span class="obs-dot" data-domain="automotive" aria-hidden="true"></span>Automotive (CAN, Ethernet)</a></th><td class="obs-rep-total">17</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:30.4%"><span class="obs-rep-pkt" style="flex-grow:2" title="Pkt only: 2"></span><span class="obs-rep-der" style="flex-grow:1" title="Derived: 1"></span><span class="obs-rep-bus" style="flex-grow:14" title="Bus / V2X: 14"></span></span></td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n">2</td><td class="obs-rep-n">1</td><td class="obs-rep-n">14</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=malware#catalogue"><span class="obs-dot" data-domain="malware" aria-hidden="true"></span>Malware, botnet and C2</a></th><td class="obs-rep-total">17</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:30.4%"><span class="obs-rep-pktder" style="flex-grow:7" title="Pkt + derived: 7"></span><span class="obs-rep-pkt" style="flex-grow:5" title="Pkt only: 5"></span><span class="obs-rep-der" style="flex-grow:5" title="Derived: 5"></span></span></td><td class="obs-rep-n">7</td><td class="obs-rep-n">5</td><td class="obs-rep-n">5</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=encrypted#catalogue"><span class="obs-dot" data-domain="encrypted" aria-hidden="true"></span>Encrypted and darknet</a></th><td class="obs-rep-total">13</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:23.2%"><span class="obs-rep-pktder" style="flex-grow:4" title="Pkt + derived: 4"></span><span class="obs-rep-pkt" style="flex-grow:1" title="Pkt only: 1"></span><span class="obs-rep-der" style="flex-grow:8" title="Derived: 8"></span></span></td><td class="obs-rep-n">4</td><td class="obs-rep-n">1</td><td class="obs-rep-n">8</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=web#catalogue"><span class="obs-dot" data-domain="web" aria-hidden="true"></span>DNS and web</a></th><td class="obs-rep-total">10</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:17.9%"><span class="obs-rep-pktder" style="flex-grow:2" title="Pkt + derived: 2"></span><span class="obs-rep-der" style="flex-grow:8" title="Derived: 8"></span></span></td><td class="obs-rep-n">2</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n">8</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=backbone#catalogue"><span class="obs-dot" data-domain="backbone" aria-hidden="true"></span>Internet backbone and ISP</a></th><td class="obs-rep-total">8</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:14.3%"><span class="obs-rep-pktder" style="flex-grow:2" title="Pkt + derived: 2"></span><span class="obs-rep-pkt" style="flex-grow:2" title="Pkt only: 2"></span><span class="obs-rep-der" style="flex-grow:4" title="Derived: 4"></span></span></td><td class="obs-rep-n">2</td><td class="obs-rep-n">2</td><td class="obs-rep-n">4</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=ddos#catalogue"><span class="obs-dot" data-domain="ddos" aria-hidden="true"></span>DDoS</a></th><td class="obs-rep-total">7</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:12.5%"><span class="obs-rep-pktder" style="flex-grow:1" title="Pkt + derived: 1"></span><span class="obs-rep-pkt" style="flex-grow:3" title="Pkt only: 3"></span><span class="obs-rep-der" style="flex-grow:3" title="Derived: 3"></span></span></td><td class="obs-rep-n">1</td><td class="obs-rep-n">3</td><td class="obs-rep-n">3</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=5g#catalogue"><span class="obs-dot" data-domain="5g" aria-hidden="true"></span>5G and mobile core</a></th><td class="obs-rep-total">6</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:10.7%"><span class="obs-rep-pktder" style="flex-grow:4" title="Pkt + derived: 4"></span><span class="obs-rep-pkt" style="flex-grow:1" title="Pkt only: 1"></span><span class="obs-rep-der" style="flex-grow:1" title="Derived: 1"></span></span></td><td class="obs-rep-n">4</td><td class="obs-rep-n">1</td><td class="obs-rep-n">1</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=v2x#catalogue"><span class="obs-dot" data-domain="v2x" aria-hidden="true"></span>Vehicular V2X</a></th><td class="obs-rep-total">6</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:10.7%"><span class="obs-rep-bus" style="flex-grow:6" title="Bus / V2X: 6"></span></span></td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n">6</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=sdn#catalogue"><span class="obs-dot" data-domain="sdn" aria-hidden="true"></span>SDN and cloud</a></th><td class="obs-rep-total">5</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:8.9%"><span class="obs-rep-pktder" style="flex-grow:2" title="Pkt + derived: 2"></span><span class="obs-rep-pkt" style="flex-grow:1" title="Pkt only: 1"></span><span class="obs-rep-der" style="flex-grow:2" title="Derived: 2"></span></span></td><td class="obs-rep-n">2</td><td class="obs-rep-n">1</td><td class="obs-rep-n">2</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=uav#catalogue"><span class="obs-dot" data-domain="uav" aria-hidden="true"></span>UAV and drones</a></th><td class="obs-rep-total">5</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:8.9%"><span class="obs-rep-pktder" style="flex-grow:3" title="Pkt + derived: 3"></span><span class="obs-rep-der" style="flex-grow:2" title="Derived: 2"></span></span></td><td class="obs-rep-n">3</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n">2</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=wireless#catalogue"><span class="obs-dot" data-domain="wireless" aria-hidden="true"></span>Wireless and LPWAN</a></th><td class="obs-rep-total">5</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:8.9%"><span class="obs-rep-pktder" style="flex-grow:2" title="Pkt + derived: 2"></span><span class="obs-rep-der" style="flex-grow:3" title="Derived: 3"></span></span></td><td class="obs-rep-n">2</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n">3</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              <tr><th scope="row"><a href="?domain=honeypot#catalogue"><span class="obs-dot" data-domain="honeypot" aria-hidden="true"></span>Honeypots</a></th><td class="obs-rep-total">4</td><td class="obs-rep-cell"><span class="obs-rep-bar" style="width:7.1%"><span class="obs-rep-pktder" style="flex-grow:1" title="Pkt + derived: 1"></span><span class="obs-rep-der" style="flex-grow:3" title="Derived: 3"></span></span></td><td class="obs-rep-n">1</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n">3</td><td class="obs-rep-n is-zero">0</td><td class="obs-rep-n is-zero">0</td></tr>
+              </tbody>
+              <tfoot>
+              <tr class="obs-rep-sum"><th scope="row">Total</th><td class="obs-rep-total">231</td><td class="obs-rep-cell"></td><td class="obs-rep-n">83</td><td class="obs-rep-n">32</td><td class="obs-rep-n">95</td><td class="obs-rep-n">20</td><td class="obs-rep-n">1</td></tr>
+              </tfoot>
+            </table>
+          </div>
+          <ul class="obs-rep-legend"><li><span class="obs-rep-key obs-rep-pktder" aria-hidden="true"></span><strong>Pkt + derived</strong> packet captures together with flow or feature tables</li><li><span class="obs-rep-key obs-rep-pkt" aria-hidden="true"></span><strong>Pkt only</strong> packet captures without derived tables</li><li><span class="obs-rep-key obs-rep-der" aria-hidden="true"></span><strong>Derived</strong> flow, log or feature tables without packets</li><li><span class="obs-rep-key obs-rep-bus" aria-hidden="true"></span><strong>Bus / V2X</strong> raw CAN bus or V2X message logs</li><li><span class="obs-rep-key obs-rep-unclear" aria-hidden="true"></span><strong>Unclear</strong> artifact type not documented</li></ul>
+        </figure>
         <dl class="dataset-stats obs-stats">
           <div class="dataset-stat"><dt>Catalogue records</dt><dd>352</dd><p class="obs-stat-note">versions, captures and collections</p></div>
           <div class="dataset-stat"><dt>Independent families</dt><dd>228</dd><p class="obs-stat-note">after grouping captures and derivatives</p></div>

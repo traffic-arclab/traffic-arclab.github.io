@@ -553,6 +553,102 @@ def domain_pills(key, text):
             + ''.join(f'<span class="obs-pill">{esc(p)}</span>' for p in parts) + '</span>')
 
 
+# The distributed representation of a record, as in tab:domain of the paper.
+REPRESENTATIONS = [('pktder', 'Pkt + derived', 'packet captures together with flow or feature tables'),
+                   ('pkt', 'Pkt only', 'packet captures without derived tables'),
+                   ('der', 'Derived', 'flow, log or feature tables without packets'),
+                   ('bus', 'Bus / V2X', 'raw CAN bus or V2X message logs'),
+                   ('unclear', 'Unclear', 'artifact type not documented')]
+
+
+def representation_of(rec):
+    if (rec.get('representation') or '').startswith('Bus'):
+        return 'bus'
+    a = rec.get('artifact')
+    if not a:
+        return 'unclear'
+    return 'pktder' if a['traces'] and a['derived'] else 'pkt' if a['traces'] else 'der'
+
+
+def domain_table(records):
+    """tab:domain of the paper: the rows of each paper table by distributed representation, as stacked bars
+    with their counts (the captures listed inside a family row, "table_row": false, are not rows)."""
+    rows = {}
+    for r in records:
+        if r.get('category') and r.get('table_row', True):
+            rows.setdefault(r['category'], {k: 0 for k, _, _ in REPRESENTATIONS})[representation_of(r)] += 1
+    order = sorted(rows, key=lambda k: (-sum(rows[k].values()), label_of(DOMAINS, k)))
+    top = max(sum(v.values()) for v in rows.values())
+    total = {k: sum(rows[d][k] for d in rows) for k, _, _ in REPRESENTATIONS}
+
+    def line(name, counts, cls='', key=None):
+        n = sum(counts.values())
+        segs = ''.join(f'<span class="obs-rep-{k}" style="flex-grow:{counts[k]}" title="{esc(label)}: {counts[k]}"></span>'
+                       for k, label, _ in REPRESENTATIONS if counts[k])
+        bar = f'<span class="obs-rep-bar" style="width:{100 * n / top:.1f}%">{segs}</span>' if key else ''
+        head = (f'<a href="?domain={key}#catalogue"><span class="obs-dot" data-domain="{key}" aria-hidden="true"></span>{esc(name)}</a>'
+                if key else esc(name))
+        cells = ''.join(f'<td class="obs-rep-n{" is-zero" if not counts[k] else ""}">{counts[k]}</td>' for k, _, _ in REPRESENTATIONS)
+        return f'              <tr{cls}><th scope="row">{head}</th><td class="obs-rep-total">{n}</td><td class="obs-rep-cell">{bar}</td>{cells}</tr>'
+
+    legend = ''.join(f'<li><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span><strong>{esc(label)}</strong> {esc(text)}</li>'
+                     for k, label, text in REPRESENTATIONS)
+    heads = ''.join(f'<th scope="col" class="obs-rep-n"><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span>{esc(label)}</th>'
+                    for k, label, _ in REPRESENTATIONS)
+    body = '\n'.join(line(label_of(DOMAINS, k), rows[k], key=k) for k in order)
+    return f'''        <figure class="obs-rep" aria-labelledby="obs-rep-title">
+          <figcaption><h3 class="obs-model-title" id="obs-rep-title">Records by domain and distributed representation</h3>
+            <p>Each paper table is one application domain. Its records are split by what they distribute: the bar shows the split, the columns give the counts. Select a domain to see its datasets.</p></figcaption>
+          <div class="obs-rep-scroll">
+            <table class="obs-rep-table">
+              <thead><tr><th scope="col">Category</th><th scope="col" class="obs-rep-total"><i>n</i></th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Split</span></th>{heads}</tr></thead>
+              <tbody>
+{body}
+              </tbody>
+              <tfoot>
+{line('Total', total, ' class="obs-rep-sum"')}
+              </tfoot>
+            </table>
+          </div>
+          <ul class="obs-rep-legend">{legend}</ul>
+        </figure>'''
+
+
+def entity_model(data):
+    """The entity model of the paper: the dataset at the centre, five entities above it (where it comes from,
+    dashed when optional) and five below (what it contains and how to get it); each value links to its filter."""
+    def value(i):
+        if not i.get('filter'):
+            return esc(i['label'])
+        dom = f' class="obs-m-dom" data-domain="{i["domain"]}"' if i.get('domain') else ''
+        return f'<a href="?{esc(i["filter"].replace(":", "="))}#catalogue"{dom}>{esc(i["label"])}</a>'
+
+    def card(e):
+        items = e['items']
+        if items == 'domains':
+            items = [{'label': label, 'filter': f'domain:{k}', 'domain': k} for k, label, _ in DOMAINS]
+        values = ''.join(f'<li>{value(i)}</li>' for i in items)
+        optional = e.get('optional')
+        return (f'            <div class="obs-m-card{" is-optional" if optional else ""}">\n'
+                f'              <h3>{esc(e["name"])}{"<span class=\"obs-m-opt\">optional</span>" if optional else ""}</h3>\n'
+                f'              <p>{esc(e["text"])}</p>{f"<ul>{values}</ul>" if values else ""}\n'
+                f'            </div>')
+
+    m = data['model']
+    top = '\n'.join(card(e) for e in m['top'])
+    bottom = '\n'.join(card(e) for e in m['bottom'])
+    return f'''        <figure class="obs-model" aria-labelledby="obs-model-title">
+          <figcaption><h3 class="obs-model-title" id="obs-model-title">Entity model</h3><p>{esc(data['model_intro'])}</p></figcaption>
+          <div class="obs-m-row obs-m-top">
+{top}
+          </div>
+          <div class="obs-m-core"><span>Dataset</span></div>
+          <div class="obs-m-row obs-m-bottom">
+{bottom}
+          </div>
+        </figure>'''
+
+
 def item(rec):
     """One record: a card, or a row of the table view (the same markup, laid out by css)."""
     attrs = {
@@ -689,7 +785,7 @@ def observatory_page(data):
     records = all_records(data)
     families = enrich(records)
     about = '\n'.join('          <p>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(p)) + '</p>' for p in data['about'])
-    units = '\n'.join(f'            <li><strong>{esc(u["name"])}</strong> {esc(u["text"])}</li>' for u in data['units'])
+    model = entity_model(data)
     for r in records:
         r['_facets'] = facet_values(r)
     rows = '\n'.join(item(r) for r in records)
@@ -734,17 +830,11 @@ def observatory_page(data):
     <section class="section page-body" id="about">
       <div class="container">
         <div class="section-head"><h2 class="section-title">About the Observatory</h2></div>
-        <div class="obs-about">
-          <div class="prose">
+        <div class="prose obs-about">
 {about}
-          </div>
-          <aside class="obs-units" aria-label="Units of analysis">
-            <p class="card-kicker">Units of analysis</p>
-            <ul>
-{units}
-            </ul>
-          </aside>
         </div>
+{model}
+{domain_table(records)}
         <dl class="dataset-stats obs-stats">
 {stats(data, records, families)}
         </dl>
