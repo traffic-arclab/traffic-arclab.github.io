@@ -317,8 +317,8 @@
       <h2 id="obs-dialog-title" class="gate-title">${esc(r.name)}</h2>
       <dl class="obs-dl">
         ${item('Security task', esc(r.task))}
-        ${item('Domain', r.domain && `<span class="obs-pills" data-domain="${esc(r.domainKey)}">${r.domain.split(/;| \/ /).map(p => p.trim()).filter(Boolean)
-          .map(p => `<span class="obs-pill">${esc(p)}</span>`).join('')}</span>`)}
+        ${item('Domain', `<span class="obs-pills" data-domain="${esc(r.domainKey)}"><span class="obs-pill obs-pill-cat">${esc(r.domainGroup)}</span>${(r.domain || '').split(/;| \/ /).map(p => p.trim())
+          .filter(p => p && p.toLowerCase() !== r.domainGroup.toLowerCase()).map(p => `<span class="obs-pill">${esc(p)}</span>`).join('')}</span>`)}
         ${item('Year', esc(r.year))}
         ${item('Traffic data', esc((r.data || []).join(', ')))}
         ${item('Representation', esc(r.representation))}

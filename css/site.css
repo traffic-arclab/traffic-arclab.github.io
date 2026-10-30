@@ -1464,6 +1464,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .obs-pills { display: flex; flex-wrap: nowrap; gap: 5px; min-width: 0; overflow: hidden; }
 .obs-pill { flex: none; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, var(--dom, var(--color-subtle)) 13%, transparent);
   color: color-mix(in srgb, var(--dom, var(--color-muted)) 72%, var(--color-ink)); font-size: .74rem; font-weight: 600; letter-spacing: .01em; line-height: 1.5; text-transform: none; white-space: nowrap; }
+.obs-pill-cat { background: color-mix(in srgb, var(--dom, var(--color-subtle)) 82%, var(--color-ink)); color: #fff; }
 .obs-pill:last-child { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .obs-dl .obs-pills { flex-wrap: wrap; }
 .obs-dl .obs-pill { font-size: .8rem; font-weight: 600; letter-spacing: 0; }

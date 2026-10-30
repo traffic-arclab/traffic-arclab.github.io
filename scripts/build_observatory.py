@@ -541,10 +541,12 @@ def engine(data, records, families):
     </section>'''
 
 
-def domain_pills(text):
-    """The free-text domain ("LoRaWAN;wireless IoT", "Encrypted / VPN traffic") as one pill per part."""
-    parts = [p.strip() for p in re.split(r';| / ', text) if p.strip()]
-    return '<span class="obs-pills">' + ''.join(f'<span class="obs-pill">{esc(p)}</span>' for p in parts) + '</span>'
+def domain_pills(category, text):
+    """The category (one of the 17 of DOMAINS) as a filled pill, then the subcategories of the free-text
+    domain ("LoRaWAN;wireless IoT", "Encrypted / VPN traffic") as one light pill each."""
+    parts = [p.strip() for p in re.split(r';| / ', text or '') if p.strip() and p.strip().lower() != category.lower()]
+    return ('<span class="obs-pills">' + f'<span class="obs-pill obs-pill-cat">{esc(category)}</span>'
+            + ''.join(f'<span class="obs-pill">{esc(p)}</span>' for p in parts) + '</span>')
 
 
 def item(rec):
@@ -599,7 +601,7 @@ def item(rec):
     chips = ''.join(f'<li>{esc(d)}</li>' for d in data[:4]) + (f'<li class="obs-more">+{len(data) - 4}</li>' if len(data) > 4 else '')
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
     return f'''              <article class="obs-item" {attr}>
-                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec.get('domain') or label_of(DOMAINS, rec['_domain']))}</p>
+                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(label_of(DOMAINS, rec['_domain']), rec.get('domain'))}</p>
                 <div class="obs-c-name"><h3><button type="button" class="obs-name" data-open="{esc(rec['id'])}">{esc(rec['name'])}</button></h3>{family}{f'<span class="obs-marks">{marks}</span>' if marks else ''}</div>
                 <p class="obs-c-task">{esc(rec.get('task') or '—')}</p>
                 <ul class="obs-c-data" aria-label="Traffic data">{chips or '<li>—</li>'}</ul>
