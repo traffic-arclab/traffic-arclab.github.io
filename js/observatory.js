@@ -251,7 +251,8 @@
   const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', none: 'None'};
   const FAMILIES = {bruteforce: 'Brute force', 'botnet-c2': 'Botnet / C2', dos: '(D)DoS', exfiltration: 'Exfiltration',
     lateral: 'Infiltration / lateral movement', malware: 'Malware / backdoor / worm', scanning: 'Reconnaissance / scan',
-    exploitation: 'Exploitation', web: 'Web', other: 'Other (e.g. spoofing/MitM, spam, click fraud, protocol-specific)', attck: 'MITRE ATT&CK tactics'};
+    exploitation: 'Exploitation', web: 'Web', other: 'Other (e.g. spoofing/MitM, spam, click fraud, protocol-specific)', attck: 'MITRE ATT&CK tactics',
+    fuzzing: 'Fuzzing', spoofing: 'Spoofing / fabrication / masquerade', replay: 'Replay'};
   const tbc = v => esc(String(v).replace(/\?$/, ' (to be confirmed)'));   // "5?" in the tables: to be confirmed
   const paperLink = p => p.doi ? `https://doi.org/${p.doi}` : p.url;
   // how the distribution source of the record was checked

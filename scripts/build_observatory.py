@@ -107,6 +107,8 @@ ATTACKS = [
     ('web', 'Web attacks', r'[Ww]eb (attack|request|exploit)|WAF|HTTP request|web/QUIC attack'),
     ('spoofing', 'Spoofing and injection', r'[Ss]poof|[Ii]njection|[Mm]isbehavior'),
     ('jamming', 'Jamming', r'[Jj]amming'),
+    ('fuzzing', 'Fuzzing', r'[Ff]uzz'),
+    ('replay', 'Replay', r'[Rr]eplay'),
     ('exfiltration', 'Exfiltration and tunneling', r'[Ee]xfiltration|[Tt]unnel|covert'),
     ('scanning', 'Scanning', r'[Ss]canning|Nmap'),
     ('exploitation', 'Exploitation', r'[Ee]xploit|[Bb]uffer overflow|LSASS'),
@@ -114,7 +116,9 @@ ATTACKS = [
 # The attack families of the paper tables, as filter values of ATTACKS ("other" has none).
 FAMILIES = {'bruteforce': ['bruteforce'], 'botnet-c2': ['botnet', 'c2'], 'dos': ['ddos'], 'exfiltration': ['exfiltration'],
             'lateral': ['lateral'], 'malware': ['malware'], 'scanning': ['scanning'], 'exploitation': ['exploitation'],
-            'web': ['web'], 'other': [], 'attck': ['attck']}
+            'web': ['web'], 'other': [], 'attck': ['attck'],
+            # the families of the automotive table
+            'fuzzing': ['fuzzing'], 'spoofing': ['spoofing'], 'replay': ['replay']}
 PROTOCOLS = [
     ('modbus', 'Modbus', r'Modbus'),
     ('dnp3', 'DNP3', r'DNP3'),

@@ -531,14 +531,35 @@
         "CAN logs"
       ],
       "paper": {
-        "cite": "Seo et al., PST 2018",
-        "doi": "10.1109/pst.2018.8514157"
+        "cite": "Seo, Song & Kim, PST 2018",
+        "title": "GIDS: GAN based Intrusion Detection System for In-Vehicle Network",
+        "doi": "10.1109/PST.2018.8514157"
       },
       "notes": "CAN-frame records, not Ethernet/IP packets; the originating collection paper is unconfirmed.",
       "category": "automotive",
       "year": "2018",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "spoofing"
+      ],
+      "size": {
+        "count": "7.6 h"
+      }
     },
     {
       "id": "veremi",
@@ -1459,13 +1480,34 @@
         "CAN trace files"
       ],
       "paper": {
-        "cite": "Han et al., Vehicular Communications 2018",
+        "cite": "Han, Kwak & Kim, Vehicular Communications 2018",
+        "title": "Anomaly intrusion detection method for vehicular networks based on survival analysis",
         "doi": "10.1016/j.vehcom.2018.09.004"
       },
       "category": "automotive",
       "year": "2018",
       "representation": "Bus / V2X msgs",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "spoofing"
+      ],
+      "size": {
+        "count": "12 min"
+      }
     },
     {
       "id": "unimore-bus-off",
@@ -1479,7 +1521,22 @@
       "category": "automotive",
       "year": "2019",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "other"
+      ]
     },
     {
       "id": "unimore-daga",
@@ -1496,7 +1553,28 @@
       },
       "category": "automotive",
       "representation": "Bus / V2X msgs",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "year": "2022",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "replay"
+      ],
+      "size": {
+        "count": "208M messages, >40 h"
+      }
     },
     {
       "id": "epic",
@@ -4390,13 +4468,30 @@
       ],
       "paper": {
         "cite": "Neto et al., Internet of Things 2024",
+        "title": "CICIoV2024: Advancing realistic IDS approaches against DoS and spoofing attack in IoV CAN bus",
         "doi": "10.1016/j.iot.2024.101209"
       },
       "category": "automotive",
       "year": "2024",
       "representation": "Bus / V2X msgs",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing"
+      ]
     },
     {
       "id": "cic-pqc-oav-v1-2025",
@@ -4884,7 +4979,27 @@
       "category": "automotive",
       "year": "2026",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing"
+      ],
+      "size": {
+        "gb": "0.0024",
+        "count": "143k messages"
+      }
     },
     {
       "id": "gotham-device-level-iot-network-traffic",
@@ -5284,7 +5399,7 @@
     },
     {
       "id": "road-ornl",
-      "name": "ROAD (ORNL)",
+      "name": "ROAD (Real ORNL Automotive Dynamometer)",
       "url": "https://www.ornl.gov/publication/comprehensive-guide-can-ids-data-and-introduction-road-dataset",
       "task": "CAN IDS with real attacks",
       "domain": "Automotive CAN",
@@ -5294,14 +5409,37 @@
       ],
       "paper": {
         "cite": "Verma et al., PLOS ONE 2024",
+        "title": "A comprehensive guide to CAN IDS data and introduction of the ROAD dataset",
         "doi": "10.1371/journal.pone.0296879"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. Real fuzzing, fabrication and masquerade attacks on one vehicle. The link is the ORNL publication page.",
+      "notes": "Raw CAN logs plus their CAN-D signal translation.",
       "origin": "web",
       "category": "automotive",
       "year": "2020",
-      "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "representation": "Bus / V2X msgs + derived",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "13"
+      },
+      "attack_families": [
+        "fuzzing",
+        "spoofing",
+        "other"
+      ],
+      "derivation_tool": "CAN-D",
+      "size": {
+        "gb": "0.56",
+        "count": "3.5 h"
+      }
     },
     {
       "id": "syncan",
@@ -5314,14 +5452,36 @@
       ],
       "paper": {
         "cite": "Hanselmann et al., IEEE Access 2020",
-        "doi": "10.1109/access.2020.2982544"
+        "title": "CANet: An Unsupervised Intrusion Detection System for High Dimensional CAN Bus Data",
+        "doi": "10.1109/ACCESS.2020.2982544"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. Synthetic signal-level CAN data with five attack types. The repository is archived (2023).",
+      "notes": "Signal-level data, no raw CAN frames.",
       "origin": "web",
       "category": "automotive",
       "year": "2019",
-      "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "representation": "Derived only",
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "replay",
+        "other"
+      ],
+      "size": {
+        "count": "24.8 h"
+      }
     },
     {
       "id": "cicevse2024",
@@ -8059,7 +8219,7 @@
     },
     {
       "id": "hcrl-otids",
-      "name": "HCRL CAN Intrusion Dataset (OTIDS)",
+      "name": "OTIDS (HCRL CAN Dataset for Intrusion Detection)",
       "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/can-intrusion-dataset",
       "task": "CAN IDS",
       "domain": "Automotive CAN",
@@ -8069,7 +8229,33 @@
       "category": "automotive",
       "year": "2017",
       "representation": "Bus / V2X msgs",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "spoofing"
+      ],
+      "size": {
+        "gb": "0.39",
+        "count": "68 min"
+      },
+      "paper": {
+        "cite": "Lee, Jeong & Kim, PST 2017",
+        "title": "OTIDS: A Novel Intrusion Detection System for In-vehicle Network by Using Remote Frame",
+        "doi": "10.1109/PST.2017.00017"
+      }
     },
     {
       "id": "car-hacking-challenge-2020",
@@ -8087,7 +8273,30 @@
       "year": "2020",
       "representation": "Bus / V2X msgs",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "spoofing",
+        "replay"
+      ],
+      "size": {
+        "gb": "0.077",
+        "count": "8.7M messages"
+      },
+      "notes": "Dataset DOI: 10.21227/qvr7-n418."
     },
     {
       "id": "automotive-ethernet-avtp",
@@ -8100,19 +8309,38 @@
       ],
       "paper": {
         "cite": "Jeong et al., Vehicular Communications 2021",
-        "url": "https://arxiv.org/abs/2102.03546"
+        "title": "Convolutional neural network-based intrusion detection system for AVTP streams in automotive Ethernet-based networks",
+        "doi": "10.1016/j.vehcom.2021.100338"
       },
       "notes": "AVTP replay attacks on a BroadR-Reach testbed; the injected captures must be labelled by the user.",
       "category": "automotive",
       "year": "2021",
       "representation": "PCAP",
-      "evidence": "secondary",
-      "access": "restricted"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "replay"
+      ],
+      "size": {
+        "gb": "1.4"
+      }
     },
     {
       "id": "hcrl-can-fd",
       "name": "HCRL CAN-FD Intrusion Dataset",
-      "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/can-fd-intrusion-dataset",
+      "url": "https://ieee-dataport.org/documents/can-fd-intrusion-dataset",
       "task": "CAN IDS",
       "domain": "Automotive CAN-FD",
       "data": [
@@ -8121,8 +8349,27 @@
       "category": "automotive",
       "year": "2022",
       "representation": "Bus / V2X msgs",
-      "evidence": "secondary",
-      "access": "restricted"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "other"
+      ],
+      "size": {
+        "count": "≈1 h of normal traffic"
+      }
     },
     {
       "id": "tow-ids",
@@ -8134,14 +8381,37 @@
         "PCAP"
       ],
       "paper": {
-        "cite": "Han, Kwak & Kim, IEEE TIFS 2023"
+        "cite": "Han, Kwak & Kim, IEEE Transactions on Information Forensics and Security 2023",
+        "title": "TOW-IDS: Intrusion Detection System Based on Three Overlapped Wavelets for Automotive Ethernet",
+        "doi": "10.1109/TIFS.2022.3221893"
       },
       "notes": "AVTP, gPTP and UDP (from CAN) traffic mirrored on a 100BASE-T1 switch; five attack scenarios.",
       "category": "automotive",
       "year": "2022",
       "representation": "PCAP",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "replay",
+        "other"
+      ],
+      "size": {
+        "gb": "0.20"
+      }
     },
     {
       "id": "can-train-and-test",
@@ -8155,11 +8425,38 @@
       "category": "automotive",
       "year": "2023",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "spoofing",
+        "other"
+      ],
+      "size": {
+        "gb": "7.5",
+        "count": "193M messages"
+      },
+      "paper": {
+        "cite": "Lampe & Meng, Computers & Security 2024",
+        "title": "can-train-and-test: A curated CAN dataset for automotive intrusion detection",
+        "doi": "10.1016/j.cose.2024.103777"
+      }
     },
     {
       "id": "crysys-can",
-      "name": "CrySyS CAN Fabrication & Masquerade Dataset",
+      "name": "CrySyS CAN Traffic Logs (Fabrication and Masquerade Attacks)",
       "url": "",
       "task": "CAN IDS",
       "domain": "Automotive CAN",
@@ -8167,14 +8464,36 @@
         "CAN traces"
       ],
       "paper": {
-        "cite": "Gazdag, Ferenc & Buttyán, Scientific Data 2023",
+        "cite": "Gazdag et al., Scientific Data 2023",
+        "title": "A CAN Dataset for Fabrication and Masquerade Attacks",
         "doi": "10.1038/s41597-023-02716-9"
       },
-      "notes": "26 benign recordings (over 2.5 hours) and fabrication and masquerade attacks on one or two signals. Download location not yet identified: see the paper.",
+      "notes": "26 benign recordings (over 2.5 hours) and fabrication and masquerade attacks on one or two signals.",
       "category": "automotive",
       "year": "2023",
       "representation": "Bus / V2X msgs",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "24"
+      },
+      "attack_families": [
+        "spoofing",
+        "replay",
+        "other"
+      ],
+      "size": {
+        "gb": "0.22",
+        "count": "5.5M messages"
+      }
     },
     {
       "id": "tue-can-v2",
@@ -8188,7 +8507,30 @@
       "category": "automotive",
       "year": "2019",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "replay",
+        "other"
+      ],
+      "size": {
+        "gb": "0.10",
+        "count": "1.7 h"
+      },
+      "notes": "Dataset DOI: 10.4121/uuid:b74b4928-c377-4585-9432-2004dfa20a5d (Dupont, Lekidis, den Hartog & Etalle)."
     },
     {
       "id": "can-mirgu",
@@ -8202,7 +8544,35 @@
       "category": "automotive",
       "year": "2024",
       "representation": "Bus / V2X msgs",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "spoofing",
+        "replay",
+        "other"
+      ],
+      "size": {
+        "gb": "0.50",
+        "count": "≈20 h"
+      },
+      "paper": {
+        "cite": "Rajapaksha et al., VehicleSec (NDSS) 2024",
+        "title": "CAN-MIRGU: A Comprehensive CAN Bus Attack Dataset from Moving Vehicles for Intrusion Detection System Evaluation",
+        "doi": "10.14722/vehiclesec.2024.23043"
+      }
     },
     {
       "id": "goncalves-vanet",
