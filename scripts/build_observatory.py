@@ -124,7 +124,9 @@ FAMILIES = {'bruteforce': ['bruteforce'], 'botnet-c2': ['botnet', 'c2'], 'dos': 
             # the families of the V2X table
             'falsification': ['spoofing'], 'timing': ['timing'], 'sybil': ['sybil'],
             # the families of the UAV table
-            'injection': ['spoofing']}
+            'injection': ['spoofing'],
+            # the families of the encrypted traffic table
+            'app': [], 'downgrade': []}
 PROTOCOLS = [
     ('modbus', 'Modbus', r'Modbus'),
     ('dnp3', 'DNP3', r'DNP3'),

@@ -1617,10 +1617,38 @@
         "PKL"
       ],
       "paper": {
-        "cite": "Applied Sciences 11(17) 7868, 2021",
+        "cite": "Ferriyan et al., Applied Sciences 2021",
+        "title": "Generating Network Intrusion Detection Dataset Based on Real and Encrypted Synthetic Attack Traffic",
         "doi": "10.3390/app11177868"
       },
-      "notes": "Benign traffic plus encrypted synthetic attack traffic; not operational attacks."
+      "notes": "Benign traffic plus encrypted synthetic attack traffic; not operational attacks. 4 attacks plus benign and background.",
+      "category": "encrypted",
+      "year": "2021",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4",
+        "benign_subclasses": "2"
+      },
+      "attack_families": [
+        "bruteforce",
+        "malware",
+        "scanning"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "gb": "11.7",
+        "count": "555k flows"
+      },
+      "evidence": "verified"
     },
     {
       "id": "ctu-idseval-6",
@@ -1845,10 +1873,35 @@
         "7z"
       ],
       "paper": {
-        "cite": "Wei Wang et al., ICOIN 2017",
-        "doi": "10.1109/icoin.2017.7899588"
+        "cite": "Wang, Zhu, Zeng, Ye & Sheng, ICOIN 2017",
+        "title": "Malware traffic classification using convolutional neural network for representation learning",
+        "doi": "10.1109/ICOIN.2017.7899588"
       },
-      "notes": "Malware and benign PCAP files are publicly enumerated; capture provenance and independence from CTU collections are unconfirmed."
+      "notes": "10 malware and 10 benign applications. Malware and benign PCAP files are publicly enumerated; capture provenance and independence from CTU collections are unconfirmed.",
+      "category": "encrypted",
+      "year": "2016",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
+      "acquisition": "mix",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10",
+        "benign_subclasses": "10"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "size": {
+        "gb": "3.7"
+      },
+      "evidence": "verified"
     },
     {
       "id": "iscxvpn2016",
@@ -1861,9 +1914,36 @@
         "CSV"
       ],
       "paper": {
-        "cite": "Draper-Gil et al., ICISSP 2016",
+        "cite": "Draper-Gil, Lashkari, Mamun & Ghorbani, ICISSP 2016",
+        "title": "Characterization of Encrypted and VPN Traffic using Time-related Features",
         "doi": "10.5220/0005740704070414"
-      }
+      },
+      "category": "encrypted",
+      "year": "2016",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "14"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "ISCXFlowMeter",
+      "size": {
+        "gb": "28"
+      },
+      "notes": "7 traffic categories, each over VPN and non-VPN.",
+      "evidence": "verified"
     },
     {
       "id": "iscxtor2016",
@@ -1876,9 +1956,36 @@
         "CSV"
       ],
       "paper": {
-        "cite": "Habibi Lashkari et al., ICISSP 2017",
+        "cite": "Lashkari, Draper-Gil, Mamun & Ghorbani, ICISSP 2017",
+        "title": "Characterization of Tor Traffic using Time based Features",
         "doi": "10.5220/0006105602530262"
-      }
+      },
+      "category": "encrypted",
+      "year": "2016",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "8"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "ISCXFlowMeter",
+      "size": {
+        "gb": "22"
+      },
+      "notes": "8 traffic categories over Tor and non-Tor.",
+      "evidence": "verified"
     },
     {
       "id": "cic-ddos2019",
@@ -2525,9 +2632,40 @@
         "traffic traces (verify)"
       ],
       "paper": {
-        "cite": "Habibi Lashkari et al., ICCNS 2020",
+        "cite": "Lashkari, Kaur & Rahali, ICCNS 2020",
+        "title": "DIDarknet: A Contemporary Approach to Detect and Characterize the Darknet Traffic using Deep Image Learning",
         "doi": "10.1145/3442520.3442521"
-      }
+      },
+      "category": "encrypted",
+      "year": "2020",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "4 / 8"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "141k flows"
+      },
+      "parents": [
+        "iscxtor2016",
+        "iscxvpn2016"
+      ],
+      "notes": "4 traffic types / 8 application classes.",
+      "evidence": "verified"
     },
     {
       "id": "ctu-malware-capture-botnet-1",
@@ -4817,13 +4955,45 @@
     },
     {
       "id": "cic-pqc-oav-v1-2025",
-      "name": "CIC-PQC_OAV v1 2025",
+      "name": "CIC-PQC_OAV v1",
       "url": "https://www.unb.ca/cic/datasets/pqc-oav-dataset-2025.html",
       "task": "TLS/PQC anomalies",
       "domain": "Encrypted traffic / PQC",
       "data": [
         "Traffic-derived handshake features (CSV)"
-      ]
+      ],
+      "paper": {
+        "cite": "Canadian Institute for Cybersecurity, 2025",
+        "title": "CIC-PQC_OAV v1 Dataset 2025",
+        "url": "https://www.unb.ca/cic/datasets/pqc-oav-dataset-2025.html"
+      },
+      "category": "encrypted",
+      "year": "2025",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "fuzzing",
+        "downgrade",
+        "other"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "count": "40k sessions"
+      },
+      "notes": "Post-quantum TLS sessions: normal vs anomalous on three labelling levels.",
+      "evidence": "verified"
     },
     {
       "id": "cic-modbus-2023",
@@ -5181,15 +5351,45 @@
     },
     {
       "id": "annotated-encrypted-network-traffic-rysavy",
-      "name": "Annotated Encrypted Network Traffic (Rysavy)",
+      "name": "Rysavy Encrypted Traffic (Annotated Encrypted Network Traffic)",
       "url": "https://zenodo.org/records/18336960",
-      "access": "request",
       "task": "TLS malware/application classification",
       "domain": "Encrypted TLS / Malware",
       "data": [
         "Parquet",
         "PCAP on request"
-      ]
+      ],
+      "paper": {
+        "cite": "Ryšavý et al., Zenodo 2025",
+        "title": "Annotated Encrypted Network Traffic",
+        "url": "https://zenodo.org/records/18336960"
+      },
+      "category": "encrypted",
+      "year": "2025",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "77"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "tshark, JA3/JA4",
+      "size": {
+        "count": "16.4k TLS connections"
+      },
+      "notes": "77 applications.",
+      "evidence": "verified"
     },
     {
       "id": "power-system-digital-twin-mininet-traffic",
@@ -5203,7 +5403,7 @@
     },
     {
       "id": "tqh-c2-encrypted-command-control",
-      "name": "TQH-C2 encrypted command-control",
+      "name": "TQH-C2",
       "url": "https://zenodo.org/records/22732327",
       "task": "Encrypted C2 detection",
       "domain": "Encrypted C2 / TLS / QUIC",
@@ -5212,7 +5412,36 @@
         "Parquet",
         "Zeek logs",
         "JSONL"
-      ]
+      ],
+      "paper": {
+        "cite": "Zenodo 2026",
+        "title": "TQH-C2: encrypted command-and-control traffic dataset",
+        "url": "https://zenodo.org/records/21523144"
+      },
+      "category": "encrypted",
+      "year": "2026",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2"
+      ],
+      "derivation_tool": "Zeek, JA4",
+      "size": {
+        "gb": "39.9"
+      },
+      "notes": "Per-flow MITRE ATT&CK technique labels; the number of techniques and tactics is not documented. The bib points to Zenodo record 21523144.",
+      "evidence": "verified"
     },
     {
       "id": "unraveled",
@@ -9535,6 +9764,211 @@
       "size": {
         "count": "15 min"
       },
+      "evidence": "verified"
+    },
+    {
+      "id": "cesnet-quic22",
+      "name": "CESNET-QUIC22",
+      "url": "https://zenodo.org/records/7409923",
+      "task": "QUIC service classification",
+      "domain": "Encrypted traffic",
+      "data": [
+        "Flow records",
+        "packet sequences"
+      ],
+      "paper": {
+        "cite": "Luxemburk et al., Data in Brief 2023",
+        "title": "CESNET-QUIC22: A large one-month QUIC network traffic dataset from backbone lines",
+        "doi": "10.1016/j.dib.2023.108888"
+      },
+      "category": "encrypted",
+      "year": "2022",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "105"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "ipfixprobe?",
+      "size": {
+        "gb": "89",
+        "count": "153M flows"
+      },
+      "notes": "Backbone traffic of CESNET: 102 web services plus 3 background classes.",
+      "evidence": "verified"
+    },
+    {
+      "id": "cesnet-tls22",
+      "name": "CESNET-TLS22",
+      "url": "https://doi.org/10.1016/j.comnet.2022.109467",
+      "task": "TLS service classification",
+      "domain": "Encrypted traffic",
+      "data": [
+        "Flow records",
+        "packet sequences"
+      ],
+      "paper": {
+        "cite": "Luxemburk & Čejka, Computer Networks 2023",
+        "title": "Fine-grained TLS services classification with reject option",
+        "doi": "10.1016/j.comnet.2022.109467"
+      },
+      "notes": "Backbone traffic of CESNET: 191 web services. Download link: see the paper.",
+      "category": "encrypted",
+      "year": "2022",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "191"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "ipfixprobe?",
+      "size": {
+        "gb": "42",
+        "count": "141M flows"
+      },
+      "evidence": "verified"
+    },
+    {
+      "id": "usbvpn2022",
+      "name": "USBVPN2022 (Encrypted VPN Dataset)",
+      "url": "https://zenodo.org/record/7301756",
+      "task": "VPN traffic classification",
+      "domain": "Encrypted traffic",
+      "data": [
+        "Flow records (IPFIX)"
+      ],
+      "paper": {
+        "cite": "Naas & Fesl, Zenodo 2023",
+        "title": "Encrypted VPN Dataset (USBVPN2022)",
+        "url": "https://zenodo.org/record/7301756"
+      },
+      "category": "encrypted",
+      "year": "2023",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "35"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "ipfixprobe",
+      "size": {
+        "gb": "0.812",
+        "count": "59k flows"
+      },
+      "notes": "5 traffic types, each over 6 VPN protocols and non-VPN.",
+      "evidence": "verified"
+    },
+    {
+      "id": "cesnet-tls-year22",
+      "name": "CESNET-TLS-Year22",
+      "url": "https://doi.org/10.1038/s41597-024-03927-4",
+      "task": "TLS service classification",
+      "domain": "Encrypted traffic",
+      "data": [
+        "Flow records",
+        "packet sequences"
+      ],
+      "paper": {
+        "cite": "Hynek et al., Scientific Data 2024",
+        "title": "CESNET-TLS-Year22: A year-spanning TLS network traffic dataset from backbone lines",
+        "doi": "10.1038/s41597-024-03927-4"
+      },
+      "notes": "Backbone traffic of CESNET over one year: 180 web services. Download link: see the paper.",
+      "category": "encrypted",
+      "year": "2024",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "180"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "ipfixprobe?",
+      "size": {
+        "count": "507M flows"
+      },
+      "evidence": "verified"
+    },
+    {
+      "id": "bccc-darknet-2025",
+      "name": "BCCC-DarkNet-2025",
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/encrypted-traffic-dataset-bccc-darknet-2025",
+      "task": "Darknet traffic classification",
+      "domain": "Encrypted traffic",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2025",
+        "title": "Encrypted Traffic Dataset BCCC-DarkNet-2025",
+        "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/encrypted-traffic-dataset-bccc-darknet-2025"
+      },
+      "category": "encrypted",
+      "year": "2025",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "request",
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "5"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "derivation_tool": "NTLFlowLyzer",
+      "derived": true,
+      "notes": "5 networks. Derived from earlier captures not yet identified.",
       "evidence": "verified"
     }
   ]
