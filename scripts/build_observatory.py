@@ -728,9 +728,6 @@ def observatory_page(data):
     page = site.frame(f'{data["title"]} | Traffic',
                       'Curated catalogue of network-traffic datasets for AI-based cybersecurity, linked to their papers and distribution sources.',
                       main, 'observatory')
-    # the Observatory is an English page: the university in the top bar and the footer of the template too
-    page = (page.replace('Università degli Studi di Napoli <strong>Federico II</strong>', 'University of Napoli <strong>Federico II</strong>')
-            .replace('Università degli Studi di Napoli Federico II', 'University of Napoli Federico II'))
     if is_hidden(data):
         page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
     # frame() adds the Datasets script; this page has its own.
