@@ -206,6 +206,11 @@ strong, b { font-weight: 650; }
 .initial { color: var(--color-gold); }
 .nav-list { display: flex; align-items: center; gap: 2px; list-style: none; }
 .nav-list > li { position: relative; }
+/* a thin rule between the menu entries, like the one of the brand name (not in the mobile menu, which has its own lines) */
+.nav-list > li + li::before {
+  content: ""; position: absolute; left: -1.5px; top: 50%; width: 1px; height: 16px; transform: translateY(-50%);
+  background: var(--color-strong-line); pointer-events: none;
+}
 .nav-link {
   display: flex; align-items: center; min-height: 44px; padding: 9px clamp(8px, .75vw, 13px);
   border: 0; border-radius: var(--radius-sm); background: transparent;
@@ -1179,6 +1184,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
   :root:not(.js) .header-inner { flex-wrap: wrap; }
   .nav-list { display: block; width: min(100%, calc(var(--container) + 2 * var(--gutter))); padding: 8px var(--gutter) 24px; margin-inline: auto; }
   .nav-list > li { border-bottom: 1px solid var(--color-soft-line); }
+  .nav-list > li + li::before { display: none; }
   .nav-link { width: 100%; justify-content: space-between; min-height: 52px; padding: 14px 4px; border-radius: 0; font-size: 1.02rem; }
   .nav-link:hover { background: transparent; color: var(--color-link); }
   .has-dropdown.open > .dropdown-toggle { background: transparent; color: var(--color-link); }
