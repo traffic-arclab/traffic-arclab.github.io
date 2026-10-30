@@ -1575,13 +1575,35 @@
         "verify"
       ],
       "paper": {
-        "cite": "Siriwardhana et al., IEEE Data Descriptions 2025",
-        "doi": "10.1109/ieeedata.2025.3592888"
+        "cite": "Samarakoon et al., arXiv 2022",
+        "title": "5G-NIDD: A Comprehensive Network Intrusion Detection Dataset Generated over 5G Wireless Network",
+        "url": "https://arxiv.org/abs/2212.01298"
       },
       "category": "5g",
       "year": "2022",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "dos",
+        "scanning"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "count": "1.2M flows"
+      },
+      "notes": "Dataset DOI: 10.23729/e80ac9df-d9fb-47e7-8d0d-01384a415361. Later data descriptor: Siriwardhana et al., IEEE Data Descriptions 2025 (10.1109/ieeedata.2025.3592888)."
     },
     {
       "id": "hikari-2021",
@@ -9165,7 +9187,32 @@
       "category": "5g",
       "year": "2022",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "scanning",
+        "spoofing",
+        "other"
+      ],
+      "size": {
+        "gb": "35"
+      },
+      "paper": {
+        "cite": "Idaho National Laboratory, 2022",
+        "title": "5GAD-2022: 5G Attack Detection dataset",
+        "url": "https://github.com/IdahoLabResearch/5GAD"
+      }
     },
     {
       "id": "5gc-pfcp",
@@ -9181,11 +9228,36 @@
       "category": "5g",
       "year": "2023",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter, custom (PFCP parser)",
+      "size": {
+        "gb": "0.060"
+      },
+      "paper": {
+        "cite": "Zenodo 2023",
+        "title": "5GC PFCP Intrusion Detection Dataset",
+        "url": "https://zenodo.org/records/7888347"
+      }
     },
     {
       "id": "dlteamtuc-5g",
-      "name": "DLTeamTUC 5G Security Datasets",
+      "name": "5G Security and Resource Allocation Dataset (DLTeamTUC 5G Security Datasets)",
       "url": "https://github.com/DLTeamTUC/5GDatasets",
       "task": "Intrusion detection",
       "domain": "5G / mobile core",
@@ -9196,11 +9268,39 @@
       "category": "5g",
       "year": "2025",
       "representation": "PCAP + derived",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "replay",
+        "spoofing"
+      ],
+      "derivation_tool": "5GPacketParser",
+      "size": {
+        "gb": "0.042"
+      },
+      "paper": {
+        "cite": "5G Security and Resource Allocation Dataset, 2025 (source to be completed)",
+        "title": "5G Security and Resource Allocation Dataset",
+        "url": "https://github.com/DLTeamTUC/5GDatasets"
+      },
+      "notes": "The bib says this is possibly the DLTeamTUC 5G Security Datasets record: to be confirmed."
     },
     {
       "id": "5g-core-gtp-u",
-      "name": "5G Core GTP-U Attack Dataset",
+      "name": "5G-CGAD (5G Core GTP-U Attack Dataset)",
       "url": "https://research.fi/en/results/dataset/5dad463d-0306-455f-b47a-bef771b819fc",
       "task": "Intrusion detection",
       "domain": "5G / mobile core (GTP-U)",
@@ -9211,7 +9311,30 @@
       "category": "5g",
       "year": "2025",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "fuzzing",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter?",
+      "paper": {
+        "cite": "5G Core GTP-U Attack Dataset (5G-CGAD), 2025 (source to be completed)",
+        "title": "5G Core GTP-U Attack Dataset (5G-CGAD)"
+      }
     },
     {
       "id": "5g-flow-wehbe",
@@ -9222,12 +9345,36 @@
       "data": [
         "Flow features CSV"
       ],
-      "notes": "Needs an IEEE DataPort subscription.",
+      "notes": "Needs an IEEE DataPort account.",
       "category": "5g",
       "year": "2024",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.0236"
+      },
+      "paper": {
+        "cite": "Wehbe et al., 2024 (source to be completed)",
+        "title": "5G flow-based datasets"
+      }
     }
   ]
 }
