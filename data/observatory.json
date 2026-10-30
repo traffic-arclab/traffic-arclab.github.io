@@ -204,11 +204,32 @@
         "cite": "García et al., Computers & Security 2014",
         "doi": "10.1016/j.cose.2014.05.011"
       },
-      "notes": "Scenario-level provenance: capture identity matters when building train/test splits; PCAP coverage differs across releases.",
+      "notes": "Classes: benign and botnet traffic, plus unlabelled background traffic.",
       "category": "malware",
       "year": "2011",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "gb": "697"
+      }
     },
     {
       "id": "bot-iot",
@@ -1475,7 +1496,26 @@
       "year": "2017",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "1.9k apps"
+      }
     },
     {
       "id": "cic-andmal2017",
@@ -1495,8 +1535,27 @@
       "year": "2017",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted",
-      "family": "CIC-AndMal2017"
+      "family": "CIC-AndMal2017",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "10.9k apps"
+      }
     },
     {
       "id": "cicmaldroid2020",
@@ -1517,7 +1576,26 @@
       "year": "2020",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "derivation_tool": "CopperDroid",
+      "size": {
+        "count": "17.3k apps"
+      }
     },
     {
       "id": "cccs-cic-andmal2020",
@@ -1537,7 +1615,26 @@
       "year": "2020",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "14"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "size": {
+        "count": "400k apps"
+      },
+      "notes": "Records produced in an Android emulator."
     },
     {
       "id": "cic-bell-dns2021",
@@ -1614,9 +1711,30 @@
       ],
       "family": "Stratosphere Malware Capture Facility",
       "category": "malware",
-      "year": "2011–2017",
+      "year": "2011–17",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "derivation_tool": "Argus, Zeek",
+      "size": {
+        "count": "≈292 captures"
+      },
+      "notes": "Classes: benign and malware traffic, plus unlabelled background traffic."
     },
     {
       "id": "malwaretraffic-liveness-annotated",
@@ -1634,8 +1752,29 @@
       "category": "malware",
       "year": "2026",
       "representation": "PCAP + derived",
-      "evidence": "unconfirmed",
-      "access": "undocumented"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "unavailable",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": false,
+        "attack": "362"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "derivation_tool": "Zeek, Suricata",
+      "size": {
+        "count": "3.4k PCAP files"
+      },
+      "notes": "Attack classes are malware families (362)."
     },
     {
       "id": "awid",
@@ -1753,9 +1892,28 @@
         "archives"
       ],
       "category": "malware",
-      "year": "2013–2026",
+      "year": "2013–26",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "size": {
+        "count": "one capture per blog post"
+      }
     },
     {
       "id": "netresec-public-pcap-index",
@@ -1766,7 +1924,6 @@
       "data": [
         "PCAP links"
       ],
-      "category": "malware",
       "representation": "PCAP",
       "evidence": "publisher",
       "access": "undocumented"
@@ -3012,6 +3169,42 @@
       "family": "Stratosphere Malware Capture Facility"
     },
     {
+      "id": "ctu-mixed-capture",
+      "name": "CTU-Mixed-Capture",
+      "url": "https://www.stratosphereips.org/datasets-mixed",
+      "task": "Mixed benign/malicious detection",
+      "domain": "Malware / Mixed traffic",
+      "data": [
+        "PCAP/flow (capture-dependent)"
+      ],
+      "family": "CTU-Mixed-Capture",
+      "notes": "Family page with the 5 mixed captures of the Stratosphere Laboratory (2015–2016): malware and normal traffic of the same hosts.",
+      "category": "malware",
+      "year": "2015–16",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "derivation_tool": "Argus, Zeek",
+      "size": {
+        "count": "5 captures"
+      },
+      "evidence": "verified"
+    },
+    {
       "id": "ctu-mixed-capture-1",
       "name": "CTU-Mixed-Capture-1",
       "url": "https://www.stratosphereips.org/datasets-mixed",
@@ -3020,7 +3213,7 @@
       "data": [
         "PCAP/flow (capture-dependent)"
       ],
-      "family": "Stratosphere Mixed Captures",
+      "family": "CTU-Mixed-Capture",
       "category": "malware",
       "year": "2015",
       "representation": "PCAP + derived",
@@ -3035,7 +3228,7 @@
       "data": [
         "PCAP/flow (capture-dependent)"
       ],
-      "family": "Stratosphere Mixed Captures",
+      "family": "CTU-Mixed-Capture",
       "category": "malware",
       "year": "2015",
       "representation": "PCAP + derived",
@@ -3050,7 +3243,7 @@
       "data": [
         "PCAP/flow (capture-dependent)"
       ],
-      "family": "Stratosphere Mixed Captures",
+      "family": "CTU-Mixed-Capture",
       "category": "malware",
       "year": "2016",
       "representation": "PCAP + derived",
@@ -3065,7 +3258,7 @@
       "data": [
         "PCAP/flow (capture-dependent)"
       ],
-      "family": "Stratosphere Mixed Captures",
+      "family": "CTU-Mixed-Capture",
       "category": "malware",
       "year": "2016",
       "representation": "PCAP + derived",
@@ -3080,7 +3273,7 @@
       "data": [
         "PCAP/flow (capture-dependent)"
       ],
-      "family": "Stratosphere Mixed Captures",
+      "family": "CTU-Mixed-Capture",
       "category": "malware",
       "year": "2016",
       "representation": "PCAP + derived",
@@ -3805,7 +3998,26 @@
       "category": "malware",
       "year": "2010",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "other"
+      ],
+      "size": {
+        "gb": "10.6"
+      }
     },
     {
       "id": "cdx-ctf-2009",
@@ -3877,7 +4089,25 @@
       "category": "malware",
       "year": "2012",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2"
+      ],
+      "size": {
+        "gb": "2.9"
+      }
     },
     {
       "id": "ndsec-1",
@@ -5090,12 +5320,31 @@
       "year": "2014",
       "representation": "PCAP",
       "evidence": "verified",
-      "access": "restricted",
       "parents": [
         "isot-botnet",
         "cic-iscx-2012",
         "ctu-13"
-      ]
+      ],
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "unavailable",
+      "acquisition": "mix",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "16"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "other"
+      ],
+      "size": {
+        "gb": "13.8"
+      }
     },
     {
       "id": "lycos-ids2017",
@@ -6922,7 +7171,27 @@
       "category": "malware",
       "year": "2020",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": false,
+        "attack": "8"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "gb": "0.41"
+      }
     },
     {
       "id": "netml-challenge",
@@ -6937,7 +7206,27 @@
       "category": "malware",
       "year": "2020",
       "representation": "PCAP + derived",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "20"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "derivation_tool": "Intel flow library",
+      "size": {
+        "count": "484k flows"
+      }
     },
     {
       "id": "cicinvesandmal2019",
@@ -6954,7 +7243,29 @@
       "year": "2019",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "5.5k apps"
+      },
+      "parents": [
+        "cic-andmal2017"
+      ]
     },
     {
       "id": "mta-kdd-19",
@@ -6973,11 +7284,30 @@
       "category": "malware",
       "year": "2019",
       "representation": "Derived only",
-      "evidence": "unconfirmed",
-      "access": "undocumented",
+      "evidence": "verified",
       "parents": [
         "malware-traffic-analysis-net-captures"
-      ]
+      ],
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware"
+      ],
+      "derivation_tool": "custom",
+      "size": {
+        "count": "64.6k records"
+      }
     },
     {
       "id": "isot-http-botnet",
@@ -6991,7 +7321,25 @@
       "category": "malware",
       "year": "2017",
       "representation": "PCAP",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "botnet-c2"
+      ],
+      "size": {
+        "count": "5 PCAP files"
+      }
     },
     {
       "id": "msu-ics-gas-pipeline-water-tank",

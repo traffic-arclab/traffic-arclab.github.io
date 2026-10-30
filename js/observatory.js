@@ -50,7 +50,7 @@
   // Sort keys of the "Sort by" menu: the value of a record and the direction (1 ascending, -1 descending).
   // Records without the value go last; ties are broken by name.
   const firstNumber = v => { const m = String(v ?? '').match(/\d+(\.\d+)?/); return m ? parseFloat(m[0]) : null; };
-  const ACCESS_RANK = {open: 0, registration: 1, restricted: 2, request: 3, undocumented: 4};
+  const ACCESS_RANK = {open: 0, registration: 1, restricted: 2, request: 3, undocumented: 4, unavailable: 5};
   const SORTS = {
     'name': [r => r.name.toLowerCase(), 1],
     'name-desc': [r => r.name.toLowerCase(), -1],
@@ -244,13 +244,14 @@
   const dialog = document.getElementById('obs-dialog');
   const body = dialog.querySelector('[data-dialog-body]');
   const item = (label, value) => value ? `<dt>${label}</dt><dd>${value}</dd>` : '';
-  const ACCESS = {registration: 'Registration', request: 'On request', restricted: 'Registration or request', undocumented: 'Not documented'};
+  const ACCESS = {registration: 'Registration', request: 'On request', restricted: 'Registration or request', undocumented: 'Not documented',
+    unavailable: 'Not available (withdrawn or not yet released)'};
   // the columns of the paper tables
   const ACQUISITION = {real: 'Real devices', hybrid: 'Real and simulated devices', emulated: 'Emulated or simulated', mix: 'Merge of sources'};
   const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', none: 'None'};
   const FAMILIES = {bruteforce: 'Brute force', 'botnet-c2': 'Botnet / C2', dos: '(D)DoS', exfiltration: 'Exfiltration',
     lateral: 'Infiltration / lateral movement', malware: 'Malware / backdoor / worm', scanning: 'Reconnaissance / scan',
-    exploitation: 'Exploitation', web: 'Web', other: 'Other (incl. spoofing/MitM, protocol-specific)', attck: 'MITRE ATT&CK tactics'};
+    exploitation: 'Exploitation', web: 'Web', other: 'Other (e.g. spoofing/MitM, spam, click fraud, protocol-specific)', attck: 'MITRE ATT&CK tactics'};
   const tbc = v => esc(String(v).replace(/\?$/, ' (to be confirmed)'));   // "5?" in the tables: to be confirmed
   const paperLink = p => p.doi ? `https://doi.org/${p.doi}` : p.url;
   // how the distribution source of the record was checked

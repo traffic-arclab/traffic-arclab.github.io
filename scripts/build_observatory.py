@@ -21,7 +21,8 @@ added by hand in the JSON: "origin": "web" (found online, not in the reference l
 "category" (the table: enterprise, iot, malware, industrial, automotive, v2x, uav, 5g), "year",
 "representation" (PCAP, PCAP + derived, Derived only, Bus / V2X msgs, Unclear), "evidence" (how the
 distribution source was checked: verified, secondary, publisher, unconfirmed) and "access"
-(registration, request, restricted = registration or request, undocumented; open when missing).
+(registration, request, restricted = registration or request, undocumented, unavailable = withdrawn or
+not yet released; open when missing).
 The domain filter is the paper table of the record, else it is computed, with the task and data type
 groups, from the free-text fields of each record.
 
@@ -382,7 +383,8 @@ def ai_catalogue(data, records):
 
 
 ACCESS = {'open': 'Open', 'registration': 'Registration', 'request': 'On request',
-          'restricted': 'Registration or request', 'undocumented': 'Not documented'}
+          'restricted': 'Registration or request', 'undocumented': 'Not documented',
+          'unavailable': 'Not available (withdrawn or not yet released)'}
 
 
 def facets():
@@ -557,6 +559,8 @@ def item(rec):
         marks += '<span class="tag tag-new" title="Found online, not in the reference list">Found online</span>'
     if rec.get('access') in ('registration', 'request', 'restricted'):
         marks += f'<span class="tag">{ACCESS[rec["access"]]}</span>'
+    elif rec.get('access') == 'unavailable':
+        marks += '<span class="tag" title="Withdrawn or not yet released">Not available</span>'
     if rec['_mixed']:
         marks += '<span class="tag" title="Part of the data is not network traffic: the traffic component must be verified">Mixed modality</span>'
     new_tab = '<span class="visually-hidden"> (opens in a new tab)</span>'
