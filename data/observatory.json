@@ -982,6 +982,7 @@
       ],
       "paper": {
         "cite": "Goh et al., CRITIS 2016 (LNCS 2017)",
+        "title": "A Dataset to Support Research in the Design of Secure Water Treatment Systems",
         "doi": "10.1007/978-3-319-71368-7_8"
       },
       "notes": "Access on request. Process-only releases (sensor/actuator CSV) are not traffic-eligible; only releases with network captures qualify.",
@@ -989,7 +990,27 @@
       "year": "2015",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "exploitation",
+        "other"
+      ],
+      "size": {
+        "gb": "430",
+        "count": "41 attacks"
+      }
     },
     {
       "id": "wadi",
@@ -1001,14 +1022,35 @@
         "Sensor/actuator time series"
       ],
       "paper": {
-        "cite": "Ahmed et al., CySWATER 2017",
+        "cite": "Ahmed, Palleti & Mathur, CySWATER 2017",
+        "title": "WADI: A Water Distribution Testbed for Research in the Design of Secure Cyber Physical Systems",
         "doi": "10.1145/3055366.3055375"
       },
       "category": "industrial",
       "year": "2017",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "exploitation",
+        "other"
+      ],
+      "size": {
+        "gb": "335",
+        "count": "15 attacks"
+      }
     },
     {
       "id": "datasense-cic-iiot-2025",
@@ -1165,7 +1207,27 @@
       "category": "industrial",
       "year": "2025",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "0.068",
+        "count": "4.3M packets"
+      }
     },
     {
       "id": "zero-swarm-modbus-normal-and-malicious",
@@ -1195,7 +1257,25 @@
       "category": "industrial",
       "year": "2022",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "dos",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter, custom (DNP3 parser)"
     },
     {
       "id": "iec-60870-5-104-intrusion-detection-dataset",
@@ -1210,7 +1290,25 @@
       "category": "industrial",
       "year": "2022",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "14"
+      },
+      "attack_families": [
+        "dos",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter, custom (IEC 104 parser)"
     },
     {
       "id": "lorawan-network-attacks-guard",
@@ -1250,7 +1348,25 @@
       "category": "industrial",
       "year": "2023",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "other"
+      ],
+      "size": {
+        "gb": "0.56"
+      }
     },
     {
       "id": "uav-ton-iot",
@@ -1385,7 +1501,7 @@
     {
       "id": "epic",
       "name": "EPIC",
-      "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets",
+      "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets/dataset-characteristics/epic/",
       "task": "Attack/anomaly detection",
       "domain": "Electrical power;ICS",
       "data": [
@@ -1399,7 +1515,23 @@
       "year": "2018",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0"
+      },
+      "attack_families": [],
+      "size": {
+        "count": "8 scenarios, ≈4 h"
+      }
     },
     {
       "id": "batadal",
@@ -4279,7 +4411,7 @@
     {
       "id": "cic-modbus-2023",
       "name": "CIC Modbus 2023",
-      "url": "https://www.unb.ca/cic/datasets/index.html",
+      "url": "https://www.unb.ca/cic/datasets/modbus-2023.html",
       "task": "ICS protocol attack detection",
       "domain": "OT / Modbus",
       "data": [
@@ -4290,7 +4422,26 @@
       "year": "2023",
       "representation": "PCAP",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "scanning",
+        "exploitation",
+        "other"
+      ]
     },
     {
       "id": "cicev2023",
@@ -5003,7 +5154,7 @@
     {
       "id": "wustl-iiot-2021",
       "name": "WUSTL-IIoT-2021",
-      "url": "https://classes.engineering.wustl.edu/~jain/iiot2/index.html",
+      "url": "https://www.cse.wustl.edu/~jain/iiot2/index.html",
       "task": "IIoT intrusion detection",
       "domain": "IIoT",
       "data": [
@@ -5018,7 +5169,29 @@
       "category": "iot",
       "year": "2021",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "malware",
+        "scanning",
+        "exploitation"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "count": "1.2M records"
+      }
     },
     {
       "id": "mqtt-iot-ids2020",
@@ -7353,7 +7526,33 @@
       "category": "industrial",
       "year": "2014",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "exploitation"
+      ],
+      "derivation_tool": "custom (logger)",
+      "size": {
+        "count": "275k records"
+      },
+      "paper": {
+        "cite": "Morris & Gao, ICCIP 2014",
+        "title": "Industrial Control System Traffic Data Sets for Intrusion Detection Research",
+        "doi": "10.1007/978-3-662-45355-1_5"
+      }
     },
     {
       "id": "msu-ornl-power-system",
@@ -7367,11 +7566,37 @@
       "category": "industrial",
       "year": "2014",
       "representation": "Derived only",
-      "evidence": "secondary"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "28",
+        "benign_subclasses": 9
+      },
+      "attack_families": [
+        "exploitation",
+        "other"
+      ],
+      "size": {
+        "count": "15 sets"
+      },
+      "paper": {
+        "cite": "Pan, Morris & Adhikari, IEEE Transactions on Smart Grid 2015",
+        "title": "Developing a Hybrid Intrusion Detection System Using Data Mining for Power Systems",
+        "doi": "10.1109/TSG.2015.2409775"
+      },
+      "notes": "28 attack scenarios and 9 natural or no-event scenarios; records from PMU measurements and logs."
     },
     {
       "id": "4sics-ics-pcap",
-      "name": "4SICS ICS PCAP files",
+      "name": "4SICS Geek Lounge ICS PCAP files",
       "url": "https://www.netresec.com/?page=PCAP4SICS",
       "task": "ICS traffic analysis",
       "domain": "ICS / OT",
@@ -7381,7 +7606,23 @@
       "category": "industrial",
       "year": "2015",
       "representation": "PCAP",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "0.35"
+      }
     },
     {
       "id": "lemay-scada-modbus",
@@ -7394,12 +7635,34 @@
         "Labels"
       ],
       "paper": {
-        "cite": "Lemay & Fernandez, CSET 2016"
+        "cite": "Lemay & Fernandez, CSET 2016",
+        "title": "Providing SCADA Network Data Sets for Intrusion Detection Research"
       },
       "category": "industrial",
       "year": "2016",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "botnet-c2",
+        "scanning",
+        "exploitation",
+        "other"
+      ],
+      "size": {
+        "gb": "0.14"
+      }
     },
     {
       "id": "wustl-iiot-2018",
@@ -7413,7 +7676,33 @@
       "category": "industrial",
       "year": "2018",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "scanning",
+        "exploitation"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "gb": "0.63",
+        "count": "7.0M records"
+      },
+      "paper": {
+        "cite": "Teixeira et al., Future Internet 2018",
+        "title": "SCADA System Testbed for Cybersecurity Research Using Machine Learning Approach",
+        "doi": "10.3390/fi10080076"
+      }
     },
     {
       "id": "electra",
@@ -7426,14 +7715,35 @@
       ],
       "paper": {
         "cite": "Perales Gómez et al., IEEE Access 2019",
+        "title": "On the Generation of Anomaly Detection Datasets in Industrial Control Systems",
         "doi": "10.1109/ACCESS.2019.2958284"
       },
-      "notes": "Download location not yet identified: see the paper.",
       "category": "industrial",
       "year": "2019",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "scanning",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "Scapy (custom)",
+      "size": {
+        "count": "16.3M records (Modbus)"
+      }
     },
     {
       "id": "m2m-opc-ua",
@@ -7448,7 +7758,28 @@
       "year": "2020",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "PyShark",
+      "size": {
+        "gb": "0.024",
+        "count": "108k records"
+      }
     },
     {
       "id": "wdt-water-distribution",
@@ -7462,13 +7793,34 @@
       ],
       "paper": {
         "cite": "Faramondi et al., IEEE Access 2021",
+        "title": "A Hardware-in-the-Loop Water Distribution Testbed Dataset for Cyber-Physical Security Testing",
         "doi": "10.1109/ACCESS.2021.3109465"
       },
       "category": "industrial",
       "year": "2021",
       "representation": "Derived only",
       "evidence": "verified",
-      "access": "restricted"
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "0.86"
+      }
     },
     {
       "id": "dtu-hybrid-iot-ot-honeypots",
@@ -7486,8 +7838,27 @@
       "category": "industrial",
       "year": "2022",
       "representation": "PCAP",
-      "evidence": "secondary",
-      "access": "restricted"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "request",
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": false,
+        "attack": "2"
+      },
+      "attack_families": [
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "count": "10.9M events"
+      }
     },
     {
       "id": "ics-flow",
@@ -7502,12 +7873,35 @@
       ],
       "paper": {
         "cite": "Dehlaghi-Ghadim et al., IEEE Access 2023",
-        "url": "https://arxiv.org/abs/2305.09678"
+        "title": "Anomaly Detection Dataset for Industrial Control Systems",
+        "doi": "10.1109/ACCESS.2023.3320928"
       },
       "category": "industrial",
       "year": "2023",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "ICSFlowGenerator",
+      "size": {
+        "gb": "2",
+        "count": "45.7k flows"
+      }
     },
     {
       "id": "westermo-network-traffic",
@@ -7522,7 +7916,28 @@
       "category": "industrial",
       "year": "2023",
       "representation": "PCAP + derived",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "bruteforce",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "ICSFlowGenerator",
+      "size": {
+        "count": "1.8M packets"
+      }
     },
     {
       "id": "icscasd-mplc",
@@ -7537,7 +7952,29 @@
       "category": "industrial",
       "year": "2025",
       "representation": "Derived only",
-      "evidence": "verified"
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "Wireshark, custom",
+      "size": {
+        "count": "2.6M records"
+      }
     },
     {
       "id": "2017qut-s7comm",
@@ -7546,12 +7983,38 @@
       "task": "ICS intrusion detection",
       "domain": "ICS / S7comm",
       "data": [
-        "S7comm traffic (format to be verified)"
+        "PCAP",
+        "tshark features"
       ],
       "category": "industrial",
       "year": "2017",
-      "representation": "Unclear",
-      "evidence": "verified"
+      "representation": "PCAP + derived",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "13"
+      },
+      "attack_families": [
+        "dos",
+        "exploitation"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "gb": "0.61"
+      },
+      "paper": {
+        "cite": "Rodofile, Radke & Foo, ACSW 2017",
+        "title": "Framework for SCADA Cyber-Attack Dataset Creation",
+        "doi": "10.1145/3014812.3014883"
+      }
     },
     {
       "id": "2017qut-dnp3",
@@ -7560,12 +8023,39 @@
       "task": "ICS intrusion detection",
       "domain": "ICS / DNP3",
       "data": [
-        "DNP3 traffic (format to be verified)"
+        "PCAP",
+        "tshark features"
       ],
       "category": "industrial",
       "year": "2017",
-      "representation": "Unclear",
-      "evidence": "verified"
+      "representation": "PCAP + derived",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "gb": "1.6"
+      },
+      "paper": {
+        "cite": "Rodofile, Radke & Foo, ACSW 2017",
+        "title": "Framework for SCADA Cyber-Attack Dataset Creation",
+        "doi": "10.1145/3014812.3014883"
+      }
     },
     {
       "id": "hcrl-otids",
