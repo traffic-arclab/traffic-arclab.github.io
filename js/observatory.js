@@ -133,6 +133,7 @@
     empty.hidden = shown > 0;
     clear.hidden = !filtering;
     if (push) saveUrl(chosen);
+    refreshPills();
   }
 
   // Cards or table: the same records, laid out by css; the choice is remembered in this browser.
@@ -142,9 +143,33 @@
     wrap.classList.toggle('is-table', view === 'table');
     views.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
     try { localStorage.setItem('obs-view', view); } catch (e) { /* not kept */ }
+    refreshPills();
   }
   views.forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
   try { if (localStorage.getItem('obs-view') === 'table') setView('table'); } catch (e) { /* cards */ }
+
+  // The labels of a card that do not fit on its line take turns, one at a time, beside the category pill,
+  // which stays in place (with reduced motion the line is cut instead).
+  function refreshPills() {
+    const calm = matchMedia('(prefers-reduced-motion: reduce)');
+    document.querySelectorAll('.obs-c-domain .obs-pills').forEach(p => {
+      p.classList.remove('is-rotating');
+      const subs = [...p.querySelectorAll('.obs-pill:not(.obs-pill-cat)')];
+      subs.forEach(s => s.classList.remove('is-on'));
+      if (!calm.matches && subs.length > 1 && p.offsetParent && p.scrollWidth > p.clientWidth + 1) {
+        p.classList.add('is-rotating');
+        subs[0].classList.add('is-on');
+      }
+    });
+  }
+  setInterval(() => document.querySelectorAll('.obs-pills.is-rotating').forEach(p => {
+    const subs = [...p.querySelectorAll('.obs-pill:not(.obs-pill-cat)')];
+    const i = subs.findIndex(s => s.classList.contains('is-on'));
+    subs[i].classList.remove('is-on');
+    subs[(i + 1) % subs.length].classList.add('is-on');
+  }), 2600);
+  let resizing;
+  addEventListener('resize', () => { clearTimeout(resizing); resizing = setTimeout(refreshPills, 200); });
 
   // Long filter groups show their first values; "Show all" opens the rest.
   panel.querySelectorAll('.obs-facet-more').forEach(b => {

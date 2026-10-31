@@ -1548,6 +1548,9 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-pill-cat { background: color-mix(in srgb, var(--dom, var(--color-subtle)) 82%, var(--color-ink)); color: #fff; }
 .obs-pill:last-child { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .obs-dl .obs-pills { flex-wrap: wrap; }
+.obs-pills.is-rotating .obs-pill:not(.obs-pill-cat) { display: none; }
+.obs-pills.is-rotating .obs-pill.is-on { display: block; flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; animation: obs-pill-in .45s ease; }
+@keyframes obs-pill-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 .obs-dl .obs-pill { font-size: .8rem; font-weight: 600; letter-spacing: 0; }
 .obs-c-name { grid-area: name; min-width: 0; }
 .obs-c-name h3 { margin: 0; font: 600 1.2rem/1.25 var(--font-serif); letter-spacing: -.01em; }
