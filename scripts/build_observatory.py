@@ -230,6 +230,10 @@ def enrich(records):
         for rec in members:
             rec['_head'] = rec is head
             rec['_size'] = len(members)
+            rec['_captures'] = []
+        # the captures inside a family row of a paper table ("table_row": false) have no card of their own:
+        # the card of the row lists them
+        head['_captures'] = [r for r in members if not r.get('table_row', True)]
     return families
 
 
@@ -673,10 +677,16 @@ def item(rec):
                                    or f'protocol:{k}' in rec['_facets'].split()]).lower(),
     }
     family = ''
-    if rec['_size'] > 1 and rec['_head']:
-        family = (f'<button type="button" class="obs-family" data-expand="{esc(rec["_family"])}" aria-expanded="false">'
-                  f'+ {rec["_size"] - 1} more in this family</button>')
-    elif rec['_size'] > 1:
+    captures = rec['_captures']
+    others = rec['_size'] - 1 - len(captures)
+    if captures:
+        attrs['data-search'] += ' ' + ' '.join(c['name'] for c in captures).lower()
+        family = (f'<button type="button" class="obs-family" data-open="{esc(rec["id"])}">'
+                  f'{len(captures)} capture{"s" if len(captures) > 1 else ""} inside</button>')
+    if others > 0 and rec['_head']:
+        family += (f'<button type="button" class="obs-family" data-expand="{esc(rec["_family"])}" aria-expanded="false">'
+                   f'+ {others} more in this family</button>')
+    elif rec['_size'] > 1 and not rec['_head']:
         family = f'<span class="obs-sub">Family: {esc(rec["_family"])}</span>'
     if rec.get('derived_from'):
         family += f'<span class="obs-sub">Derived from {esc(rec["derived_from"])}</span>'
@@ -785,6 +795,8 @@ def page_data(records):
             item['volume'] = r['size']
         if r['_children']:
             item['children'] = [c['id'] for c in r['_children']]
+        if r['_captures']:
+            item['captures'] = [c['id'] for c in r['_captures']]
         item.update(size=r['_size'], index=r['_index'], mixed=r['_mixed'], ours=r['_ours'],
                     domainGroup=label_of(DOMAINS, r['_domain']), domainKey=r['_domain'])
         out.append(item)
@@ -799,7 +811,7 @@ def observatory_page(data):
     model = entity_model(data)
     for r in records:
         r['_facets'] = facet_values(r)
-    rows = '\n'.join(item(r) for r in records)
+    rows = '\n'.join(item(r) for r in records if r.get('table_row', True))
     hero = engine(data, records, families)
 
     main = f'''{hero}
@@ -812,7 +824,7 @@ def observatory_page(data):
               <p class="obs-facets-title">Filters</p>
               <button type="button" class="pub-clear" id="obs-clear" hidden>Clear all</button>
             </div>
-{facet_panel(records)}
+{facet_panel([r for r in records if r.get('table_row', True)])}
           </aside>
           <div class="obs-main">
             <section class="obs-ai" id="obs-ai" aria-live="polite" aria-label="AI-assisted results" hidden></section>

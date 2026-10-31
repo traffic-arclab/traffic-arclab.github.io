@@ -329,6 +329,8 @@
       .map(id => `<button type="button" class="obs-link" data-open="${esc(id)}">${esc(byId[id].name)}</button>`)
       .concat((r.parents_text || []).map(t => `${esc(t)} <small>(not in the catalogue)</small>`)).join(', ');
     const children = (r.children || []).map(id => byId[id]).filter(Boolean);
+    const captures = (r.captures || []).map(id => byId[id]).filter(Boolean);
+    const row = Object.values(byId).find(x => (x.captures || []).includes(r.id));   // the table row of a capture
     const volume = r.volume ? [r.volume.gb && `${esc(r.volume.gb)} GB`, esc(r.volume.count)].filter(Boolean).join(' · ') : '';
     const source = r.ours ? `<a href="${esc(r.url)}">Dataset page on this site, with the download</a>`
       : r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.url)}</a>`
@@ -359,12 +361,17 @@
         ${item('Source', source)}
         ${item('Source check', EVIDENCE[r.evidence])}
         ${item('Original publication', paper)}
+        ${item('Capture of', row && `<button type="button" class="obs-link" data-open="${esc(row.id)}">${esc(row.name)}</button>`)}
         ${item('Derived from', parents && `${parents} <small>(not an independent acquisition)</small>`)}
         ${item('Notes', esc(r.notes))}
       </dl>
       ${children.length ? `<section class="obs-derived" aria-label="Derived datasets">
         <p class="card-kicker">Derived datasets (${children.length})</p>
         <ul class="obs-minis">${children.map(mini).join('')}</ul>
+      </section>` : ''}
+      ${captures.length ? `<section class="obs-derived" aria-label="Captures">
+        <p class="card-kicker">Captures (${captures.length})</p>
+        <ul class="obs-minis obs-minis-compact">${captures.map(mini).join('')}</ul>
       </section>` : ''}
       ${cautions ? `<ul class="obs-cautions">${cautions}</ul>` : ''}
       <div class="gate-actions">

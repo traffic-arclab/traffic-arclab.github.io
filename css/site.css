@@ -1431,6 +1431,7 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 /* Derived datasets: small cards in the dialog of the parent record */
 .obs-derived { margin-top: var(--space-5); }
 .obs-minis { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; margin-top: 8px; }
+.obs-minis-compact { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; max-height: 420px; overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; scrollbar-width: thin; }
 .obs-mini { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border: 1px solid var(--color-line); border-left: 3px solid var(--dom, var(--color-accent)); border-radius: var(--radius-sm); background: var(--color-surface); }
 .obs-mini-name { padding: 0; border: 0; background: none; color: var(--color-ink); font: 650 .95rem/1.3 var(--font-sans, inherit); text-align: left; cursor: pointer; }
 .obs-mini-name:hover { color: var(--color-link); text-decoration: underline; }
