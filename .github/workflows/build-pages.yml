@@ -57,14 +57,14 @@ jobs:
       - name: Commit changes
         id: commit
         run: |
-          if [ -z "$(git status --porcelain -- '*.html' observatory/catalogue.json)" ]; then
+          if [ -z "$(git status --porcelain -- '*.html' observatory/catalogue.json observatory/updates.json)" ]; then
             echo "The pages are already up to date."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- '*.html' observatory/catalogue.json
+          git add -A -- '*.html' observatory/catalogue.json observatory/updates.json
           git commit -m "Rebuild pages from data"
           git pull --rebase
           git push

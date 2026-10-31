@@ -28,6 +28,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_collaborations  # noqa: E402
 import build_datasets  # noqa: E402
 import build_news  # noqa: E402
+import build_observatory  # noqa: E402
 import build_people  # noqa: E402
 import build_topics  # noqa: E402
 import build_workshops  # noqa: E402
@@ -220,6 +221,21 @@ def clean_datasets(raw):
     return raw
 
 
+def clean_observatory(raw):
+    """data/observatory.json as edited in the Observatory tab: every record needs a name and its own id."""
+    records = raw.get('records')
+    if not isinstance(records, list):
+        raise ValueError('observatory: the records are missing')
+    ids = set()
+    for r in records:
+        if not str(r.get('name') or '').strip():
+            raise ValueError('observatory: every dataset needs a name')
+        if not re.fullmatch(r'[a-z0-9][a-z0-9-]*', str(r.get('id') or '')) or r['id'] in ids:
+            raise ValueError(f'observatory: bad or repeated id "{r.get("id")}"')
+        ids.add(r['id'])
+    return raw
+
+
 def write_json(path, data):
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -270,6 +286,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         elif self.path == '/api/datasets':
             with open(build_datasets.DATA, encoding='utf-8') as f:
                 self.send_json(200, json.load(f))
+        elif self.path == '/api/observatory':
+            with open(build_observatory.DATA, encoding='utf-8') as f:
+                self.send_json(200, json.load(f))
         elif self.path == '/api/photos':
             self.send_json(200, sorted(os.listdir(PHOTOS)))
         elif self.path == '/api/logos':
@@ -291,6 +310,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                               if payload.get('collaborations') is not None else None)
             workshops = clean_workshops(payload['workshops']) if payload.get('workshops') is not None else None
             datasets = clean_datasets(payload['datasets']) if payload.get('datasets') is not None else None
+            observatory = clean_observatory(payload['observatory']) if payload.get('observatory') is not None else None
             # Uploads: people photos (JPEG), collaboration logos (PNG), dataset images (JPEG) and app logos (PNG).
             kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png'),
                      'images/datasets': (DATASET_IMAGES, 'jpg', 'jpeg'),
@@ -332,6 +352,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if datasets is not None:
                 write_json(build_datasets.DATA, datasets)
                 build_datasets.build()
+            if observatory is not None:
+                write_json(build_observatory.DATA, observatory)
+                build_observatory.build()
             stamp_assets.stamp()   # generated pages get the current CSS/JS versions
             self.send_json(200, {'ok': True})
         except (ValueError, KeyError, TypeError) as error:

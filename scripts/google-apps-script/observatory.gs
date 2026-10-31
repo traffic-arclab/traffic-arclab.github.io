@@ -15,8 +15,8 @@
  *       Execute as: Me            Who has access: Anyone
  *     Authorize when asked, then copy the Web app URL (it ends with /exec).
  *  4. Paste the URL in "submit_endpoint" of data/observatory.json and rebuild (or push).
- *  5. Run notifyNewDatasets once by hand (it records the datasets already listed), then
- *     Triggers -> Add trigger -> notifyNewDatasets, Time-driven, Day timer.
+ *  5. Triggers -> Add trigger -> notifyNewDatasets, Time-driven, Day timer. Only the datasets ticked
+ *     "Email the subscribers" in the Observatory tab of the site editor (admin/people/) are announced.
  * Optional Script properties (Project Settings):
  *   OBSERVATORY_FROM      a "Send mail as" alias of the account to send from (e.g. a Gmail account
  *                         with the unina address added as alias); default: the account itself
@@ -29,7 +29,67 @@ function doPost(e) {
   const data = JSON.parse(e.postData.contents);
   if (data.action === 'observatory_submission') return addSubmission(data);
   if (data.action === 'observatory_subscribe') return addSubscriber(data);
+  // the Observatory tab of the site editor (admin/people/), only with a GitHub token that can write to the site
+  if (['list_submissions', 'mark_submission', 'list_subscribers', 'notify_now'].includes(data.action)) {
+    if (!canRead(data.token)) return json({ ok: false, error: 'This GitHub account cannot read the Observatory sheet.' });
+    if (data.action === 'list_submissions') return json({ ok: true, rows: sheetRows(SUBMISSIONS_SHEET, SUBMISSION_COLUMNS, ['date'].concat(SUBMISSION_FIELDS, ['status'])) });
+    if (data.action === 'mark_submission') return markSubmission(data);
+    if (data.action === 'list_subscribers') {
+      return json({ ok: true, sent: sentIds(), rows: sheetRows(SUBSCRIBERS_SHEET, SUBSCRIBER_COLUMNS,
+        ['date', 'first_name', 'last_name', 'organization', 'role', 'email', 'domains', 'token', 'status']).map(r => { delete r.token; return r; }) });
+    }
+    return json(Object.assign({ ok: true }, notifyNewDatasets()));
+  }
   return ContentService.createTextOutput('error: unknown action');
+}
+
+const REPO = 'traffic-arclab/traffic-arclab.github.io';
+
+function json(value) {
+  return ContentService.createTextOutput(JSON.stringify(value)).setMimeType(ContentService.MimeType.JSON);
+}
+
+/** True when the token belongs to someone who can write to the site repository (cached for 10 minutes). */
+function canRead(token) {
+  if (!token || typeof token !== 'string') return false;
+  const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, token);
+  const key = 'gh:' + Utilities.base64EncodeWebSafe(digest);
+  const cache = CacheService.getScriptCache();
+  if (cache.get(key) === 'yes') return true;
+  const response = UrlFetchApp.fetch('https://api.github.com/repos/' + REPO, {
+    headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'User-Agent': 'traffic-observatory' },
+    muteHttpExceptions: true,
+  });
+  if (response.getResponseCode() !== 200) return false;
+  const repo = JSON.parse(response.getContentText());
+  const allowed = Boolean(repo.permissions && repo.permissions.push);
+  if (allowed) cache.put(key, 'yes', 600);
+  return allowed;
+}
+
+/** The rows of a sheet as objects with the given keys, plus "row" (the sheet row number). */
+function sheetRows(name, columns, keys) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(name);
+  if (!sheet || sheet.getLastRow() < 2) return [];
+  const width = Math.max(columns.length, Math.min(keys.length, sheet.getLastColumn()));
+  return sheet.getRange(2, 1, sheet.getLastRow() - 1, width).getValues().map((r, i) => {
+    const out = { row: i + 2 };
+    keys.forEach((k, j) => { out[k] = r[j] instanceof Date ? r[j].toISOString() : (r[j] == null ? '' : String(r[j])); });
+    return out;
+  });
+}
+
+/** The editor marks a submission as added or rejected (last column, "Status"), if the row still holds that dataset. */
+function markSubmission(data) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SUBMISSIONS_SHEET);
+  const row = Number(data.row);
+  if (!sheet || !(row >= 2) || String(sheet.getRange(row, 2).getValue()) !== String(data.dataset)) {
+    return json({ ok: false, error: 'The sheet changed meanwhile: refresh and try again.' });
+  }
+  const status = ['new', 'added', 'rejected'].includes(data.status) ? data.status : 'new';
+  sheet.getRange(1, SUBMISSION_COLUMNS.length + 1).setValue('Status');
+  sheet.getRange(row, SUBMISSION_COLUMNS.length + 1).setValue(status);
+  return json({ ok: true });
 }
 
 // Every email of the Observatory: from the account (or its OBSERVATORY_FROM alias), with the Observatory's name.
@@ -90,10 +150,9 @@ function addSubmission(data) {
 // ---------------------------------------------------------------- email updates
 // The bell of observatory/ (js/observatory.js, action "observatory_subscribe"): one row per subscriber in
 // "Observatory subscribers", a confirmation email, and an unsubscribe link (doGet below).
-// New datasets: notifyNewDatasets() reads observatory/updates.json (written by scripts/build_observatory.py)
-// and writes to each subscriber the datasets added to their domains since the last run. Run it once by
-// hand (it only records what is already there), then add a time-driven trigger: Triggers -> Add trigger ->
-// notifyNewDatasets, Time-driven, Day timer.
+// New datasets: notifyNewDatasets() reads observatory/updates.json (written by scripts/build_observatory.py),
+// which lists only the datasets ticked "Email the subscribers" in the editor, and announces each of them once.
+// Add a time-driven trigger: Triggers -> Add trigger -> notifyNewDatasets, Time-driven, Day timer.
 const OBSERVATORY_NAME = 'Cybersecurity Dataset Observatory';
 const OBSERVATORY_URL = 'https://traffic-arclab.github.io/observatory/';
 const SUBSCRIBERS_SHEET = 'Observatory subscribers';
@@ -180,30 +239,42 @@ function observatoryFeed() {
   }
 }
 
-// Daily: the datasets of updates.json not seen at the previous run, sent to the subscribers of their domains.
+function sentIds() {
+  return JSON.parse(PropertiesService.getScriptProperties().getProperty('OBSERVATORY_SENT') || '[]');
+}
+
+// Daily (and "Send pending emails now" in the editor): the datasets of updates.json, which lists only the ones
+// ticked "Email the subscribers" in the editor, that were never announced, sent to the subscribers of their domains.
 function notifyNewDatasets() {
   const feed = observatoryFeed();
-  if (!feed) return;
-  const props = PropertiesService.getScriptProperties();
-  const seen = new Set(JSON.parse(props.getProperty('OBSERVATORY_SEEN') || '[]'));
-  const first = seen.size === 0;
-  const fresh = feed.datasets.filter(d => !seen.has(d.id));
-  feed.datasets.forEach(d => seen.add(d.id));
-  props.setProperty('OBSERVATORY_SEEN', JSON.stringify([...seen]));
-  if (first || !fresh.length) return;   // the first run only records the catalogue
-  const rows = subscribersSheet().getDataRange().getValues().slice(1).filter(r => r[8] === 'active');
-  rows.forEach(r => {
-    const domains = String(r[6]);
-    const mine = domains === 'all' ? fresh : fresh.filter(d => domains.split(',').includes(d.domain));
-    if (!mine.length) return;
-    const list = mine.map(d => '- ' + d.name + (d.year ? ' (' + d.year + ')' : '') + ', ' + (feed.domains[d.domain] || d.domain)
-      + (d.task ? ': ' + d.task : '') + '\n  ' + OBSERVATORY_URL + '?q=' + encodeURIComponent(d.name) + '#catalogue').join('\n');
-    sendObservatoryEmail({
-      to: r[5],
-      subject: mine.length === 1 ? 'New in the Observatory: ' + mine[0].name : mine.length + ' new datasets in the Observatory',
-      body: 'Dear ' + r[1] + ',\n\nnew datasets have been added to the domains you follow:\n\n' + list + '\n\n'
-        + 'Browse the catalogue: ' + OBSERVATORY_URL + '\nUnsubscribe: ' + unsubscribeLink(r[7]) + '\n\n'
-        + 'The Traffic research group, University of Napoli Federico II',
+  if (!feed) return { datasets: 0, emails: 0, error: 'updates.json could not be read' };
+  const lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    const sent = new Set(sentIds());
+    const fresh = feed.datasets.filter(d => !sent.has(d.id));
+    if (!fresh.length) return { datasets: 0, emails: 0 };
+    let emails = 0;
+    const rows = subscribersSheet().getDataRange().getValues().slice(1).filter(r => r[8] === 'active');
+    rows.forEach(r => {
+      const domains = String(r[6]);
+      const mine = domains === 'all' ? fresh : fresh.filter(d => domains.split(',').includes(d.domain));
+      if (!mine.length) return;
+      const list = mine.map(d => '- ' + d.name + (d.year ? ' (' + d.year + ')' : '') + ', ' + (feed.domains[d.domain] || d.domain)
+        + (d.task ? ': ' + d.task : '') + '\n  ' + OBSERVATORY_URL + '?q=' + encodeURIComponent(d.name) + '#catalogue').join('\n');
+      sendObservatoryEmail({
+        to: r[5],
+        subject: mine.length === 1 ? 'New in the Observatory: ' + mine[0].name : mine.length + ' new datasets in the Observatory',
+        body: 'Dear ' + r[1] + ',\n\nnew datasets have been added to the domains you follow:\n\n' + list + '\n\n'
+          + 'Browse the catalogue: ' + OBSERVATORY_URL + '\nUnsubscribe: ' + unsubscribeLink(r[7]) + '\n\n'
+          + 'The Traffic research group, University of Napoli Federico II',
+      });
+      emails++;
     });
-  });
+    fresh.forEach(d => sent.add(d.id));
+    PropertiesService.getScriptProperties().setProperty('OBSERVATORY_SENT', JSON.stringify([...sent]));
+    return { datasets: fresh.length, emails: emails };
+  } finally {
+    lock.releaseLock();
+  }
 }

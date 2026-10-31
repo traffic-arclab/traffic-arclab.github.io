@@ -833,11 +833,12 @@ def updates_section(data):
 
 
 def updates_feed(records):
-    """observatory/updates.json: what the Apps Script compares to find the new datasets of each domain."""
+    """observatory/updates.json: the datasets to announce by email ("notify": true, ticked in the editor's
+    Observatory tab); the Apps Script sends each of them once to the subscribers of its domain."""
     return {'domains': {k: label for k, label, _ in DOMAINS},
             'datasets': [{'id': r['id'], 'name': r['name'], 'domain': r['_domain'], 'year': r.get('year') or '',
                           'task': r.get('task') or '', 'url': r.get('url') or ''}
-                         for r in records if r['_domain'] != UNCLASSIFIED[0] and r.get('table_row', True)]}
+                         for r in records if r.get('notify')]}
 
 
 def submit_form(data):
