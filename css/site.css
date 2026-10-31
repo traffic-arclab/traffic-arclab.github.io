@@ -1415,6 +1415,12 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-form-label, .obs-wide-label { display: block; margin: 16px 0 8px; color: var(--color-title); font-size: .86rem; font-weight: 650; }
 .obs-wide-label textarea { display: block; margin-top: 6px; }
 .obs-checks { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.obs-optional { padding: 20px 22px !important; border: 1px dashed var(--color-strong-line) !important; border-radius: var(--radius-md); background: var(--color-surface-alt); }
+.obs-optional legend { float: left; width: 100%; }
+.obs-optional legend + * { clear: both; }
+.obs-opt-tag { display: inline-block; margin-left: 8px; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, var(--color-gold) 22%, transparent); color: var(--color-ink); font: 700 .66rem/1.5 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; vertical-align: .2em; }
+.obs-form-note { margin: 0 0 14px; color: var(--color-muted); font-size: .9rem; line-height: 1.5; }
+.obs-optional .gate-grid { margin-top: 14px; }
 .obs-check { display: flex; align-items: center; gap: 7px; color: var(--color-ink); font-size: .92rem; }
 .obs-check input { width: 17px; height: 17px; accent-color: var(--color-deep); }
 .obs-done { margin-top: var(--space-4); padding: 12px 14px; border-radius: var(--radius-sm); background: var(--color-accent-soft); color: var(--color-accent-ink); font-weight: 600; }

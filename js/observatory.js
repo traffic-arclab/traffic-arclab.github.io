@@ -559,6 +559,12 @@
   const error = form.querySelector('.gate-error');
   const done = form.querySelector('.obs-done');
 
+  const FIELD_LABELS = {dataset: 'Dataset', url: 'Landing page', paper: 'Paper', domain: 'Domain', access: 'Access', task: 'Security task',
+    data: 'Traffic data', description: 'Description', year: 'Year', size: 'Size', derivation_tool: 'Derivation tool',
+    artifact: 'Artifacts', acquisition: 'Capture scenario', labeling: 'Labels', benign: 'Benign traffic', attack_classes: 'Attack classes',
+    attack_families: 'Attack families', lineage: 'Lineage', parents: 'Derived from', family: 'Family', licence: 'Licence',
+    name: 'Name', organization: 'Organization', email: 'Email', role: 'Role'};
+
   function prefill(name, url) {
     form.elements.dataset.value = name;
     if (url && !form.elements.url.value) form.elements.url.value = url;
@@ -580,14 +586,18 @@
       return;
     }
     error.hidden = true;
-    const fields = ['dataset', 'url', 'paper', 'domain', 'access', 'task', 'description', 'name', 'organization', 'email', 'role'];
-    const entry = Object.fromEntries(fields.map(n => [n, form.elements[n].value.trim()]));
-    entry.data = [...form.querySelectorAll('[name=data]:checked')].map(b => b.value).join(', ');
+    // every filled field, the checkbox groups joined (the optional characteristics included)
+    const entry = {};
+    for (const [k, v] of new FormData(form)) {
+      const value = String(v).trim();
+      if (k === 'consent' || !value) continue;
+      entry[k] = entry[k] ? `${entry[k]}, ${value}` : value;
+    }
     const endpoint = form.dataset.endpoint;
 
     if (!endpoint) {
       // No web app configured yet: the submission is sent by email instead.
-      const text = Object.entries(entry).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
+      const text = Object.entries(entry).map(([k, v]) => `${FIELD_LABELS[k] || k}: ${v}`).join('\n');
       const cc = form.dataset.cc ? `cc=${encodeURIComponent(form.dataset.cc)}&` : '';
       window.location.href = `mailto:${form.dataset.contact}?${cc}subject=${encodeURIComponent('Observatory dataset submission: ' + entry.dataset)}&body=${encodeURIComponent(text)}`;
       done.textContent = 'Your email app should now open with the submission ready: send it to complete.';

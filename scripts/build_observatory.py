@@ -725,6 +725,57 @@ def item(rec):
               </article>'''
 
 
+# The optional characteristics of the submit form: the columns of the paper tables (entity model).
+SUBMIT_FAMILIES = ['Brute force', 'Botnet / C2', '(D)DoS', 'Exfiltration', 'Infiltration / lateral movement',
+                   'Malware / backdoor / worm', 'Reconnaissance / scan', 'Exploitation', 'Web attacks',
+                   'Spoofing / MitM / injection', 'Fuzzing', 'Replay', 'Jamming', 'MITRE ATT&CK tactics', 'Other']
+
+
+def characteristics_fieldset():
+    def boxes(name, values, kind='checkbox'):
+        return '\n'.join(f'              <label class="obs-check"><input type="{kind}" name="{name}" value="{esc(v)}"> {esc(v)}</label>'
+                         for v in values)
+    return f'''          <fieldset class="obs-optional">
+            <legend>Dataset characteristics <span class="obs-opt-tag">optional</span></legend>
+            <p class="obs-form-note">These are the details the Observatory shows for every dataset. None of them is required,
+            but each one you fill in saves us a lookup and gets your dataset listed sooner and more accurately: thank you!</p>
+            <div class="gate-grid">
+              <label>Year of release<input name="year" inputmode="numeric" placeholder="e.g. 2024"></label>
+              <label>Size<input name="size" placeholder="e.g. 12 GB, 3.4M flows"></label>
+              <label class="gate-wide">Tool used for derived records<input name="derivation_tool" placeholder="e.g. CICFlowMeter, Zeek, Argus, nfdump, custom"></label>
+            </div>
+            <p class="obs-form-label">Artifacts distributed</p>
+            <div class="obs-checks">
+{boxes('artifact', ['Network traces (PCAP, CAN or V2X logs)', 'Derived information (flows, features, logs)'])}
+            </div>
+            <p class="obs-form-label">Capture scenario</p>
+            <div class="obs-checks">
+{boxes('acquisition', ['Real devices and networks', 'Simulated / emulated', 'Hybrid testbed', 'Merge of existing datasets'], 'radio')}
+            </div>
+            <p class="obs-form-label">Labels</p>
+            <div class="obs-checks">
+{boxes('labeling', ['Binary', 'Multi-class', 'Multi-label', 'Weak / heuristic', 'Unlabelled'])}
+            </div>
+            <div class="gate-grid">
+              <label>Benign traffic included<select name="benign"><option value="">Choose…</option><option>Yes</option><option>No</option></select></label>
+              <label>Number of attack classes<input name="attack_classes" inputmode="numeric" placeholder="e.g. 7"></label>
+            </div>
+            <p class="obs-form-label">Attack families covered</p>
+            <div class="obs-checks">
+{boxes('attack_families', SUBMIT_FAMILIES)}
+            </div>
+            <p class="obs-form-label">Lineage</p>
+            <div class="obs-checks">
+{boxes('lineage', ['Original acquisition', 'Derived from other datasets'], 'radio')}
+            </div>
+            <div class="gate-grid">
+              <label class="gate-wide">Derived from <small>(if derived: which datasets)</small><input name="parents" placeholder="e.g. CIC-IDS2017, UNSW-NB15"></label>
+              <label>Part of a family or series<input name="family" placeholder="e.g. CIC IoT datasets"></label>
+              <label>Licence<input name="licence" placeholder="e.g. CC BY 4.0"></label>
+            </div>
+          </fieldset>'''
+
+
 def submit_form(data):
     domain_options = '\n'.join(f'              <option>{esc(label)}</option>' for _, label, _ in DOMAINS)
     data_boxes = '\n'.join(f'              <label class="obs-check"><input type="checkbox" name="data" value="{esc(label)}"> {esc(label)}</label>'
@@ -749,15 +800,16 @@ def submit_form(data):
               <label>Domain<select name="domain"><option value="">Choose…</option>
 {domain_options}
               </select></label>
-              <label>Access<select name="access"><option value="">Choose…</option><option>Open download</option><option>Free registration</option><option>On request</option><option>Not yet public</option></select></label>
+              <label>Access<select name="access"><option value="">Choose…</option><option>Open download</option><option>Registration</option><option>On request</option><option>Not yet public</option></select></label>
               <label class="gate-wide">Security task<input name="task" placeholder="e.g. intrusion detection, C2 detection, misbehavior detection"></label>
             </div>
             <p class="obs-form-label">Traffic data distributed</p>
             <div class="obs-checks">
 {data_boxes}
             </div>
-            <label class="obs-wide-label">Short description *<textarea name="description" rows="4" required placeholder="Capture environment, attacks covered, size, labels, license…"></textarea></label>
+            <label class="obs-wide-label">Short description *<textarea name="description" rows="4" required placeholder="What the dataset contains, how and where it was captured, what it is for…"></textarea></label>
           </fieldset>
+{characteristics_fieldset()}
           <fieldset>
             <legend>About you</legend>
             <div class="gate-grid">

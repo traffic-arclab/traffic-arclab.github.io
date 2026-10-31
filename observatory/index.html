@@ -12,9 +12,9 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=d29692e1">
+  <link rel="stylesheet" href="../css/site.css?v=e2241b9f">
   <script src="../js/site.js?v=9e61baa7" defer></script>
-  <script src="../js/observatory.js?v=785dfce1" defer></script>
+  <script src="../js/observatory.js?v=d70879dc" defer></script>
 </head>
 <body>
 
@@ -2226,7 +2226,7 @@
               <option>Benign reference traffic</option>
               <option>Enterprise and general IP</option>
               </select></label>
-              <label>Access<select name="access"><option value="">Choose…</option><option>Open download</option><option>Free registration</option><option>On request</option><option>Not yet public</option></select></label>
+              <label>Access<select name="access"><option value="">Choose…</option><option>Open download</option><option>Registration</option><option>On request</option><option>Not yet public</option></select></label>
               <label class="gate-wide">Security task<input name="task" placeholder="e.g. intrusion detection, C2 detection, misbehavior detection"></label>
             </div>
             <p class="obs-form-label">Traffic data distributed</p>
@@ -2237,7 +2237,69 @@
               <label class="obs-check"><input type="checkbox" name="data" value="Feature tables"> Feature tables</label>
               <label class="obs-check"><input type="checkbox" name="data" value="Logs and alerts"> Logs and alerts</label>
             </div>
-            <label class="obs-wide-label">Short description *<textarea name="description" rows="4" required placeholder="Capture environment, attacks covered, size, labels, license…"></textarea></label>
+            <label class="obs-wide-label">Short description *<textarea name="description" rows="4" required placeholder="What the dataset contains, how and where it was captured, what it is for…"></textarea></label>
+          </fieldset>
+          <fieldset class="obs-optional">
+            <legend>Dataset characteristics <span class="obs-opt-tag">optional</span></legend>
+            <p class="obs-form-note">These are the details the Observatory shows for every dataset. None of them is required,
+            but each one you fill in saves us a lookup and gets your dataset listed sooner and more accurately: thank you!</p>
+            <div class="gate-grid">
+              <label>Year of release<input name="year" inputmode="numeric" placeholder="e.g. 2024"></label>
+              <label>Size<input name="size" placeholder="e.g. 12 GB, 3.4M flows"></label>
+              <label class="gate-wide">Tool used for derived records<input name="derivation_tool" placeholder="e.g. CICFlowMeter, Zeek, Argus, nfdump, custom"></label>
+            </div>
+            <p class="obs-form-label">Artifacts distributed</p>
+            <div class="obs-checks">
+              <label class="obs-check"><input type="checkbox" name="artifact" value="Network traces (PCAP, CAN or V2X logs)"> Network traces (PCAP, CAN or V2X logs)</label>
+              <label class="obs-check"><input type="checkbox" name="artifact" value="Derived information (flows, features, logs)"> Derived information (flows, features, logs)</label>
+            </div>
+            <p class="obs-form-label">Capture scenario</p>
+            <div class="obs-checks">
+              <label class="obs-check"><input type="radio" name="acquisition" value="Real devices and networks"> Real devices and networks</label>
+              <label class="obs-check"><input type="radio" name="acquisition" value="Simulated / emulated"> Simulated / emulated</label>
+              <label class="obs-check"><input type="radio" name="acquisition" value="Hybrid testbed"> Hybrid testbed</label>
+              <label class="obs-check"><input type="radio" name="acquisition" value="Merge of existing datasets"> Merge of existing datasets</label>
+            </div>
+            <p class="obs-form-label">Labels</p>
+            <div class="obs-checks">
+              <label class="obs-check"><input type="checkbox" name="labeling" value="Binary"> Binary</label>
+              <label class="obs-check"><input type="checkbox" name="labeling" value="Multi-class"> Multi-class</label>
+              <label class="obs-check"><input type="checkbox" name="labeling" value="Multi-label"> Multi-label</label>
+              <label class="obs-check"><input type="checkbox" name="labeling" value="Weak / heuristic"> Weak / heuristic</label>
+              <label class="obs-check"><input type="checkbox" name="labeling" value="Unlabelled"> Unlabelled</label>
+            </div>
+            <div class="gate-grid">
+              <label>Benign traffic included<select name="benign"><option value="">Choose…</option><option>Yes</option><option>No</option></select></label>
+              <label>Number of attack classes<input name="attack_classes" inputmode="numeric" placeholder="e.g. 7"></label>
+            </div>
+            <p class="obs-form-label">Attack families covered</p>
+            <div class="obs-checks">
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Brute force"> Brute force</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Botnet / C2"> Botnet / C2</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="(D)DoS"> (D)DoS</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Exfiltration"> Exfiltration</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Infiltration / lateral movement"> Infiltration / lateral movement</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Malware / backdoor / worm"> Malware / backdoor / worm</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Reconnaissance / scan"> Reconnaissance / scan</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Exploitation"> Exploitation</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Web attacks"> Web attacks</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Spoofing / MitM / injection"> Spoofing / MitM / injection</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Fuzzing"> Fuzzing</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Replay"> Replay</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Jamming"> Jamming</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="MITRE ATT&amp;CK tactics"> MITRE ATT&amp;CK tactics</label>
+              <label class="obs-check"><input type="checkbox" name="attack_families" value="Other"> Other</label>
+            </div>
+            <p class="obs-form-label">Lineage</p>
+            <div class="obs-checks">
+              <label class="obs-check"><input type="radio" name="lineage" value="Original acquisition"> Original acquisition</label>
+              <label class="obs-check"><input type="radio" name="lineage" value="Derived from other datasets"> Derived from other datasets</label>
+            </div>
+            <div class="gate-grid">
+              <label class="gate-wide">Derived from <small>(if derived: which datasets)</small><input name="parents" placeholder="e.g. CIC-IDS2017, UNSW-NB15"></label>
+              <label>Part of a family or series<input name="family" placeholder="e.g. CIC IoT datasets"></label>
+              <label>Licence<input name="licence" placeholder="e.g. CC BY 4.0"></label>
+            </div>
           </fieldset>
           <fieldset>
             <legend>About you</legend>
