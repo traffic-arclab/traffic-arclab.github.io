@@ -656,7 +656,6 @@
       return;
     }
     error.hidden = true;
-    const label = c => c.closest('label').textContent.trim();
     const entry = {
       first_name: form.elements.first_name.value.trim(), last_name: form.elements.last_name.value.trim(),
       organization: form.elements.organization.value.trim(), role: form.elements.role.value, email: form.elements.email.value.trim(),
@@ -664,13 +663,9 @@
     };
     const endpoint = form.dataset.endpoint;
     if (!endpoint) {
-      // No web app configured yet: the request is sent by email instead.
-      const text = [`Name: ${entry.first_name} ${entry.last_name}`, `Affiliation: ${entry.organization}`, entry.role && `Role: ${entry.role}`,
-        `Email: ${entry.email}`, `Domains: ${all.checked ? 'all domains' : chosen.map(label).join(', ')}`].filter(Boolean).join('\n');
-      const cc = form.dataset.cc ? `cc=${encodeURIComponent(form.dataset.cc)}&` : '';
-      window.location.href = `mailto:${form.dataset.contact}?${cc}subject=${encodeURIComponent('Observatory updates: subscription')}&body=${encodeURIComponent(text)}`;
-      done.textContent = 'Your email app should now open with the request ready: send it to complete the subscription.';
-      done.hidden = false;
+      // the mailing list (the Observatory's Apps Script) is not connected yet: nothing is sent from the visitor
+      error.textContent = 'Subscriptions open in a few days: please come back soon.';
+      error.hidden = false;
       return;
     }
     const button = form.querySelector('[type=submit]');

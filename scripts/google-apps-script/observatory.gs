@@ -187,7 +187,7 @@ const SUBMISSION_FIELDS = ['dataset', 'url', 'paper', 'domain', 'access', 'task'
   'year', 'size', 'derivation_tool', 'artifact', 'acquisition', 'labeling', 'benign', 'attack_classes',
   'attack_families', 'lineage', 'parents', 'family', 'licence'];
 // Who receives an email for every submission (the first one in To, the others in Cc).
-const OBSERVATORY_TEAM = ['pescape@unina.it', 'gabriele.mangiacapre@unina.it', 'francesco.cerasuolo@unina.it'];
+const OBSERVATORY_TEAM = ['gabriele.mangiacapre@unina.it', 'francesco.cerasuolo@unina.it'];
 
 function addSubmission(data) {
   const lock = LockService.getScriptLock();
