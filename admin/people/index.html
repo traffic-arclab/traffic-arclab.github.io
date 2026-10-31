@@ -541,8 +541,8 @@
     </nav>
     <div id="obs-datasets">
       <p class="hint">The catalogue of <code>data/observatory.json</code>. Add or edit a dataset, then press <strong>Save</strong>.
-        Tick <strong>Email the subscribers</strong> only for the datasets you want announced: the next daily run (or
-        <em>Send pending emails now</em> in Subscribers) writes once to the subscribers of its domain. Datasets added in any other way are never announced.</p>
+        Tick <strong>Email the subscribers</strong> only for the datasets you want announced: the next Monday email (or
+        <em>Send pending emails now</em> in Subscribers) announces it once to the subscribers of its domain. Datasets added in any other way are never announced.</p>
       <div class="dl-toolbar">
         <label class="grow">Search <input id="obs-search" placeholder="Name, id, task, paper"></label>
         <label>Domain <select id="obs-filter"><option value="">All domains</option></select></label>
@@ -2965,7 +2965,7 @@
     a.innerHTML = `
       <h2>${escHtml(r.name)}</h2>
       <div class="obs-notify"><label class="check"><input type="checkbox" id="o-notify"${r.notify ? ' checked' : ''}> Email the subscribers about this dataset</label>
-        <p>${obsSent.has(r.id) ? 'Already announced: it will not be sent again.' : 'Sent once, at the next daily run after saving, to the subscribers of its domain (or of all domains).'}</p></div>
+        <p>${obsSent.has(r.id) ? 'Already announced: it will not be sent again.' : 'Announced once, in the Monday email after saving, to the subscribers of its domain (or of all domains).'}</p></div>
       <label>Name * <input id="o-name" value="${escHtml(r.name)}" required></label>
       <label>Id <small>(address of the dataset, set from the name when it is saved)</small><input id="o-id" value="${escHtml(r.id)}" readonly></label>
       <label>Download page <input id="o-url" value="${escHtml(r.url)}" placeholder="https://"></label>

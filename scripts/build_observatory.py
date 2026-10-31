@@ -796,7 +796,7 @@ def updates_section(data):
           <span class="obs-bell-badge">{BELL}</span>
           <div class="obs-updates-text">
             <h2 class="obs-updates-title">Stay updated on new datasets in your field</h2>
-            <p>Choose the domains you work on, one, several or all of them: the Observatory will send you an email when new datasets are added to them.</p>
+            <p>Choose the domains you work on, one, several or all of them: every Monday the Observatory emails you the datasets added to them during the week.</p>
           </div>
           <button type="button" class="btn btn-primary obs-updates-open" data-subscribe>{BELL} Get updates</button>
         </div>
@@ -808,7 +808,7 @@ def updates_section(data):
         <button type="button" class="gate-close" data-subscribe-close aria-label="Close">×</button>
         <p class="card-kicker">Observatory updates</p>
         <h2 id="obs-subscribe-title" class="gate-title">{BELL} Stay updated</h2>
-        <p class="gate-lead">You will receive an email when new datasets are added to the domains you choose. You can unsubscribe at any time from the link in every email.</p>
+        <p class="gate-lead">Every Monday you will receive an email with the datasets added during the week to the domains you choose. You can unsubscribe at any time from the link in every email.</p>
         <fieldset>
           <legend class="obs-form-label">Domains of interest *</legend>
           <label class="obs-check obs-sub-all"><input type="checkbox" data-all> <strong>All domains</strong></label>

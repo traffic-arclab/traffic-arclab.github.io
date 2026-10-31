@@ -1,7 +1,7 @@
 /**
  * The Cybersecurity Dataset Observatory (observatory/, js/observatory.js): the "Submit your dataset"
  * form (action "observatory_submission") and the email updates of the bell (action
- * "observatory_subscribe", the unsubscribe link and the daily notifyNewDatasets()).
+ * "observatory_subscribe", the unsubscribe link and the weekly notifyNewDatasets()).
  *
  * The emails leave from the Google account that publishes this script: for now Gabriele
  * Mangiacapre's, later the institutional account of the Observatory. To move it, repeat the setup
@@ -15,7 +15,7 @@
  *       Execute as: Me            Who has access: Anyone
  *     Authorize when asked, then copy the Web app URL (it ends with /exec).
  *  4. Paste the URL in "submit_endpoint" of data/observatory.json and rebuild (or push).
- *  5. Triggers -> Add trigger -> notifyNewDatasets, Time-driven, Day timer. Only the datasets ticked
+ *  5. Triggers -> Add trigger -> notifyNewDatasets, Time-driven, Week timer, every Monday, 10am to 11am. Only the datasets ticked
  *     "Email the subscribers" in the Observatory tab of the site editor (admin/people/) are announced.
  * Optional Script properties (Project Settings):
  *   OBSERVATORY_FROM      a "Send mail as" alias of the account to send from (e.g. a Gmail account
@@ -253,7 +253,8 @@ function addSubmission(data) {
 // "Observatory subscribers", a confirmation email, and an unsubscribe link (doGet below).
 // New datasets: notifyNewDatasets() reads observatory/updates.json (written by scripts/build_observatory.py),
 // which lists only the datasets ticked "Email the subscribers" in the editor, and announces each of them once.
-// Add a time-driven trigger: Triggers -> Add trigger -> notifyNewDatasets, Time-driven, Day timer.
+// Add a time-driven trigger: Triggers -> Add trigger -> notifyNewDatasets, Time-driven, Week timer, Monday, 10am to 11am:
+// one email a week with the datasets added since the previous Monday.
 const OBSERVATORY_NAME = 'Cybersecurity Dataset Observatory';
 const OBSERVATORY_URL = 'https://traffic-arclab.github.io/observatory/';
 const SUBSCRIBERS_SHEET = 'Observatory subscribers';
@@ -314,7 +315,7 @@ function addSubscriber(data) {
       content: '<p style="margin:0 0 14px">Thank you for subscribing to the updates of the Cybersecurity Dataset Observatory, '
         + 'the curated catalogue of network-traffic datasets for AI in cybersecurity.</p>'
         + '<p style="margin:0 0 10px">We will write to you when new datasets are added to:</p>' + pills
-        + '<p style="margin:0">Each email lists the new datasets with their domain, the paper that introduced them and where to download them.</p>',
+        + '<p style="margin:0">Every Monday we send you the datasets added during the week, with their domain, the paper that introduced them and where to download them.</p>',
       button: { label: 'Browse the catalogue', url: OBSERVATORY_URL },
       unsubscribe: unsubscribeLink(token),
     }),
@@ -357,7 +358,7 @@ function sentIds() {
   return JSON.parse(PropertiesService.getScriptProperties().getProperty('OBSERVATORY_SENT') || '[]');
 }
 
-// Daily (and "Send pending emails now" in the editor): the datasets of updates.json, which lists only the ones
+// Every Monday (and "Send pending emails now" in the editor): the datasets of updates.json, which lists only the ones
 // ticked "Email the subscribers" in the editor, that were never announced, sent to the subscribers of their domains.
 function notifyNewDatasets() {
   const feed = observatoryFeed();
@@ -378,17 +379,17 @@ function notifyNewDatasets() {
         + (d.task ? ': ' + d.task : '') + '\n  ' + OBSERVATORY_URL + '?q=' + encodeURIComponent(d.name) + '#catalogue').join('\n');
       sendObservatoryEmail({
         to: r[5],
-        subject: mine.length === 1 ? 'New in the Observatory: ' + mine[0].name : mine.length + ' new datasets in the Observatory',
+        subject: 'This week in the Observatory: ' + (mine.length === 1 ? mine[0].name : mine.length + ' new datasets'),
         html: mailLayout({
-          title: mine.length === 1 ? 'A new dataset in your domains' : mine.length + ' new datasets in your domains',
+          title: 'This week in the Observatory',
           preheader: mine.map(d => d.name).join(', '),
           content: '<p style="margin:0 0 14px">Dear ' + escapeHtml(r[1]) + ',</p>'
-            + '<p style="margin:0 0 18px">' + (mine.length === 1 ? 'a new dataset has' : mine.length + ' new datasets have')
+            + '<p style="margin:0 0 18px">this week ' + (mine.length === 1 ? 'a new dataset has' : mine.length + ' new datasets have')
             + ' been added to the domains you follow:</p>' + mine.map(d => datasetCard(d, feed.domains)).join(''),
           button: { label: 'Explore the Observatory', url: OBSERVATORY_URL },
           unsubscribe: unsubscribeLink(r[7]),
         }),
-        body: 'Dear ' + r[1] + ',\n\nnew datasets have been added to the domains you follow:\n\n' + list + '\n\n'
+        body: 'Dear ' + r[1] + ',\n\nthis week new datasets have been added to the domains you follow:\n\n' + list + '\n\n'
           + 'Browse the catalogue: ' + OBSERVATORY_URL + '\nUnsubscribe: ' + unsubscribeLink(r[7]) + '\n\n'
           + 'The Traffic research group, University of Napoli Federico II',
       });
