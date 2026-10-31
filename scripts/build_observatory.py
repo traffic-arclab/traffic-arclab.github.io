@@ -524,6 +524,8 @@ def engine(data, records, families):
     cite, cite_by = citation(data)
     return f'''    <section class="obs-engine" aria-labelledby="obs-engine-title">
       <div class="container obs-engine-inner">
+        <button type="button" class="obs-bell-corner" data-subscribe title="Get an email when new datasets of your domains are added">
+          <span class="obs-bell-btn">{BELL}</span><span class="obs-bell-caption">Get updates</span></button>
         <h1 id="obs-engine-title" class="obs-engine-title">{MARK}<span>{esc(data['title'])}</span></h1>
         <p class="obs-engine-tagline">{esc(data.get('tagline') or data['lead'])}</p>
         {f'<p class="obs-engine-desc">{esc(data["description"])}</p>' if data.get('description') else ''}
@@ -541,8 +543,7 @@ def engine(data, records, families):
         <div class="obs-engine-foot">
 {cite}          <div class="obs-engine-submit">
             <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
-            <div class="obs-engine-btns"><a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
-            <button type="button" class="obs-bell-btn" data-subscribe title="Get updates: an email when new datasets of your domains are added">{BELL}<span class="visually-hidden">Get updates on new datasets</span></button></div>
+            <a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
           </div>
 {cite_by}        </div>
       </div>
