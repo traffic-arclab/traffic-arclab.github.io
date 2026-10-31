@@ -524,8 +524,8 @@ def engine(data, records, families):
     cite, cite_by = citation(data)
     return f'''    <section class="obs-engine" aria-labelledby="obs-engine-title">
       <div class="container obs-engine-inner">
-        <button type="button" class="obs-bell-corner" data-subscribe title="Get an email when new datasets of your domains are added">
-          <span class="obs-bell-btn">{BELL}</span><span class="obs-bell-caption">Get updates</span></button>
+        <button type="button" class="obs-bell-corner" data-subscribe title="Stay updated: get an email when new datasets of your domains are added">
+          <span class="obs-bell-btn">{BELL}</span><span class="obs-bell-caption">Stay updated</span></button>
         <h1 id="obs-engine-title" class="obs-engine-title">{MARK}<span>{esc(data['title'])}</span></h1>
         <p class="obs-engine-tagline">{esc(data.get('tagline') or data['lead'])}</p>
         {f'<p class="obs-engine-desc">{esc(data["description"])}</p>' if data.get('description') else ''}

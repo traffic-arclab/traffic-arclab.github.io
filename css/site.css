@@ -1506,7 +1506,8 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 /* The cite block and the submit call face each other line by line (same line height); the authors are a row below,
    at the same distance from the gold border as the two lines above. */
 /* the bell, top right of the hero: a round button with a small caption under it */
-.obs-bell-corner { position: absolute; top: calc(24px - clamp(56px, 7.5vw, 104px)); right: var(--gutter); z-index: 2; display: grid; justify-items: center; gap: 6px; padding: 0; border: 0; background: none; color: #fff; cursor: pointer; }
+.obs-bell-corner { position: absolute; top: calc(clamp(2.1rem, 4.6vw, 3.7rem) * .54 - 24px); right: var(--gutter);   /* the circle level with the title */
+  z-index: 2; display: grid; justify-items: center; gap: 6px; padding: 0; border: 0; background: none; color: #fff; cursor: pointer; }
 .obs-bell-btn { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, .45); border-radius: 50%; background: rgba(255, 255, 255, .08); font-size: 1.3rem; transition: background .15s ease, border-color .15s ease; }
 .obs-bell-caption { color: var(--color-deep-muted); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .obs-bell-corner:hover .obs-bell-btn { border-color: var(--color-gold); background: rgba(255, 255, 255, .18); }
@@ -1514,7 +1515,7 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-bell-corner:hover .obs-bell, .obs-bell-corner:focus-visible .obs-bell { animation: obs-ring 1.2s ease-in-out; }
 .obs-bell-corner:focus-visible { outline: none; }
 .obs-bell-corner:focus-visible .obs-bell-btn { outline: 2px solid var(--color-gold); outline-offset: 2px; }
-@media (max-width: 600px) { .obs-bell-corner { top: -8px; } .obs-bell-btn { width: 40px; height: 40px; font-size: 1.1rem; } .obs-bell-caption { font-size: .62rem; } }
+@media (max-width: 600px) { .obs-bell-corner { top: calc(clamp(2.1rem, 4.6vw, 3.7rem) * .54 - 20px); } .obs-bell-btn { width: 40px; height: 40px; font-size: 1.1rem; } .obs-bell-caption { font-size: .62rem; } }
 .obs-engine-foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 28px; margin-top: clamp(28px, 3.5vw, 44px); --foot-line: 1.4rem; }
 /* "Cite this work" left of the gold border, the title in two lines right of it (facing the two lines of the submit call) */
 .obs-cite { display: flex; align-items: center; gap: 14px; text-align: left; }
