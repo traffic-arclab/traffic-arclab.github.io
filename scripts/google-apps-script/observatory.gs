@@ -98,7 +98,81 @@ function sendObservatoryEmail(message) {
   const options = { name: OBSERVATORY_NAME, replyTo: message.replyTo || observatoryReplyTo() };
   if (message.cc) options.cc = message.cc;
   if (from) options.from = from;
+  if (message.html) options.htmlBody = message.html;
   GmailApp.sendEmail(message.to, message.subject, message.body, options);
+}
+
+// ---------------------------------------------------------------- the look of the emails
+// One layout for every email: the navy band of the Observatory, the text, an optional button, and the
+// footer with the Traffic logo, the University and DIETI. Tables and inline styles: what email apps read.
+const SITE_URL = 'https://traffic-arclab.github.io/';
+const MAIL_LOGO = SITE_URL + 'images/email/traffic-brand.png';
+const DOMAIN_COLOURS = { automotive: '#d9822b', uav: '#8e6bd1', industrial: '#b5543c', v2x: '#d0567f', '5g': '#1f7a5c',
+  ddos: '#8c5a2b', sdn: '#2f6fb0', honeypot: '#b0782f', wireless: '#23a197', iot: '#3a8bd6', mobile: '#4f9a3a',
+  malware: '#c9384a', encrypted: '#5563d9', web: '#c39a17', backbone: '#3f7f93', benign: '#8aa63a', enterprise: '#7a8695' };
+const SANS = "'Source Sans 3','Segoe UI',Helvetica,Arial,sans-serif";
+const SERIF = "'Source Serif 4',Georgia,'Times New Roman',serif";
+
+function escapeHtml(value) {
+  return String(value == null ? '' : value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function domainPill(key, label) {
+  const colour = DOMAIN_COLOURS[key] || '#7a8695';
+  return '<span style="display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border-radius:999px;background:' + colour
+    + ';color:#ffffff;font:700 12px/1.5 ' + SANS + ';white-space:nowrap">' + escapeHtml(label || key) + '</span>';
+}
+
+function mailButton(label, url) {
+  return '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:22px 0 4px"><tr><td style="border-radius:8px;background:#a5842c">'
+    + '<a href="' + escapeHtml(url) + '" style="display:inline-block;padding:12px 22px;color:#ffffff;font:700 15px ' + SANS
+    + ';text-decoration:none;border-radius:8px">' + escapeHtml(label) + '</a></td></tr></table>';
+}
+
+/** The whole email: kicker and title in the navy band, then the content (HTML) and the footer. */
+function mailLayout(parts) {
+  const unsubscribe = parts.unsubscribe
+    ? '<p style="margin:14px 0 0;font:13px/1.5 ' + SANS + ';color:#7a8695">You receive this email because you subscribed to the Observatory updates. '
+      + '<a href="' + escapeHtml(parts.unsubscribe) + '" style="color:#5f6d7c">Unsubscribe</a></p>' : '';
+  return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head><body style="margin:0;padding:0;background:#eef2f6">'
+    + '<span style="display:none;max-height:0;overflow:hidden;opacity:0">' + escapeHtml(parts.preheader || '') + '</span>'
+    + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef2f6"><tr><td align="center" style="padding:28px 12px">'
+    + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #dce3eb">'
+    // the band
+    + '<tr><td style="padding:26px 32px 24px;background:#0b2545;border-bottom:3px solid #a5842c">'
+    + '<p style="margin:0 0 6px;font:700 12px/1.4 ' + SANS + ';letter-spacing:.14em;text-transform:uppercase;color:#d9c28a">Cybersecurity Dataset Observatory</p>'
+    + '<h1 style="margin:0;font:600 26px/1.25 ' + SERIF + ';color:#ffffff">' + escapeHtml(parts.title) + '</h1></td></tr>'
+    // the content
+    + '<tr><td style="padding:28px 32px 8px;font:16px/1.6 ' + SANS + ';color:#1b2531">' + parts.content
+    + (parts.button ? mailButton(parts.button.label, parts.button.url) : '') + '</td></tr>'
+    + '<tr><td style="padding:8px 32px 26px;font:16px/1.6 ' + SANS + ';color:#1b2531">' + (parts.signature === false ? ''
+      : '<p style="margin:16px 0 0">The Observatory team<br><span style="color:#5f6d7c">Francesco Cerasuolo, Gabriele Mangiacapre, Antonio Pescapè</span></p>') + '</td></tr>'
+    // the footer: logo, University, DIETI
+    + '<tr><td style="padding:22px 32px 26px;background:#f6f8fb;border-top:1px solid #dce3eb">'
+    + '<a href="' + SITE_URL + '"><img src="' + MAIL_LOGO + '" width="260" alt="Traffic Research Group · Network Monitoring and Measurements" style="display:block;width:260px;max-width:100%;height:auto;border:0"></a>'
+    + '<p style="margin:14px 0 0;font:14px/1.55 ' + SANS + ';color:#5f6d7c">'
+    + '<a href="https://www.unina.it/" style="color:#0b2545;font-weight:700;text-decoration:none">University of Napoli Federico II</a><br>'
+    + '<a href="https://www.dieti.unina.it/" style="color:#5f6d7c;text-decoration:none">Department of Electrical Engineering and Information Technology (DIETI)</a><br>'
+    + 'Via Claudio 21, 80125 Napoli, Italy</p>'
+    + '<p style="margin:10px 0 0;font:14px/1.5 ' + SANS + '"><a href="' + OBSERVATORY_URL + '" style="color:#1b5b93">The Observatory</a>'
+    + ' &nbsp;·&nbsp; <a href="' + SITE_URL + '" style="color:#1b5b93">Traffic Research Group</a></p>'
+    + unsubscribe + '</td></tr>'
+    + '</table></td></tr></table></body></html>';
+}
+
+/** One dataset in an email: name, year, domain, task and its links. */
+function datasetCard(d, labels) {
+  const link = OBSERVATORY_URL + '?q=' + encodeURIComponent(d.name) + '#catalogue';
+  const colour = DOMAIN_COLOURS[d.domain] || '#7a8695';
+  return '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 12px;border:1px solid #dce3eb;border-left:4px solid ' + colour + ';border-radius:8px">'
+    + '<tr><td style="padding:14px 16px">' + domainPill(d.domain, labels[d.domain])
+    + '<p style="margin:2px 0 2px;font:600 19px/1.3 ' + SERIF + '"><a href="' + escapeHtml(link) + '" style="color:#0b2545;text-decoration:none">' + escapeHtml(d.name) + '</a>'
+    + (d.year ? ' <span style="font:400 14px ' + SANS + ';color:#5f6d7c">' + escapeHtml(d.year) + '</span>' : '') + '</p>'
+    + (d.task ? '<p style="margin:0;font:15px/1.5 ' + SANS + ';color:#3d4a59">' + escapeHtml(d.task) + '</p>' : '')
+    + (d.paper ? '<p style="margin:4px 0 0;font:italic 14px/1.5 ' + SANS + ';color:#5f6d7c">' + escapeHtml(d.paper) + '</p>' : '')
+    + '<p style="margin:8px 0 0;font:700 14px ' + SANS + '"><a href="' + escapeHtml(link) + '" style="color:#1b5b93">View in the Observatory</a>'
+    + (d.url ? ' &nbsp;·&nbsp; <a href="' + escapeHtml(d.url) + '" style="color:#1b5b93">Download page</a>' : '') + '</p>'
+    + '</td></tr></table>';
 }
 
 // ---------------------------------------------------------------- submissions
@@ -134,11 +208,38 @@ function addSubmission(data) {
     // and an email to the team, with every field that was filled in
     const lines = SUBMISSION_FIELDS.map((f, i) => data[f] ? SUBMISSION_COLUMNS[i + 1] + ': ' + String(data[f]).slice(0, 3000) : '')
       .filter(Boolean);
+    const rows = SUBMISSION_FIELDS.map((f, i) => data[f] && f !== 'page' ? '<tr><td style="padding:7px 12px 7px 0;vertical-align:top;white-space:nowrap;font:700 13px ' + SANS
+      + ';color:#5f6d7c;text-transform:uppercase;letter-spacing:.05em">' + escapeHtml(SUBMISSION_COLUMNS[i + 1]) + '</td><td style="padding:7px 0;font:15px/1.5 ' + SANS
+      + ';color:#1b2531;border-bottom:1px solid #eef2f6">' + escapeHtml(String(data[f]).slice(0, 3000)) + '</td></tr>' : '').join('');
     sendObservatoryEmail({
       to: OBSERVATORY_TEAM[0], cc: OBSERVATORY_TEAM.slice(1).join(','), replyTo: String(data.email || ''),
       subject: 'Observatory dataset submission: ' + String(data.dataset || '').slice(0, 120),
       body: lines.join('\n'),
+      html: mailLayout({
+        title: 'New dataset submission', preheader: String(data.dataset || '') + ' submitted by ' + String(data.name || ''), signature: false,
+        content: '<p style="margin:0 0 16px"><strong>' + escapeHtml(data.name) + '</strong>' + (data.organization ? ' (' + escapeHtml(data.organization) + ')' : '')
+          + ' proposed <strong>' + escapeHtml(data.dataset) + '</strong> for the Observatory. Reply to this email to write to them.</p>'
+          + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + rows + '</table>',
+        button: { label: 'Review it in the editor', url: SITE_URL + 'admin/people/#observatory' },
+      }),
     });
+    // and a thank-you to whoever submitted it
+    if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(data.email || ''))) {
+      sendObservatoryEmail({
+        to: String(data.email),
+        subject: 'Thank you for your submission: ' + String(data.dataset || '').slice(0, 120),
+        body: 'Dear ' + String(data.name || '') + ',\n\nthank you for proposing ' + String(data.dataset || '') + ' for the Cybersecurity Dataset Observatory. '
+          + 'We will review it against the eligibility criterion and write to you if we need more details.\n\n' + OBSERVATORY_URL,
+        html: mailLayout({
+          title: 'Thank you for your submission', preheader: 'We received ' + String(data.dataset || '') + ' and will review it soon.',
+          content: '<p style="margin:0 0 14px">Dear ' + escapeHtml(data.name) + ',</p>'
+            + '<p style="margin:0 0 14px">thank you for proposing <strong>' + escapeHtml(data.dataset) + '</strong> for the Cybersecurity Dataset Observatory.</p>'
+            + '<p style="margin:0">We will review it against the eligibility criterion and add it to the catalogue with its paper and distribution source. '
+            + 'If we need more details, we will reply to this address.</p>',
+          button: { label: 'Browse the Observatory', url: OBSERVATORY_URL },
+        }),
+      });
+    }
     return ContentService.createTextOutput('ok');
   } catch (error) {
     return ContentService.createTextOutput('error: ' + error);
@@ -201,9 +302,22 @@ function addSubscriber(data) {
     lock.releaseLock();
   }
   const feed = observatoryFeed();
+  const labels = feed ? feed.domains : {};
+  const pills = domains === 'all' ? '<p style="margin:0 0 14px">' + domainPill('enterprise', 'All domains').replace('#7a8695', '#0b2545') + '</p>'
+    : '<p style="margin:0 0 14px">' + domains.split(',').map(k => domainPill(k, labels[k])).join('') + '</p>';
   sendObservatoryEmail({
     to: email,
     subject: 'You are subscribed to the Cybersecurity Dataset Observatory',
+    html: mailLayout({
+      title: 'Welcome, ' + String(data.first_name || '').trim() + '!',
+      preheader: 'You will hear from us when new datasets are added to your domains.',
+      content: '<p style="margin:0 0 14px">Thank you for subscribing to the updates of the Cybersecurity Dataset Observatory, '
+        + 'the curated catalogue of network-traffic datasets for AI in cybersecurity.</p>'
+        + '<p style="margin:0 0 10px">We will write to you when new datasets are added to:</p>' + pills
+        + '<p style="margin:0">Each email lists the new datasets with their domain, the paper that introduced them and where to download them.</p>',
+      button: { label: 'Browse the catalogue', url: OBSERVATORY_URL },
+      unsubscribe: unsubscribeLink(token),
+    }),
     body: 'Dear ' + String(data.first_name || '').trim() + ',\n\n'
       + 'thank you for subscribing. You will receive an email when new datasets are added to: '
       + domainNames(domains, feed ? feed.domains : {}) + '.\n\n'
@@ -265,6 +379,15 @@ function notifyNewDatasets() {
       sendObservatoryEmail({
         to: r[5],
         subject: mine.length === 1 ? 'New in the Observatory: ' + mine[0].name : mine.length + ' new datasets in the Observatory',
+        html: mailLayout({
+          title: mine.length === 1 ? 'A new dataset in your domains' : mine.length + ' new datasets in your domains',
+          preheader: mine.map(d => d.name).join(', '),
+          content: '<p style="margin:0 0 14px">Dear ' + escapeHtml(r[1]) + ',</p>'
+            + '<p style="margin:0 0 18px">' + (mine.length === 1 ? 'a new dataset has' : mine.length + ' new datasets have')
+            + ' been added to the domains you follow:</p>' + mine.map(d => datasetCard(d, feed.domains)).join(''),
+          button: { label: 'Explore the Observatory', url: OBSERVATORY_URL },
+          unsubscribe: unsubscribeLink(r[7]),
+        }),
         body: 'Dear ' + r[1] + ',\n\nnew datasets have been added to the domains you follow:\n\n' + list + '\n\n'
           + 'Browse the catalogue: ' + OBSERVATORY_URL + '\nUnsubscribe: ' + unsubscribeLink(r[7]) + '\n\n'
           + 'The Traffic research group, University of Napoli Federico II',

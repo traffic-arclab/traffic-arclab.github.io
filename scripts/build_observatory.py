@@ -820,7 +820,7 @@ def updates_section(data):
           <label>First name *<input name="first_name" autocomplete="given-name" required></label>
           <label>Last name *<input name="last_name" autocomplete="family-name" required></label>
           <label>Affiliation *<input name="organization" autocomplete="organization" required placeholder="University, company, institution"></label>
-          <label>Role<select name="role"><option value="">Choose…</option><option>Researcher</option><option>PhD student</option><option>Student</option><option>Industry</option><option>Other</option></select></label>
+          <label>Role<select name="role"><option value="">Choose…</option><option>Professor</option><option>Researcher</option><option>PhD student</option><option>Student</option><option>Industry</option><option>Other</option></select></label>
           <label class="gate-wide">Email *<input name="email" type="email" autocomplete="email" required></label>
         </div>
         <label class="gate-check"><input type="checkbox" name="consent" required>
@@ -837,7 +837,8 @@ def updates_feed(records):
     Observatory tab); the Apps Script sends each of them once to the subscribers of its domain."""
     return {'domains': {k: label for k, label, _ in DOMAINS},
             'datasets': [{'id': r['id'], 'name': r['name'], 'domain': r['_domain'], 'year': r.get('year') or '',
-                          'task': r.get('task') or '', 'url': r.get('url') or ''}
+                          'task': r.get('task') or '', 'url': r.get('url') or '',
+                          'paper': ' — '.join(x for x in ((r.get('paper') or {}).get('cite'), (r.get('paper') or {}).get('title')) if x)}
                          for r in records if r.get('notify')]}
 
 
