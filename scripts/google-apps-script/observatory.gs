@@ -99,7 +99,20 @@ function sendObservatoryEmail(message) {
   if (message.cc) options.cc = message.cc;
   if (from) options.from = from;
   if (message.html) options.htmlBody = message.html;
-  GmailApp.sendEmail(message.to, message.subject, message.body, options);
+  try {
+    GmailApp.sendEmail(message.to, message.subject, message.body, options);
+  } catch (error) {
+    // some Google Workspace domains (unina.it among them) do not let scripts use Gmail:
+    // MailApp sends from the same account, without a "from" alias
+    delete options.from;
+    MailApp.sendEmail(Object.assign({ to: message.to, subject: message.subject, body: message.body }, options));
+  }
+}
+
+// Run it once from the editor (select testEmail, then Run) to check that this account can send the emails.
+function testEmail() {
+  sendObservatoryEmail({ to: OBSERVATORY_TEAM[0], subject: 'Observatory: test email', body: 'It works.',
+    html: mailLayout({ title: 'Test email', content: '<p style="margin:0">If you can read this, the Observatory can send its emails.</p>' }) });
 }
 
 // ---------------------------------------------------------------- the look of the emails
