@@ -710,7 +710,8 @@ def item(rec):
     data = rec.get('data') or []
     chips = ''.join(f'<li>{esc(d)}</li>' for d in data[:4]) + (f'<li class="obs-more">+{len(data) - 4}</li>' if len(data) > 4 else '')
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
-    return f'''              <article class="obs-item" {attr}>
+    capture = ' is-capture' if not rec.get('table_row', True) else ''   # a capture inside a family row of a table
+    return f'''              <article class="obs-item{capture}" {attr}>
                 <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec['_domain'], rec.get('domain'))}</p>
                 <div class="obs-c-name"><h3><button type="button" class="obs-name" data-open="{esc(rec['id'])}">{esc(rec['name'])}</button></h3>{family}{f'<span class="obs-marks">{marks}</span>' if marks else ''}</div>
                 <p class="obs-c-task">{esc(rec.get('task') or '—')}</p>

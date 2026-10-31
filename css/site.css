@@ -1540,6 +1540,8 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 }
 .obs-item::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--dom); }
 .obs-item:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--dom) 45%, var(--color-line)); box-shadow: var(--shadow-md); }
+.obs-item.is-capture { border: 1.5px dashed color-mix(in srgb, var(--dom) 55%, var(--color-strong-line)); }
+.obs-item.is-capture::before { background: repeating-linear-gradient(90deg, var(--dom) 0 10px, transparent 10px 16px); }
 .obs-item.is-member { border-style: dashed; background: var(--color-surface-alt); box-shadow: none; }
 .obs-c-domain { grid-area: domain; display: flex; align-items: center; gap: 7px; min-width: 0; color: var(--color-muted); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .obs-pills { display: flex; flex-wrap: nowrap; gap: 5px; min-width: 0; overflow: hidden; }
