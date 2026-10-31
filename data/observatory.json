@@ -6965,7 +6965,7 @@
         "title": "Kitsune: An Ensemble of Autoencoders for Online Network Intrusion Detection",
         "doi": "10.14722/ndss.2018.23204"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. Nine attacks: reconnaissance, man-in-the-middle, DoS and Mirai botnet.",
+      "notes": "Nine attacks: reconnaissance, man-in-the-middle, DoS and Mirai botnet.",
       "origin": "web",
       "category": "iot",
       "year": "2018",
@@ -7009,7 +7009,7 @@
         "title": "InSDN: A Novel SDN Intrusion Dataset",
         "doi": "10.1109/ACCESS.2020.3022633"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. DoS, DDoS, brute force, web attacks, exploitation, probing and botnet. Licence CC BY-NC 4.0.",
+      "notes": "DoS, DDoS, brute force, web attacks, exploitation, probing and botnet. Licence CC BY-NC 4.0.",
       "origin": "web",
       "category": "sdn",
       "year": "2020",
@@ -7054,7 +7054,7 @@
         "title": "LITNET-2020: An Annotated Real-World Network Flow Dataset for Network Intrusion Detection",
         "doi": "10.3390/electronics9050800"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. Real academic network, 85 flow features, 12 attack types.",
+      "notes": "Real academic network, 85 flow features, 12 attack types.",
       "origin": "web",
       "category": "backbone",
       "year": "2020",
@@ -7100,7 +7100,7 @@
         "title": "Introducing UWF-ZeekData22: A Comprehensive Network Traffic Dataset Based on the MITRE ATT&CK Framework",
         "doi": "10.3390/data8010018"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. Zeek logs labelled with MITRE ATT&CK tactics. The labelled PCAPs use a custom binary format.",
+      "notes": "Zeek logs labelled with MITRE ATT&CK tactics. The labelled PCAPs use a custom binary format.",
       "origin": "web",
       "category": "enterprise",
       "year": "2022",
@@ -7141,7 +7141,7 @@
         "cite": "Zolanvari et al., IEEE Internet of Things Journal 2019",
         "doi": "10.1109/jiot.2019.2912022"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. DoS, reconnaissance, command injection and backdoor. Same group as WUSTL-EHMS-2020.",
+      "notes": "DoS, reconnaissance, command injection and backdoor. Same group as WUSTL-EHMS-2020.",
       "origin": "web",
       "category": "iot",
       "year": "2021",
@@ -7185,7 +7185,7 @@
         "title": "Machine Learning Based IoT Intrusion Detection System: An MQTT Case Study (MQTT-IoT-IDS2020 Dataset)",
         "doi": "10.1007/978-3-030-64758-2_6"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. Scans, SSH brute force and MQTT brute force. Dataset doi:10.21227/bhxy-ep04.",
+      "notes": "Scans, SSH brute force and MQTT brute force. Dataset doi:10.21227/bhxy-ep04.",
       "origin": "web",
       "category": "iot",
       "year": "2020",
@@ -7228,7 +7228,7 @@
         "title": "TII-SSRC-23 Dataset: Typological Exploration of Diverse Traffic Patterns for Intrusion Detection",
         "url": "https://arxiv.org/abs/2310.10661"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. DDoS, brute force, Mirai and information gathering.",
+      "notes": "DDoS, brute force, Mirai and information gathering.",
       "origin": "web",
       "category": "enterprise",
       "year": "2023",
@@ -7356,7 +7356,7 @@
         "Power consumption",
         "Host event logs"
       ],
-      "notes": "Found online on 2026-10-20, not in the reference list. Reconnaissance and DoS (network), backdoor and cryptojacking (host).",
+      "notes": "Reconnaissance and DoS (network), backdoor and cryptojacking (host).",
       "origin": "web",
       "paper": {
         "cite": "Buedi et al., DBSec 2024",
@@ -7448,7 +7448,7 @@
         "title": "X-IIoTID: A Connectivity-Agnostic and Device-Agnostic Intrusion Data Set for Industrial Internet of Things",
         "doi": "10.1109/JIOT.2021.3102056"
       },
-      "notes": "Found online on 2026-10-20, not in the reference list. Multi-view features; also published on Kaggle.",
+      "notes": "Multi-view features; also published on Kaggle.",
       "origin": "web",
       "category": "iot",
       "year": "2021",
@@ -7532,7 +7532,7 @@
       "data": [
         "PCAP"
       ],
-      "notes": "Found online on 2026-10-20, not in the reference list. Merges traffic of ISOT, ISCX 2012 and CTU-13 (already in the catalogue): not an independent acquisition.",
+      "notes": "Merges traffic of ISOT, ISCX 2012 and CTU-13 (already in the catalogue): not an independent acquisition.",
       "origin": "web",
       "paper": {
         "cite": "Biglar Beigi, Hadian Jazi, Stakhanova & Ghorbani, IEEE CNS 2014",
@@ -7578,7 +7578,7 @@
       "data": [
         "Corrected flow features CSV"
       ],
-      "notes": "Found online on 2026-10-20, not in the reference list. CICIDS2017 traffic with the flows extracted again by a corrected tool.",
+      "notes": "CICIDS2017 traffic with the flows extracted again by a corrected tool.",
       "origin": "web",
       "paper": {
         "cite": "Rosay et al., ICISSP 2022",

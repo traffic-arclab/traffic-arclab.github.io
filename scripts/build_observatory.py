@@ -16,7 +16,7 @@ and its own address, https://traffic-arclab.github.io/observatory/, so it can be
 shared on its own. It has its own entry, "Cybersecurity Observatory", in the top bar of every page (written by build_datasets.render_menu).
 
 The records come from the Excel list (scripts/import_observatory.py) plus what is
-added by hand in the JSON: "origin": "web" (found online, not in the reference list), "family",
+added by hand in the JSON: "origin": "web" (found online, not shown on the page), "family",
 "derived_from", "paper" {cite, doi} and "notes". The records of the paper tables also have
 "category" (the table: enterprise, iot, malware, industrial, automotive, v2x, uav, 5g), "year",
 "representation" (PCAP, PCAP + derived, Derived only, Bus / V2X msgs, Unclear), "evidence" (how the
@@ -373,7 +373,6 @@ def facet_values(rec):
            'access': [rec.get('access') or 'open'],
            'acquisition': [rec['acquisition']] if rec.get('acquisition') else [], 'labeling': rec.get('labeling') or [],
            'source': ['ours' if rec['_ours'] else 'index' if rec['_index'] else 'official'],
-           'origin': ['group' if rec['_ours'] else 'web' if rec.get('origin') == 'web' else 'list'],
            'modality': ['mixed' if rec['_mixed'] else 'traffic'], 'paper': ['yes' if rec.get('paper') else 'no'],
            'lineage': [v for v, ok in (('original', not rec.get('derived_from') and rec['_size'] == 1),
                                        ('derived', bool(rec.get('derived_from'))), ('member', rec['_size'] > 1)) if ok]}
@@ -390,7 +389,6 @@ def ai_catalogue(data, records):
         tags = [label_of(ATTACKS, v) for v in matches(about, ATTACKS)]
         tags += [label_of(PROTOCOLS, v) for v in matches(f'{about} {" ".join(r.get("data") or [])}', PROTOCOLS)]
         extra = [f'family of {r["_size"]} records' if r['_size'] > 1 else '',
-                 'found online, not in the reference list' if r.get('origin') == 'web' else '',
                  f'derived from {r["derived_from"]}' if r.get('derived_from') else '',
                  'access on request' if r.get('access') == 'request' else '',
                  'released by the Traffic group' if r['_ours'] else '',
@@ -426,7 +424,6 @@ def facets():
         ('modality', 'Modality', [('traffic', 'Network traffic only'), ('mixed', 'Mixed modality')], False),
         ('paper', 'Original publication', [('yes', 'Paper identified'), ('no', 'Not yet linked')], False),
         ('lineage', 'Lineage', [('original', 'Stand-alone dataset'), ('member', 'Part of a family'), ('derived', 'Derived dataset')], False),
-        ('origin', 'Origin', [('list', 'Reference list'), ('web', 'Found online'), ('group', 'Traffic group')], False),
     ]
 
 
@@ -671,7 +668,7 @@ def item(rec):
         'data-facets': rec['_facets'],
         'data-search': ' '.join([rec['name'], rec.get('task', ''), rec.get('domain', ''), ' '.join(rec.get('data') or []),
                                  rec.get('family') or '', rec.get('derived_from') or '', label_of(DOMAINS, rec['_domain']),
-                                 'traffic group mirage' if rec['_ours'] else '', 'found online' if rec.get('origin') == 'web' else '',
+                                 'traffic group mirage' if rec['_ours'] else '',
                                  label_of(TASKS, rec['_task'])] + [label_of(FORMATS, f) for f in rec['_formats']]
                                 + [label for k, label, _ in ATTACKS + PROTOCOLS if f'attack:{k}' in rec['_facets'].split()
                                    or f'protocol:{k}' in rec['_facets'].split()]).lower(),
@@ -698,8 +695,6 @@ def item(rec):
     marks = ''
     if rec['_ours']:
         marks += '<span class="tag tag-accent">Traffic group</span>'
-    if rec.get('origin') == 'web':
-        marks += '<span class="tag tag-new" title="Found online, not in the reference list">Found online</span>'
     if rec.get('access') in ('registration', 'request', 'restricted'):
         marks += f'<span class="tag">{ACCESS[rec["access"]]}</span>'
     elif rec.get('access') == 'unavailable':
