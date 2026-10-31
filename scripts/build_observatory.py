@@ -808,7 +808,7 @@ def updates_section(data):
         <button type="button" class="gate-close" data-subscribe-close aria-label="Close">×</button>
         <p class="card-kicker">Observatory updates</p>
         <h2 id="obs-subscribe-title" class="gate-title">{BELL} Stay updated</h2>
-        <p class="gate-lead">Every Monday you will receive an email with the datasets added during the week to the domains you choose. You can unsubscribe at any time from the link in every email.</p>
+        <p class="gate-lead">Every Monday you will receive an email with the datasets added during the week to the domains you choose. You can unsubscribe at any time from the link in every email. If the first email does not arrive, look in your spam folder.</p>
         <fieldset>
           <legend class="obs-form-label">Domains of interest *</legend>
           <label class="obs-check obs-sub-all"><input type="checkbox" data-all> <strong>All domains</strong></label>

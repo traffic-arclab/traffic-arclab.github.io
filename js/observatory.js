@@ -677,7 +677,7 @@
     }).then(() => {
       form.reset();
       all.indeterminate = false;
-      done.textContent = `Thank you! A confirmation will reach ${entry.email} shortly.`;
+      done.textContent = `Thank you! A confirmation will reach ${entry.email} in a minute: if you do not see it, look in your spam folder and mark it as “not spam”, so the next ones reach your inbox.`;
       done.hidden = false;
     }).catch(() => {
       error.textContent = 'The subscription could not be sent. Please try again, or write to ' + form.dataset.contact + '.';
