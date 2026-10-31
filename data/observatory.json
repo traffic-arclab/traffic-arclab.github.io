@@ -668,9 +668,9 @@
       ],
       "notes": "Binary labels (attacker 0/1 per message); the attack type is given by the subset.",
       "paper": {
-        "cite": "VeReMi NextGen, 2026",
-        "title": "VeReMi NextGen",
-        "url": "https://github.com/VeReMi-dataset/VeReMi-NextGen"
+        "cite": "Hermann, Remmers, Eisermann, Erb & Kargl, IEEE VNC 2026",
+        "title": "VeReMi NextGen: A Dataset for Evaluating Misbehavior Detection Systems in VANETs",
+        "url": "https://oparu.uni-ulm.de/items/a1a874b1-c15a-4f8d-9fae-082368353aaf"
       }
     },
     {
@@ -1390,7 +1390,12 @@
       "domain": "IIoT;Modbus;OT",
       "data": [
         "PCAP"
-      ]
+      ],
+      "paper": {
+        "cite": "Lazaridis & Mpatziakas, Zenodo 2025",
+        "title": "Modbus Normal and Malicious Network Traffic",
+        "doi": "10.5281/zenodo.15082260"
+      }
     },
     {
       "id": "dnp3-intrusion-detection-dataset",
@@ -1476,7 +1481,12 @@
       "domain": "LoRaWAN;LPWAN",
       "data": [
         "TXT message dump"
-      ]
+      ],
+      "paper": {
+        "cite": "Cornelio, Zenodo 2022",
+        "title": "LoRaWAN Network Attacks",
+        "doi": "10.5281/zenodo.6637445"
+      }
     },
     {
       "id": "6tischset-2026",
@@ -1488,7 +1498,12 @@
         "PCAP",
         "CSV",
         "LOG"
-      ]
+      ],
+      "paper": {
+        "cite": "Aydin, Aydin, Jin & Gormus, Zenodo 2026",
+        "title": "6TiSCHSet-2026: A Multi-Layer 6TiSCH Attack Dataset and Leakage-Aware IDS Benchmark",
+        "doi": "10.5281/zenodo.22113022"
+      }
     },
     {
       "id": "marsim",
@@ -1534,7 +1549,12 @@
       "domain": "UAV;FANET",
       "data": [
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Singh, Zenodo 2026",
+        "title": "UAV-ToN-IoT Dataset (Session-Level UAV Communication Security Dataset for Intrusion Detection and Attack Analysis)",
+        "doi": "10.5281/zenodo.18740310"
+      }
     },
     {
       "id": "uav-ground-telemetry-ids",
@@ -1544,7 +1564,12 @@
       "domain": "UAV;telemetry",
       "data": [
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "Singh, Zenodo 2026",
+        "title": "UAV Ground Telemetry Dataset for Intrusion Detection and Secure Communication Analysis",
+        "doi": "10.5281/zenodo.19086193"
+      }
     },
     {
       "id": "5g-nidd",
@@ -1641,7 +1666,12 @@
       "data": [
         "Captures",
         "Zeek flows"
-      ]
+      ],
+      "paper": {
+        "cite": "Garcia, Valeros & Alya, Zenodo 2026",
+        "title": "CTU-IDSEVAL-6: A Labeled Network Dataset for the Evaluation of Intrusion Detection Systems",
+        "doi": "10.5281/zenodo.21027042"
+      }
     },
     {
       "id": "semi-synthetic-lorawan-jamming-dataset",
@@ -2622,7 +2652,12 @@
       "size": {
         "count": "61k requests"
       },
-      "evidence": "verified"
+      "evidence": "verified",
+      "paper": {
+        "cite": "Torrano-Giménez, Pérez-Villegas & Álvarez, CSIC 2010",
+        "title": "HTTP Dataset CSIC 2010",
+        "url": "https://www.tic.itefi.csic.es/dataset/"
+      }
     },
     {
       "id": "ecml-pkdd-2007-web-attacks",
@@ -2655,7 +2690,11 @@
       "size": {
         "count": "50k requests"
       },
-      "evidence": "verified"
+      "evidence": "verified",
+      "paper": {
+        "cite": "Raïssi et al., ECML/PKDD Discovery Challenge 2007",
+        "title": "Web analyzing traffic challenge: description and results"
+      }
     },
     {
       "id": "malware-traffic-analysis-net-captures",
@@ -2881,7 +2920,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-2",
@@ -2893,7 +2937,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-3",
@@ -2905,7 +2954,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-4",
@@ -2917,7 +2971,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-5",
@@ -2929,7 +2988,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-6",
@@ -2941,7 +3005,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-7",
@@ -2953,7 +3022,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-8",
@@ -2965,7 +3039,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-9",
@@ -2977,7 +3056,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-10",
@@ -2989,7 +3073,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-11",
@@ -3001,7 +3090,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-12",
@@ -3013,7 +3107,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-13",
@@ -3025,7 +3124,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-14",
@@ -3037,7 +3141,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-15",
@@ -3049,7 +3158,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-16",
@@ -3061,7 +3175,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-17",
@@ -3073,7 +3192,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-18",
@@ -3085,7 +3209,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-19",
@@ -3097,7 +3226,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-20",
@@ -3109,7 +3243,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-21",
@@ -3121,7 +3260,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-22",
@@ -3133,7 +3277,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-23",
@@ -3145,7 +3294,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-24",
@@ -3157,7 +3311,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-25-1",
@@ -3169,7 +3328,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-25-2",
@@ -3181,7 +3345,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-25-3",
@@ -3193,7 +3362,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-25-4",
@@ -3205,7 +3379,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-25-5",
@@ -3217,7 +3396,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-25-6",
@@ -3229,7 +3413,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-26",
@@ -3241,7 +3430,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-27",
@@ -3253,7 +3447,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-28",
@@ -3265,7 +3464,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-31-1",
@@ -3277,7 +3481,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-31",
@@ -3289,7 +3498,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-35-1",
@@ -3301,7 +3515,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-42",
@@ -3313,7 +3532,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-43",
@@ -3325,7 +3549,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-44",
@@ -3337,7 +3566,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-45",
@@ -3349,7 +3583,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-46",
@@ -3361,7 +3600,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-47",
@@ -3373,7 +3617,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-48",
@@ -3385,7 +3634,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-49",
@@ -3397,7 +3651,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-50",
@@ -3409,7 +3668,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-51",
@@ -3421,7 +3685,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-52",
@@ -3433,7 +3702,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-53",
@@ -3445,7 +3719,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-54",
@@ -3457,7 +3736,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "García, Grill, Stiborek & Zunino, Computers & Security 2014",
+        "title": "An empirical comparison of botnet detection methods",
+        "doi": "10.1016/j.cose.2014.05.011"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-59",
@@ -3469,7 +3753,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-60",
@@ -3481,7 +3770,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-61",
@@ -3493,7 +3787,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-64",
@@ -3505,7 +3804,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-65",
@@ -3517,7 +3821,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-66-1",
@@ -3529,7 +3838,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-69",
@@ -3541,7 +3855,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-71",
@@ -3553,7 +3872,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-73",
@@ -3565,7 +3889,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-78-1",
@@ -3577,7 +3906,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-78-2",
@@ -3589,7 +3923,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-83-1",
@@ -3601,7 +3940,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-83-2",
@@ -3613,7 +3957,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-89-1",
@@ -3625,7 +3974,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-90",
@@ -3637,7 +3991,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-91",
@@ -3649,7 +4008,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-92",
@@ -3661,7 +4025,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-104-1",
@@ -3673,7 +4042,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-107-1",
@@ -3685,7 +4059,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-108-1",
@@ -3697,7 +4076,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-109-1",
@@ -3709,7 +4093,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-110-1",
@@ -3721,7 +4110,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-110-2",
@@ -3733,7 +4127,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-110-3",
@@ -3745,7 +4144,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-110-4",
@@ -3757,7 +4161,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-110-5",
@@ -3769,7 +4178,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-110-6",
@@ -3781,7 +4195,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-111-1",
@@ -3793,7 +4212,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-111-2",
@@ -3805,7 +4229,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-111-3",
@@ -3817,7 +4246,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-111-4",
@@ -3829,7 +4263,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-111-5",
@@ -3841,7 +4280,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-112-1",
@@ -3853,7 +4297,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-112-2",
@@ -3865,7 +4314,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-112-3",
@@ -3877,7 +4331,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-112-4",
@@ -3889,7 +4348,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-113-1",
@@ -3901,7 +4365,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-114-1",
@@ -3913,7 +4382,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-114-2",
@@ -3925,7 +4399,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-114-3",
@@ -3937,7 +4416,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-114-4",
@@ -3949,7 +4433,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-115-1",
@@ -3961,7 +4450,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-116-1",
@@ -3973,7 +4467,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-116-2",
@@ -3985,7 +4484,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-116-3",
@@ -3997,7 +4501,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-malware-capture-botnet-116-4",
@@ -4009,7 +4518,12 @@
         "PCAP",
         "ancillary logs (capture-dependent)"
       ],
-      "family": "Stratosphere Malware Capture Facility"
+      "family": "Stratosphere Malware Capture Facility",
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Malware Capture Facility",
+        "url": "https://www.stratosphereips.org/datasets-malware"
+      }
     },
     {
       "id": "ctu-mixed-capture",
@@ -4066,7 +4580,12 @@
       "year": "2015",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Mixed Captures",
+        "url": "https://www.stratosphereips.org/datasets-mixed"
+      }
     },
     {
       "id": "ctu-mixed-capture-2",
@@ -4082,7 +4601,12 @@
       "year": "2015",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Mixed Captures",
+        "url": "https://www.stratosphereips.org/datasets-mixed"
+      }
     },
     {
       "id": "ctu-mixed-capture-3",
@@ -4098,7 +4622,12 @@
       "year": "2016",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Mixed Captures",
+        "url": "https://www.stratosphereips.org/datasets-mixed"
+      }
     },
     {
       "id": "ctu-mixed-capture-4",
@@ -4114,7 +4643,12 @@
       "year": "2016",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Mixed Captures",
+        "url": "https://www.stratosphereips.org/datasets-mixed"
+      }
     },
     {
       "id": "ctu-mixed-capture-5",
@@ -4130,7 +4664,12 @@
       "year": "2016",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Mixed Captures",
+        "url": "https://www.stratosphereips.org/datasets-mixed"
+      }
     },
     {
       "id": "ctu-normal-captures",
@@ -4185,7 +4724,12 @@
       "category": "enterprise",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Normal Captures",
+        "url": "https://www.stratosphereips.org/datasets-normal"
+      }
     },
     {
       "id": "ctu-normal-5",
@@ -4200,7 +4744,12 @@
       "category": "enterprise",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Normal Captures",
+        "url": "https://www.stratosphereips.org/datasets-normal"
+      }
     },
     {
       "id": "ctu-normal-6",
@@ -4215,7 +4764,12 @@
       "category": "enterprise",
       "representation": "PCAP + derived",
       "evidence": "verified",
-      "table_row": false
+      "table_row": false,
+      "paper": {
+        "cite": "Stratosphere Laboratory",
+        "title": "Normal Captures",
+        "url": "https://www.stratosphereips.org/datasets-normal"
+      }
     },
     {
       "id": "anoshift",
@@ -5104,7 +5658,12 @@
       "domain": "CTF / Enterprise",
       "data": [
         "PCAP, IDS alerts"
-      ]
+      ],
+      "paper": {
+        "cite": "Sangster et al., USENIX CSET 2009",
+        "title": "Toward Instrumenting Network Warfare Competitions to Generate Labeled Datasets",
+        "url": "https://www.usenix.org/conference/cset-09/toward-instrumenting-network-warfare-competitions-generate-labeled-datasets"
+      }
     },
     {
       "id": "tuids",
@@ -5727,7 +6286,12 @@
       "domain": "5G / IoT / Cyber range",
       "data": [
         "PCAP"
-      ]
+      ],
+      "paper": {
+        "cite": "University of Piraeus, Ionian University, Ubitech & UniSystems, Zenodo 2026",
+        "title": "NITRO 5G Cybersecurity Exercise Dataset: Network Captures and Command Histories",
+        "doi": "10.5281/zenodo.23058085"
+      }
     },
     {
       "id": "cam-lds-network-captures",
@@ -5777,7 +6341,12 @@
       "data": [
         "PCAP",
         "CSV"
-      ]
+      ],
+      "paper": {
+        "cite": "PDMFC, Zenodo 2025",
+        "title": "PDMFC Dataset",
+        "doi": "10.5281/zenodo.16943481"
+      }
     },
     {
       "id": "pdmfc-shennina-hping-nmap-ddos-pcaps",
@@ -5788,7 +6357,12 @@
       "data": [
         "PCAP",
         "alert metadata"
-      ]
+      ],
+      "paper": {
+        "cite": "PDMFC & Karagiannis, Zenodo 2025",
+        "title": "Shennina, HPing, Nmap Scanning, DDOS attack PCAPs",
+        "doi": "10.5281/zenodo.15649231"
+      }
     },
     {
       "id": "annotated-encrypted-network-traffic-rysavy",
@@ -5840,7 +6414,12 @@
       "domain": "Smart grid / Power systems",
       "data": [
         "PCAPNG"
-      ]
+      ],
+      "paper": {
+        "cite": "May Myat Thwe & Stefanov, Zenodo 2026",
+        "title": "Mininet Network Traffic Dataset for Intrusion Detection in a Cyber-Physical Power-System Digital Twin",
+        "doi": "10.5281/zenodo.23055644"
+      }
     },
     {
       "id": "tqh-c2-encrypted-command-control",
@@ -6066,7 +6645,12 @@
       "data": [
         "CAN CSV",
         "Ethernet PCAP"
-      ]
+      ],
+      "paper": {
+        "cite": "Zhu et al., ACM 2026",
+        "title": "MINIDS: Multi-domain In-Vehicle Network Intrusion Detection Dataset for SCIMI",
+        "doi": "10.1145/3770743.3803979"
+      }
     },
     {
       "id": "iot-window-based-rl-traffic-representation",
@@ -6168,7 +6752,12 @@
       "data": [
         "PCAP",
         "processed results"
-      ]
+      ],
+      "paper": {
+        "cite": "Hellwig, Kasper & Pawlitzek, Zenodo 2026",
+        "title": "Dataset of IoT Communication Protocol Overhead",
+        "doi": "10.5281/zenodo.22102718"
+      }
     },
     {
       "id": "kitsune-network-attack-dataset",
@@ -7563,9 +8152,11 @@
         "cse-cic-ids2018"
       ],
       "paper": {
-        "cite": "CSE-CIC-IDS2018 v2 (source to be completed)",
-        "title": "CSE-CIC-IDS2018 v2"
-      }
+        "cite": "Madhubalan, Gautam & Tiwary, IEEE SmartNets 2024",
+        "title": "CSE-CIC-IDS2018 V2",
+        "doi": "10.1109/SmartNets61466.2024.10577645"
+      },
+      "notes": "Dataset DOI: 10.5281/zenodo.10149295. The paper title is the dataset name until it is checked on IEEE Xplore."
     },
     {
       "id": "nf-cse-cic-ids2018-v3",
@@ -8672,8 +9263,9 @@
       ],
       "derivation_tool": "PyShark",
       "paper": {
-        "cite": "MQTTEEB-D, 2025 (source to be completed)",
-        "title": "MQTTEEB-D"
+        "cite": "Data in Brief 2025",
+        "title": "MQTTEEB-D: A Real-World IoT Cybersecurity Dataset for AI-Powered Threat Detection in MQTT Networks",
+        "doi": "10.1016/j.dib.2025.111897"
       }
     },
     {
@@ -9916,8 +10508,9 @@
         "count": ">1M messages"
       },
       "paper": {
-        "cite": "MisbehaviorX, 2024 (source to be completed)",
-        "title": "MisbehaviorX"
+        "cite": "Shahriar et al., IEEE DataPort 2024",
+        "title": "MisbehaviorX: A Comprehensive V2X Misbehavior Detection Dataset Enabled by V2X Application",
+        "doi": "10.21227/s44z-8616"
       }
     },
     {
@@ -10204,8 +10797,9 @@
         "gb": "0.0236"
       },
       "paper": {
-        "cite": "Wehbe et al., 2024 (source to be completed)",
-        "title": "5G flow-based datasets"
+        "cite": "Wehbe, IEEE DataPort 2024",
+        "title": "5G flow-based datasets",
+        "doi": "10.21227/a3rt-eg64"
       }
     },
     {
@@ -10251,7 +10845,7 @@
     {
       "id": "wpa3-attacks",
       "name": "WPA3 Attacks Dataset",
-      "url": "",
+      "url": "https://data.mendeley.com/datasets/cxx5t5nw7z/1",
       "task": "Wi-Fi intrusion detection",
       "domain": "Wi-Fi 802.11 (WPA3)",
       "data": [
@@ -10259,10 +10853,11 @@
         "Wireshark fields"
       ],
       "paper": {
-        "cite": "WPA3 Attacks Dataset, 2026 (source to be completed)",
-        "title": "WPA3 Attacks Dataset"
+        "cite": "Mendeley Data 2026",
+        "title": "WPA3 Attacks Dataset",
+        "doi": "10.17632/cxx5t5nw7z.1"
       },
-      "notes": "Download location not yet identified.",
+      "notes": "Lab capture with one WPA3-Personal access point and 4 stations, recorded with Wireshark; CSV files with 154 Wireshark features.",
       "category": "wireless",
       "year": "2026",
       "artifact": {
@@ -10668,10 +11263,11 @@
         "ModSecurity logs"
       ],
       "paper": {
-        "cite": "Riera et al., 2022 (source to be completed)",
-        "title": "SR-BH 2020"
+        "cite": "Sureda Riera et al., Computers & Security 2022",
+        "title": "A new multi-label dataset for Web attacks CAPEC classification using machine learning techniques",
+        "doi": "10.1016/j.cose.2022.102788"
       },
-      "notes": "Multi-label CAPEC classes. Download location not yet identified.",
+      "notes": "Multi-label CAPEC classes. Dataset on Harvard Dataverse (SR-BH 2020 multi-label dataset, CC0).",
       "category": "web",
       "year": "2020",
       "artifact": {
