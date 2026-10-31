@@ -507,10 +507,13 @@ def citation(data):
     cite = data.get('citation')
     if not cite:
         return '', ''
-    # the two lines of the cite block face the two lines of the submit call; the authors are a row below
+    # the kicker sits left of the gold border, and the title, broken after its colon, makes two lines on the
+    # right of it, facing the two lines of the submit call; the authors are a row below
+    head, sep, tail = cite['title'].partition(': ')
+    title = f'{esc(head)}:<br>{esc(tail)}' if sep else esc(cite['title'])
     return f'''          <div class="obs-cite">
             <p class="obs-cite-kicker">Cite this work</p>
-            <p class="obs-cite-title">{esc(cite['title'])}</p>
+            <p class="obs-cite-title">{title}</p>
           </div>
 ''', f'''          <p class="obs-cite-by">{esc(', '.join(cite['authors']))} · {esc(cite['affiliation'])}</p>
 '''
@@ -539,7 +542,7 @@ def engine(data, records, families):
 {cite}          <div class="obs-engine-submit">
             <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
             <div class="obs-engine-btns"><a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
-            <button type="button" class="btn obs-bell-btn" data-subscribe title="Get an email when new datasets of your domains are added">{BELL}<span>Get updates</span></button></div>
+            <button type="button" class="obs-bell-btn" data-subscribe title="Get updates: an email when new datasets of your domains are added">{BELL}<span class="visually-hidden">Get updates on new datasets</span></button></div>
           </div>
 {cite_by}        </div>
       </div>
