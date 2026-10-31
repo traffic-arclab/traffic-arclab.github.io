@@ -24,7 +24,7 @@
     ],
     "affiliation": "University of Napoli Federico II, Italy"
   },
-  "submit_endpoint": "",
+  "submit_endpoint": "https://script.google.com/macros/s/AKfycbyK1rlk8QNidbrwAgKJRTLnRDnHyBe-Q3-xGDWz6UL0RepjnVw2CkcpcH3zIxt38pgF/exec",
   "ai_endpoint": "",
   "about": [
     "Many datasets are used to evaluate AI methods for intrusion detection, malware and command-and-control analysis, and anomaly detection, but the same dataset name often refers to different releases, captures and derived feature tables.",
