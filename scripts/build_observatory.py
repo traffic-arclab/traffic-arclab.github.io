@@ -538,7 +538,8 @@ def engine(data, records, families):
         <div class="obs-engine-foot">
 {cite}          <div class="obs-engine-submit">
             <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
-            <a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
+            <div class="obs-engine-btns"><a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
+            <button type="button" class="btn obs-bell-btn" data-subscribe title="Get an email when new datasets of your domains are added">{BELL}<span>Get updates</span></button></div>
           </div>
 {cite_by}        </div>
       </div>
@@ -776,6 +777,65 @@ def characteristics_fieldset():
           </fieldset>'''
 
 
+BELL = ('<svg class="obs-bell" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.6 1.9a.6.6 0 0 1-.46 1H4.86a.6.6 0 0 1-.46-1L6 16.5Z"/>'
+        '<path d="M9.8 20.5a2.3 2.3 0 0 0 4.4 0"/><path class="obs-bell-ring" d="M19.5 4.5c1.3 1.1 2.1 2.6 2.3 4.3M4.5 4.5C3.2 5.6 2.4 7.1 2.2 8.8"/></svg>')
+
+
+def updates_section(data):
+    """The bell: a short invitation and a dialog to receive an email when datasets of the chosen domains are added."""
+    boxes = '\n'.join(f'                <label class="obs-check obs-sub-cat"><input type="checkbox" name="categories" value="{k}">'
+                      f'<span class="obs-dot" data-domain="{k}" aria-hidden="true"></span> {esc(label)}</label>'
+                      for k, label, _ in DOMAINS)
+    return f'''    <section class="section obs-updates" id="updates">
+      <div class="container">
+        <div class="obs-updates-card">
+          <span class="obs-bell-badge">{BELL}</span>
+          <div class="obs-updates-text">
+            <h2 class="obs-updates-title">Stay updated on new datasets in your field</h2>
+            <p>Choose the domains you work on, one, several or all of them: the Observatory will send you an email when new datasets are added to them.</p>
+          </div>
+          <button type="button" class="btn btn-primary obs-updates-open" data-subscribe>{BELL} Get updates</button>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="gate obs-subscribe" id="obs-subscribe" aria-labelledby="obs-subscribe-title">
+      <form class="gate-form" id="obs-subscribe-form" data-endpoint="{esc(data.get('submit_endpoint') or '')}" data-contact="{esc(data.get('contact') or '')}" data-cc="{esc(','.join(data.get('cc') or []))}" novalidate>
+        <button type="button" class="gate-close" data-subscribe-close aria-label="Close">×</button>
+        <p class="card-kicker">Observatory updates</p>
+        <h2 id="obs-subscribe-title" class="gate-title">{BELL} Stay updated</h2>
+        <p class="gate-lead">You will receive an email when new datasets are added to the domains you choose. You can unsubscribe at any time from the link in every email.</p>
+        <fieldset>
+          <legend class="obs-form-label">Domains of interest *</legend>
+          <label class="obs-check obs-sub-all"><input type="checkbox" data-all> <strong>All domains</strong></label>
+          <div class="obs-sub-cats">
+{boxes}
+          </div>
+        </fieldset>
+        <div class="gate-grid">
+          <label>First name *<input name="first_name" autocomplete="given-name" required></label>
+          <label>Last name *<input name="last_name" autocomplete="family-name" required></label>
+          <label>Affiliation *<input name="organization" autocomplete="organization" required placeholder="University, company, institution"></label>
+          <label>Role<select name="role"><option value="">Choose…</option><option>Researcher</option><option>PhD student</option><option>Student</option><option>Industry</option><option>Other</option></select></label>
+          <label class="gate-wide">Email *<input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label class="gate-check"><input type="checkbox" name="consent" required>
+          <span>I agree that the Traffic research group stores these details only to send me the Observatory updates I asked for.</span></label>
+        <p class="gate-error" role="alert" hidden></p>
+        <p class="obs-done" role="status" hidden></p>
+        <div class="gate-actions"><button type="submit" class="btn btn-primary">Subscribe</button></div>
+      </form>
+    </dialog>'''
+
+
+def updates_feed(records):
+    """observatory/updates.json: what the Apps Script compares to find the new datasets of each domain."""
+    return {'domains': {k: label for k, label, _ in DOMAINS},
+            'datasets': [{'id': r['id'], 'name': r['name'], 'domain': r['_domain'], 'year': r.get('year') or '',
+                          'task': r.get('task') or '', 'url': r.get('url') or ''}
+                         for r in records if r['_domain'] != UNCLASSIFIED[0] and r.get('table_row', True)]}
+
+
 def submit_form(data):
     domain_options = '\n'.join(f'              <option>{esc(label)}</option>' for _, label, _ in DOMAINS)
     data_boxes = '\n'.join(f'              <label class="obs-check"><input type="checkbox" name="data" value="{esc(label)}"> {esc(label)}</label>'
@@ -911,6 +971,8 @@ def observatory_page(data):
       </div>
     </section>
 
+{updates_section(data)}
+
 {submit_form(data)}
 
     <dialog class="gate obs-dialog" id="obs-dialog" aria-labelledby="obs-dialog-title">
@@ -944,6 +1006,9 @@ def build():
     enrich(records)
     with open(os.path.join(OUT, 'catalogue.json'), 'w', encoding='utf-8') as f:
         json.dump(ai_catalogue(data, records), f, ensure_ascii=False, indent=1)
+        f.write('\n')
+    with open(os.path.join(OUT, 'updates.json'), 'w', encoding='utf-8') as f:   # read by the Apps Script (email updates)
+        json.dump(updates_feed(records), f, ensure_ascii=False, indent=1)
         f.write('\n')
     return len(all_records(data)), update_features(data)
 

@@ -621,3 +621,72 @@
     }).finally(() => { button.disabled = false; });
   });
 })();
+
+// The bell: subscribe to the email updates of the Observatory for some domains.
+(() => {
+  const dialog = document.getElementById('obs-subscribe');
+  if (!dialog) return;
+  const form = dialog.querySelector('form');
+  const all = form.querySelector('[data-all]');
+  const cats = [...form.querySelectorAll('[name=categories]')];
+  const error = form.querySelector('.gate-error');
+  const done = form.querySelector('.obs-done');
+
+  document.querySelectorAll('[data-subscribe]').forEach(b => b.addEventListener('click', () => dialog.showModal()));
+  form.querySelector('[data-subscribe-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+  all.addEventListener('change', () => cats.forEach(c => { c.checked = all.checked; }));
+  cats.forEach(c => c.addEventListener('change', () => {
+    all.checked = cats.every(x => x.checked);
+    all.indeterminate = !all.checked && cats.some(x => x.checked);
+  }));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    done.hidden = true;
+    const chosen = cats.filter(c => c.checked);
+    const invalid = form.querySelector(':invalid');
+    if (!chosen.length || invalid) {
+      error.textContent = !chosen.length ? 'Please choose at least one domain.'
+        : invalid.type === 'checkbox' ? 'Please accept the storage of your details to continue.'
+        : invalid.type === 'email' ? 'Please enter a valid email address.'
+        : 'Please fill in all the required fields.';
+      error.hidden = false;
+      (invalid || cats[0]).focus();
+      return;
+    }
+    error.hidden = true;
+    const label = c => c.closest('label').textContent.trim();
+    const entry = {
+      first_name: form.elements.first_name.value.trim(), last_name: form.elements.last_name.value.trim(),
+      organization: form.elements.organization.value.trim(), role: form.elements.role.value, email: form.elements.email.value.trim(),
+      categories: all.checked ? 'all' : chosen.map(c => c.value).join(','),
+    };
+    const endpoint = form.dataset.endpoint;
+    if (!endpoint) {
+      // No web app configured yet: the request is sent by email instead.
+      const text = [`Name: ${entry.first_name} ${entry.last_name}`, `Affiliation: ${entry.organization}`, entry.role && `Role: ${entry.role}`,
+        `Email: ${entry.email}`, `Domains: ${all.checked ? 'all domains' : chosen.map(label).join(', ')}`].filter(Boolean).join('\n');
+      const cc = form.dataset.cc ? `cc=${encodeURIComponent(form.dataset.cc)}&` : '';
+      window.location.href = `mailto:${form.dataset.contact}?${cc}subject=${encodeURIComponent('Observatory updates: subscription')}&body=${encodeURIComponent(text)}`;
+      done.textContent = 'Your email app should now open with the request ready: send it to complete the subscription.';
+      done.hidden = false;
+      return;
+    }
+    const button = form.querySelector('[type=submit]');
+    button.disabled = true;
+    fetch(endpoint, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'observatory_subscribe', ...entry, page: location.pathname }),
+    }).then(() => {
+      form.reset();
+      all.indeterminate = false;
+      done.textContent = `Thank you! A confirmation will reach ${entry.email} shortly.`;
+      done.hidden = false;
+    }).catch(() => {
+      error.textContent = 'The subscription could not be sent. Please try again, or write to ' + form.dataset.contact + '.';
+      error.hidden = false;
+    }).finally(() => { button.disabled = false; });
+  });
+})();

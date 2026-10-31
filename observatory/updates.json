@@ -1,0 +1,1871 @@
+{
+ "domains": {
+  "v2x": "Vehicular V2X",
+  "automotive": "Automotive (CAN, Ethernet)",
+  "uav": "UAV and drones",
+  "industrial": "ICS and OT",
+  "5g": "5G and mobile core",
+  "wireless": "Wireless and LPWAN",
+  "iot": "IoT, IIoT and IoMT",
+  "mobile": "Mobile (Android)",
+  "malware": "Malware, botnet and C2",
+  "sdn": "SDN and cloud",
+  "ddos": "DDoS",
+  "encrypted": "Encrypted and darknet",
+  "web": "DNS and web",
+  "backbone": "Internet backbone and ISP",
+  "honeypot": "Honeypots",
+  "benign": "Benign reference traffic",
+  "enterprise": "Enterprise and general IP"
+ },
+ "datasets": [
+  {
+   "id": "cicids2017",
+   "name": "CICIDS2017",
+   "domain": "enterprise",
+   "year": "2017",
+   "task": "IDS binary/multiclass",
+   "url": "https://www.unb.ca/cic/datasets/ids-2017.html"
+  },
+  {
+   "id": "cse-cic-ids2018",
+   "name": "CSE-CIC-IDS2018",
+   "domain": "enterprise",
+   "year": "2018",
+   "task": "IDS binary/multiclass",
+   "url": "https://www.unb.ca/cic/datasets/ids-2018.html"
+  },
+  {
+   "id": "unsw-nb15",
+   "name": "UNSW-NB15",
+   "domain": "enterprise",
+   "year": "2015",
+   "task": "IDS multiclass",
+   "url": "https://research.unsw.edu.au/projects/unsw-nb15-dataset"
+  },
+  {
+   "id": "ctu-13",
+   "name": "CTU-13",
+   "domain": "malware",
+   "year": "2011",
+   "task": "Botnet detection",
+   "url": "https://www.stratosphereips.org/datasets-ctu13"
+  },
+  {
+   "id": "bot-iot",
+   "name": "BoT-IoT",
+   "domain": "iot",
+   "year": "2018",
+   "task": "IoT botnet IDS",
+   "url": "https://research.unsw.edu.au/projects/bot-iot-dataset"
+  },
+  {
+   "id": "ton-iot",
+   "name": "ToN-IoT",
+   "domain": "iot",
+   "year": "2020",
+   "task": "IoT/IIoT IDS",
+   "url": "https://research.unsw.edu.au/projects/toniot-datasets"
+  },
+  {
+   "id": "iot-23",
+   "name": "IoT-23",
+   "domain": "iot",
+   "year": "2020",
+   "task": "Malware/IoT IDS",
+   "url": "https://www.stratosphereips.org/datasets-iot23"
+  },
+  {
+   "id": "ciciot2023",
+   "name": "CICIoT2023",
+   "domain": "iot",
+   "year": "2023",
+   "task": "IoT attack classification",
+   "url": "https://www.unb.ca/cic/datasets/iotdataset-2023.html"
+  },
+  {
+   "id": "wustl-ehms-2020",
+   "name": "WUSTL-EHMS-2020",
+   "domain": "iot",
+   "year": "2020",
+   "task": "Healthcare IDS",
+   "url": "https://www.cse.wustl.edu/~jain/ehms/index.html"
+  },
+  {
+   "id": "ciciomt2024",
+   "name": "CICIoMT2024",
+   "domain": "iot",
+   "year": "2024",
+   "task": "IoMT multiprotocol IDS",
+   "url": "https://www.unb.ca/cic/datasets/iomt-dataset-2024.html"
+  },
+  {
+   "id": "cic-iot-diad-2024",
+   "name": "CIC IoT-DIAD 2024",
+   "domain": "iot",
+   "year": "2024",
+   "task": "Device ID and anomaly detection",
+   "url": "https://www.unb.ca/cic/datasets/iot-diad-2024.html"
+  },
+  {
+   "id": "hcrl-car-hacking",
+   "name": "HCRL Car-Hacking",
+   "domain": "automotive",
+   "year": "2018",
+   "task": "CAN IDS",
+   "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/car-hacking-dataset"
+  },
+  {
+   "id": "veremi",
+   "name": "VeReMi",
+   "domain": "v2x",
+   "year": "2018",
+   "task": "Misbehavior detection",
+   "url": "https://github.com/VeReMi-dataset/VeReMi-dataset.github.io/blob/main/veremi.md"
+  },
+  {
+   "id": "veremi-extension",
+   "name": "VeReMi Extension",
+   "domain": "v2x",
+   "year": "2020",
+   "task": "Misbehavior detection",
+   "url": "https://github.com/VeReMi-dataset/VeReMi-dataset.github.io/blob/main/veremi-extension.md"
+  },
+  {
+   "id": "veremi-nextgen",
+   "name": "VeReMi NextGen",
+   "domain": "v2x",
+   "year": "2026",
+   "task": "Misbehavior detection",
+   "url": "https://github.com/VeReMi-dataset/VeReMi-NextGen"
+  },
+  {
+   "id": "uav-nidd",
+   "name": "UAV-NIDD",
+   "domain": "uav",
+   "year": "2025",
+   "task": "UAV IDS",
+   "url": "https://github.com/CyberSaR-KAUST/UAV-Intrusion-Detection-Dataset"
+  },
+  {
+   "id": "uavids-2025",
+   "name": "UAVIDS-2025",
+   "domain": "uav",
+   "year": "2025",
+   "task": "UAV swarm IDS",
+   "url": "https://ieee-dataport.org/documents/uavids-2025-benchmark-dataset-intrusion-detection-uav-networks-using-machine-learning"
+  },
+  {
+   "id": "gcs-nidd",
+   "name": "GCS-NIDD",
+   "domain": "uav",
+   "year": "2026",
+   "task": "GCS-UAV IDS",
+   "url": "https://github.com/CyberSaR-KAUST/UAV-GCS-Intrusion-Detection-Dataset-UAV-GCS-IDS-"
+  },
+  {
+   "id": "nf-unsw-nb15-v2",
+   "name": "NF-UNSW-NB15-v2",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "Cross-dataset NIDS",
+   "url": "https://www.cyber.uq.edu.au/node/824"
+  },
+  {
+   "id": "nf-ton-iot-v2",
+   "name": "NF-ToN-IoT-v2",
+   "domain": "iot",
+   "year": "2021",
+   "task": "Cross-dataset NIDS",
+   "url": "https://www.cyber.uq.edu.au/node/824"
+  },
+  {
+   "id": "nf-bot-iot-v2",
+   "name": "NF-BoT-IoT-v2",
+   "domain": "iot",
+   "year": "2021",
+   "task": "Cross-dataset NIDS",
+   "url": "https://www.cyber.uq.edu.au/node/824"
+  },
+  {
+   "id": "nf-cse-cic-ids2018-v2",
+   "name": "NF-CSE-CIC-IDS2018-v2",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "Cross-dataset NIDS",
+   "url": "https://www.cyber.uq.edu.au/node/824"
+  },
+  {
+   "id": "nf-uq-nids-v2",
+   "name": "NF-UQ-NIDS-v2",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "Cross-dataset NIDS",
+   "url": "https://www.cyber.uq.edu.au/node/824"
+  },
+  {
+   "id": "edge-iiotset",
+   "name": "Edge-IIoTset",
+   "domain": "iot",
+   "year": "2022",
+   "task": "Federated/centralized IDS",
+   "url": "https://www.kaggle.com/datasets/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot"
+  },
+  {
+   "id": "n-baiot",
+   "name": "N-BaIoT",
+   "domain": "iot",
+   "year": "2018",
+   "task": "IoT botnet detection",
+   "url": "https://archive.ics.uci.edu/dataset/442/detection+of+iot+botnet+attacks+n+baiot"
+  },
+  {
+   "id": "swat",
+   "name": "SWaT",
+   "domain": "industrial",
+   "year": "2015",
+   "task": "Cyberphysical anomaly detection",
+   "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets/"
+  },
+  {
+   "id": "wadi",
+   "name": "WADI",
+   "domain": "industrial",
+   "year": "2017",
+   "task": "Cyberphysical anomaly detection",
+   "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets/"
+  },
+  {
+   "id": "datasense-cic-iiot-2025",
+   "name": "DataSense: CIC IIoT Dataset 2025",
+   "domain": "iot",
+   "year": "2025",
+   "task": "Attack detection / classification",
+   "url": "https://www.unb.ca/cic/datasets/iiot-dataset-2025.html"
+  },
+  {
+   "id": "tabulariotattack-2024",
+   "name": "CIC-BCCC-NRC TabularIoTAttack-2024",
+   "domain": "iot",
+   "year": "2024",
+   "task": "Attack detection",
+   "url": "https://www.unb.ca/cic/datasets/tabular-iot-attack-2024.html"
+  },
+  {
+   "id": "genis",
+   "name": "GeNIS",
+   "domain": "enterprise",
+   "year": "2025",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/14919237"
+  },
+  {
+   "id": "cyber4ot",
+   "name": "Cyber4OT",
+   "domain": "industrial",
+   "year": "2025",
+   "task": "ICS intrusion detection",
+   "url": "https://zenodo.org/records/15005190"
+  },
+  {
+   "id": "dnp3-intrusion-detection-dataset",
+   "name": "DNP3 Intrusion Detection Dataset",
+   "domain": "industrial",
+   "year": "2022",
+   "task": "IDS",
+   "url": "https://zenodo.org/records/7348493"
+  },
+  {
+   "id": "iec-60870-5-104-intrusion-detection-dataset",
+   "name": "IEC 60870-5-104 Intrusion Detection Dataset",
+   "domain": "industrial",
+   "year": "2022",
+   "task": "IDS",
+   "url": "https://zenodo.org/records/7108614"
+  },
+  {
+   "id": "marsim",
+   "name": "MARSIM",
+   "domain": "industrial",
+   "year": "2023",
+   "task": "Spoofing/anomaly detection",
+   "url": "https://zenodo.org/records/8202802"
+  },
+  {
+   "id": "5g-nidd",
+   "name": "5G-NIDD",
+   "domain": "5g",
+   "year": "2022",
+   "task": "IDS",
+   "url": "https://github.com/yushan1986/5g-nidd"
+  },
+  {
+   "id": "hikari-2021",
+   "name": "HIKARI-2021",
+   "domain": "encrypted",
+   "year": "2021",
+   "task": "Encrypted-traffic IDS",
+   "url": "https://zenodo.org/records/5111946"
+  },
+  {
+   "id": "semi-synthetic-lorawan-jamming-dataset",
+   "name": "Semi-Synthetic LoRaWAN Jamming Dataset",
+   "domain": "wireless",
+   "year": "2026",
+   "task": "Jamming/battery depletion detection",
+   "url": "https://zenodo.org/records/22043018"
+  },
+  {
+   "id": "hcrl-can-survival-analysis",
+   "name": "HCRL CAN Survival Analysis",
+   "domain": "automotive",
+   "year": "2018",
+   "task": "In-vehicle IDS",
+   "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets"
+  },
+  {
+   "id": "unimore-bus-off",
+   "name": "UNIMORE Bus-Off",
+   "domain": "automotive",
+   "year": "2019",
+   "task": "Attack detection",
+   "url": "https://weblab.ing.unimore.it/people/stabili/resources/"
+  },
+  {
+   "id": "unimore-daga",
+   "name": "UNIMORE DAGA",
+   "domain": "automotive",
+   "year": "2022",
+   "task": "Attack detection",
+   "url": "https://weblab.ing.unimore.it/people/stabili/resources/"
+  },
+  {
+   "id": "epic",
+   "name": "EPIC",
+   "domain": "industrial",
+   "year": "2018",
+   "task": "Attack/anomaly detection",
+   "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets/dataset-characteristics/epic/"
+  },
+  {
+   "id": "ustc-tfc2016",
+   "name": "USTC-TFC2016",
+   "domain": "encrypted",
+   "year": "2016",
+   "task": "Malware family and application traffic classification",
+   "url": "https://github.com/davidyslu/USTC-TFC2016"
+  },
+  {
+   "id": "iscxvpn2016",
+   "name": "ISCXVPN2016",
+   "domain": "encrypted",
+   "year": "2016",
+   "task": "Encrypted application identification; benign baseline",
+   "url": "https://www.unb.ca/cic/datasets/vpn.html"
+  },
+  {
+   "id": "iscxtor2016",
+   "name": "ISCXTor2016",
+   "domain": "encrypted",
+   "year": "2016",
+   "task": "Tor/nonTor classification; supporting baseline",
+   "url": "https://www.unb.ca/cic/datasets/tor.html"
+  },
+  {
+   "id": "cic-ddos2019",
+   "name": "CIC-DDoS2019",
+   "domain": "ddos",
+   "year": "2019",
+   "task": "DDoS detection and attack family classification",
+   "url": "https://www.unb.ca/cic/datasets/ddos-2019.html"
+  },
+  {
+   "id": "cic-aagm2017",
+   "name": "CIC-AAGM2017",
+   "domain": "malware",
+   "year": "2017",
+   "task": "Android network malware and adware classification",
+   "url": "https://www.unb.ca/cic/datasets/android-adware.html"
+  },
+  {
+   "id": "cic-andmal2017",
+   "name": "CIC-AndMal2017",
+   "domain": "malware",
+   "year": "2017",
+   "task": "Android malware traffic characterization",
+   "url": "https://www.unb.ca/cic/datasets/andmal2017.html"
+  },
+  {
+   "id": "cicmaldroid2020",
+   "name": "CICMalDroid2020",
+   "domain": "malware",
+   "year": "2020",
+   "task": "Dynamic behavior malware classification",
+   "url": "https://www.unb.ca/cic/datasets/maldroid-2020.html"
+  },
+  {
+   "id": "cccs-cic-andmal2020",
+   "name": "CCCS-CIC-AndMal2020",
+   "domain": "malware",
+   "year": "2020",
+   "task": "Malware family classification",
+   "url": "https://www.unb.ca/cic/datasets/andmal2020.html"
+  },
+  {
+   "id": "cic-bell-dns2021",
+   "name": "CIC-Bell-DNS2021",
+   "domain": "web",
+   "year": "2021",
+   "task": "Malware, spam, phishing domain detection",
+   "url": "https://www.unb.ca/cic/datasets/dns-2021.html"
+  },
+  {
+   "id": "cic-bell-dns-exf-2021",
+   "name": "CIC-Bell-DNS-EXF-2021",
+   "domain": "web",
+   "year": "2021",
+   "task": "DNS exfiltration detection",
+   "url": "https://www.unb.ca/cic/datasets/dns-exf-2021.html"
+  },
+  {
+   "id": "cic-ynu-iotmal2026",
+   "name": "CIC-YNU-IoTMal2026",
+   "domain": "iot",
+   "year": "2026",
+   "task": "IoT malware behavior and network classification",
+   "url": "https://www.unb.ca/cic/datasets/ynu-iot-2026.html"
+  },
+  {
+   "id": "stratosphere-malware-capture-facility",
+   "name": "Stratosphere Malware Capture Facility",
+   "domain": "malware",
+   "year": "2011–17",
+   "task": "Malware traffic and C2 analysis",
+   "url": "https://www.stratosphereips.org/datasets-malware"
+  },
+  {
+   "id": "malwaretraffic-liveness-annotated",
+   "name": "MalwareTraffic (liveness-annotated)",
+   "domain": "malware",
+   "year": "2026",
+   "task": "C2 liveness, malware classification",
+   "url": "https://github.com/Root0ne/malware-pcap-dataset"
+  },
+  {
+   "id": "awid",
+   "name": "AWID2",
+   "domain": "wireless",
+   "year": "2015",
+   "task": "Wireless attack identification",
+   "url": "https://icsdweb.aegean.gr/awid/"
+  },
+  {
+   "id": "awid3",
+   "name": "AWID3",
+   "domain": "wireless",
+   "year": "2021",
+   "task": "Wi-Fi enterprise intrusion classification",
+   "url": "https://icsdweb.aegean.gr/awid/"
+  },
+  {
+   "id": "h23q",
+   "name": "H23Q",
+   "domain": "web",
+   "year": "2022",
+   "task": "Modern encrypted web/QUIC attack detection",
+   "url": "https://icsdweb.aegean.gr/awid/"
+  },
+  {
+   "id": "mawi-samplepoint-f",
+   "name": "MAWI samplepoint-F",
+   "domain": "backbone",
+   "year": "2006",
+   "task": "Anomaly and network behavior research",
+   "url": "https://mawi.nezu.wide.ad.jp/mawi/"
+  },
+  {
+   "id": "mawilab",
+   "name": "MAWILab",
+   "domain": "backbone",
+   "year": "2010",
+   "task": "Attack/anomaly classification",
+   "url": "https://www.fukuda-lab.org/mawilab/"
+  },
+  {
+   "id": "csic-2010-http",
+   "name": "HTTP Dataset CSIC 2010",
+   "domain": "web",
+   "year": "2010",
+   "task": "Web attack request classification",
+   "url": "https://github.com/msudol/Web-Application-Attack-Datasets"
+  },
+  {
+   "id": "ecml-pkdd-2007-web-attacks",
+   "name": "ECML/PKDD 2007 Discovery Challenge (Analyzing Web Traffic)",
+   "domain": "web",
+   "year": "2007",
+   "task": "Malicious web request detection",
+   "url": "https://github.com/msudol/Web-Application-Attack-Datasets"
+  },
+  {
+   "id": "malware-traffic-analysis-net-captures",
+   "name": "Malware-Traffic-Analysis.net captures",
+   "domain": "malware",
+   "year": "2013–26",
+   "task": "Malware campaign analysis; C2 detection",
+   "url": "https://www.malware-traffic-analysis.net/"
+  },
+  {
+   "id": "maccdc",
+   "name": "MACCDC",
+   "domain": "enterprise",
+   "year": "2010–12",
+   "task": "Network forensics, intrusion analysis",
+   "url": "https://www.netresec.com/?page=MACCDC"
+  },
+  {
+   "id": "cic-iscx-2012",
+   "name": "CIC-ISCX 2012",
+   "domain": "enterprise",
+   "year": "2012",
+   "task": "Intrusion/anomaly detection",
+   "url": "https://www.unb.ca/cic/datasets/ids.html"
+  },
+  {
+   "id": "cira-cic-dohbrw2020",
+   "name": "CIRA-CIC-DoHBrw-2020",
+   "domain": "web",
+   "year": "2020",
+   "task": "DoH traffic / malicious DoH detection",
+   "url": "https://www.unb.ca/cic/datasets/dohbrw-2020.html"
+  },
+  {
+   "id": "cic-darknet2020",
+   "name": "CIC-Darknet2020",
+   "domain": "encrypted",
+   "year": "2020",
+   "task": "Darknet encrypted traffic classification",
+   "url": "https://www.unb.ca/cic/datasets/index.html"
+  },
+  {
+   "id": "ctu-mixed-capture",
+   "name": "CTU-Mixed-Capture",
+   "domain": "malware",
+   "year": "2015–16",
+   "task": "Mixed benign/malicious detection",
+   "url": "https://www.stratosphereips.org/datasets-mixed"
+  },
+  {
+   "id": "ctu-normal-captures",
+   "name": "CTU Normal Captures",
+   "domain": "enterprise",
+   "year": "2013–17",
+   "task": "Benign modelling / false positives",
+   "url": "https://www.stratosphereips.org/datasets-normal"
+  },
+  {
+   "id": "anoshift",
+   "name": "AnoShift",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "Network cybersecurity / anomaly detection",
+   "url": "https://github.com/xGoldy/nid-datasets/blob/main/additional_datasets.md"
+  },
+  {
+   "id": "cremev2",
+   "name": "CREMEv2",
+   "domain": "enterprise",
+   "year": "2023",
+   "task": "Network cybersecurity / anomaly detection",
+   "url": "https://www.kaggle.com/datasets/masjohncook/cremev2-datasets"
+  },
+  {
+   "id": "cesnet-timeseries24",
+   "name": "CESNET-TimeSeries24",
+   "domain": "backbone",
+   "year": "2024",
+   "task": "Network cybersecurity / anomaly detection",
+   "url": "https://zenodo.org/records/13382427"
+  },
+  {
+   "id": "usb-ids-tc",
+   "name": "USB-IDS-TC",
+   "domain": "ddos",
+   "year": "2025",
+   "task": "Network cybersecurity / anomaly detection",
+   "url": "https://idsdata.ding.unisannio.it/usbidstc.html"
+  },
+  {
+   "id": "lycos-unicas-ids2018",
+   "name": "LycoS-Unicas-IDS2018",
+   "domain": "enterprise",
+   "year": "2024",
+   "task": "Network cybersecurity / anomaly detection",
+   "url": "https://github.com/MarcoCantone/LycoS-Unicas-IDS2018"
+  },
+  {
+   "id": "hornet-honeypot-dataset",
+   "name": "Hornet 15",
+   "domain": "honeypot",
+   "year": "2021",
+   "task": "Network cybersecurity / anomaly detection",
+   "url": "https://www.stratosphereips.org/hornet-network-dataset-of-geographically-placed-honeypots"
+  },
+  {
+   "id": "dedale",
+   "name": "DEDALE",
+   "domain": "enterprise",
+   "year": "2025",
+   "task": "APT multi-stage / lateral movement",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/datasets/dedale/"
+  },
+  {
+   "id": "casinolimit",
+   "name": "CasinoLimit",
+   "domain": "enterprise",
+   "year": "2024",
+   "task": "MITRE ATT&CK CTF techniques",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "flnet2023",
+   "name": "FLNET2023",
+   "domain": "backbone",
+   "year": "2023",
+   "task": "DDoS, web exploits, infiltration",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/datasets/flnet2023/"
+  },
+  {
+   "id": "unr-idd",
+   "name": "UNR-IDD",
+   "domain": "sdn",
+   "year": "2023",
+   "task": "SDN attack detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "ait-log-dataset",
+   "name": "AIT Log Data Set V2.0 (AIT-LDSv2)",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "Enterprise attack detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "od-ids2022",
+   "name": "OD-IDS2022",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "Intrusion detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "otrf-security-datasets-atomic",
+   "name": "OTRF Security Datasets - Atomic",
+   "domain": "enterprise",
+   "year": "2019",
+   "task": "ATT&CK atomic simulations",
+   "url": "https://github.com/OTRF/Security-Datasets"
+  },
+  {
+   "id": "otrf-security-datasets-lsass-campaign",
+   "name": "OTRF Security Datasets - LSASS Campaign",
+   "domain": "enterprise",
+   "year": "2023",
+   "task": "LSASS exploitation",
+   "url": "https://github.com/OTRF/Security-Datasets"
+  },
+  {
+   "id": "pwnjutsu",
+   "name": "PWNJUTSU",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "Red-team traffic for detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "asnm-datasets",
+   "name": "ASNM Datasets",
+   "domain": "enterprise",
+   "year": "2009",
+   "task": "Buffer overflow attack detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "ngids-ds",
+   "name": "NGIDS-DS",
+   "domain": "enterprise",
+   "year": "2016",
+   "task": "Intrusion detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "biblio-us17",
+   "name": "Biblio-US17",
+   "domain": "web",
+   "year": "2017",
+   "task": "Web request anomaly detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "ugr16",
+   "name": "UGR'16",
+   "domain": "backbone",
+   "year": "2016",
+   "task": "Realistic anomaly detection",
+   "url": "https://nesg.ugr.es/nesg-ugr16/"
+  },
+  {
+   "id": "comprehensive-multi-source-cyber-security-events-lanl",
+   "name": "Comprehensive Multi-Source Cyber-Security Events (LANL)",
+   "domain": "enterprise",
+   "year": "2015",
+   "task": "Red team / APT detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "twente-2009",
+   "name": "Twente Labeled (Labeled Dataset for Intrusion Detection)",
+   "domain": "honeypot",
+   "year": "2008",
+   "task": "Honeypot intrusion detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "isot-botnet",
+   "name": "ISOT Botnet",
+   "domain": "malware",
+   "year": "2010",
+   "task": "Botnet detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "vast-challenge-2011",
+   "name": "VAST Challenge 2011",
+   "domain": "enterprise",
+   "year": "2011",
+   "task": "Network forensics",
+   "url": "https://visualdata.wustl.edu/varepository/benchmarks.php"
+  },
+  {
+   "id": "vast-challenge-2012",
+   "name": "VAST Challenge 2012",
+   "domain": "malware",
+   "year": "2012",
+   "task": "Botnet forensics",
+   "url": "https://visualdata.wustl.edu/varepository/benchmarks.php"
+  },
+  {
+   "id": "ndsec-1",
+   "name": "NDSec-1",
+   "domain": "enterprise",
+   "year": "2016",
+   "task": "Intrusion detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/related_work/"
+  },
+  {
+   "id": "cidds-001",
+   "name": "CIDDS-001",
+   "domain": "enterprise",
+   "year": "2017",
+   "task": "Intrusion detection",
+   "url": "https://www.hs-coburg.de/forschen/cidds-coburg-intrusion-detection-data-sets/"
+  },
+  {
+   "id": "cidds-002",
+   "name": "CIDDS-002",
+   "domain": "enterprise",
+   "year": "2017",
+   "task": "Intrusion detection",
+   "url": "https://www.hs-coburg.de/forschen/cidds-coburg-intrusion-detection-data-sets/"
+  },
+  {
+   "id": "ciciov2024",
+   "name": "CICIoV2024",
+   "domain": "automotive",
+   "year": "2024",
+   "task": "CAN spoofing and DoS",
+   "url": "https://www.unb.ca/cic/datasets/iov-dataset-2024.html"
+  },
+  {
+   "id": "cic-pqc-oav-v1-2025",
+   "name": "CIC-PQC_OAV v1",
+   "domain": "encrypted",
+   "year": "2025",
+   "task": "TLS/PQC anomalies",
+   "url": "https://www.unb.ca/cic/datasets/pqc-oav-dataset-2025.html"
+  },
+  {
+   "id": "cic-modbus-2023",
+   "name": "CIC Modbus 2023",
+   "domain": "industrial",
+   "year": "2023",
+   "task": "ICS protocol attack detection",
+   "url": "https://www.unb.ca/cic/datasets/modbus-2023.html"
+  },
+  {
+   "id": "i-sec-ids",
+   "name": "I-Sec-IDS",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "Intrusion detection",
+   "url": "https://doi.org/10.5281/zenodo.6657210"
+  },
+  {
+   "id": "kyoto-2006",
+   "name": "Kyoto 2006+",
+   "domain": "honeypot",
+   "year": "2006",
+   "task": "Anomaly detection",
+   "url": "http://www.takakura.com/Kyoto_data/"
+  },
+  {
+   "id": "darpa-1998",
+   "name": "DARPA 1998",
+   "domain": "enterprise",
+   "year": "1998",
+   "task": "Intrusion detection",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "kdd-cup-1999",
+   "name": "KDD Cup 1999",
+   "domain": "enterprise",
+   "year": "1999",
+   "task": "Intrusion detection legacy",
+   "url": "https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html"
+  },
+  {
+   "id": "nsl-kdd",
+   "name": "NSL-KDD",
+   "domain": "enterprise",
+   "year": "2009",
+   "task": "Intrusion detection legacy",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "gurekddcup",
+   "name": "gureKDDCup",
+   "domain": "enterprise",
+   "year": "2008",
+   "task": "Payload feature IDS",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/"
+  },
+  {
+   "id": "cam-lds-network-captures",
+   "name": "CAM-LDS network captures",
+   "domain": "enterprise",
+   "year": "2026",
+   "task": "APT / network forensics",
+   "url": "https://zenodo.org/records/18701095"
+  },
+  {
+   "id": "annotated-encrypted-network-traffic-rysavy",
+   "name": "Rysavy Encrypted Traffic (Annotated Encrypted Network Traffic)",
+   "domain": "encrypted",
+   "year": "2025",
+   "task": "TLS malware/application classification",
+   "url": "https://zenodo.org/records/18336960"
+  },
+  {
+   "id": "tqh-c2-encrypted-command-control",
+   "name": "TQH-C2",
+   "domain": "encrypted",
+   "year": "2026",
+   "task": "Encrypted C2 detection",
+   "url": "https://zenodo.org/records/22732327"
+  },
+  {
+   "id": "unraveled",
+   "name": "Unraveled",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "Attack lifecycle classification",
+   "url": "https://fkie-cad.github.io/COMIDDS/content/datasets/unraveled/"
+  },
+  {
+   "id": "iot-sfc-v2",
+   "name": "IoT-SFC v2",
+   "domain": "iot",
+   "year": "2026",
+   "task": "IoT IDS multiclass",
+   "url": "https://data.mendeley.com/datasets/j9xffc2psb/5"
+  },
+  {
+   "id": "gem-can-v3",
+   "name": "GEM-CAN v3",
+   "domain": "automotive",
+   "year": "2026",
+   "task": "CAN injection/DoS",
+   "url": "https://zenodo.org/records/19161139"
+  },
+  {
+   "id": "gotham-device-level-iot-network-traffic",
+   "name": "Gotham Dataset 2025",
+   "domain": "iot",
+   "year": "2025",
+   "task": "Non-IID federated IDS; botnet/C2",
+   "url": "https://zenodo.org/records/14502760"
+  },
+  {
+   "id": "iot-window-based-rl-traffic-representation",
+   "name": "IoT-WinRL (Labeled IoT Window-Based Random Network Pattern Dataset for Reinforcement Learning)",
+   "domain": "iot",
+   "year": "2026",
+   "task": "RL traffic analysis",
+   "url": "https://zenodo.org/records/19238988"
+  },
+  {
+   "id": "safe-nid-packet-level-payload-labels",
+   "name": "SAFE-NID",
+   "domain": "enterprise",
+   "year": "2025",
+   "task": "Self-attention packet classification",
+   "url": "https://zenodo.org/records/15046995"
+  },
+  {
+   "id": "kitsune-network-attack-dataset",
+   "name": "Kitsune Network Attack Dataset",
+   "domain": "iot",
+   "year": "2018",
+   "task": "IoT botnet and network attack detection",
+   "url": "https://archive.ics.uci.edu/dataset/516/kitsune+network+attack+dataset"
+  },
+  {
+   "id": "insdn",
+   "name": "InSDN",
+   "domain": "sdn",
+   "year": "2020",
+   "task": "SDN intrusion detection",
+   "url": "https://aseados.ucd.ie/datasets/SDN/"
+  },
+  {
+   "id": "litnet-2020",
+   "name": "LITNET-2020",
+   "domain": "backbone",
+   "year": "2020",
+   "task": "IDS on real network flows",
+   "url": "https://github.com/Grigaliunas/electronics9050800/"
+  },
+  {
+   "id": "uwf-zeekdata22",
+   "name": "UWF-ZeekData22",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "ATT&CK tactic detection",
+   "url": "https://datasets.uwf.edu"
+  },
+  {
+   "id": "wustl-iiot-2021",
+   "name": "WUSTL-IIoT-2021",
+   "domain": "iot",
+   "year": "2021",
+   "task": "IIoT intrusion detection",
+   "url": "https://www.cse.wustl.edu/~jain/iiot2/index.html"
+  },
+  {
+   "id": "mqtt-iot-ids2020",
+   "name": "MQTT-IoT-IDS2020",
+   "domain": "iot",
+   "year": "2020",
+   "task": "MQTT IoT intrusion detection",
+   "url": "https://ieee-dataport.org/open-access/mqtt-iot-ids2020-mqtt-internet-things-intrusion-detection-dataset"
+  },
+  {
+   "id": "tii-ssrc-23",
+   "name": "TII-SSRC-23",
+   "domain": "enterprise",
+   "year": "2023",
+   "task": "IDS multiclass",
+   "url": "https://www.kaggle.com/datasets/daniaherzalla/tii-ssrc-23"
+  },
+  {
+   "id": "road-ornl",
+   "name": "ROAD (Real ORNL Automotive Dynamometer)",
+   "domain": "automotive",
+   "year": "2020",
+   "task": "CAN IDS with real attacks",
+   "url": "https://www.ornl.gov/publication/comprehensive-guide-can-ids-data-and-introduction-road-dataset"
+  },
+  {
+   "id": "syncan",
+   "name": "SynCAN",
+   "domain": "automotive",
+   "year": "2019",
+   "task": "Signal-level CAN IDS",
+   "url": "https://github.com/etas/SynCAN"
+  },
+  {
+   "id": "cicevse2024",
+   "name": "CICEVSE2024",
+   "domain": "iot",
+   "year": "2024",
+   "task": "Attack detection on EV chargers",
+   "url": "https://www.unb.ca/cic/datasets/evse-dataset-2024.html"
+  },
+  {
+   "id": "cicapt-iiot2024",
+   "name": "CICAPT-IIoT2024",
+   "domain": "iot",
+   "year": "2024",
+   "task": "APT detection",
+   "url": "https://www.unb.ca/cic/datasets/iiot-dataset-2024.html"
+  },
+  {
+   "id": "x-iiotid",
+   "name": "X-IIoTID",
+   "domain": "iot",
+   "year": "2021",
+   "task": "IIoT intrusion detection",
+   "url": "https://ieee-dataport.org/documents/x-iiotid-connectivity-and-device-agnostic-intrusion-dataset-industrial-internet-things"
+  },
+  {
+   "id": "caida-ddos-2007",
+   "name": "CAIDA DDoS Attack 2007",
+   "domain": "ddos",
+   "year": "2007",
+   "task": "DDoS detection",
+   "url": "https://www.caida.org/catalog/datasets/ddos-20070804_dataset/"
+  },
+  {
+   "id": "iscx-botnet-2014",
+   "name": "ISCX Botnet 2014",
+   "domain": "malware",
+   "year": "2014",
+   "task": "Botnet detection",
+   "url": "https://www.unb.ca/cic/datasets/botnet.html"
+  },
+  {
+   "id": "lycos-ids2017",
+   "name": "LYCOS-IDS2017",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "IDS binary/multiclass",
+   "url": "https://lycos-ids.univ-lemans.fr/"
+  },
+  {
+   "id": "darpa-1999",
+   "name": "DARPA 1999",
+   "domain": "enterprise",
+   "year": "1999",
+   "task": "Intrusion detection legacy",
+   "url": "https://www.ll.mit.edu/r-d/datasets/1999-darpa-intrusion-detection-evaluation-dataset"
+  },
+  {
+   "id": "lanl-unified-host-and-network",
+   "name": "LANL Unified Host and Network Data Set",
+   "domain": "enterprise",
+   "year": "2017",
+   "task": "Intrusion detection",
+   "url": "https://csr.lanl.gov/data/2017/"
+  },
+  {
+   "id": "dapt-2020",
+   "name": "DAPT 2020",
+   "domain": "enterprise",
+   "year": "2020",
+   "task": "APT detection",
+   "url": "https://www.kaggle.com/datasets/sowmyamyneni/dapt2020"
+  },
+  {
+   "id": "luflow",
+   "name": "LUFlow",
+   "domain": "enterprise",
+   "year": "2020",
+   "task": "Flow-based intrusion detection",
+   "url": "https://github.com/ruzzzzz/LUFlow"
+  },
+  {
+   "id": "improved-cicids2017",
+   "name": "Improved CICIDS2017 (Engelen et al.)",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "IDS binary/multiclass",
+   "url": "https://intrusion-detection.distrinet-research.be/WTMC2021/"
+  },
+  {
+   "id": "scvic-apt-2021",
+   "name": "SCVIC-APT-2021",
+   "domain": "enterprise",
+   "year": "2021",
+   "task": "APT detection",
+   "url": "https://ieee-dataport.org/node/9518"
+  },
+  {
+   "id": "cupid",
+   "name": "CUPID",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "Intrusion detection (penetration testing)",
+   "url": ""
+  },
+  {
+   "id": "appraise-h2020-real-labelled-netflow",
+   "name": "APPRAISE H2020 Real Labelled NetFlow Dataset",
+   "domain": "enterprise",
+   "year": "2023",
+   "task": "Intrusion detection",
+   "url": "https://www.kaggle.com/datasets/ittibydgoszcz/appraise-h2020-real-labelled-netflow-dataset"
+  },
+  {
+   "id": "ctu-sme-11",
+   "name": "CTU-SME-11",
+   "domain": "enterprise",
+   "year": "2023",
+   "task": "Malware and attack detection",
+   "url": "https://zenodo.org/records/7958259"
+  },
+  {
+   "id": "bccc-cic-ids2017",
+   "name": "BCCC-CIC-IDS2017",
+   "domain": "enterprise",
+   "year": "2024",
+   "task": "IDS binary/multiclass",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/intrusion-detection-dataset-bccc-cic-ids2017/"
+  },
+  {
+   "id": "cic-unsw-nb15-augmented",
+   "name": "CIC UNSW-NB15 (Augmented)",
+   "domain": "enterprise",
+   "year": "2024",
+   "task": "IDS binary/multiclass",
+   "url": "https://www.unb.ca/cic/datasets/cic-unsw-nb15.html"
+  },
+  {
+   "id": "uwf-zeekdata24",
+   "name": "UWF-ZeekData24",
+   "domain": "enterprise",
+   "year": "2024",
+   "task": "Intrusion detection (ATT&CK)",
+   "url": "https://datasets.uwf.edu"
+  },
+  {
+   "id": "bccc-cse-cic-ids2018",
+   "name": "BCCC-CSE-CIC-IDS2018",
+   "domain": "enterprise",
+   "year": "2025",
+   "task": "IDS binary/multiclass",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/large-scale-intrusion-detection-dataset-bccc-cse-cic-ids2018/"
+  },
+  {
+   "id": "nf-unsw-nb15-v3",
+   "name": "NF-UNSW-NB15-v3",
+   "domain": "enterprise",
+   "year": "2025",
+   "task": "Cross-dataset NIDS",
+   "url": "https://staff.itee.uq.edu.au/marius/NIDS_datasets/"
+  },
+  {
+   "id": "improved-cse-cic-ids2018",
+   "name": "Improved CSE-CIC-IDS2018 (Liu et al.)",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "IDS binary/multiclass",
+   "url": "https://intrusion-detection.distrinet-research.be/CNS2022/index.html"
+  },
+  {
+   "id": "uwf-zeekdatafall22",
+   "name": "UWF-ZeekDataFall22",
+   "domain": "enterprise",
+   "year": "2022",
+   "task": "Intrusion detection (ATT&CK)",
+   "url": "https://datasets.uwf.edu"
+  },
+  {
+   "id": "cse-cic-ids2018-v2-abluva",
+   "name": "CSE-CIC-IDS2018 V2 (Abluva)",
+   "domain": "enterprise",
+   "year": "2023",
+   "task": "IDS binary/multiclass",
+   "url": "https://zenodo.org/records/10149295"
+  },
+  {
+   "id": "nf-cse-cic-ids2018-v3",
+   "name": "NF-CSE-CIC-IDS2018-v3",
+   "domain": "enterprise",
+   "year": "2025",
+   "task": "Cross-dataset NIDS",
+   "url": "https://staff.itee.uq.edu.au/marius/NIDS_datasets/"
+  },
+  {
+   "id": "unsw-iot-attack-mud",
+   "name": "UNSW IoT Attack Traces (MUD)",
+   "domain": "iot",
+   "year": "2018",
+   "task": "IoT attack detection",
+   "url": "https://iotanalytics.unsw.edu.au/attack-data"
+  },
+  {
+   "id": "unsw-iot-traffic-traces",
+   "name": "UNSW IoT Traffic Traces (2016 smart environment)",
+   "domain": "iot",
+   "year": "2018",
+   "task": "Device identification, benign baseline",
+   "url": "https://iotanalytics.unsw.edu.au/iottraces"
+  },
+  {
+   "id": "iot-network-intrusion-dataset-kang",
+   "name": "IoT Network Intrusion Dataset (Kang et al. 2019)",
+   "domain": "iot",
+   "year": "2019",
+   "task": "IoT intrusion detection",
+   "url": "https://doi.org/10.21227/q70p-q449"
+  },
+  {
+   "id": "dad-iot-mqtt",
+   "name": "DAD (Dataset for Anomaly Detection in IoT/MQTT)",
+   "domain": "iot",
+   "year": "2020",
+   "task": "Anomaly detection",
+   "url": "https://github.com/dad-repository/dad"
+  },
+  {
+   "id": "ecu-ioht",
+   "name": "ECU-IoHT",
+   "domain": "iot",
+   "year": "2020",
+   "task": "Healthcare IDS",
+   "url": "https://ro.ecu.edu.au/datasets/48/"
+  },
+  {
+   "id": "iotid20",
+   "name": "IoTID20",
+   "domain": "iot",
+   "year": "2020",
+   "task": "IoT intrusion detection",
+   "url": "https://sites.google.com/view/iot-network-intrusion-dataset/home"
+  },
+  {
+   "id": "medbiot",
+   "name": "MedBIoT",
+   "domain": "iot",
+   "year": "2020",
+   "task": "IoT botnet detection",
+   "url": "https://cs.taltech.ee/research/data/medbiot/"
+  },
+  {
+   "id": "mqttset",
+   "name": "MQTTset",
+   "domain": "iot",
+   "year": "2020",
+   "task": "IoT intrusion detection",
+   "url": "https://www.kaggle.com/datasets/cnrieiit/mqttset"
+  },
+  {
+   "id": "cic-iot-dataset-2022",
+   "name": "CIC IoT Dataset 2022",
+   "domain": "iot",
+   "year": "2022",
+   "task": "IoT device profiling and attack detection",
+   "url": "https://www.unb.ca/cic/datasets/iotdataset-2022.html"
+  },
+  {
+   "id": "rt-iot2022",
+   "name": "RT-IoT2022",
+   "domain": "iot",
+   "year": "2022",
+   "task": "IoT intrusion detection",
+   "url": "https://archive.ics.uci.edu/dataset/942/rt-iot2022"
+  },
+  {
+   "id": "aci-iot-2023",
+   "name": "ACI-IoT-2023",
+   "domain": "iot",
+   "year": "2023",
+   "task": "IoT intrusion detection",
+   "url": "https://doi.org/10.21227/qacj-3x32"
+  },
+  {
+   "id": "dos-ddos-mqtt-iot",
+   "name": "DoS/DDoS-MQTT-IoT",
+   "domain": "iot",
+   "year": "2023",
+   "task": "DoS/DDoS detection",
+   "url": ""
+  },
+  {
+   "id": "rosids23",
+   "name": "ROSIDS23",
+   "domain": "iot",
+   "year": "2023",
+   "task": "Intrusion detection",
+   "url": ""
+  },
+  {
+   "id": "iot-dh",
+   "name": "IoT-DH Dataset",
+   "domain": "iot",
+   "year": "2024",
+   "task": "DDoS detection",
+   "url": "https://data.mendeley.com/datasets/8dns3xbckv/1"
+  },
+  {
+   "id": "rospace",
+   "name": "ROSPaCe",
+   "domain": "iot",
+   "year": "2024",
+   "task": "Intrusion detection",
+   "url": ""
+  },
+  {
+   "id": "bccc-iot-ids-zwave-2025",
+   "name": "BCCC-IoT-IDS-Zwave-2025",
+   "domain": "iot",
+   "year": "2025",
+   "task": "IoT intrusion detection",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+  },
+  {
+   "id": "bccc-iot-mqtt-ids-2025",
+   "name": "BCCC-IoT-MQTT-IDS-2025",
+   "domain": "iot",
+   "year": "2025",
+   "task": "IoT intrusion detection",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+  },
+  {
+   "id": "dalhousie-nims-iot-2025-2",
+   "name": "Dalhousie NIMS Lab Attack IoT Dataset 2025-2",
+   "domain": "iot",
+   "year": "2025",
+   "task": "IoT attack detection",
+   "url": "https://ieee-dataport.org/documents/dalhousie-nims-lab-attack-iot-dataset-2025-2"
+  },
+  {
+   "id": "dalhousie-nims-iot-2025-1",
+   "name": "Dalhousie NIMS Lab IoT Attack Dataset 2025-1",
+   "domain": "iot",
+   "year": "2025",
+   "task": "IoT attack detection",
+   "url": "https://ieee-dataport.org/documents/dalhousie-nims-lab-iot-attack-dataset-2025-1"
+  },
+  {
+   "id": "mqtt-uad",
+   "name": "MQTT_UAD (MQTT Under Attack Dataset)",
+   "domain": "iot",
+   "year": "2025",
+   "task": "Intrusion detection",
+   "url": "https://doi.org/10.6084/m9.figshare.24420958.v1"
+  },
+  {
+   "id": "nf-ton-iot-v3",
+   "name": "NF-ToN-IoT-v3",
+   "domain": "iot",
+   "year": "2025",
+   "task": "Cross-dataset NIDS",
+   "url": "https://staff.itee.uq.edu.au/marius/NIDS_datasets/"
+  },
+  {
+   "id": "nf-bot-iot-v3",
+   "name": "NF-BoT-IoT-v3",
+   "domain": "iot",
+   "year": "2025",
+   "task": "Cross-dataset NIDS",
+   "url": "https://staff.itee.uq.edu.au/marius/NIDS_datasets/"
+  },
+  {
+   "id": "unsw-iotraffic",
+   "name": "UNSW-IoTraffic",
+   "domain": "iot",
+   "year": "2025",
+   "task": "Device identification, benign baseline",
+   "url": "https://iotanalytics.unsw.edu.au/unsw-iotraffic.html"
+  },
+  {
+   "id": "cyberflowiot-gicap",
+   "name": "CyberFlowIoT-GICAP",
+   "domain": "iot",
+   "year": "2026",
+   "task": "IoT attack detection",
+   "url": "https://hdl.handle.net/10259/11273"
+  },
+  {
+   "id": "latam-ddos-iot",
+   "name": "LATAM-DDoS-IoT",
+   "domain": "iot",
+   "year": "2022",
+   "task": "DDoS detection",
+   "url": "https://ieee-dataport.org/node/9523"
+  },
+  {
+   "id": "iomt-trafficdata",
+   "name": "IoMT-TrafficData",
+   "domain": "iot",
+   "year": "2023",
+   "task": "Healthcare IDS",
+   "url": "https://zenodo.org/records/8116338"
+  },
+  {
+   "id": "mqtteeb-d",
+   "name": "MQTTEEB-D",
+   "domain": "iot",
+   "year": "2025",
+   "task": "Intrusion detection",
+   "url": "https://data.mendeley.com/datasets/jfttfjn6tr"
+  },
+  {
+   "id": "android-mischief",
+   "name": "Android Mischief Dataset",
+   "domain": "malware",
+   "year": "2020",
+   "task": "Malware traffic / RAT C2",
+   "url": "https://www.stratosphereips.org/android-mischief-dataset"
+  },
+  {
+   "id": "netml-challenge",
+   "name": "NetML Challenge Datasets",
+   "domain": "malware",
+   "year": "2020",
+   "task": "Malware detection and traffic classification",
+   "url": "https://github.com/ACANETS/NetML-Competition2020"
+  },
+  {
+   "id": "cicinvesandmal2019",
+   "name": "CICInvesAndMal2019",
+   "domain": "malware",
+   "year": "2019",
+   "task": "Android malware classification",
+   "url": "https://www.unb.ca/cic/datasets/invesandmal2019.html"
+  },
+  {
+   "id": "mta-kdd-19",
+   "name": "MTA-KDD'19",
+   "domain": "malware",
+   "year": "2019",
+   "task": "Malware traffic detection",
+   "url": ""
+  },
+  {
+   "id": "isot-http-botnet",
+   "name": "ISOT HTTP Botnet",
+   "domain": "malware",
+   "year": "2017",
+   "task": "Botnet detection",
+   "url": "https://onlineacademiccommunity.uvic.ca/isot/2022/11/27/botnet-and-ransomware-detection-datasets/"
+  },
+  {
+   "id": "msu-ics-gas-pipeline-water-tank",
+   "name": "MSU ICS Gas Pipeline & Water Storage Tank Datasets (Morris)",
+   "domain": "industrial",
+   "year": "2014",
+   "task": "ICS intrusion detection",
+   "url": "https://sites.google.com/a/uah.edu/tommy-morris-uah/ics-data-sets"
+  },
+  {
+   "id": "msu-ornl-power-system",
+   "name": "MSU/ORNL Power System Attack Datasets",
+   "domain": "industrial",
+   "year": "2014",
+   "task": "Power system attack detection",
+   "url": "https://sites.google.com/a/uah.edu/tommy-morris-uah/ics-data-sets"
+  },
+  {
+   "id": "4sics-ics-pcap",
+   "name": "4SICS Geek Lounge ICS PCAP files",
+   "domain": "industrial",
+   "year": "2015",
+   "task": "ICS traffic analysis",
+   "url": "https://www.netresec.com/?page=PCAP4SICS"
+  },
+  {
+   "id": "lemay-scada-modbus",
+   "name": "Lemay SCADA Modbus Dataset",
+   "domain": "industrial",
+   "year": "2016",
+   "task": "ICS intrusion detection",
+   "url": "https://github.com/antoine-lemay/Modbus_dataset"
+  },
+  {
+   "id": "wustl-iiot-2018",
+   "name": "WUSTL-IIoT-2018",
+   "domain": "iot",
+   "year": "2018",
+   "task": "IIoT intrusion detection",
+   "url": "https://www.cse.wustl.edu/~jain/iiot/index.html"
+  },
+  {
+   "id": "electra",
+   "name": "Electra",
+   "domain": "industrial",
+   "year": "2019",
+   "task": "Anomaly detection",
+   "url": ""
+  },
+  {
+   "id": "m2m-opc-ua",
+   "name": "M2M using OPC UA",
+   "domain": "industrial",
+   "year": "2020",
+   "task": "ICS intrusion detection",
+   "url": "https://ieee-dataport.org/open-access/m2m-using-opc-ua"
+  },
+  {
+   "id": "wdt-water-distribution",
+   "name": "Hardware-in-the-Loop Water Distribution Testbed (WDT)",
+   "domain": "industrial",
+   "year": "2021",
+   "task": "Cyber-physical attack detection",
+   "url": "https://ieee-dataport.org/open-access/hardware-loop-water-distribution-testbed-wdt-dataset-cyber-physical-security-testing"
+  },
+  {
+   "id": "dtu-hybrid-iot-ot-honeypots",
+   "name": "Hybrid IoT/OT Honeypots Dataset (DTU)",
+   "domain": "industrial",
+   "year": "2022",
+   "task": "Attack characterisation (honeypot)",
+   "url": "https://data.dtu.dk/articles/dataset/A_dataset_of_hybrid_IoT_OT_honeypots/21088651"
+  },
+  {
+   "id": "ics-flow",
+   "name": "ICS-Flow",
+   "domain": "industrial",
+   "year": "2023",
+   "task": "ICS intrusion detection",
+   "url": ""
+  },
+  {
+   "id": "westermo-network-traffic",
+   "name": "Westermo Network Traffic Dataset",
+   "domain": "industrial",
+   "year": "2023",
+   "task": "Anomaly detection",
+   "url": "https://github.com/westermo/network-traffic-dataset"
+  },
+  {
+   "id": "icscasd-mplc",
+   "name": "ICSCASD-MPLC",
+   "domain": "industrial",
+   "year": "2025",
+   "task": "ICS intrusion detection",
+   "url": "https://zenodo.org/records/16351397"
+  },
+  {
+   "id": "2017qut-s7comm",
+   "name": "2017QUT_S7comm",
+   "domain": "industrial",
+   "year": "2017",
+   "task": "ICS intrusion detection",
+   "url": "https://github.com/qut-infosec/2017QUT_S7comm"
+  },
+  {
+   "id": "2017qut-dnp3",
+   "name": "2017QUT_DNP3",
+   "domain": "industrial",
+   "year": "2017",
+   "task": "ICS intrusion detection",
+   "url": "https://github.com/qut-infosec/2017QUT_DNP3"
+  },
+  {
+   "id": "hcrl-otids",
+   "name": "OTIDS (HCRL CAN Dataset for Intrusion Detection)",
+   "domain": "automotive",
+   "year": "2017",
+   "task": "CAN IDS",
+   "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/can-intrusion-dataset"
+  },
+  {
+   "id": "car-hacking-challenge-2020",
+   "name": "Car Hacking: Attack & Defense Challenge 2020",
+   "domain": "automotive",
+   "year": "2020",
+   "task": "CAN IDS",
+   "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/carchallenge2020"
+  },
+  {
+   "id": "automotive-ethernet-avtp",
+   "name": "Automotive Ethernet Intrusion Dataset (AVTP)",
+   "domain": "automotive",
+   "year": "2021",
+   "task": "Automotive Ethernet IDS",
+   "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/automotive-ethernet-intrusion-dataset"
+  },
+  {
+   "id": "hcrl-can-fd",
+   "name": "HCRL CAN-FD Intrusion Dataset",
+   "domain": "automotive",
+   "year": "2022",
+   "task": "CAN IDS",
+   "url": "https://ieee-dataport.org/documents/can-fd-intrusion-dataset"
+  },
+  {
+   "id": "tow-ids",
+   "name": "TOW-IDS Automotive Ethernet Intrusion Dataset",
+   "domain": "automotive",
+   "year": "2022",
+   "task": "Automotive Ethernet IDS",
+   "url": "https://ieee-dataport.org/documents/tow-ids-automotive-ethernet-intrusion-dataset"
+  },
+  {
+   "id": "can-train-and-test",
+   "name": "can-train-and-test",
+   "domain": "automotive",
+   "year": "2023",
+   "task": "CAN IDS",
+   "url": "https://github.com/brooke-lampe/can-train-and-test"
+  },
+  {
+   "id": "crysys-can",
+   "name": "CrySyS CAN Traffic Logs (Fabrication and Masquerade Attacks)",
+   "domain": "automotive",
+   "year": "2023",
+   "task": "CAN IDS",
+   "url": ""
+  },
+  {
+   "id": "tue-can-v2",
+   "name": "Automotive CAN Bus Intrusion Dataset v2 (TU/e)",
+   "domain": "automotive",
+   "year": "2019",
+   "task": "CAN IDS",
+   "url": "https://data.4tu.nl/datasets/efb320d8-c189-4e54-98af-3a79cc14f421"
+  },
+  {
+   "id": "can-mirgu",
+   "name": "CAN-MIRGU",
+   "domain": "automotive",
+   "year": "2024",
+   "task": "CAN IDS",
+   "url": "https://archive.ics.uci.edu/dataset/1035/can-mirgu"
+  },
+  {
+   "id": "goncalves-vanet",
+   "name": "V2X Security Threats (Gonçalves et al. synthesized VANET datasets)",
+   "domain": "v2x",
+   "year": "2020",
+   "task": "Misbehavior detection",
+   "url": "https://doi.org/10.5281/zenodo.4304411"
+  },
+  {
+   "id": "ddos-vanets-yang",
+   "name": "DDoS Attacks Dataset in VANETs (Yang et al.)",
+   "domain": "v2x",
+   "year": "2022",
+   "task": "DDoS detection",
+   "url": "https://github.com/YangFanAHU/DDoS-attacks-dataset-in-VANETs"
+  },
+  {
+   "id": "misbehaviorx",
+   "name": "MisbehaviorX",
+   "domain": "v2x",
+   "year": "2024",
+   "task": "Misbehavior detection",
+   "url": "https://ieee-dataport.org/documents/misbehaviorx-comprehensive-v2x-misbehavior-detection-dataset-enabled-v2x-application"
+  },
+  {
+   "id": "cyber-physical-uav",
+   "name": "UAV Cyber-Physical (Cyber-Physical Dataset for UAVs Under Normal Operations and Cyber-Attacks)",
+   "domain": "uav",
+   "year": "2023",
+   "task": "UAV IDS",
+   "url": "https://ieee-dataport.org/documents/cyber-physical-dataset-uavs-under-normal-operations-and-cyber-attacks"
+  },
+  {
+   "id": "isot-drone",
+   "name": "ISOT Drone Anomaly Detection Dataset",
+   "domain": "uav",
+   "year": "2024",
+   "task": "UAV anomaly detection",
+   "url": "https://onlineacademiccommunity.uvic.ca/isot/2024/12/05/drone-datasets/"
+  },
+  {
+   "id": "5gad-2022",
+   "name": "5GAD-2022",
+   "domain": "5g",
+   "year": "2022",
+   "task": "5G core attack detection",
+   "url": "https://github.com/IdahoLabResearch/5GAD"
+  },
+  {
+   "id": "5gc-pfcp",
+   "name": "5GC PFCP Intrusion Detection Dataset",
+   "domain": "5g",
+   "year": "2023",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/7888347"
+  },
+  {
+   "id": "dlteamtuc-5g",
+   "name": "5G Security and Resource Allocation Dataset (DLTeamTUC 5G Security Datasets)",
+   "domain": "5g",
+   "year": "2025",
+   "task": "Intrusion detection",
+   "url": "https://github.com/DLTeamTUC/5GDatasets"
+  },
+  {
+   "id": "5g-core-gtp-u",
+   "name": "5G-CGAD (5G Core GTP-U Attack Dataset)",
+   "domain": "5g",
+   "year": "2025",
+   "task": "Intrusion detection",
+   "url": "https://research.fi/en/results/dataset/5dad463d-0306-455f-b47a-bef771b819fc"
+  },
+  {
+   "id": "5g-flow-wehbe",
+   "name": "5G flow-based datasets (Wehbe)",
+   "domain": "5g",
+   "year": "2024",
+   "task": "Intrusion detection",
+   "url": "https://ieee-dataport.org/documents/5g-flow-based-datasets"
+  },
+  {
+   "id": "wsn-ds",
+   "name": "WSN-DS",
+   "domain": "wireless",
+   "year": "2016",
+   "task": "Intrusion detection",
+   "url": "https://doi.org/10.1155/2016/4731953"
+  },
+  {
+   "id": "wpa3-attacks",
+   "name": "WPA3 Attacks Dataset",
+   "domain": "wireless",
+   "year": "2026",
+   "task": "Wi-Fi intrusion detection",
+   "url": "https://data.mendeley.com/datasets/cxx5t5nw7z/1"
+  },
+  {
+   "id": "cesnet-quic22",
+   "name": "CESNET-QUIC22",
+   "domain": "encrypted",
+   "year": "2022",
+   "task": "QUIC service classification",
+   "url": "https://zenodo.org/records/7409923"
+  },
+  {
+   "id": "cesnet-tls22",
+   "name": "CESNET-TLS22",
+   "domain": "encrypted",
+   "year": "2022",
+   "task": "TLS service classification",
+   "url": "https://doi.org/10.1016/j.comnet.2022.109467"
+  },
+  {
+   "id": "usbvpn2022",
+   "name": "USBVPN2022 (Encrypted VPN Dataset)",
+   "domain": "encrypted",
+   "year": "2023",
+   "task": "VPN traffic classification",
+   "url": "https://zenodo.org/record/7301756"
+  },
+  {
+   "id": "cesnet-tls-year22",
+   "name": "CESNET-TLS-Year22",
+   "domain": "encrypted",
+   "year": "2024",
+   "task": "TLS service classification",
+   "url": "https://doi.org/10.1038/s41597-024-03927-4"
+  },
+  {
+   "id": "bccc-darknet-2025",
+   "name": "BCCC-DarkNet-2025",
+   "domain": "encrypted",
+   "year": "2025",
+   "task": "Darknet traffic classification",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/encrypted-traffic-dataset-bccc-darknet-2025"
+  },
+  {
+   "id": "darpa-2000",
+   "name": "DARPA 2000 Intrusion Detection Scenario Specific Datasets (LLDOS 1.0 / 2.0.2)",
+   "domain": "ddos",
+   "year": "2000",
+   "task": "Multi-stage DDoS scenario detection",
+   "url": "https://archive.ll.mit.edu/ideval/data/2000/LLS_DDOS_2.0.2.html"
+  },
+  {
+   "id": "cic-dos-2017",
+   "name": "CIC DoS Dataset (2017)",
+   "domain": "ddos",
+   "year": "2017",
+   "task": "Application-layer DoS detection",
+   "url": "https://www.unb.ca/cic/datasets/dos-dataset.html"
+  },
+  {
+   "id": "boun-ddos",
+   "name": "Boğaziçi University DDoS Dataset (BOUN DDoS)",
+   "domain": "ddos",
+   "year": "2020",
+   "task": "DDoS detection",
+   "url": "https://doi.org/10.1016/j.dib.2020.106187"
+  },
+  {
+   "id": "bccc-udp-quic-ids-2025",
+   "name": "BCCC-UDP-QUIC-IDS-2025",
+   "domain": "ddos",
+   "year": "2025",
+   "task": "UDP / QUIC DDoS detection",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+  },
+  {
+   "id": "sr-bh-2020",
+   "name": "SR-BH 2020",
+   "domain": "web",
+   "year": "2020",
+   "task": "Web attack classification (CAPEC)",
+   "url": ""
+  },
+  {
+   "id": "bccc-cira-cic-dohbrw-2020",
+   "name": "BCCC-CIRA-CIC-DoHBrw-2020",
+   "domain": "web",
+   "year": "2023",
+   "task": "Malicious DoH detection",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+  },
+  {
+   "id": "bccc-cic-bell-dns-2024",
+   "name": "BCCC-CIC-Bell-DNS-2024",
+   "domain": "web",
+   "year": "2024",
+   "task": "Malicious DNS and DNS exfiltration detection",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
+  },
+  {
+   "id": "isot-cid",
+   "name": "ISOT Cloud Intrusion Detection Dataset (ISOT-CID)",
+   "domain": "sdn",
+   "year": "2018",
+   "task": "Cloud intrusion detection",
+   "url": "https://onlineacademiccommunity.uvic.ca/isot/2022/11/25/cloud-security-datasets/"
+  },
+  {
+   "id": "sdn-ddos-ahuja",
+   "name": "DDoS attack SDN Dataset (SDN DDoS)",
+   "domain": "sdn",
+   "year": "2020",
+   "task": "DDoS detection in SDN",
+   "url": "https://doi.org/10.17632/jxpfjc64kr.1"
+  },
+  {
+   "id": "bccc-cpacket-cloud-ddos-2024",
+   "name": "BCCC-cPacket-Cloud-DDoS-2024",
+   "domain": "sdn",
+   "year": "2024",
+   "task": "Cloud DDoS detection",
+   "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/cloud-ddos-attacks-bccc-cpacket-cloud-ddos-2024/"
+  },
+  {
+   "id": "caida-anonymized-traces",
+   "name": "CAIDA Anonymized Internet Traces (2008–2019)",
+   "domain": "backbone",
+   "year": "2008–2019",
+   "task": "Backbone traffic characterisation",
+   "url": "https://www.caida.org/catalog/datasets/passive_dataset/"
+  },
+  {
+   "id": "roedunet-simargl2021",
+   "name": "RoEduNet-SIMARGL2021",
+   "domain": "backbone",
+   "year": "2021",
+   "task": "Intrusion detection",
+   "url": "https://doi.org/10.3390/s21134319"
+  },
+  {
+   "id": "ctu-hornet-65-niner",
+   "name": "CTU Hornet 65 Niner",
+   "domain": "honeypot",
+   "year": "2024",
+   "task": "Honeypot traffic analysis",
+   "url": "https://www.stratosphereips.org/hornet-network-dataset-of-geographically-placed-honeypots"
+  }
+ ]
+}
