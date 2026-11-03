@@ -1954,7 +1954,8 @@
         "gb": "28"
       },
       "notes": "7 traffic categories, each over VPN and non-VPN.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "iscxtor2016",
@@ -1996,7 +1997,8 @@
         "gb": "22"
       },
       "notes": "8 traffic categories over Tor and non-Tor.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "cic-ddos2019",
@@ -2907,7 +2909,8 @@
         "iscxvpn2016"
       ],
       "notes": "4 traffic types / 8 application classes.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "ctu-malware-capture-botnet-1",
@@ -6593,7 +6596,8 @@
         "count": "16.4k TLS connections"
       },
       "notes": "77 applications.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "power-system-digital-twin-mininet-traffic",
@@ -11114,7 +11118,8 @@
         "count": "153M flows"
       },
       "notes": "Backbone traffic of CESNET: 102 web services plus 3 background classes.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "cesnet-tls22",
@@ -11156,7 +11161,8 @@
         "gb": "42",
         "count": "141M flows"
       },
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "usbvpn2022",
@@ -11197,7 +11203,8 @@
         "count": "59k flows"
       },
       "notes": "5 traffic types, each over 6 VPN protocols and non-VPN.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "cesnet-tls-year22",
@@ -11238,7 +11245,8 @@
       "size": {
         "count": "507M flows"
       },
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "bccc-darknet-2025",
@@ -11277,7 +11285,8 @@
       "derivation_tool": "NTLFlowLyzer",
       "derived": true,
       "notes": "5 networks. Derived from earlier captures not yet identified.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Application / service classification without attack traffic: removed from the encrypted traffic table (tab:rev-encrypted)."
     },
     {
       "id": "darpa-2000",

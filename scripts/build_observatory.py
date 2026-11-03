@@ -76,7 +76,7 @@ DOMAINS = [
     ('malware', 'Malware, botnet and C2', r'Malware|Botnet|C2|Sandbox'),
     ('sdn', 'SDN and cloud', r'\bSDN\b|[Cc]loud'),
     ('ddos', 'DDoS', r'DDoS|\bDoS\b'),
-    ('encrypted', 'Encrypted and darknet', r'TLS|Encrypted|VPN|Tor\b|Darknet|QUIC|PQC'),
+    ('encrypted', 'Encrypted traffic', r'TLS|Encrypted|VPN|Tor\b|Darknet|QUIC|PQC'),
     ('web', 'DNS and web', r'DNS|DoH|\bWeb\b|HTTP'),
     ('backbone', 'Internet backbone and ISP', r'backbone|ISP'),
     ('honeypot', 'Honeypots', r'[Hh]oneypot'),
@@ -264,8 +264,9 @@ def our_records():
 
 
 def all_records(data):
-    # the group's own datasets are listed only with "group_datasets": true
-    return (our_records() if data.get('group_datasets') else []) + data['records']
+    # the group's own datasets are listed only with "group_datasets": true; an "excluded" record (its value is
+    # the reason) stays in data/observatory.json, for the list of excluded records, but is not published
+    return (our_records() if data.get('group_datasets') else []) + [r for r in data['records'] if not r.get('excluded')]
 
 
 def updated(data):

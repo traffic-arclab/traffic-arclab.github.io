@@ -11,7 +11,7 @@
   "malware": "Malware, botnet and C2",
   "sdn": "SDN and cloud",
   "ddos": "DDoS",
-  "encrypted": "Encrypted and darknet",
+  "encrypted": "Encrypted traffic",
   "web": "DNS and web",
   "backbone": "Internet backbone and ISP",
   "honeypot": "Honeypots",

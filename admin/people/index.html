@@ -2875,7 +2875,7 @@
   const OBS_DOMAINS = [['v2x', 'Vehicular V2X'], ['automotive', 'Automotive (CAN, Ethernet)'], ['uav', 'UAV and drones'],
     ['industrial', 'ICS and OT'], ['5g', '5G and mobile core'], ['wireless', 'Wireless and LPWAN'], ['iot', 'IoT, IIoT and IoMT'],
     ['mobile', 'Mobile (Android)'], ['malware', 'Malware, botnet and C2'], ['sdn', 'SDN and cloud'], ['ddos', 'DDoS'],
-    ['encrypted', 'Encrypted and darknet'], ['web', 'DNS and web'], ['backbone', 'Internet backbone and ISP'],
+    ['encrypted', 'Encrypted traffic'], ['web', 'DNS and web'], ['backbone', 'Internet backbone and ISP'],
     ['honeypot', 'Honeypots'], ['benign', 'Benign reference traffic'], ['enterprise', 'Enterprise and general IP']];
   const OBS_FAMILIES = [['bruteforce', 'Brute force'], ['botnet-c2', 'Botnet / C2'], ['dos', '(D)DoS'], ['exfiltration', 'Exfiltration'],
     ['lateral', 'Infiltration / lateral movement'], ['malware', 'Malware / backdoor / worm'], ['scanning', 'Reconnaissance / scan'],
@@ -2941,7 +2941,8 @@
       const li = document.createElement('li');
       li.className = 'row obs-row' + (r === obsSelected ? ' selected' : '');
       const tags = [r.category ? `<span class="tag">${escHtml(obsDomain(r.category))}</span>` : '<span class="tag missing">no table</span>',
-        r.notify && (obsSent.has(r.id) ? '<span class="tag sent">announced</span>' : '<span class="tag notify">to announce</span>')].filter(Boolean).join('');
+        r.notify && (obsSent.has(r.id) ? '<span class="tag sent">announced</span>' : '<span class="tag notify">to announce</span>'),
+        r.excluded && '<span class="tag missing">excluded</span>'].filter(Boolean).join('');
       li.innerHTML = `<div class="who"><strong>${escHtml(r.name)}</strong><small>${escHtml([r.year, r.task].filter(Boolean).join(' · '))}</small></div><div class="tags">${tags}</div>`;
       li.addEventListener('click', () => { selectObs(r); renderObservatory(); });
       list.appendChild(li);
@@ -2996,6 +2997,7 @@
       <label class="check"><input type="checkbox" id="o-isderived"${r.derived ? ' checked' : ''}> Derived from a capture not in the catalogue</label>
       <label>Family <input id="o-family" value="${escHtml(r.family)}"></label>
       <label>Notes <textarea id="o-notes">${escHtml(r.notes)}</textarea></label>
+      <label>Excluded <small>(the reason: the dataset stays here but is not published on the site; empty to publish it)</small><input id="o-excluded" value="${escHtml(r.excluded)}"></label>
       <div class="actions"><button type="button" class="danger" id="o-delete">Delete dataset</button></div>`;
     const val = id => $(id).value.trim();
     const set = (key, value) => { if (value === '' || value == null || (Array.isArray(value) && !value.length)) delete r[key]; else r[key] = value; };
@@ -3027,6 +3029,7 @@
       set('derived', $('o-isderived').checked || null);
       set('family', val('o-family'));
       set('notes', val('o-notes'));
+      set('excluded', val('o-excluded'));
       r.notify = $('o-notify').checked;
       a.querySelector('h2').textContent = r.name;
       markDirty('observatory');
