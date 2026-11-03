@@ -51,7 +51,7 @@ Standard library only.
 import json
 import os
 import re
-from datetime import date
+from datetime import date, timedelta
 from urllib.parse import urlparse
 
 import build_datasets as site
@@ -284,6 +284,16 @@ FEATURE_PAGES = ['index.html']
 def load():
     with open(DATA, encoding='utf-8') as f:
         return json.load(f)
+
+
+NEW_DAYS = 60   # a dataset marked "new_since" (YYYY-MM-DD) shows the NEW badge for two months
+
+
+def new_until(rec):
+    """The last day of the NEW badge of a record, or None (js/observatory.js hides the badge after it)."""
+    if not rec.get('new_since'):
+        return None
+    return (date.fromisoformat(rec['new_since']) + timedelta(days=NEW_DAYS)).isoformat()
 
 
 def is_hidden(data=None):
@@ -698,6 +708,8 @@ def item(rec):
         n = len(rec['_children'])
         family += f'<span class="obs-sub">{n} derived dataset{"s" if n > 1 else ""}</span>'
     marks = ''
+    if new_until(rec):   # shown by the script until that day, so that it expires without a rebuild
+        marks += f'<span class="tag tag-new obs-new" data-new-until="{new_until(rec)}" hidden>New</span>'
     if rec['_ours']:
         marks += '<span class="tag tag-accent">Traffic group</span>'
     if rec.get('access') in ('registration', 'request', 'restricted'):
@@ -898,7 +910,7 @@ def submit_form(data):
 def page_data(records):
     """The record details shown in the dialog (the table carries only what the filters need)."""
     keep = ('id', 'name', 'url', 'task', 'domain', 'year', 'data', 'representation', 'access', 'evidence', 'family', 'derived_from',
-            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text')
+            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text', 'new_since')
     table = ('artifact', 'classes', 'attack_families')   # kept also when empty: an empty list is "none", a missing one "not documented"
     out = []
     for r in records:
@@ -910,6 +922,8 @@ def page_data(records):
             item['children'] = [c['id'] for c in r['_children']]
         if r['_captures']:
             item['captures'] = [c['id'] for c in r['_captures']]
+        if new_until(r):
+            item['new_until'] = new_until(r)
         item.update(size=r['_size'], index=r['_index'], mixed=r['_mixed'], ours=r['_ours'],
                     domainGroup=label_of(DOMAINS, r['_domain']), domainKey=r['_domain'])
         out.append(item)
@@ -943,7 +957,7 @@ def observatory_page(data):
             <section class="obs-ai" id="obs-ai" aria-live="polite" aria-label="AI-assisted results" hidden></section>
             <div class="obs-bar">
               <button type="button" class="btn btn-ghost obs-facets-toggle" id="obs-facets-toggle" aria-controls="obs-facets" aria-expanded="false">Filters<span id="obs-facets-n"></span></button>
-              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="year-desc">Year, newest first</option><option value="year">Year, oldest first</option><option value="size-desc">Size, largest first</option><option value="classes-desc">Attack classes, most first</option><option value="families-desc">Attack families, most first</option><option value="derived-desc">Derived datasets, most first</option><option value="family-desc">Family size, largest first</option><option value="domain">Domain</option><option value="access">Access, open first</option><option value="paper">Paper identified first</option></select></label>
+              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="new">New first</option><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="year-desc">Year, newest first</option><option value="year">Year, oldest first</option><option value="size-desc">Size, largest first</option><option value="classes-desc">Attack classes, most first</option><option value="families-desc">Attack families, most first</option><option value="derived-desc">Derived datasets, most first</option><option value="family-desc">Family size, largest first</option><option value="domain">Domain</option><option value="access">Access, open first</option><option value="paper">Paper identified first</option></select></label>
               <div class="obs-view" role="group" aria-label="Layout">
                 <button type="button" data-view="cards" aria-pressed="true" title="Cards"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg><span class="visually-hidden">Cards</span></button>
                 <button type="button" data-view="table" aria-pressed="false" title="Table"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3h13M1.5 8h13M1.5 13h13"/></svg><span class="visually-hidden">Table</span></button>

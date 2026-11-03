@@ -2903,7 +2903,8 @@
     filter.add(new Option('Not in a paper table', 'none'));
     ['obs-search', 'obs-filter', 'obs-only-notify'].forEach(id => $(id).addEventListener('input', renderObservatory));
     $('obs-add').addEventListener('click', () => {
-      const r = { id: '', name: 'New dataset', url: '', task: '', domain: '', data: [], evidence: 'verified', notify: false, _new: true };
+      const r = { id: '', name: 'New dataset', url: '', task: '', domain: '', data: [], evidence: 'verified', notify: false, _new: true,
+        new_since: new Date().toISOString().slice(0, 10) };   // NEW badge on by default: untick it for an older dataset
       observatory.records.unshift(r);
       markDirty('observatory');
       selectObs(r);
@@ -2942,6 +2943,7 @@
       li.className = 'row obs-row' + (r === obsSelected ? ' selected' : '');
       const tags = [r.category ? `<span class="tag">${escHtml(obsDomain(r.category))}</span>` : '<span class="tag missing">no table</span>',
         r.notify && (obsSent.has(r.id) ? '<span class="tag sent">announced</span>' : '<span class="tag notify">to announce</span>'),
+        r.new_since && new Date(r.new_since).getTime() + 60 * 864e5 >= Date.now() && '<span class="tag notify">NEW</span>',
         r.excluded && '<span class="tag missing">excluded</span>'].filter(Boolean).join('');
       li.innerHTML = `<div class="who"><strong>${escHtml(r.name)}</strong><small>${escHtml([r.year, r.task].filter(Boolean).join(' · '))}</small></div><div class="tags">${tags}</div>`;
       li.addEventListener('click', () => { selectObs(r); renderObservatory(); });
@@ -2967,6 +2969,8 @@
       <h2>${escHtml(r.name)}</h2>
       <div class="obs-notify"><label class="check"><input type="checkbox" id="o-notify"${r.notify ? ' checked' : ''}> Email the subscribers about this dataset</label>
         <p>${obsSent.has(r.id) ? 'Already announced: it will not be sent again.' : 'Announced once, in the Monday email after saving, to the subscribers of its domain (or of all domains).'}</p></div>
+      <div class="obs-notify"><label class="check"><input type="checkbox" id="o-new"${r.new_since ? ' checked' : ''}> NEW badge</label>
+        <p>${r.new_since ? `Shown from ${escHtml(r.new_since)} for two months, then it disappears by itself.` : 'Tick it for a dataset released in the last two months: the badge is shown for two months from today.'}</p></div>
       <label>Name * <input id="o-name" value="${escHtml(r.name)}" required></label>
       <label>Id <small>(address of the dataset, set from the name when it is saved)</small><input id="o-id" value="${escHtml(r.id)}" readonly></label>
       <label>Download page <input id="o-url" value="${escHtml(r.url)}" placeholder="https://"></label>
@@ -3031,6 +3035,8 @@
       set('notes', val('o-notes'));
       set('excluded', val('o-excluded'));
       r.notify = $('o-notify').checked;
+      if (!$('o-new').checked) delete r.new_since;
+      else if (!r.new_since) r.new_since = new Date().toISOString().slice(0, 10);
       a.querySelector('h2').textContent = r.name;
       markDirty('observatory');
       renderObservatory();
@@ -3113,7 +3119,7 @@
     const domain = OBS_DOMAINS.find(([, l]) => l === s.domain);
     const paper = s.paper ? (/^10\./.test(s.paper.replace(/^https?:\/\/(dx\.)?doi\.org\//, '')) ? { doi: s.paper.replace(/^https?:\/\/(dx\.)?doi\.org\//, '') } : { url: s.paper }) : null;
     const r = { id: '', name: s.dataset, url: s.url, task: s.task || '', domain: '', data: String(s.data || '').split(',').map(x => x.trim()).filter(Boolean),
-      evidence: 'verified', notify: false, _new: true };
+      evidence: 'verified', notify: false, _new: true, new_since: new Date().toISOString().slice(0, 10) };
     if (domain) r.category = domain[0];
     if (paper) r.paper = { cite: s.dataset, ...paper };
     if (s.year) r.year = String(s.year);

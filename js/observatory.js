@@ -10,6 +10,10 @@
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const byId = Object.fromEntries(data.records.map(r => [r.id, r]));
   const rows = [...list.children];
+  // NEW badges: shown until their day (data-new-until), so they expire without rebuilding the page
+  const today = new Date().toISOString().slice(0, 10);
+  const isNew = until => Boolean(until) && today <= until;
+  list.querySelectorAll('[data-new-until]').forEach(b => { b.hidden = !isNew(b.dataset.newUntil); });
   rows.forEach((row, i) => {
     row._facets = new Set(row.dataset.facets.split(' '));
     row._order = i;
@@ -64,6 +68,7 @@
     'domain': [r => r.domainGroup.toLowerCase(), 1],
     'access': [r => ACCESS_RANK[r.access || 'open'], 1],
     'paper': [r => r.paper ? 0 : 1, 1],
+    'new': [r => isNew(r.new_until) ? r.new_until : null, -1],
   };
 
   function order(list) {
@@ -341,7 +346,7 @@
       r.derived_from && !parents && `Derived from ${esc(r.derived_from)}: not an independent acquisition.`,
     ].filter(Boolean).map(t => `<li>${t}</li>`).join('');
     body.innerHTML = `
-      <p class="card-kicker">${esc(r.domainGroup)}</p>
+      <p class="card-kicker">${esc(r.domainGroup)}${isNew(r.new_until) ? ' <span class="tag tag-new">New</span>' : ''}</p>
       <h2 id="obs-dialog-title" class="gate-title">${esc(r.name)}</h2>
       <dl class="obs-dl">
         ${item('Security task', esc(r.task))}
