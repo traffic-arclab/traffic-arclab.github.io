@@ -385,7 +385,7 @@
         "web",
         "other"
       ],
-      "derivation_tool": "dpkt (custom)",
+      "derivation_tool": "custom (dpkt)",
       "size": {
         "gb": "548"
       }
@@ -464,7 +464,8 @@
         "dos",
         "scanning",
         "other"
-      ]
+      ],
+      "derivation_tool": "CICFlowMeter"
     },
     {
       "id": "cic-iot-diad-2024",
@@ -1241,7 +1242,8 @@
       "size": {
         "count": "1.8B packets"
       },
-      "evidence": "verified"
+      "evidence": "verified",
+      "derivation_tool": "CICFlowMeter"
     },
     {
       "id": "tabulariotattack-2024",
@@ -7212,7 +7214,7 @@
         "bruteforce",
         "scanning"
       ],
-      "derivation_tool": "dpkt (custom)",
+      "derivation_tool": "custom (dpkt)",
       "size": {
         "gb": "1.35"
       }
@@ -7392,7 +7394,8 @@
       ],
       "size": {
         "gb": "36"
-      }
+      },
+      "derivation_tool": "NFStream"
     },
     {
       "id": "cicapt-iiot2024",
@@ -8473,7 +8476,8 @@
         "cite": "Sivanathan et al., IEEE Transactions on Mobile Computing 2019",
         "title": "Classifying IoT Devices in Smart Environments Using Network Traffic Characteristics",
         "doi": "10.1109/TMC.2018.2866249"
-      }
+      },
+      "derivation_tool": "custom"
     },
     {
       "id": "iot-network-intrusion-dataset-kang",
@@ -8594,7 +8598,8 @@
       "size": {
         "count": "111k records"
       },
-      "notes": "Dataset DOI: 10.25958/5f1f97b837aca."
+      "notes": "Dataset DOI: 10.25958/5f1f97b837aca.",
+      "derivation_tool": "tshark"
     },
     {
       "id": "iotid20",
@@ -8755,7 +8760,8 @@
         "cite": "Dadkhah et al., PST 2022",
         "title": "Towards the Development of a Realistic Multidimensional IoT Profiling Dataset",
         "doi": "10.1109/PST55820.2022.9851966"
-      }
+      },
+      "derivation_tool": "CICFlowMeter"
     },
     {
       "id": "rt-iot2022",
@@ -8839,7 +8845,8 @@
         "cite": "Bastian et al., IEEE Dataport 2023",
         "title": "ACI IoT Network Traffic Dataset 2023",
         "doi": "10.21227/qacj-3x32"
-      }
+      },
+      "derivation_tool": "CICFlowMeter"
     },
     {
       "id": "dos-ddos-mqtt-iot",
@@ -8874,7 +8881,8 @@
       },
       "attack_families": [
         "dos"
-      ]
+      ],
+      "derivation_tool": "tshark"
     },
     {
       "id": "rosids23",
@@ -9024,7 +9032,8 @@
         "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2025",
         "title": "BCCC-IoT-IDS-Zwave-2025",
         "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
-      }
+      },
+      "derivation_tool": "NFStream"
     },
     {
       "id": "bccc-iot-mqtt-ids-2025",
@@ -9110,7 +9119,7 @@
         "PCAP"
       ],
       "family": "Dalhousie NIMS Lab IoT Attack",
-      "notes": "Port scan, Slowloris, SYN flood and vulnerability scan on nine IoT devices; per-device PCAP files.",
+      "notes": "Port scan, Slowloris, SYN flood and vulnerability scan on nine IoT devices; per-device PCAP files. The authors analysed the captures with Tranalyzer2, but the flows are not released.",
       "category": "iot",
       "year": "2025",
       "representation": "PCAP",
@@ -9132,7 +9141,6 @@
         "dos",
         "scanning"
       ],
-      "derivation_tool": "Tranalyzer2",
       "size": {
         "gb": "3.9"
       },
@@ -9178,7 +9186,8 @@
       "size": {
         "gb": "0.079",
         "count": "285k packets"
-      }
+      },
+      "derivation_tool": "tshark, custom"
     },
     {
       "id": "nf-ton-iot-v3",
@@ -9311,7 +9320,8 @@
         "cite": "UNSW IoT Analytics, 2025",
         "title": "UNSW-IoTraffic",
         "url": "https://iotanalytics.unsw.edu.au/unsw-iotraffic.html"
-      }
+      },
+      "derivation_tool": "custom"
     },
     {
       "id": "cyberflowiot-gicap",
@@ -9344,7 +9354,8 @@
         "cite": "CyberFlowIoT-GICAP: Labelled IoT flow-based traffic dataset, 2026",
         "title": "CyberFlowIoT-GICAP: Labelled IoT flow-based traffic dataset",
         "url": "https://hdl.handle.net/10259/11273"
-      }
+      },
+      "derivation_tool": "NFStream"
     },
     {
       "id": "latam-ddos-iot",
@@ -9422,7 +9433,8 @@
         "cite": "Areia et al., IEEE Access 2024",
         "title": "IoMT-TrafficData: Dataset and Tools for Benchmarking Intrusion Detection in Internet of Medical Things",
         "doi": "10.1109/ACCESS.2024.3437214"
-      }
+      },
+      "derivation_tool": "Zeek, tshark"
     },
     {
       "id": "mqtteeb-d",
@@ -9455,7 +9467,7 @@
         "dos",
         "exploitation"
       ],
-      "derivation_tool": "PyShark",
+      "derivation_tool": "custom (PyShark)",
       "paper": {
         "cite": "Data in Brief 2025",
         "title": "MQTTEEB-D: A Real-World IoT Cybersecurity Dataset for AI-Powered Threat Detection in MQTT Networks",
