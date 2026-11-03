@@ -5079,7 +5079,8 @@
         "count": "270k IP time series"
       },
       "notes": "Unlabelled time series of CESNET backbone traffic, for anomaly detection and forecasting.",
-      "evidence": "verified"
+      "evidence": "verified",
+      "excluded": "Unlabelled time series without attack traffic: removed from the backbone, ISP and honeypot table (tab:rev-backbone)."
     },
     {
       "id": "usb-ids-tc",
@@ -5177,7 +5178,7 @@
         "doi": "10.1016/j.dib.2022.107795"
       },
       "family": "Hornet",
-      "category": "honeypot",
+      "category": "backbone",
       "year": "2021",
       "artifact": {
         "traces": true,
@@ -5777,7 +5778,7 @@
         "title": "A Labeled Data Set for Flow-Based Intrusion Detection",
         "doi": "10.1007/978-3-642-04968-2_4"
       },
-      "category": "honeypot",
+      "category": "backbone",
       "year": "2008",
       "artifact": {
         "traces": false,
@@ -6273,7 +6274,7 @@
         "title": "Statistical Analysis of Honeypot Data and Building of Kyoto 2006+ Dataset for NIDS Evaluation",
         "doi": "10.1145/1978672.1978676"
       },
-      "category": "honeypot",
+      "category": "backbone",
       "year": "2006",
       "artifact": {
         "traces": false,
@@ -11789,7 +11790,7 @@
         "title": "CTU Hornet 65 Niner",
         "url": "https://www.stratosphereips.org/hornet-network-dataset-of-geographically-placed-honeypots"
       },
-      "category": "honeypot",
+      "category": "backbone",
       "year": "2024",
       "artifact": {
         "traces": false,

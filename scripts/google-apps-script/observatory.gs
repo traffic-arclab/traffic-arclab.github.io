@@ -121,7 +121,7 @@ function testEmail() {
 const SITE_URL = 'https://traffic-arclab.github.io/';
 const MAIL_LOGO = SITE_URL + 'images/email/traffic-brand.png';
 const DOMAIN_COLOURS = { automotive: '#d9822b', uav: '#8e6bd1', industrial: '#b5543c', v2x: '#d0567f', '5g': '#1f7a5c',
-  ddos: '#8c5a2b', sdn: '#2f6fb0', honeypot: '#b0782f', wireless: '#23a197', iot: '#3a8bd6', mobile: '#4f9a3a',
+  ddos: '#8c5a2b', sdn: '#2f6fb0', wireless: '#23a197', iot: '#3a8bd6', mobile: '#4f9a3a',
   malware: '#c9384a', encrypted: '#5563d9', web: '#c39a17', backbone: '#3f7f93', benign: '#8aa63a', enterprise: '#7a8695' };
 const SANS = "'Source Sans 3','Segoe UI',Helvetica,Arial,sans-serif";
 const SERIF = "'Source Serif 4',Georgia,'Times New Roman',serif";

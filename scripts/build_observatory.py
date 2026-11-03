@@ -78,8 +78,7 @@ DOMAINS = [
     ('ddos', 'DDoS', r'DDoS|\bDoS\b'),
     ('encrypted', 'Encrypted traffic', r'TLS|Encrypted|VPN|Tor\b|Darknet|QUIC|PQC'),
     ('web', 'DNS and web', r'DNS|DoH|\bWeb\b|HTTP'),
-    ('backbone', 'Internet backbone and ISP', r'backbone|ISP'),
-    ('honeypot', 'Honeypots', r'[Hh]oneypot'),
+    ('backbone', 'Backbone, ISP and honeypots', r'backbone|ISP|[Hh]oneypot'),
     ('benign', 'Benign reference traffic', r'Benign'),
     ('enterprise', 'Enterprise and general IP', r''),
 ]

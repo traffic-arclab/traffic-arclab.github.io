@@ -13,8 +13,7 @@
   "ddos": "DDoS",
   "encrypted": "Encrypted traffic",
   "web": "DNS and web",
-  "backbone": "Internet backbone and ISP",
-  "honeypot": "Honeypots",
+  "backbone": "Backbone, ISP and honeypots",
   "benign": "Benign reference traffic",
   "enterprise": "Enterprise and general IP"
  },
