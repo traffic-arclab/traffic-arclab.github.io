@@ -5229,7 +5229,7 @@
       "attack_families": [
         "attck"
       ],
-      "derivation_tool": "CICFlowMeter?",
+      "derivation_tool": "Zeek",
       "size": {
         "gb": "7500"
       },
@@ -6429,7 +6429,8 @@
       },
       "parents": [
         "kdd-cup-1999"
-      ]
+      ],
+      "derivation_tool": "Zeek"
     },
     {
       "id": "gurekddcup",
@@ -6514,7 +6515,6 @@
       "attack_families": [
         "attck"
       ],
-      "derivation_tool": "Suricata",
       "size": {
         "gb": "182"
       },
@@ -7865,7 +7865,7 @@
         "scanning",
         "exploitation"
       ],
-      "derivation_tool": "CICFlowMeter?",
+      "derivation_tool": "CICFlowMeter",
       "size": {
         "gb": "0.14"
       }
