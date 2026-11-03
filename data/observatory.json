@@ -5914,7 +5914,7 @@
     {
       "id": "vast-challenge-2012",
       "name": "VAST Challenge 2012",
-      "url": "https://visualdata.wustl.edu/varepository/benchmarks.php",
+      "url": "https://visualdata.wustl.edu/varepository/VAST_Challenge_2012/challenges/MC1_-_Bank_of_Money_Enterprise_Cyber/",
       "task": "Botnet forensics",
       "domain": "Enterprise / Botnet",
       "data": [
@@ -5945,7 +5945,7 @@
       "paper": {
         "cite": "IEEE VAST Challenge, 2012",
         "title": "VAST Challenge 2012: Bank of Money network security",
-        "url": "https://visualdata.wustl.edu/varepository/benchmarks.php"
+        "url": "https://visualdata.wustl.edu/varepository/VAST_Challenge_2012/challenges/MC1_-_Bank_of_Money_Enterprise_Cyber/"
       }
     },
     {
