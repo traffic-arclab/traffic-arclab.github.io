@@ -3,10 +3,10 @@
  * form (action "observatory_submission") and the email updates of the bell (action
  * "observatory_subscribe", the unsubscribe link and the weekly notifyNewDatasets()).
  *
- * The emails leave from the Google account that publishes this script: for now Gabriele
- * Mangiacapre's, later the institutional account of the Observatory. To move it, repeat the setup
- * with the new account and paste the new /exec URL in "submit_endpoint" of data/observatory.json
- * (copy the two sheets over to keep the subscribers).
+ * The emails leave from the Google account that publishes this script: the group's account,
+ * trafficarclab@gmail.com. To move it, repeat the setup with the new account and paste the new
+ * /exec URL in "submit_endpoint" of data/observatory.json (copy the two sheets over to keep the
+ * subscribers, and add the weekly trigger again).
  *
  * Setup (once):
  *  1. With the sending account, create a Google Sheet (e.g. "Observatory").
@@ -200,7 +200,7 @@ const SUBMISSION_FIELDS = ['dataset', 'url', 'paper', 'domain', 'access', 'task'
   'year', 'size', 'derivation_tool', 'artifact', 'acquisition', 'labeling', 'benign', 'attack_classes',
   'attack_families', 'lineage', 'parents', 'family', 'licence'];
 // Who receives an email for every submission (the first one in To, the others in Cc).
-const OBSERVATORY_TEAM = ['gabriele.mangiacapre@unina.it', 'francesco.cerasuolo@unina.it'];
+const OBSERVATORY_TEAM = ['gabriele.mangiacapre@unina.it', 'francesco.cerasuolo@unina.it', 'trafficarclab@gmail.com'];
 
 function addSubmission(data) {
   const lock = LockService.getScriptLock();

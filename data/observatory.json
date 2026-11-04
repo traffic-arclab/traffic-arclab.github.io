@@ -13,7 +13,8 @@
   "feature_text": "Traffic datasets for intrusion detection, malware and C2 analysis and anomaly detection, linked to their original papers and distribution sources. Researchers can also submit new datasets.",
   "contact": "gabriele.mangiacapre@unina.it",
   "cc": [
-    "francesco.cerasuolo@unina.it"
+    "francesco.cerasuolo@unina.it",
+    "trafficarclab@gmail.com"
   ],
   "citation": {
     "title": "The AI Cybersecurity Dataset Observatory: Which data for AI in Cybersecurity?",
