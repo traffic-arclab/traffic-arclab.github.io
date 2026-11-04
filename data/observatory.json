@@ -2644,7 +2644,7 @@
       "year": "2010",
       "artifact": {
         "traces": false,
-        "derived": true
+        "derived": false
       },
       "representation": "Derived only",
       "acquisition": "emulated",
@@ -2682,7 +2682,7 @@
       "year": "2007",
       "artifact": {
         "traces": false,
-        "derived": true
+        "derived": false
       },
       "representation": "Derived only",
       "acquisition": "emulated",
