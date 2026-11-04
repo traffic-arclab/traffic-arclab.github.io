@@ -1158,7 +1158,8 @@
       "size": {
         "gb": "430",
         "count": "41 attacks"
-      }
+      },
+      "derivation_tool": "custom"
     },
     {
       "id": "wadi",
@@ -1198,7 +1199,8 @@
       "size": {
         "gb": "335",
         "count": "15 attacks"
-      }
+      },
+      "derivation_tool": "custom"
     },
     {
       "id": "datasense-cic-iiot-2025",
@@ -1858,7 +1860,8 @@
       "attack_families": [],
       "size": {
         "count": "8 scenarios, ≈4 h"
-      }
+      },
+      "derivation_tool": "custom"
     },
     {
       "id": "batadal",
@@ -9756,7 +9759,8 @@
         "title": "Developing a Hybrid Intrusion Detection System Using Data Mining for Power Systems",
         "doi": "10.1109/TSG.2015.2409775"
       },
-      "notes": "28 attack scenarios and 9 natural or no-event scenarios; records from PMU measurements and logs."
+      "notes": "28 attack scenarios and 9 natural or no-event scenarios; records from PMU measurements and logs.",
+      "derivation_tool": "OpenPDC"
     },
     {
       "id": "4sics-ics-pcap",
@@ -9831,7 +9835,8 @@
       ],
       "size": {
         "gb": "0.14"
-      }
+      },
+      "derivation_tool": "custom"
     },
     {
       "id": "wustl-iiot-2018",
@@ -9909,7 +9914,7 @@
         "exploitation",
         "other"
       ],
-      "derivation_tool": "Scapy (custom)",
+      "derivation_tool": "Scapy",
       "size": {
         "count": "16.3M records (Modbus)"
       }
@@ -9994,7 +9999,8 @@
       ],
       "size": {
         "gb": "0.86"
-      }
+      },
+      "derivation_tool": "Wireshark"
     },
     {
       "id": "dtu-hybrid-iot-ot-honeypots",
