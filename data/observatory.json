@@ -5189,10 +5189,10 @@
       "category": "backbone",
       "year": "2021",
       "artifact": {
-        "traces": true,
+        "traces": false,
         "derived": true
       },
-      "representation": "PCAP + derived",
+      "representation": "Derived only",
       "acquisition": "real",
       "labeling": [
         "none"
@@ -5202,11 +5202,11 @@
         "attack": null
       },
       "attack_families": null,
-      "derivation_tool": "Argus?",
+      "derivation_tool": "Argus",
       "size": {
         "count": "2.1M flows (15 days)"
       },
-      "notes": "8 cloud honeypots in 8 cities; all traffic is unsolicited, so it has no labels.",
+      "notes": "8 cloud honeypots in 8 cities; released as Argus bidirectional flows and CSV, no PCAP. All traffic is unsolicited, so it has no labels.",
       "evidence": "verified"
     },
     {
@@ -5798,20 +5798,22 @@
         "weak"
       ],
       "classes": {
-        "benign": null,
-        "attack": null
+        "benign": false,
+        "attack": "3"
       },
       "attack_families": [
         "bruteforce",
         "scanning",
-        "exploitation"
+        "web"
       ],
-      "derivation_tool": "NetFlow (v5)",
+      "derivation_tool": "softflowd",
       "size": {
-        "gb": "1.9"
+        "gb": "1.9",
+        "count": "14.2M flows"
       },
-      "notes": "University of Twente honeypot; IDS alerts semi-automatically correlated to flows. SSH/FTP brute force.",
-      "evidence": "verified"
+      "notes": "University of Twente honeypot; NetFlow v5 flows, with IDS alerts semi-automatically correlated to flows. SSH/FTP brute force, scans and web attacks.",
+      "evidence": "verified",
+      "access": "request"
     },
     {
       "id": "isot-botnet",
