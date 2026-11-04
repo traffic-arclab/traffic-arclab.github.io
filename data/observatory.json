@@ -45,7 +45,8 @@
       ],
       "paper": {
         "cite": "Sharafaldin, Lashkari & Ghorbani, ICISSP 2018",
-        "doi": "10.5220/0006639801080116"
+        "doi": "10.5220/0006639801080116",
+        "title": "Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization"
       },
       "notes": "Landing page documents PCAP and derived CSV flows; equivalence between public CSV versions and the packets used to derive them is unverified.",
       "category": "enterprise",
@@ -93,7 +94,8 @@
       ],
       "paper": {
         "cite": "Sharafaldin et al., ICISSP 2018",
-        "doi": "10.5220/0006639801080116"
+        "doi": "10.5220/0006639801080116",
+        "title": "Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization"
       },
       "category": "enterprise",
       "year": "2018",
@@ -140,7 +142,8 @@
       ],
       "paper": {
         "cite": "Moustafa & Slay, MilCIS 2015",
-        "doi": "10.1109/MilCIS.2015.7348942"
+        "doi": "10.1109/MilCIS.2015.7348942",
+        "title": "UNSW-NB15: a comprehensive data set for network intrusion detection systems"
       },
       "notes": "Official distribution documented (PCAP, Argus/Bro, CSV); whether every derivative keeps the original packet information needs a file audit.",
       "category": "enterprise",
@@ -1346,7 +1349,7 @@
         "count": "369k flows"
       },
       "paper": {
-        "cite": "GeNIS, 2025",
+        "cite": "Silva et al., Data in Brief 2025",
         "title": "GeNIS: A modular dataset for network intrusion detection and classification",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11986601/"
       }
@@ -1523,7 +1526,8 @@
       ],
       "paper": {
         "cite": "Spravil et al., Journal of Marine Science and Engineering 2023",
-        "doi": "10.3390/jmse11050928"
+        "doi": "10.3390/jmse11050928",
+        "title": "Detecting Maritime GPS Spoofing Attacks Based on NMEA Sentence Integrity Monitoring"
       },
       "category": "industrial",
       "year": "2023",
@@ -2224,7 +2228,8 @@
       ],
       "paper": {
         "cite": "Mahdavifar et al., IEEE DASC 2021",
-        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech52372.2021.00024"
+        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech52372.2021.00024",
+        "title": "Classifying Malicious Domains using DNS Traffic Analysis"
       },
       "category": "web",
       "year": "2021",
@@ -2262,7 +2267,8 @@
       ],
       "paper": {
         "cite": "Mahdavifar et al., ICCNS 2021",
-        "doi": "10.1145/3507509.3507520"
+        "doi": "10.1145/3507509.3507520",
+        "title": "Lightweight Hybrid Detection of Data Exfiltration using DNS based on Machine Learning"
       },
       "category": "web",
       "year": "2021",
@@ -2412,7 +2418,7 @@
       },
       "notes": "Attack classes are malware families (362).",
       "paper": {
-        "cite": "MalwareTraffic: liveness-annotated malware PCAP dataset, 2026",
+        "cite": "Root0ne, GitHub 2026",
         "title": "MalwareTraffic: liveness-annotated malware PCAP dataset",
         "url": "https://github.com/Root0ne/malware-pcap-dataset"
       }
@@ -2517,7 +2523,8 @@
       ],
       "paper": {
         "cite": "Chatzoglou et al., Computers & Security 2023",
-        "doi": "10.1016/j.cose.2022.103051"
+        "doi": "10.1016/j.cose.2022.103051",
+        "title": "A hands-on gaze on HTTP/3 security through the lens of HTTP/2 and a public dataset"
       },
       "category": "web",
       "year": "2022",
@@ -2803,7 +2810,8 @@
       ],
       "paper": {
         "cite": "Shiravi et al., Computers & Security 2012",
-        "doi": "10.1016/j.cose.2011.12.012"
+        "doi": "10.1016/j.cose.2011.12.012",
+        "title": "Toward developing a systematic approach to generate benchmark datasets for intrusion detection"
       },
       "category": "enterprise",
       "year": "2012",
@@ -2846,7 +2854,8 @@
       ],
       "paper": {
         "cite": "MontazeriShatoori et al., IEEE DASC 2020",
-        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech49142.2020.00026"
+        "doi": "10.1109/dasc-picom-cbdcom-cyberscitech49142.2020.00026",
+        "title": "Detection of DoH Tunnels using Time-series Classification of Encrypted Traffic"
       },
       "category": "web",
       "year": "2020",
@@ -5243,7 +5252,7 @@
         "gb": "7500"
       },
       "paper": {
-        "cite": "ESORICS 2025",
+        "cite": "Lanvin & Majorczyk, ESORICS 2025 Workshops (LNCS 16232)",
         "title": "Get out of DEDALE with RESCOUSSE: a New Dataset and Testbed for Evaluating the Detection of APT attacks among Network and System Logs",
         "url": "https://hal.science/hal-05329482"
       }
@@ -5447,7 +5456,7 @@
         "count": "103k flows"
       },
       "paper": {
-        "cite": "International Journal of Information Technology 2023",
+        "cite": "Homaei et al., International Journal of Information Technology 2023",
         "title": "OD-IDS2022: generating a new offensive defensive intrusion detection dataset for machine learning-based attack classification",
         "doi": "10.1007/s41870-023-01464-8"
       }
@@ -5663,7 +5672,8 @@
       ],
       "paper": {
         "cite": "Diaz-Verdejo et al., European Interdisciplinary Cybersecurity Conference 2024",
-        "doi": "10.1145/3655693.3661319"
+        "doi": "10.1145/3655693.3661319",
+        "title": "Biblio-US17: A labeled real URL dataset for anomaly-based intrusion detection systems development"
       },
       "category": "web",
       "year": "2017",
@@ -6408,7 +6418,8 @@
       "family": "DARPA / KDD",
       "paper": {
         "cite": "Tavallaee et al., IEEE CISDA 2009",
-        "doi": "10.1109/CISDA.2009.5356528"
+        "doi": "10.1109/CISDA.2009.5356528",
+        "title": "A detailed analysis of the KDD CUP 99 data set"
       },
       "notes": "Legacy benchmark derived from KDD Cup 1999; redundancy and benchmark distortion are documented.",
       "category": "enterprise",
@@ -6531,7 +6542,7 @@
       },
       "notes": "Label description in Zenodo record 18861762.",
       "paper": {
-        "cite": "Zenodo 2026",
+        "cite": "Landauer et al., Zenodo 2026",
         "title": "CAM-LDS network captures",
         "url": "https://zenodo.org/records/18701095"
       }
@@ -6836,7 +6847,7 @@
         "gb": "23.8"
       },
       "paper": {
-        "cite": "Zenodo 2025",
+        "cite": "Belarbi et al., Zenodo 2025",
         "title": "Gotham Device-Level IoT Network Traffic",
         "url": "https://zenodo.org/records/14502760"
       }
@@ -6943,7 +6954,7 @@
       ],
       "notes": "One Zenodo record with packet-level labels for CIC-IDS2017 (49.3 GB, 14 attack classes) and UNSW-NB15 (12.7 GB, 9 attack classes).",
       "paper": {
-        "cite": "Zenodo 2025",
+        "cite": "Matejek et al., Zenodo 2025",
         "title": "SAFE-NID: packet-level payload labels for CIC-IDS2017 and UNSW-NB15",
         "url": "https://zenodo.org/records/15046995"
       }
@@ -7806,7 +7817,8 @@
       ],
       "paper": {
         "cite": "Engelen, Rimmer & Joosen, WTMC 2021",
-        "doi": "10.1109/SPW53761.2021.00009"
+        "doi": "10.1109/SPW53761.2021.00009",
+        "title": "Troubleshooting an intrusion detection dataset: the CICIDS2017 case study"
       },
       "category": "enterprise",
       "year": "2021",
@@ -8314,7 +8326,8 @@
       },
       "paper": {
         "cite": "Bagui et al., Electronics 2023",
-        "doi": "10.3390/electronics12245039"
+        "doi": "10.3390/electronics12245039",
+        "title": "UWF-ZeekDataFall22: An Enterprise MITRE ATT&CK Labeled Network Attack Traffic Dataset"
       }
     },
     {
@@ -8870,7 +8883,8 @@
       ],
       "paper": {
         "cite": "Alatram et al., Computer Networks 2023",
-        "doi": "10.1016/j.comnet.2023.109809"
+        "doi": "10.1016/j.comnet.2023.109809",
+        "title": "DoS/DDoS-MQTT-IoT: A dataset for evaluating intrusions in IoT networks using the MQTT protocol"
       },
       "notes": "Physical IoT testbed with normal MQTT traffic and 10 DoS/DDoS scenarios. Download location not yet identified: see the paper.",
       "category": "iot",
@@ -8906,7 +8920,8 @@
       ],
       "paper": {
         "cite": "Değirmenci et al., Data in Brief 2023",
-        "doi": "10.1016/j.dib.2023.109739"
+        "doi": "10.1016/j.dib.2023.109739",
+        "title": "ROSIDS23: Network intrusion detection dataset for robot operating system"
       },
       "notes": "ROS middleware traffic with DoS, unauthorized publish/subscribe and subscriber flood attacks. Download location not yet identified: see the paper.",
       "category": "iot",
@@ -8977,7 +8992,8 @@
       ],
       "paper": {
         "cite": "Puccetti et al., Scientific Data 2024",
-        "doi": "10.1038/s41597-024-03311-2"
+        "doi": "10.1038/s41597-024-03311-2",
+        "title": "ROSPaCe: Intrusion Detection Dataset for a ROS2-Based Cyber-Physical System and IoT Networks"
       },
       "notes": "Penetration tests on a ROS2 embedded system, with features at the Linux, network and ROS2 layers. Download location not yet identified: see the paper.",
       "category": "iot",
@@ -9361,7 +9377,7 @@
       },
       "attack_families": null,
       "paper": {
-        "cite": "CyberFlowIoT-GICAP: Labelled IoT flow-based traffic dataset, 2026",
+        "cite": "Martinez Gonzalez, Baseca & Munoz, 2026",
         "title": "CyberFlowIoT-GICAP: Labelled IoT flow-based traffic dataset",
         "url": "https://hdl.handle.net/10259/11273"
       },
@@ -9479,7 +9495,7 @@
       ],
       "derivation_tool": "custom (PyShark)",
       "paper": {
-        "cite": "Data in Brief 2025",
+        "cite": "Aqachtoul et al., Data in Brief 2025",
         "title": "MQTTEEB-D: A Real-World IoT Cybersecurity Dataset for AI-Powered Threat Detection in MQTT Networks",
         "doi": "10.1016/j.dib.2025.111897"
       }
@@ -10168,7 +10184,7 @@
         "count": "2.6M records"
       },
       "paper": {
-        "cite": "Zenodo 2025",
+        "cite": "Houkan, Zenodo 2025",
         "title": "ICSCASD-MPLC",
         "url": "https://zenodo.org/records/16351397"
       }
@@ -10894,7 +10910,7 @@
         "gb": "0.060"
       },
       "paper": {
-        "cite": "Zenodo 2023",
+        "cite": "Sheikhi, Busari, Gonzalez & Gonzalez, Zenodo 2023",
         "title": "5GC PFCP Intrusion Detection Dataset",
         "url": "https://zenodo.org/records/7888347"
       }
@@ -10936,8 +10952,8 @@
         "gb": "0.042"
       },
       "paper": {
-        "cite": "5G Security and Resource Allocation Dataset, 2025 (source to be completed)",
-        "title": "5G Security and Resource Allocation Dataset",
+        "cite": "Nugraha et al., IEEE CSR 2025",
+        "title": "A Comprehensive 5G Network Dataset for Control and Data Plane Security and Resource Allocation Analysis",
         "url": "https://github.com/DLTeamTUC/5GDatasets"
       },
       "notes": "The bib says this is possibly the DLTeamTUC 5G Security Datasets record: to be confirmed."
@@ -10976,8 +10992,9 @@
       ],
       "derivation_tool": "CICFlowMeter?",
       "paper": {
-        "cite": "5G Core GTP-U Attack Dataset (5G-CGAD), 2025 (source to be completed)",
-        "title": "5G Core GTP-U Attack Dataset (5G-CGAD)"
+        "cite": "Duchesne, Blaise, Braconnot Velloso & Conan, 6GNet 2025",
+        "title": "5G-Attacks: A new dataset from realistic 5G-core attacks",
+        "url": "https://api.semanticscholar.org/CorpusID:284375860"
       }
     },
     {
@@ -11072,7 +11089,7 @@
         "Wireshark fields"
       ],
       "paper": {
-        "cite": "Mendeley Data 2026",
+        "cite": "Halbouni, Ong & Leow, Mendeley Data 2026",
         "title": "WPA3 Attacks Dataset",
         "doi": "10.17632/cxx5t5nw7z.1"
       },
@@ -11526,7 +11543,7 @@
         "CSV"
       ],
       "paper": {
-        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), 2023 (source to be completed)",
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2023",
         "title": "BCCC-CIRA-CIC-DoHBrw-2020",
         "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
       },
@@ -11569,7 +11586,7 @@
         "CSV"
       ],
       "paper": {
-        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), 2024 (source to be completed)",
+        "cite": "Behaviour-Centric Cybersecurity Center (BCCC), York University, 2024",
         "title": "BCCC-CIC-Bell-DNS-2024",
         "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/"
       },
