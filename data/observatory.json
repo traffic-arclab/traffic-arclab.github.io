@@ -710,7 +710,8 @@
         "scanning",
         "spoofing",
         "other"
-      ]
+      ],
+      "derivation_tool": "CICFlowMeter"
     },
     {
       "id": "uavids-2025",
@@ -750,7 +751,8 @@
         "gb": "0.019",
         "count": "122k flows"
       },
-      "notes": "Simulated in NS-3. Also on Zenodo: https://zenodo.org/records/15336998."
+      "notes": "Simulated in NS-3. Also on Zenodo: https://zenodo.org/records/15336998.",
+      "derivation_tool": "custom"
     },
     {
       "id": "gcs-nidd",
@@ -793,7 +795,8 @@
         "cite": "CyberSaR Lab, KAUST, 2026",
         "title": "GCS-NIDD: UAV Ground Control Station Intrusion Detection Dataset",
         "url": "https://github.com/CyberSaR-KAUST/UAV-GCS-Intrusion-Detection-Dataset-UAV-GCS-IDS-"
-      }
+      },
+      "derivation_tool": "CICFlowMeter, Zeek"
     },
     {
       "id": "nf-unsw-nb15-v2",
@@ -10760,7 +10763,7 @@
         "spoofing",
         "injection"
       ],
-      "derivation_tool": "custom (Python)?",
+      "derivation_tool": "CICFlowMeter",
       "size": {
         "gb": "0.0059"
       },
