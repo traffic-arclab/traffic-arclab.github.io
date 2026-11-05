@@ -19,7 +19,7 @@ The records come from the Excel list (scripts/import_observatory.py) plus what i
 added by hand in the JSON: "origin": "web" (found online, not shown on the page), "family",
 "derived_from", "paper" {cite, doi} and "notes". The records of the paper tables also have
 "category" (the table: enterprise, iot, malware, industrial, automotive, v2x, uav, 5g), "year",
-"representation" (PCAP, PCAP + derived, Derived only, Bus / V2X msgs, Unclear), "evidence" (how the
+"representation" (PCAP, PCAP + derived, Derived only, Bus / V2X msgs), "evidence" (how the
 distribution source was checked: verified, secondary, publisher, unconfirmed) and "access"
 (registration, request, restricted = registration or request, undocumented, unavailable = withdrawn or
 not yet released; open when missing).
@@ -573,8 +573,7 @@ def domain_pills(key, text):
 REPRESENTATIONS = [('pktder', 'Pkt + derived', 'packet captures together with flow or feature tables'),
                    ('pkt', 'Pkt only', 'packet captures without derived tables'),
                    ('der', 'Derived', 'flow, log or feature tables without packets'),
-                   ('bus', 'Bus / V2X', 'raw CAN bus or V2X message logs'),
-                   ('unclear', 'Unclear', 'artifact type not documented')]
+                   ('bus', 'Bus / V2X', 'raw CAN bus or V2X message logs')]
 
 
 def representation_of(rec):
@@ -582,7 +581,7 @@ def representation_of(rec):
         return 'bus'
     a = rec.get('artifact')
     if not a:
-        return 'unclear'
+        return None
     return 'pktder' if a['traces'] and a['derived'] else 'pkt' if a['traces'] else 'der'
 
 
@@ -592,7 +591,11 @@ def domain_table(records):
     rows = {}
     for r in records:
         if r.get('category') and r.get('table_row', True):
-            rows.setdefault(r['category'], {k: 0 for k, _, _ in REPRESENTATIONS})[representation_of(r)] += 1
+            kind = representation_of(r)
+            if kind is None:
+                print(f'warning: {r.get("id")} has no "artifact": left out of the table by representation')
+                continue
+            rows.setdefault(r['category'], {k: 0 for k, _, _ in REPRESENTATIONS})[kind] += 1
     order = sorted(rows, key=lambda k: (-sum(rows[k].values()), label_of(DOMAINS, k)))
     top = max(sum(v.values()) for v in rows.values())
     total = {k: sum(rows[d][k] for d in rows) for k, _, _ in REPRESENTATIONS}

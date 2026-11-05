@@ -1408,7 +1408,7 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-rep-bar span:last-child { border-radius: 0 4px 4px 0; }
 .obs-rep-bar span:only-child { border-radius: 4px; }
 .obs-rep-pktder { background: var(--rep-pktder); } .obs-rep-pkt { background: var(--rep-pkt); } .obs-rep-der { background: var(--rep-der); }
-.obs-rep-bus { background: var(--rep-bus); } .obs-rep-unclear { background: var(--rep-unclear); }
+.obs-rep-bus { background: var(--rep-bus); }
 .obs-rep-sum th, .obs-rep-sum td { border-bottom: 0; border-top: 1.5px solid var(--color-strong-line); font-weight: 700; }
 .obs-rep-key { display: inline-block; width: 10px; height: 10px; border-radius: 3px; vertical-align: -.05em; }
 .obs-rep-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px; list-style: none; color: var(--color-muted); font-size: .84rem; }

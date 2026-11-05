@@ -6923,9 +6923,12 @@
       ],
       "category": "enterprise",
       "year": "2025",
-      "representation": "Unclear",
+      "representation": "PCAP",
       "evidence": "verified",
-      "artifact": null,
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
       "acquisition": "hybrid",
       "labeling": [
         "multiclass"
