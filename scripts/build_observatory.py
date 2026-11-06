@@ -52,9 +52,10 @@ import json
 import os
 import re
 from datetime import date, timedelta
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 import build_datasets as site
+import observatory_changelog
 
 ROOT = site.ROOT
 DATA = os.path.join(ROOT, 'data', 'observatory.json')
@@ -529,6 +530,106 @@ def citation(data):
 '''
 
 
+def current_version(data):
+    releases = sorted(data.get('releases', []), key=lambda r: r['date'])
+    return releases[-1]['version'] if releases else ''
+
+
+def version_link(data):
+    """The current release in the numbers of the opening, linked to the change log."""
+    v = current_version(data)
+    if not v:
+        return ''
+    return ('\n          <li><a class="obs-version" href="changelog.html" title="What changed in each release">'
+            f'release <strong>v{esc(v)}</strong></a></li>')
+
+
+CHANGE_KINDS = {'added': 'Added', 'removed': 'Removed', 'changed': 'Changed'}
+SOURCES = {'editor': 'Site editor', 'repository': 'Repository'}
+
+
+def nice_date(day):
+    d = date.fromisoformat(day)
+    return f'{d.day} {d:%b %Y}'
+
+
+def changelog_change(c):
+    name = esc(c['name'])
+    if c['kind'] != 'removed':
+        name = f'<a href="index.html?q={esc(quote(c["name"]))}#catalogue">{name}</a>'
+    detail = ''
+    if c['kind'] == 'changed':
+        detail = '<ul class="obs-log-fields">' + ''.join(
+            f'<li><span class="obs-log-field">{esc(f["field"])}</span> <del>{esc(f["old"])}</del> '
+            f'<span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>{esc(f["new"])}</ins></li>'
+            for f in c['fields']) + '</ul>'
+    elif c['kind'] == 'removed' and c.get('reason'):
+        detail = f'<p class="obs-log-reason">{esc(c["reason"])}</p>'
+    return (f'<li class="obs-log-change obs-log-{c["kind"]}"><span class="obs-log-kind">{CHANGE_KINDS[c["kind"]]}</span> '
+            f'{name}{detail}</li>')
+
+
+def changelog_entry(e):
+    meta = (f'<time datetime="{e["date"]}">{nice_date(e["date"])}</time> · '
+            f'<span class="obs-log-source obs-log-source-{e["source"]}">{SOURCES[e["source"]]}</span> · '
+            f'<code>{esc(e["commit"])}</code>')
+    changes = ''.join(changelog_change(c) for c in e['changes'])
+    return (f'            <li class="obs-log-entry">\n'
+            f'              <p class="obs-log-meta">{meta}</p>\n'
+            f'              <ul class="obs-log-changes">{changes}</ul>\n'
+            f'            </li>')
+
+
+def changelog_release(r, since):
+    n = sum(len(e['changes']) for e in r['entries'])
+    if r.get('unreleased'):
+        head = f'Unreleased <span class="obs-log-next">next: v{esc(r["version"])}</span>'
+        sub = f'{n} change{"s" if n != 1 else ""} since the last release, not yet part of a release.'
+    else:
+        head = f'v{esc(r["version"])} <span class="obs-log-date">{nice_date(r["date"])}</span>'
+        sub = esc(r.get('summary', ''))
+    if r['entries']:
+        body = '\n'.join(changelog_entry(e) for e in reversed(r['entries']))
+    elif r['date'] < since:
+        body = f'            <li class="obs-log-empty">Changes are logged from {nice_date(since)}: earlier changes are not listed.</li>'
+    else:
+        body = '            <li class="obs-log-empty">No change to the catalogue.</li>'
+    return (f'        <section class="obs-log-release" id="v{esc(r["version"])}">\n'
+            f'          <h2 class="obs-log-title">{head}</h2>\n'
+            f'          <p class="obs-log-summary">{sub}</p>\n'
+            f'          <ol class="obs-log-entries">\n{body}\n          </ol>\n'
+            f'        </section>')
+
+
+def changelog_page(data, log):
+    """observatory/changelog.html: the releases and the changes of each, read from git (observatory_changelog)."""
+    hero = site.hero([('Datasets', None), (data['title'], 'index.html'), ('Changelog', None)], 'Changelog',
+                     'Every change to the catalogue, release by release: datasets added or removed, and the fields '
+                     'corrected in each record, with their old and new values.')
+    releases = '\n'.join(changelog_release(r, log['since']) for r in log['releases'])
+    main = f'''{hero}
+
+    <section class="section page-body">
+      <div class="container obs-log">
+        <div class="prose obs-log-rules">
+          <p>Each release is a dated state of the catalogue that can be cited. Changes are collected under <strong>Unreleased</strong> until the next release, whose number depends on what changed:</p>
+          <ul>
+            <li><strong>Patch</strong> (e.g. 1.0.1): corrections to existing records only.</li>
+            <li><strong>Minor</strong> (e.g. 1.1): datasets added to or removed from the catalogue.</li>
+            <li><strong>Major</strong> (e.g. 2.0): a change of the taxonomy, such as a new axis, domain or vocabulary.</li>
+          </ul>
+          <p>Each change shows whether it was made in the site editor or directly in the repository, and its commit.</p>
+        </div>
+{releases}
+      </div>
+    </section>'''
+    page = site.frame(f'Changelog | {data["title"]} | Traffic',
+                      'Changes to the Cybersecurity Dataset Observatory, release by release.', main, 'observatory')
+    if is_hidden(data):
+        page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
+    return re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>', '', page, count=1)
+
+
 def engine(data, records, families):
     """The opening of the page: a search engine home, on a night sky with the observatory drawing."""
     cite, cite_by = citation(data)
@@ -548,7 +649,7 @@ def engine(data, records, families):
         <ul class="obs-engine-stats" aria-label="The catalogue in numbers">
           <li><strong>{len(records)}</strong> records</li>
           <li><strong>{len(families)}</strong> independent families</li>
-          <li>last update <strong>{updated(data).day} {updated(data):%b %Y}</strong></li>
+          <li>last update <strong>{updated(data).day} {updated(data):%b %Y}</strong></li>{version_link(data)}
         </ul>
         <div class="obs-engine-foot">
 {cite}          <div class="obs-engine-submit">
@@ -1033,6 +1134,18 @@ def build():
     with open(os.path.join(OUT, 'updates.json'), 'w', encoding='utf-8') as f:   # read by the Apps Script (email updates)
         json.dump(updates_feed(records), f, ensure_ascii=False, indent=1)
         f.write('\n')
+    cached_path = os.path.join(OUT, 'changelog.json')   # the entries, for builds without the git history
+    try:
+        with open(cached_path, encoding='utf-8') as f:
+            cached = json.load(f)
+    except (OSError, ValueError):
+        cached = {}
+    log = observatory_changelog.changelog(data, ROOT, cached)
+    with open(cached_path, 'w', encoding='utf-8') as f:
+        json.dump({'since': log['since'], 'entries': log['entries']}, f, ensure_ascii=False, indent=1)
+        f.write('\n')
+    with open(os.path.join(OUT, 'changelog.html'), 'w', encoding='utf-8') as f:
+        f.write(changelog_page(data, log))
     return len(all_records(data)), update_features(data)
 
 

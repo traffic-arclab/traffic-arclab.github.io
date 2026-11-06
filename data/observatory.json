@@ -9,6 +9,14 @@
   "lead": "A curated catalogue of network-traffic datasets for AI-based cybersecurity: what each dataset contains, where it is distributed and which paper introduced it.",
   "snapshot": "2026-10-15",
   "new_until": "2027-01-31",
+  "releases": [
+    {
+      "version": "1.0",
+      "date": "2026-10-20",
+      "summary": "First release, documented in the paper: 223 datasets across 14 domains."
+    }
+  ],
+  "changelog_since": "2026-11-06",
   "feature_title": "A curated catalogue of network-attack datasets for AI",
   "feature_text": "Traffic datasets for intrusion detection, malware and C2 analysis and anomaly detection, linked to their original papers and distribution sources. Researchers can also submit new datasets.",
   "contact": "gabriele.mangiacapre@unina.it",
