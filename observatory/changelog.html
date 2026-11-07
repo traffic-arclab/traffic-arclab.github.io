@@ -12,7 +12,7 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=b910d19f">
+  <link rel="stylesheet" href="../css/site.css?v=262ec9cf">
   <script src="../js/site.js?v=9e61baa7" defer></script>
 </head>
 <body>
@@ -141,13 +141,14 @@
             <li><strong>Minor</strong> (e.g. 1.1): datasets added to or removed from the catalogue.</li>
             <li><strong>Major</strong> (e.g. 2.0): a change of the taxonomy, such as a new axis, domain or vocabulary.</li>
           </ul>
-          <p>Each change shows whether it was made in the site editor or directly in the repository, and its commit.</p>
+          <p>Each change shows whether it was made in the site editor or directly in the repository, and its commit. A dataset whose source stops distributing it stays in the catalogue, marked <strong>Withdrawn</strong>.</p>
+          <p>Every release is frozen as a copy of the catalogue at its date, and every dataset keeps its own dated history in its card: two works that cite the same dataset can be compared on the state of its record at the date or release each of them used.</p>
         </div>
         <section class="obs-log-release" id="v1.0.1">
           <h2 class="obs-log-title">Unreleased <span class="obs-log-next">next: v1.0.1</span></h2>
           <p class="obs-log-summary">1 change since the last release, not yet part of a release.</p>
           <ol class="obs-log-entries">
-            <li class="obs-log-entry">
+            <li class="obs-log-entry" id="c-e9c573c">
               <p class="obs-log-meta"><time datetime="2026-11-07">7 Nov 2026</time> · <span class="obs-log-source obs-log-source-repository">Repository</span> · <code>e9c573c</code></p>
               <ul class="obs-log-changes"><li class="obs-log-change obs-log-changed"><span class="obs-log-kind">Changed</span> <a href="index.html?q=WUSTL-IIoT-2018#catalogue">WUSTL-IIoT-2018</a><ul class="obs-log-fields"><li><span class="obs-log-field">Domain</span> <del>iot</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>industrial</ins></li></ul></li></ul>
             </li>
@@ -155,7 +156,7 @@
         </section>
         <section class="obs-log-release" id="v1.0">
           <h2 class="obs-log-title">v1.0 <span class="obs-log-date">20 Oct 2026</span></h2>
-          <p class="obs-log-summary">First release, documented in the paper: 223 datasets across 14 domains.</p>
+          <p class="obs-log-summary">First release, documented in the paper: 223 datasets across 14 domains. <a class="obs-log-frozen" href="releases/v1.0.json" download>Catalogue at this release (JSON)</a></p>
           <ol class="obs-log-entries">
             <li class="obs-log-empty">Changes are logged from 6 Nov 2026: earlier changes are not listed.</li>
           </ol>

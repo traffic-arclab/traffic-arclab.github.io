@@ -1506,9 +1506,10 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-version:hover, .obs-version:focus-visible { color: #fff; border-bottom-style: solid; }
 
 /* Observatory changelog (observatory/changelog.html) */
-.obs-log { --log-added: #1a7f52; --log-removed: #b3261e; --log-changed: var(--color-accent-ink); max-width: 960px; }
-:root[data-theme="dark"] .obs-log { --log-added: #4cc38a; --log-removed: #f2827a; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme]) .obs-log { --log-added: #4cc38a; --log-removed: #f2827a; } }
+.obs-log, .obs-history { --log-added: #1a7f52; --log-removed: #b3261e; --log-changed: var(--color-accent-ink); }
+.obs-log { max-width: 960px; }
+:root[data-theme="dark"] :is(.obs-log, .obs-history) { --log-added: #4cc38a; --log-removed: #f2827a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) :is(.obs-log, .obs-history) { --log-added: #4cc38a; --log-removed: #f2827a; } }
 .obs-log-rules { margin-bottom: clamp(28px, 4vw, 44px); }
 .obs-log-release { padding-top: clamp(24px, 3vw, 36px); border-top: 1px solid var(--color-line); margin-top: clamp(24px, 3vw, 36px); scroll-margin-top: 96px; }
 .obs-log-title { color: var(--color-title); font: 600 clamp(1.5rem, 2.4vw, 1.9rem)/1.2 var(--font-serif); }
@@ -1524,7 +1525,7 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-log-changes { list-style: none; padding: 0; margin-top: 8px; display: grid; gap: 8px; }
 .obs-log-kind { display: inline-block; min-width: 76px; margin-right: 6px; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .obs-log-added .obs-log-kind { color: var(--log-added); }
-.obs-log-removed .obs-log-kind { color: var(--log-removed); }
+:is(.obs-log-removed, .obs-log-withdrawn) .obs-log-kind { color: var(--log-removed); }
 .obs-log-changed .obs-log-kind { color: var(--log-changed); }
 .obs-log-fields { list-style: none; padding: 0; margin: 4px 0 0 82px; display: grid; gap: 3px; font-size: .92rem; overflow-wrap: anywhere; }
 .obs-log-field { font-weight: 600; color: var(--color-ink); }
@@ -1532,6 +1533,15 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-log-fields ins { color: var(--log-added); text-decoration: none; }
 .obs-log-reason { margin: 4px 0 0 82px; color: var(--color-muted); font-size: .92rem; }
 @media (max-width: 640px) { .obs-log-fields, .obs-log-reason { margin-left: 0; } }
+.obs-log-frozen { margin-left: 8px; white-space: nowrap; }
+/* the history of a record, in its dialog */
+.obs-history { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-line); }
+.obs-hist-lead { margin-top: 4px; color: var(--color-muted); font-size: .92rem; }
+.obs-hist-events { list-style: none; padding: 0; margin-top: 10px; display: grid; gap: 10px; }
+.obs-hist-event .obs-log-meta { margin-bottom: 2px; }
+.obs-history .obs-log-fields { margin-left: 0; }
+.obs-hist-cite { margin-top: 12px; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--color-surface); font-size: .88rem; overflow-wrap: anywhere; }
+.obs-hist-cite a { display: inline-block; margin-left: 4px; }
 .obs-engine :focus-visible { outline-color: var(--color-focus-on-deep); }
 /* The cite block and the submit call face each other line by line (same line height); the authors are a row below,
    at the same distance from the gold border as the two lines above. */

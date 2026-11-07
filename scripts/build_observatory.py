@@ -544,7 +544,7 @@ def version_link(data):
             f'release <strong>v{esc(v)}</strong></a></li>')
 
 
-CHANGE_KINDS = {'added': 'Added', 'removed': 'Removed', 'changed': 'Changed'}
+CHANGE_KINDS = {'added': 'Added', 'removed': 'Removed', 'withdrawn': 'Withdrawn', 'changed': 'Changed'}
 SOURCES = {'editor': 'Site editor', 'repository': 'Repository'}
 
 
@@ -558,7 +558,7 @@ def changelog_change(c):
     if c['kind'] != 'removed':
         name = f'<a href="index.html?q={esc(quote(c["name"]))}#catalogue">{name}</a>'
     detail = ''
-    if c['kind'] == 'changed':
+    if c['kind'] in ('changed', 'withdrawn'):
         detail = '<ul class="obs-log-fields">' + ''.join(
             f'<li><span class="obs-log-field">{esc(f["field"])}</span> <del>{esc(f["old"])}</del> '
             f'<span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>{esc(f["new"])}</ins></li>'
@@ -574,7 +574,7 @@ def changelog_entry(e):
             f'<span class="obs-log-source obs-log-source-{e["source"]}">{SOURCES[e["source"]]}</span> · '
             f'<code>{esc(e["commit"])}</code>')
     changes = ''.join(changelog_change(c) for c in e['changes'])
-    return (f'            <li class="obs-log-entry">\n'
+    return (f'            <li class="obs-log-entry" id="c-{esc(e["commit"])}">\n'
             f'              <p class="obs-log-meta">{meta}</p>\n'
             f'              <ul class="obs-log-changes">{changes}</ul>\n'
             f'            </li>')
@@ -588,6 +588,9 @@ def changelog_release(r, since):
     else:
         head = f'v{esc(r["version"])} <span class="obs-log-date">{nice_date(r["date"])}</span>'
         sub = esc(r.get('summary', ''))
+        if os.path.exists(os.path.join(OUT, 'releases', f'v{r["version"]}.json')):
+            sub += (f' <a class="obs-log-frozen" href="releases/v{esc(r["version"])}.json" download>'
+                    f'Catalogue at this release (JSON)</a>')
     if r['entries']:
         body = '\n'.join(changelog_entry(e) for e in reversed(r['entries']))
     elif r['date'] < since:
@@ -618,7 +621,8 @@ def changelog_page(data, log):
             <li><strong>Minor</strong> (e.g. 1.1): datasets added to or removed from the catalogue.</li>
             <li><strong>Major</strong> (e.g. 2.0): a change of the taxonomy, such as a new axis, domain or vocabulary.</li>
           </ul>
-          <p>Each change shows whether it was made in the site editor or directly in the repository, and its commit.</p>
+          <p>Each change shows whether it was made in the site editor or directly in the repository, and its commit. A dataset whose source stops distributing it stays in the catalogue, marked <strong>Withdrawn</strong>.</p>
+          <p>Every release is frozen as a copy of the catalogue at its date, and every dataset keeps its own dated history in its card: two works that cite the same dataset can be compared on the state of its record at the date or release each of them used.</p>
         </div>
 {releases}
       </div>
@@ -1011,7 +1015,7 @@ def submit_form(data):
     </section>'''
 
 
-def page_data(records):
+def page_data(records, history=None):
     """The record details shown in the dialog (the table carries only what the filters need)."""
     keep = ('id', 'name', 'url', 'task', 'domain', 'year', 'data', 'representation', 'access', 'evidence', 'family', 'derived_from',
             'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text', 'new_since')
@@ -1028,14 +1032,17 @@ def page_data(records):
             item['captures'] = [c['id'] for c in r['_captures']]
         if new_until(r):
             item['new_until'] = new_until(r)
+        if history and history.get(r['id']):
+            item['history'] = history[r['id']]
         item.update(size=r['_size'], index=r['_index'], mixed=r['_mixed'], ours=r['_ours'],
                     domainGroup=label_of(DOMAINS, r['_domain']), domainKey=r['_domain'])
         out.append(item)
-    payload = json.dumps({'records': out}, ensure_ascii=False, separators=(',', ':'))
+    meta = {k: history[k] for k in ('_since', '_first', '_current', '_title')} if history else {}
+    payload = json.dumps({'records': out, 'log': meta}, ensure_ascii=False, separators=(',', ':'))
     return payload.replace('</', '<\\/')
 
 
-def observatory_page(data):
+def observatory_page(data, history=None):
     records = all_records(data)
     families = enrich(records)
     about = '\n'.join('          <p>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(p)) + '</p>' for p in data['about'])
@@ -1105,7 +1112,7 @@ def observatory_page(data):
         <div data-dialog-body></div>
       </div>
     </dialog>
-    <script type="application/json" id="obs-data">{page_data(records)}</script>'''
+    <script type="application/json" id="obs-data">{page_data(records, history)}</script>'''
 
     page = site.frame(f'{data["title"]} | Traffic',
                       'Curated catalogue of network-traffic datasets for AI-based cybersecurity, linked to their papers and distribution sources.',
@@ -1124,8 +1131,17 @@ def build():
         ds = json.load(f)
     site.MENU_NOTES.update(mirage=site.page(ds, 'menu_mirage'), genai=site.page(ds, 'menu_genai'))
     os.makedirs(OUT, exist_ok=True)
+    cached_path = os.path.join(OUT, 'changelog.json')   # the entries, for builds without the git history
+    try:
+        with open(cached_path, encoding='utf-8') as f:
+            cached = json.load(f)
+    except (OSError, ValueError):
+        cached = {}
+    log = observatory_changelog.changelog(data, ROOT, cached)
+    observatory_changelog.freeze(data, ROOT, os.path.join(OUT, 'releases'))
+    history = dict(log['history'], _since=log['since'], _first=log['first'], _current=log['current'], _title=data['title'])
     with open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(observatory_page(data))
+        f.write(observatory_page(data, history))
     records = all_records(data)
     enrich(records)
     with open(os.path.join(OUT, 'catalogue.json'), 'w', encoding='utf-8') as f:
@@ -1134,13 +1150,6 @@ def build():
     with open(os.path.join(OUT, 'updates.json'), 'w', encoding='utf-8') as f:   # read by the Apps Script (email updates)
         json.dump(updates_feed(records), f, ensure_ascii=False, indent=1)
         f.write('\n')
-    cached_path = os.path.join(OUT, 'changelog.json')   # the entries, for builds without the git history
-    try:
-        with open(cached_path, encoding='utf-8') as f:
-            cached = json.load(f)
-    except (OSError, ValueError):
-        cached = {}
-    log = observatory_changelog.changelog(data, ROOT, cached)
     with open(cached_path, 'w', encoding='utf-8') as f:
         json.dump({'since': log['since'], 'entries': log['entries']}, f, ensure_ascii=False, indent=1)
         f.write('\n')

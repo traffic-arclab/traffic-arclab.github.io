@@ -326,6 +326,40 @@
     </li>`;
   }
 
+  // The dated history of a record: the release it entered, its changes since the log began, and how to cite
+  // the state of the record that a work used.
+  const log = data.log || {};
+  const KINDS = {added: 'Added', removed: 'Removed', withdrawn: 'Withdrawn', changed: 'Changed'};
+  const day = d => new Date(`${d}T12:00:00`).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
+  function history(r) {
+    if (!log._current) return '';
+    const events = r.history || [];
+    const added = events.find(e => e.kind === 'added');
+    const pending = events.some(e => e.unreleased);
+    const entered = added ? (added.unreleased ? `Added on ${day(added.date)}, not yet in a release`
+      : `Added on ${day(added.date)}, in release v${esc(added.release)}`)
+      : `In the catalogue since release v${esc(log._first)}`;
+    // a state not yet frozen in a release is identified by the date of its last change
+    const state = pending ? `state of ${day(events[events.length - 1].date)} (unreleased, after v${esc(log._current)})`
+      : `v${esc(log._current)}`;
+    const rows = events.slice().reverse().map(e => `<li class="obs-hist-event obs-log-${esc(e.kind)}">
+        <p class="obs-log-meta"><time datetime="${esc(e.date)}">${day(e.date)}</time> · ${e.unreleased ? 'unreleased' : `v${esc(e.release)}`}
+          · <a href="changelog.html#c-${esc(e.commit)}">${esc(e.commit)}</a></p>
+        <span class="obs-log-kind">${KINDS[e.kind] || esc(e.kind)}</span>
+        ${(e.fields || []).length ? `<ul class="obs-log-fields">${e.fields.map(f => `<li><span class="obs-log-field">${esc(f.field)}</span>
+          <del>${esc(f.old)}</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>${esc(f.new)}</ins></li>`).join('')}</ul>` : ''}
+      </li>`).join('');
+    return `<section class="obs-history" aria-label="History of this record">
+        <p class="card-kicker">History</p>
+        <p class="obs-hist-lead">${entered}. ${events.length ? `${events.length} dated change${events.length > 1 ? 's' : ''} since ${day(log._since)}.`
+          : `No change since ${day(log._since)}, when the change log began.`}</p>
+        ${rows ? `<ol class="obs-hist-events">${rows}</ol>` : ''}
+        <p class="obs-hist-cite"><strong>Cite the record you used:</strong> ${esc(r.name)}, record <code>${esc(r.id)}</code>,
+          ${esc(log._title || 'Cybersecurity Dataset Observatory')}, ${state}, accessed on [date].
+          <a href="changelog.html">Changelog and frozen releases</a></p>
+      </section>`;
+  }
+
   function details(r) {
     const paper = r.paper ? esc(r.paper.cite) + (r.paper.title ? `<br><em>${esc(r.paper.title)}</em>` : '') + (r.paper.doi
       ? `<br><a href="https://doi.org/${esc(r.paper.doi)}" target="_blank" rel="noopener">doi:${esc(r.paper.doi)}</a>`
@@ -379,6 +413,7 @@
         <ul class="obs-minis obs-minis-compact">${captures.map(mini).join('')}</ul>
       </section>` : ''}
       ${cautions ? `<ul class="obs-cautions">${cautions}</ul>` : ''}
+      ${history(r)}
       <div class="gate-actions">
         <a class="btn btn-ghost" href="#submit" data-report="${esc(r.name)}">Report a correction</a>
       </div>`;
