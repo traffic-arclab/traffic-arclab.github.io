@@ -12,9 +12,9 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=262ec9cf">
+  <link rel="stylesheet" href="../css/site.css?v=5b3631d9">
   <script src="../js/site.js?v=9e61baa7" defer></script>
-  <script src="../js/observatory.js?v=048467bd" defer></script>
+  <script src="../js/observatory.js?v=ed784125" defer></script>
 </head>
 <body>
 
@@ -134,7 +134,7 @@
         <p class="obs-engine-desc">An open catalogue of the network-traffic datasets used to train and evaluate AI for cybersecurity, from intrusion and botnet detection to industrial, vehicular and wireless security. For each dataset: what it contains, where to get it and the paper that introduced it.</p>
         <form class="obs-search" role="search" action="#catalogue" id="obs-search-form">
           <label for="obs-q" class="visually-hidden">Search the catalogue</label>
-          <input type="search" id="obs-q" name="q" placeholder="Search datasets by name, protocol, attack, domain or data type…" autocomplete="off" spellcheck="false" maxlength="500">
+          <input type="search" id="obs-q" name="q" placeholder="Search datasets by name, protocol, attack, domain or data type…" data-short-placeholder="Name, protocol, attack…" autocomplete="off" spellcheck="false" maxlength="500">
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
 
@@ -165,6 +165,7 @@
             <div class="obs-facets-head">
               <p class="obs-facets-title">Filters</p>
               <button type="button" class="pub-clear" id="obs-clear" hidden>Clear all</button>
+              <button type="button" class="obs-facets-close" data-facets-close aria-label="Close the filters">×</button>
             </div>
             <details class="obs-facet-group" open>
               <summary>Domain<span class="obs-facet-active" data-active-count="domain" hidden></span></summary>
@@ -323,6 +324,7 @@
                 <label class="obs-facet"><input type="checkbox" name="lineage" value="derived"><span class="obs-facet-label">Derived dataset</span><span class="obs-facet-count">32</span></label>
               </div>
             </details>
+            <div class="obs-facets-foot"><button type="button" class="btn btn-primary" data-facets-close>Show <span id="obs-facets-shown"></span> results</button></div>
           </aside>
           <div class="obs-main">
             <section class="obs-ai" id="obs-ai" aria-live="polite" aria-label="AI-assisted results" hidden></section>

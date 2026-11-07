@@ -126,6 +126,8 @@
     });
     const nFilters = Object.values(chosen).flat().length;
     panelN.textContent = nFilters ? ` (${nFilters})` : '';
+    const shownBox = document.getElementById('obs-facets-shown');
+    if (shownBox) shownBox.textContent = shown;
 
     // active filters, each removable
     const chips = [];
@@ -241,10 +243,29 @@
     boxes.forEach(b => { b.checked = false; });
     update();
   });
-  panelToggle.addEventListener('click', () => {
-    const open = panel.classList.toggle('is-open');
+  // on a phone the filters open as a full-screen sheet, closed by "Show N results"
+  const sheet = window.matchMedia('(max-width: 640px)');
+  function setPanel(open) {
+    panel.classList.toggle('is-open', open);
     panelToggle.setAttribute('aria-expanded', String(open));
-  });
+    document.documentElement.classList.toggle('obs-sheet-open', open && sheet.matches);
+    if (open && sheet.matches) panel.scrollTop = 0;
+  }
+  panelToggle.addEventListener('click', () => setPanel(!panel.classList.contains('is-open')));
+  panel.querySelectorAll('[data-facets-close]').forEach(b => b.addEventListener('click', () => {
+    setPanel(false);
+    if (sheet.matches) panelToggle.scrollIntoView({ block: 'start' });
+  }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && panel.classList.contains('is-open') && sheet.matches) setPanel(false); });
+  sheet.addEventListener('change', () => document.documentElement.classList.toggle('obs-sheet-open', sheet.matches && panel.classList.contains('is-open')));
+  // a shorter hint in the search bar of a phone, where the full one is cut
+  const narrow = window.matchMedia('(max-width: 560px)');
+  if (heroInput.dataset.shortPlaceholder) {
+    const full = heroInput.placeholder;
+    const hint = () => { heroInput.placeholder = narrow.matches ? heroInput.dataset.shortPlaceholder : full; };
+    hint();
+    narrow.addEventListener('change', hint);
+  }
   // "/" puts the cursor in the search bar, as in most search engines.
   document.addEventListener('keydown', e => {
     if (e.key === '/' && !e.target.closest('input, textarea, select, [contenteditable]')) { e.preventDefault(); heroInput.focus(); }

@@ -1772,6 +1772,71 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   .obs-search .btn { width: 100%; }
 }
 
+/* The Observatory on a phone ---------------------------------------------------- */
+.obs-facets-close, .obs-facets-foot { display: none; }
+@media (max-width: 640px) {
+  /* the filters: a full-screen sheet with its own close button and a "Show N results" button at the bottom */
+  .obs-facets.is-open { position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column; max-height: none; padding: 0 18px; border: 0; border-radius: 0; box-shadow: none; overflow-y: auto; }
+  .obs-facets.is-open > * { flex-shrink: 0; }
+  .obs-facets.is-open .obs-facets-head { position: sticky; top: 0; z-index: 2; margin: 0 -18px 0; padding: 12px 18px; border-bottom: 1px solid var(--color-line); background: var(--color-surface); }
+  .obs-facets.is-open .obs-facets-head .pub-clear { margin-left: auto; margin-right: 8px; }
+  .obs-facets-close { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 999px; background: var(--color-tint); color: var(--color-title); font-size: 1.6rem; line-height: 1; cursor: pointer; }
+  .obs-facets.is-open .obs-facet { padding-block: 8px; font-size: .95rem; }
+  .obs-facets.is-open .obs-facet input { width: 18px; height: 18px; }
+  .obs-facets.is-open .obs-facet-group summary { padding-block: 14px; }
+  .obs-facets-foot { position: sticky; bottom: 0; display: block; margin: auto -18px 0; padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); border-top: 1px solid var(--color-line); background: var(--color-surface); }
+  .obs-facets-foot .btn { width: 100%; justify-content: center; }
+  .obs-sheet-open, .obs-sheet-open body { overflow: hidden; }
+
+  /* the bar above the results: filters and sort on one line, the layout switch (cards only on a phone) hidden */
+  .obs-bar { flex-wrap: nowrap; gap: 8px; }
+  .obs-view { display: none; }
+  .obs-sort { min-width: 0; flex: 1; padding-left: 10px; }
+  .obs-sort > span { display: none; }
+  .obs-sort select { width: 100%; padding-left: 0; }
+
+  /* the results: compact cards, and a box as tall as the screen */
+  .obs-list-wrap { height: calc(100dvh - var(--header-h) - 24px); }
+  .obs-list { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .obs-item { gap: 6px 10px; padding: 14px 14px 10px; border-radius: 12px; }
+  .obs-item .obs-c-src { padding-top: 8px; }
+  .obs-item .obs-c-src a { display: inline-block; padding-block: 4px; }
+
+  /* the table by domain: the category, its total and the bar; the four counts are in the legend colours */
+  .obs-rep-scroll { overflow-x: visible; }
+  .obs-rep-table { min-width: 0; table-layout: fixed; }
+  .obs-rep-table thead .obs-rep-n, .obs-rep-table td.obs-rep-n { display: none; }
+  .obs-rep-table th, .obs-rep-table td { padding: 9px 10px; }
+  .obs-rep-table tbody th { white-space: normal; line-height: 1.3; }
+  .obs-rep-table thead th:first-child { width: 52%; }
+  .obs-rep-cell { width: auto; min-width: 0; }
+  .obs-rep-legend { flex-direction: column; gap: 6px; }
+
+  /* the email updates: the bell above the text */
+  .obs-updates-card { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
+  .obs-bell-badge { width: 46px; height: 46px; font-size: 1.3rem; }
+  .obs-updates-open { grid-column: auto; width: 100%; justify-content: center; }
+
+  /* dialogs (a dataset, the email updates): a sheet from the bottom, the close button always in view */
+  .obs-dialog, .obs-subscribe { width: 100vw; max-width: 100vw; max-height: 92dvh; margin: auto 0 0; border-radius: 16px 16px 0 0; }
+  .obs-dialog .gate-form, .obs-subscribe .gate-form { padding: 0 18px calc(22px + env(safe-area-inset-bottom)); }
+  .obs-dialog .gate-close, .obs-subscribe .gate-close { position: sticky; top: 0; z-index: 2; display: block; width: 40px; height: 40px; margin: 0 -8px -26px auto; background: var(--color-surface); box-shadow: 0 0 0 6px var(--color-surface); }
+  .obs-dialog [data-dialog-body] { padding-top: 18px; }
+  .obs-dialog .gate-actions .btn { width: 100%; justify-content: center; }
+  .obs-dl dd { margin-bottom: 12px; }
+  .obs-hist-cite a { display: block; margin: 6px 0 0; }
+
+  /* the submit form: less padding around the nested boxes */
+  .obs-form { padding: 20px 16px; }
+  .obs-optional { padding: 16px 14px !important; }
+  .obs-form .btn[type="submit"] { width: 100%; justify-content: center; }
+
+  /* the change log */
+  .obs-log-entry { padding: 12px; }
+  .obs-log-kind { min-width: 0; margin-right: 8px; }
+  .obs-log-frozen { display: block; margin: 6px 0 0; }
+}
+
 /* "New" badge and the Observatory band of the home page --------------------- */
 .badge-new { display: inline-block; margin: 0 0 0 10px; padding: 2px 8px; border-radius: 999px; background: var(--color-gold); color: var(--color-deepest); font: 700 .66rem/1.5 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; vertical-align: 2px; }
 .nav-link .badge-new { margin: 0 0 0 6px; padding: 1px 6px; font-size: .6rem; vertical-align: 0; }

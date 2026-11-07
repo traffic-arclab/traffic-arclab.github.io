@@ -646,7 +646,7 @@ def engine(data, records, families):
         {f'<p class="obs-engine-desc">{esc(data["description"])}</p>' if data.get('description') else ''}
 {ai_modes(data)}        <form class="obs-search" role="search" action="#catalogue" id="obs-search-form"{ai_attrs(data)}>
           <label for="obs-q" class="visually-hidden">Search the catalogue</label>
-          <input type="search" id="obs-q" name="q" placeholder="{search_hint(data, records)}" autocomplete="off" spellcheck="false" maxlength="500">
+          <input type="search" id="obs-q" name="q" placeholder="{search_hint(data, records)}" data-short-placeholder="Name, protocol, attack…" autocomplete="off" spellcheck="false" maxlength="500">
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
 {ai_chat(data)}
@@ -1061,8 +1061,10 @@ def observatory_page(data, history=None):
             <div class="obs-facets-head">
               <p class="obs-facets-title">Filters</p>
               <button type="button" class="pub-clear" id="obs-clear" hidden>Clear all</button>
+              <button type="button" class="obs-facets-close" data-facets-close aria-label="Close the filters">×</button>
             </div>
 {facet_panel([r for r in records if r.get('table_row', True)])}
+            <div class="obs-facets-foot"><button type="button" class="btn btn-primary" data-facets-close>Show <span id="obs-facets-shown"></span> results</button></div>
           </aside>
           <div class="obs-main">
             <section class="obs-ai" id="obs-ai" aria-live="polite" aria-label="AI-assisted results" hidden></section>
