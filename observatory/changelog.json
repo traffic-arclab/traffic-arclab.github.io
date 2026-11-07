@@ -1,4 +1,25 @@
 {
  "since": "2026-11-06",
- "entries": []
+ "entries": [
+  {
+   "date": "2026-11-07",
+   "commit": "e9c573c",
+   "source": "repository",
+   "message": "Observatory: WUSTL-IIoT-2018 moved from IoT to ICS and OT",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "wustl-iiot-2018",
+     "name": "WUSTL-IIoT-2018",
+     "fields": [
+      {
+       "field": "Domain",
+       "old": "iot",
+       "new": "industrial"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }
