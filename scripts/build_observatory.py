@@ -710,6 +710,11 @@ def domain_table(records):
         segs = ''.join(f'<span class="obs-rep-{k}" style="flex-grow:{counts[k]}" title="{esc(label)}: {counts[k]}"></span>'
                        for k, label, _ in REPRESENTATIONS if counts[k])
         bar = f'<span class="obs-rep-bar" style="width:{100 * n / top:.1f}%">{segs}</span>' if key else ''
+        # on a phone the four count columns are hidden: the counts go under the bar, in the legend colours
+        bar += '<span class="obs-rep-mini">' + ''.join(
+            f'<span><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span>'
+            f'<span class="visually-hidden">{esc(label)}: </span>{counts[k]}</span>'
+            for k, label, _ in REPRESENTATIONS if counts[k]) + '</span>'
         head = (f'<a href="?domain={key}#catalogue"><span class="obs-dot" data-domain="{key}" aria-hidden="true"></span>{esc(name)}</a>'
                 if key else esc(name))
         cells = ''.join(f'<td class="obs-rep-n{" is-zero" if not counts[k] else ""}">{counts[k]}</td>' for k, _, _ in REPRESENTATIONS)
@@ -722,7 +727,7 @@ def domain_table(records):
     body = '\n'.join(line(label_of(DOMAINS, k), rows[k], key=k) for k in order)
     return f'''        <figure class="obs-rep" aria-labelledby="obs-rep-title">
           <figcaption><h3 class="obs-model-title" id="obs-rep-title">Records by domain and distributed representation</h3>
-            <p>Each paper table is one application domain. Its records are split by what they distribute: the bar shows the split, the columns give the counts. Select a domain to see its datasets.</p></figcaption>
+            <p>Each paper table is one application domain. Its records are split by what they distribute: the bar shows the split, and the counts are given for each representation. Select a domain to see its datasets.</p></figcaption>
           <div class="obs-rep-scroll">
             <table class="obs-rep-table">
               <thead><tr><th scope="col">Category</th><th scope="col" class="obs-rep-total"><i>n</i></th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Split</span></th>{heads}</tr></thead>

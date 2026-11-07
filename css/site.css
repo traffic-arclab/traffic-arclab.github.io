@@ -1772,9 +1772,24 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   .obs-search .btn { width: 100%; }
 }
 
+/* a tablet: the title keeps clear of the bell in the top right corner */
+@media (max-width: 1000px) and (min-width: 641px) { .obs-engine-title { padding-inline: 96px; } }
+
 /* The Observatory on a phone ---------------------------------------------------- */
-.obs-facets-close, .obs-facets-foot { display: none; }
+.obs-facets-close, .obs-facets-foot, .obs-rep-mini { display: none; }
 @media (max-width: 640px) {
+  /* the opening: less height above the search bar, a shorter bar */
+  .obs-engine { padding-top: 44px; }
+  .obs-bell-corner { top: calc(12px - 44px); }
+  .obs-bell-btn { width: 42px; height: 42px; font-size: 1.15rem; }
+  .obs-engine-title { gap: 10px; }
+  .obs-engine-tagline { margin-top: 12px; font-size: 1.05rem; }
+  .obs-engine-desc { font-size: .93rem; line-height: 1.55; }
+  .obs-search { margin-top: 22px; padding: 6px; gap: 6px; border-radius: 14px; }
+  #obs-q { min-height: 52px; padding-left: 48px; background-position: 16px 50%; background-size: 20px; font-size: 1.05rem; }
+  .obs-search .btn { min-height: 48px; font-size: 1rem; }
+  .obs-engine-stats { margin-top: 18px; gap: 4px 16px; }
+
   /* the filters: a full-screen sheet with its own close button and a "Show N results" button at the bottom */
   .obs-facets.is-open { position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column; max-height: none; padding: 0 18px; border: 0; border-radius: 0; box-shadow: none; overflow-y: auto; }
   .obs-facets.is-open > * { flex-shrink: 0; }
@@ -1811,6 +1826,9 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   .obs-rep-table thead th:first-child { width: 52%; }
   .obs-rep-cell { width: auto; min-width: 0; }
   .obs-rep-legend { flex-direction: column; gap: 6px; }
+  .obs-rep-mini { display: flex; flex-wrap: wrap; gap: 2px 10px; margin-top: 5px; color: var(--color-muted); font-size: .76rem; font-weight: 600; }
+  .obs-rep-mini .obs-rep-key { width: 8px; height: 8px; margin-right: 3px; border-radius: 2px; }
+  .obs-rep-table thead th:first-child { width: 46%; }
 
   /* the email updates: the bell above the text */
   .obs-updates-card { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
