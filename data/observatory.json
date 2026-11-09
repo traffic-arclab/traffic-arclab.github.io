@@ -1597,8 +1597,8 @@
       "task": "IDS",
       "domain": "5G;mobile core",
       "data": [
-        "Network-feature files",
-        "verify"
+        "PCAP",
+        "CSV"
       ],
       "paper": {
         "cite": "Samarakoon et al., arXiv 2022",
@@ -10880,9 +10880,9 @@
         "gb": "35"
       },
       "paper": {
-        "cite": "Idaho National Laboratory, 2022",
-        "title": "5GAD-2022: 5G Attack Detection dataset",
-        "url": "https://github.com/IdahoLabResearch/5GAD"
+        "cite": "Coldwell et al., IEEE Globecom Workshops 2022",
+        "title": "Machine Learning 5G Attack Detection in Programmable Logic",
+        "doi": "10.1109/GCWkshps56602.2022.10008647"
       }
     },
     {
@@ -10921,14 +10921,14 @@
         "gb": "0.060"
       },
       "paper": {
-        "cite": "Sheikhi, Busari, Gonzalez & Gonzalez, Zenodo 2023",
+        "cite": "Amponis et al., Zenodo 2023",
         "title": "5GC PFCP Intrusion Detection Dataset",
         "url": "https://zenodo.org/records/7888347"
       }
     },
     {
       "id": "dlteamtuc-5g",
-      "name": "5G Security and Resource Allocation Dataset (DLTeamTUC 5G Security Datasets)",
+      "name": "5G Security and Resource Allocation Dataset",
       "url": "https://github.com/DLTeamTUC/5GDatasets",
       "task": "Intrusion detection",
       "domain": "5G / mobile core",
@@ -10950,9 +10950,10 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "1"
+        "attack": "8"
       },
       "attack_families": [
+        "bruteforce",
         "dos",
         "fuzzing",
         "replay",
@@ -10966,13 +10967,12 @@
         "cite": "Nugraha et al., IEEE CSR 2025",
         "title": "A Comprehensive 5G Network Dataset for Control and Data Plane Security and Resource Allocation Analysis",
         "url": "https://github.com/DLTeamTUC/5GDatasets"
-      },
-      "notes": "The bib says this is possibly the DLTeamTUC 5G Security Datasets record: to be confirmed."
+      }
     },
     {
       "id": "5g-core-gtp-u",
       "name": "5G-CGAD (5G Core GTP-U Attack Dataset)",
-      "url": "https://research.fi/en/results/dataset/5dad463d-0306-455f-b47a-bef771b819fc",
+      "url": "https://etsin.fairdata.fi/dataset/5dad463d-0306-455f-b47a-bef771b819fc",
       "task": "Intrusion detection",
       "domain": "5G / mobile core (GTP-U)",
       "data": [
@@ -11001,12 +11001,13 @@
         "fuzzing",
         "other"
       ],
-      "derivation_tool": "CICFlowMeter?",
+      "derivation_tool": "CICFlowMeter",
       "paper": {
-        "cite": "Duchesne, Blaise, Braconnot Velloso & Conan, 6GNet 2025",
-        "title": "5G-Attacks: A new dataset from realistic 5G-core attacks",
-        "url": "https://api.semanticscholar.org/CorpusID:284375860"
-      }
+        "cite": "Wengappuli Arachchige, Hewa & Siriwardhana, University of Oulu (Fairdata) 2025",
+        "title": "5G Core GTP-U Attack Dataset",
+        "doi": "10.23729/fd-b9459ea4-88a7-35c2-992e-f178a294c12d"
+      },
+      "notes": "GTP encapsulation, malformed GTP, ICMP/UDP DDoS, intra-UPF UE DoS and GTP-U TEID brute force; PCAP and CSV with more than 80 flow features."
     },
     {
       "id": "5g-flow-wehbe",
@@ -11048,6 +11049,292 @@
         "title": "5G flow-based datasets",
         "doi": "10.21227/a3rt-eg64"
       }
+    },
+    {
+      "id": "5g-core-ids-sheikhi",
+      "name": "5G Core IDS (5G Intrusion Detection Dataset)",
+      "url": "https://github.com/saeidsheikhi/5G-Intrusion-Detection-Dataset",
+      "task": "Intrusion detection",
+      "domain": "5G / mobile core",
+      "data": [
+        "CSV (44 packet-level features)"
+      ],
+      "paper": {
+        "cite": "Sheikhi & Kostakos, EuCNC/6G Summit 2023",
+        "title": "DDoS Attack Detection Using Unsupervised Federated Learning for 5G Networks and Beyond"
+      },
+      "notes": "SYN and UDP floods, PFCP attacks and IP spoofing; binary label (0 normal, 1 attack). The feature names are Wireshark/TShark fields: the tool is not named in the README.",
+      "category": "5g",
+      "year": "2023",
+      "representation": "Derived only",
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "other"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "gb": "0.0065"
+      },
+      "new_since": "2026-11-09"
+    },
+    {
+      "id": "5g-slicing-dos-ddos",
+      "name": "5G Slicing DoS/DDoS (DoS/DDoS Attack Dataset of 5G Network Slicing)",
+      "url": "https://ieee-dataport.org/documents/dosddos-attack-dataset-5g-network-slicing",
+      "task": "Intrusion detection",
+      "domain": "5G / mobile core",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Khan, Farzaneh, Shahriar & Hasan, IEEE DataPort 2023",
+        "title": "DoS/DDoS Attack Dataset of 5G Network Slicing",
+        "doi": "10.21227/32k1-dr12"
+      },
+      "notes": "University of Regina. Container-based (66.6 GB) and VM-based (93.8 GB) captures. The derivation tool (CICFlowMeter, 84 features) comes from a secondary source; the attack list and the label scheme are not stated on the page. Needs an IEEE DataPort account.",
+      "category": "5g",
+      "year": "2023",
+      "representation": "PCAP + derived",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "CICFlowMeter?",
+      "size": {
+        "gb": "160"
+      },
+      "new_since": "2026-11-09"
+    },
+    {
+      "id": "wustl-hdrl-2024",
+      "name": "WUSTL-HDRL-2024",
+      "url": "https://classes.engineering.wustl.edu/~jain/hdrl/index.html",
+      "task": "Intrusion detection",
+      "domain": "5G / mobile core",
+      "data": [
+        "CSV (Argus flows and host metrics)"
+      ],
+      "paper": {
+        "cite": "Washington University in St. Louis, 2024",
+        "title": "WUSTL-HDRL-2024 Dataset",
+        "url": "https://classes.engineering.wustl.edu/~jain/hdrl/index.html"
+      },
+      "notes": "Simu5G 5G core with MEC servers; no PCAP. MitM, DDoS, ransomware and buffer overflow, labelled by the source of the threat (132k normal records). Same group as WUSTL-IIoT and WUSTL-EHMS.",
+      "category": "5g",
+      "year": "2024",
+      "representation": "Derived only",
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "other"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "gb": "0.0817",
+        "count": "145k records"
+      },
+      "new_since": "2026-11-09"
+    },
+    {
+      "id": "5gcid",
+      "name": "5GCID",
+      "url": "https://github.com/SQ0409/5GCID",
+      "task": "Intrusion detection",
+      "domain": "5G / mobile core",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Hu, Sun, Dang, Wu & Tian, Computer Communications 2026",
+        "title": "5GCID: Dataset of 5GC Intrusion Detection System",
+        "doi": "10.1016/j.comcom.2025.108375"
+      },
+      "notes": "One PCAP per class (normal, AMF DoS, UPF DoS, SMF DoS), labelled per file: AMF DoS through forged UE registrations, UPF DoS with Bonesi, SMF DoS with HULK.",
+      "category": "5g",
+      "year": "2025",
+      "representation": "PCAP",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "0.030"
+      },
+      "new_since": "2026-11-09"
+    },
+    {
+      "id": "netslab-5goran-idd",
+      "name": "NetsLab-5GORAN-IDD",
+      "url": "https://www.kaggle.com/datasets/netslabdemo/netslab-5g-oran-idd",
+      "task": "Intrusion detection",
+      "domain": "5G / O-RAN",
+      "data": [
+        "PCAP",
+        "Zeek features",
+        "PHY/MAC telemetry"
+      ],
+      "paper": {
+        "cite": "Civciss et al., IEEE GLOBECOM 2025",
+        "title": "Silent Signals, Loud Threats: Using dApps for Radio Signal Intelligence-based Intrusion Detection in 5G O-RAN"
+      },
+      "notes": "UCD NetsLab, physical O-RAN testbed; also on Zenodo (record 18923275, v2). The attack list (DoS/DDoS floods, port scan and OS fingerprinting, SSH/FTP brute force, SQLi and XSS) and the label scheme come from secondary sources that disagree: to be checked on Kaggle or Zenodo.",
+      "category": "5g",
+      "year": "2025",
+      "representation": "PCAP + derived",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "18"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "Zeek",
+      "new_since": "2026-11-09"
+    },
+    {
+      "id": "5gcoresec",
+      "name": "5GCoreSec",
+      "url": "https://github.com/saeidsheikhi/5GCoreSec",
+      "task": "Intrusion detection",
+      "domain": "5G / mobile core",
+      "data": [
+        "CSV (28 features)"
+      ],
+      "paper": {
+        "cite": "Sheikhi, GitHub 2026",
+        "title": "5GCoreSec: 5G Core Network Intrusion Detection Dataset",
+        "url": "https://github.com/saeidsheikhi/5GCoreSec"
+      },
+      "notes": "Train (1.75M) and test (195k) splits, label column \"attack\": MQTT DoS, DDoS, eavesdropping, MitM, SQL injection, brute force, unauthorized data access and device spoofing. Same author as 5G Core IDS.",
+      "category": "5g",
+      "year": "2026",
+      "representation": "Derived only",
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "spoofing",
+        "other"
+      ],
+      "derivation_tool": "tshark",
+      "size": {
+        "count": "1.95M records"
+      },
+      "new_since": "2026-11-09"
+    },
+    {
+      "id": "cve5g",
+      "name": "CVE5G",
+      "url": "https://ieee-dataport.org/documents/cve5g-5g-core-network-cyberattacks-dataset",
+      "task": "Intrusion detection",
+      "domain": "5G / mobile core",
+      "data": [
+        "PCAP",
+        "CSV (time-based ground truth)"
+      ],
+      "paper": {
+        "cite": "Rosa, Santana, Hirata & Batista, IEEE DataPort 2026",
+        "title": "CVE5G: 5G Core Network Cyberattacks Dataset",
+        "doi": "10.21227/9ex2-k094"
+      },
+      "notes": "University of São Paulo, v2.0. Raw and filtered (HTTP/2, NGAP, PFCP, GTP) PCAP per scenario, with a CSV of time-based labels (not features). Nmap SYN scan, SYN/UDP/ICMP floods and a malformed payload to the AMF (CVE-2025-65805); benign ISO download and HTTPS video. Needs an IEEE DataPort account.",
+      "category": "5g",
+      "year": "2026",
+      "representation": "PCAP",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "scanning"
+      ],
+      "new_since": "2026-11-09"
     },
     {
       "id": "wsn-ds",
