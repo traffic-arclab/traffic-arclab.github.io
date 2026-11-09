@@ -572,13 +572,13 @@ def ai_chat(data):
 
 def citation(data):
     """The paper to cite for the Observatory ("citation" of data/observatory.json), next to the submit call:
-    the request to cite it, then the paper (title, authors) with its arXiv and BibTeX links ("arxiv" and
+    the request to cite it, then the paper (title, authors) with its Paper (arXiv) and BibTeX links ("arxiv" and
     "bibtex"; "#" while they are placeholders)."""
     cite = data.get('citation')
     if not cite:
         return ''
     links = ''.join(f'<a href="{esc(cite[k])}"{"" if cite[k].startswith("#") else " target=\"_blank\" rel=\"noopener\""}>{label}</a>'
-                    for k, label in (('arxiv', 'arXiv'), ('bibtex', 'BibTeX')) if cite.get(k))
+                    for k, label in (('arxiv', 'Paper'), ('bibtex', 'BibTeX')) if cite.get(k))
     return f'''          <div class="obs-cite">
             <p class="obs-cite-kicker">Cite this work</p>
             {f'<p class="obs-cite-ask">{esc(cite["request"])}</p>' if cite.get('request') else ''}
