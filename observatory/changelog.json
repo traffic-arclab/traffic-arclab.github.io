@@ -183,6 +183,98 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-09",
+   "commit": "98435dc",
+   "source": "repository",
+   "message": "Observatory: automotive table (tab:rev-automotive) — 7 datasets added (SOME/IP IDS, HCRL M-CAN, HCRL B-CAN, X-CANIDS, SAE J1939, CarDS, AutoHack); CrySyS CAN: figshare link and paper title, Car Hacking Challenge 2020: dataset citation; New badge only for CVE5G (released 1 Nov 2026)",
+   "changes": [
+    {
+     "kind": "added",
+     "id": "autohack",
+     "name": "AutoHack"
+    },
+    {
+     "kind": "added",
+     "id": "cards",
+     "name": "CarDS"
+    },
+    {
+     "kind": "added",
+     "id": "hcrl-b-can",
+     "name": "HCRL B-CAN"
+    },
+    {
+     "kind": "added",
+     "id": "hcrl-m-can",
+     "name": "HCRL M-CAN"
+    },
+    {
+     "kind": "added",
+     "id": "sae-j1939-attack",
+     "name": "SAE J1939 Attack Dataset"
+    },
+    {
+     "kind": "added",
+     "id": "someip-ids",
+     "name": "SOME/IP IDS"
+    },
+    {
+     "kind": "added",
+     "id": "x-canids",
+     "name": "X-CANIDS"
+    },
+    {
+     "kind": "changed",
+     "id": "car-hacking-challenge-2020",
+     "name": "Car Hacking: Attack & Defense Challenge 2020",
+     "fields": [
+      {
+       "field": "Paper",
+       "old": "Kang et al., NDSS AutoSec 2021",
+       "new": "Kang et al., IEEE DataPort 2021"
+      },
+      {
+       "field": "Description",
+       "old": "Dataset DOI: 10.21227/qvr7-n418.",
+       "new": "–"
+      },
+      {
+       "field": "Paper title",
+       "old": "–",
+       "new": "Car Hacking: Attack & Defense Challenge 2020 Dataset"
+      },
+      {
+       "field": "Paper DOI",
+       "old": "–",
+       "new": "10.21227/qvr7-n418"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "crysys-can",
+     "name": "CrySyS CAN Traffic Logs (Fabrication and Masquerade Attacks)",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "–",
+       "new": "https://doi.org/10.6084/m9.figshare.c.6726165.v1"
+      },
+      {
+       "field": "Paper",
+       "old": "Gazdag et al., Scientific Data 2023",
+       "new": "Gazdag, Ferenc & Buttyán, Scientific Data 2023"
+      },
+      {
+       "field": "Paper title",
+       "old": "A CAN Dataset for Fabrication and Masquerade Attacks",
+       "new": "CrySyS dataset of CAN traffic logs containing fabrication and masquerade attacks"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

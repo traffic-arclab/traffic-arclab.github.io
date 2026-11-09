@@ -675,62 +675,84 @@ def domain_pills(key, text):
 
 
 # The distributed representation of a record, as in tab:domain of the paper.
-REPRESENTATIONS = [('pktder', 'Pkt + derived', 'packet captures together with flow or feature tables'),
-                   ('pkt', 'Pkt only', 'packet captures without derived tables'),
-                   ('der', 'Derived', 'flow, log or feature tables without packets'),
-                   ('bus', 'Bus / V2X', 'raw CAN bus or V2X message logs')]
+# tab:domain of the paper: what each record distributes (its "artifact"); the keys are the colours of the bar
+ARTIFACTS = [('pktder', 'Tr. + Der.', 'network traces together with derived records'),
+             ('pkt', 'Tr.', 'network traces only (for automotive and V2X: raw CAN/Ethernet frames or V2X messages)'),
+             ('der', 'Der.', 'derived records only: flows, logs or feature tables')]
+# the other columns of tab:domain
+EXTRA = [('real', 'Real', 'recorded in a real network, installation or vehicle'),
+         ('deriv', 'Derived', 'derivative of an earlier capture'),
+         ('recent', '2023+', 'first released in 2023 or later')]
 
 
 def representation_of(rec):
-    if (rec.get('representation') or '').startswith('Bus'):
-        return 'bus'
+    """The artifact column of a record, None when it distributes neither traces nor derived records."""
     a = rec.get('artifact')
-    if not a:
+    if not a or not (a.get('traces') or a.get('derived')):
         return None
     return 'pktder' if a['traces'] and a['derived'] else 'pkt' if a['traces'] else 'der'
 
 
+def first_year(rec):
+    m = re.match(r'\d{4}', str(rec.get('year') or ''))
+    return int(m.group(0)) if m else None
+
+
 def domain_table(records):
-    """tab:domain of the paper: the rows of each paper table by distributed representation, as stacked bars
-    with their counts (the captures listed inside a family row, "table_row": false, are not rows)."""
+    """tab:domain of the paper: the rows of each per-domain table by distributed artifact (a stacked bar with
+    the counts), then the records acquired in real networks, the derivatives and the releases since 2023
+    (the captures listed inside a family row, "table_row": false, are not rows)."""
+    keys = [k for k, _, _ in ARTIFACTS] + [k for k, _, _ in EXTRA]
     rows = {}
     for r in records:
-        if r.get('category') and r.get('table_row', True):
-            kind = representation_of(r)
-            if kind is None:
-                print(f'warning: {r.get("id")} has no "artifact": left out of the table by representation')
-                continue
-            rows.setdefault(r['category'], {k: 0 for k, _, _ in REPRESENTATIONS})[kind] += 1
-    order = sorted(rows, key=lambda k: (-sum(rows[k].values()), label_of(DOMAINS, k)))
-    top = max(sum(v.values()) for v in rows.values())
-    total = {k: sum(rows[d][k] for d in rows) for k, _, _ in REPRESENTATIONS}
+        if not r.get('category') or not r.get('table_row', True):
+            continue
+        c = rows.setdefault(r['category'], dict.fromkeys(['n'] + keys, 0))
+        c['n'] += 1
+        kind = representation_of(r)
+        if kind:
+            c[kind] += 1
+        c['real'] += r.get('acquisition') == 'real'
+        c['deriv'] += bool(r.get('parents') or r.get('derived') is True or r.get('derived_from'))
+        c['recent'] += (first_year(r) or 0) >= 2023
+    order = sorted(rows, key=lambda k: (-rows[k]['n'], label_of(DOMAINS, k)))
+    top = max(sum(v[k] for k, _, _ in ARTIFACTS) for v in rows.values())
+    total = {k: sum(rows[d][k] for d in rows) for k in ['n'] + keys}
+    uncounted = total['n'] - sum(total[k] for k, _, _ in ARTIFACTS)
 
     def line(name, counts, cls='', key=None):
-        n = sum(counts.values())
+        shown = sum(counts[k] for k, _, _ in ARTIFACTS)
         segs = ''.join(f'<span class="obs-rep-{k}" style="flex-grow:{counts[k]}" title="{esc(label)}: {counts[k]}"></span>'
-                       for k, label, _ in REPRESENTATIONS if counts[k])
-        bar = f'<span class="obs-rep-bar" style="width:{100 * n / top:.1f}%">{segs}</span>' if key else ''
-        # on a phone the four count columns are hidden: the counts go under the bar, in the legend colours
-        bar += '<span class="obs-rep-mini">' + ''.join(
+                       for k, label, _ in ARTIFACTS if counts[k])
+        bar = f'<span class="obs-rep-bar" style="width:{100 * shown / top:.1f}%">{segs}</span>' if key else ''
+        # on a phone the count columns are hidden: the counts go under the bar
+        bar += ('<span class="obs-rep-mini">' + ''.join(
             f'<span><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span>'
             f'<span class="visually-hidden">{esc(label)}: </span>{counts[k]}</span>'
-            for k, label, _ in REPRESENTATIONS if counts[k]) + '</span>'
+            for k, label, _ in ARTIFACTS if counts[k])
+            + '<span class="obs-rep-mini-extra">' + ' · '.join(f'{esc(label)} {counts[k]}' for k, label, _ in EXTRA) + '</span></span>')
         head = (f'<a href="?domain={key}#catalogue"><span class="obs-dot" data-domain="{key}" aria-hidden="true"></span>{esc(name)}</a>'
                 if key else esc(name))
-        cells = ''.join(f'<td class="obs-rep-n{" is-zero" if not counts[k] else ""}">{counts[k]}</td>' for k, _, _ in REPRESENTATIONS)
-        return f'              <tr{cls}><th scope="row">{head}</th><td class="obs-rep-total">{n}</td><td class="obs-rep-cell">{bar}</td>{cells}</tr>'
+        cells = ''.join(f'<td class="obs-rep-n{" obs-rep-gap" if k == EXTRA[0][0] else ""}{" is-zero" if not counts[k] else ""}">{counts[k]}</td>'
+                        for k in keys)
+        return f'              <tr{cls}><th scope="row">{head}</th><td class="obs-rep-total">{counts["n"]}</td><td class="obs-rep-cell">{bar}</td>{cells}</tr>'
 
     legend = ''.join(f'<li><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span><strong>{esc(label)}</strong> {esc(text)}</li>'
-                     for k, label, text in REPRESENTATIONS)
+                     for k, label, text in ARTIFACTS)
+    legend += ''.join(f'<li><strong>{esc(label)}</strong> {esc(text)}</li>' for _, label, text in EXTRA)
+    note = (f'<p class="obs-rep-note">{uncounted} record{"s" if uncounted != 1 else ""} distribute{"" if uncounted != 1 else "s"} '
+            'neither network traces nor derived records (only raw HTTP requests) and '
+            f'{"are" if uncounted != 1 else "is"} not counted in the artifact columns.</p>') if uncounted else ''
     heads = ''.join(f'<th scope="col" class="obs-rep-n"><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span>{esc(label)}</th>'
-                    for k, label, _ in REPRESENTATIONS)
+                    for k, label, _ in ARTIFACTS)
+    heads += ''.join(f'<th scope="col" class="obs-rep-n{" obs-rep-gap" if k == EXTRA[0][0] else ""}">{esc(label)}</th>' for k, label, _ in EXTRA)
     body = '\n'.join(line(label_of(DOMAINS, k), rows[k], key=k) for k in order)
     return f'''        <figure class="obs-rep" aria-labelledby="obs-rep-title">
-          <figcaption><h3 class="obs-model-title" id="obs-rep-title">Records by domain and distributed representation</h3>
-            <p>Each paper table is one application domain. Its records are split by what they distribute: the bar shows the split, and the counts are given for each representation. Select a domain to see its datasets.</p></figcaption>
+          <figcaption><h3 class="obs-model-title" id="obs-rep-title">Eligible records by application domain</h3>
+            <p>Each per-domain table of the paper is one row: what its records distribute, how many were recorded in real networks or installations, how many derive from earlier captures and how many were released since 2023. Select a domain to see its datasets.</p></figcaption>
           <div class="obs-rep-scroll">
             <table class="obs-rep-table">
-              <thead><tr><th scope="col">Category</th><th scope="col" class="obs-rep-total"><i>n</i></th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Split</span></th>{heads}</tr></thead>
+              <thead><tr><th scope="col">Domain</th><th scope="col" class="obs-rep-total">Number</th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Distributed artifacts</span></th>{heads}</tr></thead>
               <tbody>
 {body}
               </tbody>
@@ -740,6 +762,7 @@ def domain_table(records):
             </table>
           </div>
           <ul class="obs-rep-legend">{legend}</ul>
+          {note}
         </figure>'''
 
 
