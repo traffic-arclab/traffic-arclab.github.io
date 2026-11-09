@@ -10331,7 +10331,9 @@
         "CAN traces"
       ],
       "paper": {
-        "cite": "Kang et al., NDSS AutoSec 2021"
+        "cite": "Kang et al., IEEE DataPort 2021",
+        "title": "Car Hacking: Attack & Defense Challenge 2020 Dataset",
+        "doi": "10.21227/qvr7-n418"
       },
       "category": "automotive",
       "year": "2020",
@@ -10359,8 +10361,7 @@
       "size": {
         "gb": "0.077",
         "count": "8.7M messages"
-      },
-      "notes": "Dataset DOI: 10.21227/qvr7-n418."
+      }
     },
     {
       "id": "automotive-ethernet-avtp",
@@ -10526,15 +10527,15 @@
     {
       "id": "crysys-can",
       "name": "CrySyS CAN Traffic Logs (Fabrication and Masquerade Attacks)",
-      "url": "",
+      "url": "https://doi.org/10.6084/m9.figshare.c.6726165.v1",
       "task": "CAN IDS",
       "domain": "Automotive CAN",
       "data": [
         "CAN traces"
       ],
       "paper": {
-        "cite": "Gazdag et al., Scientific Data 2023",
-        "title": "A CAN Dataset for Fabrication and Masquerade Attacks",
+        "cite": "Gazdag, Ferenc & Buttyán, Scientific Data 2023",
+        "title": "CrySyS dataset of CAN traffic logs containing fabrication and masquerade attacks",
         "doi": "10.1038/s41597-023-02716-9"
       },
       "notes": "26 benign recordings (over 2.5 hours) and fabrication and masquerade attacks on one or two signals.",
@@ -10646,6 +10647,285 @@
         "cite": "Rajapaksha et al., VehicleSec (NDSS) 2024",
         "title": "CAN-MIRGU: A Comprehensive CAN Bus Attack Dataset from Moving Vehicles for Intrusion Detection System Evaluation",
         "doi": "10.14722/vehiclesec.2024.23043"
+      }
+    },
+    {
+      "id": "someip-ids",
+      "name": "SOME/IP IDS",
+      "url": "https://github.com/Alkhatibnatasha/SOMEIP_IDS",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive Ethernet (SOME/IP)",
+      "data": [
+        "CSV (parsed SOME/IP messages)",
+        "Sequence data"
+      ],
+      "paper": {
+        "cite": "Alkhatib, Ghauch & Danger, arXiv 2021",
+        "title": "SOME/IP Intrusion Detection using Deep Learning-based Sequential Models in Automotive Ethernet Networks",
+        "url": "https://arxiv.org/abs/2108.08262"
+      },
+      "notes": "Synthetic SOME/IP traffic from a Python packet generator (8 servers, 8 clients, 1 attacker), parsed into SOME/IP fields per message. Labels per message: normal, missing request/response, error on event, error on error. Preprint only.",
+      "category": "automotive",
+      "year": "2021",
+      "representation": "Derived only",
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "other"
+      ],
+      "derivation_tool": "custom",
+      "size": {
+        "gb": "0.261",
+        "count": "12k messages"
+      }
+    },
+    {
+      "id": "hcrl-m-can",
+      "name": "HCRL M-CAN",
+      "url": "https://ieee-dataport.org/documents/m-can-intrusion-detection-dataset",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive (CAN)",
+      "data": [
+        "CAN traces"
+      ],
+      "paper": {
+        "cite": "HCRL, Korea University, IEEE DataPort 2023",
+        "title": "M-CAN Intrusion Dataset",
+        "doi": "10.21227/mkvd-h021"
+      },
+      "notes": "Multimedia CAN of a Genesis G80: benign driving recorded in 2022, attacks inserted offline (DoS with ID 0x000, 25 attacks; fuzzing, 10 attacks). Label per message (0 normal, 1 injected).",
+      "category": "automotive",
+      "year": "2023",
+      "representation": "Bus / V2X msgs",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing"
+      ],
+      "size": {
+        "count": "36 min of benign traffic"
+      }
+    },
+    {
+      "id": "hcrl-b-can",
+      "name": "HCRL B-CAN",
+      "url": "https://sites.google.com/hksecurity.net/hcrl/Datasets/b-can-intrusion-dataset",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive (CAN)",
+      "data": [
+        "CAN traces"
+      ],
+      "paper": {
+        "cite": "HCRL, Korea University, IEEE DataPort 2023",
+        "title": "B-CAN Intrusion Dataset",
+        "doi": "10.21227/qm9j-bs98"
+      },
+      "notes": "Body CAN of a Genesis G80: benign driving recorded in 2022, attacks inserted offline (DoS, 25 attacks; fuzzing, 10 attacks). Label per message (0 normal, 1 injected).",
+      "category": "automotive",
+      "year": "2023",
+      "representation": "Bus / V2X msgs",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing"
+      ],
+      "size": {
+        "count": "24 min of benign traffic"
+      }
+    },
+    {
+      "id": "x-canids",
+      "name": "X-CANIDS",
+      "url": "https://ieee-dataport.org/node/12755",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive (CAN)",
+      "data": [
+        "CAN messages (Parquet)",
+        "Decoded signals (Parquet)"
+      ],
+      "paper": {
+        "cite": "Jeong, Kang & Kim, IEEE Transactions on Vehicular Technology 2024",
+        "title": "X-CANIDS: Signal-Aware Explainable Intrusion Detection System for Controller Area Network-Based In-Vehicle Network"
+      },
+      "notes": "2017 Hyundai Sonata through OBD-II: real benign drives, simulated attacks between 480 and 1440 s. 4.44 GB of raw messages and 1.11 GB of 688 signals decoded with the vehicle DBC. Fuzzing, fabrication, masquerade, replay and suspension; label per message, one file per attack type. Needs an IEEE DataPort account.",
+      "category": "automotive",
+      "year": "2024",
+      "representation": "Bus / V2X msgs + derived",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "fuzzing",
+        "spoofing",
+        "replay",
+        "other"
+      ],
+      "derivation_tool": "DBC",
+      "size": {
+        "gb": "5.55"
+      }
+    },
+    {
+      "id": "sae-j1939-attack",
+      "name": "SAE J1939 Attack Dataset",
+      "url": "https://ieee-dataport.org/documents/sae-j1939-attack-dataset",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive (SAE J1939, heavy vehicles)",
+      "data": [
+        "CAN traces (J1939)"
+      ],
+      "paper": {
+        "cite": "Lee, Lee, Jun & Kim, escar USA 2024",
+        "title": "Expanding the Attack Scenarios of SAE J1939: A Comprehensive Analysis of Established and Novel Vulnerabilities in Transport Protocol"
+      },
+      "notes": "HCRL. Au SAE J1939 hardware simulators (Gen II) and Message Center, captured with Kvaser. 11 effective transport-protocol attacks: session DoS (request overload, malicious RTS, connection exhaustion, BAM block), forged EndofMsgACK/Conn_Abort, memory leak, out of memory and memory overwrite. Label per message (0 normal, 1 abnormal).",
+      "category": "automotive",
+      "year": "2024",
+      "representation": "Bus / V2X msgs",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "11"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "other"
+      ],
+      "size": {
+        "count": "71.5 min of benign traffic, 15 files"
+      }
+    },
+    {
+      "id": "cards",
+      "name": "CarDS",
+      "url": "https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/5080",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive (CAN, Ethernet)",
+      "data": [
+        "CAN and CAN-FD traces",
+        "Automotive Ethernet captures"
+      ],
+      "paper": {
+        "cite": "Hellemans et al., ACSAC 2025",
+        "title": "CarDS – Controller Area Network and Automotive Ethernet Realistic Data Set"
+      },
+      "notes": "TU Darmstadt, h_da and KU Leuven: a 2020 electric vehicle with 10 CAN (classic and FD) and 6 automotive Ethernet buses, released on 25 March 2026 (also on KU Leuven RDR). CC BY-SA 4.0; pseudonymized, attack payloads altered. Label files and values, and the full attack list (on the Ethernet side: Nmap scans with MAC/IP/VLAN spoofing, RTP camera replacement, IVI REST API crash), to be checked in the README.",
+      "category": "automotive",
+      "year": "2026",
+      "representation": "Bus / V2X msgs",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "spoofing",
+        "other"
+      ],
+      "size": {
+        "count": "9 h 7 min, 258 traces, 397M CAN and 181M Ethernet messages"
+      }
+    },
+    {
+      "id": "autohack",
+      "name": "AutoHack",
+      "url": "https://zenodo.org/records/19661007",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive (CAN)",
+      "data": [
+        "CAN traces"
+      ],
+      "paper": {
+        "cite": "Song et al., Zenodo 2026",
+        "title": "AutoHack: A Physically Verified Multi-Bus CAN Dataset for Intrusion Detection System Evaluation",
+        "doi": "10.5281/zenodo.19661007"
+      },
+      "notes": "Korea University and Kookmin University: a real vehicle on the road, C-CAN, P-CAN and B-CAN recorded together (Zenodo v1, 20 April 2026). Separate per-message labels: normal, DoS, fuzzing, spoofing, replay, UDS spoofing.",
+      "category": "automotive",
+      "year": "2026",
+      "representation": "Bus / V2X msgs",
+      "evidence": "verified",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "spoofing",
+        "replay",
+        "other"
+      ],
+      "size": {
+        "gb": "0.309"
       }
     },
     {
@@ -11088,8 +11368,7 @@
       "derivation_tool": "tshark",
       "size": {
         "gb": "0.0065"
-      },
-      "new_since": "2026-11-09"
+      }
     },
     {
       "id": "5g-slicing-dos-ddos",
@@ -11127,8 +11406,7 @@
       "derivation_tool": "CICFlowMeter?",
       "size": {
         "gb": "160"
-      },
-      "new_since": "2026-11-09"
+      }
     },
     {
       "id": "wustl-hdrl-2024",
@@ -11170,8 +11448,7 @@
       "size": {
         "gb": "0.0817",
         "count": "145k records"
-      },
-      "new_since": "2026-11-09"
+      }
     },
     {
       "id": "5gcid",
@@ -11209,8 +11486,7 @@
       ],
       "size": {
         "gb": "0.030"
-      },
-      "new_since": "2026-11-09"
+      }
     },
     {
       "id": "netslab-5goran-idd",
@@ -11250,8 +11526,7 @@
         "scanning",
         "other"
       ],
-      "derivation_tool": "Zeek",
-      "new_since": "2026-11-09"
+      "derivation_tool": "Zeek"
     },
     {
       "id": "5gcoresec",
@@ -11293,8 +11568,7 @@
       "derivation_tool": "tshark",
       "size": {
         "count": "1.95M records"
-      },
-      "new_since": "2026-11-09"
+      }
     },
     {
       "id": "cve5g",
