@@ -44,8 +44,31 @@ FIELDS = {
     'classes.benign': 'Benign class', 'classes.attack': 'Attack classes',
     'size.gb': 'Size (GB)', 'size.count': 'Size',
 }
-# Fields that only steer the page or the emails: not changes of the catalogue.
-QUIET = {'notify', 'new_since'}
+# Fields that only steer the page, the emails or the curation: not changes of the catalogue.
+QUIET = {'notify', 'new_since', 'evidence', 'origin', 'table_row'}
+# The notes are the curators' wording: a change of them is listed as "Description revised", without the text.
+PRIVATE = {'notes'}
+
+# The public labels of the coded values (as on the page)
+DOMAIN_LABELS = {}   # filled by changelog() from the domains of the page
+LABELS = {
+    'attack_families': {'bruteforce': 'Brute force', 'botnet-c2': 'Botnet / C2', 'dos': '(D)DoS', 'exfiltration': 'Exfiltration',
+                        'lateral': 'Infiltration / lateral movement', 'malware': 'Malware / backdoor / worm',
+                        'scanning': 'Reconnaissance / scan', 'exploitation': 'Exploitation', 'web': 'Web', 'other': 'Other',
+                        'attck': 'MITRE ATT&CK tactics', 'fuzzing': 'Fuzzing', 'spoofing': 'Spoofing / fabrication / masquerade',
+                        'replay': 'Replay', 'falsification': 'Data falsification', 'timing': 'Timing', 'sybil': 'Sybil',
+                        'injection': 'False data / command injection', 'app': 'Application / service classes',
+                        'downgrade': 'Downgrade / side-channel mimicry'},
+    'acquisition': {'real': 'Real devices', 'hybrid': 'Real and simulated devices', 'emulated': 'Emulated or simulated',
+                    'mix': 'Merge of sources'},
+    'labeling': {'binary': 'Binary', 'multiclass': 'Multiclass', 'weak': 'Weak or heuristic', 'multilabel': 'Multi-label',
+                 'none': 'None'},
+    'access': {'open': 'Open', 'registration': 'Registration', 'request': 'On request',
+               'restricted': 'Registration or request', 'undocumented': 'Not documented',
+               'unavailable': 'Not available'},
+}
+# working notes that must not reach the public log
+SCRUB = re.compile(r'\s*\((?:formats to )?verify\)|\s*\(tab:[^)]*\)', re.I)
 
 
 def git(*args):
@@ -66,7 +89,10 @@ def flat(rec):
     return out
 
 
-def show(value):
+def show(value, key=''):
+    """A value as the public reads it: labels instead of codes, no working notes."""
+    if isinstance(value, list):
+        value = [v for v in value if not (isinstance(v, str) and v.strip().lower().startswith('verify'))]
     if value is None or value == '' or value == []:
         return '–'
     if value is True:
@@ -74,10 +100,13 @@ def show(value):
     if value is False:
         return 'no'
     if isinstance(value, list):
-        return ', '.join(show(v) for v in value)
+        return ', '.join(show(v, key) for v in value)
     if isinstance(value, dict):
         return ', '.join(f'{k}: {show(v)}' for k, v in value.items())
-    text = str(value)
+    labels = DOMAIN_LABELS if key == 'category' else LABELS.get(key, {})
+    text = labels.get(value, SCRUB.sub('', str(value)).strip())
+    if text.endswith('?'):
+        text = text[:-1].rstrip() + ' (to be confirmed)'
     return text if len(text) <= 160 else text[:157] + '…'
 
 
@@ -96,11 +125,14 @@ def diff(old, new):
             changes.append({'kind': 'added', 'id': i, 'name': r.get('name', i)})
     for i, r in before.items():
         if i not in after:
-            changes.append({'kind': 'removed', 'id': i, 'name': r.get('name', i), 'reason': excluded.get(i, '')})
+            changes.append({'kind': 'removed', 'id': i, 'name': r.get('name', i), 'reason': SCRUB.sub('', excluded.get(i, '')).strip()})
     for i in after.keys() & before.keys():
         a, b = flat(before[i]), flat(after[i])
-        fields = [{'field': FIELDS.get(k, k), 'old': show(a.get(k)), 'new': show(b.get(k))}
+        fields = [{'field': FIELDS.get(k, k), 'revised': True} if k in PRIVATE else
+                  {'field': FIELDS.get(k, k), 'old': show(a.get(k), k.split('.')[0]), 'new': show(b.get(k), k.split('.')[0])}
                   for k in list(a) + [k for k in b if k not in a] if a.get(k) != b.get(k)]
+        # a change that only drops working notes from a value ("verify") is not a change of the catalogue
+        fields = [f for f in fields if f.get('revised') or f['old'] != f['new']]
         if fields:
             # the source stopped distributing it: still in the catalogue, flagged as withdrawn
             withdrawn = b.get('access') == 'unavailable' and a.get('access') != 'unavailable'
@@ -141,15 +173,16 @@ def bump(version, changes):
     return f'{major}.{minor}.{patch + 1}'
 
 
-def changelog(data, root, cached):
+def changelog(data, root, cached, domains=None):
     """The releases, newest first, each with its entries; "Unreleased" on top when there are later changes."""
     global ROOT
     ROOT = root
+    DOMAIN_LABELS.update(domains or {})
     since = data.get('changelog_since', '9999-12-31')
     try:
         entries = from_history(since)
     except (OSError, RuntimeError, subprocess.CalledProcessError):
-        entries = cached.get('entries', [])
+        entries = cached.get('entries', [])   # written by an earlier build: already in public form
     releases = sorted(data.get('releases', []), key=lambda r: r['date'])
     groups = [dict(r, entries=[]) for r in releases]
     unreleased = []

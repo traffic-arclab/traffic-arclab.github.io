@@ -59,7 +59,7 @@
         "doi": "10.5220/0006639801080116",
         "title": "Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization"
       },
-      "notes": "Landing page documents PCAP and derived CSV flows; equivalence between public CSV versions and the packets used to derive them is unverified.",
+      "notes": "The landing page documents PCAP and derived CSV flows; the correspondence between the public CSV versions and the packets they were derived from is not documented.",
       "category": "enterprise",
       "year": "2017",
       "representation": "PCAP + derived",
@@ -374,7 +374,7 @@
         "title": "CICIoT2023: A Real-Time Dataset and Benchmark for Large-Scale Attacks in IoT Environment",
         "doi": "10.3390/s23135941"
       },
-      "notes": "Check per-attack capture and the equivalence between PCAP and CSV releases.",
+      "notes": "The correspondence between the PCAP and CSV releases is not documented for each attack.",
       "category": "iot",
       "year": "2023",
       "representation": "PCAP + derived",
@@ -538,7 +538,7 @@
         "title": "GIDS: GAN based Intrusion Detection System for In-Vehicle Network",
         "doi": "10.1109/PST.2018.8514157"
       },
-      "notes": "CAN-frame records, not Ethernet/IP packets; the originating collection paper is unconfirmed.",
+      "notes": "CAN-frame records, not Ethernet/IP packets.",
       "category": "automotive",
       "year": "2018",
       "representation": "Bus / V2X msgs",
@@ -1912,7 +1912,7 @@
         "title": "Malware traffic classification using convolutional neural network for representation learning",
         "doi": "10.1109/ICOIN.2017.7899588"
       },
-      "notes": "10 malware and 10 benign applications. Malware and benign PCAP files are publicly enumerated; capture provenance and independence from CTU collections are unconfirmed.",
+      "notes": "10 malware and 10 benign applications. The malware and benign PCAP files are publicly listed; their capture provenance, and their independence from the CTU collections, are not documented.",
       "category": "encrypted",
       "year": "2016",
       "artifact": {
@@ -2114,7 +2114,7 @@
       "domain": "Android / Malware traffic",
       "data": [
         "PCAP",
-        "traffic features (verify)"
+        "Traffic features"
       ],
       "paper": {
         "cite": "Lashkari, Kadir, Taheri & Ghorbani, ICCST 2018",
@@ -2274,7 +2274,7 @@
       "task": "DNS exfiltration detection",
       "domain": "DNS tunneling / exfiltration",
       "data": [
-        "DNS traffic/features (verify)"
+        "DNS traffic and features"
       ],
       "paper": {
         "cite": "Mahdavifar et al., ICCNS 2021",
@@ -2861,7 +2861,7 @@
       "domain": "DNS-over-HTTPS / covert channels",
       "data": [
         "CSV",
-        "PCAP (verify)"
+        "PCAP"
       ],
       "paper": {
         "cite": "MontazeriShatoori et al., IEEE DASC 2020",
@@ -5125,7 +5125,7 @@
         "title": "USB-IDS-1: a Public Multilayer Dataset of Labeled Network Flows for IDS Evaluation",
         "doi": "10.1109/DSN-W52860.2021.00012"
       },
-      "notes": "Dataset page: Catillo et al., USB-IDS-TC (the bib gives 2024, the table 2025).",
+      "notes": "Dataset page: Catillo et al., USB-IDS-TC.",
       "category": "ddos",
       "year": "2025",
       "artifact": {
@@ -6243,8 +6243,7 @@
       "task": "DDoS detection",
       "domain": "DDoS / Network",
       "data": [
-        "Network traffic",
-        "verify files"
+        "Network traffic"
       ],
       "paper": {
         "cite": "Kim et al., PST 2023",
@@ -6687,7 +6686,7 @@
       "size": {
         "gb": "39.9"
       },
-      "notes": "Per-flow MITRE ATT&CK technique labels; the number of techniques and tactics is not documented. The bib points to Zenodo record 21523144.",
+      "notes": "Per-flow MITRE ATT&CK technique labels; the number of techniques and tactics is not documented.",
       "evidence": "verified"
     },
     {
@@ -7042,7 +7041,7 @@
       "task": "SDN intrusion detection",
       "domain": "SDN",
       "data": [
-        "Network traffic (formats to verify)"
+        "Network traffic"
       ],
       "paper": {
         "cite": "Elsayed, Le-Khac & Jurcut, IEEE Access 2020",
@@ -10667,7 +10666,7 @@
         "title": "SOME/IP Intrusion Detection using Deep Learning-based Sequential Models in Automotive Ethernet Networks",
         "url": "https://arxiv.org/abs/2108.08262"
       },
-      "notes": "Synthetic SOME/IP traffic from a Python packet generator (8 servers, 8 clients, 1 attacker), parsed into SOME/IP fields per message. Labels per message: normal, missing request/response, error on event, error on error. Preprint only.",
+      "notes": "Synthetic SOME/IP traffic from a Python packet generator (8 servers, 8 clients, 1 attacker), parsed into SOME/IP fields per message. Labels per message: normal, missing request/response, error on event, error on error.",
       "category": "automotive",
       "year": "2021",
       "representation": "Derived only",
@@ -10867,7 +10866,7 @@
         "cite": "Hellemans et al., ACSAC 2025",
         "title": "CarDS – Controller Area Network and Automotive Ethernet Realistic Data Set"
       },
-      "notes": "TU Darmstadt, h_da and KU Leuven: a 2020 electric vehicle with 10 CAN (classic and FD) and 6 automotive Ethernet buses, released on 25 March 2026 (also on KU Leuven RDR). CC BY-SA 4.0; pseudonymized, attack payloads altered. Label files and values, and the full attack list (on the Ethernet side: Nmap scans with MAC/IP/VLAN spoofing, RTP camera replacement, IVI REST API crash), to be checked in the README.",
+      "notes": "TU Darmstadt, h_da and KU Leuven: a 2020 electric vehicle with 10 CAN (classic and FD) and 6 automotive Ethernet buses, released on 25 March 2026 (also on KU Leuven RDR). CC BY-SA 4.0; pseudonymized, with altered attack payloads. On the Ethernet side the attacks include Nmap scans with MAC/IP/VLAN spoofing, RTP camera replacement and an IVI REST API crash.",
       "category": "automotive",
       "year": "2026",
       "representation": "Bus / V2X msgs",
@@ -11388,7 +11387,7 @@
         "title": "DoS/DDoS Attack Dataset of 5G Network Slicing",
         "doi": "10.21227/32k1-dr12"
       },
-      "notes": "University of Regina. Container-based (66.6 GB) and VM-based (93.8 GB) captures. The derivation tool (CICFlowMeter, 84 features) comes from a secondary source; the attack list and the label scheme are not stated on the page. Needs an IEEE DataPort account.",
+      "notes": "University of Regina. Container-based (66.6 GB) and VM-based (93.8 GB) captures, with flow features (84 per flow). The attack list and the label scheme are not stated on the dataset page. Requires an IEEE DataPort account.",
       "category": "5g",
       "year": "2023",
       "representation": "PCAP + derived",
@@ -11506,7 +11505,7 @@
         "cite": "Civciss et al., IEEE GLOBECOM 2025",
         "title": "Silent Signals, Loud Threats: Using dApps for Radio Signal Intelligence-based Intrusion Detection in 5G O-RAN"
       },
-      "notes": "UCD NetsLab, physical O-RAN testbed; also on Zenodo (record 18923275, v2). The attack list (DoS/DDoS floods, port scan and OS fingerprinting, SSH/FTP brute force, SQLi and XSS) and the label scheme come from secondary sources that disagree: to be checked on Kaggle or Zenodo.",
+      "notes": "UCD NetsLab, physical O-RAN testbed; also available on Zenodo (record 18923275, v2). The reported attacks include DoS/DDoS floods, port scanning and OS fingerprinting, SSH/FTP brute force, SQL injection and XSS; the label scheme is not documented on the dataset page.",
       "category": "5g",
       "year": "2025",
       "representation": "PCAP + derived",

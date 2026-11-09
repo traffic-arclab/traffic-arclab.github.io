@@ -564,6 +564,7 @@ def changelog_change(c):
     detail = ''
     if c['kind'] in ('changed', 'withdrawn'):
         detail = '<ul class="obs-log-fields">' + ''.join(
+            f'<li><span class="obs-log-field">{esc(f["field"])}</span> revised</li>' if f.get('revised') else
             f'<li><span class="obs-log-field">{esc(f["field"])}</span> <del>{esc(f["old"])}</del> '
             f'<span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>{esc(f["new"])}</ins></li>'
             for f in c['fields']) + '</ul>'
@@ -1171,7 +1172,7 @@ def build():
             cached = json.load(f)
     except (OSError, ValueError):
         cached = {}
-    log = observatory_changelog.changelog(data, ROOT, cached)
+    log = observatory_changelog.changelog(data, ROOT, cached, {k: label for k, label, _ in DOMAINS})
     observatory_changelog.freeze(data, ROOT, os.path.join(OUT, 'releases'))
     history = dict(log['history'], _since=log['since'], _first=log['first'], _current=log['current'], _title=data['title'])
     with open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8') as f:

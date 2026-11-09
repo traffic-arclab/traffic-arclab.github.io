@@ -367,7 +367,7 @@
         <p class="obs-log-meta"><time datetime="${esc(e.date)}">${day(e.date)}</time> · ${e.unreleased ? 'unreleased' : `v${esc(e.release)}`}
           · <a href="changelog.html#c-${esc(e.commit)}">${esc(e.commit)}</a></p>
         <span class="obs-log-kind">${KINDS[e.kind] || esc(e.kind)}</span>
-        ${(e.fields || []).length ? `<ul class="obs-log-fields">${e.fields.map(f => `<li><span class="obs-log-field">${esc(f.field)}</span>
+        ${(e.fields || []).length ? `<ul class="obs-log-fields">${e.fields.map(f => f.revised ? `<li><span class="obs-log-field">${esc(f.field)}</span> revised</li>` : `<li><span class="obs-log-field">${esc(f.field)}</span>
           <del>${esc(f.old)}</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>${esc(f.new)}</ins></li>`).join('')}</ul>` : ''}
       </li>`).join('');
     return `<section class="obs-history" aria-label="History of this record">

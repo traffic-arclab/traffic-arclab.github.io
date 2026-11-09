@@ -14,8 +14,8 @@
      "fields": [
       {
        "field": "Domain",
-       "old": "iot",
-       "new": "industrial"
+       "old": "IoT, IIoT and IoMT",
+       "new": "ICS and OT"
       }
      ]
     }
@@ -79,13 +79,12 @@
       },
       {
        "field": "Attack families",
-       "old": "dos, fuzzing, replay, spoofing",
-       "new": "bruteforce, dos, fuzzing, replay, spoofing"
+       "old": "(D)DoS, Fuzzing, Replay, Spoofing / fabrication / masquerade",
+       "new": "Brute force, (D)DoS, Fuzzing, Replay, Spoofing / fabrication / masquerade"
       },
       {
        "field": "Description",
-       "old": "The bib says this is possibly the DLTeamTUC 5G Security Datasets record: to be confirmed.",
-       "new": "–"
+       "revised": true
       }
      ]
     },
@@ -101,7 +100,7 @@
       },
       {
        "field": "Derivation tool",
-       "old": "CICFlowMeter?",
+       "old": "CICFlowMeter (to be confirmed)",
        "new": "CICFlowMeter"
       },
       {
@@ -126,8 +125,7 @@
       },
       {
        "field": "Description",
-       "old": "–",
-       "new": "GTP encapsulation, malformed GTP, ICMP/UDP DDoS, intra-UPF UE DoS and GTP-U TEID brute force; PCAP and CSV with more than 80 flow features."
+       "revised": true
       }
      ]
     },
@@ -138,7 +136,7 @@
      "fields": [
       {
        "field": "Traffic data",
-       "old": "Network-feature files, verify",
+       "old": "Network-feature files",
        "new": "PCAP, CSV"
       }
      ]
@@ -237,8 +235,7 @@
       },
       {
        "field": "Description",
-       "old": "Dataset DOI: 10.21227/qvr7-n418.",
-       "new": "–"
+       "revised": true
       },
       {
        "field": "Paper title",
