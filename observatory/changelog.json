@@ -272,6 +272,148 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-09",
+   "commit": "9285133",
+   "source": "repository",
+   "message": "Observatory: public changelog without the curators' working notes (description changes listed as revised, coded values shown with their labels, no 'verify' or table references); record notes and data fields reworded formally",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "5g-slicing-dos-ddos",
+     "name": "5G Slicing DoS/DDoS (DoS/DDoS Attack Dataset of 5G Network Slicing)",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cards",
+     "name": "CarDS",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cic-andmal2017",
+     "name": "CIC-AndMal2017",
+     "fields": [
+      {
+       "field": "Traffic data",
+       "old": "PCAP, traffic features",
+       "new": "PCAP, Traffic features"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cic-bell-dns-exf-2021",
+     "name": "CIC-Bell-DNS-EXF-2021",
+     "fields": [
+      {
+       "field": "Traffic data",
+       "old": "DNS traffic/features",
+       "new": "DNS traffic and features"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cicids2017",
+     "name": "CICIDS2017",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "ciciot2023",
+     "name": "CICIoT2023",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "hcrl-car-hacking",
+     "name": "HCRL Car-Hacking",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "netslab-5goran-idd",
+     "name": "NetsLab-5GORAN-IDD",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "someip-ids",
+     "name": "SOME/IP IDS",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "tqh-c2-encrypted-command-control",
+     "name": "TQH-C2",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "usb-ids-tc",
+     "name": "USB-IDS-TC",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "ustc-tfc2016",
+     "name": "USTC-TFC2016",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }
