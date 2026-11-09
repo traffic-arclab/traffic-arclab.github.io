@@ -17,7 +17,11 @@
   rows.forEach((row, i) => {
     row._facets = new Set(row.dataset.facets.split(' '));
     row._order = i;
+    const [from, to] = (row.dataset.years || '').split(' ').map(Number);
+    row._years = from ? [from, to || from] : null;   // first and last year of the dataset
   });
+  const yearFrom = document.getElementById('obs-year-from');
+  const yearTo = document.getElementById('obs-year-to');
   const heroInput = document.getElementById('obs-q');
   const searchForm = document.getElementById('obs-search-form');
   const aiUrl = searchForm.dataset.ai || '';
@@ -40,11 +44,21 @@
     const chosen = {};
     boxes.filter(b => b.checked).forEach(b => (chosen[b.name] = chosen[b.name] || []).push(b.value));
     const words = keywords.toLowerCase().split(/\s+/).filter(Boolean);
-    return { chosen, words };
+    const years = yearFrom && (yearFrom.value || yearTo.value)
+      ? [Number(yearFrom.value || 0), Number(yearTo.value || 9999)] : null;
+    return { chosen, words, years };
   }
 
+  // A dataset spanning several years matches if any of them is in the range; one without a year never does.
+  const inYears = (row, years) => !years || (row._years && row._years[0] <= years[1] && row._years[1] >= years[0]);
+  const yearText = () => {
+    const [a, b] = [yearFrom.value, yearTo.value];
+    return a && b ? (a === b ? `Year ${a}` : `Years ${a}–${b}`) : a ? `From ${a}` : `Until ${b}`;
+  };
+
   // Within a group the values are alternatives; different groups and the search words must all match.
-  function passes(row, chosen, words, skip) {
+  function passes(row, chosen, words, skip, years = state().years) {
+    if (!inYears(row, years)) return false;
     for (const [group, values] of Object.entries(chosen)) {
       if (group !== skip && !values.some(v => row._facets.has(`${group}:${v}`))) return false;
     }
@@ -91,13 +105,13 @@
   }
 
   function update(push = true) {
-    const { chosen, words } = state();
-    const filtering = words.length > 0 || Object.keys(chosen).length > 0;
+    const { chosen, words, years } = state();
+    const filtering = words.length > 0 || Object.keys(chosen).length > 0 || Boolean(years);
     let shown = 0;
     document.querySelector('.obs-list-wrap').scrollTop = 0;   // the list scrolls inside its own box
     order(rows.slice()).forEach(row => list.appendChild(row));
     rows.forEach(row => {
-      const hit = passes(row, chosen, words);
+      const hit = passes(row, chosen, words, undefined, years);
       // family members are folded under the head record unless the family is open;
       // a search or a filter shows every matching record
       const folded = !filtering && row.dataset.head === 'false' && !expanded.has(row.dataset.family);
@@ -110,7 +124,7 @@
     // facet counts: how many records each value would give with the other filters unchanged;
     // the bar under each value is its share of the largest value of the group
     const counts = new Map(boxes.map(box => [box,
-      rows.filter(r => r._facets.has(`${box.name}:${box.value}`) && passes(r, chosen, words, box.name)).length]));
+      rows.filter(r => r._facets.has(`${box.name}:${box.value}`) && passes(r, chosen, words, box.name, years)).length]));
     const top = {};
     counts.forEach((n, box) => { top[box.name] = Math.max(top[box.name] || 0, n); });
     counts.forEach((n, box) => {
@@ -125,7 +139,9 @@
       badge.textContent = n;
       badge.hidden = n === 0;
     });
-    const nFilters = Object.values(chosen).flat().length;
+    const nFilters = Object.values(chosen).flat().length + (years ? 1 : 0);
+    const yearBadge = panel.querySelector('[data-active-count="year"]');
+    if (yearBadge) { yearBadge.textContent = years ? 1 : 0; yearBadge.hidden = !years; }
     panelN.textContent = nFilters ? ` (${nFilters})` : '';
     const shownBox = document.getElementById('obs-facets-shown');
     if (shownBox) shownBox.textContent = shown;
@@ -133,6 +149,7 @@
     // active filters, each removable
     const chips = [];
     if (words.length) chips.push(`<button type="button" class="obs-chip" data-remove="q">“${esc(keywords.trim())}” <span aria-hidden="true">×</span><span class="visually-hidden">Remove the search</span></button>`);
+    if (years) chips.push(`<button type="button" class="obs-chip" data-remove="year">${esc(yearText())} <span aria-hidden="true">×</span><span class="visually-hidden">Remove the year filter</span></button>`);
     boxes.filter(b => b.checked).forEach(b => chips.push(
       `<button type="button" class="obs-chip" data-remove="${esc(b.name)}:${esc(b.value)}">${esc(label(b))} <span aria-hidden="true">×</span><span class="visually-hidden">Remove this filter</span></button>`));
     activeBox.innerHTML = chips.join('');
@@ -194,6 +211,7 @@
     const params = new URLSearchParams();
     if (keywords.trim()) params.set('q', keywords.trim());
     Object.entries(chosen).forEach(([g, values]) => params.set(g, values.join(',')));
+    if (yearFrom && (yearFrom.value || yearTo.value)) params.set('year', `${yearFrom.value}-${yearTo.value}`);
     if (sort.value !== 'catalogue') params.set('sort', sort.value);
     const query = params.toString();
     history.replaceState(null, '', query ? `?${query}${location.hash}` : location.pathname + location.hash);
@@ -203,6 +221,12 @@
     const params = new URLSearchParams(location.search);
     heroInput.value = keywords = params.get('q') || '';
     boxes.forEach(b => { b.checked = (params.get(b.name) || '').split(',').includes(b.value); });
+    if (yearFrom) {
+      const [a = '', b = ''] = (params.get('year') || '').split('-');
+      const valid = (select, v) => ([...select.options].some(o => o.value === v) ? v : '');
+      yearFrom.value = valid(yearFrom, a);
+      yearTo.value = valid(yearTo, b);
+    }
     if (params.get('sort') && [...sort.options].some(o => o.value === params.get('sort'))) sort.value = params.get('sort');
     boxes.filter(b => b.checked).forEach(b => b.closest('details').open = true);
     return params.toString() !== '';
@@ -233,6 +257,7 @@
     const chip = e.target.closest('[data-remove]');
     if (!chip) return;
     if (chip.dataset.remove === 'q') heroInput.value = keywords = '';
+    else if (chip.dataset.remove === 'year') yearFrom.value = yearTo.value = '';
     else {
       const [g, v] = chip.dataset.remove.split(':');
       boxes.find(b => b.name === g && b.value === v).checked = false;
@@ -242,8 +267,15 @@
   clear.addEventListener('click', () => {
     heroInput.value = keywords = '';
     boxes.forEach(b => { b.checked = false; });
+    if (yearFrom) yearFrom.value = yearTo.value = '';
     update();
   });
+  // the Year filter: a "To" before the "From" follows it, so that the range is never empty
+  if (yearFrom) {
+    const both = () => yearFrom.value && yearTo.value;
+    yearFrom.addEventListener('change', () => { if (both() && yearFrom.value > yearTo.value) yearTo.value = yearFrom.value; update(); });
+    yearTo.addEventListener('change', () => { if (both() && yearTo.value < yearFrom.value) yearFrom.value = yearTo.value; update(); });
+  }
   // on a phone the filters open as a full-screen sheet, closed by "Show N results"
   const sheet = window.matchMedia('(max-width: 640px)');
   function setPanel(open) {

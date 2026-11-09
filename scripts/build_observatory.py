@@ -516,13 +516,15 @@ def facet_panel(records):
             for i, (v, label) in enumerate(values))
         more = (f'\n                <button type="button" class="obs-facet-more" aria-expanded="false" data-more="{len(values) - FACET_TOP}">'
                 f'Show all {len(values)}</button>') if len(values) > FACET_TOP else ''
+        if key == 'rating':
+            groups.append('{YEAR}')   # the Year filter right after the domains
         groups.append(f'''            <details class="obs-facet-group"{' open' if opened else ''}>
               <summary>{esc(title)}<span class="obs-facet-active" data-active-count="{key}" hidden></span></summary>
               <div class="obs-facet-list">
 {options}{more}
               </div>
             </details>''')
-    return '\n'.join(groups)
+    return '\n'.join(groups).replace('{YEAR}', year_group(records))
 
 
 MARK = ('<svg class="obs-engine-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" '
@@ -756,6 +758,32 @@ def representation_of(rec):
     return 'pktder' if a['traces'] and a['derived'] else 'pkt' if a['traces'] else 'der'
 
 
+def year_span(rec):
+    """The first and last year of a record ("2011–17" -> 2011, 2017; "2019" -> 2019, 2019), or None."""
+    m = re.match(r'(\d{4})(?:\s*[–-]\s*(\d{2,4}))?', str(rec.get('year') or ''))
+    if not m:
+        return None
+    start = int(m.group(1))
+    end = m.group(2)
+    end = int(end) if end and len(end) == 4 else int(str(start)[:2] + end) if end else start
+    return start, max(start, end)
+
+
+def year_group(records):
+    """The Year filter: from a year to a year (the same year twice, or only one of them, for a single year)."""
+    spans = [year_span(r) for r in records if year_span(r)]
+    first, last = min(s for s, _ in spans), max(e for _, e in spans)
+    options = ''.join(f'<option value="{y}">{y}</option>' for y in range(last, first - 1, -1))
+    return f'''            <details class="obs-facet-group" open>
+              <summary>Year<span class="obs-facet-active" data-active-count="year" hidden></span></summary>
+              <div class="obs-year">
+                <label>From<select id="obs-year-from"><option value="">Any</option>{options}</select></label>
+                <label>To<select id="obs-year-to"><option value="">Any</option>{options}</select></label>
+                <p class="obs-year-note">For a single year, choose it in both. A dataset spanning several years matches if any of them is in the range.</p>
+              </div>
+            </details>'''
+
+
 def first_year(rec):
     m = re.match(r'\d{4}', str(rec.get('year') or ''))
     return int(m.group(0)) if m else None
@@ -896,6 +924,7 @@ def item(rec):
         'data-id': rec['id'], 'data-family': rec['_family'],
         'data-head': 'true' if rec['_head'] else 'false', 'data-domain': rec['_domain'],
         'data-facets': rec['_facets'],
+        'data-years': ' '.join(map(str, year_span(rec) or ())),
         'data-search': ' '.join([rec['name'], rec.get('task', ''), rec.get('domain', ''), ' '.join(rec.get('data') or []),
                                  rec.get('family') or '', rec.get('derived_from') or '', label_of(DOMAINS, rec['_domain']),
                                  'traffic group mirage' if rec['_ours'] else '',
