@@ -20,6 +20,169 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-09",
+   "commit": "19854a3",
+   "source": "repository",
+   "message": "Observatory: 5G table (tab:rev-fiveg) — 7 datasets added (5G Core IDS, 5G Slicing DoS/DDoS, WUSTL-HDRL-2024, 5GCID, NetsLab-5GORAN-IDD, 5GCoreSec, CVE5G); papers of 5GAD-2022, 5GC PFCP and 5G Core GTP-U corrected; 5G Security and Resource Allocation: 8 attack classes, brute force",
+   "changes": [
+    {
+     "kind": "added",
+     "id": "5g-core-ids-sheikhi",
+     "name": "5G Core IDS (5G Intrusion Detection Dataset)"
+    },
+    {
+     "kind": "added",
+     "id": "5g-slicing-dos-ddos",
+     "name": "5G Slicing DoS/DDoS (DoS/DDoS Attack Dataset of 5G Network Slicing)"
+    },
+    {
+     "kind": "added",
+     "id": "5gcid",
+     "name": "5GCID"
+    },
+    {
+     "kind": "added",
+     "id": "5gcoresec",
+     "name": "5GCoreSec"
+    },
+    {
+     "kind": "added",
+     "id": "cve5g",
+     "name": "CVE5G"
+    },
+    {
+     "kind": "added",
+     "id": "netslab-5goran-idd",
+     "name": "NetsLab-5GORAN-IDD"
+    },
+    {
+     "kind": "added",
+     "id": "wustl-hdrl-2024",
+     "name": "WUSTL-HDRL-2024"
+    },
+    {
+     "kind": "changed",
+     "id": "dlteamtuc-5g",
+     "name": "5G Security and Resource Allocation Dataset",
+     "fields": [
+      {
+       "field": "Name",
+       "old": "5G Security and Resource Allocation Dataset (DLTeamTUC 5G Security Datasets)",
+       "new": "5G Security and Resource Allocation Dataset"
+      },
+      {
+       "field": "Attack classes",
+       "old": "1",
+       "new": "8"
+      },
+      {
+       "field": "Attack families",
+       "old": "dos, fuzzing, replay, spoofing",
+       "new": "bruteforce, dos, fuzzing, replay, spoofing"
+      },
+      {
+       "field": "Description",
+       "old": "The bib says this is possibly the DLTeamTUC 5G Security Datasets record: to be confirmed.",
+       "new": "–"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "5g-core-gtp-u",
+     "name": "5G-CGAD (5G Core GTP-U Attack Dataset)",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "https://research.fi/en/results/dataset/5dad463d-0306-455f-b47a-bef771b819fc",
+       "new": "https://etsin.fairdata.fi/dataset/5dad463d-0306-455f-b47a-bef771b819fc"
+      },
+      {
+       "field": "Derivation tool",
+       "old": "CICFlowMeter?",
+       "new": "CICFlowMeter"
+      },
+      {
+       "field": "Paper",
+       "old": "Duchesne, Blaise, Braconnot Velloso & Conan, 6GNet 2025",
+       "new": "Wengappuli Arachchige, Hewa & Siriwardhana, University of Oulu (Fairdata) 2025"
+      },
+      {
+       "field": "Paper title",
+       "old": "5G-Attacks: A new dataset from realistic 5G-core attacks",
+       "new": "5G Core GTP-U Attack Dataset"
+      },
+      {
+       "field": "Paper link",
+       "old": "https://api.semanticscholar.org/CorpusID:284375860",
+       "new": "–"
+      },
+      {
+       "field": "Paper DOI",
+       "old": "–",
+       "new": "10.23729/fd-b9459ea4-88a7-35c2-992e-f178a294c12d"
+      },
+      {
+       "field": "Description",
+       "old": "–",
+       "new": "GTP encapsulation, malformed GTP, ICMP/UDP DDoS, intra-UPF UE DoS and GTP-U TEID brute force; PCAP and CSV with more than 80 flow features."
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "5g-nidd",
+     "name": "5G-NIDD",
+     "fields": [
+      {
+       "field": "Traffic data",
+       "old": "Network-feature files, verify",
+       "new": "PCAP, CSV"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "5gad-2022",
+     "name": "5GAD-2022",
+     "fields": [
+      {
+       "field": "Paper",
+       "old": "Idaho National Laboratory, 2022",
+       "new": "Coldwell et al., IEEE Globecom Workshops 2022"
+      },
+      {
+       "field": "Paper title",
+       "old": "5GAD-2022: 5G Attack Detection dataset",
+       "new": "Machine Learning 5G Attack Detection in Programmable Logic"
+      },
+      {
+       "field": "Paper link",
+       "old": "https://github.com/IdahoLabResearch/5GAD",
+       "new": "–"
+      },
+      {
+       "field": "Paper DOI",
+       "old": "–",
+       "new": "10.1109/GCWkshps56602.2022.10008647"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "5gc-pfcp",
+     "name": "5GC PFCP Intrusion Detection Dataset",
+     "fields": [
+      {
+       "field": "Paper",
+       "old": "Sheikhi, Busari, Gonzalez & Gonzalez, Zenodo 2023",
+       "new": "Amponis et al., Zenodo 2023"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
