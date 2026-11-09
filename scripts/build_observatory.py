@@ -309,8 +309,13 @@ def load_reviews():
         return []
 
 
+RATINGS = False   # set by observatory_page() from "ratings" in data/observatory.json: off hides stars, reviews and the filter
+
+
 def ratings():
     """dataset id -> {avg, count, dist (5 to 1), reviews (newest first, public fields only)}"""
+    if not RATINGS:
+        return {}
     out = {}
     for r in sorted(load_reviews(), key=lambda r: r.get('date', ''), reverse=True):
         try:
@@ -447,6 +452,8 @@ def facet_values(rec):
            'lineage': [v for v, ok in (('original', not rec.get('derived_from') and rec['_size'] == 1),
                                        ('derived', bool(rec.get('derived_from'))), ('member', rec['_size'] > 1)) if ok],
            'rating': ([k for k, _ in RATING_STEPS[:-1] if rec['_rating']['avg'] >= int(k)] if rec.get('_rating') else ['unrated'])}
+    if not RATINGS:
+        del out['rating']
     return ' '.join(f'{g}:{v}' for g, values in out.items() for v in values)
 
 
@@ -482,7 +489,7 @@ def facets():
     """The filter groups: (key, title, [(value, label)], open by default)."""
     return [
         ('domain', 'Domain', [(k, label) for k, label, _ in DOMAINS + [UNCLASSIFIED]], True),
-        ('rating', 'Rating', RATING_STEPS, True),
+        *([('rating', 'Rating', RATING_STEPS, True)] if RATINGS else []),
         ('attack', 'Attack type', [(k, label) for k, label, _ in ATTACKS], True),
         ('protocol', 'Protocol', [(k, label) for k, label, _ in PROTOCOLS], True),
         ('task', 'Security task', [(k, label) for k, label, _ in TASKS], False),
@@ -520,8 +527,8 @@ def facet_panel(records):
             for i, (v, label) in enumerate(values))
         more = (f'\n                <button type="button" class="obs-facet-more" aria-expanded="false" data-more="{len(values) - FACET_TOP}">'
                 f'Show all {len(values)}</button>') if len(values) > FACET_TOP else ''
-        if key == 'rating':
-            groups.append('{YEAR}')   # the Year filter right after the domains
+        if key == ('rating' if RATINGS else 'attack'):
+            groups.append('{YEAR}')   # the Year filter right after the domains (and the ratings)
         groups.append(f'''            <details class="obs-facet-group"{' open' if opened else ''}>
               <summary>{esc(title)}<span class="obs-facet-active" data-active-count="{key}" hidden></span></summary>
               <div class="obs-facet-list">
@@ -911,6 +918,8 @@ def entity_model(data):
 def rating_button(rec):
     """The rating of a record, right of its name in the card: the average stars and the number of ratings, or empty
     stars and "Rate" when nobody has rated it yet; either way it opens the reviews in the dialog."""
+    if not RATINGS:
+        return ''
     rated = rec.get('_rating')
     if rated:
         text = f'{rated["avg"]:.1f} out of 5 from {rated["count"]} rating{"s" if rated["count"] != 1 else ""}'
@@ -1180,11 +1189,13 @@ def page_data(records, history=None):
                     domainGroup=label_of(DOMAINS, r['_domain']), domainKey=r['_domain'])
         out.append(item)
     meta = {k: history[k] for k in ('_since', '_first', '_current', '_title')} if history else {}
-    payload = json.dumps({'records': out, 'log': meta}, ensure_ascii=False, separators=(',', ':'))
+    payload = json.dumps({'records': out, 'log': meta, 'ratings': RATINGS}, ensure_ascii=False, separators=(',', ':'))
     return payload.replace('</', '<\\/')
 
 
 def observatory_page(data, history=None):
+    global RATINGS
+    RATINGS = bool(data.get('ratings', True))
     records = all_records(data)
     families = enrich(records)
     about = '\n'.join('          <p>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(p)) + '</p>' for p in data['about'])
@@ -1212,7 +1223,7 @@ def observatory_page(data, history=None):
             <section class="obs-ai" id="obs-ai" aria-live="polite" aria-label="AI-assisted results" hidden></section>
             <div class="obs-bar">
               <button type="button" class="btn btn-ghost obs-facets-toggle" id="obs-facets-toggle" aria-controls="obs-facets" aria-expanded="false">Filters<span id="obs-facets-n"></span></button>
-              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="new">New first</option><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="year-desc">Year, newest first</option><option value="year">Year, oldest first</option><option value="size-desc">Size, largest first</option><option value="classes-desc">Attack classes, most first</option><option value="families-desc">Attack families, most first</option><option value="derived-desc">Derived datasets, most first</option><option value="family-desc">Family size, largest first</option><option value="domain">Domain</option><option value="access">Access, open first</option><option value="paper">Paper identified first</option><option value="rating">Rating, highest first</option></select></label>
+              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="new">New first</option><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="year-desc">Year, newest first</option><option value="year">Year, oldest first</option><option value="size-desc">Size, largest first</option><option value="classes-desc">Attack classes, most first</option><option value="families-desc">Attack families, most first</option><option value="derived-desc">Derived datasets, most first</option><option value="family-desc">Family size, largest first</option><option value="domain">Domain</option><option value="access">Access, open first</option><option value="paper">Paper identified first</option>{'<option value="rating">Rating, highest first</option>' if RATINGS else ''}</select></label>
               <div class="obs-view" role="group" aria-label="Layout">
                 <button type="button" data-view="cards" aria-pressed="true" title="Cards"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg><span class="visually-hidden">Cards</span></button>
                 <button type="button" data-view="table" aria-pressed="false" title="Table"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3h13M1.5 8h13M1.5 13h13"/></svg><span class="visually-hidden">Table</span></button>

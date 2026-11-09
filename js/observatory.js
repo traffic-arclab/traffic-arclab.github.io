@@ -434,6 +434,7 @@
 
   // Under the title of the dialog: the stars in large, the average and the number of ratings (or "Rate this dataset")
   function headerRating(r) {
+    if (!data.ratings) return '';
     const rating = r.rating;
     if (!rating) return `<p class="obs-dlg-rating">${starsHtml(0, 'Not yet rated')}<span class="obs-dlg-rating-text">Not yet rated</span>
         <button type="button" class="obs-link" data-goto="rate">Rate this dataset</button></p>`;
@@ -452,6 +453,7 @@
   }
 
   function reviewsSection(r) {
+    if (!data.ratings) return '';
     const rating = r.rating;
     const list = rating ? rating.reviews : [];
     const summary = rating ? `<div class="obs-rev-summary">
