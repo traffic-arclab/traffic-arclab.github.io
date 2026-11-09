@@ -271,9 +271,13 @@ def all_records(data):
     return (our_records() if data.get('group_datasets') else []) + [r for r in data['records'] if not r.get('excluded')]
 
 
+LAST_CHANGE = ''   # the day of the last change of the records, from the change log (set by build())
+
+
 def updated(data):
-    """The date of the last update of the catalogue ("updated", else the date of the reference list)."""
-    return date.fromisoformat(data.get('updated') or data['snapshot'])
+    """The date of the last update of the catalogue: "updated" (set by the site editor), the day of the last
+    change of the records in the change log (any change, also made in the repository), or the reference list."""
+    return date.fromisoformat(max(data.get('updated') or data['snapshot'], LAST_CHANGE))
 
 
 # --------------------------------------------------------------------------
@@ -1279,6 +1283,8 @@ def build():
         cached = {}
     log = observatory_changelog.changelog(data, ROOT, cached, {k: label for k, label, _ in DOMAINS})
     observatory_changelog.freeze(data, ROOT, os.path.join(OUT, 'releases'))
+    global LAST_CHANGE
+    LAST_CHANGE = max((e['date'] for e in log['entries']), default='')
     history = dict(log['history'], _since=log['since'], _first=log['first'], _current=log['current'], _title=data['title'])
     with open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(observatory_page(data, history))
