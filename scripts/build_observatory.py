@@ -514,19 +514,23 @@ def ai_chat(data):
 
 
 def citation(data):
-    """The paper to cite for the Observatory ("citation" of data/observatory.json), next to the submit call."""
+    """The paper to cite for the Observatory ("citation" of data/observatory.json), next to the submit call:
+    the request to cite it, then the paper (title, authors) with its arXiv and BibTeX links ("arxiv" and
+    "bibtex"; "#" while they are placeholders)."""
     cite = data.get('citation')
     if not cite:
-        return '', ''
-    # the kicker sits left of the gold border, and the title, broken after its colon, makes two lines on the
-    # right of it, facing the two lines of the submit call; the authors are a row below
-    head, sep, tail = cite['title'].partition(': ')
-    title = f'{esc(head)}:<br>{esc(tail)}' if sep else esc(cite['title'])
+        return ''
+    links = ''.join(f'<a href="{esc(cite[k])}"{"" if cite[k].startswith("#") else " target=\"_blank\" rel=\"noopener\""}>{label}</a>'
+                    for k, label in (('arxiv', 'arXiv'), ('bibtex', 'BibTeX')) if cite.get(k))
     return f'''          <div class="obs-cite">
             <p class="obs-cite-kicker">Cite this work</p>
-            <p class="obs-cite-title">{title}</p>
+            {f'<p class="obs-cite-ask">{esc(cite["request"])}</p>' if cite.get('request') else ''}
+            <div class="obs-cite-ref">
+              <p class="obs-cite-title">{esc(cite['title'])}</p>
+              <p class="obs-cite-by">{esc(', '.join(cite['authors']))} · {esc(cite['affiliation'])}</p>
+              {f'<p class="obs-cite-links">{links}</p>' if links else ''}
+            </div>
           </div>
-''', f'''          <p class="obs-cite-by">{esc(', '.join(cite['authors']))} · {esc(cite['affiliation'])}</p>
 '''
 
 
@@ -636,7 +640,7 @@ def changelog_page(data, log):
 
 def engine(data, records, families):
     """The opening of the page: a search engine home, on a night sky with the observatory drawing."""
-    cite, cite_by = citation(data)
+    cite = citation(data)
     return f'''    <section class="obs-engine" aria-labelledby="obs-engine-title">
       <div class="container obs-engine-inner">
         <button type="button" class="obs-bell-corner" data-subscribe title="Stay updated: get an email when new datasets of your domains are added">
@@ -660,7 +664,7 @@ def engine(data, records, families):
             <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
             <a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
           </div>
-{cite_by}        </div>
+        </div>
       </div>
     </section>'''
 

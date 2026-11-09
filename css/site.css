@@ -1558,14 +1558,19 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-bell-corner:focus-visible { outline: none; }
 .obs-bell-corner:focus-visible .obs-bell-btn { outline: 2px solid var(--color-gold); outline-offset: 2px; }
 @media (max-width: 600px) { .obs-bell-corner { top: -8px; } .obs-bell-btn { width: 40px; height: 40px; font-size: 1.1rem; } .obs-bell-caption { font-size: .62rem; } }
-.obs-engine-foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 28px; margin-top: clamp(28px, 3.5vw, 44px); --foot-line: 1.4rem; }
-/* "Cite this work" left of the gold border, the title in two lines right of it (facing the two lines of the submit call) */
-.obs-cite { display: flex; align-items: center; gap: 14px; text-align: left; }
-.obs-cite p { margin: 0; line-height: var(--foot-line); }
-.obs-cite-kicker { flex: none; color: var(--color-gold); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.obs-cite-title { padding-left: 14px; border-left: 3px solid var(--color-gold); color: #fff; font-size: .98rem; font-weight: 650; white-space: nowrap; }
-.obs-cite-by { grid-column: 1 / -1; margin: 12px 0 0; color: var(--color-deep-muted); font-size: .88rem; font-style: italic; line-height: 1.4; text-align: left; }
-@media (min-width: 901px) { .obs-cite-by { white-space: nowrap; } }
+.obs-engine-foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: clamp(28px, 4vw, 64px); margin-top: clamp(28px, 3.5vw, 44px); }
+/* the request to cite the Observatory, then the paper (title and authors in the same type) with its links */
+.obs-cite { max-width: 78ch; text-align: left; }
+.obs-cite p { margin: 0; }
+.obs-cite-kicker { color: var(--color-gold); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.obs-cite-ask { margin-top: 6px !important; color: var(--color-deep-muted); font-size: .9rem; line-height: 1.5; }
+.obs-cite-ref { margin-top: 12px; padding-left: 14px; border-left: 3px solid var(--color-gold); font-family: var(--font-sans); line-height: 1.45; }
+.obs-cite-title { color: #fff; font-size: .98rem; font-weight: 650; }
+.obs-cite-by { margin-top: 2px !important; color: var(--color-deep-muted); font-size: .9rem; font-weight: 400; }
+.obs-cite-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 6px !important; font-size: .88rem; font-weight: 650; }
+.obs-cite-links a { color: var(--color-gold); text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: .2em; }
+.obs-cite-links a:hover { color: #fff; text-decoration-color: currentColor; }
+.obs-cite-links a[target]::after { content: " ↗"; }
 .obs-engine-submit { display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-left: auto; text-align: right; }
 .obs-engine-submit p { max-width: 52ch; color: var(--color-deep-muted); font-size: .95rem; line-height: var(--foot-line, 1.45); }
 .obs-engine-submit strong { color: #fff; font-weight: 650; }
@@ -1574,19 +1579,13 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .btn-gold span { font-size: 1.25rem; line-height: 1; }
 /* no room for the citation and the submit call side by side: the citation (and its authors) above */
 @media (max-width: 1180px) {
-  .obs-engine-foot { grid-template-columns: 1fr; row-gap: 16px; }
-  .obs-cite-by { order: 1; margin-top: 0; }
-  .obs-engine-submit { order: 2; margin-left: 0; justify-content: flex-start; text-align: left; }
+  .obs-engine-foot { grid-template-columns: 1fr; row-gap: 22px; }
+  .obs-engine-submit { margin-left: 0; justify-content: flex-start; text-align: left; }
 }
 @media (max-width: 900px) {
   .obs-engine::before { display: none; }
   .obs-engine::after { opacity: .3; }
   .obs-engine-submit { flex-direction: column; align-items: flex-start; gap: 10px; }
-}
-@media (max-width: 600px) {
-  /* no room for the kicker beside the title on a phone: above it */
-  .obs-cite { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .obs-cite-title { white-space: normal; }
 }
 
 /* Observatory search: the bar of the page title and the filter panel of the results */

@@ -31,7 +31,10 @@
       "Gabriele Mangiacapre",
       "Antonio Pescapè"
     ],
-    "affiliation": "University of Napoli Federico II, Italy"
+    "affiliation": "University of Napoli Federico II, Italy",
+    "request": "If you find the Observatory useful in your research, we kindly ask you to cite the following publication to acknowledge the scientific contributions underlying the development and maintenance of this research infrastructure:",
+    "arxiv": "#",
+    "bibtex": "#"
   },
   "submit_endpoint": "https://script.google.com/macros/s/AKfycbzot0M3x2n9_xxT3YRJJEJsDpIHqgOhIR0MCXAd3VRXyS5VdkkaDP96j4g4y2KJFvS9/exec",
   "ai_endpoint": "",
