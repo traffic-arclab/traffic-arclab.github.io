@@ -715,7 +715,6 @@ def engine(data, records, families):
         <ul class="obs-engine-stats" aria-label="The catalogue in numbers">
           <li><strong>{len(records)}</strong> records</li>
           <li><strong>{available(records)}</strong> available</li>
-          <li><a class="obs-unavailable" href="?access=unavailable#catalogue" title="Withdrawn by their source or not yet released"><strong>{len(records) - available(records)}</strong> not available</a></li>
           <li><strong>{len(families)}</strong> independent families</li>
           <li>last update <strong>{updated(data).day} {updated(data):%b %Y}</strong></li>{version_link(data)}
         </ul>

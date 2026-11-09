@@ -1405,8 +1405,6 @@ a.obs-m-val:hover { border-color: var(--color-link); color: var(--color-link); }
 .obs-rep-total { width: 4.5em; }
 .obs-rep-avail { width: 5.5em; color: var(--color-muted); text-align: right !important; }
 .obs-rep-avail.is-short { color: var(--color-title); font-weight: 700; }
-.obs-unavailable { color: inherit; text-decoration: underline dotted; text-underline-offset: .25em; }
-.obs-unavailable:hover { color: #fff; }
 .obs-rep-note { margin-top: 8px; color: var(--color-muted); font-size: .84rem; }
 thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-rep-bar { display: flex; gap: 2px; height: 12px; }
