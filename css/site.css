@@ -1403,6 +1403,10 @@ a.obs-m-val:hover { border-color: var(--color-link); color: var(--color-link); }
 .obs-rep-n.is-zero { color: var(--color-subtle); }
 .obs-rep-table .obs-rep-gap { border-left: 1px solid var(--color-line); }
 .obs-rep-total { width: 4.5em; }
+.obs-rep-avail { width: 5.5em; color: var(--color-muted); text-align: right !important; }
+.obs-rep-avail.is-short { color: var(--color-title); font-weight: 700; }
+.obs-unavailable { color: inherit; text-decoration: underline dotted; text-underline-offset: .25em; }
+.obs-unavailable:hover { color: #fff; }
 .obs-rep-note { margin-top: 8px; color: var(--color-muted); font-size: .84rem; }
 thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-rep-bar { display: flex; gap: 2px; height: 12px; }
@@ -1822,7 +1826,7 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   /* the table by domain: the category, its total and the bar; the four counts are in the legend colours */
   .obs-rep-scroll { overflow-x: visible; }
   .obs-rep-table { min-width: 0; table-layout: fixed; }
-  .obs-rep-table thead .obs-rep-n, .obs-rep-table td.obs-rep-n { display: none; }
+  .obs-rep-table thead .obs-rep-n, .obs-rep-table td.obs-rep-n, .obs-rep-avail { display: none; }
   .obs-rep-table th, .obs-rep-table td { padding: 9px 10px; }
   .obs-rep-table tbody th { white-space: normal; line-height: 1.3; }
   .obs-rep-table thead th:first-child { width: 52%; }

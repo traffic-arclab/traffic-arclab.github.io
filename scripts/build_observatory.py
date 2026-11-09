@@ -361,10 +361,16 @@ def update_features(data):
 # Page parts
 # --------------------------------------------------------------------------
 
+def available(records):
+    """The records that can be obtained today: all but those withdrawn by their source or not yet released."""
+    return sum(1 for r in records if r.get('access') != 'unavailable')
+
+
 def stats(data, records, families):
     snap = updated(data)
     items = [
         ('Catalogue records', len(records), 'versions, captures and collections'),
+        ('Available', available(records), f'{len(records) - available(records)} withdrawn or not yet released'),
         ('Independent families', len(families), 'after grouping captures and derivatives'),
         ('Last update', f'{snap.day} {snap:%b %Y}', 'counts refer to this date'),
     ]
@@ -657,6 +663,8 @@ def engine(data, records, families):
 {ai_chat(data)}
         <ul class="obs-engine-stats" aria-label="The catalogue in numbers">
           <li><strong>{len(records)}</strong> records</li>
+          <li><strong>{available(records)}</strong> available</li>
+          <li><a class="obs-unavailable" href="?access=unavailable#catalogue" title="Withdrawn by their source or not yet released"><strong>{len(records) - available(records)}</strong> not available</a></li>
           <li><strong>{len(families)}</strong> independent families</li>
           <li>last update <strong>{updated(data).day} {updated(data):%b %Y}</strong></li>{version_link(data)}
         </ul>
@@ -712,8 +720,9 @@ def domain_table(records):
     for r in records:
         if not r.get('category') or not r.get('table_row', True):
             continue
-        c = rows.setdefault(r['category'], dict.fromkeys(['n'] + keys, 0))
+        c = rows.setdefault(r['category'], dict.fromkeys(['n', 'avail'] + keys, 0))
         c['n'] += 1
+        c['avail'] += r.get('access') != 'unavailable'
         kind = representation_of(r)
         if kind:
             c[kind] += 1
@@ -722,7 +731,7 @@ def domain_table(records):
         c['recent'] += (first_year(r) or 0) >= 2023
     order = sorted(rows, key=lambda k: (-rows[k]['n'], label_of(DOMAINS, k)))
     top = max(sum(v[k] for k, _, _ in ARTIFACTS) for v in rows.values())
-    total = {k: sum(rows[d][k] for d in rows) for k in ['n'] + keys}
+    total = {k: sum(rows[d][k] for d in rows) for k in ['n', 'avail'] + keys}
     uncounted = total['n'] - sum(total[k] for k, _, _ in ARTIFACTS)
 
     def line(name, counts, cls='', key=None):
@@ -735,15 +744,16 @@ def domain_table(records):
             f'<span><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span>'
             f'<span class="visually-hidden">{esc(label)}: </span>{counts[k]}</span>'
             for k, label, _ in ARTIFACTS if counts[k])
-            + '<span class="obs-rep-mini-extra">' + ' · '.join(f'{esc(label)} {counts[k]}' for k, label, _ in EXTRA) + '</span></span>')
+            + '<span class="obs-rep-mini-extra">' + f'Available {counts["avail"]} · ' + ' · '.join(f'{esc(label)} {counts[k]}' for k, label, _ in EXTRA) + '</span></span>')
         head = (f'<a href="?domain={key}#catalogue"><span class="obs-dot" data-domain="{key}" aria-hidden="true"></span>{esc(name)}</a>'
                 if key else esc(name))
         cells = ''.join(f'<td class="obs-rep-n{" obs-rep-gap" if k == EXTRA[0][0] else ""}{" is-zero" if not counts[k] else ""}">{counts[k]}</td>'
                         for k in keys)
-        return f'              <tr{cls}><th scope="row">{head}</th><td class="obs-rep-total">{counts["n"]}</td><td class="obs-rep-cell">{bar}</td>{cells}</tr>'
+        return f'              <tr{cls}><th scope="row">{head}</th><td class="obs-rep-total">{counts["n"]}</td><td class="obs-rep-avail{" is-short" if counts["avail"] < counts["n"] else ""}">{counts["avail"]}</td><td class="obs-rep-cell">{bar}</td>{cells}</tr>'
 
     legend = ''.join(f'<li><span class="obs-rep-key obs-rep-{k}" aria-hidden="true"></span><strong>{esc(label)}</strong> {esc(text)}</li>'
                      for k, label, text in ARTIFACTS)
+    legend += '<li><strong>Available</strong> can be obtained today: not withdrawn by its source and already released</li>'
     legend += ''.join(f'<li><strong>{esc(label)}</strong> {esc(text)}</li>' for _, label, text in EXTRA)
     note = (f'<p class="obs-rep-note">{uncounted} record{"s" if uncounted != 1 else ""} distribute{"" if uncounted != 1 else "s"} '
             'neither network traces nor derived records (only raw HTTP requests) and '
@@ -757,7 +767,7 @@ def domain_table(records):
             <p>Each per-domain table of the paper is one row: what its records distribute, how many were recorded in real networks or installations, how many derive from earlier captures and how many were released since 2023. Select a domain to see its datasets.</p></figcaption>
           <div class="obs-rep-scroll">
             <table class="obs-rep-table">
-              <thead><tr><th scope="col">Domain</th><th scope="col" class="obs-rep-total">Number</th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Distributed artifacts</span></th>{heads}</tr></thead>
+              <thead><tr><th scope="col">Domain</th><th scope="col" class="obs-rep-total">Number</th><th scope="col" class="obs-rep-avail" title="Not withdrawn by their source and already released">Available</th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Distributed artifacts</span></th>{heads}</tr></thead>
               <tbody>
 {body}
               </tbody>
