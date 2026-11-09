@@ -887,7 +887,7 @@ def rating_button(rec):
         text = 'Not yet rated: rate this dataset'
         inner = f'{stars(0, "Not yet rated")}<span class="obs-rating-n">Rate</span>'
     return (f'<button type="button" class="obs-rating{"" if rated else " is-empty"}" data-open="{esc(rec["id"])}" '
-            f'data-reviews title="{esc(text)}">{inner}</button>')
+            f'data-reviews="{"reviews" if rated else "rate"}" title="{esc(text)}">{inner}</button>')
 
 
 def item(rec):

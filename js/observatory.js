@@ -400,6 +400,25 @@
       </li>`;
   }
 
+  // Under the title of the dialog: the stars in large, the average and the number of ratings (or "Rate this dataset")
+  function headerRating(r) {
+    const rating = r.rating;
+    if (!rating) return `<p class="obs-dlg-rating">${starsHtml(0, 'Not yet rated')}<span class="obs-dlg-rating-text">Not yet rated</span>
+        <button type="button" class="obs-link" data-goto="rate">Rate this dataset</button></p>`;
+    return `<p class="obs-dlg-rating"><span class="obs-dlg-rating-avg">${rating.avg.toFixed(1)}</span>${starsHtml(rating.avg, `${rating.avg.toFixed(1)} out of 5`)}
+        <button type="button" class="obs-link" data-goto="reviews">${rating.count} rating${rating.count === 1 ? '' : 's'}</button>
+        <button type="button" class="obs-link" data-goto="rate">Rate this dataset</button></p>`;
+  }
+
+  // Straight to the reviews of the dialog, or to the rating form, open, at the top of the dialog
+  function goToReviews(mode) {
+    const section = body.querySelector('#obs-reviews');
+    if (!section) return;
+    if (mode === 'rate') section._openForm();
+    dialog.scrollTop += section.getBoundingClientRect().top - dialog.getBoundingClientRect().top - 8;
+    if (mode === 'rate') section.querySelector('input[name=stars]').focus({ preventScroll: true });
+  }
+
   function reviewsSection(r) {
     const rating = r.rating;
     const list = rating ? rating.reviews : [];
@@ -453,11 +472,17 @@
     });
     const form = section.querySelector('form');
     const open = section.querySelector('.obs-rev-open');
+    section._openForm = () => {
+      if (!form.isConnected) return;   // already sent
+      form.hidden = false;
+      open.setAttribute('aria-expanded', 'true');
+    };
     open.addEventListener('click', () => {
       form.hidden = !form.hidden;
       open.setAttribute('aria-expanded', String(!form.hidden));
       if (!form.hidden) form.querySelector('input[name=stars]').focus();
     });
+    body.querySelectorAll('[data-goto]').forEach(b => b.addEventListener('click', () => goToReviews(b.dataset.goto)));
     const visual = form.querySelector('.obs-rate-stars');
     const output = form.querySelector('.obs-rate-value');
     const chosen = () => (form.querySelector('input[name=stars]:checked') || {}).value;
@@ -518,6 +543,7 @@
     body.innerHTML = `
       <p class="card-kicker">${esc(r.domainGroup)}${isNew(r.new_until) ? ' <span class="tag tag-new">New</span>' : ''}</p>
       <h2 id="obs-dialog-title" class="gate-title">${esc(r.name)}</h2>
+      ${headerRating(r)}
       <dl class="obs-dl">
         ${item('Security task', esc(r.task))}
         ${item('Domain', `<span class="obs-pills" data-domain="${esc(r.domainKey)}">${r.domainKey === 'none' ? '' : `<span class="obs-pill obs-pill-cat">${esc(r.domainGroup)}</span>`}${(r.domain || '').split(/;| \/ /).map(p => p.trim())
@@ -563,16 +589,13 @@
       prefill(e.currentTarget.dataset.report, r.url);
     });
     if (!dialog.open) dialog.showModal();
-    if (focus === 'reviews') {
-      const section = body.querySelector('#obs-reviews');
-      dialog.scrollTop = 0;
-      section.scrollIntoView({ block: 'start' });
-    }
+    dialog.scrollTop = 0;
+    if (focus) goToReviews(focus);
   }
 
   list.addEventListener('click', e => {
     const button = e.target.closest('[data-open]');
-    if (button) details(byId[button.dataset.open], button.hasAttribute('data-reviews') ? 'reviews' : '');
+    if (button) details(byId[button.dataset.open], button.hasAttribute('data-reviews') ? (button.dataset.reviews || 'reviews') : '');
   });
   dialog.querySelectorAll('[data-dialog-close]').forEach(b => b.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
