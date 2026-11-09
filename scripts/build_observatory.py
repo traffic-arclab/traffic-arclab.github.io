@@ -877,7 +877,7 @@ def entity_model(data):
 
 
 def rating_button(rec):
-    """The rating of a record, top right of its card: the average stars and the number of ratings, or empty
+    """The rating of a record, right of its name in the card: the average stars and the number of ratings, or empty
     stars and "Rate" when nobody has rated it yet; either way it opens the reviews in the dialog."""
     rated = rec.get('_rating')
     if rated:
@@ -949,8 +949,8 @@ def item(rec):
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
     capture = ' is-capture' if not rec.get('table_row', True) else ''   # a capture inside a family row of a table
     return f'''              <article class="obs-item{capture}" {attr}>
-                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec['_domain'], rec.get('domain'))}{rating_button(rec)}</p>
-                <div class="obs-c-name"><h3><button type="button" class="obs-name" data-open="{esc(rec['id'])}">{esc(rec['name'])}</button></h3>{family}{f'<span class="obs-marks">{marks}</span>' if marks else ''}</div>
+                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec['_domain'], rec.get('domain'))}</p>
+                <div class="obs-c-name"><div class="obs-c-title"><h3><button type="button" class="obs-name" data-open="{esc(rec['id'])}">{esc(rec['name'])}</button></h3>{rating_button(rec)}</div>{family}{f'<span class="obs-marks">{marks}</span>' if marks else ''}</div>
                 <p class="obs-c-task">{esc(rec.get('task') or '—')}</p>
                 <ul class="obs-c-data" aria-label="Traffic data">{chips or '<li>—</li>'}</ul>
                 <p class="obs-c-src">{source}</p>

@@ -1793,17 +1793,13 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-rating.is-empty .obs-rating-n { color: var(--color-link); text-decoration: underline; text-underline-offset: .2em; }
 .obs-rating:hover { background: var(--color-tint); }
 .obs-rating:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 1px; }
-.obs-c-domain .obs-pills { min-width: 0; }
-/* in a card the stars keep the top right corner: the domain labels wrap under each other instead of being cut */
-.obs-item .obs-c-domain { align-items: flex-start; }
-.obs-item .obs-c-domain > .obs-dot { margin-top: .45em; }
-.obs-item .obs-pills { flex: 1 1 0; flex-wrap: wrap; row-gap: 4px; }
-.obs-item .obs-pill:last-child, .obs-item .obs-pills.is-rotating .obs-pill.is-on { flex: none; max-width: 100%; }
-.obs-item .obs-rating { margin-top: -2px; }
-/* a row of the table view: the stars on their own line under the domain labels */
-.is-table .obs-item .obs-c-domain { flex-wrap: wrap; }
-.is-table .obs-item .obs-rating { order: 2; flex-basis: 100%; justify-content: flex-start; margin: 2px 0 0 12px; padding: 2px 0; }
-.is-table .obs-item .obs-rating:hover { background: none; }
+/* in a card the stars sit right of the name, on its first line */
+.obs-c-title { display: flex; align-items: flex-start; gap: 10px; }
+.obs-c-title h3 { flex: 1 1 auto; min-width: 0; }
+.obs-c-title .obs-rating { margin-top: .2em; }
+.is-table .obs-c-title { flex-wrap: wrap; row-gap: 2px; }
+.is-table .obs-c-title .obs-rating { margin: 0; padding: 2px 0; }
+.is-table .obs-c-title .obs-rating:hover { background: none; }
 /* the dialog: summary, distribution, reviews and the form */
 .obs-reviews { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--color-line); scroll-margin-top: 12px; }
 .obs-rev-summary { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 10px; }
