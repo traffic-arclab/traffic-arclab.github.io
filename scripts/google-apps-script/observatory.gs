@@ -1,7 +1,10 @@
 /**
  * The Cybersecurity Dataset Observatory (observatory/, js/observatory.js): the "Submit your dataset"
- * form (action "observatory_submission") and the email updates of the bell (action
- * "observatory_subscribe", the unsubscribe link and the weekly notifyNewDatasets()).
+ * form (action "observatory_submission"), the email updates of the bell (action
+ * "observatory_subscribe", the unsubscribe link and the weekly notifyNewDatasets()) and the ratings
+ * and reviews of the datasets (action "observatory_review": kept in the sheet "Observatory reviews"
+ * until the team publishes them from the Reviews tab of the site editor, which writes them to
+ * data/observatory-reviews.json).
  *
  * The emails leave from the Google account that publishes this script: the group's account,
  * trafficarclab@gmail.com. To move it, repeat the setup with the new account and paste the new
@@ -29,9 +32,12 @@ function doPost(e) {
   const data = JSON.parse(e.postData.contents);
   if (data.action === 'observatory_submission') return addSubmission(data);
   if (data.action === 'observatory_subscribe') return addSubscriber(data);
+  if (data.action === 'observatory_review') return addReview(data);
   // the Observatory tab of the site editor (admin/people/), only with a GitHub token that can write to the site
-  if (['list_submissions', 'mark_submission', 'list_subscribers', 'notify_now'].includes(data.action)) {
+  if (['list_submissions', 'mark_submission', 'list_subscribers', 'notify_now', 'list_reviews', 'mark_review'].includes(data.action)) {
     if (!canRead(data.token)) return json({ ok: false, error: 'This GitHub account cannot read the Observatory sheet.' });
+    if (data.action === 'list_reviews') return json({ ok: true, rows: sheetRows(REVIEWS_SHEET, REVIEW_COLUMNS, REVIEW_KEYS) });
+    if (data.action === 'mark_review') return markReview(data);
     if (data.action === 'list_submissions') return json({ ok: true, rows: sheetRows(SUBMISSIONS_SHEET, SUBMISSION_COLUMNS, ['date'].concat(SUBMISSION_FIELDS, ['status'])) });
     if (data.action === 'mark_submission') return markSubmission(data);
     if (data.action === 'list_subscribers') {
@@ -414,4 +420,69 @@ function notifyNewDatasets() {
   } finally {
     lock.releaseLock();
   }
+}
+
+
+// ---------------------------------------------------------------------------------------------------
+// Ratings and reviews (js/observatory.js, dialog of a dataset): one row per review, status "new" until the
+// team publishes or rejects it in the Reviews tab of the site editor. "Author" is a short hash of the email,
+// published with the review so that a new review of the same person and dataset replaces the old one.
+const REVIEWS_SHEET = 'Observatory reviews';
+const REVIEW_COLUMNS = ['Date', 'Dataset', 'Dataset name', 'Stars', 'Comment', 'First name', 'Last name', 'Affiliation',
+  'Email', 'Author', 'Id', 'Status'];
+const REVIEW_KEYS = ['date', 'dataset', 'dataset_name', 'stars', 'comment', 'first_name', 'last_name', 'affiliation',
+  'email', 'author', 'id', 'status'];
+
+function clip(value, max) {
+  return String(value == null ? '' : value).replace(/\s+$/, '').slice(0, max);
+}
+
+function addReview(data) {
+  const lock = LockService.getScriptLock();
+  try {
+    lock.waitLock(10000);
+    const stars = Number(data.stars);
+    const email = clip(data.email, 160).trim().toLowerCase();
+    if (!(stars >= 0.5 && stars <= 5 && stars * 2 === Math.round(stars * 2))) return ContentService.createTextOutput('error: stars');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return ContentService.createTextOutput('error: email');
+    if (!/^[a-z0-9][a-z0-9._-]*$/.test(String(data.dataset || ''))) return ContentService.createTextOutput('error: dataset');
+    const first = clip(data.first_name, 80).trim(), last = clip(data.last_name, 80).trim(), affiliation = clip(data.affiliation, 160).trim();
+    if (!first || !last || !affiliation) return ContentService.createTextOutput('error: name');
+    const book = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = book.getSheetByName(REVIEWS_SHEET) || book.insertSheet(REVIEWS_SHEET);
+    if (sheet.getLastRow() === 0) sheet.appendRow(REVIEW_COLUMNS);
+    const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, email);
+    const author = Utilities.base64EncodeWebSafe(digest).slice(0, 12);
+    const id = 'r' + Utilities.getUuid().replace(/-/g, '').slice(0, 12);
+    const comment = clip(data.comment, 1500).trim();
+    // text that a spreadsheet would read as a formula is stored as text
+    const safe = v => (/^[=+\-@]/.test(v) ? "'" + v : v);
+    sheet.appendRow([new Date(), String(data.dataset), safe(clip(data.dataset_name, 200)), stars, safe(comment), safe(first), safe(last),
+      safe(affiliation), email, author, id, 'new']);
+    sendObservatoryEmail({
+      to: OBSERVATORY_TEAM[0], cc: OBSERVATORY_TEAM.slice(1).join(','),
+      subject: 'Observatory: new review of ' + clip(data.dataset_name || data.dataset, 120),
+      body: first + ' ' + last + ' (' + affiliation + ', ' + email + ') rated ' + clip(data.dataset_name || data.dataset, 200)
+        + ' ' + stars + ' out of 5.\n\n' + (comment || '(no comment)')
+        + '\n\nPublish or reject it in the site editor: Observatory -> Reviews.',
+    });
+    return ContentService.createTextOutput('ok');
+  } catch (error) {
+    return ContentService.createTextOutput('error: ' + error);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+/** The editor publishes, rejects or puts back a review (last column, "Status"), if the row still holds that review. */
+function markReview(data) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(REVIEWS_SHEET);
+  const row = Number(data.row);
+  const idColumn = REVIEW_COLUMNS.indexOf('Id') + 1;
+  if (!sheet || !(row >= 2) || String(sheet.getRange(row, idColumn).getValue()) !== String(data.id)) {
+    return json({ ok: false, error: 'The sheet changed meanwhile: refresh and try again.' });
+  }
+  const status = ['new', 'published', 'rejected'].includes(data.status) ? data.status : 'new';
+  sheet.getRange(row, REVIEW_COLUMNS.length).setValue(status);
+  return json({ ok: true });
 }

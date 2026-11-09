@@ -289,6 +289,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         elif self.path == '/api/observatory':
             with open(build_observatory.DATA, encoding='utf-8') as f:
                 self.send_json(200, json.load(f))
+        elif self.path == '/api/observatory-reviews':
+            self.send_json(200, {'reviews': build_observatory.load_reviews()})
         elif self.path == '/api/photos':
             self.send_json(200, sorted(os.listdir(PHOTOS)))
         elif self.path == '/api/logos':
@@ -311,6 +313,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             workshops = clean_workshops(payload['workshops']) if payload.get('workshops') is not None else None
             datasets = clean_datasets(payload['datasets']) if payload.get('datasets') is not None else None
             observatory = clean_observatory(payload['observatory']) if payload.get('observatory') is not None else None
+            reviews = payload.get('reviews')
+            if reviews is not None and not isinstance(reviews.get('reviews'), list):
+                raise ValueError('observatory reviews: the list is missing')
             # Uploads: people photos (JPEG), collaboration logos (PNG), dataset images (JPEG) and app logos (PNG).
             kinds = {'images/pictures': (PHOTOS, 'jpg', 'jpeg'), 'images/logos': (LOGOS, 'png', 'png'),
                      'images/datasets': (DATASET_IMAGES, 'jpg', 'jpeg'),
@@ -352,8 +357,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if datasets is not None:
                 write_json(build_datasets.DATA, datasets)
                 build_datasets.build()
-            if observatory is not None:
-                write_json(build_observatory.DATA, observatory)
+            if reviews is not None:
+                write_json(build_observatory.REVIEWS, reviews)
+            if observatory is not None or reviews is not None:
+                if observatory is not None:
+                    write_json(build_observatory.DATA, observatory)
                 build_observatory.build()
             stamp_assets.stamp()   # generated pages get the current CSS/JS versions
             self.send_json(200, {'ok': True})

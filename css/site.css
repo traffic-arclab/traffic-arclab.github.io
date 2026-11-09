@@ -1778,6 +1778,70 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   .obs-search .btn { width: 100%; }
 }
 
+/* Ratings and reviews of the datasets ------------------------------------------- */
+/* stars drawn by a mask over a two-colour bar: filled up to --fill, by half stars */
+:root { --star-on: #e3a008; --star-off: #cfd5dd; }
+:root[data-theme="dark"] { --star-on: #f2b92a; --star-off: #44505f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --star-on: #f2b92a; --star-off: #44505f; } }
+.obs-stars { display: inline-block; flex: none; width: 5em; height: 1em; vertical-align: -.12em;
+  background: linear-gradient(90deg, var(--star-on) var(--fill, 0%), var(--star-off) 0);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6l3.1 6.5 7.1.9-5.2 4.9 1.3 7.1L12 17.5 5.7 21l1.3-7.1L1.8 9l7.1-.9z'/%3E%3C/svg%3E") 0 0 / 1em 1em repeat-x;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6l3.1 6.5 7.1.9-5.2 4.9 1.3 7.1L12 17.5 5.7 21l1.3-7.1L1.8 9l7.1-.9z'/%3E%3C/svg%3E") 0 0 / 1em 1em repeat-x; }
+@media (forced-colors: active) { .obs-stars { forced-color-adjust: none; } }
+/* top right of every card: the average and the number of ratings, or "Rate" */
+.obs-rating { display: inline-flex; align-items: center; gap: 5px; flex: none; margin-left: auto; padding: 3px 6px; border: 0; border-radius: 999px; background: none; color: var(--color-ink); font: 700 .8rem/1 var(--font-sans); letter-spacing: 0; text-transform: none; cursor: pointer; }
+.obs-rating .obs-stars { font-size: .82rem; }
+.obs-rating-n { color: var(--color-muted); font-weight: 600; }
+.obs-rating.is-empty .obs-rating-n { color: var(--color-link); text-decoration: underline; text-underline-offset: .2em; }
+.obs-rating:hover { background: var(--color-tint); }
+.obs-rating:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 1px; }
+.obs-c-domain .obs-pills { min-width: 0; }
+/* in a card the stars keep the top right corner: the domain labels wrap under each other instead of being cut */
+.obs-item .obs-c-domain { align-items: flex-start; }
+.obs-item .obs-c-domain > .obs-dot { margin-top: .45em; }
+.obs-item .obs-pills { flex: 1 1 0; flex-wrap: wrap; row-gap: 4px; }
+.obs-item .obs-pill:last-child, .obs-item .obs-pills.is-rotating .obs-pill.is-on { flex: none; max-width: 100%; }
+.obs-item .obs-rating { margin-top: -2px; }
+/* a row of the table view: the stars on their own line under the domain labels */
+.is-table .obs-item .obs-c-domain { flex-wrap: wrap; }
+.is-table .obs-item .obs-rating { order: 2; flex-basis: 100%; justify-content: flex-start; margin: 2px 0 0 12px; padding: 2px 0; }
+.is-table .obs-item .obs-rating:hover { background: none; }
+/* the dialog: summary, distribution, reviews and the form */
+.obs-reviews { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--color-line); scroll-margin-top: 12px; }
+.obs-rev-summary { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px; align-items: center; margin-top: 10px; }
+.obs-rev-score { text-align: center; }
+.obs-rev-avg { color: var(--color-title); font: 600 2.6rem/1 var(--font-serif); }
+.obs-rev-score .obs-stars { margin-top: 6px; font-size: 1rem; }
+.obs-rev-count { margin-top: 4px; color: var(--color-muted); font-size: .84rem; }
+.obs-rev-dist { display: grid; gap: 4px; list-style: none; padding: 0; font-size: .82rem; color: var(--color-muted); }
+.obs-rev-dist li { display: grid; grid-template-columns: 1em minmax(0, 1fr) 2em; gap: 8px; align-items: center; }
+.obs-rev-bar { height: 8px; border-radius: 999px; background: var(--color-surface-alt); overflow: hidden; }
+.obs-rev-bar span { display: block; height: 100%; border-radius: inherit; background: var(--star-on); }
+.obs-rev-n { text-align: right; font-variant-numeric: tabular-nums; }
+.obs-rev-none { margin-top: 6px; color: var(--color-muted); font-size: .92rem; }
+.obs-rev-list { display: grid; gap: 14px; margin-top: 16px; list-style: none; padding: 0; }
+.obs-rev { padding-bottom: 14px; border-bottom: 1px solid var(--color-soft-line); }
+.obs-rev-head { display: flex; align-items: center; gap: 8px; font-size: .9rem; }
+.obs-rev-stars { color: var(--color-ink); font-weight: 700; }
+.obs-rev-head time { margin-left: auto; color: var(--color-muted); font-size: .82rem; }
+.obs-rev-by { margin-top: 4px; color: var(--color-muted); font-size: .88rem; }
+.obs-rev-by strong { color: var(--color-ink); }
+.obs-rev-text { margin-top: 6px; color: var(--color-ink); font-size: .94rem; line-height: 1.55; white-space: pre-line; overflow-wrap: anywhere; }
+.obs-rev-more { margin-top: 10px; font-size: .9rem; }
+.obs-rev-open { margin-top: 16px; }
+.obs-rev-form { margin-top: 16px; padding: 18px; border: 1px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-surface-alt); }
+.obs-rev-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--color-strong-line); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-ink); font: inherit; font-weight: 400; font-size: 1rem; resize: vertical; }
+.obs-rev-form textarea:focus { outline: 2px solid var(--color-focus); outline-offset: 1px; border-color: var(--color-accent); }
+.obs-rate-field { margin: 0 0 14px; padding: 0; border: 0; }
+.obs-rate-field legend { margin-bottom: 8px; color: var(--color-title); font-size: .86rem; font-weight: 650; }
+/* the rating input: ten radio buttons, each over half a star */
+.obs-rate { position: relative; display: inline-block; font-size: 2rem; line-height: 0; }
+.obs-rate-stars { vertical-align: top; }
+.obs-rate-hit { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(10, 1fr); }
+.obs-rate-hit label { cursor: pointer; }
+.obs-rate:focus-within { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: 4px; }
+.obs-rate-value { display: block; margin-top: 6px; color: var(--color-muted); font-size: .84rem; }
+
 /* a tablet: the title keeps clear of the bell in the top right corner */
 @media (max-width: 1000px) and (min-width: 641px) { .obs-engine-title { padding-inline: 96px; } }
 
@@ -1855,6 +1919,12 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   .obs-form { padding: 20px 16px; }
   .obs-optional { padding: 16px 14px !important; }
   .obs-form .btn[type="submit"] { width: 100%; justify-content: center; }
+
+  /* ratings */
+  .obs-rev-summary { grid-template-columns: 1fr; gap: 12px; }
+  .obs-rev-score { display: flex; align-items: center; gap: 12px; text-align: left; }
+  .obs-rev-score .obs-stars, .obs-rev-count { margin-top: 0; }
+  .obs-rev-form { padding: 14px; }
 
   /* the change log */
   .obs-log-entry { padding: 12px; }

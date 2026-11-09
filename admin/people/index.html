@@ -538,6 +538,7 @@
       <button type="button" data-obs-view="datasets" aria-selected="true">Datasets</button>
       <button type="button" data-obs-view="submissions" aria-selected="false">Submissions</button>
       <button type="button" data-obs-view="subscribers" aria-selected="false">Subscribers</button>
+      <button type="button" data-obs-view="reviews" aria-selected="false">Reviews</button>
     </nav>
     <div id="obs-datasets">
       <p class="hint">The catalogue of <code>data/observatory.json</code>. Add or edit a dataset, then press <strong>Save</strong>.
@@ -566,6 +567,14 @@
       </div>
       <div class="dl-summary" id="obs-fol-summary"></div>
       <div class="dl-table-wrap"><div class="dl-message" id="obs-fol-message">Loading…</div><table class="dl-table" id="obs-fol-table" hidden></table></div>
+    </div>
+    <div id="obs-reviews" hidden>
+      <p class="hint">The ratings and reviews sent from the dialog of a dataset, newest first. <strong>Publish</strong> puts a review on the
+        Observatory page (it replaces an earlier review of the same person for that dataset), <strong>Unpublish</strong> takes it off,
+        <strong>Reject</strong> keeps it off. Then press <strong>Save</strong>: the published reviews are in <code>data/observatory-reviews.json</code>.</p>
+      <div class="dl-toolbar"><button type="button" id="obs-rev-refresh">Refresh</button></div>
+      <div class="dl-summary" id="obs-rev-summary"></div>
+      <div class="dl-table-wrap"><div class="dl-message" id="obs-rev-message">Loading…</div><table class="dl-table" id="obs-rev-table" hidden></table></div>
     </div>
     <div class="dl-token" id="obs-token" hidden>
       <label>GitHub token <small>needed here to read the sheet of the Observatory</small><input id="obs-token-input" type="password" autocomplete="off" placeholder="ghp_…"></label>
@@ -712,6 +721,7 @@
   const WORKSHOPS_PATH = 'data/workshops.json';
   const DATASETS_PATH = 'data/datasets.json';
   const OBSERVATORY_PATH = 'data/observatory.json';
+  const REVIEWS_PATH = 'data/observatory-reviews.json';   // the published ratings and reviews of the Observatory
   const TOPIC_IMG_DIR = 'images/topics';
   const TOPIC_FILE_DIR = 'files/topics';
   const DATASET_IMG_DIR = 'images/datasets';
@@ -1106,20 +1116,21 @@
   // Local: scripts/people_admin.py writes the files and rebuilds people.html.
   const localBackend = {
     async load() {
-      const [people, list, newsFile, topicsFile, collabsFile, logosFile, workshopsFile, datasetsFile, observatoryFile] = await Promise.all(
-        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations', '/api/logos', '/api/workshops', '/api/datasets', '/api/observatory'].map(url => fetch(url)));
+      const [people, list, newsFile, topicsFile, collabsFile, logosFile, workshopsFile, datasetsFile, observatoryFile, reviewsFile] = await Promise.all(
+        ['/api/people', '/api/photos', '/api/news', '/api/topics', '/api/collaborations', '/api/logos', '/api/workshops', '/api/datasets', '/api/observatory', '/api/observatory-reviews'].map(url => fetch(url)));
       return {
         data: await people.json(), photos: await list.json(), news: (await newsFile.json()).news,
         topics: await topicsFile.json(), collabs: await collabsFile.json(), logos: await logosFile.json(),
         events: await workshopsFile.json(), datasets: await datasetsFile.json(), observatory: await observatoryFile.json(),
+        reviews: reviewsFile.ok ? await reviewsFile.json() : { reviews: [] },
       };
     },
-    async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData, cleanObservatoryData) {
+    async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData, cleanObservatoryData, cleanReviewsData) {
       const res = await fetch('/api/save', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           data: clean, news: cleanNewsData, topics: cleanTopicsData, collaborations: cleanCollabsData, workshops: cleanEventsData,
-          datasets: cleanDatasetsData, observatory: cleanObservatoryData, photos: Object.fromEntries(pending),
+          datasets: cleanDatasetsData, observatory: cleanObservatoryData, reviews: cleanReviewsData, photos: Object.fromEntries(pending),
         }),
       });
       const out = await res.json();
@@ -1191,6 +1202,8 @@
         const observatoryText = observatoryFile.content ? decodeBase64(observatoryFile.content)
           : decodeBase64((await api(`/repos/${REPO}/git/blobs/${observatoryFile.sha}`)).content);
         const logoList = await api(`/repos/${REPO}/contents/${LOGO_DIR}?ref=${BRANCH}`).catch(() => []);
+        const reviewsFile = await api(`/repos/${REPO}/contents/${REVIEWS_PATH}?ref=${BRANCH}`).catch(() => null);
+        baseSha[REVIEWS_PATH] = reviewsFile ? reviewsFile.sha : null;
         return {
           data: JSON.parse(decodeBase64(file.content)),
           photos: list.map(f => f.name),
@@ -1200,10 +1213,11 @@
           events: JSON.parse(decodeBase64(workshopsFile.content)),
           datasets: JSON.parse(decodeBase64(datasetsFile.content)),
           observatory: JSON.parse(observatoryText),
+          reviews: reviewsFile ? JSON.parse(decodeBase64(reviewsFile.content)) : { reviews: [] },
           logos: Array.isArray(logoList) ? logoList.map(f => f.name) : [],
         };
       },
-      async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData, cleanObservatoryData) {
+      async save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData, cleanObservatoryData, cleanReviewsData) {
         const ref = await api(`/repos/${REPO}/git/ref/heads/${BRANCH}`);
         const head = await api(`/repos/${REPO}/git/commits/${ref.object.sha}`);
         for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH, DATASETS_PATH, OBSERVATORY_PATH]) {
@@ -1211,6 +1225,10 @@
           if (current.sha !== baseSha[path]) {
             throw new Error('Someone else saved changes meanwhile. Reload the page (your unsaved edits will be lost) and redo them.');
           }
+        }
+        const currentReviews = await api(`/repos/${REPO}/contents/${REVIEWS_PATH}?ref=${ref.object.sha}`).catch(() => null);
+        if ((currentReviews ? currentReviews.sha : null) !== baseSha[REVIEWS_PATH]) {
+          throw new Error('Someone else saved changes meanwhile. Reload the page (your unsaved edits will be lost) and redo them.');
         }
         const tree = [
           { path: DATA_PATH, mode: '100644', type: 'blob', content: serialize(clean) },
@@ -1220,6 +1238,7 @@
           { path: WORKSHOPS_PATH, mode: '100644', type: 'blob', content: serialize(cleanEventsData) },
           { path: DATASETS_PATH, mode: '100644', type: 'blob', content: serialize(cleanDatasetsData) },
           { path: OBSERVATORY_PATH, mode: '100644', type: 'blob', content: serialize(cleanObservatoryData) },
+          { path: REVIEWS_PATH, mode: '100644', type: 'blob', content: serialize(cleanReviewsData) },
         ];
         for (const [path, url] of pending) {
           const blob = await api(`/repos/${REPO}/git/blobs`, {
@@ -1234,7 +1253,7 @@
           method: 'POST', body: JSON.stringify({ message: commitMessage(), tree: newTree.sha, parents: [ref.object.sha] }),
         });
         await api(`/repos/${REPO}/git/refs/heads/${BRANCH}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
-        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH, DATASETS_PATH, OBSERVATORY_PATH]) {
+        for (const path of [DATA_PATH, NEWS_PATH, TOPICS_PATH, COLLABS_PATH, WORKSHOPS_PATH, DATASETS_PATH, OBSERVATORY_PATH, REVIEWS_PATH]) {
           baseSha[path] = (await api(`/repos/${REPO}/contents/${path}?ref=${commit.sha}`)).sha;
         }
         return 'Saved · the site updates in about 2 minutes ' +
@@ -2809,7 +2828,7 @@
     $('save').disabled = true;
     setStatus('Saving…');
     try {
-      const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData, cleanObservatoryData);
+      const message = await backend.save(clean, cleanNewsData, cleanTopicsData, cleanCollabsData, cleanEventsData, cleanDatasetsData, cleanObservatoryData, cleanReviews());
       observatory.records.forEach(r => { if (r._new) delete r._new; });   // saved: the id is now fixed
       for (const path of pending.keys()) if (/^images\/(pictures|logos)\//.test(path)) (path.startsWith(LOGO_DIR) ? logos : photos).add(path.split('/').pop());
       pending.clear();
@@ -2863,6 +2882,7 @@
     showDatasetsIntro();
     observatory = loaded.observatory || { records: [] };
     observatory.records = observatory.records || [];
+    obsReviews = loaded.reviews && Array.isArray(loaded.reviews.reviews) ? loaded.reviews : { reviews: [] };
     setupObservatory();
     showTab(['#news', '#topics', '#collabs', '#workshops', '#datasets', '#downloads', '#observatory'].includes(location.hash) ? location.hash.slice(1) : 'people');
     setStatus('All changes saved');
@@ -2888,6 +2908,7 @@
   const OBS_LABELS = [['binary', 'Binary'], ['multiclass', 'Multiclass'], ['multilabel', 'Multi-label'], ['weak', 'Weak or heuristic'], ['none', 'None']];
   const obsDomain = key => (OBS_DOMAINS.find(d => d[0] === key) || [key, 'Not in a paper table'])[1];
   let observatory = { records: [] }, obsSelected = null, obsView = 'datasets', obsSent = new Set(), obsSubs = null, obsFollowers = null;
+  let obsReviews = { reviews: [] }, obsSheetReviews = null;   // data/observatory-reviews.json, and the rows of the sheet
 
   function obsSlug(name) {
     const base = String(name).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'dataset';
@@ -2912,6 +2933,7 @@
     });
     document.querySelectorAll('[data-obs-view]').forEach(b => b.addEventListener('click', () => showObsView(b.dataset.obsView)));
     $('obs-sub-refresh').addEventListener('click', loadObsSubmissions);
+    $('obs-rev-refresh').addEventListener('click', loadObsReviews);
     $('obs-fol-refresh').addEventListener('click', loadObsFollowers);
     $('obs-send-now').addEventListener('click', sendObsNow);
     renderObservatory();
@@ -2924,7 +2946,9 @@
     $('obs-datasets').hidden = view !== 'datasets';
     $('obs-submissions').hidden = view !== 'submissions';
     $('obs-subscribers').hidden = view !== 'subscribers';
+    $('obs-reviews').hidden = view !== 'reviews';
     if (view === 'submissions' && obsSubs === null) loadObsSubmissions();
+    if (view === 'reviews' && obsSheetReviews === null) loadObsReviews();
     if (view === 'subscribers' && obsFollowers === null) loadObsFollowers();
   }
 
@@ -3111,6 +3135,56 @@
       b.disabled = true;
       try { await obsCall('mark_submission', { row: s.row, dataset: s.dataset, status: b.dataset.status }); await loadObsSubmissions(); }
       catch (error) { alert(error.message); b.disabled = false; }
+    }));
+  }
+
+  // ---- ratings and reviews: the sheet holds every review, data/observatory-reviews.json the published ones
+  function cleanReviews() {
+    return { reviews: obsReviews.reviews.slice().sort((a, b) => String(b.date).localeCompare(String(a.date)) || a.id.localeCompare(b.id)) };
+  }
+
+  function publishedReview(s) {
+    return { id: s.id, dataset: s.dataset, stars: Number(s.stars), comment: s.comment || '', first_name: s.first_name, last_name: s.last_name,
+      affiliation: s.affiliation, date: String(s.date).slice(0, 10), author: s.author };
+  }
+
+  async function loadObsReviews() {
+    $('obs-rev-message').hidden = false;
+    $('obs-rev-message').textContent = 'Loading…';
+    try {
+      obsSheetReviews = (await obsCall('list_reviews')).rows.sort((x, y) => String(y.date).localeCompare(String(x.date)));
+    } catch (error) { obsSheetReviews = null; $('obs-rev-message').textContent = error.message; return; }
+    renderObsReviews();
+  }
+
+  function renderObsReviews() {
+    const onSite = new Set(obsReviews.reviews.map(v => v.id));
+    const waiting = obsSheetReviews.filter(s => (s.status || 'new') === 'new' && !onSite.has(s.id)).length;
+    $('obs-rev-summary').textContent = `${obsReviews.reviews.length} published on the site · ${waiting} waiting`;
+    const names = Object.fromEntries(observatory.records.map(r => [r.id, r.name]));
+    const table = obsTable('obs-rev', 'No review yet.', ['Date', 'Dataset', 'Rating', 'Review', 'By', 'Status', ''], obsSheetReviews.map((s, i) => `<tr>
+      <td class="date">${escHtml(formatDate(s.date))}</td>
+      <td class="name">${escHtml(names[s.dataset] || s.dataset_name || s.dataset)}</td>
+      <td>${escHtml(String(s.stars))} / 5</td>
+      <td><small>${escHtml(s.comment || '—').slice(0, 600)}</small></td>
+      <td>${escHtml(`${s.first_name} ${s.last_name}`)}<br><small>${escHtml(s.affiliation)}<br><a href="mailto:${escHtml(s.email)}">${escHtml(s.email)}</a></small></td>
+      <td><span class="ds">${onSite.has(s.id) ? 'on the site' : escHtml(s.status || 'new')}</span></td>
+      <td class="actions">${onSite.has(s.id)
+        ? `<button type="button" data-rev="${i}" data-act="unpublish">Unpublish</button>`
+        : `<button type="button" class="primary" data-rev="${i}" data-act="publish">Publish</button>`}
+        <button type="button" data-rev="${i}" data-act="reject">Reject</button></td></tr>`));
+    table.querySelectorAll('[data-rev]').forEach(b => b.addEventListener('click', async () => {
+      const s = obsSheetReviews[b.dataset.rev];
+      const act = b.dataset.act;
+      b.disabled = true;
+      // the file first (saved with Save), then the status in the sheet
+      obsReviews.reviews = obsReviews.reviews.filter(v => v.id !== s.id
+        && !(act === 'publish' && v.dataset === s.dataset && v.author && v.author === s.author));
+      if (act === 'publish') obsReviews.reviews.push(publishedReview(s));
+      markDirty('observatory');
+      try { await obsCall('mark_review', { row: s.row, id: s.id, status: act === 'publish' ? 'published' : act === 'reject' ? 'rejected' : 'new' }); }
+      catch (error) { alert(error.message); }
+      await loadObsReviews();
     }));
   }
 

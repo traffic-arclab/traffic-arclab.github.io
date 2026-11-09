@@ -203,7 +203,9 @@ def label_of(rules, key):
 def enrich(records):
     """Adds the groups used by the filters and the family head of every record."""
     families = {}
+    rated = ratings()
     for rec in records:
+        rec['_rating'] = rated.get(rec['id'])
         rec['_domain'] = domain_of(rec)
         rec['_task'] = group(rec.get('task', ''), TASKS)
         rec['_formats'] = formats_of(rec)
@@ -285,6 +287,53 @@ FEATURE_PAGES = ['index.html']
 def load():
     with open(DATA, encoding='utf-8') as f:
         return json.load(f)
+
+
+# The ratings and reviews of the datasets: data/observatory-reviews.json holds the published ones only
+# (sent from the dialog of a dataset to the Apps Script, checked and published in the Reviews tab of the
+# site editor). Each review: id, dataset, stars (0.5 to 5, by half stars), comment, first_name, last_name,
+# affiliation, date, author (a short hash of the email, so that a new review of the same person replaces
+# the old one; the email itself stays in the sheet).
+REVIEWS = os.path.join(ROOT, 'data', 'observatory-reviews.json')
+
+
+def load_reviews():
+    try:
+        with open(REVIEWS, encoding='utf-8') as f:
+            return json.load(f).get('reviews', [])
+    except (OSError, ValueError):
+        return []
+
+
+def ratings():
+    """dataset id -> {avg, count, dist (5 to 1), reviews (newest first, public fields only)}"""
+    out = {}
+    for r in sorted(load_reviews(), key=lambda r: r.get('date', ''), reverse=True):
+        try:
+            stars = float(r['stars'])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if not 0.5 <= stars <= 5:
+            continue
+        o = out.setdefault(r['dataset'], {'sum': 0, 'count': 0, 'dist': [0] * 5, 'reviews': []})
+        o['sum'] += stars
+        o['count'] += 1
+        o['dist'][5 - max(1, int(stars))] += 1   # 4.5 counts as 4, 0.5 as 1
+        o['reviews'].append({'stars': stars, 'comment': r.get('comment', ''), 'date': r.get('date', ''),
+                             'name': ' '.join(x for x in (r.get('first_name'), r.get('last_name')) if x),
+                             'affiliation': r.get('affiliation', '')})
+    for o in out.values():
+        o['avg'] = round(o.pop('sum') / o['count'], 1)
+    return out
+
+
+RATING_STEPS = [('4', '4 stars and up'), ('3', '3 stars and up'), ('2', '2 stars and up'), ('unrated', 'Not yet rated')]
+
+
+def stars(value, label=''):
+    """Five stars filled up to the value, by half stars (the average is rounded to the nearest half)."""
+    shown = round((value or 0) * 2) / 2
+    return f'<span class="obs-stars" style="--fill:{shown / 5 * 100:.0f}%" role="img" aria-label="{esc(label)}"></span>'
 
 
 NEW_DAYS = 60   # a dataset marked "new_since" (YYYY-MM-DD) shows the NEW badge for two months
@@ -392,7 +441,8 @@ def facet_values(rec):
            'source': ['ours' if rec['_ours'] else 'index' if rec['_index'] else 'official'],
            'modality': ['mixed' if rec['_mixed'] else 'traffic'], 'paper': ['yes' if rec.get('paper') else 'no'],
            'lineage': [v for v, ok in (('original', not rec.get('derived_from') and rec['_size'] == 1),
-                                       ('derived', bool(rec.get('derived_from'))), ('member', rec['_size'] > 1)) if ok]}
+                                       ('derived', bool(rec.get('derived_from'))), ('member', rec['_size'] > 1)) if ok],
+           'rating': ([k for k, _ in RATING_STEPS[:-1] if rec['_rating']['avg'] >= int(k)] if rec.get('_rating') else ['unrated'])}
     return ' '.join(f'{g}:{v}' for g, values in out.items() for v in values)
 
 
@@ -428,6 +478,7 @@ def facets():
     """The filter groups: (key, title, [(value, label)], open by default)."""
     return [
         ('domain', 'Domain', [(k, label) for k, label, _ in DOMAINS + [UNCLASSIFIED]], True),
+        ('rating', 'Rating', RATING_STEPS, True),
         ('attack', 'Attack type', [(k, label) for k, label, _ in ATTACKS], True),
         ('protocol', 'Protocol', [(k, label) for k, label, _ in PROTOCOLS], True),
         ('task', 'Security task', [(k, label) for k, label, _ in TASKS], False),
@@ -826,6 +877,20 @@ def entity_model(data):
         </details>'''
 
 
+def rating_button(rec):
+    """The rating of a record, top right of its card: the average stars and the number of ratings, or empty
+    stars and "Rate" when nobody has rated it yet; either way it opens the reviews in the dialog."""
+    rated = rec.get('_rating')
+    if rated:
+        text = f'{rated["avg"]:.1f} out of 5 from {rated["count"]} rating{"s" if rated["count"] != 1 else ""}'
+        inner = f'{stars(rated["avg"], text)}<span class="obs-rating-avg">{rated["avg"]:.1f}</span><span class="obs-rating-n">({rated["count"]})</span>'
+    else:
+        text = 'Not yet rated: rate this dataset'
+        inner = f'{stars(0, "Not yet rated")}<span class="obs-rating-n">Rate</span>'
+    return (f'<button type="button" class="obs-rating{"" if rated else " is-empty"}" data-open="{esc(rec["id"])}" '
+            f'data-reviews title="{esc(text)}">{inner}</button>')
+
+
 def item(rec):
     """One record: a card, or a row of the table view (the same markup, laid out by css)."""
     attrs = {
@@ -885,7 +950,7 @@ def item(rec):
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
     capture = ' is-capture' if not rec.get('table_row', True) else ''   # a capture inside a family row of a table
     return f'''              <article class="obs-item{capture}" {attr}>
-                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec['_domain'], rec.get('domain'))}</p>
+                <p class="obs-c-domain"><span class="obs-dot" data-domain="{rec['_domain']}" aria-hidden="true"></span>{domain_pills(rec['_domain'], rec.get('domain'))}{rating_button(rec)}</p>
                 <div class="obs-c-name"><h3><button type="button" class="obs-name" data-open="{esc(rec['id'])}">{esc(rec['name'])}</button></h3>{family}{f'<span class="obs-marks">{marks}</span>' if marks else ''}</div>
                 <p class="obs-c-task">{esc(rec.get('task') or '—')}</p>
                 <ul class="obs-c-data" aria-label="Traffic data">{chips or '<li>—</li>'}</ul>
@@ -1077,6 +1142,8 @@ def page_data(records, history=None):
             item['new_until'] = new_until(r)
         if history and history.get(r['id']):
             item['history'] = history[r['id']]
+        if r.get('_rating'):
+            item['rating'] = r['_rating']
         item.update(size=r['_size'], index=r['_index'], mixed=r['_mixed'], ours=r['_ours'],
                     domainGroup=label_of(DOMAINS, r['_domain']), domainKey=r['_domain'])
         out.append(item)
@@ -1113,7 +1180,7 @@ def observatory_page(data, history=None):
             <section class="obs-ai" id="obs-ai" aria-live="polite" aria-label="AI-assisted results" hidden></section>
             <div class="obs-bar">
               <button type="button" class="btn btn-ghost obs-facets-toggle" id="obs-facets-toggle" aria-controls="obs-facets" aria-expanded="false">Filters<span id="obs-facets-n"></span></button>
-              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="new">New first</option><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="year-desc">Year, newest first</option><option value="year">Year, oldest first</option><option value="size-desc">Size, largest first</option><option value="classes-desc">Attack classes, most first</option><option value="families-desc">Attack families, most first</option><option value="derived-desc">Derived datasets, most first</option><option value="family-desc">Family size, largest first</option><option value="domain">Domain</option><option value="access">Access, open first</option><option value="paper">Paper identified first</option></select></label>
+              <label class="obs-sort"><span>Sort by</span><select id="obs-sort"><option value="catalogue">Catalogue order</option><option value="new">New first</option><option value="name">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="year-desc">Year, newest first</option><option value="year">Year, oldest first</option><option value="size-desc">Size, largest first</option><option value="classes-desc">Attack classes, most first</option><option value="families-desc">Attack families, most first</option><option value="derived-desc">Derived datasets, most first</option><option value="family-desc">Family size, largest first</option><option value="domain">Domain</option><option value="access">Access, open first</option><option value="paper">Paper identified first</option><option value="rating">Rating, highest first</option></select></label>
               <div class="obs-view" role="group" aria-label="Layout">
                 <button type="button" data-view="cards" aria-pressed="true" title="Cards"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="9" y="1.5" width="5.5" height="5.5" rx="1"/><rect x="1.5" y="9" width="5.5" height="5.5" rx="1"/><rect x="9" y="9" width="5.5" height="5.5" rx="1"/></svg><span class="visually-hidden">Cards</span></button>
                 <button type="button" data-view="table" aria-pressed="false" title="Table"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3h13M1.5 8h13M1.5 13h13"/></svg><span class="visually-hidden">Table</span></button>

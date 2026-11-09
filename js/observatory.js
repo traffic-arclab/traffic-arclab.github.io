@@ -69,6 +69,7 @@
     'access': [r => ACCESS_RANK[r.access || 'open'], 1],
     'paper': [r => r.paper ? 0 : 1, 1],
     'new': [r => isNew(r.new_until) ? r.new_until : null, -1],
+    'rating': [r => r.rating ? r.rating.avg + r.rating.count / 1e4 : null, -1],   // ties: more ratings first
   };
 
   function order(list) {
@@ -352,7 +353,7 @@
   const log = data.log || {};
   const KINDS = {added: 'Added', removed: 'Removed', withdrawn: 'Withdrawn', changed: 'Changed'};
   const day = d => new Date(`${d}T12:00:00`).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
-  function history(r) {
+  function recordHistory(r) {
     if (!log._current) return '';
     const events = r.history || [];
     const added = events.find(e => e.kind === 'added');
@@ -381,7 +382,121 @@
       </section>`;
   }
 
-  function details(r) {
+  // ------------------------------------------------------------ ratings and reviews
+  // The published reviews are in the page (data/observatory-reviews.json, through the build); a new one goes to
+  // the Apps Script of the Observatory and appears once the team has published it from the site editor.
+  const reviewEndpoint = (document.getElementById('obs-form') || {}).dataset?.endpoint || '';
+  const starsHtml = (value, label) => `<span class="obs-stars" style="--fill:${Math.round(value * 2) / 2 / 5 * 100}%" role="img" aria-label="${esc(label)}"></span>`;
+  const dateText = d => d ? new Date(`${d}T12:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+  const sentKey = id => `obs-review-sent:${id}`;
+  const wasSent = id => { try { return localStorage.getItem(sentKey(id)); } catch (e) { return null; } };
+
+  function reviewItem(v) {
+    return `<li class="obs-rev">
+        <p class="obs-rev-head">${starsHtml(v.stars, `${v.stars} out of 5`)}<span class="obs-rev-stars">${v.stars.toFixed(1)}</span>
+          <time datetime="${esc(v.date)}">${dateText(v.date)}</time></p>
+        <p class="obs-rev-by"><strong>${esc(v.name)}</strong>${v.affiliation ? ` · ${esc(v.affiliation)}` : ''}</p>
+        ${v.comment ? `<p class="obs-rev-text">${esc(v.comment)}</p>` : ''}
+      </li>`;
+  }
+
+  function reviewsSection(r) {
+    const rating = r.rating;
+    const list = rating ? rating.reviews : [];
+    const summary = rating ? `<div class="obs-rev-summary">
+        <div class="obs-rev-score"><p class="obs-rev-avg">${rating.avg.toFixed(1)}</p>${starsHtml(rating.avg, `${rating.avg.toFixed(1)} out of 5`)}
+          <p class="obs-rev-count">${rating.count} rating${rating.count === 1 ? '' : 's'}</p></div>
+        <ul class="obs-rev-dist" aria-label="Ratings by number of stars">${rating.dist.map((n, i) => `<li><span>${5 - i}</span>
+          <span class="obs-rev-bar"><span style="width:${rating.count ? n / rating.count * 100 : 0}%"></span></span><span class="obs-rev-n">${n}</span></li>`).join('')}</ul>
+      </div>` : '<p class="obs-rev-none">No ratings yet. Researchers who have used this dataset can rate it and describe their experience.</p>';
+    const shown = list.slice(0, 5).map(reviewItem).join('');
+    const more = list.length > 5 ? `<button type="button" class="obs-link obs-rev-more">Show all ${list.length} reviews</button>` : '';
+    const halves = Array.from({ length: 10 }, (_, i) => (i + 1) / 2).map(v => `<input type="radio" name="stars" id="obs-rate-${v * 2}" value="${v}" class="visually-hidden"${v === 5 ? ' required' : ''}>
+          <label for="obs-rate-${v * 2}" title="${v} star${v === 1 ? '' : 's'}"><span class="visually-hidden">${v} star${v === 1 ? '' : 's'}</span></label>`).join('');
+    const sent = wasSent(r.id);
+    return `<section class="obs-reviews" id="obs-reviews" aria-labelledby="obs-reviews-title">
+      <p class="card-kicker" id="obs-reviews-title">Ratings and reviews</p>
+      ${summary}
+      ${shown ? `<ol class="obs-rev-list">${shown}</ol>${more}` : ''}
+      ${sent ? `<p class="obs-done">You sent a review of this dataset on ${dateText(sent)}: it will appear here once it has been checked.</p>` : ''}
+      <button type="button" class="btn btn-ghost obs-rev-open" aria-expanded="false" aria-controls="obs-rev-form">${sent ? 'Send a new review' : 'Rate this dataset'}</button>
+      <form class="obs-rev-form" id="obs-rev-form" hidden novalidate>
+        <fieldset class="obs-rate-field">
+          <legend>Your rating <span aria-hidden="true">*</span></legend>
+          <div class="obs-rate">
+            <span class="obs-stars obs-rate-stars" style="--fill:0%" aria-hidden="true"></span>
+            <div class="obs-rate-hit">${halves}</div>
+          </div>
+          <output class="obs-rate-value" aria-live="polite">Select from half a star to five stars</output>
+        </fieldset>
+        <div class="gate-grid">
+          <label>First name *<input name="first_name" autocomplete="given-name" required maxlength="80"></label>
+          <label>Last name *<input name="last_name" autocomplete="family-name" required maxlength="80"></label>
+          <label class="gate-wide">Affiliation *<input name="affiliation" autocomplete="organization" required maxlength="160" placeholder="University, company or institution"></label>
+          <label class="gate-wide">Email * <small>not published: one review per person and dataset, a new one replaces the previous</small><input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+          <label class="gate-wide">Comment <small>optional: how you used the dataset, its strengths and limits</small><textarea name="comment" rows="4" maxlength="1500"></textarea></label>
+        </div>
+        <label class="gate-check"><input type="checkbox" name="consent" required> I agree that my name, affiliation, rating and comment are published on this page once the review has been checked, and that my email is kept only to manage my review.</label>
+        <p class="gate-error" role="alert" hidden></p>
+        <div class="gate-actions"><button type="submit" class="btn btn-primary">Send review</button></div>
+      </form>
+    </section>`;
+  }
+
+  function bindReviews(r) {
+    const section = body.querySelector('#obs-reviews');
+    if (!section) return;
+    const more = section.querySelector('.obs-rev-more');
+    if (more) more.addEventListener('click', () => {
+      section.querySelector('.obs-rev-list').innerHTML = r.rating.reviews.map(reviewItem).join('');
+      more.remove();
+    });
+    const form = section.querySelector('form');
+    const open = section.querySelector('.obs-rev-open');
+    open.addEventListener('click', () => {
+      form.hidden = !form.hidden;
+      open.setAttribute('aria-expanded', String(!form.hidden));
+      if (!form.hidden) form.querySelector('input[name=stars]').focus();
+    });
+    const visual = form.querySelector('.obs-rate-stars');
+    const output = form.querySelector('.obs-rate-value');
+    const chosen = () => (form.querySelector('input[name=stars]:checked') || {}).value;
+    const show = v => { visual.style.setProperty('--fill', `${(v || 0) / 5 * 100}%`); };
+    const say = v => { output.textContent = v ? `${Number(v).toFixed(1)} out of 5` : 'Select from half a star to five stars'; };
+    form.querySelectorAll('.obs-rate-hit label').forEach(l => {
+      const v = document.getElementById(l.htmlFor).value;
+      l.addEventListener('mouseenter', () => show(v));
+    });
+    form.querySelector('.obs-rate-hit').addEventListener('mouseleave', () => show(chosen()));
+    form.querySelectorAll('input[name=stars]').forEach(i => i.addEventListener('change', () => { show(i.value); say(i.value); }));
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const error = form.querySelector('.gate-error');
+      const f = Object.fromEntries(new FormData(form).entries());
+      const fail = text => { error.textContent = text; error.hidden = false; };
+      if (!f.stars) return fail('Choose a rating, from half a star to five stars.');
+      if (!String(f.first_name || '').trim() || !String(f.last_name || '').trim()) return fail('Enter your first and last name.');
+      if (!String(f.affiliation || '').trim()) return fail('Enter your affiliation.');
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(f.email || '').trim())) return fail('Enter a valid email address.');
+      if (!f.consent) return fail('Please agree to the publication of your review.');
+      if (!reviewEndpoint) return fail('Reviews cannot be sent yet: please try again later.');
+      error.hidden = true;
+      const button = form.querySelector('[type=submit]');
+      button.disabled = true;
+      fetch(reviewEndpoint, {
+        method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'observatory_review', dataset: r.id, dataset_name: r.name, stars: Number(f.stars),
+          first_name: f.first_name.trim(), last_name: f.last_name.trim(), affiliation: f.affiliation.trim(),
+          email: f.email.trim(), comment: String(f.comment || '').trim(), page: location.pathname }),
+      }).then(() => {
+        try { localStorage.setItem(sentKey(r.id), today); } catch (err) { /* not kept */ }
+        form.outerHTML = '<p class="obs-done" role="status">Thank you. Your review has been received and will be published once it has been checked by the Observatory team.</p>';
+        open.remove();
+      }).catch(() => { button.disabled = false; fail('The review could not be sent. Check your connection and try again.'); });
+    });
+  }
+
+  function details(r, focus = '') {
     const paper = r.paper ? esc(r.paper.cite) + (r.paper.title ? `<br><em>${esc(r.paper.title)}</em>` : '') + (r.paper.doi
       ? `<br><a href="https://doi.org/${esc(r.paper.doi)}" target="_blank" rel="noopener">doi:${esc(r.paper.doi)}</a>`
       : r.paper.url ? `<br><a href="${esc(r.paper.url)}" target="_blank" rel="noopener">Read the paper</a>` : '') : '';
@@ -434,23 +549,30 @@
         <ul class="obs-minis obs-minis-compact">${captures.map(mini).join('')}</ul>
       </section>` : ''}
       ${cautions ? `<ul class="obs-cautions">${cautions}</ul>` : ''}
-      ${history(r)}
+      ${reviewsSection(r)}
+      ${recordHistory(r)}
       <div class="gate-actions">
         <a class="btn btn-ghost" href="#submit" data-report="${esc(r.name)}">Report a correction</a>
       </div>`;
     // a parent or a derived dataset opens in the same dialog
     body.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => details(byId[b.dataset.open])));
+    bindReviews(r);
     body.scrollTop = 0;
     body.querySelector('[data-report]').addEventListener('click', e => {
       dialog.close();
       prefill(e.currentTarget.dataset.report, r.url);
     });
     if (!dialog.open) dialog.showModal();
+    if (focus === 'reviews') {
+      const section = body.querySelector('#obs-reviews');
+      dialog.scrollTop = 0;
+      section.scrollIntoView({ block: 'start' });
+    }
   }
 
   list.addEventListener('click', e => {
     const button = e.target.closest('[data-open]');
-    if (button) details(byId[button.dataset.open]);
+    if (button) details(byId[button.dataset.open], button.hasAttribute('data-reviews') ? 'reviews' : '');
   });
   dialog.querySelectorAll('[data-dialog-close]').forEach(b => b.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
