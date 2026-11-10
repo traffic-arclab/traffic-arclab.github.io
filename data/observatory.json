@@ -2439,12 +2439,13 @@
       "size": {
         "count": "3.4k PCAP files"
       },
-      "notes": "Attack classes are malware families (362).",
+      "notes": "Attack classes are malware families (362). Announced with the paper; the data repository is not yet published.",
       "paper": {
         "cite": "Root0ne, GitHub 2026",
         "title": "MalwareTraffic: liveness-annotated malware PCAP dataset",
         "url": "https://github.com/Root0ne/malware-pcap-dataset"
-      }
+      },
+      "status": "not-released"
     },
     {
       "id": "awid",
@@ -5891,30 +5892,68 @@
       "id": "cdx-ctf-2009",
       "name": "CDX CTF 2009",
       "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
-      "task": "Attack analysis",
+      "task": "Intrusion detection (network warfare competition)",
       "domain": "CTF / Enterprise",
       "data": [
-        "PCAP, IDS alerts"
+        "PCAP",
+        "IDS alerts"
       ],
       "paper": {
         "cite": "Sangster et al., USENIX CSET 2009",
         "title": "Toward Instrumenting Network Warfare Competitions to Generate Labeled Datasets",
         "url": "https://www.usenix.org/conference/cset-09/toward-instrumenting-network-warfare-competitions-generate-labeled-datasets"
-      }
+      },
+      "category": "enterprise",
+      "year": "2009",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "representation": "PCAP",
+      "access": "unavailable",
+      "status": "withdrawn",
+      "acquisition": "hybrid",
+      "evidence": "secondary",
+      "notes": "The pages at usma.edu are offline since the move to westpoint.edu; features derived from the traffic remain available in the ASNM Datasets (ASNM-CDX-2009)."
     },
     {
       "id": "tuids",
       "name": "TUIDS",
       "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
-      "task": "DoS detection",
-      "domain": "Enterprise / DoS",
+      "task": "Intrusion and DoS detection",
+      "domain": "DDoS / Enterprise",
       "data": [
-        "PCAP, NetFlow"
+        "PCAP",
+        "NetFlow"
       ],
       "paper": {
-        "cite": "Gogoi et al., CCIS 2012",
+        "cite": "Gogoi, Bhuyan, Bhattacharyya & Kalita, IC3 2012 (CCIS 306)",
+        "title": "Packet and Flow Based Network Intrusion Dataset",
         "doi": "10.1007/978-3-642-32129-0_34"
-      }
+      },
+      "category": "ddos",
+      "year": "2012",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "unavailable",
+      "status": "withdrawn",
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "dos",
+        "scanning"
+      ],
+      "evidence": "secondary",
+      "notes": "The paper points to a Tezpur University page that is no longer online; COMIDDS also lists the dataset as unavailable."
     },
     {
       "id": "vast-challenge-2011",
@@ -6040,15 +6079,29 @@
       "id": "sshcure",
       "name": "SSHCure",
       "url": "https://fkie-cad.github.io/COMIDDS/content/related_work/",
-      "task": "SSH attack detection",
-      "domain": "SSH / Enterprise",
+      "task": "SSH compromise detection",
+      "domain": "Campus network / SSH",
       "data": [
-        "SSH traffic features / NetFlow"
+        "NetFlow",
+        "logs"
       ],
       "paper": {
-        "cite": "Hofstede et al., ACM SIGCOMM CCR 2014",
+        "cite": "Hofstede, Hendriks, Sperotto & Pras, ACM SIGCOMM CCR 2014",
+        "title": "SSH Compromise Detection using NetFlow/IPFIX",
         "doi": "10.1145/2677046.2677050"
-      }
+      },
+      "category": "backbone",
+      "year": "2014",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "unavailable",
+      "status": "withdrawn",
+      "acquisition": "real",
+      "evidence": "secondary",
+      "notes": "SimpleWeb lists the flow and log files of the University of Twente campus network, but no public download link is available."
     },
     {
       "id": "cidds-001",
@@ -7585,7 +7638,7 @@
       "data": [
         "PCAP"
       ],
-      "notes": "Merges traffic of ISOT, ISCX 2012 and CTU-13 (already in the catalogue): not an independent acquisition.",
+      "notes": "Merges traffic of ISOT, ISCX 2012 and CTU-13 (already in the catalogue): not an independent acquisition. Confirmed as unavailable on the official UNB/CIC download platform.",
       "origin": "web",
       "paper": {
         "cite": "Biglar Beigi, Hadian Jazi, Stakhanova & Ghorbani, IEEE CNS 2014",
@@ -7606,7 +7659,7 @@
         "derived": false
       },
       "access": "unavailable",
-      "acquisition": "mix",
+      "acquisition": "hybrid",
       "labeling": [
         "binary"
       ],
@@ -7620,7 +7673,8 @@
       ],
       "size": {
         "gb": "13.8"
-      }
+      },
+      "status": "withdrawn"
     },
     {
       "id": "lycos-ids2017",
@@ -11979,7 +12033,7 @@
       },
       "representation": "PCAP",
       "access": "unavailable",
-      "acquisition": "mix",
+      "acquisition": "hybrid",
       "labeling": [
         "none"
       ],
@@ -11996,8 +12050,9 @@
       "parents": [
         "cic-iscx-2012"
       ],
-      "notes": "Application-layer DoS attacks mixed into the ISCX-IDS2012 background. Labels not documented.",
-      "evidence": "verified"
+      "notes": "Application-layer DoS attacks mixed into the ISCX-IDS2012 background. Labels not documented. Confirmed as currently unavailable on the official UNB/CIC download page.",
+      "evidence": "verified",
+      "status": "withdrawn"
     },
     {
       "id": "boun-ddos",
@@ -12441,6 +12496,73 @@
       },
       "notes": "9 cloud honeypots in 9 cities; all traffic is unsolicited, so it has no labels.",
       "evidence": "verified"
+    },
+    {
+      "id": "wsn-bfsf",
+      "name": "WSN-BFSF",
+      "url": "https://doi.org/10.1109/JIOT.2023.3292209",
+      "task": "Intrusion detection",
+      "domain": "Wireless sensor networks (WSN)",
+      "data": [
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Dener, Okur, Al & Orman, IEEE Internet of Things Journal 2024",
+        "title": "WSN-BFSF: A New Data Set for Attacks Detection in Wireless Sensor Networks",
+        "doi": "10.1109/JIOT.2023.3292209"
+      },
+      "category": "wireless",
+      "year": "2024",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "representation": "Derived only",
+      "access": "unavailable",
+      "status": "not-published",
+      "acquisition": "emulated",
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "NS-2 (trace)",
+      "size": {
+        "count": "312k records"
+      },
+      "evidence": "publisher",
+      "notes": "Simulated in NS-2: blackhole, flooding and selective forwarding attacks. The paper describes the dataset, but no official download location was found."
+    },
+    {
+      "id": "wpa2-kkid",
+      "name": "WPA2-KKID",
+      "task": "Wi-Fi attack detection",
+      "domain": "Wi-Fi (WPA2)",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "category": "wireless",
+      "year": "2025",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "access": "unavailable",
+      "status": "not-released",
+      "classes": {
+        "benign": null,
+        "attack": "2"
+      },
+      "attack_families": [
+        "other"
+      ],
+      "evidence": "unconfirmed",
+      "notes": "KRACK and Kr00k attacks on WPA2. Announced as open access (PCAP and CSV) in a 2025 presentation; no download location has been published."
     }
   ],
   "model_intro": "Each dataset of the Observatory is described by the same entity model as the paper: the dataset at the centre, linked to ten entities. The five above it describe where the dataset comes from (dashed lines are optional associations: not every dataset has a family, a paper or a derivation tool); the five below describe what it contains and how to get it. Every value is also a filter of the catalogue: select one to see the datasets that have it.",

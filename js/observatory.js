@@ -331,6 +331,9 @@
   const item = (label, value) => value ? `<dt>${label}</dt><dd>${value}</dd>` : '';
   const ACCESS = {registration: 'Registration', request: 'On request', restricted: 'Registration or request', undocumented: 'Not documented',
     unavailable: 'Not available (withdrawn or not yet released)'};
+  const STATUS = {withdrawn: 'withdrawn (distributed in the past, no longer obtainable)',
+    'not-released': 'not yet released (announced by its authors, not yet published)',
+    'not-published': 'data not published (described in a paper whose data were never distributed)'};
   // the columns of the paper tables
   const ACQUISITION = {real: 'Real devices', hybrid: 'Real and simulated devices', emulated: 'Emulated or simulated', mix: 'Merge of sources'};
   const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', multilabel: 'Multi-label', none: 'None'};
@@ -592,7 +595,7 @@
         ${item('Attack families', attackFamilies(r.attack_families))}
         ${item('Derivation tool', tbc(r.derivation_tool || '').trim())}
         ${item('Size', volume)}
-        ${item('Access', ACCESS[r.access] || 'Open')}
+        ${item('Access', r.access === 'unavailable' && STATUS[r.status] ? `Not available: ${STATUS[r.status]}` : ACCESS[r.access] || 'Open')}
         ${item('Source', source)}
         ${item('Source check', EVIDENCE[r.evidence])}
         ${item('Original publication', paper)}

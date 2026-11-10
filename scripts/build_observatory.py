@@ -438,6 +438,12 @@ def update_features(data):
 # Page parts
 # --------------------------------------------------------------------------
 
+# Why a record marked "access": "unavailable" cannot be obtained (tab:excluded of the paper): its "status"
+STATUS = {'withdrawn': ('Withdrawn', 'distributed in the past, no longer obtainable'),
+          'not-released': ('Not yet released', 'announced by its authors, not yet published'),
+          'not-published': ('Data not published', 'described in a paper whose data were never distributed')}
+
+
 def available(records):
     """The records that can be obtained today: all but those withdrawn by their source or not yet released."""
     return sum(1 for r in records if r.get('access') != 'unavailable')
@@ -447,7 +453,7 @@ def stats(data, records, families):
     snap = updated(data)
     items = [
         ('Catalogue records', len(records), 'versions, captures and collections'),
-        ('Available', available(records), f'{len(records) - available(records)} withdrawn or not yet released'),
+        ('Available', available(records), f'{len(records) - available(records)} withdrawn, not yet released or never published'),
         ('Independent families', len(families), 'after grouping captures and derivatives'),
         ('Last update', f'{snap.day} {snap:%b %Y}', 'counts refer to this date'),
     ]
@@ -1005,7 +1011,9 @@ def item(rec):
     if rec.get('access') in ('registration', 'request', 'restricted'):
         marks += f'<span class="tag">{ACCESS[rec["access"]]}</span>'
     elif rec.get('access') == 'unavailable':
-        marks += '<span class="tag" title="Withdrawn or not yet released">Not available</span>'
+        status = STATUS.get(rec.get('status'))
+        marks += (f'<span class="tag" title="Not available: {esc(status[1])}">{esc(status[0])}</span>' if status else
+                  '<span class="tag" title="Withdrawn or not yet released">Not available</span>')
     if rec['_mixed']:
         marks += '<span class="tag" title="Part of the data is not network traffic: the traffic component must be verified">Mixed modality</span>'
     new_tab = '<span class="visually-hidden"> (opens in a new tab)</span>'
@@ -1201,7 +1209,7 @@ def submit_form(data):
 def page_data(records, history=None):
     """The record details shown in the dialog (the table carries only what the filters need)."""
     keep = ('id', 'name', 'url', 'task', 'domain', 'year', 'data', 'representation', 'access', 'evidence', 'family', 'derived_from',
-            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text', 'new_since')
+            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text', 'new_since', 'status')
     table = ('artifact', 'classes', 'attack_families')   # kept also when empty: an empty list is "none", a missing one "not documented"
     out = []
     for r in records:
