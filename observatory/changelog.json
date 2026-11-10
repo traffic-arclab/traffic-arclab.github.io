@@ -414,6 +414,275 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-10",
+   "commit": "e7d9797",
+   "source": "repository",
+   "message": "Observatory: the datasets that could not be obtained (tab:excluded), marked as withdrawn, not yet released or data not published",
+   "changes": [
+    {
+     "kind": "added",
+     "id": "wpa2-kkid",
+     "name": "WPA2-KKID"
+    },
+    {
+     "kind": "added",
+     "id": "wsn-bfsf",
+     "name": "WSN-BFSF"
+    },
+    {
+     "kind": "withdrawn",
+     "id": "cdx-ctf-2009",
+     "name": "CDX CTF 2009",
+     "fields": [
+      {
+       "field": "Security task",
+       "old": "Attack analysis",
+       "new": "Intrusion detection (network warfare competition)"
+      },
+      {
+       "field": "Domain",
+       "old": "–",
+       "new": "Enterprise and general IP"
+      },
+      {
+       "field": "Year",
+       "old": "–",
+       "new": "2009"
+      },
+      {
+       "field": "Network traces",
+       "old": "–",
+       "new": "yes"
+      },
+      {
+       "field": "Derived information",
+       "old": "–",
+       "new": "no"
+      },
+      {
+       "field": "Representation",
+       "old": "–",
+       "new": "PCAP"
+      },
+      {
+       "field": "Access",
+       "old": "–",
+       "new": "Not available"
+      },
+      {
+       "field": "Acquisition",
+       "old": "–",
+       "new": "Real and simulated devices"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "withdrawn",
+     "id": "sshcure",
+     "name": "SSHCure",
+     "fields": [
+      {
+       "field": "Security task",
+       "old": "SSH attack detection",
+       "new": "SSH compromise detection"
+      },
+      {
+       "field": "Domain labels",
+       "old": "SSH / Enterprise",
+       "new": "Campus network / SSH"
+      },
+      {
+       "field": "Traffic data",
+       "old": "SSH traffic features / NetFlow",
+       "new": "NetFlow, logs"
+      },
+      {
+       "field": "Paper",
+       "old": "Hofstede et al., ACM SIGCOMM CCR 2014",
+       "new": "Hofstede, Hendriks, Sperotto & Pras, ACM SIGCOMM CCR 2014"
+      },
+      {
+       "field": "Paper title",
+       "old": "–",
+       "new": "SSH Compromise Detection using NetFlow/IPFIX"
+      },
+      {
+       "field": "Domain",
+       "old": "–",
+       "new": "Backbone, ISP and honeypots"
+      },
+      {
+       "field": "Year",
+       "old": "–",
+       "new": "2014"
+      },
+      {
+       "field": "Network traces",
+       "old": "–",
+       "new": "no"
+      },
+      {
+       "field": "Derived information",
+       "old": "–",
+       "new": "yes"
+      },
+      {
+       "field": "Representation",
+       "old": "–",
+       "new": "Derived only"
+      },
+      {
+       "field": "Access",
+       "old": "–",
+       "new": "Not available"
+      },
+      {
+       "field": "Acquisition",
+       "old": "–",
+       "new": "Real devices"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "withdrawn",
+     "id": "tuids",
+     "name": "TUIDS",
+     "fields": [
+      {
+       "field": "Security task",
+       "old": "DoS detection",
+       "new": "Intrusion and DoS detection"
+      },
+      {
+       "field": "Domain labels",
+       "old": "Enterprise / DoS",
+       "new": "DDoS / Enterprise"
+      },
+      {
+       "field": "Paper",
+       "old": "Gogoi et al., CCIS 2012",
+       "new": "Gogoi, Bhuyan, Bhattacharyya & Kalita, IC3 2012 (CCIS 306)"
+      },
+      {
+       "field": "Paper title",
+       "old": "–",
+       "new": "Packet and Flow Based Network Intrusion Dataset"
+      },
+      {
+       "field": "Domain",
+       "old": "–",
+       "new": "DDoS"
+      },
+      {
+       "field": "Year",
+       "old": "–",
+       "new": "2012"
+      },
+      {
+       "field": "Network traces",
+       "old": "–",
+       "new": "yes"
+      },
+      {
+       "field": "Derived information",
+       "old": "–",
+       "new": "yes"
+      },
+      {
+       "field": "Representation",
+       "old": "–",
+       "new": "PCAP + derived"
+      },
+      {
+       "field": "Access",
+       "old": "–",
+       "new": "Not available"
+      },
+      {
+       "field": "Acquisition",
+       "old": "–",
+       "new": "Real and simulated devices"
+      },
+      {
+       "field": "Labels",
+       "old": "–",
+       "new": "Binary"
+      },
+      {
+       "field": "Benign class",
+       "old": "–",
+       "new": "yes"
+      },
+      {
+       "field": "Attack classes",
+       "old": "–",
+       "new": "8"
+      },
+      {
+       "field": "Attack families",
+       "old": "–",
+       "new": "(D)DoS, Reconnaissance / scan"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cic-dos-2017",
+     "name": "CIC DoS Dataset (2017)",
+     "fields": [
+      {
+       "field": "Acquisition",
+       "old": "Merge of sources",
+       "new": "Real and simulated devices"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "iscx-botnet-2014",
+     "name": "ISCX Botnet 2014",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      },
+      {
+       "field": "Acquisition",
+       "old": "Merge of sources",
+       "new": "Real and simulated devices"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "malwaretraffic-liveness-annotated",
+     "name": "MalwareTraffic (liveness-annotated)",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }
