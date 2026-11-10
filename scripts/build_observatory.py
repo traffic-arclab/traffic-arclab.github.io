@@ -725,7 +725,19 @@ def changelog_page(data, log):
                       'Changes to the Cybersecurity Dataset Observatory, release by release.', main, 'observatory')
     if is_hidden(data):
         page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
+    page = with_feedback(page, data)
     return re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>', '', page, count=1)
+
+
+def with_feedback(page, data):
+    """The footer of the Observatory pages: under the group contact, the addresses for feedback on the Observatory."""
+    people = data.get('feedback') or []
+    if not people:
+        return page
+    links = '<br>\n        '.join(f'<a href="mailto:{esc(p["email"])}">{esc(p["email"])}</a>' for p in people)
+    line = (f'\n        <p class="footer-feedback">Feedback on the Observatory (missing features, unclear descriptions, '
+            f'problems with the website):<br>\n        {links}</p>')
+    return re.sub(r'(<p class="footer-heading">Contact</p>.*?</p>)', lambda m: m.group(1) + line, page, count=1, flags=re.S)
 
 
 def engine(data, records, families):
@@ -1301,7 +1313,7 @@ def observatory_page(data, history=None):
     # frame() adds the Datasets script; this page has its own.
     page = re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>',
                   '\n  <script src="../js/observatory.js" defer></script>', page, count=1)
-    return page
+    return with_feedback(page, data)
 
 
 def build():

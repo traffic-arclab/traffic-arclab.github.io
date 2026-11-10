@@ -21,6 +21,16 @@
   "feature_title": "A curated catalogue of network-attack datasets for AI",
   "feature_text": "Traffic datasets for intrusion detection, malware and C2 analysis and anomaly detection, linked to their original papers and distribution sources. Researchers can also submit new datasets.",
   "contact": "gabriele.mangiacapre@unina.it",
+  "feedback": [
+    {
+      "name": "Gabriele Mangiacapre",
+      "email": "gabriele.mangiacapre@unina.it"
+    },
+    {
+      "name": "Francesco Cerasuolo",
+      "email": "francesco.cerasuolo@unina.it"
+    }
+  ],
   "cc": [
     "francesco.cerasuolo@unina.it",
     "trafficarclab@gmail.com"
