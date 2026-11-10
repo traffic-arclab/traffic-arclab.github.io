@@ -599,6 +599,7 @@
         ${item('Capture of', row && `<button type="button" class="obs-link" data-open="${esc(row.id)}">${esc(row.name)}</button>`)}
         ${item('Derived from', parents && `${parents} <small>(not an independent acquisition)</small>`)}
         ${item('Notes', esc(r.notes))}
+        ${item('Last checked', r.checked && `<span class="obs-checked">${dateText(r.checked)}</span>`)}
       </dl>
       ${children.length ? `<section class="obs-derived" aria-label="Derived datasets">
         <p class="card-kicker">Derived datasets (${children.length})</p>

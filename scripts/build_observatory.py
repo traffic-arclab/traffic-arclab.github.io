@@ -274,6 +274,25 @@ def all_records(data):
 LAST_CHANGE = ''   # the day of the last change of the records, from the change log (set by build())
 
 
+CHECKED = {}   # record id -> the day its record was last checked (set by observatory_page())
+
+
+def last_checked(data, history):
+    """The day each record was last checked against its sources: its own "checked" date, or the day of the last change
+    of its record in the change log, or the day the whole catalogue was checked ("checked", else "snapshot")."""
+    base = data.get('checked') or data['snapshot']
+    out = {}
+    for rec in all_records(data):
+        days = [base, rec.get('checked') or ''] + [e['date'] for e in (history or {}).get(rec['id'], []) if e.get('date')]
+        out[rec['id']] = max(days)
+    return out
+
+
+def day_text(day):
+    d = date.fromisoformat(day)
+    return f'{d.day} {d:%b %Y}'
+
+
 def updated(data):
     """The date of the last update of the catalogue: "updated" (set by the site editor), the day of the last
     change of the records in the change log (any change, also made in the repository), or the reference list."""
@@ -996,6 +1015,7 @@ def item(rec):
                 <p class="obs-c-task">{esc(rec.get('task') or '—')}</p>
                 <ul class="obs-c-data" aria-label="Traffic data">{chips or '<li>—</li>'}</ul>
                 <p class="obs-c-src">{source}</p>
+                {f'<p class="obs-c-checked">Last checked <time datetime="{CHECKED[rec["id"]]}">{day_text(CHECKED[rec["id"]])}</time></p>' if rec['id'] in CHECKED else ''}
               </article>'''
 
 
@@ -1185,6 +1205,8 @@ def page_data(records, history=None):
             item['history'] = history[r['id']]
         if r.get('_rating'):
             item['rating'] = r['_rating']
+        if r['id'] in CHECKED:
+            item['checked'] = CHECKED[r['id']]
         item.update(size=r['_size'], index=r['_index'], mixed=r['_mixed'], ours=r['_ours'],
                     domainGroup=label_of(DOMAINS, r['_domain']), domainKey=r['_domain'])
         out.append(item)
@@ -1196,6 +1218,8 @@ def page_data(records, history=None):
 def observatory_page(data, history=None):
     global RATINGS
     RATINGS = bool(data.get('ratings', True))
+    CHECKED.clear()
+    CHECKED.update(last_checked(data, history))
     records = all_records(data)
     families = enrich(records)
     about = '\n'.join('          <p>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(p)) + '</p>' for p in data['about'])

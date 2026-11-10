@@ -45,7 +45,7 @@ FIELDS = {
     'size.gb': 'Size (GB)', 'size.count': 'Size',
 }
 # Fields that only steer the page, the emails or the curation: not changes of the catalogue.
-QUIET = {'notify', 'new_since', 'evidence', 'origin', 'table_row'}
+QUIET = {'checked', 'notify', 'new_since', 'evidence', 'origin', 'table_row'}
 # The notes are the curators' wording: a change of them is listed as "Description revised", without the text.
 PRIVATE = {'notes'}
 
