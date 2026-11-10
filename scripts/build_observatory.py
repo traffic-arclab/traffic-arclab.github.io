@@ -737,9 +737,8 @@ def with_feedback(page, data):
         return page
     query = '&'.join(f'{k}={quote(v, safe="@,")}' for k, v in (('cc', ','.join(fb.get('cc') or [])), ('subject', fb.get('subject', ''))) if v)
     href = f'mailto:{fb["to"]["email"]}' + (f'?{query}' if query else '')
-    line = (f'\n        <p class="footer-feedback"><strong>Please leave your feedback!</strong> Missing features, unclear descriptions '
-            f'or problems with the website: help us improve the Observatory by writing to '
-            f'<a href="{esc(href)}">{esc(fb["to"]["name"])}</a>.</p>')
+    line = (f'\n        <p class="footer-feedback"><a href="{esc(href)}"><strong>Please leave your feedback!</strong></a> '
+            f'Missing features, unclear descriptions or problems with the website: help us improve the Observatory.</p>')
     return re.sub(r'(<p class="footer-heading">Contact</p>.*?</p>)', lambda m: m.group(1) + line, page, count=1, flags=re.S)
 
 
