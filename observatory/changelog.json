@@ -683,6 +683,179 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-10",
+   "commit": "3fdc450",
+   "source": "repository",
+   "message": "Observatory: Enterprise table aligned with the paper (ATT&CK labels mapped to the attack families, NF-CSE-CIC-IDS2018 added)",
+   "changes": [
+    {
+     "kind": "added",
+     "id": "nf-cse-cic-ids2018",
+     "name": "NF-CSE-CIC-IDS2018"
+    },
+    {
+     "kind": "changed",
+     "id": "cam-lds-network-captures",
+     "name": "CAM-LDS network captures",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Brute force, Exfiltration, Infiltration / lateral movement, Malware / backdoor / worm, Reconnaissance / scan, Exploitation, Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "casinolimit",
+     "name": "CasinoLimit",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Botnet / C2, Exfiltration, Infiltration / lateral movement, Reconnaissance / scan, Exploitation, Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cse-cic-ids2018-v2-abluva",
+     "name": "CSE-CIC-IDS2018 V2 (Abluva)",
+     "fields": [
+      {
+       "field": "Attack classes",
+       "old": "15 (to be confirmed)",
+       "new": "15"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "dedale",
+     "name": "DEDALE",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Botnet / C2, Exfiltration, Infiltration / lateral movement, Malware / backdoor / worm, Reconnaissance / scan, Exploitation, Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "otrf-security-datasets-atomic",
+     "name": "OTRF Security Datasets - Atomic",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "–"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "otrf-security-datasets-lsass-campaign",
+     "name": "OTRF Security Datasets - LSASS Campaign",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "scvic-apt-2021",
+     "name": "SCVIC-APT-2021",
+     "fields": [
+      {
+       "field": "Attack classes",
+       "old": "5 (to be confirmed)",
+       "new": "5"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "uwf-zeekdata22",
+     "name": "UWF-ZeekData22",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Exfiltration, Infiltration / lateral movement, Reconnaissance / scan, Exploitation, Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "uwf-zeekdata24",
+     "name": "UWF-ZeekData24",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Exfiltration, Reconnaissance / scan, Exploitation, Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "uwf-zeekdatafall22",
+     "name": "UWF-ZeekDataFall22",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Reconnaissance / scan, Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
