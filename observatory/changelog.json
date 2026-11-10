@@ -99,11 +99,6 @@
        "new": "https://etsin.fairdata.fi/dataset/5dad463d-0306-455f-b47a-bef771b819fc"
       },
       {
-       "field": "Derivation tool",
-       "old": "CICFlowMeter (to be confirmed)",
-       "new": "CICFlowMeter"
-      },
-      {
        "field": "Paper",
        "old": "Duchesne, Blaise, Braconnot Velloso & Conan, 6GNet 2025",
        "new": "Wengappuli Arachchige, Hewa & Siriwardhana, University of Oulu (Fairdata) 2025"
@@ -731,18 +726,6 @@
     },
     {
      "kind": "changed",
-     "id": "cse-cic-ids2018-v2-abluva",
-     "name": "CSE-CIC-IDS2018 V2 (Abluva)",
-     "fields": [
-      {
-       "field": "Attack classes",
-       "old": "15 (to be confirmed)",
-       "new": "15"
-      }
-     ]
-    },
-    {
-     "kind": "changed",
      "id": "dedale",
      "name": "DEDALE",
      "fields": [
@@ -789,18 +772,6 @@
        "field": "Attack classes are MITRE ATT&CK labels",
        "old": "–",
        "new": "yes"
-      }
-     ]
-    },
-    {
-     "kind": "changed",
-     "id": "scvic-apt-2021",
-     "name": "SCVIC-APT-2021",
-     "fields": [
-      {
-       "field": "Attack classes",
-       "old": "5 (to be confirmed)",
-       "new": "5"
       }
      ]
     },

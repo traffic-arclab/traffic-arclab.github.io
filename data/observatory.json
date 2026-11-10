@@ -1145,7 +1145,7 @@
         "web",
         "other"
       ],
-      "derivation_tool": "Zeek, tshark?",
+      "derivation_tool": "Zeek, tshark",
       "size": {
         "gb": "1.5"
       }
@@ -2576,7 +2576,7 @@
         "exploitation",
         "web"
       ],
-      "derivation_tool": "tshark?",
+      "derivation_tool": "tshark",
       "evidence": "verified"
     },
     {
@@ -2958,8 +2958,7 @@
       "task": "Darknet encrypted traffic classification",
       "domain": "Darknet / Tor / VPN",
       "data": [
-        "CSV",
-        "traffic traces (verify)"
+        "CSV"
       ],
       "paper": {
         "cite": "Lashkari, Kaur & Rahali, ICCNS 2020",
@@ -5160,7 +5159,7 @@
         "attack": null
       },
       "attack_families": null,
-      "derivation_tool": "ipfixprobe?",
+      "derivation_tool": "ipfixprobe",
       "size": {
         "count": "270k IP time series"
       },
@@ -6095,8 +6094,8 @@
       "task": "Intrusion detection",
       "domain": "Enterprise / NIDS",
       "data": [
-        "Network data",
-        "confirm representation"
+        "PCAP",
+        "Flow records (YAF)"
       ],
       "category": "enterprise",
       "year": "2016",
@@ -6325,8 +6324,7 @@
       "task": "ICS protocol attack detection",
       "domain": "OT / Modbus",
       "data": [
-        "Network protocol data",
-        "confirm formats"
+        "PCAP"
       ],
       "category": "industrial",
       "year": "2023",
@@ -6379,8 +6377,7 @@
       "task": "Intrusion detection",
       "domain": "Enterprise / NIDS",
       "data": [
-        "Network data",
-        "confirm format"
+        "CSV"
       ],
       "category": "enterprise",
       "year": "2021",
@@ -7596,10 +7593,15 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "8"
+        "attack": "8",
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "botnet-c2",
+        "exfiltration",
+        "lateral",
+        "scanning",
+        "other"
       ],
       "derivation_tool": "SPADE",
       "size": {
@@ -8900,7 +8902,7 @@
         "dos",
         "other"
       ],
-      "derivation_tool": "tshark?"
+      "derivation_tool": "tshark"
     },
     {
       "id": "cic-iot-dataset-2022",
@@ -9267,7 +9269,7 @@
       "family": "Dalhousie NIMS Lab IoT Attack",
       "notes": "Nine attack types (scans, floods, brute force, MitM, Teardrop) on nine IoT devices.",
       "category": "iot",
-      "year": "2025",
+      "year": "2026",
       "representation": "PCAP",
       "evidence": "verified",
       "artifact": {
@@ -9276,18 +9278,24 @@
       },
       "access": "registration",
       "labeling": [
-        "none"
+        "weak"
       ],
       "classes": {
         "benign": null,
-        "attack": null
+        "attack": "9"
       },
-      "attack_families": null,
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "scanning",
+        "other"
+      ],
       "paper": {
         "cite": "NIMS Lab, Dalhousie University, IEEE Dataport 2025",
         "title": "Dalhousie NIMS Lab Attack IoT Dataset 2025-2",
         "url": "https://ieee-dataport.org/documents/dalhousie-nims-lab-attack-iot-dataset-2025-2"
-      }
+      },
+      "acquisition": "hybrid"
     },
     {
       "id": "dalhousie-nims-iot-2025-1",
@@ -9599,13 +9607,17 @@
       },
       "acquisition": "hybrid",
       "labeling": [
-        "none"
+        "multiclass"
       ],
       "classes": {
-        "benign": null,
-        "attack": null
+        "benign": true,
+        "attack": "8 / 2"
       },
-      "attack_families": null,
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
       "size": {
         "gb": "2.7"
       },
@@ -11546,7 +11558,7 @@
       "attack_families": [
         "dos"
       ],
-      "derivation_tool": "CICFlowMeter?",
+      "derivation_tool": "CICFlowMeter",
       "size": {
         "gb": "160"
       }
@@ -11870,7 +11882,7 @@
       "attack_families": [
         "app"
       ],
-      "derivation_tool": "ipfixprobe?",
+      "derivation_tool": "ipfixprobe",
       "size": {
         "gb": "89",
         "count": "153M flows"
@@ -11914,7 +11926,7 @@
       "attack_families": [
         "app"
       ],
-      "derivation_tool": "ipfixprobe?",
+      "derivation_tool": "ipfixprobe",
       "size": {
         "gb": "42",
         "count": "141M flows"
@@ -11999,7 +12011,7 @@
       "attack_families": [
         "app"
       ],
-      "derivation_tool": "ipfixprobe?",
+      "derivation_tool": "ipfixprobe",
       "size": {
         "count": "507M flows"
       },

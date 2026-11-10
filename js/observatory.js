@@ -344,7 +344,7 @@
     falsification: 'Data falsification (position, speed, acceleration, heading)', timing: 'Timing (delayed messages)', sybil: 'Sybil',
     injection: 'False data / command injection, payload manipulation',
     app: 'Application / service classes (no attacks)', downgrade: 'Downgrade / side-channel mimicry'};
-  const tbc = v => esc(String(v).replace(/\?$/, ' (to be confirmed)'));   // "5?" in the tables: to be confirmed
+  const tbc = v => esc(String(v).replace(/\?$/, ''));   // a "5?" left in the data is shown as 5
   const paperLink = p => p.doi ? `https://doi.org/${p.doi}` : p.url;
   // how the distribution source of the record was checked
   const EVIDENCE = {verified: 'Verified on the official page', secondary: 'Secondary source only',

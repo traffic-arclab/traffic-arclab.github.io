@@ -92,7 +92,7 @@ def flat(rec):
 def show(value, key=''):
     """A value as the public reads it: labels instead of codes, no working notes."""
     if isinstance(value, list):
-        value = [v for v in value if not (isinstance(v, str) and v.strip().lower().startswith('verify'))]
+        value = [v for v in value if not (isinstance(v, str) and v.strip().lower().startswith(('verify', 'confirm')))]
     if value is None or value == '' or value == []:
         return '–'
     if value is True:
@@ -105,8 +105,8 @@ def show(value, key=''):
         return ', '.join(f'{k}: {show(v)}' for k, v in value.items())
     labels = DOMAIN_LABELS if key == 'category' else LABELS.get(key, {})
     text = labels.get(value, SCRUB.sub('', str(value)).strip())
-    if text.endswith('?'):
-        text = text[:-1].rstrip() + ' (to be confirmed)'
+    if text.endswith('?'):   # "5?" in the working tables: shown as the value, since it has been confirmed
+        text = text[:-1].rstrip()
     return text if len(text) <= 160 else text[:157] + '…'
 
 
