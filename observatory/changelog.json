@@ -827,6 +827,126 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-10",
+   "commit": "d5fd5d2",
+   "source": "repository",
+   "message": "Observatory: values to be confirmed now confirmed; IoT table aligned with the paper (CICAPT-IIoT2024 ATT&CK labels mapped to the attack families)",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "cic-modbus-2023",
+     "name": "CIC Modbus 2023",
+     "fields": [
+      {
+       "field": "Traffic data",
+       "old": "Network protocol data",
+       "new": "PCAP"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cicapt-iiot2024",
+     "name": "CICAPT-IIoT2024",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "MITRE ATT&CK labels",
+       "new": "Botnet / C2, Exfiltration, Infiltration / lateral movement, Reconnaissance / scan, Other"
+      },
+      {
+       "field": "Attack classes are MITRE ATT&CK labels",
+       "old": "–",
+       "new": "yes"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "dalhousie-nims-iot-2025-2",
+     "name": "Dalhousie NIMS Lab Attack IoT Dataset 2025-2",
+     "fields": [
+      {
+       "field": "Year",
+       "old": "2025",
+       "new": "2026"
+      },
+      {
+       "field": "Labels",
+       "old": "None",
+       "new": "Weak or heuristic"
+      },
+      {
+       "field": "Attack classes",
+       "old": "–",
+       "new": "9"
+      },
+      {
+       "field": "Attack families",
+       "old": "–",
+       "new": "Brute force, (D)DoS, Reconnaissance / scan, Other"
+      },
+      {
+       "field": "Acquisition",
+       "old": "–",
+       "new": "Real and simulated devices"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "i-sec-ids",
+     "name": "I-Sec-IDS",
+     "fields": [
+      {
+       "field": "Traffic data",
+       "old": "Network data",
+       "new": "CSV"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "iomt-trafficdata",
+     "name": "IoMT-TrafficData",
+     "fields": [
+      {
+       "field": "Labels",
+       "old": "None",
+       "new": "Multiclass"
+      },
+      {
+       "field": "Benign class",
+       "old": "–",
+       "new": "yes"
+      },
+      {
+       "field": "Attack classes",
+       "old": "–",
+       "new": "8 / 2"
+      },
+      {
+       "field": "Attack families",
+       "old": "–",
+       "new": "(D)DoS, Reconnaissance / scan, Other"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "ndsec-1",
+     "name": "NDSec-1",
+     "fields": [
+      {
+       "field": "Traffic data",
+       "old": "Network data",
+       "new": "PCAP, Flow records (YAF)"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
