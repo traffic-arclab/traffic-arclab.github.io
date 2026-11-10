@@ -339,7 +339,7 @@
   const LABELS = {binary: 'Binary', multiclass: 'Multiclass', weak: 'Weak or heuristic', multilabel: 'Multi-label', none: 'None'};
   const FAMILIES = {bruteforce: 'Brute force', 'botnet-c2': 'Botnet / C2', dos: '(D)DoS', exfiltration: 'Exfiltration',
     lateral: 'Infiltration / lateral movement', malware: 'Malware / backdoor / worm', scanning: 'Reconnaissance / scan',
-    exploitation: 'Exploitation', web: 'Web', other: 'Other (e.g. spoofing/MitM, spam, click fraud, protocol-specific)', attck: 'MITRE ATT&CK tactics',
+    exploitation: 'Exploitation', web: 'Web', other: 'Other (e.g. persistence, defense evasion, collection, credential theft, spoofing/MitM, spam, click fraud, protocol-specific)', attck: 'MITRE ATT&CK labels',
     fuzzing: 'Fuzzing', spoofing: 'Spoofing / fabrication / masquerade', replay: 'Replay',
     falsification: 'Data falsification (position, speed, acceleration, heading)', timing: 'Timing (delayed messages)', sybil: 'Sybil',
     injection: 'False data / command injection, payload manipulation',
@@ -360,7 +360,9 @@
     if (!c) return '';
     const benign = c.benign === null ? 'benign class not documented'
       : c.benign ? 'benign class' + (c.benign_subclasses ? ` (${c.benign_subclasses} subclasses)` : '') : 'no benign class';
-    const attack = c.attack === null ? 'attack classes not specified' : c.attack === 'n.d.' ? 'attack classes not documented'
+    const attack = c.attck ? (c.attack === null || c.attack === 'n.d.' ? 'MITRE ATT&CK tactics or techniques used as labels (number not specified)'
+        : `${tbc(c.attack)} MITRE ATT&CK tactic${c.attack === '1' ? '' : 's'} or techniques used as labels`)
+      : c.attack === null ? 'attack classes not specified' : c.attack === 'n.d.' ? 'attack classes not documented'
       : `${tbc(c.attack)} attack class${c.attack === '1' ? '' : 'es'}`;
     return `${benign[0].toUpperCase()}${benign.slice(1)}, ${attack}`;
   }

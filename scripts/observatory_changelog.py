@@ -41,7 +41,7 @@ FIELDS = {
     'origin': 'Origin', 'excluded': 'Exclusion', 'new_since': 'New since', 'notify': 'Email the subscribers',
     'paper.cite': 'Paper', 'paper.title': 'Paper title', 'paper.doi': 'Paper DOI', 'paper.url': 'Paper link',
     'artifact.traces': 'Network traces', 'artifact.derived': 'Derived information',
-    'classes.benign': 'Benign class', 'classes.attack': 'Attack classes',
+    'classes.benign': 'Benign class', 'classes.attack': 'Attack classes', 'classes.attck': 'Attack classes are MITRE ATT&CK labels',
     'size.gb': 'Size (GB)', 'size.count': 'Size',
 }
 # Fields that only steer the page, the emails or the curation: not changes of the catalogue.
@@ -55,7 +55,7 @@ LABELS = {
     'attack_families': {'bruteforce': 'Brute force', 'botnet-c2': 'Botnet / C2', 'dos': '(D)DoS', 'exfiltration': 'Exfiltration',
                         'lateral': 'Infiltration / lateral movement', 'malware': 'Malware / backdoor / worm',
                         'scanning': 'Reconnaissance / scan', 'exploitation': 'Exploitation', 'web': 'Web', 'other': 'Other',
-                        'attck': 'MITRE ATT&CK tactics', 'fuzzing': 'Fuzzing', 'spoofing': 'Spoofing / fabrication / masquerade',
+                        'attck': 'MITRE ATT&CK labels', 'fuzzing': 'Fuzzing', 'spoofing': 'Spoofing / fabrication / masquerade',
                         'replay': 'Replay', 'falsification': 'Data falsification', 'timing': 'Timing', 'sybil': 'Sybil',
                         'injection': 'False data / command injection', 'app': 'Application / service classes',
                         'downgrade': 'Downgrade / side-channel mimicry'},

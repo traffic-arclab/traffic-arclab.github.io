@@ -964,6 +964,50 @@
       }
     },
     {
+      "id": "nf-cse-cic-ids2018",
+      "name": "NF-CSE-CIC-IDS2018",
+      "url": "https://www.kaggle.com/datasets/dhoogla/nf-cse-cic-ids2018",
+      "task": "IDS binary/multiclass",
+      "domain": "Network",
+      "data": [
+        "NetFlow features (Parquet)"
+      ],
+      "paper": {
+        "cite": "D'hooge, Kaggle 2023",
+        "title": "NF-CSE-CIC-IDS2018: NetFlow version of CSE-CIC-IDS2018 by the University of Queensland",
+        "url": "https://www.kaggle.com/datasets/dhoogla/nf-cse-cic-ids2018"
+      },
+      "category": "enterprise",
+      "year": "2021",
+      "representation": "Derived only",
+      "evidence": "verified",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2",
+        "dos",
+        "lateral",
+        "exploitation",
+        "web"
+      ],
+      "derivation_tool": "NFStream",
+      "parents": [
+        "cse-cic-ids2018"
+      ],
+      "notes": "NetFlow features of CSE-CIC-IDS2018 (University of Queensland), redistributed as Parquet tables."
+    },
+    {
       "id": "nf-cse-cic-ids2018-v2",
       "name": "NF-CSE-CIC-IDS2018-v2",
       "url": "https://www.cyber.uq.edu.au/node/824",
@@ -5266,10 +5310,17 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "2"
+        "attack": "2",
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "botnet-c2",
+        "exfiltration",
+        "lateral",
+        "malware",
+        "scanning",
+        "exploitation",
+        "other"
       ],
       "derivation_tool": "Zeek",
       "size": {
@@ -5309,10 +5360,16 @@
       ],
       "classes": {
         "benign": false,
-        "attack": "12"
+        "attack": "12",
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "botnet-c2",
+        "exfiltration",
+        "lateral",
+        "scanning",
+        "exploitation",
+        "other"
       ],
       "derivation_tool": "Zeek",
       "size": {
@@ -5509,11 +5566,10 @@
       ],
       "classes": {
         "benign": false,
-        "attack": "7"
+        "attack": "7",
+        "attck": true
       },
-      "attack_families": [
-        "attck"
-      ],
+      "attack_families": null,
       "size": {
         "gb": "0.13"
       },
@@ -5547,10 +5603,11 @@
       ],
       "classes": {
         "benign": false,
-        "attack": null
+        "attack": null,
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "other"
       ],
       "derivation_tool": "Zeek",
       "size": {
@@ -6607,10 +6664,17 @@
       ],
       "classes": {
         "benign": false,
-        "attack": "13"
+        "attack": "13",
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "bruteforce",
+        "exfiltration",
+        "lateral",
+        "malware",
+        "scanning",
+        "exploitation",
+        "other"
       ],
       "size": {
         "gb": "182"
@@ -7221,10 +7285,15 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "10"
+        "attack": "10",
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "exfiltration",
+        "lateral",
+        "scanning",
+        "exploitation",
+        "other"
       ],
       "derivation_tool": "Zeek",
       "size": {
@@ -7961,7 +8030,7 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "5?"
+        "attack": "5"
       },
       "attack_families": [
         "exfiltration",
@@ -8217,10 +8286,14 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "7"
+        "attack": "7",
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "exfiltration",
+        "scanning",
+        "exploitation",
+        "other"
       ],
       "derivation_tool": "Zeek",
       "size": {
@@ -8394,10 +8467,12 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "12"
+        "attack": "12",
+        "attck": true
       },
       "attack_families": [
-        "attck"
+        "scanning",
+        "other"
       ],
       "derivation_tool": "Zeek",
       "size": {
@@ -8432,7 +8507,7 @@
       ],
       "classes": {
         "benign": true,
-        "attack": "15?"
+        "attack": "15"
       },
       "attack_families": [
         "bruteforce",

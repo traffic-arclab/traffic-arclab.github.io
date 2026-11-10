@@ -28,7 +28,7 @@ groups are computed from the free-text fields of each record.
 
 The rows of a paper table that has been reviewed (tab:rev-enterprise for now) carry its columns:
 "artifact" {traces, derived}, "acquisition" (real, hybrid, emulated, mix), "labeling" (binary, multiclass,
-weak, none), "classes" {benign, attack, benign_subclasses}, "attack_families" (keys of FAMILIES; null
+weak, none), "classes" {benign, attack, benign_subclasses, attck: the attack classes are MITRE ATT&CK tactics or techniques}, "attack_families" (keys of FAMILIES; null
 when not documented, then the attack filter is computed from the text), "derivation_tool" and
 "size" {gb, count}. "parents" lists the ids of the records a dataset is derived from: the dialog of a
 parent shows its derived datasets as small cards, and the one of a child links back to its parents;
@@ -104,7 +104,7 @@ ATTACKS = [
     ('c2', 'Command and control', r'\bC2\b|command-control|command and control'),
     ('malware', 'Malware', r'[Mm]alware|MalDroid|AndMal|[Aa]dware'),
     ('apt', 'APT and multi-stage', r'\bAPT\b|[Mm]ulti-stage|[Rr]ed.team|lifecycle'),
-    ('attck', 'MITRE ATT&CK tactics', r'ATT&CK'),
+    ('attck', 'MITRE ATT&CK labels', r'ATT&CK'),
     ('lateral', 'Infiltration and lateral movement', r'[Ll]ateral|[Ii]nfiltration'),
     ('bruteforce', 'Brute force', r'[Bb]rute.force'),
     ('web', 'Web attacks', r'[Ww]eb (attack|request|exploit)|WAF|HTTP request|web/QUIC attack'),
@@ -468,6 +468,8 @@ def facet_values(rec):
     families = rec.get('attack_families')
     attacks = (sorted({v for f in families for v in FAMILIES[f]}, key=[k for k, *_ in ATTACKS].index)
                if families is not None else matches(about, ATTACKS))
+    if (rec.get('classes') or {}).get('attck') and 'attck' not in attacks:   # labelled with MITRE ATT&CK tactics or techniques
+        attacks = sorted(attacks + ['attck'], key=[k for k, *_ in ATTACKS].index)
     out = {'domain': [rec['_domain']], 'attack': attacks, 'protocol': matches(f'{about} {data}', PROTOCOLS),
            'task': [rec['_task']], 'format': rec['_formats'], 'tool': matches(data, TOOLS),
            'access': [rec.get('access') or 'open'],
