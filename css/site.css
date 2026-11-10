@@ -1103,7 +1103,7 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
 .footer-heading { margin-bottom: var(--space-4); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .footer-col li + li { margin-top: 6px; }
 .footer-col .footer-feedback { margin-top: 12px; }
-.footer-feedback a { overflow-wrap: anywhere; }
+.footer-feedback strong { color: #fff; font-weight: 650; }
 .site-footer a { color: #fff; text-decoration: underline; text-decoration-color: transparent; }
 .site-footer a:hover { color: #fff; text-decoration-color: rgba(255, 255, 255, .6); }
 

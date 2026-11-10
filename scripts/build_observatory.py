@@ -730,13 +730,16 @@ def changelog_page(data, log):
 
 
 def with_feedback(page, data):
-    """The footer of the Observatory pages: under the group contact, the addresses for feedback on the Observatory."""
-    people = data.get('feedback') or []
-    if not people:
+    """The footer of the Observatory pages: under the group contact, an invitation to send feedback on the Observatory,
+    by email to "to" with the addresses of "cc" in copy."""
+    fb = data.get('feedback') or {}
+    if not fb.get('to'):
         return page
-    links = '<br>\n        '.join(f'<a href="mailto:{esc(p["email"])}">{esc(p["email"])}</a>' for p in people)
-    line = (f'\n        <p class="footer-feedback">Feedback on the Observatory (missing features, unclear descriptions, '
-            f'problems with the website):<br>\n        {links}</p>')
+    query = '&'.join(f'{k}={quote(v, safe="@,")}' for k, v in (('cc', ','.join(fb.get('cc') or [])), ('subject', fb.get('subject', ''))) if v)
+    href = f'mailto:{fb["to"]["email"]}' + (f'?{query}' if query else '')
+    line = (f'\n        <p class="footer-feedback"><strong>Please leave your feedback!</strong> Missing features, unclear descriptions '
+            f'or problems with the website: help us improve the Observatory by writing to '
+            f'<a href="{esc(href)}">{esc(fb["to"]["name"])}</a>.</p>')
     return re.sub(r'(<p class="footer-heading">Contact</p>.*?</p>)', lambda m: m.group(1) + line, page, count=1, flags=re.S)
 
 
