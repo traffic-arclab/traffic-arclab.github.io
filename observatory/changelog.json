@@ -976,6 +976,26 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-11",
+   "commit": "aebcdfc",
+   "source": "repository",
+   "message": "Observatory: CIC IoT-DIAD 2024 derived from CICIoT2023",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "cic-iot-diad-2024",
+     "name": "CIC IoT-DIAD 2024",
+     "fields": [
+      {
+       "field": "Derived from",
+       "old": "–",
+       "new": "ciciot2023"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
