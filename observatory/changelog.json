@@ -1015,6 +1015,47 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-11",
+   "commit": "9b086f5",
+   "source": "repository",
+   "message": "Observatory: USB-IDS-1 added as a correction (in the paper, release 1.0, missing from the website); USB-IDS-TC paper corrected",
+   "changes": [
+    {
+     "kind": "corrected",
+     "id": "usb-ids-1",
+     "name": "USB-IDS-1",
+     "of_release": "1.0",
+     "reason": "Listed in the paper (release 1.0) but missing from the website: added to the catalogue of that release."
+    },
+    {
+     "kind": "changed",
+     "id": "usb-ids-tc",
+     "name": "USB-IDS-TC",
+     "fields": [
+      {
+       "field": "Paper",
+       "old": "Catillo, Del Vecchio, Ocone, Pecchia & Villano, DSN-W 2021",
+       "new": "Catillo, Pecchia & Villano, ICISSP 2025"
+      },
+      {
+       "field": "Paper title",
+       "old": "USB-IDS-1: a Public Multilayer Dataset of Labeled Network Flows for IDS Evaluation",
+       "new": "USB-IDS-TC: A Flow-Based Intrusion Detection Dataset of DoS Attacks in Different Network Scenarios"
+      },
+      {
+       "field": "Paper DOI",
+       "old": "10.1109/DSN-W52860.2021.00012",
+       "new": "10.5220/0013248600003899"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }
