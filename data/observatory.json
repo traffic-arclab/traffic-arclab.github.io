@@ -7043,10 +7043,14 @@
       },
       "derived": true,
       "paper": {
-        "cite": "Zenodo 2026",
+        "cite": "Rodríguez-Villagrá, Martín-Reizábal, Ruiz-Gonzalez, Basurto & Herrero, Zenodo 2026",
         "title": "Labeled IoT Window-Based Random Network Pattern Dataset for Reinforcement Learning",
         "url": "https://zenodo.org/records/19238988"
-      }
+      },
+      "parents": [
+        "ciciot2023"
+      ],
+      "notes": "Fixed-size time windows of CICIoT2023 packet captures, labelled benign, attack or mixed, and combined at random for reinforcement learning."
     },
     {
       "id": "safe-nid-packet-level-payload-labels",
