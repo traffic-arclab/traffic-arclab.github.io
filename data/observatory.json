@@ -529,7 +529,7 @@
         "other"
       ],
       "derivation_tool": "CICFlowMeter",
-      "notes": "New capture: 33 distinct attacks conducted within an IoT topology of 105 devices (CICIoT2023 is related work, not a source).",
+      "notes": "Packet- and flow-based features for device identification and anomaly detection, from the testbed of CICIoT2023 (105 IoT devices, 33 attacks in 7 categories).",
       "paper": {
         "cite": "Canadian Institute for Cybersecurity, 2024",
         "title": "CIC IoT-DIAD 2024",
