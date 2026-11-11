@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /Tools/
+Disallow: /admin/
 
 Sitemap: https://traffic-arclab.github.io/sitemap.xml
