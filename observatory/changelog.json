@@ -996,6 +996,25 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-11",
+   "commit": "9a75368",
+   "source": "repository",
+   "message": "Observatory: CIC IoT-DIAD 2024 description consistent with its source",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "cic-iot-diad-2024",
+     "name": "CIC IoT-DIAD 2024",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }
