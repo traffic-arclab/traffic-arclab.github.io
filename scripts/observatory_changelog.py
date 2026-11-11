@@ -110,9 +110,14 @@ def show(value, key=''):
     return text if len(text) <= 160 else text[:157] + '…'
 
 
+# Records loaded into the file by mistake and later deleted: they were never part of the catalogue, so the change log
+# and the frozen releases leave them out of every past state as well.
+NEVER_PUBLISHED = {'zero-swarm-modbus-normal-and-malicious', 'lorawan-network-attacks-guard', '6tischset-2026', 'uav-ton-iot', 'uav-ground-telemetry-ids', 'ctu-idseval-6', 'batadal', 'netresec-public-pcap-index', 'cicev2023', 'nitro-5g-cybersecurity-exercise', 'pdmfc-ai4cyber-sc3-3', 'pdmfc-shennina-hping-nmap-ddos-pcaps', 'power-system-digital-twin-mininet-traffic', 'minids-multi-domain-vehicle-networks', 'iot-communication-protocol-overhead-dataset'}
+
+
 def published(records):
     """The records of the catalogue (the excluded ones stay in the file but are not published)."""
-    return {r['id']: r for r in records if r.get('id') and not r.get('excluded')}
+    return {r['id']: r for r in records if r.get('id') and not r.get('excluded') and r['id'] not in NEVER_PUBLISHED}
 
 
 def diff(old, new):

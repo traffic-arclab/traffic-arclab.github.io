@@ -325,23 +325,6 @@
    }
   },
   {
-   "id": "6tischset-2026",
-   "name": "6TiSCHSet-2026",
-   "url": "https://zenodo.org/records/22113022",
-   "task": "IDS, leakage-aware benchmark",
-   "domain": "Wireless sensor;6TiSCH;IoT",
-   "data": [
-    "PCAP",
-    "CSV",
-    "LOG"
-   ],
-   "paper": {
-    "cite": "Aydin, Aydin, Jin & Gormus, Zenodo 2026",
-    "title": "6TiSCHSet-2026: A Multi-Layer 6TiSCH Attack Dataset and Leakage-Aware IDS Benchmark",
-    "doi": "10.5281/zenodo.22113022"
-   }
-  },
-  {
    "id": "aci-iot-2023",
    "name": "ACI-IoT-2023",
    "url": "https://doi.org/10.21227/qacj-3x32",
@@ -713,21 +696,6 @@
    ],
    "derivation_tool": "tshark?",
    "evidence": "verified"
-  },
-  {
-   "id": "batadal",
-   "name": "BATADAL",
-   "url": "https://www.sutd.edu.sg/itrust/itrust-labs/datasets",
-   "access": "request",
-   "task": "Attack detection",
-   "domain": "Water distribution;ICS",
-   "data": [
-    "Water-system time series"
-   ],
-   "paper": {
-    "cite": "Taormina et al., Journal of Water Resources Planning and Management 2018",
-    "doi": "10.1061/(asce)wr.1943-5452.0000969"
-   }
   },
   {
    "id": "bccc-cic-bell-dns-2024",
@@ -2100,21 +2068,6 @@
    "evidence": "verified"
   },
   {
-   "id": "cicev2023",
-   "name": "CICEV2023",
-   "url": "https://www.unb.ca/cic/datasets/index.html",
-   "task": "DDoS detection",
-   "domain": "DDoS / Network",
-   "data": [
-    "Network traffic",
-    "verify files"
-   ],
-   "paper": {
-    "cite": "Kim et al., PST 2023",
-    "doi": "10.1109/pst58708.2023.10320202"
-   }
-  },
-  {
    "id": "cicevse2024",
    "name": "CICEVSE2024",
    "url": "https://www.unb.ca/cic/datasets/evse-dataset-2024.html",
@@ -2871,22 +2824,6 @@
    },
    "notes": "9 cloud honeypots in 9 cities; all traffic is unsolicited, so it has no labels.",
    "evidence": "verified"
-  },
-  {
-   "id": "ctu-idseval-6",
-   "name": "CTU-IDSEVAL-6",
-   "url": "https://zenodo.org/records/21027042",
-   "task": "IDS evaluation",
-   "domain": "Network;C2;malware",
-   "data": [
-    "Captures",
-    "Zeek flows"
-   ],
-   "paper": {
-    "cite": "Garcia, Valeros & Alya, Zenodo 2026",
-    "title": "CTU-IDSEVAL-6: A Labeled Network Dataset for the Evaluation of Intrusion Detection Systems",
-    "doi": "10.5281/zenodo.21027042"
-   }
   },
   {
    "id": "ctu-malware-capture-botnet-1",
@@ -6848,22 +6785,6 @@
    }
   },
   {
-   "id": "iot-communication-protocol-overhead-dataset",
-   "name": "IoT Communication Protocol Overhead Dataset",
-   "url": "https://zenodo.org/records/22102718",
-   "task": "Benign reference; representation learning",
-   "domain": "IoT / Protocols / Benign",
-   "data": [
-    "PCAP",
-    "processed results"
-   ],
-   "paper": {
-    "cite": "Hellwig, Kasper & Pawlitzek, Zenodo 2026",
-    "title": "Dataset of IoT Communication Protocol Overhead",
-    "doi": "10.5281/zenodo.22102718"
-   }
-  },
-  {
    "id": "iot-dh",
    "name": "IoT-DH Dataset",
    "url": "https://data.mendeley.com/datasets/8dns3xbckv/1",
@@ -7577,21 +7498,6 @@
    "evidence": "verified"
   },
   {
-   "id": "lorawan-network-attacks-guard",
-   "name": "LoRaWAN Network Attacks (GUARD)",
-   "url": "https://zenodo.org/records/6637445",
-   "task": "Attack/anomaly detection",
-   "domain": "LoRaWAN;LPWAN",
-   "data": [
-    "TXT message dump"
-   ],
-   "paper": {
-    "cite": "Cornelio, Zenodo 2022",
-    "title": "LoRaWAN Network Attacks",
-    "doi": "10.5281/zenodo.6637445"
-   }
-  },
-  {
    "id": "luflow",
    "name": "LUFlow",
    "url": "https://github.com/ruzzzzz/LUFlow",
@@ -8039,22 +7945,6 @@
    }
   },
   {
-   "id": "minids-multi-domain-vehicle-networks",
-   "name": "MINIDS multi-domain vehicle networks",
-   "url": "https://zenodo.org/records/19429093",
-   "task": "Multi-domain vehicular IDS",
-   "domain": "Automotive / CAN / Ethernet",
-   "data": [
-    "CAN CSV",
-    "Ethernet PCAP"
-   ],
-   "paper": {
-    "cite": "Zhu et al., ACM 2026",
-    "title": "MINIDS: Multi-domain In-Vehicle Network Intrusion Detection Dataset for SCIMI",
-    "doi": "10.1145/3770743.3803979"
-   }
-  },
-  {
    "id": "misbehaviorx",
    "name": "MisbehaviorX",
    "url": "https://ieee-dataport.org/documents/misbehaviorx-comprehensive-v2x-misbehavior-detection-dataset-enabled-v2x-application",
@@ -8499,19 +8389,6 @@
     "title": "NetML: A Challenge for Network Traffic Analytics",
     "url": "https://arxiv.org/abs/2004.13006"
    }
-  },
-  {
-   "id": "netresec-public-pcap-index",
-   "name": "NETRESEC public PCAP index",
-   "url": "https://www.netresec.com/?page=pcapfiles",
-   "task": "Malware and intrusion forensics",
-   "domain": "Network forensics / malware",
-   "data": [
-    "PCAP links"
-   ],
-   "representation": "PCAP",
-   "evidence": "publisher",
-   "access": "undocumented"
   },
   {
    "id": "nf-bot-iot-v2",
@@ -8981,21 +8858,6 @@
    }
   },
   {
-   "id": "nitro-5g-cybersecurity-exercise",
-   "name": "NITRO 5G Cybersecurity Exercise",
-   "url": "https://zenodo.org/records/23058085",
-   "task": "5G security; ML traffic analysis",
-   "domain": "5G / IoT / Cyber range",
-   "data": [
-    "PCAP"
-   ],
-   "paper": {
-    "cite": "University of Piraeus, Ionian University, Ubitech & UniSystems, Zenodo 2026",
-    "title": "NITRO 5G Cybersecurity Exercise Dataset: Network Captures and Command Histories",
-    "doi": "10.5281/zenodo.23058085"
-   }
-  },
-  {
    "id": "nsl-kdd",
    "name": "NSL-KDD",
    "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
@@ -9160,53 +9022,6 @@
     "cite": "Open Threat Research Forge",
     "title": "Security Datasets",
     "url": "https://github.com/OTRF/Security-Datasets"
-   }
-  },
-  {
-   "id": "pdmfc-ai4cyber-sc3-3",
-   "name": "PDMFC AI4CYBER SC3.3",
-   "url": "https://zenodo.org/records/16943481",
-   "task": "Attack classification",
-   "domain": "Enterprise / Cyber range",
-   "data": [
-    "PCAP",
-    "CSV"
-   ],
-   "paper": {
-    "cite": "PDMFC, Zenodo 2025",
-    "title": "PDMFC Dataset",
-    "doi": "10.5281/zenodo.16943481"
-   }
-  },
-  {
-   "id": "pdmfc-shennina-hping-nmap-ddos-pcaps",
-   "name": "PDMFC Shennina HPing Nmap DDoS PCAPs",
-   "url": "https://zenodo.org/records/15649231",
-   "task": "Attack classification; IPS evaluation",
-   "domain": "Enterprise / Exploitation",
-   "data": [
-    "PCAP",
-    "alert metadata"
-   ],
-   "paper": {
-    "cite": "PDMFC & Karagiannis, Zenodo 2025",
-    "title": "Shennina, HPing, Nmap Scanning, DDOS attack PCAPs",
-    "doi": "10.5281/zenodo.15649231"
-   }
-  },
-  {
-   "id": "power-system-digital-twin-mininet-traffic",
-   "name": "Power-System Digital Twin Mininet Traffic",
-   "url": "https://zenodo.org/records/23055644",
-   "task": "Scanning detection",
-   "domain": "Smart grid / Power systems",
-   "data": [
-    "PCAPNG"
-   ],
-   "paper": {
-    "cite": "May Myat Thwe & Stefanov, Zenodo 2026",
-    "title": "Mininet Network Traffic Dataset for Intrusion Detection in a Cyber-Physical Power-System Digital Twin",
-    "doi": "10.5281/zenodo.23055644"
    }
   },
   {
@@ -10138,21 +9953,6 @@
    "access": "request"
   },
   {
-   "id": "uav-ground-telemetry-ids",
-   "name": "UAV Ground Telemetry IDS",
-   "url": "https://zenodo.org/records/19086193",
-   "task": "Anomaly/intrusion detection",
-   "domain": "UAV;telemetry",
-   "data": [
-    "CSV"
-   ],
-   "paper": {
-    "cite": "Singh, Zenodo 2026",
-    "title": "UAV Ground Telemetry Dataset for Intrusion Detection and Secure Communication Analysis",
-    "doi": "10.5281/zenodo.19086193"
-   }
-  },
-  {
    "id": "uav-nidd",
    "name": "UAV-NIDD",
    "url": "https://github.com/CyberSaR-KAUST/UAV-Intrusion-Detection-Dataset",
@@ -10191,21 +9991,6 @@
     "other"
    ],
    "derivation_tool": "CICFlowMeter"
-  },
-  {
-   "id": "uav-ton-iot",
-   "name": "UAV-ToN-IoT",
-   "url": "https://zenodo.org/records/18740310",
-   "task": "IDS",
-   "domain": "UAV;FANET",
-   "data": [
-    "CSV"
-   ],
-   "paper": {
-    "cite": "Singh, Zenodo 2026",
-    "title": "UAV-ToN-IoT Dataset (Session-Level UAV Communication Security Dataset for Intrusion Detection and Attack Analysis)",
-    "doi": "10.5281/zenodo.18740310"
-   }
   },
   {
    "id": "uavids-2025",
@@ -11392,21 +11177,6 @@
     "count": "821k records"
    },
    "evidence": "verified"
-  },
-  {
-   "id": "zero-swarm-modbus-normal-and-malicious",
-   "name": "Zero-SWARM Modbus Normal and Malicious",
-   "url": "https://zenodo.org/records/15082260",
-   "task": "Attack / anomaly detection",
-   "domain": "IIoT;Modbus;OT",
-   "data": [
-    "PCAP"
-   ],
-   "paper": {
-    "cite": "Lazaridis & Mpatziakas, Zenodo 2025",
-    "title": "Modbus Normal and Malicious Network Traffic",
-    "doi": "10.5281/zenodo.15082260"
-   }
   }
  ]
 }
