@@ -947,6 +947,35 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-11",
+   "commit": "6dd214f",
+   "source": "repository",
+   "message": "Observatory: IoT-WinRL derived from CICIoT2023",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "iot-window-based-rl-traffic-representation",
+     "name": "IoT-WinRL (Labeled IoT Window-Based Random Network Pattern Dataset for Reinforcement Learning)",
+     "fields": [
+      {
+       "field": "Paper",
+       "old": "Zenodo 2026",
+       "new": "Rodríguez-Villagrá, Martín-Reizábal, Ruiz-Gonzalez, Basurto & Herrero, Zenodo 2026"
+      },
+      {
+       "field": "Derived from",
+       "old": "–",
+       "new": "ciciot2023"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }
