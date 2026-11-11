@@ -206,6 +206,24 @@
     });
   });
 
+  // Cite this work: the BibTeX entry, shown under its button and copied with one click
+  const bibButton = document.querySelector('.obs-cite-bib');
+  const bibBox = document.getElementById('obs-bibtex');
+  if (bibButton && bibBox) {
+    bibButton.addEventListener('click', () => {
+      const open = bibBox.hidden;
+      bibBox.hidden = !open;
+      bibButton.setAttribute('aria-expanded', String(open));
+    });
+    const copy = bibBox.querySelector('.obs-bibtex-copy');
+    copy.addEventListener('click', async () => {
+      const text = bibBox.querySelector('code').textContent;
+      try { await navigator.clipboard.writeText(text); copy.textContent = 'Copied'; }
+      catch (e) { const r = document.createRange(); r.selectNodeContents(bibBox.querySelector('code')); getSelection().removeAllRanges(); getSelection().addRange(r); copy.textContent = 'Selected'; }
+      setTimeout(() => { copy.textContent = 'Copy'; }, 1800);
+    });
+  }
+
   // The search is kept in the address, so a search can be shared or bookmarked.
   function saveUrl(chosen) {
     const params = new URLSearchParams();

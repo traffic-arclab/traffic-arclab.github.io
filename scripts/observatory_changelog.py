@@ -198,6 +198,19 @@ def changelog(data, root, cached, domains=None):
     unreleased = []
     for e in entries:
         home = next((g for g in groups if e['date'] <= g['date']), None)
+        if home is None:
+            # commits after a release that only brought the website in line with it ("aligned_until"): they belong
+            # to that release, except the changes of the records in its "not_aligned" list
+            home = next((g for g in groups if e['date'] <= g.get('aligned_until', '')), None)
+            if home is not None:
+                later = [c for c in e['changes'] if c['id'] in home.get('not_aligned', [])]
+                if later:
+                    unreleased.append(dict(e, changes=later))
+                    e = dict(e, changes=[c for c in e['changes'] if c not in later])
+                    if not e['changes']:
+                        continue
+        if home is not None and home.get('aligned_until'):
+            e = dict(e, aligned=True)
         (home['entries'] if home else unreleased).append(e)
     out = list(reversed(groups))
     nxt = bump(releases[-1]['version'], unreleased) if unreleased and releases else ''
@@ -227,8 +240,10 @@ def freeze(data, root, out_dir):
         path = os.path.join(out_dir, f'v{r["version"]}.json')
         if os.path.exists(path):
             continue
-        # the last state of the catalogue on the day of the release (or when the log began, for an older one)
-        before = f'{r["date"]} 23:59:59' if r['date'] >= since else f'{since} 00:00:00'
+        # the last state of the catalogue on the day of the release, or after the commits that aligned the website
+        # with it (or when the log began, for an older one)
+        last = max(r['date'], r.get('aligned_until', ''))
+        before = f'{last} 23:59:59' if last >= since else f'{since} 00:00:00'
         try:
             sha = git('log', '-1', '--format=%H', f'--before={before}', '--', DATA_PATH).strip()
             state = json.loads(git('show', f'{sha}:{DATA_PATH}')) if sha else None
@@ -236,13 +251,21 @@ def freeze(data, root, out_dir):
             state = None
         if not state:
             continue
-        records = sorted(({k: v for k, v in rec.items() if k not in QUIET} for rec in published(state['records']).values()),
-                         key=lambda rec: rec['id'])
+        raw = sorted(published(state['records']).values(), key=lambda rec: rec['id'])
+        public = lambda rec, keep=(): {k: v for k, v in rec.items() if k not in QUIET or k in keep}
+        # the datasets of the release (one per row of the paper tables), those that could not be obtained (with the
+        # reason), and the captures listed inside a family row, which are not counted as datasets
+        row = lambda x: x.get('table_row', True) and x.get('category')
+        datasets = [public(x) for x in raw if row(x) and x.get('access') != 'unavailable']
+        missing = [public(x, ('status',)) for x in raw if row(x) and x.get('access') == 'unavailable']
+        captures = [public(x) for x in raw if not row(x)]
         frozen = {'title': data.get('title', ''), 'version': r['version'], 'date': r['date'],
                   'summary': r.get('summary', ''), 'state_of': sha[:7],
-                  'note': ('The catalogue when the change log began (%s); the release is older.' % since
-                           if r['date'] < since else 'The catalogue on the day of the release.'),
-                  'records': records}
+                  'note': ('The catalogue when the change log began (%s); the release is older.' % since if last < since else
+                           'The catalogue of the release as documented in the paper.' if r.get('aligned_until') else
+                           'The catalogue on the day of the release.'),
+                  'counts': {'datasets': len(datasets), 'not_available': len(missing), 'captures': len(captures)},
+                  'datasets': datasets, 'not_available': missing, 'captures': captures}
         os.makedirs(out_dir, exist_ok=True)
         with open(path, 'w', encoding='utf-8') as f:
             json.dump(frozen, f, ensure_ascii=False, indent=1)

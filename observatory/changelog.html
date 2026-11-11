@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Changelog | Cybersecurity Dataset Observatory | Traffic</title>
   <meta name="description" content="Changes to the Cybersecurity Dataset Observatory, release by release.">
@@ -12,7 +11,7 @@
   <link rel="icon" href="../images/traffic-mark.svg" type="image/svg+xml">
   <meta name="theme-color" content="#fcfcfd">
   <script src="../js/theme-init.js?v=cf171adf"></script>
-  <link rel="stylesheet" href="../css/site.css?v=e589e7ab">
+  <link rel="stylesheet" href="../css/site.css?v=05d9a25f">
   <script src="../js/site.js?v=9e61baa7" defer></script>
 </head>
 <body>
@@ -144,10 +143,14 @@
           <p>Each change shows whether it was made in the site editor or directly in the repository, and its commit. A dataset whose source stops distributing it stays in the catalogue, marked <strong>Withdrawn</strong>.</p>
           <p>Every release is frozen as a copy of the catalogue at its date, and every dataset keeps its own dated history in its card: two works that cite the same dataset can be compared on the state of its record at the date or release each of them used.</p>
         </div>
-        <section class="obs-log-release" id="v1.1">
-          <h2 class="obs-log-title">Unreleased <span class="obs-log-next">next: v1.1</span></h2>
-          <p class="obs-log-summary">62 changes since the last release, not yet part of a release.</p>
+        <section class="obs-log-release" id="v1.0">
+          <h2 class="obs-log-title">v1.0 <span class="obs-log-date">9 Nov 2026</span></h2>
+          <p class="obs-log-summary">First release, documented in the paper: 234 datasets across 14 domains (plus 8 datasets that could not be obtained at release, listed separately). <a class="obs-log-frozen" href="releases/v1.0.json" download>Catalogue at this release (JSON)</a></p>
           <ol class="obs-log-entries">
+            <li class="obs-log-aligned">
+              <h3 class="obs-log-subtitle">Website aligned with release v1.0</h3>
+              <p class="obs-log-aligned-lead">The following commits brought the website in line with the catalogue of release v1.0 (9 Nov 2026) as documented in the paper; they do not change the release.</p>
+              <ol class="obs-log-entries">
             <li class="obs-log-entry" id="c-9b086f5">
               <p class="obs-log-meta"><time datetime="2026-11-11">11 Nov 2026</time> · <span class="obs-log-source obs-log-source-repository">Repository</span> · <code>9b086f5</code></p>
               <ul class="obs-log-changes"><li class="obs-log-change obs-log-corrected"><span class="obs-log-kind">Correction</span> <a href="index.html?q=USB-IDS-1#catalogue">USB-IDS-1</a><p class="obs-log-reason">Listed in the paper (release 1.0) but missing from the website: added to the catalogue of that release.</p></li><li class="obs-log-change obs-log-changed"><span class="obs-log-kind">Changed</span> <a href="index.html?q=USB-IDS-TC#catalogue">USB-IDS-TC</a><ul class="obs-log-fields"><li><span class="obs-log-field">Paper</span> <del>Catillo, Del Vecchio, Ocone, Pecchia &amp; Villano, DSN-W 2021</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>Catillo, Pecchia &amp; Villano, ICISSP 2025</ins></li><li><span class="obs-log-field">Paper title</span> <del>USB-IDS-1: a Public Multilayer Dataset of Labeled Network Flows for IDS Evaluation</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>USB-IDS-TC: A Flow-Based Intrusion Detection Dataset of DoS Attacks in Different Network Scenarios</ins></li><li><span class="obs-log-field">Paper DOI</span> <del>10.1109/DSN-W52860.2021.00012</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>10.5220/0013248600003899</ins></li><li><span class="obs-log-field">Description</span> revised</li></ul></li></ul>
@@ -192,13 +195,8 @@
               <p class="obs-log-meta"><time datetime="2026-11-07">7 Nov 2026</time> · <span class="obs-log-source obs-log-source-repository">Repository</span> · <code>e9c573c</code></p>
               <ul class="obs-log-changes"><li class="obs-log-change obs-log-changed"><span class="obs-log-kind">Changed</span> <a href="index.html?q=WUSTL-IIoT-2018#catalogue">WUSTL-IIoT-2018</a><ul class="obs-log-fields"><li><span class="obs-log-field">Domain</span> <del>IoT, IIoT and IoMT</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>ICS and OT</ins></li></ul></li></ul>
             </li>
-          </ol>
-        </section>
-        <section class="obs-log-release" id="v1.0">
-          <h2 class="obs-log-title">v1.0 <span class="obs-log-date">20 Oct 2026</span></h2>
-          <p class="obs-log-summary">First release, documented in the paper: 223 datasets across 14 domains. <a class="obs-log-frozen" href="releases/v1.0.json" download>Catalogue at this release (JSON)</a></p>
-          <ol class="obs-log-entries">
-            <li class="obs-log-empty">Changes are logged from 6 Nov 2026: earlier changes are not listed.</li>
+              </ol>
+            </li>
           </ol>
         </section>
       </div>

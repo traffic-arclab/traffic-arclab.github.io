@@ -355,6 +355,7 @@ def ratings():
     return out
 
 
+RELEASE_STEPS = [('v1', 'v1.0'), ('after', 'Added after v1.0')]   # labels set by observatory_page() from the first release
 RATING_STEPS = [('4', '4 stars and up'), ('3', '3 stars and up'), ('2', '2 stars and up'), ('unrated', 'Not yet rated')]
 
 
@@ -444,6 +445,42 @@ STATUS = {'withdrawn': ('Withdrawn', 'distributed in the past, no longer obtaina
           'not-published': ('Data not published', 'described in a paper whose data were never distributed')}
 
 
+def first_release(data):
+    releases = sorted(data.get('releases', []), key=lambda r: r['date'])
+    return releases[0] if releases else None
+
+
+def release_ids(data):
+    """The ids of the records of the first release, from its frozen copy (None when there is none yet)."""
+    r = first_release(data)
+    path = os.path.join(OUT, 'releases', f'v{r["version"]}.json') if r else ''
+    if not path or not os.path.exists(path):
+        return None
+    with open(path, encoding='utf-8') as f:
+        frozen = json.load(f)
+    return {x['id'] for k in ('datasets', 'not_available', 'captures', 'records') for x in frozen.get(k, [])}
+
+
+IN_RELEASE = None   # set by observatory_page(): the ids of the first release
+
+
+def is_dataset(rec):
+    """A dataset of the paper tables: a row of a per-domain table (not a capture listed inside a family row)."""
+    return bool(rec.get('table_row', True) and rec.get('category'))
+
+
+def in_release(rec):
+    return IN_RELEASE is None or rec['id'] in IN_RELEASE
+
+
+def counts(records):
+    """The datasets of the first release that can be obtained, those added since, and those not available."""
+    rows = [r for r in records if is_dataset(r)]
+    return {'release': sum(1 for r in rows if in_release(r) and r.get('access') != 'unavailable'),
+            'added': sum(1 for r in rows if not in_release(r) and r.get('access') != 'unavailable'),
+            'missing': sum(1 for r in rows if r.get('access') == 'unavailable')}
+
+
 def available(records):
     """The records that can be obtained today: all but those withdrawn by their source or not yet released."""
     return sum(1 for r in records if r.get('access') != 'unavailable')
@@ -451,14 +488,15 @@ def available(records):
 
 def stats(data, records, families):
     snap = updated(data)
-    items = [
-        ('Catalogue records', len(records), 'versions, captures and collections'),
-        ('Available', available(records), f'{len(records) - available(records)} withdrawn, not yet released or never published'),
-        ('Independent families', len(families), 'after grouping captures and derivatives'),
-        ('Last update', f'{snap.day} {snap:%b %Y}', 'counts refer to this date'),
-    ]
-    return '\n'.join(f'''          <div class="dataset-stat"><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd><p class="obs-stat-note">{esc(n)}</p></div>'''
-                     for t, v, n in items)
+    n, rel = counts(records), first_release(data)
+    items = [(f'Datasets in v{rel["version"]}' if rel else 'Datasets', n['release'],
+              f'release of {nice_date(rel["date"])}' if rel else 'in the paper tables')]
+    if n['added']:
+        items.append((f'Added since v{rel["version"]}', n['added'], 'not yet in a release'))
+    items += [('Not available', n['missing'], 'withdrawn, not yet released or never published'),
+              ('Last update', f'{snap.day} {snap:%b %Y}', 'counts refer to this date')]
+    return '\n'.join(f'''          <div class="dataset-stat"><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd><p class="obs-stat-note">{esc(note)}</p></div>'''
+                     for t, v, note in items)
 
 
 def facet_values(rec):
@@ -478,7 +516,8 @@ def facet_values(rec):
            'modality': ['mixed' if rec['_mixed'] else 'traffic'], 'paper': ['yes' if rec.get('paper') else 'no'],
            'lineage': [v for v, ok in (('original', not rec.get('derived_from') and rec['_size'] == 1),
                                        ('derived', bool(rec.get('derived_from'))), ('member', rec['_size'] > 1)) if ok],
-           'rating': ([k for k, _ in RATING_STEPS[:-1] if rec['_rating']['avg'] >= int(k)] if rec.get('_rating') else ['unrated'])}
+           'rating': ([k for k, _ in RATING_STEPS[:-1] if rec['_rating']['avg'] >= int(k)] if rec.get('_rating') else ['unrated']),
+           'release': ['v1' if in_release(rec) else 'after']}
     if not RATINGS:
         del out['rating']
     return ' '.join(f'{g}:{v}' for g, values in out.items() for v in values)
@@ -515,7 +554,8 @@ ACCESS = {'open': 'Open', 'registration': 'Registration', 'request': 'On request
 def facets():
     """The filter groups: (key, title, [(value, label)], open by default)."""
     return [
-        ('domain', 'Domain', [(k, label) for k, label, _ in DOMAINS + [UNCLASSIFIED]], True),
+        ('domain', 'Domain', [(k, label) for k, label, _ in DOMAINS], True),
+        ('release', 'Release', RELEASE_STEPS, True),
         *([('rating', 'Rating', RATING_STEPS, True)] if RATINGS else []),
         ('attack', 'Attack type', [(k, label) for k, label, _ in ATTACKS], True),
         ('protocol', 'Protocol', [(k, label) for k, label, _ in PROTOCOLS], True),
@@ -612,20 +652,28 @@ def ai_chat(data):
 
 def citation(data):
     """The paper to cite for the Observatory ("citation" of data/observatory.json), next to the submit call:
-    the request to cite it, then the paper (title, authors) with its Paper (arXiv) and BibTeX links ("arxiv" and
-    "bibtex"; "#" while they are placeholders)."""
+    the request to cite it, then the paper (title, authors), a Paper link once "arxiv" holds a DOI or preprint
+    address, and the BibTeX entry ("bibtex_entry"), shown and copied from its button."""
     cite = data.get('citation')
     if not cite:
         return ''
-    links = ''.join(f'<a href="{esc(cite[k])}"{"" if cite[k].startswith("#") else " target=\"_blank\" rel=\"noopener\""}>{label}</a>'
-                    for k, label in (('arxiv', 'Paper'), ('bibtex', 'BibTeX')) if cite.get(k))
+    paper = cite.get('arxiv') or ''
+    links = (f'<a href="{esc(paper)}" target="_blank" rel="noopener">Paper</a>' if paper and not paper.startswith('#') else '')
+    bib = cite.get('bibtex_entry') or ''
+    if bib:
+        links += ('<button type="button" class="obs-cite-bib" aria-expanded="false" aria-controls="obs-bibtex">BibTeX</button>')
+    box = (f'''
+              <div class="obs-bibtex" id="obs-bibtex" hidden>
+                <pre><code>{esc(bib)}</code></pre>
+                <button type="button" class="obs-bibtex-copy">Copy</button>
+              </div>''' if bib else '')
     return f'''          <div class="obs-cite">
             <p class="obs-cite-kicker">Cite this work</p>
             {f'<p class="obs-cite-ask">{esc(cite["request"])}</p>' if cite.get('request') else ''}
             <div class="obs-cite-ref">
               <p class="obs-cite-title">{esc(cite['title'])}</p>
               <p class="obs-cite-by">{esc(', '.join(cite['authors']))} · {esc(cite['affiliation'])}</p>
-              {f'<p class="obs-cite-links">{links}</p>' if links else ''}
+              {f'<p class="obs-cite-links">{links}</p>' if links else ''}{box}
             </div>
           </div>
 '''
@@ -693,7 +741,18 @@ def changelog_release(r, since):
         if os.path.exists(os.path.join(OUT, 'releases', f'v{r["version"]}.json')):
             sub += (f' <a class="obs-log-frozen" href="releases/v{esc(r["version"])}.json" download>'
                     f'Catalogue at this release (JSON)</a>')
-    if r['entries']:
+    aligned = [e for e in r['entries'] if e.get('aligned')]
+    if aligned:
+        rest = [e for e in r['entries'] if not e.get('aligned')]
+        body = '\n'.join(changelog_entry(e) for e in reversed(rest))
+        body += (('\n' if body else '') +
+                 f'            <li class="obs-log-aligned">\n'
+                 f'              <h3 class="obs-log-subtitle">Website aligned with release v{esc(r["version"])}</h3>\n'
+                 f'              <p class="obs-log-aligned-lead">The following commits brought the website in line with the catalogue of '
+                 f'release v{esc(r["version"])} ({nice_date(r["date"])}) as documented in the paper; they do not change the release.</p>\n'
+                 f'              <ol class="obs-log-entries">\n' + '\n'.join(changelog_entry(e) for e in reversed(aligned)) +
+                 '\n              </ol>\n            </li>')
+    elif r['entries']:
         body = '\n'.join(changelog_entry(e) for e in reversed(r['entries']))
     elif r['date'] < since:
         body = f'            <li class="obs-log-empty">Changes are logged from {nice_date(since)}: earlier changes are not listed.</li>'
@@ -731,7 +790,7 @@ def changelog_page(data, log):
     </section>'''
     page = site.frame(f'Changelog | {data["title"]} | Traffic',
                       'Changes to the Cybersecurity Dataset Observatory, release by release.', main, 'observatory')
-    if is_hidden(data):
+    if data.get('noindex', is_hidden(data)):
         page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
     page = with_feedback(page, data)
     return re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>', '', page, count=1)
@@ -748,6 +807,18 @@ def with_feedback(page, data):
     line = (f'\n        <p class="footer-feedback"><a href="{esc(href)}"><strong>Please leave your feedback!</strong></a> '
             f'Missing features, unclear descriptions or problems with the website: help us improve the Observatory.</p>')
     return re.sub(r'(<p class="footer-heading">Contact</p>.*?</p>)', lambda m: m.group(1) + line, page, count=1, flags=re.S)
+
+
+def opening_counts(data, records):
+    """The numbers of the opening: the datasets of the release, those added since, and those not available."""
+    n, rel = counts(records), first_release(data)
+    out = [f'          <li><strong>{n["release"]}</strong> datasets in v{esc(rel["version"])} ({nice_date(rel["date"])})</li>' if rel else
+           f'          <li><strong>{n["release"]}</strong> datasets</li>']
+    if n['added']:
+        out.append(f'          <li><a href="?release=after#catalogue"><strong>{n["added"]}</strong> added since</a></li>')
+    if n['missing']:
+        out.append(f'          <li><a href="?access=unavailable#catalogue"><strong>{n["missing"]}</strong> not available</a></li>')
+    return '\n'.join(out)
 
 
 def engine(data, records, families):
@@ -767,9 +838,7 @@ def engine(data, records, families):
         </form>
 {ai_chat(data)}
         <ul class="obs-engine-stats" aria-label="The catalogue in numbers">
-          <li><strong>{len(records)}</strong> records</li>
-          <li><strong>{available(records)}</strong> available</li>
-          <li><strong>{len(families)}</strong> independent families</li>
+{opening_counts(data, records)}
           <li>last update <strong>{updated(data).day} {updated(data):%b %Y}</strong></li>{version_link(data)}
         </ul>
         <div class="obs-engine-foot">
@@ -1240,8 +1309,12 @@ def page_data(records, history=None):
 
 
 def observatory_page(data, history=None):
-    global RATINGS
+    global RATINGS, IN_RELEASE
     RATINGS = bool(data.get('ratings', True))
+    IN_RELEASE = release_ids(data)
+    rel = first_release(data)
+    if rel:
+        RELEASE_STEPS[:] = [('v1', f'v{rel["version"]}'), ('after', f'Added after v{rel["version"]}')]
     CHECKED.clear()
     CHECKED.update(last_checked(data, history))
     records = all_records(data)
@@ -1320,7 +1393,7 @@ def observatory_page(data, history=None):
     page = site.frame(f'{data["title"]} | Traffic',
                       'Curated catalogue of network-traffic datasets for AI-based cybersecurity, linked to their papers and distribution sources.',
                       main, 'observatory')
-    if is_hidden(data):
+    if data.get('noindex', is_hidden(data)):
         page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
     # frame() adds the Datasets script; this page has its own.
     page = re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>',

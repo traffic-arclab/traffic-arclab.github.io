@@ -1,6 +1,7 @@
 {
   "title": "Cybersecurity Dataset Observatory",
   "hidden": true,
+  "noindex": false,
   "ratings": false,
   "group_datasets": false,
   "updated": "2026-10-30",
@@ -13,8 +14,9 @@
   "releases": [
     {
       "version": "1.0",
-      "date": "2026-10-20",
-      "summary": "First release, documented in the paper: 223 datasets across 14 domains."
+      "date": "2026-11-09",
+      "summary": "First release, documented in the paper: 234 datasets across 14 domains (plus 8 datasets that could not be obtained at release, listed separately).",
+      "aligned_until": "2026-11-11"
     }
   ],
   "changelog_since": "2026-11-06",
@@ -37,7 +39,7 @@
     "trafficarclab@gmail.com"
   ],
   "citation": {
-    "title": "The AI Cybersecurity Dataset Observatory: Which data for AI in Cybersecurity?",
+    "title": "The Cybersecurity Dataset Observatory: Which Data for AI in Cybersecurity?",
     "authors": [
       "Francesco Cerasuolo",
       "Gabriele Mangiacapre",
@@ -45,8 +47,9 @@
     ],
     "affiliation": "University of Napoli Federico II, Italy",
     "request": "If you find the Observatory useful in your research, we kindly ask you to cite the following publication to acknowledge the scientific contributions underlying the development and maintenance of this research infrastructure:",
-    "arxiv": "#",
-    "bibtex": "#"
+    "arxiv": "",
+    "bibtex": "",
+    "bibtex_entry": "@misc{cerasuolo2026observatory,\n  author       = {Cerasuolo, Francesco and Mangiacapre, Gabriele and Pescap{\\`e}, Antonio},\n  title        = {The Cybersecurity Dataset Observatory: Which Data for AI in Cybersecurity?},\n  year         = {2026},\n  howpublished = {\\url{https://traffic-arclab.github.io/observatory/}},\n  note         = {Release v1.0. Under review}\n}"
   },
   "submit_endpoint": "https://script.google.com/macros/s/AKfycbzot0M3x2n9_xxT3YRJJEJsDpIHqgOhIR0MCXAd3VRXyS5VdkkaDP96j4g4y2KJFvS9/exec",
   "ai_endpoint": "",
@@ -222,7 +225,7 @@
         "traces": true,
         "derived": true
       },
-      "acquisition": "hybrid",
+      "acquisition": "real",
       "labeling": [
         "multiclass"
       ],
@@ -5439,7 +5442,7 @@
         "derived": true
       },
       "access": "request",
-      "acquisition": "hybrid",
+      "acquisition": "emulated",
       "labeling": [
         "multiclass"
       ],
@@ -7272,9 +7275,9 @@
         "traces": true,
         "derived": true
       },
-      "acquisition": "hybrid",
+      "acquisition": "real",
       "labeling": [
-        "weak"
+        "multiclass"
       ],
       "classes": {
         "benign": true,
