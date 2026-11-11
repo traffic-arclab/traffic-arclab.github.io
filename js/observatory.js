@@ -388,14 +388,16 @@
   // The dated history of a record: the release it entered, its changes since the log began, and how to cite
   // the state of the record that a work used.
   const log = data.log || {};
-  const KINDS = {added: 'Added', removed: 'Removed', withdrawn: 'Withdrawn', changed: 'Changed'};
+  const KINDS = {added: 'Added', corrected: 'Correction', removed: 'Removed', withdrawn: 'Withdrawn', changed: 'Changed'};
   const day = d => new Date(`${d}T12:00:00`).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
   function recordHistory(r) {
     if (!log._current) return '';
     const events = r.history || [];
     const added = events.find(e => e.kind === 'added');
     const pending = events.some(e => e.unreleased);
-    const entered = added ? (added.unreleased ? `Added on ${day(added.date)}, not yet in a release`
+    const corrected = events.find(e => e.kind === 'corrected');
+    const entered = corrected ? `In the catalogue since release v${esc(corrected.of_release)} (listed in the paper, added to the website on ${day(corrected.date)} as a correction)`
+      : added ? (added.unreleased ? `Added on ${day(added.date)}, not yet in a release`
       : `Added on ${day(added.date)}, in release v${esc(added.release)}`)
       : `In the catalogue since release v${esc(log._first)}`;
     // a state not yet frozen in a release is identified by the date of its last change
@@ -404,7 +406,7 @@
     const rows = events.slice().reverse().map(e => `<li class="obs-hist-event obs-log-${esc(e.kind)}">
         <p class="obs-log-meta"><time datetime="${esc(e.date)}">${day(e.date)}</time> · ${e.unreleased ? 'unreleased' : `v${esc(e.release)}`}
           · <a href="changelog.html#c-${esc(e.commit)}">${esc(e.commit)}</a></p>
-        <span class="obs-log-kind">${KINDS[e.kind] || esc(e.kind)}</span>
+        <span class="obs-log-kind">${KINDS[e.kind] || esc(e.kind)}</span>${e.reason ? ` <span class="obs-log-reason">${esc(e.reason)}</span>` : ''}
         ${(e.fields || []).length ? `<ul class="obs-log-fields">${e.fields.map(f => f.revised ? `<li><span class="obs-log-field">${esc(f.field)}</span> revised</li>` : `<li><span class="obs-log-field">${esc(f.field)}</span>
           <del>${esc(f.old)}</del> <span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>${esc(f.new)}</ins></li>`).join('')}</ul>` : ''}
       </li>`).join('');

@@ -45,7 +45,7 @@ FIELDS = {
     'size.gb': 'Size (GB)', 'size.count': 'Size',
 }
 # Fields that only steer the page, the emails or the curation: not changes of the catalogue.
-QUIET = {'checked', 'status', 'notify', 'new_since', 'evidence', 'origin', 'table_row'}
+QUIET = {'checked', 'status', 'in_release', 'notify', 'new_since', 'evidence', 'origin', 'table_row'}
 # The notes are the curators' wording: a change of them is listed as "Description revised", without the text.
 PRIVATE = {'notes'}
 
@@ -127,7 +127,12 @@ def diff(old, new):
     changes = []
     for i, r in after.items():
         if i not in before:
-            changes.append({'kind': 'added', 'id': i, 'name': r.get('name', i)})
+            if r.get('in_release'):   # in the paper of that release but missing from the website: a correction
+                changes.append({'kind': 'corrected', 'id': i, 'name': r.get('name', i), 'of_release': r['in_release'],
+                                'reason': f'Listed in the paper (release {r["in_release"]}) but missing from the website: '
+                                          f'added to the catalogue of that release.'})
+            else:
+                changes.append({'kind': 'added', 'id': i, 'name': r.get('name', i)})
     for i, r in before.items():
         if i not in after:
             changes.append({'kind': 'removed', 'id': i, 'name': r.get('name', i), 'reason': SCRUB.sub('', excluded.get(i, '')).strip()})
@@ -142,7 +147,7 @@ def diff(old, new):
             # the source stopped distributing it: still in the catalogue, flagged as withdrawn
             withdrawn = b.get('access') == 'unavailable' and a.get('access') != 'unavailable'
             changes.append({'kind': 'withdrawn' if withdrawn else 'changed', 'id': i, 'name': after[i].get('name', i), 'fields': fields})
-    order = {'added': 0, 'removed': 1, 'withdrawn': 2, 'changed': 3}
+    order = {'added': 0, 'corrected': 1, 'removed': 2, 'withdrawn': 3, 'changed': 4}
     return sorted(changes, key=lambda c: (order[c['kind']], c['name'].lower()))
 
 

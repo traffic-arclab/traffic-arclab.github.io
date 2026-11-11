@@ -1531,7 +1531,7 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-log-source { font-weight: 700; color: var(--color-ink); }
 .obs-log-changes { list-style: none; padding: 0; margin-top: 8px; display: grid; gap: 8px; }
 .obs-log-kind { display: inline-block; min-width: 76px; margin-right: 6px; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.obs-log-added .obs-log-kind { color: var(--log-added); }
+:is(.obs-log-added, .obs-log-corrected) .obs-log-kind { color: var(--log-added); }
 :is(.obs-log-removed, .obs-log-withdrawn) .obs-log-kind { color: var(--log-removed); }
 .obs-log-changed .obs-log-kind { color: var(--log-changed); }
 .obs-log-fields { list-style: none; padding: 0; margin: 4px 0 0 82px; display: grid; gap: 3px; font-size: .92rem; overflow-wrap: anywhere; }

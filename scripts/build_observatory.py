@@ -645,7 +645,7 @@ def version_link(data):
             f'release <strong>v{esc(v)}</strong></a></li>')
 
 
-CHANGE_KINDS = {'added': 'Added', 'removed': 'Removed', 'withdrawn': 'Withdrawn', 'changed': 'Changed'}
+CHANGE_KINDS = {'added': 'Added', 'corrected': 'Correction', 'removed': 'Removed', 'withdrawn': 'Withdrawn', 'changed': 'Changed'}
 SOURCES = {'editor': 'Site editor', 'repository': 'Repository'}
 
 
@@ -665,7 +665,7 @@ def changelog_change(c):
             f'<li><span class="obs-log-field">{esc(f["field"])}</span> <del>{esc(f["old"])}</del> '
             f'<span aria-hidden="true">→</span><span class="visually-hidden">changed to</span> <ins>{esc(f["new"])}</ins></li>'
             for f in c['fields']) + '</ul>'
-    elif c['kind'] == 'removed' and c.get('reason'):
+    elif c['kind'] in ('removed', 'corrected') and c.get('reason'):
         detail = f'<p class="obs-log-reason">{esc(c["reason"])}</p>'
     return (f'<li class="obs-log-change obs-log-{c["kind"]}"><span class="obs-log-kind">{CHANGE_KINDS[c["kind"]]}</span> '
             f'{name}{detail}</li>')

@@ -5050,6 +5050,47 @@
       "excluded": "Unlabelled time series without attack traffic: removed from the backbone, ISP and honeypot table (tab:rev-backbone)."
     },
     {
+      "id": "usb-ids-1",
+      "name": "USB-IDS-1",
+      "url": "https://idsdata.ding.unisannio.it/usbids1.html",
+      "task": "Network intrusion detection (DoS)",
+      "domain": "Network / DoS",
+      "data": [
+        "PCAP",
+        "Flows"
+      ],
+      "paper": {
+        "cite": "Catillo, Del Vecchio, Ocone, Pecchia & Villano, DSN-W 2021",
+        "title": "USB-IDS-1: a Public Multilayer Dataset of Labeled Network Flows for IDS Evaluation",
+        "doi": "10.1109/DSN-W52860.2021.00012"
+      },
+      "category": "ddos",
+      "year": "2021",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "representation": "PCAP + derived",
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "17 CSV"
+      },
+      "evidence": "verified",
+      "checked": "2026-11-09",
+      "in_release": "1.0"
+    },
+    {
       "id": "usb-ids-tc",
       "name": "USB-IDS-TC",
       "url": "https://idsdata.ding.unisannio.it/usbidstc.html",
@@ -5059,11 +5100,10 @@
         "Flows"
       ],
       "paper": {
-        "cite": "Catillo, Del Vecchio, Ocone, Pecchia & Villano, DSN-W 2021",
-        "title": "USB-IDS-1: a Public Multilayer Dataset of Labeled Network Flows for IDS Evaluation",
-        "doi": "10.1109/DSN-W52860.2021.00012"
+        "cite": "Catillo, Pecchia & Villano, ICISSP 2025",
+        "title": "USB-IDS-TC: A Flow-Based Intrusion Detection Dataset of DoS Attacks in Different Network Scenarios",
+        "doi": "10.5220/0013248600003899"
       },
-      "notes": "Dataset page: Catillo et al., USB-IDS-TC.",
       "category": "ddos",
       "year": "2025",
       "artifact": {
