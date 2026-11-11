@@ -1056,6 +1056,55 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-11",
+   "commit": "e9d2aaf",
+   "source": "repository",
+   "message": "Observatory: release v1.0 of 9 Nov 2026 as documented in the paper; website alignment commits listed under it; Release filter; dataset counts; BibTeX; indexing allowed and sitemap",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "ctu-13",
+     "name": "CTU-13",
+     "fields": [
+      {
+       "field": "Acquisition",
+       "old": "Real and simulated devices",
+       "new": "Real devices"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "od-ids2022",
+     "name": "OD-IDS2022",
+     "fields": [
+      {
+       "field": "Acquisition",
+       "old": "Real and simulated devices",
+       "new": "Emulated or simulated"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "road-ornl",
+     "name": "ROAD (Real ORNL Automotive Dynamometer)",
+     "fields": [
+      {
+       "field": "Acquisition",
+       "old": "Real and simulated devices",
+       "new": "Real devices"
+      },
+      {
+       "field": "Labels",
+       "old": "Weak or heuristic",
+       "new": "Multiclass"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
