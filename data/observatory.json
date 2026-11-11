@@ -534,7 +534,10 @@
         "cite": "Canadian Institute for Cybersecurity, 2024",
         "title": "CIC IoT-DIAD 2024",
         "url": "https://www.unb.ca/cic/datasets/iot-diad-2024.html"
-      }
+      },
+      "parents": [
+        "ciciot2023"
+      ]
     },
     {
       "id": "hcrl-car-hacking",
