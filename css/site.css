@@ -1671,6 +1671,10 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-c-src { grid-area: src; display: flex; flex-wrap: wrap; gap: 4px 18px; padding-top: 10px; border-top: 1px solid var(--color-soft-line); font-size: .86rem; font-weight: 650; }
 .obs-c-src a::after { content: " ↗"; }
 .obs-c-src a[href^="../"]::after { content: " →"; }
+.obs-report { margin-left: auto; padding: 0; border: 0; background: none; color: var(--color-muted); font: inherit; font-size: .8rem; font-weight: 600; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: .2em; cursor: pointer; }
+.obs-report:hover { color: var(--color-link); text-decoration-color: currentColor; }
+.is-table .obs-report { margin-left: 0; text-align: left; }
+.obs-correction-note { margin-top: 12px; color: var(--color-muted); font-size: .9rem; }
 .obs-item .obs-family { justify-self: start; }
 .obs-c-checked { grid-area: checked; margin: -2px 0 0; color: var(--color-subtle); font-size: .74rem; }
 .obs-dl .obs-checked { color: var(--color-muted); }

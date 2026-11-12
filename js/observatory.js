@@ -442,7 +442,7 @@
   // ------------------------------------------------------------ ratings and reviews
   // The published reviews are in the page (data/observatory-reviews.json, through the build); a new one goes to
   // the Apps Script of the Observatory and appears once the team has published it from the site editor.
-  const reviewEndpoint = (document.getElementById('obs-form') || {}).dataset?.endpoint || '';
+  const reviewEndpoint = document.getElementById('obs-form')?.getAttribute('data-endpoint') || '';
   const starsHtml = (value, label) => `<span class="obs-stars" style="--fill:${Math.round(value * 2) / 2 / 5 * 100}%" role="img" aria-label="${esc(label)}"></span>`;
   const dateText = d => d ? new Date(`${d}T12:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
   const sentKey = id => `obs-review-sent:${id}`;
@@ -640,7 +640,7 @@
       ${reviewsSection(r)}
       ${recordHistory(r)}
       <div class="gate-actions">
-        <a class="btn btn-ghost" href="#submit" data-report="${esc(r.name)}">Report a correction</a>
+        <a class="btn btn-ghost" href="#submit" data-report="${esc(r.id)}">Report a correction</a>
       </div>`;
     // a parent or a derived dataset opens in the same dialog
     body.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => details(byId[b.dataset.open])));
@@ -648,7 +648,8 @@
     body.scrollTop = 0;
     body.querySelector('[data-report]').addEventListener('click', e => {
       dialog.close();
-      prefill(e.currentTarget.dataset.report, r.url);
+      e.preventDefault();
+      correction(r);
     });
     if (!dialog.open) dialog.showModal();
     dialog.scrollTop = 0;
@@ -658,6 +659,8 @@
   list.addEventListener('click', e => {
     const button = e.target.closest('[data-open]');
     if (button) details(byId[button.dataset.open], button.hasAttribute('data-reviews') ? (button.dataset.reviews || 'reviews') : '');
+    const report = e.target.closest('[data-correct]');
+    if (report && byId[report.dataset.correct]) correction(byId[report.dataset.correct]);
   });
   dialog.querySelectorAll('[data-dialog-close]').forEach(b => b.addEventListener('click', () => dialog.close()));
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
@@ -831,14 +834,39 @@
     data: 'Traffic data', description: 'Description', year: 'Year', size: 'Size', derivation_tool: 'Derivation tool',
     artifact: 'Artifacts', acquisition: 'Capture scenario', labeling: 'Labels', benign: 'Benign traffic', attack_classes: 'Attack classes',
     attack_families: 'Attack families', lineage: 'Lineage', parents: 'Derived from', family: 'Family', licence: 'Licence',
-    name: 'Name', organization: 'Organization', email: 'Email', role: 'Role'};
+    name: 'Name', organization: 'Organization', email: 'Email', role: 'Role', type: 'Type', record_id: 'Record id',
+    field: 'Field to correct', proposed: 'Proposed value', evidence: 'Evidence', maintainer: 'Author / maintainer'};
 
-  function prefill(name, url) {
-    form.elements.dataset.value = name;
-    if (url && !form.elements.url.value) form.elements.url.value = url;
-    form.elements.description.placeholder = 'What should be corrected or added for this dataset?';
-    setTimeout(() => form.elements.description.focus(), 300);
+  // Two modes of the form: the proposal of a dataset, and the correction of a record of the catalogue (its name and
+  // id fixed). The fieldsets of the other mode are disabled, so they are neither checked nor sent.
+  const section = document.getElementById('submit');
+  const title = section.querySelector('[data-title-correction]');
+  const submitButton = form.querySelector('[type=submit]');
+  const texts = {title: title.textContent, button: submitButton.textContent};
+  let mode = 'dataset';
+  function setMode(next) {
+    mode = next;
+    const fix = next === 'correction';
+    form.querySelectorAll('.obs-proposal').forEach(f => { f.disabled = fix; f.hidden = fix; });
+    const box = form.querySelector('.obs-correction');
+    box.disabled = !fix; box.hidden = !fix;
+    section.querySelector('.obs-proposal-intro').hidden = fix;
+    section.querySelector('.obs-correction-intro').hidden = !fix;
+    title.textContent = fix ? title.dataset.titleCorrection : texts.title;
+    submitButton.textContent = fix ? submitButton.dataset.labelCorrection : texts.button;
+    error.hidden = true;
   }
+  function correction(r) {
+    if (mode !== 'correction') form.reset();
+    setMode('correction');
+    done.hidden = true;
+    form.elements.record.value = r.name;
+    form.elements.record_id.value = r.id;
+    dialog.close();
+    section.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    setTimeout(() => form.elements.field.focus({ preventScroll: true }), 400);
+  }
+  form.querySelector('[data-correction-cancel]').addEventListener('click', () => { form.reset(); setMode('dataset'); });
 
   form.addEventListener('submit', e => {
     e.preventDefault();
@@ -861,13 +889,23 @@
       if (k === 'consent' || !value) continue;
       entry[k] = entry[k] ? `${entry[k]}, ${value}` : value;
     }
-    const endpoint = form.dataset.endpoint;
+    if (mode === 'correction') {
+      // sent through the channel of the proposals, marked as a correction of the record; the description sums it up
+      Object.assign(entry, {type: 'correction', dataset: entry.record,
+        description: `Correction of ${entry.record} (${entry.record_id}). Field: ${entry.field}. Proposed value: ${entry.proposed}. `
+          + `Evidence: ${entry.evidence}.${entry.maintainer ? ' Sent by an author / maintainer of the dataset.' : ''}`});
+      delete entry.record;
+    } else {
+      entry.type = 'dataset';
+    }
+    const endpoint = form.getAttribute('data-endpoint');
 
     if (!endpoint) {
       // No web app configured yet: the submission is sent by email instead.
       const text = Object.entries(entry).map(([k, v]) => `${FIELD_LABELS[k] || k}: ${v}`).join('\n');
-      const cc = form.dataset.cc ? `cc=${encodeURIComponent(form.dataset.cc)}&` : '';
-      window.location.href = `mailto:${form.dataset.contact}?${cc}subject=${encodeURIComponent('Observatory dataset submission: ' + entry.dataset)}&body=${encodeURIComponent(text)}`;
+      const cc = form.getAttribute('data-cc') ? `cc=${encodeURIComponent(form.getAttribute('data-cc'))}&` : '';
+      const subject = entry.type === 'correction' ? `Observatory correction: ${entry.dataset} (${entry.field})` : `Observatory dataset submission: ${entry.dataset}`;
+      window.location.href = `mailto:${form.getAttribute('data-contact')}?${cc}subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
       done.textContent = 'Your email app should now open with the submission ready: send it to complete.';
       done.hidden = false;
       return;
@@ -880,11 +918,14 @@
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ action: 'observatory_submission', ...entry, page: location.pathname }),
     }).then(() => {
+      const fixed = entry.type === 'correction';
       form.reset();
-      done.textContent = `Thank you: “${entry.dataset}” has been submitted and will be reviewed by the Observatory team.`;
+      if (fixed) { form.elements.record.value = entry.dataset; form.elements.record_id.value = entry.record_id; }
+      done.textContent = fixed ? `Thank you: your correction to “${entry.dataset}” has been sent. The maintainers will check it against the source before applying it.`
+        : `Thank you: “${entry.dataset}” has been submitted and will be reviewed by the Observatory team.`;
       done.hidden = false;
     }).catch(() => {
-      error.textContent = 'The submission could not be sent. Please try again, or write to ' + form.dataset.contact + '.';
+      error.textContent = 'The submission could not be sent. Please try again, or write to ' + form.getAttribute('data-contact') + '.';
       error.hidden = false;
     }).finally(() => { button.disabled = false; });
   });

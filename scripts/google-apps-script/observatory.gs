@@ -200,11 +200,13 @@ const SUBMISSIONS_SHEET = 'Observatory submissions';
 const SUBMISSION_COLUMNS = ['Date', 'Dataset', 'URL', 'Paper', 'Domain', 'Access', 'Security task', 'Traffic data',
   'Description', 'Name', 'Organization', 'Email', 'Role', 'Page',
   'Year', 'Size', 'Derivation tool', 'Artifacts', 'Capture scenario', 'Labels', 'Benign traffic', 'Attack classes',
-  'Attack families', 'Lineage', 'Derived from', 'Family', 'Licence'];
+  'Attack families', 'Lineage', 'Derived from', 'Family', 'Licence',
+  'Type', 'Record id', 'Field to correct', 'Proposed value', 'Evidence', 'Author / maintainer'];
 const SUBMISSION_FIELDS = ['dataset', 'url', 'paper', 'domain', 'access', 'task', 'data',
   'description', 'name', 'organization', 'email', 'role', 'page',
   'year', 'size', 'derivation_tool', 'artifact', 'acquisition', 'labeling', 'benign', 'attack_classes',
-  'attack_families', 'lineage', 'parents', 'family', 'licence'];
+  'attack_families', 'lineage', 'parents', 'family', 'licence',
+  'type', 'record_id', 'field', 'proposed', 'evidence', 'maintainer'];
 // Who receives an email for every submission (the first one in To, the others in Cc).
 const OBSERVATORY_TEAM = ['gabriele.mangiacapre@unina.it', 'francesco.cerasuolo@unina.it', 'trafficarclab@gmail.com'];
 
@@ -217,7 +219,11 @@ function addSubmission(data) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(SUBMISSION_COLUMNS);
       sheet.setFrozenRows(1);
+    } else if (sheet.getLastColumn() < SUBMISSION_COLUMNS.length) {
+      // a sheet made before the corrections: the new column titles are added at the end of the header
+      sheet.getRange(1, 1, 1, SUBMISSION_COLUMNS.length).setValues([SUBMISSION_COLUMNS]);
     }
+    const correction = data.type === 'correction';
     // Same plain-text rule as the downloads; the description may be longer.
     const text = (value, size) => {
       const s = String(value == null ? '' : value).slice(0, size || 300);
@@ -232,18 +238,41 @@ function addSubmission(data) {
       + ';color:#1b2531;border-bottom:1px solid #eef2f6">' + escapeHtml(String(data[f]).slice(0, 3000)) + '</td></tr>' : '').join('');
     sendObservatoryEmail({
       to: OBSERVATORY_TEAM[0], cc: OBSERVATORY_TEAM.slice(1).join(','), replyTo: String(data.email || ''),
-      subject: 'Observatory dataset submission: ' + String(data.dataset || '').slice(0, 120),
+      subject: (correction ? 'Observatory correction: ' + String(data.dataset || '').slice(0, 100) + ' (' + String(data.field || '').slice(0, 40) + ')'
+        : 'Observatory dataset submission: ' + String(data.dataset || '').slice(0, 120)),
       body: lines.join('\n'),
       html: mailLayout({
-        title: 'New dataset submission', preheader: String(data.dataset || '') + ' submitted by ' + String(data.name || ''), signature: false,
-        content: '<p style="margin:0 0 16px"><strong>' + escapeHtml(data.name) + '</strong>' + (data.organization ? ' (' + escapeHtml(data.organization) + ')' : '')
-          + ' proposed <strong>' + escapeHtml(data.dataset) + '</strong> for the Observatory. Reply to this email to write to them.</p>'
+        title: correction ? 'Correction to a record' : 'New dataset submission',
+        preheader: correction ? 'Correction of ' + String(data.dataset || '') + ': ' + String(data.field || '')
+          : String(data.dataset || '') + ' submitted by ' + String(data.name || ''), signature: false,
+        content: (correction
+          ? '<p style="margin:0 0 16px">A correction was reported for <strong>' + escapeHtml(data.dataset) + '</strong> (record <code>' + escapeHtml(data.record_id) + '</code>)'
+            + (data.maintainer ? ' by an author / maintainer of the dataset' : '') + '. Check it against the evidence before applying it.'
+            + (data.email ? ' Reply to this email to write to them.' : '') + '</p>'
+          : '<p style="margin:0 0 16px"><strong>' + escapeHtml(data.name) + '</strong>' + (data.organization ? ' (' + escapeHtml(data.organization) + ')' : '')
+          + ' proposed <strong>' + escapeHtml(data.dataset) + '</strong> for the Observatory. Reply to this email to write to them.</p>')
           + '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + rows + '</table>',
         button: { label: 'Review it in the editor', url: SITE_URL + 'admin/people/#observatory' },
       }),
     });
     // and a thank-you to whoever submitted it
-    if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(data.email || ''))) {
+    if (correction && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(data.email || ''))) {
+      sendObservatoryEmail({
+        to: String(data.email),
+        subject: 'Thank you for your correction: ' + String(data.dataset || '').slice(0, 120),
+        body: 'Hello,\n\nthank you for reporting a correction to the record of ' + String(data.dataset || '') + ' in the Cybersecurity Dataset Observatory. '
+          + 'The maintainers will check it against the source before applying it; every applied correction is listed in the changelog with its date.\n\n'
+          + OBSERVATORY_URL + 'changelog.html',
+        html: mailLayout({
+          title: 'Thank you for your correction', preheader: 'We received your correction to ' + String(data.dataset || '') + '.',
+          content: '<p style="margin:0 0 14px">Hello,</p>'
+            + '<p style="margin:0 0 14px">thank you for reporting a correction to the record of <strong>' + escapeHtml(data.dataset) + '</strong> ('
+            + escapeHtml(data.field) + ') in the Cybersecurity Dataset Observatory.</p>'
+            + '<p style="margin:0">The maintainers will check it against the source before applying it; every applied correction is listed in the changelog with its date.</p>',
+          button: { label: 'See the changelog', url: OBSERVATORY_URL + 'changelog.html' },
+        }),
+      });
+    } else if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(data.email || ''))) {
       sendObservatoryEmail({
         to: String(data.email),
         subject: 'Thank you for your submission: ' + String(data.dataset || '').slice(0, 120),

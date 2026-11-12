@@ -1112,7 +1112,8 @@ def item(rec):
     paper_url = f'https://doi.org/{paper["doi"]}' if paper.get('doi') else paper.get('url')
     if paper_url:
         links.append(f'<a href="{esc(paper_url)}" target="_blank" rel="noopener" class="obs-paper" title="{esc(paper.get("cite", ""))}">Paper{new_tab}</a>')
-    source = ''.join(links) or '—'
+    links.append(f'<button type="button" class="obs-report" data-correct="{esc(rec["id"])}">Report a correction</button>')
+    source = ''.join(links)
     data = rec.get('data') or []
     chips = ''.join(f'<li>{esc(d)}</li>' for d in data[:4]) + (f'<li class="obs-more">+{len(data) - 4}</li>' if len(data) > 4 else '')
     attr = ' '.join(f'{k}="{esc(v)}"' for k, v in attrs.items())
@@ -1137,7 +1138,7 @@ def characteristics_fieldset():
     def boxes(name, values, kind='checkbox'):
         return '\n'.join(f'              <label class="obs-check"><input type="{kind}" name="{name}" value="{esc(v)}"> {esc(v)}</label>'
                          for v in values)
-    return f'''          <fieldset class="obs-optional">
+    return f'''          <fieldset class="obs-optional obs-proposal">
             <legend>Dataset characteristics <span class="obs-opt-tag">optional</span></legend>
             <p class="obs-form-note">These are the details the Observatory shows for every dataset. None of them is required,
             but each one you fill in saves us a lookup and gets your dataset listed sooner and more accurately: thank you!</p>
@@ -1239,22 +1240,54 @@ def updates_feed(records):
                          for r in records if r.get('notify')]}
 
 
+# The 14 domains of the paper (Tab. 2), as named in the Domain filter: the menu of the submit form
+PAPER_DOMAINS = [(k, label) for k, label, _ in DOMAINS if k not in ('mobile', 'benign')]
+# The fields of a record that a correction can be about
+CORRECTION_FIELDS = ['Domain', 'Year', 'Access', 'Acquisition', 'Labeling', 'Classes', 'Attack families',
+                     'Traffic data / artifacts', 'Download link', 'Paper', 'Lineage', 'Other']
+
+
 def submit_form(data):
-    domain_options = '\n'.join(f'              <option>{esc(label)}</option>' for _, label, _ in DOMAINS)
+    domain_options = '\n'.join(f'              <option>{esc(label)}</option>' for _, label in PAPER_DOMAINS)
+    field_options = '\n'.join(f'                <option>{esc(f)}</option>' for f in CORRECTION_FIELDS)
     data_boxes = '\n'.join(f'              <label class="obs-check"><input type="checkbox" name="data" value="{esc(label)}"> {esc(label)}</label>'
                            for _, label, _ in FORMATS)
     return f'''    <section class="section" id="submit">
       <div class="container obs-submit">
         <div class="obs-submit-intro">
-          <div class="section-head"><h2 class="section-title">Submit your dataset</h2></div>
+          <div class="section-head"><h2 class="section-title" data-title-correction="Report a correction">Submit your dataset</h2></div>
+          <div class="obs-proposal-intro">
           <p>If you have collected and released a network-traffic dataset for cybersecurity research, propose it for the Observatory:
           it will be listed with its paper and distribution source.</p>
           <p>You can also point us to a dataset by others that is not in the catalogue, or report that the information about a listed
           dataset has changed. Every submission is reviewed against the eligibility criterion before it is added.</p>
           <p class="obs-criterion">{esc(data['eligibility'])}</p>
+          </div>
+          <div class="obs-correction-intro" hidden>
+            <p>Report an error or a change in the record of a dataset: the field to correct, the value it should have and the source
+            that shows it (the official page of the dataset, its paper or DOI).</p>
+            <p>Corrections are checked by the maintainers against the source before being applied; every applied correction is listed in
+            the <a href="changelog.html">changelog</a> with its date.</p>
+          </div>
         </div>
         <form class="obs-form" id="obs-form" data-endpoint="{esc(data.get('submit_endpoint') or '')}" data-contact="{esc(data.get('contact') or '')}" data-cc="{esc(','.join(data.get('cc') or []))}" novalidate>
-          <fieldset>
+          <fieldset class="obs-correction" hidden disabled>
+            <legend>Correction to a record</legend>
+            <div class="gate-grid">
+              <label class="gate-wide">Dataset<input name="record" readonly></label>
+              <label>Record id<input name="record_id" readonly></label>
+              <label>Field to correct *<select name="field" required><option value="">Choose…</option>
+{field_options}
+              </select></label>
+              <label class="gate-wide">Proposed value *<textarea name="proposed" rows="3" required placeholder="The value the field should have"></textarea></label>
+              <label class="gate-wide"><span>Evidence * <small>(link to the source: official page, paper or DOI)</small></span><input name="evidence" type="url" required placeholder="https://"></label>
+              <label class="gate-check gate-wide"><input type="checkbox" name="maintainer" value="yes"> <span>I am an author / maintainer of this dataset</span></label>
+              <label class="gate-wide"><span>Email <small>(optional, to be contacted about this correction)</small></span><input name="email" type="email" autocomplete="email"></label>
+            </div>
+            <p class="obs-correction-note">Corrections are checked by the maintainers against the source before being applied; every applied correction is listed in the changelog with its date.</p>
+            <p><button type="button" class="obs-link" data-correction-cancel>Propose a new dataset instead</button></p>
+          </fieldset>
+          <fieldset class="obs-proposal">
             <legend>The dataset</legend>
             <div class="gate-grid">
               <label class="gate-wide">Dataset name *<input name="dataset" required placeholder="e.g. CICIoT2023"></label>
@@ -1273,7 +1306,7 @@ def submit_form(data):
             <label class="obs-wide-label">Short description *<textarea name="description" rows="4" required placeholder="What the dataset contains, how and where it was captured, what it is for…"></textarea></label>
           </fieldset>
 {characteristics_fieldset()}
-          <fieldset>
+          <fieldset class="obs-proposal">
             <legend>About you</legend>
             <div class="gate-grid">
               <label>Name *<input name="name" autocomplete="name" required></label>
@@ -1286,7 +1319,7 @@ def submit_form(data):
             <span>I agree that these details are stored by the Traffic research group only to review this submission and, if needed, to contact me about it.</span></label>
           <p class="gate-error" role="alert" hidden></p>
           <p class="obs-done" role="status" hidden></p>
-          <div class="gate-actions"><button type="submit" class="btn btn-primary">Submit the dataset</button></div>
+          <div class="gate-actions"><button type="submit" class="btn btn-primary" data-label-correction="Send the correction">Submit the dataset</button></div>
         </form>
       </div>
     </section>'''
