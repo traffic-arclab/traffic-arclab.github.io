@@ -1432,7 +1432,20 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .tag-new { border-color: color-mix(in srgb, var(--color-gold) 55%, transparent); background: color-mix(in srgb, var(--color-gold) 16%, transparent); color: var(--color-title); }
 .obs-marks .tag { padding: 2px 6px; font-size: .64rem; }
 /* Evidence states: the darker the badge, the stronger the evidence. */
-.obs-submit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(28px, 4vw, 60px); align-items: start; }
+/* Submit your dataset: the introduction across the page, then the form in two columns (the dataset and you on the
+   left, the optional characteristics on the right) */
+.obs-submit { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+.obs-proposal-intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 56px); align-items: start; }
+.obs-proposal-intro > p { grid-column: 1; }
+.obs-proposal-intro > .obs-criterion { grid-column: 2; grid-row: 1 / span 2; margin-top: 0 !important; }
+.obs-correction-intro { max-width: 860px; }
+.obs-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(24px, 3vw, 44px); align-items: start; }
+.obs-form > * { grid-column: 1; }
+.obs-form > .obs-optional { grid-column: 2; grid-row: 1 / span 8; margin-bottom: 0; }
+.obs-form > .obs-correction { grid-column: 1 / -1; }
+.obs-form > .obs-correction .gate-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.obs-form > .obs-correction .gate-wide { grid-column: span 2; }
+.obs-form .gate-grid label.gate-check { flex-direction: row; align-items: center; gap: 10px; align-self: center; font-weight: 600; }
 .obs-submit-intro p { color: var(--color-ink); }
 .obs-criterion { margin-top: var(--space-5) !important; padding: 16px 18px; border-left: 3px solid var(--color-gold); background: var(--color-surface-alt); color: var(--color-muted) !important; font-size: .93rem; }
 .obs-form { padding: clamp(22px, 3vw, 32px); border: 1px solid var(--color-line); border-top: 3px solid var(--color-deep); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); }
@@ -1473,7 +1486,12 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-mini-meta { color: var(--color-muted); font-size: .8rem; }
 .obs-mini-links { display: flex; gap: 12px; font-size: .82rem; }
 @media (max-width: 900px) {
-  .obs-about, .obs-submit { grid-template-columns: 1fr; }
+  .obs-about, .obs-submit, .obs-proposal-intro, .obs-form { grid-template-columns: 1fr; }
+  .obs-proposal-intro > .obs-criterion, .obs-form > .obs-optional { grid-column: 1; grid-row: auto; }
+  .obs-proposal-intro > .obs-criterion { margin-top: var(--space-4) !important; }
+  .obs-form > .obs-optional { margin-bottom: var(--space-6); }
+  .obs-form > .obs-correction .gate-grid { grid-template-columns: 1fr; }
+  .obs-form > .obs-correction .gate-wide { grid-column: auto; }
 }
 @media (max-width: 640px) {
   .obs-dl { grid-template-columns: 1fr; gap: 2px; }
