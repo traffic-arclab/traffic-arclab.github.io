@@ -36,7 +36,7 @@ FIELDS = {
     'data': 'Traffic data', 'category': 'Domain', 'representation': 'Representation', 'year': 'Year',
     'artifact': 'Artifacts', 'labeling': 'Labels', 'classes': 'Classes', 'attack_families': 'Attack families',
     'acquisition': 'Acquisition', 'size': 'Size', 'derivation_tool': 'Derivation tool', 'family': 'Family',
-    'notes': 'Description', 'access': 'Access', 'parents': 'Derived from', 'parents_text': 'Derived from',
+    'notes': 'Description', 'aliases': 'Also known as', 'access': 'Access', 'parents': 'Derived from', 'parents_text': 'Derived from',
     'derived': 'Derived datasets', 'table_row': 'Own row in the table', 'evidence': 'Verification',
     'origin': 'Origin', 'excluded': 'Exclusion', 'new_since': 'New since', 'notify': 'Email the subscribers',
     'paper.cite': 'Paper', 'paper.title': 'Paper title', 'paper.doi': 'Paper DOI', 'paper.url': 'Paper link',

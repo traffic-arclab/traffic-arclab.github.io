@@ -2352,7 +2352,7 @@
     },
     {
       "id": "malwaretraffic-liveness-annotated",
-      "name": "MalwareTraffic (liveness-annotated)",
+      "name": "MalwareTraffic",
       "url": "https://github.com/Root0ne/malware-pcap-dataset",
       "task": "C2 liveness, malware classification",
       "domain": "Sandbox malware / C2",
@@ -2394,7 +2394,10 @@
         "title": "MalwareTraffic: liveness-annotated malware PCAP dataset",
         "url": "https://github.com/Root0ne/malware-pcap-dataset"
       },
-      "status": "not-released"
+      "status": "not-released",
+      "aliases": [
+        "MalwareTraffic (liveness-annotated)"
+      ]
     },
     {
       "id": "awid",
@@ -11932,7 +11935,7 @@
     },
     {
       "id": "cic-dos-2017",
-      "name": "CIC DoS Dataset (2017)",
+      "name": "CIC DoS 2017",
       "url": "https://www.unb.ca/cic/datasets/dos-dataset.html",
       "task": "Application-layer DoS detection",
       "domain": "DDoS",
@@ -11971,7 +11974,10 @@
       ],
       "notes": "Application-layer DoS attacks mixed into the ISCX-IDS2012 background. Labels not documented. Confirmed as currently unavailable on the official UNB/CIC download page.",
       "evidence": "verified",
-      "status": "withdrawn"
+      "status": "withdrawn",
+      "aliases": [
+        "CIC DoS Dataset (2017)"
+      ]
     },
     {
       "id": "boun-ddos",

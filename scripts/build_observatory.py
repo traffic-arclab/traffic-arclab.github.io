@@ -512,7 +512,9 @@ def facet_values(rec):
         attacks = sorted(attacks + ['attck'], key=[k for k, *_ in ATTACKS].index)
     out = {'domain': [rec['_domain']], 'attack': attacks, 'protocol': matches(f'{about} {data}', PROTOCOLS),
            'task': [rec['_task']], 'format': rec['_formats'], 'tool': matches(data, TOOLS),
-           'access': [rec.get('access') or 'open'],
+           # a record that cannot be obtained is filtered by why (its "status", under "Not available at release")
+           'access': [rec.get('status') if rec.get('access') == 'unavailable' and rec.get('status') in STATUS
+                      else rec.get('access') or 'open'],
            'acquisition': [rec['acquisition']] if rec.get('acquisition') else [], 'labeling': rec.get('labeling') or [],
            'source': ['ours' if rec['_ours'] else 'index' if rec['_index'] else 'official'],
            'modality': ['mixed' if rec['_mixed'] else 'traffic'], 'paper': ['yes' if rec.get('paper') else 'no'],
@@ -564,7 +566,8 @@ def facets():
         ('task', 'Security task', [(k, label) for k, label, _ in TASKS], False),
         ('format', 'Traffic data', [(k, label) for k, label, _ in FORMATS], True),
         ('tool', 'File format and tools', [(k, label) for k, label, _ in TOOLS], False),
-        ('access', 'Access', list(ACCESS.items()), False),
+        ('access', 'Access', [(k, v) for k, v in ACCESS.items() if k != 'unavailable']
+         + [(k, label) for k, (label, _) in STATUS.items()], False),
         ('acquisition', 'Acquisition', [('real', 'Real devices'), ('hybrid', 'Real and simulated devices'), ('emulated', 'Emulated or simulated'),
                                         ('mix', 'Merge of sources')], False),
         ('labeling', 'Labels', [('binary', 'Binary'), ('multiclass', 'Multiclass'), ('weak', 'Weak or heuristic'), ('multilabel', 'Multi-label'), ('none', 'No labels')], False),
@@ -587,13 +590,22 @@ def facet_panel(records):
     for key, title, values, opened in facets():
         values = [(v, label) for v, label in values if counts.get(f'{key}:{v}')]
         # long groups show their most frequent values first, and only the first ones until "Show all"
-        if len(values) > FACET_TOP:
+        if len(values) > FACET_TOP and key != 'access':
             values.sort(key=lambda vl: (vl[0] == UNCLASSIFIED[0], -counts[f'{key}:{vl[0]}']))   # the records not yet in a table last
         options = '\n'.join(
             f'''                <label class="obs-facet{' is-extra' if i >= FACET_TOP else ''}"{f' data-domain="{esc(v)}"' if key == 'domain' else ''}><input type="checkbox" name="{key}" value="{esc(v)}">'''
             + (f'<span class="obs-dot" data-domain="{esc(v)}" aria-hidden="true"></span>' if key == 'domain' else '')
             + f'''<span class="obs-facet-label">{esc(label)}</span><span class="obs-facet-count">{counts[f"{key}:{v}"]}</span></label>'''
             for i, (v, label) in enumerate(values))
+        if key == 'access' and any(v in STATUS for v, _ in values):
+            # the reasons a record cannot be obtained, as sub-options under one heading
+            first = next(v for v, _ in values if v in STATUS)
+            options = options.replace(f'<label class="obs-facet"><input type="checkbox" name="access" value="{first}">',
+                                      f'<p class="obs-facet-sub">Not available at release</p>\n'
+                                      f'                <label class="obs-facet"><input type="checkbox" name="access" value="{first}">', 1)
+            for v in STATUS:
+                options = options.replace(f'<label class="obs-facet"><input type="checkbox" name="access" value="{v}">',
+                                          f'<label class="obs-facet is-sub"><input type="checkbox" name="access" value="{v}">')
         more = (f'\n                <button type="button" class="obs-facet-more" aria-expanded="false" data-more="{len(values) - FACET_TOP}">'
                 f'Show all {len(values)}</button>') if len(values) > FACET_TOP else ''
         if key == ('rating' if RATINGS else 'attack'):
@@ -819,7 +831,8 @@ def opening_counts(data, records):
     if n['added']:
         out.append(f'          <li><a href="?release=after#catalogue"><strong>{n["added"]}</strong> added since</a></li>')
     if n['missing']:
-        out.append(f'          <li><a href="?access=unavailable#catalogue"><strong>{n["missing"]}</strong> not available</a></li>')
+        out.append(f'          <li><a href="?access={",".join(STATUS)}#catalogue" title="Not available at release: withdrawn, '
+                   f'not yet released or data not published"><strong>{n["missing"]}</strong> not available</a></li>')
     return '\n'.join(out)
 
 
@@ -1050,7 +1063,7 @@ def item(rec):
         'data-head': 'true' if rec['_head'] else 'false', 'data-domain': rec['_domain'],
         'data-facets': rec['_facets'],
         'data-years': ' '.join(map(str, year_span(rec) or ())),
-        'data-search': ' '.join([rec['name'], rec.get('task', ''), rec.get('domain', ''), ' '.join(rec.get('data') or []),
+        'data-search': ' '.join([rec['name'], ' '.join(rec.get('aliases') or []), rec.get('task', ''), rec.get('domain', ''), ' '.join(rec.get('data') or []),
                                  rec.get('family') or '', rec.get('derived_from') or '', label_of(DOMAINS, rec['_domain']),
                                  'traffic group mirage' if rec['_ours'] else '',
                                  label_of(TASKS, rec['_task'])] + [label_of(FORMATS, f) for f in rec['_formats']]
@@ -1282,7 +1295,7 @@ def submit_form(data):
 def page_data(records, history=None):
     """The record details shown in the dialog (the table carries only what the filters need)."""
     keep = ('id', 'name', 'url', 'task', 'domain', 'year', 'data', 'representation', 'access', 'evidence', 'family', 'derived_from',
-            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text', 'new_since', 'status')
+            'paper', 'notes', 'acquisition', 'labeling', 'derivation_tool', 'parents', 'parents_text', 'new_since', 'status', 'aliases')
     table = ('artifact', 'classes', 'attack_families')   # kept also when empty: an empty list is "none", a missing one "not documented"
     out = []
     for r in records:
