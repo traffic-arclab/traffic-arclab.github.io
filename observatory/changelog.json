@@ -1369,6 +1369,36 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-12",
+   "commit": "3a6b9c0",
+   "source": "repository",
+   "message": "Observatory: Distributed artifacts filter (as in tab:domain), Traffic data renamed Formats; Android Mischief distributes traces and Zeek logs; model menu links to the new filter",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "android-mischief",
+     "name": "Android Mischief Dataset",
+     "fields": [
+      {
+       "field": "Traffic data",
+       "old": "PCAP",
+       "new": "PCAP, Zeek logs"
+      },
+      {
+       "field": "Representation",
+       "old": "PCAP",
+       "new": "PCAP + derived"
+      },
+      {
+       "field": "Derived information",
+       "old": "no",
+       "new": "yes"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

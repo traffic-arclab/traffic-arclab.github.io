@@ -3,7 +3,7 @@
  "version": "1.0",
  "date": "2026-11-09",
  "summary": "First release, documented in the paper: 234 datasets across 14 domains (plus 8 datasets that could not be obtained at release, listed separately).",
- "state_of": "3701fdf",
+ "state_of": "3a6b9c0",
  "note": "The catalogue of the release as documented in the paper.",
  "counts": {
   "datasets": 234,
@@ -566,14 +566,15 @@
    "task": "Malware traffic / RAT C2",
    "domain": "Android / Malware traffic",
    "data": [
-    "PCAP"
+    "PCAP",
+    "Zeek logs"
    ],
    "category": "malware",
    "year": "2020",
-   "representation": "PCAP",
+   "representation": "PCAP + derived",
    "artifact": {
     "traces": true,
-    "derived": false
+    "derived": true
    },
    "acquisition": "hybrid",
    "labeling": [
