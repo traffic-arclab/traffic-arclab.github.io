@@ -842,9 +842,6 @@ def opening_counts(data, records):
            f'          <li><strong>{n["release"]}</strong> datasets</li>']
     if n['added']:
         out.append(f'          <li><a href="?release=after#catalogue"><strong>{n["added"]}</strong> added since</a></li>')
-    if n['missing']:
-        out.append(f'          <li><a href="?access={",".join(STATUS)}#catalogue" title="Not available at release: withdrawn, '
-                   f'not yet released or data not published"><strong>{n["missing"]}</strong> not available</a></li>')
     return '\n'.join(out)
 
 
