@@ -1385,7 +1385,7 @@ a.obs-m-val:hover { border-color: var(--color-link); color: var(--color-link); }
 }
 @media (prefers-reduced-motion: reduce) { .obs-bell-badge .obs-bell { animation: none; } }
 /* tab:domain of the paper: rows of each table by distributed representation (validated categorical slots 1-4, a neutral for "unclear") */
-.obs-rep { --rep-pktder: #2a78d6; --rep-pkt: #eb6834; --rep-der: #1baf7a; --rep-bus: #eda100; margin: clamp(32px, 4vw, 48px) 0 0; }
+.obs-rep { --rep-pktder: #2a78d6; --rep-pkt: #eb6834; --rep-der: #1baf7a; --rep-bus: #eda100; margin: clamp(20px, 3vw, 28px) 0 0; }
 :root[data-theme="dark"] .obs-rep { --rep-pktder: #3987e5; --rep-pkt: #d95926; --rep-der: #199e70; --rep-bus: #c98500; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme]) .obs-rep { --rep-pktder: #3987e5; --rep-pkt: #d95926; --rep-der: #199e70; --rep-bus: #c98500; } }
 .obs-rep figcaption { max-width: 78ch; margin-bottom: 18px; }

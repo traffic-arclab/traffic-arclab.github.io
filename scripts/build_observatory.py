@@ -497,19 +497,6 @@ def available(records):
     return sum(1 for r in records if r.get('access') != 'unavailable')
 
 
-def stats(data, records, families):
-    snap = updated(data)
-    n, rel = counts(records), first_release(data)
-    items = [(f'Datasets in v{rel["version"]}' if rel else 'Datasets', n['release'],
-              f'release of {nice_date(rel["date"])}' if rel else 'in the paper tables')]
-    if n['added']:
-        items.append((f'Added since v{rel["version"]}', n['added'], 'not yet in a release'))
-    items += [('Not available', n['missing'], 'withdrawn, not yet released or never published'),
-              ('Last update', f'{snap.day} {snap:%b %Y}', 'counts refer to this date')]
-    return '\n'.join(f'''          <div class="dataset-stat"><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd><p class="obs-stat-note">{esc(note)}</p></div>'''
-                     for t, v, note in items)
-
-
 def facet_values(rec):
     """Every filter value of a record, as group:value (the groups of FACETS)."""
     about = ' '.join([rec['name'], rec.get('task', ''), rec.get('domain', '')])
@@ -985,23 +972,29 @@ def domain_table(records):
                     for k, label, _ in ARTIFACTS)
     heads += ''.join(f'<th scope="col" class="obs-rep-n{" obs-rep-gap" if k == EXTRA[0][0] else ""}">{esc(label)}</th>' for k, label, _ in EXTRA)
     body = '\n'.join(line(label_of(DOMAINS, k), rows[k], key=k) for k in order)
-    return f'''        <figure class="obs-rep" aria-labelledby="obs-rep-title">
-          <figcaption><h3 class="obs-model-title" id="obs-rep-title">Eligible records by application domain</h3>
-            <p>Each per-domain table of the paper is one row: what its records distribute, how many were recorded in real networks or installations, how many derive from earlier captures and how many were released since 2023. Select a domain to see its datasets.</p></figcaption>
-          <div class="obs-rep-scroll">
-            <table class="obs-rep-table">
-              <thead><tr><th scope="col">Domain</th><th scope="col" class="obs-rep-total">Number</th><th scope="col" class="obs-rep-avail" title="Not withdrawn by their source and already released">Available</th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Distributed artifacts</span></th>{heads}</tr></thead>
-              <tbody>
+    return f'''        <details class="obs-model obs-rep">
+          <summary>
+            <span class="obs-m-sum"><span class="obs-model-title">Eligible records by application domain</span>
+              <span class="obs-m-lead">One row per domain table of the paper: what its records distribute, how many are available, real, derived and recent.</span></span>
+            <span class="obs-m-chev" aria-hidden="true"></span>
+          </summary>
+          <div class="obs-m-body">
+            <p class="obs-m-intro">Each per-domain table of the paper is one row: what its records distribute, how many were recorded in real networks or installations, how many derive from earlier captures and how many were released since 2023. Select a domain to see its datasets.</p>
+            <div class="obs-rep-scroll">
+              <table class="obs-rep-table">
+                <thead><tr><th scope="col">Domain</th><th scope="col" class="obs-rep-total">Number</th><th scope="col" class="obs-rep-avail" title="Not withdrawn by their source and already released">Available</th><th scope="col" class="obs-rep-cell"><span class="visually-hidden">Distributed artifacts</span></th>{heads}</tr></thead>
+                <tbody>
 {body}
-              </tbody>
-              <tfoot>
+                </tbody>
+                <tfoot>
 {line('Total', total, ' class="obs-rep-sum"')}
-              </tfoot>
-            </table>
+                </tfoot>
+              </table>
+            </div>
+            <ul class="obs-rep-legend">{legend}</ul>
+            {note}
           </div>
-          <ul class="obs-rep-legend">{legend}</ul>
-          {note}
-        </figure>'''
+        </details>'''
 
 
 def entity_model(data):
@@ -1429,9 +1422,6 @@ def observatory_page(data, history=None):
         </div>
 {model}
 {domain_table(records)}
-        <dl class="dataset-stats obs-stats">
-{stats(data, records, families)}
-        </dl>
       </div>
     </section>
 
