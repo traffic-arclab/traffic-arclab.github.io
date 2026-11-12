@@ -357,6 +357,15 @@ def ratings():
     return out
 
 
+# What a record distributes (tab:domain of the paper), from its "artifact"
+ARTIFACT_STEPS = [('pktder', 'Raw traces + processed records'), ('pkt', 'Raw traces only'),
+                  ('der', 'Processed records only'), ('none', 'Neither (raw HTTP requests only)')]
+# A line under the title of some filter groups
+FACET_NOTES = {
+    'artifacts': 'Raw traces: packet captures, or raw CAN/Ethernet frames and V2X messages for vehicular datasets. '
+                 'Processed records: flows, logs or feature tables.',
+    'format': 'A dataset can be distributed in several formats.',
+}
 RELEASE_STEPS = [('v1', 'v1.0'), ('after', 'Added after v1.0')]   # labels set by observatory_page() from the first release
 RATING_STEPS = [('4', '4 stars and up'), ('3', '3 stars and up'), ('2', '2 stars and up'), ('unrated', 'Not yet rated')]
 
@@ -521,7 +530,8 @@ def facet_values(rec):
            'lineage': [v for v, ok in (('original', not rec.get('derived_from') and rec['_size'] == 1),
                                        ('derived', bool(rec.get('derived_from'))), ('member', rec['_size'] > 1)) if ok],
            'rating': ([k for k, _ in RATING_STEPS[:-1] if rec['_rating']['avg'] >= int(k)] if rec.get('_rating') else ['unrated']),
-           'release': ['v1' if in_release(rec) else 'after']}
+           'release': ['v1' if in_release(rec) else 'after'],
+           'artifacts': [representation_of(rec) or 'none'] if rec.get('artifact') else []}
     if not RATINGS:
         del out['rating']
     return ' '.join(f'{g}:{v}' for g, values in out.items() for v in values)
@@ -564,7 +574,8 @@ def facets():
         ('attack', 'Attack type', [(k, label) for k, label, _ in ATTACKS], True),
         ('protocol', 'Protocol', [(k, label) for k, label, _ in PROTOCOLS], True),
         ('task', 'Security task', [(k, label) for k, label, _ in TASKS], False),
-        ('format', 'Traffic data', [(k, label) for k, label, _ in FORMATS], True),
+        ('artifacts', 'Distributed artifacts', ARTIFACT_STEPS, True),
+        ('format', 'Formats', [(k, label) for k, label, _ in FORMATS], True),
         ('tool', 'File format and tools', [(k, label) for k, label, _ in TOOLS], False),
         ('access', 'Access', [(k, v) for k, v in ACCESS.items() if k != 'unavailable']
          + [(k, label) for k, (label, _) in STATUS.items()], False),
@@ -611,8 +622,9 @@ def facet_panel(records):
         if key == ('rating' if RATINGS else 'attack'):
             groups.append('{YEAR}')   # the Year filter right after the domains (and the ratings)
         groups.append(f'''            <details class="obs-facet-group"{' open' if opened else ''}>
-              <summary>{esc(title)}<span class="obs-facet-active" data-active-count="{key}" hidden></span></summary>
-              <div class="obs-facet-list">
+              <summary{f' title="{esc(FACET_NOTES[key])}"' if key in FACET_NOTES else ''}>{esc(title)}<span class="obs-facet-active" data-active-count="{key}" hidden></span></summary>
+              <div class="obs-facet-list">{f'''
+                <p class="obs-facet-note">{esc(FACET_NOTES[key])}</p>''' if key in FACET_NOTES else ''}
 {options}{more}
               </div>
             </details>''')

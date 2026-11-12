@@ -9508,15 +9508,16 @@
       "task": "Malware traffic / RAT C2",
       "domain": "Android / Malware traffic",
       "data": [
-        "PCAP"
+        "PCAP",
+        "Zeek logs"
       ],
       "category": "malware",
       "year": "2020",
-      "representation": "PCAP",
+      "representation": "PCAP + derived",
       "evidence": "verified",
       "artifact": {
         "traces": true,
-        "derived": false
+        "derived": true
       },
       "acquisition": "hybrid",
       "labeling": [
@@ -12633,11 +12634,11 @@
         "items": [
           {
             "label": "Network Traces",
-            "filter": "format:packets"
+            "filter": "artifacts:pktder,pkt"
           },
           {
             "label": "Derived Information",
-            "filter": "format:features"
+            "filter": "artifacts:pktder,der"
           }
         ]
       },
