@@ -3,7 +3,7 @@
  "version": "1.0",
  "date": "2026-11-09",
  "summary": "First release, documented in the paper: 234 datasets across 14 domains (plus 8 datasets that could not be obtained at release, listed separately).",
- "state_of": "0777212",
+ "state_of": "3701fdf",
  "note": "The catalogue of the release as documented in the paper.",
  "counts": {
   "datasets": 234,
@@ -9524,7 +9524,7 @@
   },
   {
    "id": "cic-dos-2017",
-   "name": "CIC DoS Dataset (2017)",
+   "name": "CIC DoS 2017",
    "url": "https://www.unb.ca/cic/datasets/dos-dataset.html",
    "task": "Application-layer DoS detection",
    "domain": "DDoS",
@@ -9562,7 +9562,10 @@
     "cic-iscx-2012"
    ],
    "notes": "Application-layer DoS attacks mixed into the ISCX-IDS2012 background. Labels not documented. Confirmed as currently unavailable on the official UNB/CIC download page.",
-   "status": "withdrawn"
+   "status": "withdrawn",
+   "aliases": [
+    "CIC DoS Dataset (2017)"
+   ]
   },
   {
    "id": "iscx-botnet-2014",
@@ -9611,7 +9614,7 @@
   },
   {
    "id": "malwaretraffic-liveness-annotated",
-   "name": "MalwareTraffic (liveness-annotated)",
+   "name": "MalwareTraffic",
    "url": "https://github.com/Root0ne/malware-pcap-dataset",
    "task": "C2 liveness, malware classification",
    "domain": "Sandbox malware / C2",
@@ -9652,7 +9655,10 @@
     "title": "MalwareTraffic: liveness-annotated malware PCAP dataset",
     "url": "https://github.com/Root0ne/malware-pcap-dataset"
    },
-   "status": "not-released"
+   "status": "not-released",
+   "aliases": [
+    "MalwareTraffic (liveness-annotated)"
+   ]
   },
   {
    "id": "sshcure",

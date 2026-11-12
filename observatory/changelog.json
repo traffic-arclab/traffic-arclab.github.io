@@ -1327,6 +1327,48 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-12",
+   "commit": "3701fdf",
+   "source": "repository",
+   "message": "Observatory: Access filter with the reasons a dataset is not available at release; CIC DoS 2017 and MalwareTraffic named as in the paper (old names kept as aliases)",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "cic-dos-2017",
+     "name": "CIC DoS 2017",
+     "fields": [
+      {
+       "field": "Name",
+       "old": "CIC DoS Dataset (2017)",
+       "new": "CIC DoS 2017"
+      },
+      {
+       "field": "Also known as",
+       "old": "–",
+       "new": "CIC DoS Dataset (2017)"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "malwaretraffic-liveness-annotated",
+     "name": "MalwareTraffic",
+     "fields": [
+      {
+       "field": "Name",
+       "old": "MalwareTraffic (liveness-annotated)",
+       "new": "MalwareTraffic"
+      },
+      {
+       "field": "Also known as",
+       "old": "–",
+       "new": "MalwareTraffic (liveness-annotated)"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
