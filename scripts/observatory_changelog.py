@@ -102,6 +102,8 @@ def show(value, key=''):
     if isinstance(value, list):
         return ', '.join(show(v, key) for v in value)
     if isinstance(value, dict):
+        if 'name' in value:   # a reference ({name, title, doi}): its name
+            return show(value['name'])
         return ', '.join(f'{k}: {show(v)}' for k, v in value.items())
     labels = DOMAIN_LABELS if key == 'category' else LABELS.get(key, {})
     text = labels.get(value, SCRUB.sub('', str(value)).strip())

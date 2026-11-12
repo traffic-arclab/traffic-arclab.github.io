@@ -16,7 +16,7 @@
       "version": "1.0",
       "date": "2026-11-09",
       "summary": "First release, documented in the paper: 234 datasets across 14 domains (plus 8 datasets that could not be obtained at release, listed separately).",
-      "aligned_until": "2026-11-11"
+      "aligned_until": "2026-11-12"
     }
   ],
   "changelog_since": "2026-11-06",
@@ -972,16 +972,16 @@
     {
       "id": "nf-cse-cic-ids2018",
       "name": "NF-CSE-CIC-IDS2018",
-      "url": "https://www.kaggle.com/datasets/dhoogla/nf-cse-cic-ids2018",
+      "url": "https://doi.org/10.48610/b9ed88b",
       "task": "IDS binary/multiclass",
       "domain": "Network",
       "data": [
-        "NetFlow features (Parquet)"
+        "NetFlow features (CSV)"
       ],
       "paper": {
-        "cite": "D'hooge, Kaggle 2023",
-        "title": "NF-CSE-CIC-IDS2018: NetFlow version of CSE-CIC-IDS2018 by the University of Queensland",
-        "url": "https://www.kaggle.com/datasets/dhoogla/nf-cse-cic-ids2018"
+        "cite": "Sarhan, Layeghy, Moustafa & Portmann, BDTA/WiCON 2020 (LNICST 371, 2021)",
+        "title": "NetFlow Datasets for Machine Learning-Based Network Intrusion Detection Systems",
+        "doi": "10.1007/978-3-030-72802-1_9"
       },
       "category": "enterprise",
       "year": "2021",
@@ -1011,7 +1011,7 @@
       "parents": [
         "cse-cic-ids2018"
       ],
-      "notes": "NetFlow features of CSE-CIC-IDS2018 (University of Queensland), redistributed as Parquet tables."
+      "notes": "NetFlow features of CSE-CIC-IDS2018 (NetFlow v1), released by the University of Queensland on UQ eSpace."
     },
     {
       "id": "nf-cse-cic-ids2018-v2",
@@ -1154,7 +1154,8 @@
       "derivation_tool": "Zeek, tshark",
       "size": {
         "gb": "1.5"
-      }
+      },
+      "notes": "Distributed by the authors on Kaggle."
     },
     {
       "id": "n-baiot",
@@ -1700,9 +1701,15 @@
         "gb": "0.037",
         "count": "230k records"
       },
-      "derived": true,
-      "notes": "Real LoRaWAN traces with semi-synthetic jamming and battery-depletion attacks; the parent capture is still to be identified.",
-      "evidence": "verified"
+      "notes": "Real LoRaWAN traces with semi-synthetic jamming and battery-depletion attacks.",
+      "evidence": "verified",
+      "parents_text": [
+        {
+          "name": "Povalač, Král, Arthaber, Kolář & Novák, Sensors 2023",
+          "title": "Exploring LoRaWAN Traffic: In-Depth Analysis of IoT Network Communications",
+          "doi": "10.3390/s23177333"
+        }
+      ]
     },
     {
       "id": "hcrl-can-survival-analysis",
@@ -4982,8 +4989,9 @@
         "Flows"
       ],
       "paper": {
-        "cite": "Bui et al., Journal of Network and Computer Applications 2021",
-        "doi": "10.1016/j.jnca.2021.103212"
+        "cite": "Yudha, Lin, Lai, Sudyana & Hwang, IEEE Network 2025",
+        "title": "Reproducing ATT&CK Techniques and Lifecycles to Train Machine Learning Classifier",
+        "doi": "10.1109/MNET.2025.3551333"
       },
       "category": "enterprise",
       "year": "2023",
@@ -7219,7 +7227,7 @@
         "title": "TII-SSRC-23 Dataset: Typological Exploration of Diverse Traffic Patterns for Intrusion Detection",
         "url": "https://arxiv.org/abs/2310.10661"
       },
-      "notes": "DDoS, brute force, Mirai and information gathering.",
+      "notes": "DDoS, brute force, Mirai and information gathering. Distributed by the authors on Kaggle.",
       "origin": "web",
       "category": "enterprise",
       "year": "2023",
@@ -7737,7 +7745,8 @@
       "derivation_tool": "CICFlowMeter",
       "size": {
         "gb": "0.46"
-      }
+      },
+      "notes": "Distributed by the authors on Kaggle."
     },
     {
       "id": "luflow",
@@ -7869,7 +7878,7 @@
     {
       "id": "cupid",
       "name": "CUPID",
-      "url": "",
+      "url": "https://www.cupid.directory",
       "task": "Intrusion detection (penetration testing)",
       "domain": "Enterprise / Pentesting",
       "data": [
@@ -7881,7 +7890,7 @@
         "title": "CUPID: A labeled dataset with Pentesting for evaluation of network intrusion detection",
         "doi": "10.1016/j.sysarc.2022.102621"
       },
-      "notes": "Benign traffic and attacks by ten human penetration testers on an emulated network; binary labels only. Download location not yet identified: see the paper.",
+      "notes": "Benign traffic and attacks by ten human penetration testers on an emulated network; binary labels only. Distributed by the authors at cupid.directory (CC BY-SA 4.0).",
       "category": "enterprise",
       "year": "2022",
       "representation": "PCAP + derived",
@@ -7949,7 +7958,8 @@
         "cite": "APPRAISE H2020 project, Kaggle 2023",
         "title": "APPRAISE H2020 Real Labelled NetFlow Dataset",
         "url": "https://www.kaggle.com/datasets/ittibydgoszcz/appraise-h2020-real-labelled-netflow-dataset"
-      }
+      },
+      "notes": "Distributed by the authors on Kaggle."
     },
     {
       "id": "ctu-sme-11",
@@ -8723,7 +8733,8 @@
         "dos",
         "other"
       ],
-      "derivation_tool": "tshark"
+      "derivation_tool": "tshark",
+      "notes": "Distributed by the authors on Kaggle."
     },
     {
       "id": "cic-iot-dataset-2022",
@@ -8851,7 +8862,7 @@
     {
       "id": "dos-ddos-mqtt-iot",
       "name": "DoS/DDoS-MQTT-IoT",
-      "url": "",
+      "url": "https://www.kaggle.com/datasets/alaaalatram/dosddos-mqtt-iot",
       "task": "DoS/DDoS detection",
       "domain": "IoT / MQTT",
       "data": [
@@ -8863,7 +8874,7 @@
         "doi": "10.1016/j.comnet.2023.109809",
         "title": "DoS/DDoS-MQTT-IoT: A dataset for evaluating intrusions in IoT networks using the MQTT protocol"
       },
-      "notes": "Physical IoT testbed with normal MQTT traffic and 10 DoS/DDoS scenarios. Download location not yet identified: see the paper.",
+      "notes": "Physical IoT testbed with normal MQTT traffic and 10 DoS/DDoS scenarios. Distributed by the first author on Kaggle (linked from the paper).",
       "category": "iot",
       "year": "2023",
       "representation": "PCAP + derived",
@@ -8888,7 +8899,7 @@
     {
       "id": "rosids23",
       "name": "ROSIDS23",
-      "url": "",
+      "url": "https://zenodo.org/records/10014434",
       "task": "Intrusion detection",
       "domain": "IoT / Robotics (ROS)",
       "data": [
@@ -8900,7 +8911,7 @@
         "doi": "10.1016/j.dib.2023.109739",
         "title": "ROSIDS23: Network intrusion detection dataset for robot operating system"
       },
-      "notes": "ROS middleware traffic with DoS, unauthorized publish/subscribe and subscriber flood attacks. Download location not yet identified: see the paper.",
+      "notes": "ROS middleware traffic with DoS, unauthorized publish/subscribe and subscriber flood attacks. Deposited by the authors on Zenodo.",
       "category": "iot",
       "year": "2023",
       "representation": "PCAP + derived",
@@ -8960,7 +8971,7 @@
     {
       "id": "rospace",
       "name": "ROSPaCe",
-      "url": "",
+      "url": "https://doi.org/10.6084/m9.figshare.c.6924364.v1",
       "task": "Intrusion detection",
       "domain": "IoT / Robotics (ROS2)",
       "data": [
@@ -8972,7 +8983,7 @@
         "doi": "10.1038/s41597-024-03311-2",
         "title": "ROSPaCe: Intrusion Detection Dataset for a ROS2-Based Cyber-Physical System and IoT Networks"
       },
-      "notes": "Penetration tests on a ROS2 embedded system, with features at the Linux, network and ROS2 layers. Download location not yet identified: see the paper.",
+      "notes": "Penetration tests on a ROS2 embedded system, with features at the Linux, network and ROS2 layers. Deposited by the authors on figshare; code at https://github.com/TommasoPuccetti/rospace_dataset.",
       "category": "iot",
       "year": "2024",
       "representation": "Derived only",
@@ -11479,7 +11490,7 @@
         "cite": "Civciss et al., IEEE GLOBECOM 2025",
         "title": "Silent Signals, Loud Threats: Using dApps for Radio Signal Intelligence-based Intrusion Detection in 5G O-RAN"
       },
-      "notes": "UCD NetsLab, physical O-RAN testbed; also available on Zenodo (record 18923275, v2). The reported attacks include DoS/DDoS floods, port scanning and OS fingerprinting, SSH/FTP brute force, SQL injection and XSS; the label scheme is not documented on the dataset page.",
+      "notes": "UCD NetsLab, physical O-RAN testbed; also available on Zenodo (record 18923275, v2). The reported attacks include DoS/DDoS floods, port scanning and OS fingerprinting, SSH/FTP brute force, SQL injection and XSS; the label scheme is not documented on the dataset page. Distributed by the authors on Kaggle.",
       "category": "5g",
       "year": "2025",
       "representation": "PCAP + derived",

@@ -586,7 +586,8 @@
       : r.paper.url ? `<br><a href="${esc(r.paper.url)}" target="_blank" rel="noopener">Read the paper</a>` : '') : '';
     const parents = (r.parents || []).filter(id => byId[id])
       .map(id => `<button type="button" class="obs-link" data-open="${esc(id)}">${esc(byId[id].name)}</button>`)
-      .concat((r.parents_text || []).map(t => `${esc(t)} <small>(not in the catalogue)</small>`)).join(', ');
+      .concat((r.parents_text || []).map(t => typeof t === 'string' ? `${esc(t)} <small>(not in the catalogue)</small>`
+        : `${t.doi ? `<a href="https://doi.org/${esc(t.doi)}" target="_blank" rel="noopener"${t.title ? ` title="${esc(t.title)}"` : ''}>${esc(t.name)}</a>` : esc(t.name)} <small>(not in the catalogue)</small>`)).join(', ');
     const children = (r.children || []).map(id => byId[id]).filter(Boolean);
     const captures = (r.captures || []).map(id => byId[id]).filter(Boolean);
     const row = Object.values(byId).find(x => (x.captures || []).includes(r.id));   // the table row of a capture

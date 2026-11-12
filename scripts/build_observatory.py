@@ -32,7 +32,8 @@ weak, none), "classes" {benign, attack, benign_subclasses, attck: the attack cla
 when not documented, then the attack filter is computed from the text), "derivation_tool" and
 "size" {gb, count}. "parents" lists the ids of the records a dataset is derived from: the dialog of a
 parent shows its derived datasets as small cards, and the one of a child links back to its parents;
-"parents_text" names sources that are not catalogue records (shown as text), and "derived": true marks
+"parents_text" names sources that are not catalogue records (shown as text; an entry can also be
+{name, title, doi} to link the publication of the source), and "derived": true marks
 a derivative whose source is not yet identified.
 
 The form sends the submissions to the Google Apps Script web app in "submit_endpoint"
@@ -220,7 +221,8 @@ def enrich(records):
     for rec in records:
         parents = [by_id[p] for p in rec.get('parents') or [] if p in by_id]
         if parents or rec.get('parents_text'):   # "parents_text": sources that are not catalogue records
-            rec['derived_from'] = ', '.join([p['name'] for p in parents] + (rec.get('parents_text') or []))
+            rec['derived_from'] = ', '.join([p['name'] for p in parents] +
+                                            [t if isinstance(t, str) else t['name'] for t in rec.get('parents_text') or []])
         elif rec.get('derived'):   # marked as derived in its paper table, the source is not yet in the catalogue
             rec['derived_from'] = 'an earlier capture (not yet identified)'
         for p in parents:
