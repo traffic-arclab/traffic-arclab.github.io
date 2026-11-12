@@ -1105,6 +1105,228 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-12",
+   "commit": "0777212",
+   "source": "repository",
+   "message": "Observatory: download locations of CUPID, DoS/DDoS-MQTT-IoT, ROSIDS23 and ROSPaCe; LoRaWAN jamming source; NF-CSE-CIC-IDS2018 and CREMEv2 papers; Kaggle distribution notes",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "appraise-h2020-real-labelled-netflow",
+     "name": "APPRAISE H2020 Real Labelled NetFlow Dataset",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cremev2",
+     "name": "CREMEv2",
+     "fields": [
+      {
+       "field": "Paper",
+       "old": "Bui et al., Journal of Network and Computer Applications 2021",
+       "new": "Yudha, Lin, Lai, Sudyana & Hwang, IEEE Network 2025"
+      },
+      {
+       "field": "Paper DOI",
+       "old": "10.1016/j.jnca.2021.103212",
+       "new": "10.1109/MNET.2025.3551333"
+      },
+      {
+       "field": "Paper title",
+       "old": "–",
+       "new": "Reproducing ATT&CK Techniques and Lifecycles to Train Machine Learning Classifier"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "cupid",
+     "name": "CUPID",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "–",
+       "new": "https://www.cupid.directory"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "dapt-2020",
+     "name": "DAPT 2020",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "dos-ddos-mqtt-iot",
+     "name": "DoS/DDoS-MQTT-IoT",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "–",
+       "new": "https://www.kaggle.com/datasets/alaaalatram/dosddos-mqtt-iot"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "edge-iiotset",
+     "name": "Edge-IIoTset",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "mqttset",
+     "name": "MQTTset",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "netslab-5goran-idd",
+     "name": "NetsLab-5GORAN-IDD",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "nf-cse-cic-ids2018",
+     "name": "NF-CSE-CIC-IDS2018",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "https://www.kaggle.com/datasets/dhoogla/nf-cse-cic-ids2018",
+       "new": "https://doi.org/10.48610/b9ed88b"
+      },
+      {
+       "field": "Traffic data",
+       "old": "NetFlow features (Parquet)",
+       "new": "NetFlow features (CSV)"
+      },
+      {
+       "field": "Paper",
+       "old": "D'hooge, Kaggle 2023",
+       "new": "Sarhan, Layeghy, Moustafa & Portmann, BDTA/WiCON 2020 (LNICST 371, 2021)"
+      },
+      {
+       "field": "Paper title",
+       "old": "NF-CSE-CIC-IDS2018: NetFlow version of CSE-CIC-IDS2018 by the University of Queensland",
+       "new": "NetFlow Datasets for Machine Learning-Based Network Intrusion Detection Systems"
+      },
+      {
+       "field": "Paper link",
+       "old": "https://www.kaggle.com/datasets/dhoogla/nf-cse-cic-ids2018",
+       "new": "–"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      },
+      {
+       "field": "Paper DOI",
+       "old": "–",
+       "new": "10.1007/978-3-030-72802-1_9"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "rosids23",
+     "name": "ROSIDS23",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "–",
+       "new": "https://zenodo.org/records/10014434"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "rospace",
+     "name": "ROSPaCe",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "–",
+       "new": "https://doi.org/10.6084/m9.figshare.c.6924364.v1"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "semi-synthetic-lorawan-jamming-dataset",
+     "name": "Semi-Synthetic LoRaWAN Jamming Dataset",
+     "fields": [
+      {
+       "field": "Derived datasets",
+       "old": "yes",
+       "new": "–"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      },
+      {
+       "field": "Derived from",
+       "old": "–",
+       "new": "Povalač, Král, Arthaber, Kolář & Novák, Sensors 2023"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "tii-ssrc-23",
+     "name": "TII-SSRC-23",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }
