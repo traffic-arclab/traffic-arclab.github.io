@@ -20,8 +20,8 @@
     }
   ],
   "changelog_since": "2026-11-06",
-  "feature_title": "A curated catalogue of network-attack datasets for AI",
-  "feature_text": "Traffic datasets for intrusion detection, malware and C2 analysis and anomaly detection, linked to their original papers and distribution sources. Researchers can also submit new datasets.",
+  "feature_title": "Discover datasets for AI in cybersecurity, all in one place",
+  "feature_text": "Network-traffic datasets for intrusion, malware and anomaly detection, from enterprise, IoT, industrial, wireless and vehicular networks, each linked to its original paper and distribution source. Researchers can also submit new datasets.",
   "contact": "gabriele.mangiacapre@unina.it",
   "feedback": {
     "to": {

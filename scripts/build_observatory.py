@@ -408,6 +408,11 @@ def feature(prefix, data=None):
     snap = updated(data)
     facts = [('Catalogue records', len(records)), ('Independent families', families), ('Last update', f'{snap.day} {snap:%b %Y}')]
     facts_html = '\n'.join(f'          <div><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd></div>' for t, v in facts)
+    # the fourth box: the paper of the Observatory ("arxiv" of "citation", a DOI or preprint link), "Coming soon" until then
+    paper = (data.get('citation') or {}).get('arxiv') or ''
+    paper_dd = (f'<a href="{esc(paper)}" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>'
+                if paper else '<span class="obs-feature-soon">Coming soon</span>')
+    facts_html += f'\n          <div><dt>Paper</dt><dd>{paper_dd}</dd></div>'
     badge = new_badge(data)
     return f'''    <section class="obs-feature" aria-labelledby="obs-feature-title">
       <div class="container obs-feature-inner">

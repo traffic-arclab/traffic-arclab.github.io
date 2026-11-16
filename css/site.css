@@ -1994,6 +1994,9 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-feature-facts div { padding: 16px 18px; background: var(--color-deepest); }
 .obs-feature-facts dt { color: var(--color-deep-muted); font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .obs-feature-facts dd { margin-top: 4px; color: #fff; font: 600 clamp(1.4rem, 2.2vw, 1.85rem)/1.15 var(--font-serif); font-variant-numeric: lining-nums tabular-nums; }
+.obs-feature-facts dd a { color: #fff; text-decoration: underline; text-decoration-color: var(--color-gold); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.obs-feature-facts dd a:hover { text-decoration-color: #fff; }
+.obs-feature-soon { color: var(--color-deep-muted); font-style: italic; font-weight: 500; }
 @media (max-width: 860px) {
   .obs-feature-inner { grid-template-columns: 1fr; }
 }
