@@ -13,7 +13,7 @@ not to index it (the news items marked "hidden" are skipped by build_news.py).
 
 The page has the site layout (header, menu and footer, through build_datasets.frame)
 and its own address, https://traffic-arclab.github.io/observatory/, so it can be
-shared on its own. It has its own entry, "Cybersecurity Observatory", in the top bar of every page (written by build_datasets.render_menu).
+shared on its own. It has its own entry, "Dataset Observatory", in the top bar of every page (written by build_datasets.render_menu).
 
 The records come from the Excel list (scripts/import_observatory.py) plus what is
 added by hand in the JSON: "origin": "web" (found online, not shown on the page), "family",
