@@ -77,8 +77,7 @@ def bar(prefix, flush=False):
 def assets(prefix):
     return (f'{HEAD_START}\n<link rel="stylesheet" href="{FONT}">\n'
             f'<link rel="stylesheet" href="{prefix}css/traffic-bar.css">\n'
-            f'<script src="{prefix}js/traffic-bar.js" defer></script>\n'
-            f'<script src="{prefix}js/consent.js" defer></script>\n{HEAD_END}\n')
+            f'<script src="{prefix}js/traffic-bar.js" defer></script>\n{HEAD_END}\n')
 
 
 def apply(path):

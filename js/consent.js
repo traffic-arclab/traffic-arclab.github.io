@@ -1,4 +1,4 @@
-/* Cookie consent and Google Analytics 4.
+/* Cookie consent and Google Analytics 4 for the Observatory (observatory/*.html only).
 
    Nothing is sent to Google until the visitor accepts: the gtag.js library is loaded only after
    "Accept", and the choice is kept in localStorage ("traffic-consent": "granted" | "denied").
@@ -80,14 +80,14 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Cookie consent');
     banner.innerHTML = `
-<p>We use Google Analytics cookies to count visits and see which pages are read and from which countries.
-They are set only if you accept; the site works the same either way.</p>
+<p>We use Google Analytics cookies to count visits to the Observatory and see from which countries it is used.
+They are set only if you accept; the Observatory works the same either way.</p>
 <details><summary>What is collected</summary>
 <p>With your consent, Google Analytics 4 (Google Ireland Ltd.) records the pages visited, the referring site,
 an approximate location (country, city), device and browser. IP addresses are not stored by Google Analytics 4.
-The data are used only in aggregate, to understand how the site is used, and are kept for 14 months.
+The data are used only in aggregate, to understand how the Observatory is used, and are kept for 14 months.
 The cookies are <code>_ga</code> and <code>_ga_*</code>. You can change your choice at any time from
-"Cookie settings" at the bottom of every page. See also
+"Cookie settings" at the bottom of the page. See also
 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses data from sites that use its services</a>.</p>
 </details>
 <div class="tcc__actions">
