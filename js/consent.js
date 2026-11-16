@@ -7,7 +7,7 @@
 
    With an empty GA_ID the script does nothing: no banner, no link. */
 (() => {
-  const GA_ID = '';            // GA4 measurement ID, e.g. 'G-XXXXXXXXXX'
+  const GA_ID = 'G-GWQY34PV2E';            // GA4 measurement ID, e.g. 'G-XXXXXXXXXX'
   const KEY = 'traffic-consent';
   if (!GA_ID) return;
 
