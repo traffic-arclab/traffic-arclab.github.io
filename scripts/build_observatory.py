@@ -1419,6 +1419,8 @@ def observatory_page(data, history=None):
       </div>
     </section>
 
+{updates_section(data)}
+
     <section class="section page-body" id="about">
       <div class="container">
         <div class="section-head"><h2 class="section-title">About the Observatory</h2></div>
@@ -1429,8 +1431,6 @@ def observatory_page(data, history=None):
 {domain_table(records)}
       </div>
     </section>
-
-{updates_section(data)}
 
 {submit_form(data)}
 
