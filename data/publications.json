@@ -1,12 +1,33 @@
 [
  {
+  "id": "W7225656715",
+  "title": "More Classes, More Problems?: Scalability and Efficiency Trade-offs in Network Traffic Classification",
+  "authors": [
+   "F. Cerasuolo",
+   "A. Nascita",
+   "A. Montieri",
+   "A. Pescapè"
+  ],
+  "venue": "Proceedings of the 2026 Network Traffic Classification – Reloaded",
+  "volume": "",
+  "issue": "",
+  "pages": "7-12",
+  "date": "2026-11-09",
+  "year": 2026,
+  "category": "conference",
+  "doi": "10.1145/3843199.3857226",
+  "url": "https://doi.org/10.1145/3843199.3857226",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
   "id": "W7204861930",
   "title": "XAI2CSI: Interpreting CSI with eXplainable AI for Human Activity Recognition",
   "authors": [
    "I. Guarino",
    "A. Nascita",
    "D. Ciuonzo",
-   "D. Carra",
+   "D. C. B",
    "A. Pescapè"
   ],
   "venue": "arXiv (Cornell University)",
@@ -96,7 +117,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "2026 IEEE International Conference on Smart Computing Workshops and Other Affiliated events (SmartComp Companion)",
+  "venue": "IEEE International Conference on Smart Computing Workshops and Other Affiliated Events (SMARTCOMP Companion)",
   "volume": "",
   "issue": "",
   "pages": "85-90",
@@ -181,7 +202,7 @@
    "D. Ciuonzo",
    "A. Pescapè"
   ],
-  "venue": "IEEE Network Operations and Management Symposium (NOMS)",
+  "venue": "IEEE/IFIP Network Operations and Management Symposium (NOMS)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -265,7 +286,7 @@
    "G. Bovenzi",
    "A. Nascita",
    "D. Ciuonzo",
-   "D. Carra",
+   "D. C. B",
    "A. Pescapè"
   ],
   "venue": "Computer Networks",
@@ -277,6 +298,28 @@
   "category": "journal",
   "doi": "10.1016/j.comnet.2026.112090",
   "url": "https://doi.org/10.1016/j.comnet.2026.112090",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
+  "id": "W7225824881",
+  "title": "Network Intrusion Detection Adaptability under Spurious Labels: A Noise-Aware Few-Shot Class-Incremental Learning Framework",
+  "authors": [
+   "Z. Zhao",
+   "D. Di Monda",
+   "D. Ciuonzo",
+   "Y. Wang",
+   "A. Pescapè"
+  ],
+  "venue": "IEEE Transactions on Network and Service Management",
+  "volume": "",
+  "issue": "",
+  "pages": "1",
+  "date": "2026-01-01",
+  "year": 2026,
+  "category": "journal",
+  "doi": "10.1109/tnsm.2026.3752751",
+  "url": "https://doi.org/10.1109/tnsm.2026.3752751",
   "pdf": "",
   "source": "openalex"
  },
@@ -298,6 +341,28 @@
   "category": "journal",
   "doi": "10.1109/jrfid.2026.3704663",
   "url": "https://doi.org/10.1109/jrfid.2026.3704663",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
+  "id": "W7221548805",
+  "title": "Deployment-Oriented Network Intrusion Detection System Via Unsupervised Domain Adaptation",
+  "authors": [
+   "D. Di Monda",
+   "F. Rustam",
+   "I. Obaidat",
+   "A. Pescapè",
+   "A. D. Jurcut"
+  ],
+  "venue": "IEEE Transactions on Cognitive Communications and Networking",
+  "volume": "12",
+  "issue": "",
+  "pages": "12893-12909",
+  "date": "2026-01-01",
+  "year": 2026,
+  "category": "journal",
+  "doi": "10.1109/tccn.2026.3741946",
+  "url": "https://doi.org/10.1109/tccn.2026.3741946",
   "pdf": "",
   "source": "openalex"
  },
@@ -455,6 +520,28 @@
   "source": "openalex"
  },
  {
+  "id": "W7105655736",
+  "title": "Federated Incremental Learning for Encrypted Network Traffic Classification",
+  "authors": [
+   "R. Carillo",
+   "F. Cerasuolo",
+   "A. Pescapè",
+   "E. Kanaki",
+   "P. Chatzimisios"
+  ],
+  "venue": "International Conference on Blockchain Computing and Applications (BCCA)",
+  "volume": "",
+  "issue": "",
+  "pages": "211-217",
+  "date": "2025-10-14",
+  "year": 2025,
+  "category": "conference",
+  "doi": "10.1109/bcca66705.2025.11229593",
+  "url": "https://doi.org/10.1109/bcca66705.2025.11229593",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
   "id": "W4415624772",
   "title": "Class Incremental Learning for Network-Agnostic Intrusion Detection Systems",
   "authors": [
@@ -463,7 +550,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "2025 IEEE 9th Forum on Research and Technologies for Society and Industry (RTSI)",
+  "venue": "IEEE International Forum on Research and Technology for Society and Industry (RTSI)",
   "volume": "",
   "issue": "",
   "pages": "17-22",
@@ -506,7 +593,7 @@
    "A. Pescapè",
    "D. Rossi"
   ],
-  "venue": "2025 International Joint Conference on Neural Networks (IJCNN)",
+  "venue": "International Joint Conference on Neural Networks (IJCNN)",
   "volume": "",
   "issue": "",
   "pages": "1-10",
@@ -714,26 +801,6 @@
   "source": "openalex"
  },
  {
-  "id": "W4416707904",
-  "title": "From Prompts to Packets: A View from the Network on ChatGPT, Copilot, and Gemini",
-  "authors": [
-   "A. Montieri",
-   "A. Nascita",
-   "A. Pescapè"
-  ],
-  "venue": "SSRN Electronic Journal",
-  "volume": "",
-  "issue": "",
-  "pages": "",
-  "date": "2025-01-01",
-  "year": 2025,
-  "category": "preprint",
-  "doi": "10.2139/ssrn.5806872",
-  "url": "https://doi.org/10.2139/ssrn.5806872",
-  "pdf": "",
-  "source": "openalex"
- },
- {
   "id": "scholar-analyzingtheimpactofencryptionontrafficc",
   "title": "Analyzing the Impact of Encryption on Traffic Classification through Explainable AI.",
   "authors": [
@@ -829,7 +896,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob)",
+  "venue": "IEEE International Conference on Wireless and Mobile Computing, Networking and Communications (WiMob)",
   "volume": "",
   "issue": "",
   "pages": "663-666",
@@ -850,7 +917,7 @@
    "G. Bovenzi",
    "A. Pescapè"
   ],
-  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -859,6 +926,24 @@
   "category": "conference",
   "doi": "10.1109/iscc61673.2024.10733700",
   "url": "https://doi.org/10.1109/iscc61673.2024.10733700",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
+  "id": "W4399915195",
+  "title": "Exploring the Current State and Future Potential of Generative Artificial Intelligence Using a Generative Artificial Intelligence",
+  "authors": [
+   "A. Pescapè"
+  ],
+  "venue": "Integrated science",
+  "volume": "",
+  "issue": "",
+  "pages": "37-56",
+  "date": "2024-06-22",
+  "year": 2024,
+  "category": "book",
+  "doi": "10.1007/978-3-031-58363-6_4",
+  "url": "https://doi.org/10.1007/978-3-031-58363-6_4",
   "pdf": "",
   "source": "openalex"
  },
@@ -1047,24 +1132,6 @@
   "category": "journal",
   "doi": "10.1109/ojcoms.2024.3481895",
   "url": "https://doi.org/10.1109/ojcoms.2024.3481895",
-  "pdf": "",
-  "source": "openalex"
- },
- {
-  "id": "W4399915195",
-  "title": "Exploring the Current State and Future Potential of Generative Artificial Intelligence Using a Generative Artificial Intelligence",
-  "authors": [
-   "A. Pescapè"
-  ],
-  "venue": "Integrated science",
-  "volume": "",
-  "issue": "",
-  "pages": "37-56",
-  "date": "2024-01-01",
-  "year": 2024,
-  "category": "book",
-  "doi": "10.1007/978-3-031-58363-6_4",
-  "url": "https://doi.org/10.1007/978-3-031-58363-6_4",
   "pdf": "",
   "source": "openalex"
  },
@@ -1557,7 +1624,7 @@
   "category": "journal",
   "doi": "10.1016/j.comnet.2022.109452",
   "url": "https://doi.org/10.1016/j.comnet.2022.109452",
-  "pdf": "",
+  "pdf": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9683797/pdf/",
   "source": "openalex"
  },
  {
@@ -1618,7 +1685,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1641,7 +1708,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -1727,7 +1794,7 @@
   "title": "Seismic risk analysis of a data communication network",
   "authors": [
    "S. Esposito",
-   "A. Botta",
+   "A. B. B",
    "M. De Falco",
    "A. Pacifico",
    "E. Chioccarelli",
@@ -2075,7 +2142,7 @@
    "C. Pelsser",
    "A. Pescapè"
   ],
-  "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+  "venue": "HAL",
   "volume": "",
   "issue": "",
   "pages": "",
@@ -2160,7 +2227,7 @@
   "authors": [
    "F. Palumbo",
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "D. Ciuonzo",
    "V. Persico",
    "A. Pescapè"
@@ -2466,7 +2533,7 @@
   "title": "Preliminary Seismic Risk Analysis of a Data Network",
   "authors": [
    "S. Esposito",
-   "A. Botta",
+   "A. B. B",
    "M. De Falco",
    "A. Pacifico",
    "E. Chioccarelli",
@@ -2474,7 +2541,7 @@
    "A. Santo",
    "I. Iervolino"
   ],
-  "venue": "Proceedings of the 30th European Safety and Reliability Conference and 15th Probabilistic Safety Assessment and Management Conference",
+  "venue": "European Safety and Reliability Conference (ESREL)",
   "volume": "",
   "issue": "",
   "pages": "3156-3163",
@@ -2510,7 +2577,7 @@
   "authors": [
    "F. Palumbo",
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "D. Ciuonzo",
    "V. Persico",
    "A. Pescapè"
@@ -2524,6 +2591,28 @@
   "category": "conference",
   "doi": "10.1109/globecom38437.2019.9013343",
   "url": "https://doi.org/10.1109/globecom38437.2019.9013343",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
+  "id": "W2983445296",
+  "title": "TaRad: A Thing-Centric Sensing System for Detecting Activities of Daily Living",
+  "authors": [
+   "H. Chen",
+   "X. Liu",
+   "Z. Zhao",
+   "G. Aceto",
+   "A. Pescapè"
+  ],
+  "venue": "Lecture notes in computer science",
+  "volume": "",
+  "issue": "",
+  "pages": "357-368",
+  "date": "2019-11-09",
+  "year": 2019,
+  "category": "conference",
+  "doi": "10.1007/978-3-030-34914-1_34",
+  "url": "https://doi.org/10.1007/978-3-030-34914-1_34",
   "pdf": "",
   "source": "openalex"
  },
@@ -2581,7 +2670,7 @@
    "G. Aceto",
    "A. Pescapè"
   ],
-  "venue": "2019 4th International Conference on Computing, Communications and Security (ICCCS)",
+  "venue": "International Conference on Computing, Communication and Security (ICCCS)",
   "volume": "",
   "issue": "",
   "pages": "1-8",
@@ -2603,7 +2692,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2019 4th International Conference on Computing, Communications and Security (ICCCS)",
+  "venue": "International Conference on Computing, Communication and Security (ICCCS)",
   "volume": "",
   "issue": "",
   "pages": "1-8",
@@ -2686,7 +2775,7 @@
    "W. Muhammad",
    "A. Pescapè"
   ],
-  "venue": "IEEE Conference on Network Softwarization",
+  "venue": "IEEE International Conference on Network Softwarization (NetSoft)",
   "volume": "",
   "issue": "",
   "pages": "",
@@ -2829,24 +2918,24 @@
   "source": "openalex"
  },
  {
-  "id": "W2983445296",
-  "title": "TaRad: A Thing-Centric Sensing System for Detecting Activities of Daily Living",
+  "id": "W2908096145",
+  "title": "IoT-Enabled Distributed Detection of a Nuclear Radioactive Source via Generalized Score Tests",
   "authors": [
-   "H. Chen",
-   "X. Liu",
-   "Z. Zhao",
-   "G. Aceto",
-   "A. Pescapè"
+   "G. Bovenzi",
+   "D. Ciuonzo",
+   "V. Persico",
+   "A. Pescapè",
+   "P. S. Rossi"
   ],
-  "venue": "Lecture notes in computer science",
+  "venue": "Communications in computer and information science",
   "volume": "",
   "issue": "",
-  "pages": "357-368",
-  "date": "2019-01-01",
+  "pages": "77-91",
+  "date": "2019-01-05",
   "year": 2019,
   "category": "conference",
-  "doi": "10.1007/978-3-030-34914-1_34",
-  "url": "https://doi.org/10.1007/978-3-030-34914-1_34",
+  "doi": "10.1007/978-981-13-5758-9_7",
+  "url": "https://doi.org/10.1007/978-981-13-5758-9_7",
   "pdf": "",
   "source": "openalex"
  },
@@ -2871,28 +2960,6 @@
   "doi": "10.1109/access.2019.2927822",
   "url": "https://doi.org/10.1109/access.2019.2927822",
   "pdf": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08758941.pdf",
-  "source": "openalex"
- },
- {
-  "id": "W2908096145",
-  "title": "IoT-Enabled Distributed Detection of a Nuclear Radioactive Source via Generalized Score Tests",
-  "authors": [
-   "G. Bovenzi",
-   "D. Ciuonzo",
-   "V. Persico",
-   "A. Pescapè",
-   "P. S. Rossi"
-  ],
-  "venue": "Communications in computer and information science",
-  "volume": "",
-  "issue": "",
-  "pages": "77-91",
-  "date": "2019-01-01",
-  "year": 2019,
-  "category": "conference",
-  "doi": "10.1007/978-981-13-5758-9_7",
-  "url": "https://doi.org/10.1007/978-981-13-5758-9_7",
-  "pdf": "",
   "source": "openalex"
  },
  {
@@ -3073,7 +3140,7 @@
   "title": "A comprehensive survey on internet outages",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "P. Marchetta",
    "V. Persico",
    "A. Pescapè"
@@ -3290,7 +3357,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2017 IEEE International Workshop on Measurement and Networking (M&N)",
+  "venue": "IEEE International Symposium on Measurements & Networking (M&N)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3339,7 +3406,7 @@
    "P. Ricchi",
    "A. Filosa"
   ],
-  "venue": "Proceedings of ... IEEE International Conference on Fuzzy Systems",
+  "venue": "IEEE International Conference on Fuzzy Systems (FUZZ-IEEE)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3440,7 +3507,7 @@
    "P. Marchetta",
    "V. Persico",
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "IEEE Network",
@@ -3465,11 +3532,11 @@
   "volume": "2",
   "issue": "",
   "pages": "",
-  "date": "2017-01-21",
+  "date": "2017-01-19",
   "year": 2017,
   "category": "journal",
-  "doi": "10.17632/fmkm6f5rmz.2",
-  "url": "https://doi.org/10.17632/fmkm6f5rmz.2",
+  "doi": "10.17632/fmkm6f5rmz.1",
+  "url": "https://doi.org/10.17632/fmkm6f5rmz.1",
   "pdf": "",
   "source": "openalex"
  },
@@ -3585,7 +3652,7 @@
   "title": "Challenges and solution for measuring available bandwidth in software defined networks",
   "authors": [
    "P. Megyesi",
-   "A. Botta",
+   "A. B. B",
    "G. Aceto",
    "A. Pescapè",
    "S. Molnár"
@@ -3607,7 +3674,7 @@
   "title": "A First Look at Public-Cloud Inter-Datacenter Network Performance",
   "authors": [
    "V. Persico",
-   "A. Botta",
+   "A. B. B",
    "A. Montieri",
    "A. Pescapè"
   ],
@@ -3628,7 +3695,7 @@
   "title": "On the performance of the wide-area networks interconnecting public-cloud datacenters around the globe",
   "authors": [
    "V. Persico",
-   "A. Botta",
+   "A. B. B",
    "P. Marchetta",
    "A. Montieri",
    "A. Pescapè"
@@ -3646,22 +3713,22 @@
   "source": "openalex"
  },
  {
-  "id": "W7209835888",
-  "title": "172 PUBLICATIONS\\t\\t\\t2,036\\tCITATIONS SEE PROFILE",
+  "id": "W2543480263",
+  "title": "Internet Censorship in Italy: A First Look at 3G/4G Networks",
   "authors": [
-   "A. Botta",
-   "A. Pescapè",
-   "A. Botta"
+   "G. Aceto",
+   "A. Montieri",
+   "A. Pescapè"
   ],
-  "venue": "",
+  "venue": "Lecture notes in computer science",
   "volume": "",
   "issue": "",
-  "pages": "",
-  "date": "2016-10-18",
+  "pages": "737-742",
+  "date": "2016-10-27",
   "year": 2016,
-  "category": "journal",
-  "doi": "",
-  "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.1008.2030",
+  "category": "conference",
+  "doi": "10.1007/978-3-319-48965-0_53",
+  "url": "https://doi.org/10.1007/978-3-319-48965-0_53",
   "pdf": "",
   "source": "openalex"
  },
@@ -3693,7 +3760,7 @@
    "A. Montieri",
    "A. Pescapè"
   ],
-  "venue": "IEEE International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow",
+  "venue": "IEEE International Forum on Research and Technology for Society and Industry (RTSI)",
   "volume": "",
   "issue": "",
   "pages": "",
@@ -3710,13 +3777,13 @@
   "title": "Analyzing internet censorship in Pakistan",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "M. F. Awan",
    "T. Ahmad",
    "S. Qaisar"
   ],
-  "venue": "IEEE International Forum on Research and Technologies for Society and Industry Leveraging a better tomorrow",
+  "venue": "IEEE International Forum on Research and Technology for Society and Industry (RTSI)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -3783,7 +3850,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2016 IEEE Symposium on Computers and Communication (ISCC)",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "",
   "issue": "",
   "pages": "501-506",
@@ -3821,7 +3888,7 @@
   "title": "Available bandwidth measurement in software defined networks",
   "authors": [
    "P. Megyesi",
-   "A. Botta",
+   "A. B. B",
    "G. Aceto",
    "A. Pescapè",
    "S. Molnár"
@@ -3948,26 +4015,6 @@
   "source": "scholar"
  },
  {
-  "id": "W2543480263",
-  "title": "Internet Censorship in Italy: A First Look at 3G/4G Networks",
-  "authors": [
-   "G. Aceto",
-   "A. Montieri",
-   "A. Pescapè"
-  ],
-  "venue": "Lecture notes in computer science",
-  "volume": "",
-  "issue": "",
-  "pages": "737-742",
-  "date": "2016-01-01",
-  "year": 2016,
-  "category": "conference",
-  "doi": "10.1007/978-3-319-48965-0_53",
-  "url": "https://doi.org/10.1007/978-3-319-48965-0_53",
-  "pdf": "",
-  "source": "openalex"
- },
- {
   "id": "scholar-availablebandwidthmeasurementinsdn",
   "title": "Available Bandwidth measurement in SDN",
   "authors": [
@@ -4014,75 +4061,12 @@
   "source": "openalex"
  },
  {
-  "id": "W2224913795",
-  "title": "Internet of Things and Cloud Services",
-  "authors": [
-   "M. Younas",
-   "I. U. Awan",
-   "A. Pescapè"
-  ],
-  "venue": "Future Generation Computer Systems",
-  "volume": "56",
-  "issue": "",
-  "pages": "605-606",
-  "date": "2015-12-11",
-  "year": 2015,
-  "category": "journal",
-  "doi": "10.1016/j.future.2015.11.019",
-  "url": "https://doi.org/10.1016/j.future.2015.11.019",
-  "pdf": "",
-  "source": "openalex"
- },
- {
-  "id": "W2288967180",
-  "title": "On Network Throughput Variability in Microsoft Azure Cloud",
-  "authors": [
-   "V. Persico",
-   "P. Marchetta",
-   "A. Botta",
-   "A. Pescapè"
-  ],
-  "venue": "Globecom",
-  "volume": "",
-  "issue": "",
-  "pages": "1-6",
-  "date": "2015-12-01",
-  "year": 2015,
-  "category": "conference",
-  "doi": "10.1109/glocom.2015.7416997",
-  "url": "https://doi.org/10.1109/glocom.2015.7416997",
-  "pdf": "http://wpage.unina.it/valerio.persico/pubs/NetThroughputAzure.pdf",
-  "source": "openalex"
- },
- {
-  "id": "W2290281340",
-  "title": "A Feedback-Control Approach for Resource Management in Public Clouds",
-  "authors": [
-   "D. Grimaldi",
-   "V. Persico",
-   "A. Pescapè",
-   "A. Salvi",
-   "S. Santini"
-  ],
-  "venue": "Globecom",
-  "volume": "",
-  "issue": "",
-  "pages": "1-7",
-  "date": "2015-12-01",
-  "year": 2015,
-  "category": "conference",
-  "doi": "10.1109/glocom.2015.7417016",
-  "url": "https://doi.org/10.1109/glocom.2015.7417016",
-  "pdf": "http://wpage.unina.it/pescape/doc/GC2015_1.pdf",
-  "source": "openalex"
- },
- {
   "id": "W2213810837",
   "title": "Measuring network throughput in the cloud: The case of Amazon EC2",
   "authors": [
    "V. Persico",
    "P. Marchetta",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "Computer Networks",
@@ -4101,7 +4085,7 @@
   "id": "W1837982953",
   "title": "Integration of Cloud computing and Internet of Things: A survey",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "W. de Donato",
    "V. Persico",
    "A. Pescapè"
@@ -4136,14 +4120,14 @@
   "category": "conference",
   "doi": "10.1145/2787394.2787395",
   "url": "https://doi.org/10.1145/2787394.2787395",
-  "pdf": "http://conferences.sigcomm.org/sigcomm/2015/pdf/papers/c2bid/p33.pdf",
+  "pdf": "https://www.research.ed.ac.uk/files/21197994/Massimilliano_et_al_Spatial_Interpolation.pdf",
   "source": "openalex"
  },
  {
   "id": "W1114789224",
   "title": "IP packet interleaving for UDP bursty losses",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "Journal of Systems and Software",
@@ -4167,7 +4151,7 @@
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "2015 IEEE Symposium on Computers and Communication (ISCC)",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "10",
   "issue": "",
   "pages": "427-432",
@@ -4189,7 +4173,7 @@
    "A. Salvi",
    "S. Santini"
   ],
-  "venue": "2015 IEEE Symposium on Computers and Communication (ISCC)",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "",
   "issue": "",
   "pages": "19-24",
@@ -4199,6 +4183,30 @@
   "doi": "10.1109/iscc.2015.7405448",
   "url": "https://doi.org/10.1109/iscc.2015.7405448",
   "pdf": "http://wpage.unina.it/pescape/doc/1570102215.pdf",
+  "source": "openalex"
+ },
+ {
+  "id": "W637237343",
+  "title": "Monitoring Internet Censorship with UBICA",
+  "authors": [
+   "G. Aceto",
+   "A. B. B",
+   "A. Pescapè",
+   "N. Feamster",
+   "M. F. Awan",
+   "T. Ahmad",
+   "S. Qaisar"
+  ],
+  "venue": "Lecture notes in computer science",
+  "volume": "LNCS-9053",
+  "issue": "",
+  "pages": "143-157",
+  "date": "2015-04-16",
+  "year": 2015,
+  "category": "conference",
+  "doi": "10.1007/978-3-319-17172-2_10",
+  "url": "https://doi.org/10.1007/978-3-319-17172-2_10",
+  "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2015monitoring_TMA.pdf",
   "source": "openalex"
  },
  {
@@ -4212,7 +4220,7 @@
    "M. Segata",
    "R. L. Cigno"
   ],
-  "venue": "2015 IEEE Conference on Computer Communications (INFOCOM)",
+  "venue": "IEEE Conference on Computer Communications (INFOCOM)",
   "volume": "",
   "issue": "",
   "pages": "1158-1166",
@@ -4241,30 +4249,6 @@
   "doi": "10.1016/j.comnet.2015.03.008",
   "url": "https://doi.org/10.1016/j.comnet.2015.03.008",
   "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2015internet_censorship_detection__a_survey.pdf",
-  "source": "openalex"
- },
- {
-  "id": "W637237343",
-  "title": "Monitoring Internet Censorship with UBICA",
-  "authors": [
-   "G. Aceto",
-   "A. Botta",
-   "A. Pescapè",
-   "N. Feamster",
-   "M. F. Awan",
-   "T. Ahmad",
-   "S. Qaisar"
-  ],
-  "venue": "Lecture notes in computer science",
-  "volume": "",
-  "issue": "",
-  "pages": "143-157",
-  "date": "2015-01-01",
-  "year": 2015,
-  "category": "conference",
-  "doi": "10.1007/978-3-319-17172-2_10",
-  "url": "https://doi.org/10.1007/978-3-319-17172-2_10",
-  "pdf": "http://wpage.unina.it/giuseppe.aceto/pub/aceto2015monitoring_TMA.pdf",
   "source": "openalex"
  },
  {
@@ -4307,6 +4291,49 @@
   "html": "A. Dainotti, A. King, K.Claffy, F. Papale, A. Pescap&egrave; \"<a href=\"http://wpage.unina.it/pescape/doc/06717049.pdf\"> Analysis of a \"/0\" Stealth Scan from aBotnet</a>\", <i>IEEE/ACM Transaction on Networking</i>, pp. 341-354, Volume 23, Number 2, April 2015."
  },
  {
+  "id": "W2288967180",
+  "title": "On Network Throughput Variability in Microsoft Azure Cloud",
+  "authors": [
+   "V. Persico",
+   "P. Marchetta",
+   "A. B. B",
+   "A. Pescapè"
+  ],
+  "venue": "Globecom",
+  "volume": "2",
+  "issue": "",
+  "pages": "1-6",
+  "date": "2014-12-01",
+  "year": 2014,
+  "category": "conference",
+  "doi": "10.1109/glocom.2014.7416997",
+  "url": "https://doi.org/10.1109/glocom.2014.7416997",
+  "pdf": "http://wpage.unina.it/valerio.persico/pubs/NetThroughputAzure.pdf",
+  "source": "openalex"
+ },
+ {
+  "id": "W2290281340",
+  "title": "A Feedback-Control Approach for Resource Management in Public Clouds",
+  "authors": [
+   "D. Grimaldi",
+   "V. Persico",
+   "A. Pescapè",
+   "A. Salvi",
+   "S. Santini"
+  ],
+  "venue": "Globecom",
+  "volume": "28",
+  "issue": "",
+  "pages": "1-7",
+  "date": "2014-12-01",
+  "year": 2014,
+  "category": "conference",
+  "doi": "10.1109/glocom.2014.7417016",
+  "url": "https://doi.org/10.1109/glocom.2014.7417016",
+  "pdf": "http://wpage.unina.it/pescape/doc/GC2015_1.pdf",
+  "source": "openalex"
+ },
+ {
   "id": "W2015027675",
   "title": "The Greenhouse Effect Attack",
   "authors": [
@@ -4331,7 +4358,7 @@
   "title": "Experiment-Driven Modeling of Open-Source Internet Traffic Generators",
   "authors": [
    "L. Angrisani",
-   "A. Botta",
+   "A. B. B",
    "G. Miele",
    "A. Pescapè",
    "M. Vadursi"
@@ -4352,7 +4379,7 @@
   "id": "W2019269619",
   "title": "On the Integration of Cloud Computing and Internet of Things",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "W. de Donato",
    "V. Persico",
    "A. Pescapè"
@@ -4373,7 +4400,7 @@
   "id": "W2026439232",
   "title": "On the performance of new generation satellite broadband internet services",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "IEEE Communications Magazine",
@@ -4451,11 +4478,11 @@
   "title": "HoBBIT: A Platform for Monitoring Broadband Performance from the User Network",
   "authors": [
    "W. de Donato",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "Lecture notes in computer science",
-  "volume": "",
+  "volume": "LNCS-8406",
   "issue": "",
   "pages": "65-77",
   "date": "2014-01-01",
@@ -4494,7 +4521,7 @@
   "title": "Dissecting Round Trip Time on the Slow Path with a Single Packet",
   "authors": [
    "P. Marchetta",
-   "A. Botta",
+   "A. B. B",
    "E. Katz-Bassett",
    "A. Pescapè"
   ],
@@ -4558,7 +4585,7 @@
    "I. U. Awan",
    "A. Pescapè"
   ],
-  "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+  "venue": "HAL",
   "volume": "",
   "issue": "",
   "pages": "",
@@ -4572,13 +4599,13 @@
  },
  {
   "id": "W1985777998",
-  "title": "Pythia",
+  "title": "Pythia: yet another active probing technique for alias resolution",
   "authors": [
    "P. Marchetta",
    "V. Persico",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the ninth ACM conference on Emerging networking experiments and technologies",
+  "venue": "ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT)",
   "volume": "",
   "issue": "",
   "pages": "229-234",
@@ -4587,7 +4614,7 @@
   "category": "conference",
   "doi": "10.1145/2535372.2535413",
   "url": "https://doi.org/10.1145/2535372.2535413",
-  "pdf": "",
+  "pdf": "http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf",
   "source": "openalex"
  },
  {
@@ -4661,7 +4688,7 @@
    "M. Brescia",
    "M. Paolillo",
    "A. Pescapè",
-   "G. O. Longo",
+   "G. Longo",
    "G. Ventre"
   ],
   "venue": "New Astronomy",
@@ -4681,7 +4708,7 @@
   "title": "Cloud monitoring: A survey",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "W. de Donato",
    "A. Pescapè"
   ],
@@ -4701,7 +4728,7 @@
   "id": "W2143616238",
   "title": "New generation satellite broadband Internet services: Should ADSL and 3G worry?",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "IEEE Conference on Computer Communications (INFOCOM)",
@@ -4740,7 +4767,7 @@
   "title": "Efficient Storage and Processing of High-Volume Network Monitoring Data",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "C. Westphal"
   ],
@@ -4828,7 +4855,7 @@
    "A. Pescapè"
   ],
   "venue": "Lecture notes in computer science",
-  "volume": "",
+  "volume": "7799",
   "issue": "",
   "pages": "250-252",
   "date": "2013-01-01",
@@ -4838,23 +4865,6 @@
   "url": "https://doi.org/10.1007/978-3-642-36516-4_25",
   "pdf": "http://wpage.unina.it/pescape/doc/13pam_utp_short.pdf",
   "source": "openalex"
- },
- {
-  "id": "legacy-pythiayetanotheractiveprobingtechniquefo",
-  "title": "Pythia: Yet Another Active Probing Technique for Alias Resolution",
-  "authors": [],
-  "venue": "",
-  "volume": "",
-  "issue": "",
-  "pages": "",
-  "date": "2013-01-01",
-  "year": 2013,
-  "category": "conference",
-  "doi": "",
-  "url": "",
-  "pdf": "",
-  "source": "legacy",
-  "html": "Pietro Marchetta, Valerio Persico, Antonio Pescap&egrave;, \"<a href=\"http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13paper.pdf\">Pythia: Yet Another Active Probing Technique for Alias Resolution</a>\", ACM CoNEXT 2013, Santa Barbara, California (USA), December 9-12, 2013"
  },
  {
   "id": "W1871545301",
@@ -4923,7 +4933,7 @@
   "source": "openalex"
  },
  {
-  "id": "legacy-324",
+  "id": "legacy-327",
   "title": "",
   "authors": [],
   "venue": "",
@@ -4938,6 +4948,29 @@
   "pdf": "",
   "source": "legacy",
   "html": "Pietro Marchetta, Valerio Persico, Ethan Katz-Bassett, Antonio Pescap&egrave;, <a href=\"http://wpage.unina.it/pietro.marchetta/pubs/MarchettaConext13abstract.pdf\"> Don't Trust Traceroute (Completely) </a> ACM CoNEXT 2013 Student Workshop, December 9-12, 2013, Santa Barbara, California. <span style=\"color: rgb(255, 102, 102);\">BEST PAPER AWARD ACM CoNEXT 2013 Student Workshop</span>"
+ },
+ {
+  "id": "W1790749475",
+  "title": "Genetic Algorithm Modeling with GPU Parallel Computing Technology",
+  "authors": [
+   "S. Cavuoti",
+   "M. Garofalo",
+   "M. Brescia",
+   "A. Pescapè",
+   "G. Longo",
+   "G. Ventre"
+  ],
+  "venue": "Smart innovation, systems and technologies",
+  "volume": "",
+  "issue": "",
+  "pages": "29-39",
+  "date": "2012-12-24",
+  "year": 2012,
+  "category": "book",
+  "doi": "10.1007/978-3-642-35467-0_4",
+  "url": "https://doi.org/10.1007/978-3-642-35467-0_4",
+  "pdf": "https://arxiv.org/pdf/1211.5481",
+  "source": "openalex"
  },
  {
   "id": "W1969202242",
@@ -4971,7 +5004,7 @@
    "F. Papale",
    "A. Pescapè"
   ],
-  "venue": "Internet Measurement Conference",
+  "venue": "ACM Internet Measurement Conference (IMC)",
   "volume": "",
   "issue": "",
   "pages": "1-14",
@@ -4988,13 +5021,13 @@
   "title": "Open Source Platforms for Internet Monitoring and Measurement",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "W. de Donato",
    "P. Marchetta",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "International Conference on Signal-Image Technology and Internet-Based Systems (SITIS)",
+  "venue": "International Conference on Signal-Image Technology & Internet-Based Systems (SITIS)",
   "volume": "",
   "issue": "",
   "pages": "563-570",
@@ -5011,7 +5044,7 @@
   "title": "Cloud monitoring: Definitions, issues and future directions",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "W. de Donato",
    "A. Pescapè"
   ],
@@ -5047,7 +5080,7 @@
   "category": "journal",
   "doi": "10.1145/2366316.2366337",
   "url": "https://doi.org/10.1145/2366316.2366337",
-  "pdf": "",
+  "pdf": "https://hal.sorbonne-universite.fr/hal-00835036v1/file/paper.pdf",
   "source": "openalex"
  },
  {
@@ -5083,15 +5116,15 @@
    "A. Pescapè",
    "T. Paristech"
   ],
-  "venue": "",
+  "venue": "HAL",
   "volume": "",
   "issue": "",
-  "pages": "",
+  "pages": "77-78",
   "date": "2012-09-01",
   "year": 2012,
-  "category": "journal",
+  "category": "conference",
   "doi": "",
-  "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.707.8297",
+  "url": "https://imt.hal.science/hal-00796409",
   "pdf": "",
   "source": "openalex"
  },
@@ -5103,7 +5136,7 @@
    "W. de Donato",
    "A. Pescapè"
   ],
-  "venue": "ACM SIGCOMM Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication (SIGCOMM)",
+  "venue": "ACM SIGCOMM Conference (SIGCOMM)",
   "volume": "",
   "issue": "",
   "pages": "109-110",
@@ -5124,7 +5157,7 @@
    "P. Szczechowiak",
    "A. Pescapè"
   ],
-  "venue": "Proceedings/Proceedings - International Conference on Computer Communications and Networks",
+  "venue": "International Conference on Computer Communications and Networks (ICCCN)",
   "volume": "6613",
   "issue": "",
   "pages": "1-6",
@@ -5140,7 +5173,7 @@
   "id": "W2157895134",
   "title": "A tool for the generation of realistic network workload for emerging networking scenarios",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Dainotti",
    "A. Pescapè"
   ],
@@ -5178,7 +5211,7 @@
  },
  {
   "id": "W2038649015",
-  "title": "On the recent use of email through traffic and network analysis",
+  "title": "On the recent use of email through traffic and network analysis: the impact of OSNs, new trends, and other communication platforms",
   "authors": [
    "G. Aceto",
    "A. Pescapè"
@@ -5192,7 +5225,7 @@
   "category": "journal",
   "doi": "10.1145/2185395.2185442",
   "url": "https://doi.org/10.1145/2185395.2185442",
-  "pdf": "http://wpage.unina.it/pescape/doc/acm_per2012_si_pescape_letter.pdf",
+  "pdf": "",
   "source": "openalex"
  },
  {
@@ -5217,24 +5250,41 @@
   "source": "openalex"
  },
  {
-  "id": "scholar-trafficmonitoringandanalysis4thinternati",
-  "title": "Traffic Monitoring and Analysis: 4th International Workshop, TMA 2012, Vienna, Austria, March 12, 2012, Proceedings",
+  "id": "W2476592111",
+  "title": "Traffic Monitoring and Analysis: 4th International Workshop, TMA 2012, Vienna, Austria, March 12, 2012. Proceedings",
   "authors": [
    "A. Pescapè",
-   "L. Salgarelli",
-   "X. Dimitropoulos"
+   "X. A. Dimitropoulos",
+   "L. Salgarelli"
   ],
-  "venue": "Springer Science & Business Media",
+  "venue": "Lecture notes in computer science",
   "volume": "",
   "issue": "",
   "pages": "",
   "date": "2012-01-01",
   "year": 2012,
-  "category": "book",
+  "category": "conference",
+  "doi": "10.1007/978-3-642-28534-9",
+  "url": "https://doi.org/10.1007/978-3-642-28534-9",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
+  "id": "legacy-ontherecentuseofemailthroughtrafficandne",
+  "title": "On the recent use of email through traffic and network analysis",
+  "authors": [],
+  "venue": "",
+  "volume": "",
+  "issue": "",
+  "pages": "",
+  "date": "2012-01-01",
+  "year": 2012,
+  "category": "journal",
   "doi": "",
   "url": "",
   "pdf": "",
-  "source": "scholar"
+  "source": "legacy",
+  "html": "G. Aceto, A. Pescap&egrave;, \"<a href=\"http://wpage.unina.it/pescape/doc/acm_per2012_si_pescape_letter.pdf\">On the recent use of email through traffic and network analysis</a>\", <i>ACM Performance Evaluation Review</i>, Special Issue on Modeling Dynamic Behaviors of Complex Distributed Systems, April 2012"
  },
  {
   "id": "legacy-measuringbroadbandhomeperformance",
@@ -5300,23 +5350,6 @@
   "url": "https://doi.org/10.1109/mnet.2012.6135854",
   "pdf": "http://wpage.unina.it/pescape/doc/06135854.pdf",
   "source": "openalex"
- },
- {
-  "id": "legacy-geneticalgorithmmodelingwithgpuparallelc",
-  "title": "Genetic Algorithm Modeling with GPU Parallel Computing Technology",
-  "authors": [],
-  "venue": "",
-  "volume": "",
-  "issue": "",
-  "pages": "",
-  "date": "2012-01-01",
-  "year": 2012,
-  "category": "conference",
-  "doi": "",
-  "url": "",
-  "pdf": "",
-  "source": "legacy",
-  "html": "S. Cavuoti, M. Garofalo, M. Brescia, A. Pescap&egrave;, G. Longo, G. Ventre, 2012, \"<a href=\"http://wpage.unina.it/pescape/doc/Brescia_GPUGAME_WIRN2012.pdf\">Genetic Algorithm Modeling with GPU Parallel Computing Technology</a>\", 22nd WIRN, Italian Workshop on Neural Networks, Vietri sul Mare, Salerno, Italy, May 17-19."
  },
  {
   "id": "W4210862472",
@@ -5410,7 +5443,7 @@
    "A. Pescapè",
    "H.-C. Kim"
   ],
-  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -5434,7 +5467,7 @@
    "M. Russo",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the 2011 ACM SIGCOMM conference on Internet measurement conference",
+  "venue": "ACM Internet Measurement Conference (IMC)",
   "volume": "",
   "issue": "",
   "pages": "1-18",
@@ -5451,7 +5484,7 @@
   "title": "Unified architecture for network measurement: The case of available bandwidth",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "M. D’Arienzo"
   ],
@@ -5514,11 +5547,11 @@
   "title": "An efficient storage technique for network monitoring data",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "C. Westphal"
   ],
-  "venue": "2011 IEEE International Workshop on Measurements and Networking Proceedings (M&N)",
+  "venue": "IEEE International Symposium on Measurements & Networking (M&N)",
   "volume": "",
   "issue": "",
   "pages": "152-157",
@@ -5534,7 +5567,7 @@
   "id": "W2041951732",
   "title": "A customer service assurance platform for mobile broadband networks",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "C. Guerrini",
    "M. Mangri"
@@ -5553,7 +5586,7 @@
  },
  {
   "id": "W2141847331",
-  "title": "Broadband internet performance",
+  "title": "Broadband internet performance: a view from the gateway",
   "authors": [
    "S. Sundaresan",
    "W. de Donato",
@@ -5578,10 +5611,10 @@
   "id": "W2117380400",
   "title": "IP packet interleaving: Bridging the gap between theory and practice",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
-  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "33",
   "issue": "",
   "pages": "1022-1029",
@@ -5657,10 +5690,10 @@
   "id": "W2163204943",
   "title": "Monitoring and measuring wireless network performance in the presence of middleboxes",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
-  "venue": "International Conference on Wireless On-Demand Network Systems and Services (WONS)",
+  "venue": "Annual Conference on Wireless On-demand Network Systems and Services (WONS)",
   "volume": "7",
   "issue": "",
   "pages": "146-149",
@@ -5713,23 +5746,6 @@
   "url": "https://doi.org/10.1007/978-3-642-20305-3_11",
   "pdf": "http://wpage.unina.it/alberto/papers/tma2011.pdf",
   "source": "openalex"
- },
- {
-  "id": "legacy-broadbandinternetperformanceaviewfromthe",
-  "title": "Broadband Internet Performance: A View From the Gateway",
-  "authors": [],
-  "venue": "",
-  "volume": "",
-  "issue": "",
-  "pages": "",
-  "date": "2011-01-01",
-  "year": 2011,
-  "category": "conference",
-  "doi": "",
-  "url": "",
-  "pdf": "",
-  "source": "legacy",
-  "html": "Srikanth Sundaresan, Walter de Donato, Nick Feamster, Renata Teixeira, Sam Crawford, Antonio Pescap&egrave;, \"<a href=\"http://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p134.pdf\">Broadband Internet Performance: A View From the Gateway</a>\", to appear in ACM SIGCOMM 2011 proceedings, Toronto, ON, Canada, August 15-19, 2011."
  },
  {
   "id": "legacy-bismarkaplatformforstudyinghomenetworks",
@@ -5791,7 +5807,7 @@
   "id": "W1966759454",
   "title": "Do you trust your software-based traffic generator?",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Dainotti",
    "A. Pescapè"
   ],
@@ -5808,37 +5824,15 @@
   "source": "openalex"
  },
  {
-  "id": "W1823077104",
-  "title": "Performance footprints of heavy-users in 3G networks via empirical measurement",
-  "authors": [
-   "A. Botta",
-   "A. Pescapè",
-   "G. Ventre",
-   "E. W. Biersack",
-   "S. Rugel"
-  ],
-  "venue": "Modeling and Optimization in Mobile, Ad-Hoc and Wireless Networks",
-  "volume": "",
-  "issue": "",
-  "pages": "330-335",
-  "date": "2010-07-23",
-  "year": 2010,
-  "category": "journal",
-  "doi": "",
-  "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.299.6578",
-  "pdf": "http://wpage.unina.it/a.botta/pub/winmee2010.pdf",
-  "source": "openalex"
- },
- {
   "id": "W2024255547",
   "title": "UANM: a platform for experimenting with available bandwidth estimation tools",
   "authors": [
    "G. Aceto",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "M. D’Arienzo"
   ],
-  "venue": "The IEEE symposium on Computers and Communications",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "21",
   "issue": "",
   "pages": "174-179",
@@ -5881,7 +5875,7 @@
    "W. de Donato",
    "A. Pescapè"
   ],
-  "venue": "2010 INFOCOM IEEE Conference on Computer Communications Workshops",
+  "venue": "IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)",
   "volume": "",
   "issue": "",
   "pages": "1-5",
@@ -5895,9 +5889,9 @@
  },
  {
   "id": "W2117931958",
-  "title": "Integration of 3G Connectivity in PlanetLab Europe",
+  "title": "Integration of 3G Connectivity in PlanetLab Europe: A Step of an Evolutionary Path Towards Heterogeneous Large Scale Network Testbeds",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "R. Canonico",
    "G. Di Stasi",
    "A. Pescapè",
@@ -5913,7 +5907,7 @@
   "category": "journal",
   "doi": "10.1007/s11036-010-0224-z",
   "url": "https://doi.org/10.1007/s11036-010-0224-z",
-  "pdf": "",
+  "pdf": "http://wpage.unina.it/a.botta/pub/monet10.pdf",
   "source": "openalex"
  },
  {
@@ -5922,7 +5916,7 @@
   "authors": [
    "V. Bui",
    "W. Zhu",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "IEEE Transactions on Parallel and Distributed Systems",
@@ -5935,6 +5929,28 @@
   "doi": "10.1109/tpds.2010.13",
   "url": "https://doi.org/10.1109/tpds.2010.13",
   "pdf": "http://wpage.unina.it/a.botta/pub/TPDS_MULTIPATH.pdf",
+  "source": "openalex"
+ },
+ {
+  "id": "W1823077104",
+  "title": "Performance footprints of heavy-users in 3G networks via empirical measurement",
+  "authors": [
+   "A. B. B",
+   "A. Pescapè",
+   "G. Ventre",
+   "E. W. Biersack",
+   "S. Rugel"
+  ],
+  "venue": "International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt)",
+  "volume": "",
+  "issue": "",
+  "pages": "330-335",
+  "date": "2010-01-01",
+  "year": 2010,
+  "category": "conference",
+  "doi": "",
+  "url": "https://inria.hal.science/inria-00498476",
+  "pdf": "http://wpage.unina.it/a.botta/pub/winmee2010.pdf",
   "source": "openalex"
  },
  {
@@ -5980,23 +5996,6 @@
   "url": "https://doi.org/10.1007/978-3-642-12365-8_11",
   "pdf": "http://wpage.unina.it/alberto/papers/tma2010.pdf",
   "source": "openalex"
- },
- {
-  "id": "legacy-integrationof3gconnectivityinplanetlabeu",
-  "title": "Integration of 3G connectivity in PlanetLab Europe - A step of an evolutionary path towards heterogeneous large scale network testbeds",
-  "authors": [],
-  "venue": "",
-  "volume": "",
-  "issue": "",
-  "pages": "",
-  "date": "2010-01-01",
-  "year": 2010,
-  "category": "journal",
-  "doi": "",
-  "url": "",
-  "pdf": "",
-  "source": "legacy",
-  "html": "A. Botta, R. Canonico, G. Di Stasi, A. Pescap&egrave;, G. Ventre, S. Fdida., \"<a href=\"http://wpage.unina.it/a.botta/pub/monet10.pdf\"> Integration of 3G connectivity in PlanetLab Europe - A step of an evolutionary path towards heterogeneous large scale network testbeds</a>\", <em>ACM Springer Mobile Networks and Applications Journal, Special Issue on \"Advances In Wireless Test beds and Research Infrastructures\"</em>, Volume 15, Issue 3, June 2010, Pages 344-355."
  },
  {
   "id": "scholar-benchmarkingbroadbandinternetwithbismark",
@@ -6057,7 +6056,7 @@
    "W. de Donato",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the 5th international student workshop on Emerging networking experiments and technologies",
+  "venue": "ACM CoNEXT Student Workshop",
   "volume": "",
   "issue": "",
   "pages": "5-6",
@@ -6187,7 +6186,7 @@
   "html": "G. Aceto, A. Dainotti, W. de Donato, F. Gargiulo, A. Pescap&egrave; C. Sansone, \"Combining Multiple Traffic Classification Techniques within a Single Platform\", <i>RECIPE Robust and Efficient traffic Classification in IP nEtworks</i>, Fridericiana Editrice Universitaria, pp.1-16, ISBN:978-88-833-8081-5, Napoli, Italy, 2009"
  },
  {
-  "id": "legacy-317",
+  "id": "legacy-321",
   "title": "",
   "authors": [],
   "venue": "",
@@ -6204,7 +6203,7 @@
   "html": "M. Mellia, A. Pescap&egrave;, L. Salgarelli, <a href=\"http://dx.doi.org/10.1016/j.comnet.2008.12.007\">Traffic classification and its applications to modern networks</a>, <i>Computer Networks</i>, Volume 53, Issue 6, 23 April 2009, Pages 759-760."
  },
  {
-  "id": "legacy-318",
+  "id": "legacy-322",
   "title": "",
   "authors": [],
   "venue": "",
@@ -6221,7 +6220,7 @@
   "html": "L. Angrisani, A. Pescap&egrave;, M. Vadursi, G. Ventre, \"<a href=\"http://wpage.unina.it/pescape/doc/IETCommpescape.pdf\"> Performance measurement of IEEE 802.11b-based networks affected by narrowband interference through cross-layer measurements</a>'', <i>IET Communications (formerly IEEE Proceedings - Communications)</i>, vol.2, no.1, pp.82-91, January 2008 - (<span style=\"color: rgb(255, 102, 102);\">This paper has been awarded with the IET Communications Premium Award 2009</span>)"
  },
  {
-  "id": "legacy-330",
+  "id": "legacy-331",
   "title": "",
   "authors": [],
   "venue": "",
@@ -6238,32 +6237,12 @@
   "html": "A. Dainotti, W. De Donato, A. Pescap&egrave; <a href=\"http://wpage.unina.it/pescape/doc/TIE_from_TMA_Proceedings.pdf\">TIE: a Community-Oriented Traffic Classification Platform\"</a>, International Workshop on Traffic Monitoring and Analysis (TMA'09) @ IFIP Networking 2009 - May 2009, Aachen (Germany)"
  },
  {
-  "id": "W2802345363",
-  "title": "Traffic classification and its applications to modern networks",
-  "authors": [
-   "M. Mellia",
-   "A. Pescapè",
-   "L. Salgarelli"
-  ],
-  "venue": "Computer Networks",
-  "volume": "53",
-  "issue": "6",
-  "pages": "759-760",
-  "date": "2008-12-25",
-  "year": 2008,
-  "category": "journal",
-  "doi": "10.1016/j.comnet.2008.12.007",
-  "url": "https://doi.org/10.1016/j.comnet.2008.12.007",
-  "pdf": "",
-  "source": "openalex"
- },
- {
   "id": "W2154591208",
   "title": "Traffic analysis of peer-to-peer IPTV communities",
   "authors": [
    "T. Silverston",
    "O. Fourmaux",
-   "A. Botta",
+   "A. B. B",
    "A. Dainotti",
    "A. Pescapè",
    "G. Ventre",
@@ -6302,10 +6281,30 @@
   "source": "openalex"
  },
  {
+  "id": "W164398377",
+  "title": "Wireless Networks Test-beds: When Heterogeneity Plays with Us",
+  "authors": [
+   "A. B. B",
+   "A. Pescapè",
+   "R. P. Karrer"
+  ],
+  "venue": "Springer eBooks",
+  "volume": "",
+  "issue": "",
+  "pages": "1-17",
+  "date": "2008-08-25",
+  "year": 2008,
+  "category": "book",
+  "doi": "10.1007/978-0-387-09777-0_16",
+  "url": "https://doi.org/10.1007/978-0-387-09777-0_16",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
   "id": "W1990331488",
   "title": "An approach to the identification of network elements composing heterogeneous end-to-end paths",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "G. Ventre"
   ],
@@ -6371,7 +6370,7 @@
   "title": "High-speed backhaul networks: Myth or reality?",
   "authors": [
    "R. P. Karrer",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "Computer Communications",
@@ -6404,26 +6403,6 @@
   "category": "journal",
   "doi": "10.1049/iet-com:20070017",
   "url": "https://doi.org/10.1049/iet-com:20070017",
-  "pdf": "",
-  "source": "openalex"
- },
- {
-  "id": "W164398377",
-  "title": "Wireless Networks Test-beds: When Heterogeneity Plays with Us",
-  "authors": [
-   "A. Botta",
-   "A. Pescapè",
-   "R. P. Karrer"
-  ],
-  "venue": "Springer eBooks",
-  "volume": "",
-  "issue": "",
-  "pages": "1-17",
-  "date": "2008-01-01",
-  "year": 2008,
-  "category": "book",
-  "doi": "10.1007/978-0-387-09777-0_16",
-  "url": "https://doi.org/10.1007/978-0-387-09777-0_16",
   "pdf": "",
   "source": "openalex"
  },
@@ -6471,13 +6450,13 @@
   "id": "W2028039378",
   "title": "Providing UMTS connectivity to PlanetLab nodes",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "R. Canonico",
    "G. Di Stasi",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "ACM Conference on Emerging Networking Experiments and Technologies (CoNEXT)",
+  "venue": "ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT)",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -6493,12 +6472,12 @@
   "id": "W2130158613",
   "title": "Networked Embedded Systems: A Quantitative Performance Comparison",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "W. de Donato",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "1-6",
@@ -6519,8 +6498,8 @@
    "A. Pescapè",
    "P. S. Rossi"
   ],
-  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
-  "volume": "15",
+  "venue": "Globecom",
+  "volume": "",
   "issue": "",
   "pages": "1-5",
   "date": "2008-01-01",
@@ -6537,7 +6516,7 @@
   "authors": [
    "V. Bui",
    "W. Zhu",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
   "venue": "International Conference on Communications",
@@ -6578,12 +6557,12 @@
   "id": "W2117747284",
   "title": "Discovering Topologies at Router Level: Part II",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "W. de Donato",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "IEEE GLOBECOM 2007-2007 IEEE Global Telecommunications Conference",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "",
@@ -6599,7 +6578,7 @@
   "id": "W2099604249",
   "title": "High-speed wireless backbones: measurements from MagNets",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "G. Ventre",
    "R. P. Karrer"
@@ -6620,7 +6599,7 @@
   "id": "W2056035392",
   "title": "Quality of service statistics over heterogeneous networks: Analysis and applications",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "G. Ventre"
   ],
@@ -6643,9 +6622,9 @@
    "V. Bui",
    "W. Zhu",
    "A. Pescapè",
-   "A. Botta"
+   "A. B. B"
   ],
-  "venue": "Proceedings - IEEE Symposium on Computers and Communications/IEEE Symposium on Computers and Communications",
+  "venue": "IEEE Symposium on Computers and Communications (ISCC)",
   "volume": "2",
   "issue": "",
   "pages": "825-832",
@@ -6685,7 +6664,7 @@
    "M. D’Arienzo",
    "G. Ventre"
   ],
-  "venue": "2007 9th International Conference on Telecommunications",
+  "venue": "International Conference on Telecommunications (ConTEL)",
   "volume": "",
   "issue": "",
   "pages": "311-316",
@@ -6701,7 +6680,7 @@
   "id": "W2127762028",
   "title": "Reducing Network Traffic Data Sets",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Dainotti",
    "A. Pescapè",
    "G. Ventre"
@@ -6783,10 +6762,10 @@
   "authors": [
    "R. P. Karrer",
    "Í. Matyasovszki",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
-  "venue": "2007 3rd International Conference on Testbeds and Research Infrastructure for the Development of Networks and Communities",
+  "venue": "Testbeds and Research Infrastructures for the DEvelopment of NeTworks and COMmunities",
   "volume": "",
   "issue": "",
   "pages": "1-10",
@@ -6803,10 +6782,10 @@
   "title": "Do you know what you are generating?",
   "authors": [
    "A. Dainotti",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
-  "venue": "ACM Conference on Emerging Networking Experiments and Technologies (CoNEXT)",
+  "venue": "ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT)",
   "volume": "",
   "issue": "",
   "pages": "1",
@@ -6825,7 +6804,7 @@
    "R. P. Karrer",
    "A. Pescapè"
   ],
-  "venue": "Future Generation Communication and Networking (FGCN 2007)",
+  "venue": "International Conference on Future Generation Communication and Networking",
   "volume": "92",
   "issue": "",
   "pages": "262-267",
@@ -6884,7 +6863,7 @@
   "id": "W2117620160",
   "title": "Identification of Network Bricks in Heterogeneous Scenarios",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "G. Ventre"
   ],
@@ -6904,12 +6883,12 @@
   "id": "W2155510930",
   "title": "BET: A Hybrid Bandwidth Estimation Tool",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "S. D’Antonio",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "International Conference on Parallel and Distributed Systems",
+  "venue": "IEEE International Conference on Parallel and Distributed Systems (ICPADS)",
   "volume": "2",
   "issue": "",
   "pages": "520-524",
@@ -6927,10 +6906,10 @@
   "authors": [
    "R. P. Karrer",
    "Í. Matyasovszki",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè"
   ],
-  "venue": "Proceedings of the 1st international workshop on Wireless network testbeds, experimental evaluation & characterization",
+  "venue": "ACM International Workshop on Wireless Network Testbeds, Experimental Evaluation and Characterization (WiNTECH)",
   "volume": "",
   "issue": "",
   "pages": "26-33",
@@ -6950,7 +6929,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "2006 11th Intenational Workshop on Computer-Aided Modeling, Analysis and Design of Communication Links and Networks",
+  "venue": "IEEE International Workshop on Computer Aided Modeling and Design of Communication Links and Networks (CAMAD)",
   "volume": "",
   "issue": "",
   "pages": "38-45",
@@ -6963,11 +6942,35 @@
   "source": "openalex"
  },
  {
+  "id": "W3150153336",
+  "title": "Security and Trust",
+  "authors": [
+   "M. Hoffmann",
+   "C. Xenakis",
+   "S. Kontopoulou",
+   "M. Eisenhauer",
+   "S. Heikkinen",
+   "A. Pescapè",
+   "W. Hu"
+  ],
+  "venue": "Wiley eBooks",
+  "volume": "",
+  "issue": "",
+  "pages": "111-130",
+  "date": "2006-04-07",
+  "year": 2006,
+  "category": "book",
+  "doi": "10.1002/0470030453.ch5",
+  "url": "https://doi.org/10.1002/0470030453.ch5",
+  "pdf": "",
+  "source": "openalex"
+ },
+ {
   "id": "W1519963081",
   "title": "Measuring Wireless Links Capacity",
   "authors": [
    "L. Angrisani",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "M. Vadursi"
   ],
@@ -6987,7 +6990,7 @@
   "id": "W2070780581",
   "title": "Systematic performance modeling and characterization of heterogeneous IP networks",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "D. Emma",
    "A. Pescapè",
    "G. Ventre"
@@ -7012,45 +7015,28 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "",
   "date": "2006-01-01",
   "year": 2006,
-  "category": "journal",
+  "category": "conference",
   "doi": "",
-  "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.705.3272",
+  "url": "http://wpage.unina.it/alberto/papers/PID284678.pdf",
   "pdf": "http://wpage.unina.it/pescape/doc/globecom2006NISpescape.pdf",
   "source": "openalex"
- },
- {
-  "id": "legacy-securityandtrust",
-  "title": "Security and Trust",
-  "authors": [],
-  "venue": "",
-  "volume": "",
-  "issue": "",
-  "pages": "",
-  "date": "2006-01-01",
-  "year": 2006,
-  "category": "book",
-  "doi": "",
-  "url": "",
-  "pdf": "",
-  "source": "legacy",
-  "html": "Mario Hoffmann, Christos Xenakis, Stauraleni Kontopoulo, Markus Eisenhauer, Seppo Heikkinen, Antonio Pescap&egrave;, Hu Wang, <a href=\"http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470029056,descCd-authorInfo.html\"> \"Security and Trust\" Chapter in \"Technologies for the Wireless Future: Wireless World Research Forum (WWRF), Volume 2\"</a>, Rahim Tafazolli (Editor) ISBN: 0-470-02905-6, 520 pages, April 2006."
  },
  {
   "id": "W2155750492",
   "title": "Searching for invariants in network games traffic",
   "authors": [
    "A. Dainotti",
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "ACM Conference on Emerging Networking Experiments and Technologies (CoNEXT)",
+  "venue": "ACM International Conference on emerging Networking EXperiments and Technologies (CoNEXT)",
   "volume": "",
   "issue": "",
   "pages": "1",
@@ -7129,7 +7115,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "20th International Conference on Advanced Information Networking and Applications - Volume 1 (AINA'06)",
+  "venue": "International Conference on Advanced Information Networking and Applications (AINA)",
   "volume": "",
   "issue": "",
   "pages": "5 pp.",
@@ -7160,7 +7146,7 @@
   "source": "scholar"
  },
  {
-  "id": "legacy-331",
+  "id": "legacy-332",
   "title": "",
   "authors": [],
   "venue": "",
@@ -7177,7 +7163,7 @@
   "html": "A.Botta, A. Pescap&egrave;, and G. Ventre, \"<a href=\"http://wpage.unina.it/pescape/doc/wnm2006pescape.pdf\">Identification of Network Bricks in Heterogeneous Scenarios</a>'', 31st IEEE Conference on Local Computer Networks (LCN), Nov. 2006 pp. 675 - 682"
  },
  {
-  "id": "legacy-332",
+  "id": "legacy-333",
   "title": "",
   "authors": [],
   "venue": "",
@@ -7295,7 +7281,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "Second International Workshop on Hot Topics in Peer-to-Peer Systems",
+  "venue": "International Workshop on Hot Topics in Peer-to-Peer Systems (HOT-P2P)",
   "volume": "",
   "issue": "",
   "pages": "33-42",
@@ -7311,11 +7297,11 @@
   "id": "W2126973070",
   "title": "On the Performance of Bandwidth Estimation Tools",
   "authors": [
-   "A. Botta",
+   "A. B. B",
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "2005 Systems Communications (ICW'05, ICHSN'05, ICMCS'05, SENET'05)",
+  "venue": "Systems Communications",
   "volume": "",
   "issue": "",
   "pages": "287-292",
@@ -7414,7 +7400,7 @@
    "F. Cacace",
    "S. Za"
   ],
-  "venue": "First International Conference on Testbeds and Research Infrastructures for the DEvelopment of NeTworks and COMmunities",
+  "venue": "Testbeds and Research Infrastructures for the DEvelopment of NeTworks and COMmunities",
   "volume": "",
   "issue": "",
   "pages": "182-191",
@@ -7433,7 +7419,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "International Performance, Computing, and Communications Conference",
+  "venue": "IEEE International Performance, Computing, and Communications Conference",
   "volume": "",
   "issue": "",
   "pages": "609-615",
@@ -7603,7 +7589,7 @@
    "A. Pescapè",
    "P. S. Rossi"
   ],
-  "venue": "IEEE Global Telecommunications Conference (GLOBECOM)",
+  "venue": "Globecom",
   "volume": "",
   "issue": "",
   "pages": "6 pp.",
@@ -7681,7 +7667,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "Proceedings. 10th IEEE International Workshop on Future Trends of Distributed Computing Systems, 2004. FTDCS 2004.",
+  "venue": "IEEE Workshop on Future Trends of Distributed Computing Systems (FTDCS)",
   "volume": "",
   "issue": "",
   "pages": "277-283",
@@ -7701,7 +7687,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "The 13th IEEE Workshop on Local and Metropolitan Area Networks, 2004. LANMAN 2004.",
+  "venue": "IEEE International Symposium on Local and Metropolitan Area Networks (LANMAN)",
   "volume": "",
   "issue": "",
   "pages": "241-246",
@@ -7783,7 +7769,7 @@
    "S. P. Romano",
    "G. Ventre"
   ],
-  "venue": "International Conference on Distributed Computing Systems Workshops",
+  "venue": "IEEE International Conference on Distributed Computing Systems Workshops (ICDCSW)",
   "volume": "",
   "issue": "",
   "pages": "30-35",
@@ -7924,7 +7910,7 @@
    "A. Pescapè",
    "G. Ventre"
   ],
-  "venue": "First International Conference on the Quantitative Evaluation of Systems, 2004. QEST 2004. Proceedings.",
+  "venue": "International Conference on the Quantitative Evaluation of Systems (QEST)",
   "volume": "",
   "issue": "",
   "pages": "316-317",
@@ -8030,7 +8016,7 @@
   "source": "openalex"
  },
  {
-  "id": "legacy-335",
+  "id": "legacy-336",
   "title": "",
   "authors": [],
   "venue": "",
@@ -8083,10 +8069,10 @@
    "V. Fodor",
    "M. Gargiulo",
    "J. Harju",
-   "Y. Koucheryavy",
+   "Y. A. Koucheryavy",
    "F. Li",
    "I. Marsh",
-   "I. M. Ivars",
+   "I. Más",
    "D. Moltchanov",
    "E. Monteiro",
    "A. Panagakis",
@@ -8105,6 +8091,45 @@
   "doi": "10.1007/978-3-540-45190-7_2",
   "url": "https://doi.org/10.1007/978-3-540-45190-7_2",
   "pdf": "http://wpage.unina.it/pescape/doc/traffic-management.pdf",
+  "source": "openalex"
+ },
+ {
+  "id": "W4235183280",
+  "title": "Quality of Future Internet Services: COST Action 263 Final Report",
+  "authors": [
+   "G. Karlsson",
+   "R. James",
+   "S. Ioannis",
+   "A. Antonio",
+   "A. Stefano",
+   "F. Boavida",
+   "E. Marcello",
+   "V. Fodor",
+   "G. Mauro",
+   "H. Jarmo",
+   "K. Yevgeni",
+   "L. Fengyi",
+   "M. Ian",
+   "I. Más",
+   "D. Moltchanov",
+   "M. Edmundo",
+   "P. Antonis",
+   "A. Pescapè",
+   "Q. Goncalo",
+   "R. S. Pietro",
+   "V. Giorgio",
+   "D. Salvatore"
+  ],
+  "venue": "Lecture notes in computer science",
+  "volume": "",
+  "issue": "",
+  "pages": "",
+  "date": "2003-01-01",
+  "year": 2003,
+  "category": "conference",
+  "doi": "10.1007/b13823",
+  "url": "https://doi.org/10.1007/b13823",
+  "pdf": "",
   "source": "openalex"
  },
  {
@@ -8423,7 +8448,7 @@
   "source": "scholar"
  },
  {
-  "id": "legacy-340",
+  "id": "legacy-341",
   "title": "",
   "authors": [],
   "venue": "",

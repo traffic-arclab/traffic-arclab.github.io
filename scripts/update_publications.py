@@ -46,6 +46,9 @@ CATEGORY_LABELS = {
     'journal': 'Journal', 'conference': 'Conference', 'book': 'Book chapter', 'preprint': 'Preprint',
     'other': 'Other',
 }
+# OpenAlex records that are not publications (e.g. text scraped from a profile page)
+EXCLUDED = {'W7209835888'}
+
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
           'August', 'September', 'October', 'November', 'December']
 PARTICLES = {'de', 'di', 'da', 'del', 'della', 'dei', 'van', 'von', 'der', 'le', 'la', 'dos', 'du', 'des'}
@@ -69,15 +72,20 @@ def get_json(url, retries=3):
 
 
 def fetch_openalex():
-    works, cursor = [], '*'
-    while cursor:
-        q = urllib.parse.urlencode({'filter': f'authorships.author.orcid:{ORCID}', 'per_page': 200,
-                                    'cursor': cursor, 'mailto': CONTACT})
-        data = get_json(f'https://api.openalex.org/works?{q}')
+    # Numbered pages, not cursor=: since 2026 OpenAlex wants an API key for cursor paging past the first page.
+    # An optional key (OPENALEX_API_KEY, e.g. a repository secret) gives the requests their own daily budget.
+    works, page = [], 1
+    while True:
+        params = {'filter': f'authorships.author.orcid:{ORCID}', 'per_page': 200, 'page': page, 'mailto': CONTACT}
+        if os.environ.get('OPENALEX_API_KEY'):
+            params['api_key'] = os.environ['OPENALEX_API_KEY']
+        data = get_json(f'https://api.openalex.org/works?{urllib.parse.urlencode(params)}')
         if data is None:
             sys.exit('OpenAlex is not reachable: keeping the current files.')
         works += data['results']
-        cursor = data['meta'].get('next_cursor') if data['results'] else None
+        if not data['results'] or len(works) >= data['meta'].get('count', 0):
+            break
+        page += 1
     return works
 
 
@@ -384,11 +392,21 @@ def update_home(records):
 # --------------------------------------------------------------------------
 
 def main():
-    works = [w for w in fetch_openalex() if w.get('type') in INCLUDED_TYPES]
+    works = [w for w in fetch_openalex() if w.get('type') in INCLUDED_TYPES
+             and w['id'].rsplit('/', 1)[-1] not in EXCLUDED]
     print(f'OpenAlex: {len(works)} works')
+    # OpenAlex sometimes loses the date of a work: the date of the previous run is kept, or the work is left out
+    data = os.path.join(ROOT, 'data', 'publications.json')
+    previous = {r['id']: r['date'] for r in json.load(open(data, encoding='utf-8'))} if os.path.exists(data) else {}
     enriched = 0
     records = []
     for w in works:
+        if not w.get('publication_date') and not w.get('publication_year'):
+            old = previous.get(w['id'].rsplit('/', 1)[-1])
+            if not old:
+                print(f'  - no date, skipped: {w.get("title")}', file=sys.stderr)
+                continue
+            w['publication_date'] = old
         cr = None
         if w.get('doi') and not pick_venue(w, None):
             cr = fetch_crossref(w['doi'].replace('https://doi.org/', ''))
@@ -400,7 +418,6 @@ def main():
     records.sort(key=lambda r: (r['date'], r['title']), reverse=True)
     print(f'Total after de-duplication and legacy merge: {len(records)}')
 
-    data = os.path.join(ROOT, 'data', 'publications.json')
     if os.path.exists(data) and json.load(open(data, encoding='utf-8')) == records and '--force' not in sys.argv:
         print('No changes.')
         return
