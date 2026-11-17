@@ -403,10 +403,13 @@ def new_badge(data=None):
 def feature(prefix, data=None):
     """The band that presents the Observatory, with links relative to the page (prefix '' or '../')."""
     data = data or load()
+    global IN_RELEASE
     records = all_records(data)
-    families = len({r.get('family') or r['name'] for r in records})
+    if IN_RELEASE is None:
+        IN_RELEASE = release_ids(data)
     snap = updated(data)
-    facts = [('Catalogue records', len(records)), ('Independent families', families), ('Last update', f'{snap.day} {snap:%b %Y}')]
+    # the datasets: the same number as the opening of the Observatory page (those of the release that can be obtained)
+    facts = [('Catalogue records', len(records)), ('Datasets', counts(records)['release']), ('Last update', f'{snap.day} {snap:%b %Y}')]
     facts_html = '\n'.join(f'          <div><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd></div>' for t, v in facts)
     # the fourth box: the paper of the Observatory ("arxiv" of "citation", a DOI or preprint link), "Coming soon" until then
     paper = (data.get('citation') or {}).get('arxiv') or ''
@@ -829,9 +832,8 @@ def with_feedback(page, data):
 
 def opening_counts(data, records):
     """The numbers of the opening: the datasets of the release, those added since, and those not available."""
-    n, rel = counts(records), first_release(data)
-    out = [f'          <li><strong>{n["release"]}</strong> datasets in v{esc(rel["version"])} ({nice_date(rel["date"])})</li>' if rel else
-           f'          <li><strong>{n["release"]}</strong> datasets</li>']
+    n = counts(records)
+    out = [f'          <li><strong>{n["release"]}</strong> datasets</li>']
     if n['added']:
         out.append(f'          <li><a href="?release=after#catalogue"><strong>{n["added"]}</strong> added since</a></li>')
     return '\n'.join(out)
