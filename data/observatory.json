@@ -47,9 +47,9 @@
     ],
     "affiliation": "University of Napoli Federico II, Italy",
     "request": "If you find the Observatory useful in your research, we kindly ask you to cite the following publication to acknowledge the scientific contributions underlying the development and maintenance of this research infrastructure:",
-    "arxiv": "",
+    "arxiv": "https://arxiv.org/abs/2611.20812",
     "bibtex": "",
-    "bibtex_entry": "@misc{cerasuolo2026observatory,\n  author       = {Cerasuolo, Francesco and Mangiacapre, Gabriele and Pescap{\\`e}, Antonio},\n  title        = {The Cybersecurity Dataset Observatory: Which Data for AI in Cybersecurity?},\n  year         = {2026},\n  howpublished = {\\url{https://traffic-arclab.github.io/observatory/}},\n  note         = {Release v1.0. Under review}\n}"
+    "bibtex_entry": "@misc{cerasuolo2026observatory,\n  author        = {Cerasuolo, Francesco and Mangiacapre, Gabriele and Pescap{\\`e}, Antonio},\n  title         = {The Cybersecurity Dataset Observatory: Which Data for AI in Cybersecurity?},\n  year          = {2026},\n  eprint        = {2611.20812},\n  archivePrefix = {arXiv},\n  primaryClass  = {cs.CR},\n  url           = {https://arxiv.org/abs/2611.20812},\n  note          = {Release v1.0 of the Observatory: \\url{https://traffic-arclab.github.io/observatory/}}\n}"
   },
   "submit_endpoint": "https://script.google.com/macros/s/AKfycbzot0M3x2n9_xxT3YRJJEJsDpIHqgOhIR0MCXAd3VRXyS5VdkkaDP96j4g4y2KJFvS9/exec",
   "ai_endpoint": "",
