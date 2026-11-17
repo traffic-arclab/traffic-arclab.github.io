@@ -408,8 +408,11 @@ def feature(prefix, data=None):
     if IN_RELEASE is None:
         IN_RELEASE = release_ids(data)
     snap = updated(data)
-    # the datasets: the same number as the opening of the Observatory page (those of the release that can be obtained)
-    facts = [('Catalogue records', len(records)), ('Datasets', counts(records)['release']), ('Last update', f'{snap.day} {snap:%b %Y}')]
+    # the datasets: the same number as the opening of the Observatory page (those of the release that can be obtained),
+    # and the domains (paper tables) they cover
+    rows = [r for r in records if is_dataset(r) and in_release(r) and r.get('access') != 'unavailable']
+    facts = [('Datasets', counts(records)['release']), ('Domains', len({domain_of(r) for r in rows})),
+             ('Last update', f'{snap.day} {snap:%b %Y}')]
     facts_html = '\n'.join(f'          <div><dt>{esc(t)}</dt><dd>{esc(str(v))}</dd></div>' for t, v in facts)
     # the fourth box: the paper of the Observatory ("arxiv" of "citation", a DOI or preprint link), "Coming soon" until then
     paper = (data.get('citation') or {}).get('arxiv') or ''
