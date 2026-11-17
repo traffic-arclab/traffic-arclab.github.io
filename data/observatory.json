@@ -20,7 +20,7 @@
     }
   ],
   "changelog_since": "2026-11-06",
-  "feature_title": "Discover datasets for AI in cybersecurity, all in one place",
+  "feature_title": "Discover Datasets for AI in Cybersecurity. Now all in one place.",
   "feature_text": "Network-traffic datasets for intrusion, malware and anomaly detection, from enterprise, IoT, industrial, wireless and vehicular networks, each linked to its original paper and distribution source. Researchers can also submit new datasets.",
   "contact": "gabriele.mangiacapre@unina.it",
   "feedback": {
