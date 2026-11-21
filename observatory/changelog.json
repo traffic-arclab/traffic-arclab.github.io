@@ -1514,6 +1514,111 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-21",
+   "commit": "e202c7b",
+   "source": "repository",
+   "message": "Observatory 1.1: attack families as agreed, Network domain label for Agentic PCAP and CTU-IDSEVAL-6, Multi-source LAN totals, ICS-NAD access not documented",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "agentic-pcap",
+     "name": "Agentic PCAP",
+     "fields": [
+      {
+       "field": "Domain labels",
+       "old": "Network / Intrusion",
+       "new": "Network"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "ctu-idseval-6",
+     "name": "CTU-IDSEVAL-6",
+     "fields": [
+      {
+       "field": "Domain labels",
+       "old": "Enterprise / Intrusion",
+       "new": "Network"
+      },
+      {
+       "field": "Attack families",
+       "old": "Reconnaissance / scan",
+       "new": "Malware / backdoor / worm, Reconnaissance / scan"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "ecu-malnett-v2",
+     "name": "ECU-MALNETT V2",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "Malware / backdoor / worm",
+       "new": "Malware / backdoor / worm, Botnet / C2"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "ics-nad",
+     "name": "ICS-NAD",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      },
+      {
+       "field": "Access",
+       "old": "–",
+       "new": "Not documented"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "multi-source-cybersecurity-lan",
+     "name": "Multi-source Cybersecurity LAN dataset",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      },
+      {
+       "field": "Size",
+       "old": "1.36M flows",
+       "new": "1,355,676 flows"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "sdn-topology-poisoning",
+     "name": "Topology Poisoning Attack Dataset for ML-Based Detection in SDN",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "Spoofing / fabrication / masquerade",
+       "new": "Other"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "trafficinstruct",
+     "name": "TrafficInstruct",
+     "fields": [
+      {
+       "field": "Attack families",
+       "old": "Malware / backdoor / worm, Botnet / C2",
+       "new": "Malware / backdoor / worm, Botnet / C2, Web, Other"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

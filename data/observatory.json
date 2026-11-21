@@ -12514,7 +12514,7 @@
         "traces": true,
         "derived": true
       },
-      "acquisition": "hybrid",
+      "acquisition": "real",
       "labeling": [
         "binary",
         "multiclass"
@@ -12801,7 +12801,7 @@
         "derived": false
       },
       "access": "registration",
-      "acquisition": "hybrid",
+      "acquisition": "real",
       "classes": {
         "benign": true,
         "attack": "36"
@@ -12907,7 +12907,7 @@
         "title": "A dataset collected in real-world industrial control systems for network attack detection",
         "doi": "10.1038/s41597-026-06738-x"
       },
-      "notes": "Collected in real industrial control systems of three vendors: 20 attack types; 245.96 GB. Paper licence CC BY-NC-ND 4.0. Access and data licence to be verified (Science Data Bank, DOI 10.57760/sciencedb.25938).",
+      "notes": "Collected in real industrial control systems of three vendors: 20 attack types; 245.96 GB. Data hosted on Science Data Bank (DOI 10.57760/sciencedb.25938). The article is published under CC BY-NC-ND 4.0; the dataset's own access terms and licence are not documented.",
       "category": "industrial",
       "year": "2026",
       "representation": "PCAP + derived",
