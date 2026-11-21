@@ -6724,7 +6724,7 @@
     {
       "id": "iot-sfc-v2",
       "name": "IoT-SFC v2",
-      "url": "https://data.mendeley.com/datasets/j9xffc2psb/5",
+      "url": "https://data.mendeley.com/datasets/j9xffc2psb/6",
       "task": "IoT IDS multiclass",
       "domain": "IoT / IIoT / MQTT",
       "data": [
@@ -6756,13 +6756,13 @@
       ],
       "derivation_tool": "Zeek",
       "size": {
-        "gb": "13.9",
-        "count": "49.9M records"
+        "gb": "13.85",
+        "count": "49,902,287 records"
       },
       "paper": {
         "cite": "Mendeley Data 2026",
         "title": "IoT-SFC v2",
-        "url": "https://data.mendeley.com/datasets/j9xffc2psb/5"
+        "url": "https://data.mendeley.com/datasets/j9xffc2psb/6"
       }
     },
     {
@@ -12489,6 +12489,653 @@
       ],
       "evidence": "unconfirmed",
       "notes": "KRACK and Kr00k attacks on WPA2. Announced as open access (PCAP and CSV) in a 2025 presentation; no download location has been published."
+    },
+    {
+      "evidence": "verified",
+      "id": "farm-flow",
+      "name": "Farm-Flow",
+      "url": "https://zenodo.org/records/10964648",
+      "task": "Intrusion detection",
+      "domain": "IoT / Smart agriculture",
+      "data": [
+        "PCAP",
+        "Flows (Zeek, zeek-flowmeter)"
+      ],
+      "paper": {
+        "cite": "Ferreira, Bispo, Rabadão, Santos & Costa, Computers and Electrical Engineering 2025",
+        "title": "Farm-flow dataset: Intrusion detection in smart agriculture based on network flows",
+        "doi": "10.1016/j.compeleceng.2024.109892"
+      },
+      "notes": "CIIC, Polytechnic of Leiria (AG-IoT Security: Intrusion Detection in Smart Agriculture). Testbed of real devices (ESP32, Arduino Yún, ESP8266, Raspberry Pi) with eight attacks (ARP spoofing, botnet DDoS, HTTP, ICMP, MQTT, TCP and UDP floods, port scan) and benign traffic; binary and multiclass labels. About 1.31 million flows, about 2% of them benign. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2024",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "count": "1.31M flows"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "secure-claim",
+      "name": "SECURE-CLAIM attack and baseline data",
+      "url": "https://zenodo.org/records/21846155",
+      "task": "Intrusion and malware detection",
+      "domain": "Enterprise / Attack scenarios",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Papadakis, Zenodo 2026",
+        "title": "SECURE-CLAIM attack and baseline data",
+        "doi": "10.5281/zenodo.21846155"
+      },
+      "notes": "National and Kapodistrian University of Athens (EU project CyberSecDome). Emulated environment with four attack scenarios (ransomware, DoS on the APIs, fraud ring, data poisoning) and baseline traffic; each capture holds a single scenario: scenario-level ground truth, no label file. About 1.5 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "malware",
+        "dos",
+        "other"
+      ],
+      "size": {
+        "gb": "1.5"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "sdn-topology-poisoning",
+      "name": "Topology Poisoning Attack Dataset for ML-Based Detection in SDN",
+      "url": "https://data.mendeley.com/datasets/vsbstvcwhw",
+      "task": "Intrusion detection (topology poisoning)",
+      "domain": "SDN",
+      "data": [
+        "PCAP",
+        "Flows (CICFlowMeter, 86 features)"
+      ],
+      "paper": {
+        "cite": "Mgimba, Mendeley Data 2026",
+        "title": "Topology Poisoning Attack Dataset for ML-Based Detection in SDN",
+        "doi": "10.17632/vsbstvcwhw.1"
+      },
+      "notes": "University of Dodoma. Emulated in Mininet with RYU, Floodlight and OpenDaylight controllers: three topology poisoning attacks and benign traffic, 247,346 flows. Licence CC BY 4.0.",
+      "category": "sdn",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "spoofing"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "247,346 flows"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "ecu-malnett-v2",
+      "name": "ECU-MALNETT V2",
+      "url": "https://ro.ecu.edu.au/datasets/164",
+      "task": "Malware traffic classification",
+      "domain": "Malware / Botnet",
+      "data": [
+        "Flows"
+      ],
+      "paper": {
+        "cite": "Edith Cowan University, ECU Research Online 2026",
+        "title": "ECU-MALNETT V2",
+        "doi": "10.25958/t81p-ap36"
+      },
+      "notes": "Edith Cowan University. Flows from the real execution of malware samples of the Peekaboo corpus: 58 families and benign traffic, labelled automatically with the Construct framework (not manually). Version 1: DOI 10.25958/f4sc-7402. Licence CC BY-NC 4.0.",
+      "category": "malware",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "58"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "parents_text": [
+        {
+          "name": "Peekaboo",
+          "title": "Peekaboo",
+          "doi": "10.25958/85p1-4w32"
+        }
+      ],
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "multi-source-cybersecurity-lan",
+      "name": "Multi-source Cybersecurity LAN dataset",
+      "url": "https://zenodo.org/records/24394558",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / LAN",
+      "data": [
+        "PCAP",
+        "Flows",
+        "System and service logs"
+      ],
+      "paper": {
+        "cite": "Corățu, Apostol, Toma & Aciobanitei, Zenodo 2026",
+        "title": "Multi-source Cybersecurity LAN dataset",
+        "doi": "10.5281/zenodo.24394558"
+      },
+      "notes": "Military Technical Academy, Bucharest; version 2.0. Virtualised network with benign activity and nine attack scenarios (not named in the documentation): 113 packet capture files, about 1.36 million flows and system logs, 6.3 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "6.3",
+        "count": "1.36M flows"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "ctu-idseval-6",
+      "name": "CTU-IDSEVAL-6",
+      "url": "https://zenodo.org/records/21027042",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Intrusion",
+      "data": [
+        "PCAP",
+        "Zeek logs"
+      ],
+      "paper": {
+        "cite": "Garcia, Valeros & Alya, Zenodo 2026",
+        "title": "CTU-IDSEVAL-6: A Labeled Network Dataset for the Evaluation of Intrusion Detection Systems",
+        "doi": "10.5281/zenodo.21027042"
+      },
+      "notes": "Stratosphere Laboratory, Czech Technical University in Prague. Six captures, three of them port scans; flows labelled Benign, Malicious or Background, with a detailed label. 286,704 flows. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true
+      },
+      "attack_families": [
+        "scanning"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "count": "286,704 flows"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "agentic-pcap",
+      "name": "Agentic PCAP",
+      "url": "https://huggingface.co/datasets/maureille/agentic-pcap",
+      "task": "Network attack detection",
+      "domain": "Network / Intrusion",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Aureille & Fesl, Hugging Face 2026",
+        "title": "Agentic LLMs for Network Attack Detection",
+        "url": "https://huggingface.co/datasets/maureille/agentic-pcap"
+      },
+      "notes": "Emulated in GNS3: eleven attacks (ACK, UDP and ICMP fragmentation floods, DNS flood, Slowloris; SYN, FIN, NULL, Xmas and UDP scans; ARP spoofing) and benign traffic. 44 packet capture files, 73.3 GiB. The accompanying paper is under submission. Licence CC BY 4.0 (code MIT).",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "classes": {
+        "benign": true,
+        "attack": "11"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "78.7"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "sharp",
+      "name": "SHARP",
+      "aliases": [
+        "Smart Home Attacks across Residential Multi Protocols"
+      ],
+      "url": "https://ieee-dataport.org/documents/sharp-smart-home-attacks-across-residential-multi-protocols",
+      "task": "Intrusion detection",
+      "domain": "IoT / Smart home",
+      "data": [
+        "PCAP",
+        "Device telemetry"
+      ],
+      "paper": {
+        "cite": "Cardiff University, IEEE DataPort 2026",
+        "title": "SHARP: Smart Home Attacks across Residential Multi Protocols",
+        "doi": "10.21227/ray1-ag27"
+      },
+      "notes": "Cardiff University. Real, inhabited apartment with a planned campaign of 36 recorded attacks, annotated at attack level; 172.24 GB. Needs an IEEE DataPort account. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "access": "registration",
+      "acquisition": "hybrid",
+      "classes": {
+        "benign": true,
+        "attack": "36"
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "172.24"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "flowiomt",
+      "name": "FlowIoMT",
+      "url": "https://ieee-dataport.org/documents/flowiomt-flow-level-dataset-reconnaissance-and-arp-spoofing-attacks-iomt-networks",
+      "task": "Intrusion detection (reconnaissance, ARP spoofing)",
+      "domain": "IoMT",
+      "data": [
+        "Flows"
+      ],
+      "paper": {
+        "cite": "Lu, Lloyd & Yu, AINA 2026",
+        "title": "FlowIoMT: A Flow-Level Dataset for Reconnaissance and ARP Spoofing Attacks in IoMT Networks",
+        "doi": "10.1007/978-3-032-23304-2_33"
+      },
+      "notes": "Keene State College (University System of New Hampshire); dataset DOI 10.21227/dx43-rb54. Emulated IoMT network; binary labels (reconnaissance and ARP spoofing / man-in-the-middle against benign traffic), 1,434,347 flows; the flow tool is not documented. Needs an IEEE DataPort account. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true
+      },
+      "attack_families": [
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "count": "1,434,347 flows"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "geothermal-scale-inhibitor-ids",
+      "name": "Geothermal Well Scale-Inhibitor Injection IDS Dataset",
+      "url": "https://zenodo.org/records/23610536",
+      "task": "Intrusion detection",
+      "domain": "ICS / SCADA (geothermal)",
+      "data": [
+        "PCAP",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Shui, Zenodo 2026",
+        "title": "A Network Intrusion Detection Dataset for Geothermal Well Scale inhibitor Injection Control Systems",
+        "doi": "10.5281/zenodo.23610536"
+      },
+      "notes": "Chengdu University of Technology. Semi-physical SCADA testbed: scanning, DoS, ARP spoofing, man-in-the-middle and unknown attacks with benign traffic, already split into training and test sets; 1.3 GB. Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "classes": {
+        "benign": true,
+        "attack": "5"
+      },
+      "attack_families": [
+        "scanning",
+        "dos",
+        "other"
+      ],
+      "size": {
+        "gb": "1.3"
+      },
+      "notify": true
+    },
+    {
+      "id": "ics-nad",
+      "name": "ICS-NAD",
+      "url": "https://doi.org/10.57760/sciencedb.25938",
+      "task": "Network attack detection",
+      "domain": "ICS / OT",
+      "data": [
+        "PCAP",
+        "Features"
+      ],
+      "paper": {
+        "cite": "Zhou et al., Scientific Data 2026",
+        "title": "A dataset collected in real-world industrial control systems for network attack detection",
+        "doi": "10.1038/s41597-026-06738-x"
+      },
+      "notes": "Collected in real industrial control systems of three vendors: 20 attack types; 245.96 GB. Distributed through Science Data Bank; the access conditions and licence of the data are not documented (the paper is CC BY-NC-ND 4.0).",
+      "category": "industrial",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "real",
+      "classes": {
+        "benign": null,
+        "attack": "20"
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "245.96"
+      },
+      "evidence": "secondary",
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "tsd-ddos",
+      "name": "TSD-DDoS",
+      "url": "https://data.mendeley.com/datasets/gyggjxs36z/6",
+      "task": "DDoS detection (time series)",
+      "domain": "DDoS / Server health",
+      "data": [
+        "Time series (5 s windows)"
+      ],
+      "paper": {
+        "cite": "Ratan Kumar & Vatsavayi, IEEE Access 2025",
+        "title": "Performance Analysis of Machine Learning Techniques for Server Health Monitoring Using Time Series Data Against DDOS Attacks",
+        "doi": "10.1109/ACCESS.2025.3553558"
+      },
+      "notes": "ANITS and Andhra University; version 6 (dataset DOI 10.17632/gyggjxs36z.6). Time series in 5-second windows, derived from CIC-DDoS2019 replayed with tcpreplay. Licence CC BY 4.0.",
+      "category": "ddos",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "parents": [
+        "cic-ddos2019"
+      ],
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "mixed-source-ids",
+      "name": "Mixed-source Intrusion Detection Dataset",
+      "url": "https://zenodo.org/records/21879932",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Merged benchmarks",
+      "data": [
+        "CSV (features: CIC, KDD and UNSW schemes)"
+      ],
+      "paper": {
+        "cite": "Nassihi, Braeken & Da Silva, Zenodo 2026",
+        "title": "Mixed-source Intrusion Detection Dataset",
+        "doi": "10.5281/zenodo.21879932"
+      },
+      "notes": "Vrije Universiteit Brussel; version 2. Features re-extracted from KDD Cup 1999 / NSL-KDD, UNSW-NB15, CIC-IDS2017 and CSE-CIC-IDS2018 with three feature schemes (CIC, KDD, UNSW); binary labels. 12 CSV files, about 5 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true
+      },
+      "size": {
+        "gb": "5",
+        "count": "12 CSV"
+      },
+      "parents": [
+        "kdd-cup-1999",
+        "nsl-kdd",
+        "unsw-nb15",
+        "cicids2017",
+        "cse-cic-ids2018"
+      ],
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "trafficinstruct",
+      "name": "TrafficInstruct",
+      "url": "https://github.com/zhengdao-li/TrafficInstruct",
+      "task": "Traffic classification (instruction tuning)",
+      "domain": "Encrypted traffic / Malware",
+      "data": [
+        "PCAP",
+        "SFT records (55,000)"
+      ],
+      "paper": {
+        "cite": "Li et al., arXiv 2026",
+        "title": "TrafficInstruct: A Multi-Task Network Traffic Dataset and Benchmark for Instruction Tuning",
+        "doi": "10.48550/arXiv.2611.03319"
+      },
+      "notes": "University of Science and Technology of China. Ten classification tasks on malware, botnet, encrypted, VPN, Tor, application, website fingerprinting and DoH traffic; packet captures and 55,000 instruction-tuning records. Available on request by email; licence not documented.",
+      "category": "encrypted",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "labeling": [
+        "multiclass"
+      ],
+      "attack_families": [
+        "malware",
+        "botnet-c2"
+      ],
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "benign-pcap-reproducibility-malaga",
+      "name": "Benign Network Traffic PCAP Dataset for Reproducibility",
+      "url": "https://zenodo.org/records/19206234",
+      "task": "Benign modelling / false positives",
+      "domain": "Benign network traffic",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Muñoz, López Flores & Jiménez Ariza, Zenodo 2026",
+        "title": "Benign Network Traffic PCAP Dataset for Reproducibility",
+        "doi": "10.5281/zenodo.19206234"
+      },
+      "notes": "University of Málaga. Benign traffic of three user profiles, each with three durations and five runs; unlabelled. 6.9 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0"
+      },
+      "attack_families": [],
+      "size": {
+        "gb": "6.9"
+      },
+      "notify": true
+    },
+    {
+      "evidence": "verified",
+      "id": "cesnet-timeseries26",
+      "name": "CESNET-TimeSeries26",
+      "url": "https://zenodo.org/records/21945629",
+      "task": "Network cybersecurity / anomaly detection",
+      "domain": "ISP / backbone",
+      "data": [
+        "Flow time series"
+      ],
+      "paper": {
+        "cite": "Koumar, Hynek, Jeřábek & Šiška, Zenodo 2026",
+        "title": "CESNET-TimeSeries26: A Multi-Year Network Traffic Time Series Dataset for Annual Seasonality",
+        "doi": "10.5281/zenodo.21945629"
+      },
+      "notes": "CESNET and Czech Technical University in Prague; extends CESNET-TimeSeries24. Time series aggregated from IP flows (ipfixprobe) at 10 minutes, 1 hour and 1 day, from real backbone traffic, with no attack labels (anomaly and outage detection, concept drift). 153.3 GB. Licence CC BY 4.0.",
+      "category": "backbone",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "ipfixprobe",
+      "size": {
+        "gb": "153.3"
+      },
+      "excluded": "Unlabelled time series without attack traffic: removed from the backbone, ISP and honeypot table (tab:rev-backbone)."
+    },
+    {
+      "evidence": "verified",
+      "id": "somid",
+      "name": "SOMID",
+      "url": "https://zenodo.org/records/24101603",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive Ethernet (SOME/IP)",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Abbasi, Carrera, Prieto, Alonso & Corchado, Zenodo 2026",
+        "title": "SOMID SOME/IP packet captures (vsomeip testbed): benign traffic and service-semantic attacks",
+        "doi": "10.5281/zenodo.24101603"
+      },
+      "notes": "AIR Institute and University of Salamanca. SOME/IP traffic of containerised ECUs running vsomeip, with service-semantic attacks injected with scapy and benign traffic. The accompanying paper has been submitted to the IEEE Open Journal of Vehicular Technology. Licence CC BY 4.0.",
+      "category": "automotive",
+      "year": "2026",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "classes": {
+        "benign": true
+      },
+      "attack_families": [
+        "other"
+      ],
+      "notify": true
     }
   ],
   "model_intro": "Each dataset of the Observatory is described by the same entity model as the paper: the dataset at the centre, linked to ten entities. The five above it describe where the dataset comes from (dashed lines are optional associations: not every dataset has a family, a paper or a derivation tool); the five below describe what it contains and how to get it. Every value is also a filter of the catalogue: select one to see the datasets that have it.",

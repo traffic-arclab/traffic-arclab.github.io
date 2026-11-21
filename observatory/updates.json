@@ -17,5 +17,150 @@
   "benign": "Benign reference traffic",
   "enterprise": "Enterprise and general IP"
  },
- "datasets": []
+ "datasets": [
+  {
+   "id": "farm-flow",
+   "name": "Farm-Flow",
+   "domain": "iot",
+   "year": "2024",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/10964648",
+   "paper": "Ferreira, Bispo, Rabadão, Santos & Costa, Computers and Electrical Engineering 2025 — Farm-flow dataset: Intrusion detection in smart agriculture based on network flows"
+  },
+  {
+   "id": "secure-claim",
+   "name": "SECURE-CLAIM attack and baseline data",
+   "domain": "enterprise",
+   "year": "2026",
+   "task": "Intrusion and malware detection",
+   "url": "https://zenodo.org/records/21846155",
+   "paper": "Papadakis, Zenodo 2026 — SECURE-CLAIM attack and baseline data"
+  },
+  {
+   "id": "sdn-topology-poisoning",
+   "name": "Topology Poisoning Attack Dataset for ML-Based Detection in SDN",
+   "domain": "sdn",
+   "year": "2026",
+   "task": "Intrusion detection (topology poisoning)",
+   "url": "https://data.mendeley.com/datasets/vsbstvcwhw",
+   "paper": "Mgimba, Mendeley Data 2026 — Topology Poisoning Attack Dataset for ML-Based Detection in SDN"
+  },
+  {
+   "id": "ecu-malnett-v2",
+   "name": "ECU-MALNETT V2",
+   "domain": "malware",
+   "year": "2026",
+   "task": "Malware traffic classification",
+   "url": "https://ro.ecu.edu.au/datasets/164",
+   "paper": "Edith Cowan University, ECU Research Online 2026 — ECU-MALNETT V2"
+  },
+  {
+   "id": "multi-source-cybersecurity-lan",
+   "name": "Multi-source Cybersecurity LAN dataset",
+   "domain": "enterprise",
+   "year": "2026",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/24394558",
+   "paper": "Corățu, Apostol, Toma & Aciobanitei, Zenodo 2026 — Multi-source Cybersecurity LAN dataset"
+  },
+  {
+   "id": "ctu-idseval-6",
+   "name": "CTU-IDSEVAL-6",
+   "domain": "enterprise",
+   "year": "2026",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/21027042",
+   "paper": "Garcia, Valeros & Alya, Zenodo 2026 — CTU-IDSEVAL-6: A Labeled Network Dataset for the Evaluation of Intrusion Detection Systems"
+  },
+  {
+   "id": "agentic-pcap",
+   "name": "Agentic PCAP",
+   "domain": "enterprise",
+   "year": "2026",
+   "task": "Network attack detection",
+   "url": "https://huggingface.co/datasets/maureille/agentic-pcap",
+   "paper": "Aureille & Fesl, Hugging Face 2026 — Agentic LLMs for Network Attack Detection"
+  },
+  {
+   "id": "sharp",
+   "name": "SHARP",
+   "domain": "iot",
+   "year": "2026",
+   "task": "Intrusion detection",
+   "url": "https://ieee-dataport.org/documents/sharp-smart-home-attacks-across-residential-multi-protocols",
+   "paper": "Cardiff University, IEEE DataPort 2026 — SHARP: Smart Home Attacks across Residential Multi Protocols"
+  },
+  {
+   "id": "flowiomt",
+   "name": "FlowIoMT",
+   "domain": "iot",
+   "year": "2026",
+   "task": "Intrusion detection (reconnaissance, ARP spoofing)",
+   "url": "https://ieee-dataport.org/documents/flowiomt-flow-level-dataset-reconnaissance-and-arp-spoofing-attacks-iomt-networks",
+   "paper": "Lu, Lloyd & Yu, AINA 2026 — FlowIoMT: A Flow-Level Dataset for Reconnaissance and ARP Spoofing Attacks in IoMT Networks"
+  },
+  {
+   "id": "geothermal-scale-inhibitor-ids",
+   "name": "Geothermal Well Scale-Inhibitor Injection IDS Dataset",
+   "domain": "industrial",
+   "year": "2026",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/23610536",
+   "paper": "Shui, Zenodo 2026 — A Network Intrusion Detection Dataset for Geothermal Well Scale inhibitor Injection Control Systems"
+  },
+  {
+   "id": "ics-nad",
+   "name": "ICS-NAD",
+   "domain": "industrial",
+   "year": "2026",
+   "task": "Network attack detection",
+   "url": "https://doi.org/10.57760/sciencedb.25938",
+   "paper": "Zhou et al., Scientific Data 2026 — A dataset collected in real-world industrial control systems for network attack detection"
+  },
+  {
+   "id": "tsd-ddos",
+   "name": "TSD-DDoS",
+   "domain": "ddos",
+   "year": "2026",
+   "task": "DDoS detection (time series)",
+   "url": "https://data.mendeley.com/datasets/gyggjxs36z/6",
+   "paper": "Ratan Kumar & Vatsavayi, IEEE Access 2025 — Performance Analysis of Machine Learning Techniques for Server Health Monitoring Using Time Series Data Against DDOS Attacks"
+  },
+  {
+   "id": "mixed-source-ids",
+   "name": "Mixed-source Intrusion Detection Dataset",
+   "domain": "enterprise",
+   "year": "2026",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/21879932",
+   "paper": "Nassihi, Braeken & Da Silva, Zenodo 2026 — Mixed-source Intrusion Detection Dataset"
+  },
+  {
+   "id": "trafficinstruct",
+   "name": "TrafficInstruct",
+   "domain": "encrypted",
+   "year": "2026",
+   "task": "Traffic classification (instruction tuning)",
+   "url": "https://github.com/zhengdao-li/TrafficInstruct",
+   "paper": "Li et al., arXiv 2026 — TrafficInstruct: A Multi-Task Network Traffic Dataset and Benchmark for Instruction Tuning"
+  },
+  {
+   "id": "benign-pcap-reproducibility-malaga",
+   "name": "Benign Network Traffic PCAP Dataset for Reproducibility",
+   "domain": "enterprise",
+   "year": "2026",
+   "task": "Benign modelling / false positives",
+   "url": "https://zenodo.org/records/19206234",
+   "paper": "Muñoz, López Flores & Jiménez Ariza, Zenodo 2026 — Benign Network Traffic PCAP Dataset for Reproducibility"
+  },
+  {
+   "id": "somid",
+   "name": "SOMID",
+   "domain": "automotive",
+   "year": "2026",
+   "task": "In-vehicle intrusion detection",
+   "url": "https://zenodo.org/records/24101603",
+   "paper": "Abbasi, Carrera, Prieto, Alonso & Corchado, Zenodo 2026 — SOMID SOME/IP packet captures (vsomeip testbed): benign traffic and service-semantic attacks"
+  }
+ ]
 }
