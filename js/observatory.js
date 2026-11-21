@@ -86,6 +86,8 @@
     'rating': [r => r.rating ? r.rating.avg + r.rating.count / 1e4 : null, -1],   // ties: more ratings first
   };
 
+  const DEFAULT_SORT = 'new';   // the first option of the Sort by menu
+
   function order(list) {
     const key = sort.value;
     if (!SORTS[key]) return list.sort((a, b) => a._order - b._order);
@@ -96,7 +98,8 @@
       if (va === null && vb !== null) return 1;
       if (vb === null && va !== null) return -1;
       if (va !== null && va !== vb) return (typeof va === 'string' ? va.localeCompare(vb) : va - vb) * dir;
-      return name(a).localeCompare(name(b));
+      // New first (the default): the rest keeps the catalogue order; the other sorts break ties by name
+      return key === 'new' ? a._order - b._order : name(a).localeCompare(name(b));
     };
     // family members stay right after their head row, in catalogue order
     const heads = list.filter(r => r.dataset.head === 'true').sort(cmp);
@@ -230,7 +233,7 @@
     if (keywords.trim()) params.set('q', keywords.trim());
     Object.entries(chosen).forEach(([g, values]) => params.set(g, values.join(',')));
     if (yearFrom && (yearFrom.value || yearTo.value)) params.set('year', `${yearFrom.value}-${yearTo.value}`);
-    if (sort.value !== 'catalogue') params.set('sort', sort.value);
+    if (sort.value !== DEFAULT_SORT) params.set('sort', sort.value);
     const query = params.toString();
     history.replaceState(null, '', query ? `?${query}${location.hash}` : location.pathname + location.hash);
   }
@@ -245,7 +248,7 @@
       yearFrom.value = valid(yearFrom, a);
       yearTo.value = valid(yearTo, b);
     }
-    if (params.get('sort') && [...sort.options].some(o => o.value === params.get('sort'))) sort.value = params.get('sort');
+    sort.value = [...sort.options].some(o => o.value === params.get('sort')) ? params.get('sort') : DEFAULT_SORT;
     boxes.filter(b => b.checked).forEach(b => b.closest('details').open = true);
     return params.toString() !== '';
   }
