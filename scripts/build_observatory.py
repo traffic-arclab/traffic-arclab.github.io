@@ -366,7 +366,7 @@ FACET_NOTES = {
                  'Processed records: flows, logs or feature tables.',
     'format': 'A dataset can be distributed in several formats.',
 }
-RELEASE_STEPS = [('v1', 'v1.0'), ('after', 'Added after v1.0')]   # labels set by observatory_page() from the first release
+RELEASE_STEPS = [('v1', 'v1.0'), ('after', 'Added after v1.0')]   # set by observatory_page() from the frozen releases
 RATING_STEPS = [('4', '4 stars and up'), ('3', '3 stars and up'), ('2', '2 stars and up'), ('unrated', 'Not yet rated')]
 
 
@@ -467,23 +467,37 @@ STATUS = {'withdrawn': ('Withdrawn', 'distributed in the past, no longer obtaina
           'not-published': ('Data not published', 'described in a paper whose data were never distributed')}
 
 
-def first_release(data):
-    releases = sorted(data.get('releases', []), key=lambda r: r['date'])
-    return releases[0] if releases else None
+def frozen_releases(data):
+    """The releases that have a frozen copy, oldest first: (version, ids of the records of that release)."""
+    out = []
+    for r in sorted(data.get('releases', []), key=lambda r: r['date']):
+        path = os.path.join(OUT, 'releases', f'v{r["version"]}.json')
+        if os.path.exists(path):
+            with open(path, encoding='utf-8') as f:
+                frozen = json.load(f)
+            out.append((r['version'], {x['id'] for k in ('datasets', 'not_available', 'captures', 'records') for x in frozen.get(k, [])}))
+    return out
 
 
 def release_ids(data):
-    """The ids of the records of the first release, from its frozen copy (None when there is none yet)."""
-    r = first_release(data)
-    path = os.path.join(OUT, 'releases', f'v{r["version"]}.json') if r else ''
-    if not path or not os.path.exists(path):
-        return None
-    with open(path, encoding='utf-8') as f:
-        frozen = json.load(f)
-    return {x['id'] for k in ('datasets', 'not_available', 'captures', 'records') for x in frozen.get(k, [])}
+    """The ids of the records of the current (last frozen) release (None when there is none yet)."""
+    global RELEASES
+    RELEASES = frozen_releases(data)
+    return RELEASES[-1][1] if RELEASES else None
 
 
-IN_RELEASE = None   # set by observatory_page(): the ids of the first release
+IN_RELEASE = None   # set by observatory_page(): the ids of the current release
+RELEASES = []       # set by release_ids(): (version, ids) of every frozen release, oldest first
+
+
+def release_key(version):
+    """The value of a release in the Release filter ("v1" for 1.0, kept for the links already shared)."""
+    return 'v1' if version == '1.0' else f'v{version}'
+
+
+def release_of(rec):
+    """The release a record entered the catalogue in, None when it is not yet in a release."""
+    return next((v for v, ids in RELEASES if rec['id'] in ids), None)
 
 
 def is_dataset(rec):
@@ -496,7 +510,7 @@ def in_release(rec):
 
 
 def counts(records):
-    """The datasets of the first release that can be obtained, those added since, and those not available."""
+    """The datasets of the current release that can be obtained, those added since, and those not available."""
     rows = [r for r in records if is_dataset(r)]
     return {'release': sum(1 for r in rows if in_release(r) and r.get('access') != 'unavailable'),
             'added': sum(1 for r in rows if not in_release(r) and r.get('access') != 'unavailable'),
@@ -528,7 +542,8 @@ def facet_values(rec):
            'lineage': [v for v, ok in (('original', not rec.get('derived_from') and rec['_size'] == 1),
                                        ('derived', bool(rec.get('derived_from'))), ('member', rec['_size'] > 1)) if ok],
            'rating': ([k for k, _ in RATING_STEPS[:-1] if rec['_rating']['avg'] >= int(k)] if rec.get('_rating') else ['unrated']),
-           'release': ['v1' if in_release(rec) else 'after'],
+           # only the datasets that can be obtained are counted in a release (the others are under Access)
+           'release': [] if rec.get('access') == 'unavailable' else [release_key(release_of(rec)) if release_of(rec) else 'after'],
            'artifacts': [representation_of(rec) or 'none'] if rec.get('artifact') else []}
     if not RATINGS:
         del out['rating']
@@ -1372,9 +1387,9 @@ def observatory_page(data, history=None):
     global RATINGS, IN_RELEASE
     RATINGS = bool(data.get('ratings', True))
     IN_RELEASE = release_ids(data)
-    rel = first_release(data)
-    if rel:
-        RELEASE_STEPS[:] = [('v1', f'v{rel["version"]}'), ('after', f'Added after v{rel["version"]}')]
+    if RELEASES:
+        RELEASE_STEPS[:] = ([(release_key(v), f'v{v}' if i == 0 else f'Added in v{v}') for i, (v, _) in enumerate(RELEASES)]
+                            + [('after', f'Added after v{RELEASES[-1][0]}')])
     CHECKED.clear()
     CHECKED.update(last_checked(data, history))
     records = all_records(data)
