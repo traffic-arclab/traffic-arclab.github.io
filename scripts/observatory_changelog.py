@@ -220,6 +220,12 @@ def changelog(data, root, cached, domains=None):
         if home is not None and home.get('aligned_until'):
             e = dict(e, aligned=True)
         (home['entries'] if home else unreleased).append(e)
+    # a dataset added in a release enters it in its final state: the edits made to it before the release are not listed
+    # (not for a release with an alignment phase, such as v1.0, whose datasets were already on the website)
+    for g in (g for g in groups if not g.get('aligned_until')):
+        added = {c['id'] for e in g['entries'] for c in e['changes'] if c['kind'] == 'added'}
+        g['entries'] = [e for e in (dict(e, changes=[c for c in e['changes'] if not (c['kind'] == 'changed' and c['id'] in added)])
+                                    for e in g['entries']) if e['changes']]
     out = list(reversed(groups))
     nxt = bump(releases[-1]['version'], unreleased) if unreleased and releases else ''
     if nxt:
