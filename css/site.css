@@ -1664,15 +1664,13 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   background: var(--color-surface); box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s, border-color .15s;
 }
 .obs-item::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--dom); }
-/* NEW: a golden fold in the top right corner of the card (the tag is used in the table view) */
-.obs-fold { position: absolute; top: 0; right: 0; z-index: 2; width: 54px; height: 54px; pointer-events: none;
-  filter: drop-shadow(-2px 2px 2px rgba(11, 37, 69, .22)); }
-.obs-fold::before { content: ""; position: absolute; inset: 0; clip-path: polygon(0 0, 100% 0, 100% 100%);
-  background: linear-gradient(225deg, color-mix(in srgb, var(--color-gold) 70%, #fff) 0%, var(--color-gold) 45%, color-mix(in srgb, var(--color-gold) 80%, #000) 100%); }
-.obs-fold-label { position: absolute; top: 12px; right: -2px; width: 44px; transform: rotate(45deg); text-align: center;
-  color: var(--color-deepest); font: 800 .6rem/1 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+/* NEW: a golden ribbon across the top right corner of the card (the tag is used in the table view) */
+.obs-fold { position: absolute; top: 0; right: 0; z-index: 2; width: 96px; height: 96px; overflow: hidden; pointer-events: none; }
+.obs-fold-label { position: absolute; top: 20px; right: -30px; width: 120px; padding: 5px 0; transform: rotate(45deg); text-align: center;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-gold) 75%, #fff), var(--color-gold));
+  box-shadow: 0 2px 4px rgba(11, 37, 69, .25); color: var(--color-deepest); font: 800 .62rem/1 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; }
 .obs-item .obs-new { display: none; }
-.obs-item:has(.obs-fold:not([hidden])) .obs-c-domain { padding-right: 30px; }
+.obs-item:has(.obs-fold:not([hidden])) .obs-c-domain { padding-right: 52px; }
 .obs-item:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--dom) 45%, var(--color-line)); box-shadow: var(--shadow-md); }
 .obs-item.is-capture { border: 1.5px dashed color-mix(in srgb, var(--dom) 55%, var(--color-strong-line)); }
 .obs-item.is-capture::before { background: repeating-linear-gradient(90deg, var(--dom) 0 10px, transparent 10px 16px); }

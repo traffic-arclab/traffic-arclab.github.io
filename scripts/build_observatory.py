@@ -1118,7 +1118,7 @@ def item(rec):
         family += f'<span class="obs-sub">{n} derived dataset{"s" if n > 1 else ""}</span>'
     marks = ''
     if new_until(rec):   # shown by the script until that day, so that it expires without a rebuild
-        # a golden fold in the top right corner of the card (and a tag in the table view)
+        # a golden ribbon across the top right corner of the card (and a tag in the table view)
         marks += (f'<span class="obs-fold" data-new-until="{new_until(rec)}" hidden><span class="obs-fold-label">New</span></span>'
                   f'<span class="tag tag-new obs-new" data-new-until="{new_until(rec)}" hidden>New</span>')
     if rec['_ours']:
