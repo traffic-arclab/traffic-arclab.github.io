@@ -1619,6 +1619,49 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-21",
+   "commit": "2e39e95",
+   "source": "repository",
+   "message": "Observatory 1.1: acquisition by devices (Farm-Flow and SHARP real), ICS-NAD notes as facts",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "farm-flow",
+     "name": "Farm-Flow",
+     "fields": [
+      {
+       "field": "Acquisition",
+       "old": "Real and simulated devices",
+       "new": "Real devices"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "ics-nad",
+     "name": "ICS-NAD",
+     "fields": [
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "sharp",
+     "name": "SHARP",
+     "fields": [
+      {
+       "field": "Acquisition",
+       "old": "Real and simulated devices",
+       "new": "Real devices"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
