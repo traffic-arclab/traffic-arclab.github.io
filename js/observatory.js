@@ -176,26 +176,41 @@
   views.forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
   try { if (localStorage.getItem('obs-view') === 'table') setView('table'); } catch (e) { /* cards */ }
 
-  // The labels of a card that do not fit on its line take turns, one at a time, beside the category pill,
-  // which stays in place (with reduced motion the line is cut instead).
-  function refreshPills() {
-    const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  // The labels of a card beside the category pill, which stays in place: when they do not fit on the line they
+  // scroll by in a loop (paused on hover; with reduced motion the line can be scrolled by hand instead).
+  function setupPills() {
     document.querySelectorAll('.obs-c-domain .obs-pills').forEach(p => {
-      p.classList.remove('is-rotating');
-      const subs = [...p.querySelectorAll('.obs-pill:not(.obs-pill-cat)')];
-      subs.forEach(s => s.classList.remove('is-on'));
-      if (!calm.matches && subs.length > 1 && p.offsetParent && p.scrollWidth > p.clientWidth + 1) {
-        p.classList.add('is-rotating');
-        subs[0].classList.add('is-on');
-      }
+      const subs = [...p.querySelectorAll(':scope > .obs-pill:not(.obs-pill-cat)')];
+      if (!subs.length) return;
+      const rest = document.createElement('span');
+      const track = document.createElement('span');
+      rest.className = 'obs-pills-rest';
+      track.className = 'obs-pills-track';
+      track.append(...subs);
+      rest.append(track);
+      p.append(rest);
     });
   }
-  setInterval(() => document.querySelectorAll('.obs-pills.is-rotating').forEach(p => {
-    const subs = [...p.querySelectorAll('.obs-pill:not(.obs-pill-cat)')];
-    const i = subs.findIndex(s => s.classList.contains('is-on'));
-    subs[i].classList.remove('is-on');
-    subs[(i + 1) % subs.length].classList.add('is-on');
-  }), 2600);
+  function refreshPills() {
+    const calm = matchMedia('(prefers-reduced-motion: reduce)');
+    document.querySelectorAll('.obs-pills-rest').forEach(rest => {
+      const track = rest.firstElementChild;
+      track.querySelectorAll('[data-clone]').forEach(c => c.remove());
+      rest.classList.remove('is-scrolling');
+      if (calm.matches || !rest.offsetParent || track.scrollWidth <= rest.clientWidth + 1) return;
+      const width = track.scrollWidth;
+      [...track.children].forEach(pill => {
+        const copy = pill.cloneNode(true);
+        copy.dataset.clone = '';
+        copy.setAttribute('aria-hidden', 'true');
+        track.append(copy);
+      });
+      rest.style.setProperty('--scroll-dur', `${Math.max(6, width / 28).toFixed(1)}s`);   // about 28 px a second
+      rest.classList.add('is-scrolling');
+    });
+  }
+  setupPills();
+  refreshPills();
   let resizing;
   addEventListener('resize', () => { clearTimeout(resizing); resizing = setTimeout(refreshPills, 200); });
 
