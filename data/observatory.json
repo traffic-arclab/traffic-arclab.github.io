@@ -12511,7 +12511,7 @@
         "title": "Farm-flow dataset: Intrusion detection in smart agriculture based on network flows",
         "doi": "10.1016/j.compeleceng.2024.109892"
       },
-      "notes": "CIIC, Polytechnic of Leiria (AG-IoT Security: Intrusion Detection in Smart Agriculture). Testbed of real devices (ESP32, Arduino Yún, ESP8266, Raspberry Pi) with eight attacks (ARP spoofing, botnet DDoS, HTTP, ICMP, MQTT, TCP and UDP floods, port scan) and benign traffic; binary and multiclass labels. About 1.31 million flows, about 2% of them benign. Licence CC BY 4.0.",
+      "notes": "CIIC, Polytechnic of Leiria (AG-IoT Security: Intrusion Detection in Smart Agriculture). Testbed of real devices (ESP32, Arduino Yún, ESP8266, Raspberry Pi) with eight attacks (ARP spoofing, botnet DDoS, HTTP, ICMP, MQTT, TCP and UDP floods, port scan) and benign traffic; binary and multiclass labels. About 1.31 million flows, about 2% of them benign. The archive holds 6,985 packet captures and the flow files (3.6 GB uncompressed); the merged flow file is 532 MB. Licence CC BY 4.0.",
       "category": "iot",
       "year": "2024",
       "representation": "PCAP + derived",
@@ -12535,6 +12535,7 @@
       ],
       "derivation_tool": "Zeek",
       "size": {
+        "gb": "3.6",
         "count": "1.31M flows"
       },
       "notify": true,
