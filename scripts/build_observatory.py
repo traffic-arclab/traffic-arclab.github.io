@@ -380,8 +380,12 @@ NEW_DAYS = 60   # a dataset marked "new_since" (YYYY-MM-DD) shows the NEW badge 
 
 
 def new_until(rec):
-    """The last day of the NEW badge of a record, or None (js/observatory.js hides the badge after it)."""
+    """The last day of the NEW badge of a record, or None (js/observatory.js hides the badge after it).
+    Only a dataset released in the year it was added is marked NEW (one added in 2026 must be of 2026)."""
     if not rec.get('new_since'):
+        return None
+    years = re.findall(r'\d{4}', str(rec.get('year') or ''))
+    if not years or years[0] != rec['new_since'][:4]:
         return None
     return (date.fromisoformat(rec['new_since']) + timedelta(days=NEW_DAYS)).isoformat()
 
