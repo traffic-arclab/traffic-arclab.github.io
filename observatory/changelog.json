@@ -1399,6 +1399,121 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-21",
+   "commit": "ceeefe7",
+   "source": "repository",
+   "message": "Observatory 1.1: 17 new records (CESNET-TimeSeries26 excluded as TimeSeries24), IoT-SFC v2 updated to version 6",
+   "changes": [
+    {
+     "kind": "added",
+     "id": "agentic-pcap",
+     "name": "Agentic PCAP"
+    },
+    {
+     "kind": "added",
+     "id": "benign-pcap-reproducibility-malaga",
+     "name": "Benign Network Traffic PCAP Dataset for Reproducibility"
+    },
+    {
+     "kind": "added",
+     "id": "ctu-idseval-6",
+     "name": "CTU-IDSEVAL-6"
+    },
+    {
+     "kind": "added",
+     "id": "ecu-malnett-v2",
+     "name": "ECU-MALNETT V2"
+    },
+    {
+     "kind": "added",
+     "id": "farm-flow",
+     "name": "Farm-Flow"
+    },
+    {
+     "kind": "added",
+     "id": "flowiomt",
+     "name": "FlowIoMT"
+    },
+    {
+     "kind": "added",
+     "id": "geothermal-scale-inhibitor-ids",
+     "name": "Geothermal Well Scale-Inhibitor Injection IDS Dataset"
+    },
+    {
+     "kind": "added",
+     "id": "ics-nad",
+     "name": "ICS-NAD"
+    },
+    {
+     "kind": "added",
+     "id": "mixed-source-ids",
+     "name": "Mixed-source Intrusion Detection Dataset"
+    },
+    {
+     "kind": "added",
+     "id": "multi-source-cybersecurity-lan",
+     "name": "Multi-source Cybersecurity LAN dataset"
+    },
+    {
+     "kind": "added",
+     "id": "secure-claim",
+     "name": "SECURE-CLAIM attack and baseline data"
+    },
+    {
+     "kind": "added",
+     "id": "sharp",
+     "name": "SHARP"
+    },
+    {
+     "kind": "added",
+     "id": "somid",
+     "name": "SOMID"
+    },
+    {
+     "kind": "added",
+     "id": "sdn-topology-poisoning",
+     "name": "Topology Poisoning Attack Dataset for ML-Based Detection in SDN"
+    },
+    {
+     "kind": "added",
+     "id": "trafficinstruct",
+     "name": "TrafficInstruct"
+    },
+    {
+     "kind": "added",
+     "id": "tsd-ddos",
+     "name": "TSD-DDoS"
+    },
+    {
+     "kind": "changed",
+     "id": "iot-sfc-v2",
+     "name": "IoT-SFC v2",
+     "fields": [
+      {
+       "field": "Distribution source",
+       "old": "https://data.mendeley.com/datasets/j9xffc2psb/5",
+       "new": "https://data.mendeley.com/datasets/j9xffc2psb/6"
+      },
+      {
+       "field": "Size (GB)",
+       "old": "13.9",
+       "new": "13.85"
+      },
+      {
+       "field": "Size",
+       "old": "49.9M records",
+       "new": "49,902,287 records"
+      },
+      {
+       "field": "Paper link",
+       "old": "https://data.mendeley.com/datasets/j9xffc2psb/5",
+       "new": "https://data.mendeley.com/datasets/j9xffc2psb/6"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

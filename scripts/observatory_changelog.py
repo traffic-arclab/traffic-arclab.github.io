@@ -117,14 +117,20 @@ def show(value, key=''):
 NEVER_PUBLISHED = {'zero-swarm-modbus-normal-and-malicious', 'lorawan-network-attacks-guard', '6tischset-2026', 'uav-ton-iot', 'uav-ground-telemetry-ids', 'ctu-idseval-6', 'batadal', 'netresec-public-pcap-index', 'cicev2023', 'nitro-5g-cybersecurity-exercise', 'pdmfc-ai4cyber-sc3-3', 'pdmfc-shennina-hping-nmap-ddos-pcaps', 'power-system-digital-twin-mininet-traffic', 'minids-multi-domain-vehicle-networks', 'iot-communication-protocol-overhead-dataset'}
 
 
-def published(records):
-    """The records of the catalogue (the excluded ones stay in the file but are not published)."""
-    return {r['id']: r for r in records if r.get('id') and not r.get('excluded') and r['id'] not in NEVER_PUBLISHED}
+# Records of NEVER_PUBLISHED added again on purpose later: hidden in the states of the catalogue before that day only
+# (CTU-IDSEVAL-6: loaded by mistake until 11 Nov 2026, added for release 1.1)
+REPUBLISHED = {'ctu-idseval-6': '2026-11-12'}
 
 
-def diff(old, new):
+def published(records, day=''):
+    """The records of the catalogue on the given day (the excluded ones stay in the file but are not published)."""
+    hidden = lambda i: i in NEVER_PUBLISHED and not (i in REPUBLISHED and day >= REPUBLISHED[i])
+    return {r['id']: r for r in records if r.get('id') and not r.get('excluded') and not hidden(r['id'])}
+
+
+def diff(old, new, day=''):
     """What a commit changed in the catalogue: one change per dataset added, removed or edited."""
-    before, after = published(old.get('records', [])), published(new.get('records', []))
+    before, after = published(old.get('records', []), day), published(new.get('records', []), day)
     excluded = {r['id']: r['excluded'] for r in new.get('records', []) if r.get('id') and r.get('excluded')}
     changes = []
     for i, r in after.items():
@@ -169,7 +175,7 @@ def from_history(since):
         except subprocess.CalledProcessError:
             old = {}
         new = json.loads(git('show', f'{sha}:{DATA_PATH}'))
-        changes = diff(old, new)
+        changes = diff(old, new, day)
         if changes:
             entries.append({'date': day, 'commit': sha[:7],
                             'source': 'editor' if EDITOR_MESSAGE.match(subject) else 'repository',
@@ -253,7 +259,7 @@ def freeze(data, root, out_dir):
             state = None
         if not state:
             continue
-        raw = sorted(published(state['records']).values(), key=lambda rec: rec['id'])
+        raw = sorted(published(state['records'], last).values(), key=lambda rec: rec['id'])
         public = lambda rec, keep=(): {k: v for k, v in rec.items() if k not in QUIET or k in keep}
         # the datasets of the release (one per row of the paper tables), those that could not be obtained (with the
         # reason), and the captures listed inside a family row, which are not counted as datasets
