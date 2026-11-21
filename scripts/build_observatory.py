@@ -879,7 +879,7 @@ def engine(data, records, families):
         </ul>
         <div class="obs-engine-foot">
 {cite}          <div class="obs-engine-submit">
-            <p><strong>Have you released a network-traffic dataset?</strong> Propose it for the Observatory, or tell us about one that is missing.</p>
+            <p><strong>Have you released a network-traffic dataset?</strong><br>Propose it for the Observatory, or tell us about one that is missing.</p>
             <a href="#submit" class="btn btn-gold"><span aria-hidden="true">+</span> Submit your dataset</a>
           </div>
         </div>
@@ -1118,7 +1118,9 @@ def item(rec):
         family += f'<span class="obs-sub">{n} derived dataset{"s" if n > 1 else ""}</span>'
     marks = ''
     if new_until(rec):   # shown by the script until that day, so that it expires without a rebuild
-        marks += f'<span class="tag tag-new obs-new" data-new-until="{new_until(rec)}" hidden>New</span>'
+        # a golden fold in the top right corner of the card (and a tag in the table view)
+        marks += (f'<span class="obs-fold" data-new-until="{new_until(rec)}" hidden><span class="obs-fold-label">New</span></span>'
+                  f'<span class="tag tag-new obs-new" data-new-until="{new_until(rec)}" hidden>New</span>')
     if rec['_ours']:
         marks += '<span class="tag tag-accent">Traffic group</span>'
     if rec.get('access') in ('registration', 'request', 'restricted'):

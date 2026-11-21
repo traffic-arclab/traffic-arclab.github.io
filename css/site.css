@@ -1606,7 +1606,7 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
 .obs-bibtex-copy { position: absolute; top: 6px; right: 6px; padding: 3px 10px; border: 1px solid rgba(255, 255, 255, .3); border-radius: 6px; background: rgba(255, 255, 255, .08); color: #fff; font: 600 .74rem var(--font-sans); cursor: pointer; }
 .obs-bibtex-copy:hover { background: rgba(255, 255, 255, .18); }
 .obs-engine-submit { display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-left: auto; text-align: right; }
-.obs-engine-submit p { max-width: 52ch; color: var(--color-deep-muted); font-size: .95rem; line-height: var(--foot-line, 1.45); }
+.obs-engine-submit p { max-width: 68ch; color: var(--color-deep-muted); font-size: .95rem; line-height: var(--foot-line, 1.45); }
 .obs-engine-submit strong { color: #fff; font-weight: 650; }
 .btn-gold { background: var(--color-gold); color: var(--color-deepest); box-shadow: 0 10px 26px -12px rgba(0, 0, 0, .55); }
 .btn-gold:hover { background: color-mix(in srgb, var(--color-gold) 85%, #fff); color: var(--color-deepest); }
@@ -1664,6 +1664,15 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   background: var(--color-surface); box-shadow: var(--shadow-sm); transition: transform .15s, box-shadow .15s, border-color .15s;
 }
 .obs-item::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--dom); }
+/* NEW: a golden fold in the top right corner of the card (the tag is used in the table view) */
+.obs-fold { position: absolute; top: 0; right: 0; z-index: 2; width: 54px; height: 54px; pointer-events: none;
+  filter: drop-shadow(-2px 2px 2px rgba(11, 37, 69, .22)); }
+.obs-fold::before { content: ""; position: absolute; inset: 0; clip-path: polygon(0 0, 100% 0, 100% 100%);
+  background: linear-gradient(225deg, color-mix(in srgb, var(--color-gold) 70%, #fff) 0%, var(--color-gold) 45%, color-mix(in srgb, var(--color-gold) 80%, #000) 100%); }
+.obs-fold-label { position: absolute; top: 12px; right: -2px; width: 44px; transform: rotate(45deg); text-align: center;
+  color: var(--color-deepest); font: 800 .6rem/1 var(--font-sans); letter-spacing: .12em; text-transform: uppercase; }
+.obs-item .obs-new { display: none; }
+.obs-item:has(.obs-fold:not([hidden])) .obs-c-domain { padding-right: 30px; }
 .obs-item:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--dom) 45%, var(--color-line)); box-shadow: var(--shadow-md); }
 .obs-item.is-capture { border: 1.5px dashed color-mix(in srgb, var(--dom) 55%, var(--color-strong-line)); }
 .obs-item.is-capture::before { background: repeating-linear-gradient(90deg, var(--dom) 0 10px, transparent 10px 16px); }
@@ -1705,6 +1714,8 @@ thead .obs-rep-n .obs-rep-key { margin-right: 5px; }
   .is-table .obs-list { display: block; min-width: 900px; }
   .is-table .obs-item { grid-template-areas: "name domain task data src"; grid-template-columns: var(--obs-cols); grid-template-rows: auto; gap: 14px; align-items: start; padding: 12px 16px 12px 19px; border: 0; border-bottom: 1px solid var(--color-soft-line); border-radius: 0; background: transparent; box-shadow: none; }
   .is-table .obs-item::before { inset: 0 auto 0 0; width: 3px; height: auto; }
+  .is-table .obs-fold { display: none; }
+  .is-table .obs-item .obs-new:not([hidden]) { display: inline-flex; }
   .is-table .obs-item:hover { transform: none; background: var(--color-tint); box-shadow: none; }
   .is-table .obs-item.is-member .obs-c-name { padding-left: 18px; }
   .is-table .obs-c-name h3 { font: 700 .98rem/1.35 var(--font-sans); letter-spacing: 0; }
