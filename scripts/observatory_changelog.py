@@ -205,18 +205,18 @@ def changelog(data, root, cached, domains=None):
     groups = [dict(r, entries=[]) for r in releases]
     unreleased = []
     for e in entries:
-        home = next((g for g in groups if e['date'] <= g['date']), None)
-        if home is None:
-            # commits after a release that only brought the website in line with it ("aligned_until"): they belong
-            # to that release, except the changes of the records in its "not_aligned" list
-            home = next((g for g in groups if e['date'] <= g.get('aligned_until', '')), None)
-            if home is not None:
-                later = [c for c in e['changes'] if c['id'] in home.get('not_aligned', [])]
-                if later:
-                    unreleased.append(dict(e, changes=later))
-                    e = dict(e, changes=[c for c in e['changes'] if c not in later])
-                    if not e['changes']:
-                        continue
+        # commits after a release that only brought the website in line with it ("aligned_until"): they belong
+        # to that release, even when a later release exists, except the changes of the records in its "not_aligned" list
+        home = next((g for g in groups if g['date'] < e['date'] <= g.get('aligned_until', '')), None)
+        if home is not None:
+            later = [c for c in e['changes'] if c['id'] in home.get('not_aligned', [])]
+            if later:
+                unreleased.append(dict(e, changes=later))
+                e = dict(e, changes=[c for c in e['changes'] if c not in later])
+                if not e['changes']:
+                    continue
+        else:
+            home = next((g for g in groups if e['date'] <= g['date']), None)
         if home is not None and home.get('aligned_until'):
             e = dict(e, aligned=True)
         (home['entries'] if home else unreleased).append(e)
