@@ -54,7 +54,7 @@
   --duration-fast: 150ms;
   --duration-base: 220ms;
   --ease-standard: cubic-bezier(.2, .65, .25, 1);
-  --container: 1360px;
+  --container: 85rem;   /* 1360px with the default 16px text: wider when the reader chooses larger text */
   --gutter: clamp(18px, 3.4vw, 48px);
   --header-h: 77px;
   --measure: 74ch;
@@ -1136,25 +1136,23 @@ html:has(.pub-jump) { scroll-padding-top: calc(var(--header-h) + 72px); }
   .latest-pubs { gap: 14px; }
 }
 /* Long entries of the full menu ("Cybersecurity Observatory", "Workshops & Special Issues") on two lines. */
-@media (min-width: 1341px) {
+@media (min-width: 90.001em) {
   .nav-link-stack { line-height: 1.15; }
   .nav-stack > span { display: block; }
 }
 /* Full menu: the seal hangs into the left margin, so that the name starts on the content edge
    (aligned with the titles below). The hang is limited by the room left of the container, keeping 8px from the window. */
-@media (min-width: 1341px) {
+@media (min-width: 90.001em) {
   .brand { --brand-hang: calc(50px + 13px); margin-left: calc(-1 * min(var(--brand-hang), var(--gutter) + max(0px, (100vw - var(--container) - 2 * var(--gutter)) / 2) - 8px)); }
 }
-@media (min-width: 1341px) and (max-width: 1380px) {
-  .brand { --brand-hang: calc(44px + 13px); }
-}
 /* With the Observatory entry the full menu is a little tighter just above the collapse width. */
-@media (min-width: 1341px) and (max-width: 1440px) {
+@media (min-width: 90.001em) and (max-width: 95em) {
   .nav-link { padding-inline: 8px; }
   .nav-link[aria-current="page"]::before, .nav-link.is-current::before { left: 8px; right: 8px; }
 }
-/* The full menu needs about 1340px; below that it collapses behind the menu button (js/site.js uses the same width). */
-@media (max-width: 1340px) {
+/* The full menu needs about 1440px with the default 16px text; below that it collapses behind the menu button
+   (js/site.js uses the same width). The widths are in em, so that they grow with the text size chosen in the browser. */
+@media (max-width: 90em) {
   :root { --header-h: 69px; }
   .header-inner { min-height: 68px; }
   .nav-toggle {
