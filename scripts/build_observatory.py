@@ -836,7 +836,79 @@ def changelog_page(data, log):
     if data.get('noindex', is_hidden(data)):
         page = page.replace('<meta name="viewport"', '<meta name="robots" content="noindex, nofollow">\n  <meta name="viewport"', 1)
     page = with_feedback(page, data)
+    page = seo_head(page, data, OBS_URL + 'changelog.html', f'Changelog | {data["title"]}',
+                    'Changes to the Cybersecurity Dataset Observatory, release by release, with a frozen copy of the catalogue at each release.')
     return re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>', '', page, count=1)
+
+
+OBS_URL = 'https://traffic-arclab.github.io/observatory/'
+OG_IMAGE = 'https://traffic-arclab.github.io/images/observatory-og.png'   # 1200x630, the preview of a shared link
+
+
+def seo_head(page, data, url, title, description, catalogue=None):
+    """The address of the page for search engines (canonical), the preview of a shared link (Open Graph,
+    Twitter card) and, on the catalogue page, its description for Google Dataset Search (schema.org)."""
+    tags = [f'<link rel="canonical" href="{esc(url)}">',
+            '<meta property="og:type" content="website">',
+            '<meta property="og:site_name" content="Traffic Research Group, University of Napoli Federico II">',
+            f'<meta property="og:title" content="{esc(title)}">',
+            f'<meta property="og:description" content="{esc(description)}">',
+            f'<meta property="og:url" content="{esc(url)}">',
+            f'<meta property="og:image" content="{OG_IMAGE}">',
+            '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">',
+            f'<meta property="og:image:alt" content="{esc(data["title"])}: {esc(data.get("tagline", ""))}">',
+            '<meta name="twitter:card" content="summary_large_image">']
+    if catalogue:
+        text = json.dumps(catalogue, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+        tags.append(f'<script type="application/ld+json">{text}</script>')
+    return page.replace('</head>', ''.join(f'  {t}\n' for t in tags) + '</head>', 1)
+
+
+def dataset_description(rec):
+    """A description of at least 50 characters, as Google Dataset Search asks: a sentence from the fields, then the notes."""
+    domain = label_of(DOMAINS, rec['_domain']) if rec.get('_domain') else ''
+    task = rec.get('task') or 'security analysis'
+    task = task[0].lower() + task[1:] if task[1:2].islower() else task   # "Intrusion detection" -> "intrusion…", "IDS…" stays
+    made = (f'{rec["name"]}: network-traffic dataset for {task}'
+            + (f' ({domain})' if domain else '') + (f', released in {rec["year"]}' if rec.get('year') else '') + '.')
+    notes = (rec.get('notes') or '').strip()
+    return (made + (' ' + notes if notes else ''))[:5000]
+
+
+def structured_data(data, records):
+    """schema.org DataCatalog of the Observatory, with one Dataset per available dataset of the catalogue
+    (the same datasets counted in the opening of the page)."""
+    rows = [r for r in records if is_dataset(r) and r.get('access') != 'unavailable']
+    cite = data.get('citation') or {}
+    datasets = []
+    for r in rows:
+        item = {'@type': 'Dataset', 'name': r['name'], 'description': dataset_description(r),
+                'url': f'{OBS_URL}?q={quote(r["name"])}#catalogue',
+                'keywords': [k for k in (label_of(DOMAINS, r['_domain']) if r.get('_domain') else '', r.get('task'),
+                                         'network traffic', 'cybersecurity') if k]}
+        if (r.get('url') or '').startswith('http'):
+            item['sameAs'] = r['url']
+        if r.get('aliases'):
+            item['alternateName'] = r['aliases']
+        paper = r.get('paper') or {}
+        if paper.get('doi'):
+            item['citation'] = f'https://doi.org/{paper["doi"]}'
+        elif paper.get('url'):
+            item['citation'] = paper['url']
+        if not r.get('access'):
+            item['isAccessibleForFree'] = True
+        datasets.append(item)
+    out = {'@context': 'https://schema.org', '@type': 'DataCatalog', 'name': data['title'],
+           'alternateName': 'Dataset Observatory', 'description': data.get('description') or data['lead'],
+           'url': OBS_URL, 'inLanguage': 'en', 'image': OG_IMAGE,
+           'version': current_version(data), 'dateModified': updated(data).isoformat(),
+           'keywords': ['cybersecurity datasets', 'network traffic datasets', 'intrusion detection', 'AI for cybersecurity'],
+           'creator': {'@type': 'Organization', 'name': 'Traffic Research Group, University of Napoli Federico II',
+                       'url': 'https://traffic-arclab.github.io/'},
+           'dataset': datasets}
+    if cite.get('arxiv'):
+        out['citation'] = cite['arxiv']
+    return out
 
 
 def with_feedback(page, data):
@@ -1476,6 +1548,7 @@ def observatory_page(data, history=None):
     # frame() adds the Datasets script; this page has its own.
     page = re.sub(r'\n  <script src="\.\./js/datasets\.js(?:\?v=[0-9a-f]*)?" defer></script>',
                   '\n  <script src="../js/observatory.js" defer></script>', page, count=1)
+    page = seo_head(page, data, OBS_URL, data['title'], data.get('description') or data['lead'], structured_data(data, records))
     return with_feedback(page, data)
 
 
