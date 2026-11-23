@@ -22,6 +22,7 @@ on:
       - 'scripts/build_observatory.py'
       - 'scripts/observatory_changelog.py'
       - 'scripts/stamp_assets.py'
+      - 'scripts/build_sitemap.py'
       - 'css/**'
       - 'js/**'
   workflow_dispatch:       # "Run workflow" button in the Actions tab
@@ -57,18 +58,19 @@ jobs:
           python scripts/build_observatory.py
           python scripts/stamp_assets.py
           python scripts/build_topics.py
+          python scripts/build_sitemap.py
 
       - name: Commit changes
         id: commit
         run: |
-          if [ -z "$(git status --porcelain -- '*.html' observatory/catalogue.json observatory/updates.json observatory/changelog.json observatory/releases)" ]; then
+          if [ -z "$(git status --porcelain -- '*.html' sitemap.xml observatory/catalogue.json observatory/updates.json observatory/changelog.json observatory/releases)" ]; then
             echo "The pages are already up to date."
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- '*.html' observatory/catalogue.json observatory/updates.json observatory/changelog.json observatory/releases
+          git add -A -- '*.html' sitemap.xml observatory/catalogue.json observatory/updates.json observatory/changelog.json observatory/releases
           git commit -m "Rebuild pages from data"
           git pull --rebase
           git push
