@@ -1735,6 +1735,38 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-24",
+   "commit": "ae79f14",
+   "source": "repository",
+   "message": "Observatory 1.1: IoMT-TrafficData acquisition emulated; GSBP-CP derivation tools without the authors' proxy script",
+   "changes": [
+    {
+     "kind": "changed",
+     "id": "gsbp-cp",
+     "name": "GSBP-CP",
+     "fields": [
+      {
+       "field": "Derivation tool",
+       "old": "tshark/dumpcap, Scapy, pymodbus, paho-mqtt, modbus_proxy.py",
+       "new": "tshark/dumpcap, Scapy, pymodbus, paho-mqtt"
+      }
+     ]
+    },
+    {
+     "kind": "changed",
+     "id": "iomt-trafficdata",
+     "name": "IoMT-TrafficData",
+     "fields": [
+      {
+       "field": "Acquisition",
+       "old": "Real and simulated devices",
+       "new": "Emulated or simulated"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
