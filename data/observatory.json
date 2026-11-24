@@ -9453,7 +9453,7 @@
         "traces": true,
         "derived": true
       },
-      "acquisition": "hybrid",
+      "acquisition": "emulated",
       "labeling": [
         "binary",
         "multiclass"
@@ -13218,7 +13218,7 @@
         "injection",
         "replay"
       ],
-      "derivation_tool": "tshark/dumpcap, Scapy, pymodbus, paho-mqtt, modbus_proxy.py",
+      "derivation_tool": "tshark/dumpcap, Scapy, pymodbus, paho-mqtt",
       "size": {
         "gb": "1.9",
         "count": "223k records"
