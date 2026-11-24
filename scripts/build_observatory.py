@@ -658,7 +658,7 @@ MARK = ('<svg class="obs-engine-mark" viewBox="0 0 48 48" fill="none" stroke="cu
 def search_hint(data, records):
     if data.get('ai_endpoint'):
         return 'Search datasets, or describe what you need: “labelled Modbus attacks as PCAP”…'
-    return 'Search datasets by name, author, institution, protocol, attack or any word of the description…'
+    return 'Search datasets by name, author, institution, protocol, attack…'
 
 
 def ai_attrs(data):
