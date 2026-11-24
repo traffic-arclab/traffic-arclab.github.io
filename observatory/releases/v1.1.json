@@ -2,11 +2,11 @@
  "title": "Cybersecurity Dataset Observatory",
  "version": "1.1",
  "date": "2026-11-21",
- "summary": "16 datasets added (250 available in total); IoT-SFC v2 updated to version 6.",
+ "summary": "17 datasets added (251 available in total); IoT-SFC v2 updated to version 6 and IoMT-TrafficData updated.",
  "state_of": "38e6b60",
- "note": "The catalogue on the day of the release.",
+ "note": "The catalogue on the day of the release. It includes the later additions and updates of the release: GSBP-CP, IoMT-TrafficData.",
  "counts": {
-  "datasets": 250,
+  "datasets": 251,
   "not_available": 8,
   "captures": 103
  },
@@ -4533,6 +4533,50 @@
    }
   },
   {
+   "id": "gsbp-cp",
+   "name": "GSBP-CP",
+   "url": "https://zenodo.org/records/23198408",
+   "task": "Intrusion detection",
+   "domain": "ICS / OT;Photovoltaic;Modbus/TCP;MQTT",
+   "data": [
+    "PCAP",
+    "CSV"
+   ],
+   "paper": {
+    "cite": "Aiddi et al., IEEE Access 2026",
+    "title": "GSBP-CP: A Real-Hardware Cross-Layer Dataset and Benchmark for Intrusion Detection in Grid-Connected Photovoltaic Systems",
+    "doi": "10.1109/ACCESS.2026.3754528"
+   },
+   "notes": "Mohammed VI Polytechnic University (UM6P), with GEP IRESEN/UM6P and EMSI. Collected on an operational grid-connected photovoltaic installation (Green & Smart Building Park, UM6P, Morocco): a Huawei SUN2000L-5KTL inverter polled over Modbus/TCP, a Shelly 3EM energy meter publishing over MQTT and the mirror port of the switch, all synchronised via NTP. Six attack categories in eight variants (network reconnaissance, DoS on the Modbus session, false-data injection on Modbus responses in three variants, replay of Modbus frames, ARP spoofing, MQTT injection) and normal traffic over three daily cycles; multiclass labels with a ground-truth log of the attacks. Packet captures (pcapng) of the SCADA LAN; CSV files of inverter telemetry, per-register Modbus latencies and meter readings; a merged benchmark table of 223,215 records with 66 features and an extended variant with 78 features. The repository includes the code for data fusion, features and splits, a benchmark notebook, a datasheet and a data dictionary; the attack and injection scripts are not released. 120.4 MB compressed (about 1.9 GB of data in total). Dataset DOI 10.5281/zenodo.23198408. Licence CC BY 4.0.",
+   "category": "industrial",
+   "year": "2026",
+   "representation": "PCAP + derived",
+   "artifact": {
+    "traces": true,
+    "derived": true
+   },
+   "acquisition": "real",
+   "labeling": [
+    "multiclass"
+   ],
+   "classes": {
+    "benign": true,
+    "attack": "6"
+   },
+   "attack_families": [
+    "scanning",
+    "dos",
+    "spoofing",
+    "injection",
+    "replay"
+   ],
+   "derivation_tool": "tshark/dumpcap, Scapy, pymodbus, paho-mqtt, modbus_proxy.py",
+   "size": {
+    "gb": "1.9",
+    "count": "223k records"
+   }
+  },
+  {
    "id": "gurekddcup",
    "name": "gureKDDCup",
    "url": "https://fkie-cad.github.io/COMIDDS/content/all_datasets/",
@@ -5256,10 +5300,11 @@
    "name": "IoMT-TrafficData",
    "url": "https://zenodo.org/records/8116338",
    "task": "Healthcare IDS",
-   "domain": "IoMT",
+   "domain": "IoMT;BLE;IP-based",
    "data": [
     "PCAP",
-    "CSV"
+    "CSV",
+    "Pickle"
    ],
    "category": "iot",
    "year": "2023",
@@ -5270,11 +5315,12 @@
    },
    "acquisition": "hybrid",
    "labeling": [
+    "binary",
     "multiclass"
    ],
    "classes": {
     "benign": true,
-    "attack": "8 / 2"
+    "attack": "8"
    },
    "attack_families": [
     "dos",
@@ -5285,11 +5331,12 @@
     "gb": "2.7"
    },
    "paper": {
-    "cite": "Areia et al., IEEE Access 2024",
+    "cite": "Areia, Bispo, Santos & Costa, IEEE Access 2024",
     "title": "IoMT-TrafficData: Dataset and Tools for Benchmarking Intrusion Detection in Internet of Medical Things",
     "doi": "10.1109/ACCESS.2024.3437214"
    },
-   "derivation_tool": "Zeek, tshark"
+   "derivation_tool": "Zeek, tshark",
+   "notes": "Polytechnic of Leiria. Testbed of IoT and IoMT devices with benign traffic and eight attack types; the captures are split into BLE and IP-based traffic. Three derived datasets (BLE, IP-based packets, IP-based flows) in CSV and pickle formats, with binary and multiclass labels, distributed in a single 2.7 GB archive. Dataset DOI 10.5281/zenodo.8116338. Licence CC BY 4.0."
   },
   {
    "id": "iot-23",

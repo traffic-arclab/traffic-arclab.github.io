@@ -1686,6 +1686,55 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-24",
+   "commit": "54b9411",
+   "source": "repository",
+   "message": "Observatory 1.1: GSBP-CP added and IoMT-TrafficData updated in release 1.1 (\"amended\" records of a release: their later changes belong to it and to its frozen copy)",
+   "changes": [
+    {
+     "kind": "added",
+     "id": "gsbp-cp",
+     "name": "GSBP-CP"
+    },
+    {
+     "kind": "changed",
+     "id": "iomt-trafficdata",
+     "name": "IoMT-TrafficData",
+     "fields": [
+      {
+       "field": "Domain labels",
+       "old": "IoMT",
+       "new": "IoMT;BLE;IP-based"
+      },
+      {
+       "field": "Traffic data",
+       "old": "PCAP, CSV",
+       "new": "PCAP, CSV, Pickle"
+      },
+      {
+       "field": "Labels",
+       "old": "Multiclass",
+       "new": "Binary, Multiclass"
+      },
+      {
+       "field": "Attack classes",
+       "old": "8 / 2",
+       "new": "8"
+      },
+      {
+       "field": "Paper",
+       "old": "Areia et al., IEEE Access 2024",
+       "new": "Areia, Bispo, Santos & Costa, IEEE Access 2024"
+      },
+      {
+       "field": "Description",
+       "revised": true
+      }
+     ]
+    }
+   ]
   }
  ]
 }

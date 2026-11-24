@@ -161,6 +161,15 @@
    "task": "In-vehicle intrusion detection",
    "url": "https://zenodo.org/records/24101603",
    "paper": "Abbasi, Carrera, Prieto, Alonso & Corchado, Zenodo 2026 — SOMID SOME/IP packet captures (vsomeip testbed): benign traffic and service-semantic attacks"
+  },
+  {
+   "id": "gsbp-cp",
+   "name": "GSBP-CP",
+   "domain": "industrial",
+   "year": "2026",
+   "task": "Intrusion detection",
+   "url": "https://zenodo.org/records/23198408",
+   "paper": "Aiddi et al., IEEE Access 2026 — GSBP-CP: A Real-Hardware Cross-Layer Dataset and Benchmark for Intrusion Detection in Grid-Connected Photovoltaic Systems"
   }
  ]
 }
