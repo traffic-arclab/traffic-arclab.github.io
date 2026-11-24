@@ -658,7 +658,7 @@ MARK = ('<svg class="obs-engine-mark" viewBox="0 0 48 48" fill="none" stroke="cu
 def search_hint(data, records):
     if data.get('ai_endpoint'):
         return 'Search datasets, or describe what you need: “labelled Modbus attacks as PCAP”…'
-    return 'Search datasets by name, protocol, attack, domain or data type…'
+    return 'Search datasets by name, author, institution, protocol, attack or any word of the description…'
 
 
 def ai_attrs(data):
@@ -1169,7 +1169,10 @@ def item(rec):
         'data-search': ' '.join([rec['name'], ' '.join(rec.get('aliases') or []), rec.get('task', ''), rec.get('domain', ''), ' '.join(rec.get('data') or []),
                                  rec.get('family') or '', rec.get('derived_from') or '', label_of(DOMAINS, rec['_domain']),
                                  'traffic group mirage' if rec['_ours'] else '',
-                                 label_of(TASKS, rec['_task'])] + [label_of(FORMATS, f) for f in rec['_formats']]
+                                 label_of(TASKS, rec['_task']),
+                                 # the free text of the card and of its dialog: description, paper (authors, title) and tools
+                                 rec.get('notes') or '', (rec.get('paper') or {}).get('cite', ''), (rec.get('paper') or {}).get('title', ''),
+                                 rec.get('derivation_tool') or ''] + [label_of(FORMATS, f) for f in rec['_formats']]
                                 + [label for k, label, _ in ATTACKS + PROTOCOLS if f'attack:{k}' in rec['_facets'].split()
                                    or f'protocol:{k}' in rec['_facets'].split()]).lower(),
     }
