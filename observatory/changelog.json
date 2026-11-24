@@ -1689,7 +1689,7 @@
   },
   {
    "date": "2026-11-24",
-   "commit": "54b9411",
+   "commit": "ef8614c",
    "source": "repository",
    "message": "Observatory 1.1: GSBP-CP added and IoMT-TrafficData updated in release 1.1 (\"amended\" records of a release: their later changes belong to it and to its frozen copy)",
    "changes": [
