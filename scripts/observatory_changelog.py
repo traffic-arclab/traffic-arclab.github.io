@@ -5,8 +5,9 @@ history of data/observatory.json: every commit that changes the catalogue, wheth
 removes or changes, with the fields that changed and their old and new values.
 
 The entries start on "changelog_since" of data/observatory.json and are grouped by release ("releases":
-version, date, summary). A change belongs to the first release dated on or after it; the changes after the
-last release are listed as "Unreleased", with the version they will need:
+version, date, summary). A change belongs to the first release dated on or after it, except the changes of the
+records of a release's "amended" {until, records}: added to or updated in that release after its date, up to "until".
+The changes after the last release are listed as "Unreleased", with the version they will need:
   - patch (1.0.1): corrections to existing records only;
   - minor (1.1):   datasets added to or removed from the catalogue;
   - major (2.0):   a change of the taxonomy (axes, domains, vocabularies), decided by hand.
@@ -205,6 +206,16 @@ def changelog(data, root, cached, domains=None):
     groups = [dict(r, entries=[]) for r in releases]
     unreleased = []
     for e in entries:
+        # records added to or updated in a release after its date, by decision of the curators ("amended": {until,
+        # records}): their changes up to "until" belong to that release; the other changes of the same commits do not
+        late = next((g for g in groups if g['date'] < e['date'] <= g.get('amended', {}).get('until', '')), None)
+        if late is not None:
+            mine = [c for c in e['changes'] if c['id'] in late['amended'].get('records', [])]
+            if mine:
+                late['entries'].append(dict(e, changes=mine))
+                e = dict(e, changes=[c for c in e['changes'] if c not in mine])
+                if not e['changes']:
+                    continue
         # commits after a release that only brought the website in line with it ("aligned_until"): they belong
         # to that release, even when a later release exists, except the changes of the records in its "not_aligned" list
         home = next((g for g in groups if g['date'] < e['date'] <= g.get('aligned_until', '')), None)
@@ -265,7 +276,11 @@ def freeze(data, root, out_dir):
             state = None
         if not state:
             continue
-        raw = sorted(published(state['records'], last).values(), key=lambda rec: rec['id'])
+        records = published(state['records'], last)
+        # the records amended into the release after its date, in their current state (the copy is written once)
+        amended = r.get('amended', {}).get('records', [])
+        records.update({k: v for k, v in published(data['records']).items() if k in amended})
+        raw = sorted(records.values(), key=lambda rec: rec['id'])
         public = lambda rec, keep=(): {k: v for k, v in rec.items() if k not in QUIET or k in keep}
         # the datasets of the release (one per row of the paper tables), those that could not be obtained (with the
         # reason), and the captures listed inside a family row, which are not counted as datasets
@@ -277,7 +292,9 @@ def freeze(data, root, out_dir):
                   'summary': r.get('summary', ''), 'state_of': sha[:7],
                   'note': ('The catalogue when the change log began (%s); the release is older.' % since if last < since else
                            'The catalogue of the release as documented in the paper.' if r.get('aligned_until') else
-                           'The catalogue on the day of the release.'),
+                           'The catalogue on the day of the release.')
+                          + (' It includes the later additions and updates of the release: %s.'
+                             % ', '.join(records[i].get('name', i) for i in amended if i in records) if amended else ''),
                   'counts': {'datasets': len(datasets), 'not_available': len(missing), 'captures': len(captures)},
                   'datasets': datasets, 'not_available': missing, 'captures': captures}
         os.makedirs(out_dir, exist_ok=True)
