@@ -13225,6 +13225,4141 @@
       },
       "notify": true,
       "new_since": "2026-11-21"
+    },
+    {
+      "evidence": "verified",
+      "id": "orion-2026",
+      "name": "Orion 2026",
+      "url": "https://www.uel.br/grupos/orion/datasets/orion-2026.html",
+      "task": "DDoS detection",
+      "domain": "DDoS / SDN spine-leaf",
+      "data": [
+        "PCAP",
+        "CSV flow features"
+      ],
+      "paper": {
+        "cite": "Schiavon et al., IEEE Access 2026",
+        "title": "Orion 2026: An IP Flow Dataset for Network Traffic Analysis and DDoS Intrusion Detection",
+        "doi": "10.1109/ACCESS.2026.3738009"
+      },
+      "notes": "ORION Research Group, Universidade Estadual de Londrina (UEL), Brazil. Five days (120 hours) of traffic on a spine-leaf SDN topology with diurnal volume variations: two benign-only days, then DoS (one-to-one) and DDoS (many-to-one, many-to-many) floods with PSH, UDP, ICMP, SYN, URG, RST, ACK and FIN packets. About 338 million packets and 25 million flows; a set of 17 recommended features. Licence CC BY 4.0.",
+      "category": "ddos",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "count": "25M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "soc-mld",
+      "name": "SOC-MLD",
+      "aliases": [
+        "Session-Aware Multi-Layer Attack Detection Dataset"
+      ],
+      "url": "https://zenodo.org/records/23116148",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Cyber range",
+      "data": [
+        "Network events",
+        "Flows",
+        "HTTP requests",
+        "Suricata alerts",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Mai, Nguyễn, Phan & Lê, Zenodo 2026",
+        "title": "SOC-MLD: A Session-Aware Multi-Layer Dataset for Machine Learning-Based Network Attack Detection",
+        "doi": "10.5281/zenodo.23116148"
+      },
+      "notes": "FPT University and Ho Chi Minh City Open University, Vietnam. Telemetry of a SOC cyber range built with Containernet and Docker on four layers (L3/L4 network events, flows and sessions, L7 HTTP requests, Suricata alerts), linked by attack-instance, session, flow and request identifiers. 6,006 curated samples with 41 features and 32 classes (31 attack types and normal), with an attack-instance-disjoint evaluation protocol. No packet captures. 10.4 MB. No accompanying paper. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "31"
+      },
+      "attack_families": null,
+      "derivation_tool": "Suricata",
+      "size": {
+        "gb": "0.01",
+        "count": "6,006 samples"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "data4cyber",
+      "name": "Data4Cyber",
+      "url": "https://zenodo.org/records/24105329",
+      "task": "Intrusion and anomaly detection",
+      "domain": "ICS / Smart grid (DER)",
+      "data": [
+        "PCAPNG",
+        "Process telemetry CSV",
+        "IPAL state logs"
+      ],
+      "paper": {
+        "cite": "Sen et al., IEEE CSR 2026",
+        "title": "Data4Cyber: Labeled Cyber-Physical Datasets for Distribution-Grid Management Systems Under Representative OT Attacks",
+        "doi": "10.1109/CSR69374.2026.11760057"
+      },
+      "notes": "Fraunhofer FIT and FKIE, with Panasonic. Distribution-grid management testbed with distributed energy resources: a benign baseline and six attack scenarios (two Industroyer-style Modbus manipulations of PV and battery storage, three ARP spoofing / man-in-the-middle false-data injections on meter telemetry, an MQTT supply-chain compromise of the price signal). Each scenario has OT packet captures, 1 Hz process telemetry, IPAL state logs and attack-phase annotations (binary, single- and multi-label); 14,354 rows (5,880 benign, 8,474 attack). Version 4; 172 MB. Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "spoofing",
+        "injection",
+        "other"
+      ],
+      "size": {
+        "gb": "0.17",
+        "count": "14,354 rows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "but-annotated-encrypted-traffic",
+      "name": "Annotated Encrypted Network Traffic Dataset (BUT)",
+      "aliases": [
+        "AutoFedProfile"
+      ],
+      "url": "https://zenodo.org/records/18336960",
+      "task": "Malware detection and application / OS identification in encrypted traffic",
+      "domain": "Encrypted traffic / TLS",
+      "data": [
+        "Parquet"
+      ],
+      "paper": {
+        "cite": "Rysavy, Zenodo 2026",
+        "title": "Annotated Encrypted Network Traffic Dataset for Application, OS, and Malware Identification",
+        "doi": "10.5281/zenodo.18336960"
+      },
+      "notes": "Brno University of Technology; version 1.0.0. Encrypted communication of Windows applications run in sandboxes, malware communication taken from automated malware analysis reports, and the background traffic of the operating system, annotated by application, operating system and malware. Distributed as preprocessed Parquet files (winapps, malware, soho; 74.4 MB); the packet captures are available on justified request. No accompanying paper. Licence CC BY 4.0.",
+      "category": "encrypted",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "malware",
+        "app"
+      ],
+      "size": {
+        "gb": "0.07"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ai4cyber-uc3-pcaps",
+      "name": "AI4CYBER UC3 Cyberattack Packet Captures",
+      "aliases": [
+        "Shennina, HPing, Nmap Scanning, DDOS attack PCAPs"
+      ],
+      "url": "https://zenodo.org/records/15649231",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Attack scenarios",
+      "data": [
+        "PCAP",
+        "Wazuh / Suricata alerts (CSV)"
+      ],
+      "paper": {
+        "cite": "PDMFC & Karagiannis, Zenodo 2025",
+        "title": "Shennina, HPing, Nmap Scanning, DDOS attack PCAPs",
+        "doi": "10.5281/zenodo.15649231"
+      },
+      "notes": "PDMFC (Portugal), use case 3 of the EU project AI4CYBER. Packet captures of automated attack sessions run with the Shennina exploitation framework and of manual attacks (Nmap scans, hping floods), with benign traffic; annotated with the Suricata alerts correlated by the Wazuh SIEM, exported as CSV (alert-based labels). 90.1 MB. No accompanying paper. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2025",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "scanning",
+        "dos",
+        "exploitation"
+      ],
+      "derivation_tool": "Suricata, Wazuh",
+      "size": {
+        "gb": "0.09"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "minids",
+      "name": "MINIDS",
+      "aliases": [
+        "Multi-domain In-Vehicle Network Intrusion Detection Dataset"
+      ],
+      "url": "https://zenodo.org/records/19429093",
+      "task": "In-vehicle intrusion detection",
+      "domain": "Automotive / CAN and Ethernet",
+      "data": [
+        "CAN frames CSV",
+        "Automotive Ethernet captures",
+        "Host logs"
+      ],
+      "paper": {
+        "cite": "Zhu et al., DAC 2026",
+        "title": "SCIMI: Semantic-Aware Collaborative Intrusion Detection for Multi-domain In-Vehicle Networks",
+        "doi": "10.1145/3770743.3803979"
+      },
+      "notes": "Zhejiang University. Multi-stage attack experiments on a real autonomous transport vehicle, with synchronised CAN, Ethernet and host-system traces: CAN frames with per-frame labels, an Ethernet packet capture and host metrics for each attack, and the attack periods in a label file. 16.2 GB (multi-part ZIP archive). Licence CC BY 4.0.",
+      "category": "automotive",
+      "year": "2026",
+      "representation": "Bus / V2X msgs",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "16.2"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "fg-entad",
+      "name": "FG-ENTAD",
+      "url": "https://data.mendeley.com/datasets/g5dtm7349f/2",
+      "task": "Anomaly detection",
+      "domain": "Enterprise / Firewall logs",
+      "data": [
+        "Firewall logs (CSV)",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Quirumbay Yagual, Mendeley Data 2026",
+        "title": "FG-ENTAD",
+        "doi": "10.17632/g5dtm7349f.2"
+      },
+      "notes": "Real traffic logs of a FortiGate next-generation firewall in an institutional network, with the processed traffic table, the feature dictionary and the datasets prepared for sequential deep-learning models. The labels are pseudo-labels obtained by unsupervised clustering (EFMS-KMeans), not a verified ground truth: the dataset suits anomaly detection, not the measurement of attack-detection accuracy. Log records, not packet captures. Version 2; 1.0 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "1.0"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "sdn-idps",
+      "name": "SDN-IDPS",
+      "url": "https://data.mendeley.com/datasets/gys6h7y3zv/1",
+      "task": "Intrusion detection",
+      "domain": "SDN",
+      "data": [
+        "Flows (CICFlowMeter, 84 features)",
+        "ARP / MITM flow features CSV"
+      ],
+      "paper": {
+        "cite": "Ahman, Mendeley Data 2026",
+        "title": "SDN-IDPS Dataset",
+        "doi": "10.17632/gys6h7y3zv.1"
+      },
+      "notes": "SDN emulated in GNS3 with an OpenDaylight controller, Open vSwitch and Linux hosts. Two parts: a flow dataset with 84 CICFlowMeter features (normal traffic, DoS/DDoS, reconnaissance, web attacks, credential access, malware and SDN-specific attacks) and an ARP spoofing / man-in-the-middle dataset with 29 bidirectional flow features. The packet captures are not distributed. 2.7 GB. No accompanying paper. Licence CC BY 4.0.",
+      "category": "sdn",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "web",
+        "bruteforce",
+        "malware",
+        "spoofing",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter, TShark",
+      "size": {
+        "gb": "2.7"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "gecic-iot23",
+      "name": "GeCIC-IoT23",
+      "url": "https://zenodo.org/records/24342276",
+      "task": "IoT intrusion detection",
+      "domain": "IoT",
+      "data": [
+        "Flows (HERA)",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Vitorino, Pinto, Maia, Amorim & Praça, FPS 2025",
+        "title": "Revisiting Network Traffic Analysis: Compatible Network Flows for ML Models",
+        "doi": "10.1007/978-3-032-20026-6_9"
+      },
+      "notes": "GECAD, Polytechnic of Porto. Flows re-extracted from the packet captures of CICIoT2023 with the HERA flow exporter (60-second maximum flow interval), to study how flow exporters affect the generalisation of ML models; the traffic class is given by the file name, as in the original release. Includes the preprocessed training and test sets of the study. 4.2 GB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "33"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "web",
+        "bruteforce",
+        "spoofing",
+        "botnet-c2"
+      ],
+      "derivation_tool": "HERA",
+      "size": {
+        "gb": "4.2"
+      },
+      "parents": [
+        "ciciot2023"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "gebot-iot",
+      "name": "GeBoT-IoT",
+      "aliases": [
+        "GECAD BoT-IoT"
+      ],
+      "url": "https://zenodo.org/records/24191206",
+      "task": "IoT intrusion detection",
+      "domain": "IoT",
+      "data": [
+        "Flows (HERA)",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Vitorino, Pinto, Maia, Amorim & Praça, FPS 2025",
+        "title": "Revisiting Network Traffic Analysis: Compatible Network Flows for ML Models",
+        "doi": "10.1007/978-3-032-20026-6_9"
+      },
+      "notes": "GECAD, Polytechnic of Porto. Flows re-extracted from the packet captures of BoT-IoT with the HERA flow exporter, in two versions (5-second and 60-second maximum flow interval), labelled from the original ground truth; includes the preprocessed training and test sets of the study. 10.8 GB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "exfiltration"
+      ],
+      "derivation_tool": "HERA",
+      "size": {
+        "gb": "10.8"
+      },
+      "parents": [
+        "bot-iot"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "bigflow-nids",
+      "name": "BigFlow-NIDS",
+      "url": "https://data.mendeley.com/datasets/nv729tbdgz/2",
+      "task": "Cross-dataset NIDS",
+      "domain": "Network / Merged benchmarks",
+      "data": [
+        "CSV NetFlow",
+        "Parquet"
+      ],
+      "paper": {
+        "cite": "Uddin & Arefin, Mendeley Data 2026",
+        "title": "BigFlow-NIDS",
+        "doi": "10.17632/nv729tbdgz.2"
+      },
+      "notes": "Merge of the four NetFlow v3 datasets of the University of Queensland (NF-UNSW-NB15-v3, NF-ToN-IoT-v3, NF-BoT-IoT-v3, NF-CSE-CIC-IDS2018-v3) with an Apache Spark pipeline (deduplication, missing values, label encoding, feature harmonisation): 66,935,021 flows, 55 attributes and 32 attack categories, in CSV and in 67 Parquet partitions. Version 2; 5.2 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "32"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "exploitation",
+        "malware",
+        "bruteforce",
+        "web",
+        "exfiltration",
+        "botnet-c2",
+        "other"
+      ],
+      "derivation_tool": "nProbe",
+      "size": {
+        "gb": "5.2",
+        "count": "66,935,021 flows"
+      },
+      "parents": [
+        "nf-unsw-nb15-v3",
+        "nf-ton-iot-v3",
+        "nf-bot-iot-v3",
+        "nf-cse-cic-ids2018-v3"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "6tischset-2026",
+      "name": "6TiSCHSet-2026",
+      "url": "https://zenodo.org/records/22113022",
+      "task": "IIoT intrusion detection",
+      "domain": "IIoT / 6TiSCH",
+      "data": [
+        "PCAP (radio)",
+        "Node telemetry logs",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Aydin, Aydin, Jin & Gormus, IEEE Access 2026",
+        "title": "6TiSCHSet-2026: A Multi-Layer Attack Dataset and Leakage-Aware Intrusion-Detection Benchmark for IETF 6TiSCH Networks",
+        "doi": "10.1109/ACCESS.2026.3736663"
+      },
+      "notes": "Karadeniz Technical University and Hangzhou Dianzi University. 206 Contiki-NG / Cooja simulation runs of IETF 6TiSCH networks (single-attacker, two-attacker and multi-seed designs, with attacker-free baselines); each run ships the raw telemetry log, the radio capture and a CSV, for 2,083,168 labelled records of 15 behavioural features. Seven attack families on five planes of the stack: blackhole, decreased rank, DIS flooding, application flooding, TSCH shared-cell contention, 6P cell-allocation exhaustion and TSCH desynchronisation. A group-aware evaluation protocol and the analysis code are part of the release. 888 MB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "dos",
+        "other"
+      ],
+      "size": {
+        "gb": "0.89",
+        "count": "2,083,168 records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ics-dataset-sudyana",
+      "name": "ICS Dataset (Sudyana)",
+      "url": "https://zenodo.org/records/17165850",
+      "task": "Anomaly detection (attacks and faults)",
+      "domain": "ICS / OT",
+      "data": [
+        "PCAP",
+        "Sensor readings",
+        "PLC and HMI logs"
+      ],
+      "paper": {
+        "cite": "Sudyana, Zenodo 2025",
+        "title": "ICS Dataset",
+        "doi": "10.5281/zenodo.17165850"
+      },
+      "notes": "Generated with an extended ICSSIM emulator of a bottle-filling process (two PLCs, two HMIs, tank, valves and conveyors), with timestamp-aligned network traffic (tcpdump), sensor readings and PLC/HMI logs. Normal operation, five injected faults (sensor drift, tank leak, overheating, valve malfunction, memory corruption) and four attacks mapped to MITRE ATT&CK for ICS (reconnaissance, denial of service, man-in-the-middle, replay), so that attacks can be told apart from faults. 3.2 GB. No accompanying paper. Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2025",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4",
+        "attck": true
+      },
+      "attack_families": [
+        "scanning",
+        "dos",
+        "spoofing",
+        "replay"
+      ],
+      "size": {
+        "gb": "3.2"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cesnet-cc25",
+      "name": "CESNET-CC25",
+      "url": "https://zenodo.org/records/16752462",
+      "task": "Botnet C2 detection",
+      "domain": "Malware / Botnet (ISP backbone)",
+      "data": [
+        "PCAPNG",
+        "Flows (ipfixprobe, CSV)",
+        "Periodicity features CSV"
+      ],
+      "paper": {
+        "cite": "Oškera, Koumar, Pokorná, Jeřábek & Čejka, Zenodo 2025",
+        "title": "CESNET-CC25: Long-term capture of C&C communication of botnets in the PCAP format",
+        "doi": "10.5281/zenodo.16752462"
+      },
+      "notes": "Czech Technical University in Prague and CESNET. 32 long-term captures (up to 167 hours each) of live botnet samples of the families Mirai, Gafgyt, Hailbot, Kaiji, Miori and Xorbot, run in isolated virtual machines with every activity other than the command-and-control communication blocked: 1,380 hours of C&C traffic (160,743 flows), with 194 million benign flows of the CESNET3 backbone (anonymised). Three distributions: botnet packet captures (43 MB), IP flows exported with ipfixprobe (14.9 GB, Zenodo record 16753890) and periodicity features of multi-flow time series (5.6 GB, Zenodo record 16753981). Licence CC BY 4.0.",
+      "category": "malware",
+      "year": "2025",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "botnet-c2"
+      ],
+      "derivation_tool": "ipfixprobe",
+      "size": {
+        "gb": "20.5",
+        "count": "194M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "dnstunnel2026",
+      "name": "DNSTunnel2026",
+      "url": "https://zenodo.org/records/23326431",
+      "task": "DNS tunneling detection",
+      "domain": "DNS",
+      "data": [
+        "DNS request and response records (CSV)",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Buber, Kugu & Sahingoz, Zenodo 2026",
+        "title": "Detecting DNS Tunneling Attacks via a Realistic Dataset in a Multi-Dimensional Feature-Driven Machine Learning Framework",
+        "doi": "10.5281/zenodo.23326431"
+      },
+      "notes": "Yıldız Technical University, TED University and Biruni University. Real DNS logs of 25 enterprise clients (provided by DNSSense, client information masked) mixed with DNS tunneling traffic generated with SmoothFlow under several adversarial scenarios (request timing, file sizes and types, query types, request lengths, dedicated, safe-looking and infrastructure-like domains, repeated requests). 37,447,179 benign and 31,135 tunneling records, deliberately imbalanced; raw request/response records and 38 features per company-domain pair over sliding windows. Second version of the release; 2.5 GB compressed. Licence CC BY 4.0.",
+      "category": "web",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "exfiltration"
+      ],
+      "size": {
+        "gb": "2.5",
+        "count": "37.5M records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ddos-host-background-traffic",
+      "name": "DDoS and Host Background Traffic",
+      "url": "https://zenodo.org/records/14049440",
+      "task": "DDoS detection",
+      "domain": "DDoS / Host",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Zang, De Iaco, Wu & Savi, IEEE ICC 2025",
+        "title": "In-Kernel Traffic Sketching for Volumetric DDoS Detection"
+      },
+      "notes": "University of Milano-Bicocca. Packet captures of volumetric DDoS traffic and of the background traffic of a host machine, for host-based DDoS detection; three archives with 25, 50 and 100 malicious source addresses. The DDoS traffic was generated with an open-source simulation tool. 11 GB. Licence CC BY 4.0.",
+      "category": "ddos",
+      "year": "2024",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "11.0"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "doh-mobile-traffic",
+      "name": "DoH-Mobile-Traffic",
+      "url": "https://zenodo.org/records/14839650",
+      "task": "DoH detection",
+      "domain": "DNS / DoH (mobile)",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Zuo, Guo, Xu, Zhang & Cheng, Information Fusion 2025",
+        "title": "METC: A Hybrid Deep Learning Framework for Cross-Network Encrypted DNS over HTTPS Traffic Detection and Tunnel Identification",
+        "doi": "10.1016/j.inffus.2025.103125"
+      },
+      "notes": "Harbin Institute of Technology. Real traffic of mobile devices collected with RethinkDNS, with DNS over HTTPS towards the 360 DNS, Alidns and Tencent DNSPod resolvers: 289,475 normal flows and 1,711 DoH flows, with the list of DoH resolver addresses. The task is the detection of DoH, as in the DoH/non-DoH layer of CIRA-CIC-DoHBrw-2020; the dataset contains no DNS tunnels and no malicious traffic. 41 GB. Licence CC BY 4.0.",
+      "category": "web",
+      "year": "2025",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "2"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "size": {
+        "gb": "41.0",
+        "count": "291,186 flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "federated-ocpp16-ids",
+      "name": "Federated OCPP 1.6 Intrusion Detection Dataset",
+      "url": "https://zenodo.org/records/14887131",
+      "task": "Intrusion detection",
+      "domain": "IoT / EV charging (OCPP 1.6)",
+      "data": [
+        "PCAP",
+        "CSV flow features",
+        "OCPP statistics CSV"
+      ],
+      "paper": {
+        "cite": "Dalamagkas et al., IEEE DataPort 2025",
+        "title": "Federated OCPP 1.6 Intrusion Detection Dataset",
+        "doi": "10.21227/v1f0-9t13"
+      },
+      "notes": "University of Western Macedonia, MetaMind Innovations and Kingston University (EU project DYNABIC). Attacks emulated against the Open Charge Point Protocol 1.6 between a charging station management system and electric vehicle chargers: charging profile manipulation, denial of charge, heartbeat flooding and unauthorised access. Packet captures per attack, and balanced CSV datasets of TCP/IP flow statistics and of OCPP application-layer statistics, split for federated learning. 6.4 GB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2025",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "spoofing",
+        "other"
+      ],
+      "size": {
+        "gb": "6.4"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ddos-sandbox",
+      "name": "DDoS-Sandbox",
+      "url": "https://zenodo.org/records/15703855",
+      "task": "DDoS detection (application layer)",
+      "domain": "5G / DDoS",
+      "data": [
+        "CSV flow features"
+      ],
+      "paper": {
+        "cite": "Benzaid, Zenodo 2025",
+        "title": "DDoS-Sandbox",
+        "doi": "10.5281/zenodo.15703855"
+      },
+      "notes": "University of Oulu. Flow records of application-layer HTTP DDoS, high-rate and low-rate (stealthy), combined from three sources: the authors' earlier INSPIRE-5Gplus dataset (benign, Slowloris, Hulk), benign and GoldenEye traffic extracted from CSE-CIC-IDS2018, and attacks generated in the University of Oulu 5G testbed with GoldenEye, Hulken and Slowloris. Version 1.0; 145 MB. Licence CC BY 4.0.",
+      "category": "5g",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "0.15"
+      },
+      "parents": [
+        "cse-cic-ids2018"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ndt-heavy-hitter",
+      "name": "Network Digital Twin Heavy Hitter Dataset",
+      "url": "https://zenodo.org/records/14841650",
+      "task": "DDoS detection (heavy hitter flows)",
+      "domain": "DDoS / Telecom network",
+      "data": [
+        "NetFlow",
+        "Tstat flow features"
+      ],
+      "paper": {
+        "cite": "Karamchandani et al., IEEE Communications Magazine 2025",
+        "title": "On the Applicability of Network Digital Twins in Generating Synthetic Data for Heavy Hitter Discrimination",
+        "doi": "10.1109/MCOM.003.2400648"
+      },
+      "notes": "Universidad Politécnica de Madrid and Telefónica Innovación Digital. Synthetic datasets generated with a network digital twin of a virtualised network, labelled to tell benign heavy hitter flows (high-volume transfers) from malicious ones (DDoS) alongside regular traffic; NetFlow and Tstat feature sets. Version 1.1.0; 368 MB. Licence CC BY 4.0.",
+      "category": "ddos",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "NetFlow, Tstat",
+      "size": {
+        "gb": "0.37"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "zero-swarm-modbus",
+      "name": "Zero-SWARM Modbus Normal and Malicious Traffic",
+      "url": "https://zenodo.org/records/15082260",
+      "task": "ICS intrusion detection",
+      "domain": "ICS / Modbus",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Lazaridis & Mpatziakas, Zenodo 2025",
+        "title": "Modbus Normal and Malicious Network Traffic",
+        "doi": "10.5281/zenodo.15082260"
+      },
+      "notes": "Centre for Research and Technology Hellas (EU project Zero-SWARM). Modbus traffic of Factory I/O instances: two captures of normal operation and two attack captures (flooding and Nmap probing); labels by capture. Four packet capture files, 268 MB. No accompanying paper. Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2025",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "dos",
+        "scanning"
+      ],
+      "size": {
+        "gb": "0.27"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "mssf-malnet-2024",
+      "name": "MSSF-MalNet-2024",
+      "url": "https://zenodo.org/records/15453468",
+      "task": "Malicious traffic detection",
+      "domain": "Honeypot",
+      "data": [
+        "CSV (connection and payload features)"
+      ],
+      "paper": {
+        "cite": "Saadoon & Behadili, Zenodo 2024",
+        "title": "MSSF-MalNet-2024",
+        "doi": "10.5281/zenodo.15453468"
+      },
+      "notes": "University of Baghdad. Traffic captured by honeypots running the Honeytrap agent: one CSV with nine features per connection (protocol, addresses and ports, payload length, payload hashes and hexadecimal payload) and a benign/malicious class. The criterion used to assign the labels is not documented. 13 MB. Licence CC BY 4.0.",
+      "category": "backbone",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": null,
+      "derivation_tool": "Honeytrap",
+      "size": {
+        "gb": "0.01"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "iot-icmp-ping-flood",
+      "name": "IoT ICMP/Ping Normal and Malicious Traffic",
+      "url": "https://zenodo.org/records/8111635",
+      "task": "IoT intrusion detection (ping flood)",
+      "domain": "IoT",
+      "data": [
+        "PCAP",
+        "Zeek logs",
+        "CSV"
+      ],
+      "paper": {
+        "cite": "Almorabea et al., IEEE Access 2023",
+        "title": "IoT Network-Based Intrusion Detection Framework: A Solution to Process Ping Floods Originating From Embedded Devices",
+        "doi": "10.1109/ACCESS.2023.3327061"
+      },
+      "notes": "King Abdulaziz University and Mehran University of Engineering and Technology. Normal and malicious ICMP traffic generated from an embedded IoT device (ESP-01s): packet captures, the Zeek logs extracted from them and labelled CSV files. Version 0.2.0 (ping flood with spoofed addresses) replaces version 0.1.0 (static addresses, Zenodo record 7772015). 5.8 GB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2023",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "gb": "5.8"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "nancy-oran-5g-attacks",
+      "name": "NANCY Cyberattacks on O-RAN 5G Testbed",
+      "url": "https://zenodo.org/records/14811122",
+      "task": "Intrusion detection",
+      "domain": "5G / O-RAN",
+      "data": [
+        "PCAP",
+        "Flows (CICFlowMeter)"
+      ],
+      "paper": {
+        "cite": "Liatifis et al., IEEE DataPort 2024",
+        "title": "NANCY SNS JU Project - Cyberattacks on O-RAN 5G Testbed Dataset",
+        "doi": "10.21227/vjf4-y322"
+      },
+      "notes": "University of Western Macedonia, MetaMind Innovations and Sidroco Holdings (EU project NANCY). Cyberattacks against the services of a 5G coverage-expansion scenario, in which a micro-operator extends the coverage of a main operator on an O-RAN testbed. A packet capture and the CICFlowMeter flows extracted from it, annotated by hand from the timeline of the attacks. 12.5 GB. Licence CC BY 4.0.",
+      "category": "5g",
+      "year": "2024",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "12.5"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "lspr23",
+      "name": "LSPR23",
+      "aliases": [
+        "Locked Shields Partners Run 23"
+      ],
+      "url": "https://zenodo.org/records/8042347",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Cyber exercise",
+      "data": [
+        "Flows",
+        "Attack narratives (JSON)",
+        "Availability events"
+      ],
+      "family": "Locked Shields Partners Run",
+      "paper": {
+        "cite": "Dijk et al., Journal of Information Security and Applications 2024",
+        "title": "LSPR23: A novel IDS dataset from the largest live-fire cybersecurity exercise",
+        "doi": "10.1016/j.jisa.2024.103847"
+      },
+      "notes": "NATO CCDCOE and ETH Zurich. Network traffic of a virtual blue-team network during the Partners' Run of Locked Shields 2023, the largest live-fire cyber defence exercise (IT and ICS/SCADA systems): about 16 million flows, about 1.6 million of them labelled malicious, with the red-team attack narratives, availability events and port statistics. 1.9 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "1.9",
+        "count": "16M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "lspr24",
+      "name": "LSPR24",
+      "aliases": [
+        "Locked Shields Partners Run 24"
+      ],
+      "url": "https://zenodo.org/records/14900873",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Cyber exercise",
+      "data": [
+        "Flows (Parquet)",
+        "Suricata alerts",
+        "Host logs (OSSEC)",
+        "Attack narratives (JSON)"
+      ],
+      "family": "Locked Shields Partners Run",
+      "paper": {
+        "cite": "Dijk, Meier, Melella & Pihelgas, Zenodo 2025",
+        "title": "Locked Shields Partners Run 24 (LSPR24): A Next-Generation Cybersecurity Dataset for Blue Team Automation",
+        "doi": "10.5281/zenodo.14900873"
+      },
+      "notes": "Netherlands Defence Academy, armasuisse Cyber-Defence Campus and NATO CCDCOE. Successor of LSPR23, collected in the Partners' Run before Locked Shields 2024 over 31.6 hours, across government, military and energy networks (13,000 IPv4/IPv6 addresses, 5G, hybrid cloud): 20 million flows from over 400 GB of captured traffic, with Suricata alerts, OSSEC host logs and red-team attack narratives. 8 GB. Licence CC0.",
+      "category": "enterprise",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "Suricata",
+      "size": {
+        "gb": "8.0",
+        "count": "20M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "zigbeenet",
+      "name": "ZigBeeNet",
+      "url": "https://zenodo.org/records/13957307",
+      "task": "Device identification, benign baseline",
+      "domain": "IoT / Smart home (ZigBee)",
+      "data": [
+        "ZigBee traffic captures (decrypted)"
+      ],
+      "paper": {
+        "cite": "Keleşoğlu & Sobczak, Applied Sciences 2024",
+        "title": "ZigBeeNet: Decrypted Zigbee IoT Network Traffic Dataset in Smart Home Environment",
+        "doi": "10.3390/app142310844"
+      },
+      "notes": "Institute of Theoretical and Applied Informatics. Decrypted ZigBee traffic of a smart home with 15 devices of six types (hub, power plug, smart light, smart bulb, wall switch, motion sensor) over 20 days. Benign traffic only, without attacks: a baseline for device identification and for modelling benign behaviour. 663 MB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2024",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0"
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "0.66"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "rbd24",
+      "name": "RBD24",
+      "aliases": [
+        "Risk Activities Dataset 2024"
+      ],
+      "url": "https://zenodo.org/records/13787591",
+      "task": "Risk activity detection",
+      "domain": "Enterprise / Application logs",
+      "data": [
+        "Parquet (aggregated application logs)"
+      ],
+      "paper": {
+        "cite": "Calvo et al., Computers & Security 2025",
+        "title": "RBD24: A labelled dataset with risk activities using log application data",
+        "doi": "10.1016/j.cose.2024.104290"
+      },
+      "notes": "i2CAT Foundation. Application logs of the network traffic of real users and devices of a corporate network over 15 days, anonymised and aggregated in time windows, separately for desktops and smartphones. Six risk behaviours (cryptominer checks, outdated software components, outdated TLS, peer-to-peer activity, non-encrypted passwords, phishing) labelled with IDS rules and phishing simulations. Aggregated log records, not packet captures. 1.5 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "malware",
+        "other"
+      ],
+      "size": {
+        "gb": "1.5"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "sandi-2024",
+      "name": "SANDI-2024",
+      "aliases": [
+        "Substation Anomaly Network Data for Intrusion detection 2024"
+      ],
+      "url": "https://zenodo.org/records/15487636",
+      "task": "ICS intrusion detection",
+      "domain": "ICS / Electrical substation (IEC 61850, IEC 60870-5-104)",
+      "data": [
+        "PCAP",
+        "CSV flows"
+      ],
+      "paper": {
+        "cite": "Gutierrez Mlot et al., Data in Brief 2024",
+        "title": "A dataset to train intrusion detection systems based on machine learning models for electrical substations",
+        "doi": "10.1016/j.dib.2024.111153"
+      },
+      "notes": "CIRCE Technology Centre, University of Zaragoza, Durham University and Delft University of Technology. Attack-free captures from a real substation and attack captures from a testbed, for IEC 61850 (flooding and fuzzing with and without faults, replay, PTP attack) and IEC 60870-5-104 (DoS, flooding, fuzzing, IEC 104 starvation, man-in-the-middle, NTP DDoS, port scan); raw packet captures and processed flow files, with the trained models. Version 4; 1.2 GB. Licence CC BY-NC-SA 4.0 (non-commercial).",
+      "category": "industrial",
+      "year": "2024",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "11"
+      },
+      "attack_families": [
+        "dos",
+        "fuzzing",
+        "replay",
+        "spoofing",
+        "scanning"
+      ],
+      "size": {
+        "gb": "1.2"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "5g-raas-uad",
+      "name": "5G-RaaS-UAD",
+      "url": "https://github.com/joseAveleira/5g-raas-uad",
+      "task": "Ransomware traffic detection",
+      "domain": "5G / Android ransomware",
+      "data": [
+        "PCAP",
+        "CSV (85 columns)",
+        "Feature tables"
+      ],
+      "paper": {
+        "cite": "Narciandi-Rodríguez et al., GitHub 2026",
+        "title": "A network traffic dataset of Android ransomware execution in a private 5G standalone network",
+        "url": "https://github.com/joseAveleira/5g-raas-uad"
+      },
+      "notes": "Android ransomware executed in a private 5G standalone network: a labelled CSV export of 107,694 records and 85 columns, two original packet captures (October and November 2025), the execution log that gives the two execution intervals, derived feature tables and the reproducible analysis code. Network identifiers are not anonymised. About 127 MB. Licence CC BY 4.0 (code MIT).",
+      "category": "5g",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "derivation_tool": "TShark",
+      "size": {
+        "gb": "0.13",
+        "count": "107,694 records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "raven-cloudnet2024",
+      "name": "RAVEN CloudNet2024",
+      "url": "https://github.com/nerds-ufes/cloudnet2024",
+      "task": "Early detection of malicious activities",
+      "domain": "Backbone / Campus network",
+      "data": [
+        "CSV connection features",
+        "CSV flow features"
+      ],
+      "paper": {
+        "cite": "Coelho, Comarela & Villaça, IEEE CloudNet 2024",
+        "title": "Early Detection and Classification of Malicious Activities in Network and Cloud Services",
+        "doi": "10.1109/CloudNet62863.2024.10815800"
+      },
+      "notes": "NERDS group, Federal University of Espírito Santo (UFES), Brazil. Real network traffic with anonymised source and destination addresses, in connection and flow feature tables split into training and test periods: scanning (FIN, Xmas, NULL, SYN, connect, ACK, UDP, Maimon), web-based attacks and Tor traffic anomalies. 4.8 GB of CSV. Licence GPL-3.0.",
+      "category": "backbone",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "scanning",
+        "web",
+        "other"
+      ],
+      "size": {
+        "gb": "4.8"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cicids2017-field-evaluation",
+      "name": "CICIDS2017 Field Evaluation (Ismail & Machado)",
+      "url": "https://zenodo.org/records/23406844",
+      "task": "Intrusion detection (out-of-distribution evaluation)",
+      "domain": "Network / Physical testbed",
+      "data": [
+        "Flows (CICFlowMeter)",
+        "Suricata alerts"
+      ],
+      "paper": {
+        "cite": "Ismail & Machado, Zenodo 2026",
+        "title": "Machine Learning-Based Intrusion Detection: Replication and Evaluation of CICIDS2017-Trained Models Against Real Attack Traffic",
+        "doi": "10.5281/zenodo.23406844"
+      },
+      "notes": "Western Paraná State University (UNIOESTE), Brazil. Real attack traffic from a physical testbed (Kali attacker and victim, mirrored switch port), generated with the same tools as CICIDS2017: FTP and SSH brute force, Nmap, FTP bounce, GoldenEye, Hulk, slowhttptest and Slowloris. CICFlowMeter flows for each capture, anonymised benign flows and Suricata alerts; the label of each capture is given by its file name. The benign packet capture is not published. Useful as an out-of-distribution test set for models trained on CICIDS2017. Supplementary material of a manuscript; 475 MB. Licence CC BY 4.0 (data), MIT (code).",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "8"
+      },
+      "attack_families": [
+        "bruteforce",
+        "scanning",
+        "dos"
+      ],
+      "derivation_tool": "CICFlowMeter, Suricata",
+      "size": {
+        "gb": "0.48"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "enriched-cicids2017-web-attacks",
+      "name": "Enriched CICIDS2017 Web Attacks",
+      "url": "https://zenodo.org/records/22730225",
+      "task": "Web attack detection",
+      "domain": "Network / Web attacks",
+      "data": [
+        "Flows (CICFlowMeter, 78 features)"
+      ],
+      "paper": {
+        "cite": "Berkat et al., Information 2026",
+        "title": "Real-Traffic Enrichment for Improved Minority Web Attack Detection in Network Intrusion Detection",
+        "doi": "10.3390/info17090922"
+      },
+      "notes": "University of Blida, Algeria. 32,670 web attack flows captured in a testbed (Apache XAMPP server with DVWA; sqlmap, Hydra, Wfuzz and manual obfuscated vectors, with normal background traffic), to enrich the scarce web attack classes of CICIDS2017: SQL injection, cross-site scripting (reflected and stored) and web brute force. Flows extracted with CICFlowMeter on the 78 features of CICIDS2017, for direct combination with it. 21.8 MB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "web",
+        "bruteforce"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.02",
+        "count": "32,670 flows"
+      },
+      "parents": [
+        "cicids2017"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "botiot-sb",
+      "name": "BotIoT-SB",
+      "aliases": [
+        "Botnet IoT Traffic Dataset For Smart Buildings"
+      ],
+      "url": "https://zenodo.org/records/14014277",
+      "task": "IoT botnet detection",
+      "domain": "IoT / Smart building",
+      "data": [
+        "Packet features"
+      ],
+      "paper": {
+        "cite": "Craciun et al., Informatics 2025",
+        "title": "Hybrid Machine Learning for IoT-Enabled Smart Buildings",
+        "doi": "10.3390/informatics12010017"
+      },
+      "notes": "National University of Science and Technology Politehnica Bucharest. Network traffic of IoT devices in a smart building, benign and affected by botnet activity, with packet characteristics, timestamps and device-specific traffic patterns. 1.3 GB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2"
+      ],
+      "size": {
+        "gb": "1.3"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "mavhoney-d46",
+      "name": "MAVHoney-D46",
+      "url": "https://zenodo.org/records/24287584",
+      "task": "Scanning and reconnaissance analysis (MAVLink)",
+      "domain": "UAV / MAVLink honeypot",
+      "data": [
+        "Connection records CSV",
+        "Honeypot logs"
+      ],
+      "paper": {
+        "cite": "Mewundi, Chowdary & Honnavalli, Zenodo 2026",
+        "title": "MAVHoney-D46: A 46-Day Multi-Sensor Dataset of Internet Traffic to a Low-Interaction MAVLink-Associated Honeypot on Port 5760",
+        "doi": "10.5281/zenodo.24287584"
+      },
+      "notes": "PES University, India. 46 days (April to May 2026) of Internet traffic to a low-interaction MAVLink honeypot on TCP port 5760, from three sensors (two in India, one in the United States). The honeypot beacons a MAVLink heartbeat, so the MAVLink-aware traffic is largely solicited. 33,207 sessions, 19,767 of them classified (scanner, reconnaissance, control) and the rest unlabelled; source addresses masked. Version 1.3.1; 6 MB. Licence CC BY 4.0 (data), MIT (code).",
+      "category": "uav",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": "3"
+      },
+      "attack_families": [
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "0.01",
+        "count": "33,207 sessions"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ufu-dns-exfiltration",
+      "name": "UFU DNS Exfiltration Dataset",
+      "aliases": [
+        "DNS Data Exfiltration Dataset: Syntactic and Flow-based Features"
+      ],
+      "url": "https://data.mendeley.com/datasets/v2cy9y58t7/2",
+      "task": "DNS exfiltration detection",
+      "domain": "DNS",
+      "data": [
+        "CSV (syntactic and flow features)"
+      ],
+      "paper": {
+        "cite": "Rocha, Mendeley Data 2026",
+        "title": "DNS Data Exfiltration Dataset: Syntactic and Flow-based Features",
+        "doi": "10.17632/v2cy9y58t7.2"
+      },
+      "notes": "Federal University of Uberlândia (UFU), Brazil. Legitimate DNS traffic and DNS tunneling exfiltration with dnscat2, collected in a controlled environment: 109,359 records (99,995 benign, 9,364 exfiltration) with syntactic and flow-based features. Version 2; 20 MB. Licence CC BY 4.0.",
+      "category": "web",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "exfiltration"
+      ],
+      "size": {
+        "gb": "0.02",
+        "count": "109,359 records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cpps-digital-substations",
+      "name": "CPPS Dataset for Cyber Security of Digital Substations",
+      "url": "https://zenodo.org/records/23558261",
+      "task": "ICS intrusion detection",
+      "domain": "ICS / Digital substation (IEC 61850)",
+      "data": [
+        "PCAPNG",
+        "RTDS measurements CSV",
+        "IED resource logs"
+      ],
+      "paper": {
+        "cite": "Cibin et al., Zenodo 2026",
+        "title": "Cyber-Physical Power System Dataset for Cyber Security of Digital Substations",
+        "doi": "10.5281/zenodo.23558261"
+      },
+      "notes": "Delft University of Technology, with EDF and the University of Indonesia. IEC 61850 testbed with a Real-Time Digital Simulator and physical and virtual IEDs in hardware-in-the-loop: normal operation, single-phase-to-ground fault, network reconnaissance, device resource exhaustion, GOOSE injection and Sampled Values injection, each run several times. For every scenario: anonymised IED traffic captures, RTDS physical measurements and IED resource logs, with the pre-processing code. Second version; 485 MB. Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2026",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "scanning",
+        "dos",
+        "injection"
+      ],
+      "size": {
+        "gb": "0.49"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "doh-tunnel-traffic-hkd",
+      "name": "DoH-Tunnel-Traffic-HKD",
+      "url": "https://hdl.handle.net/2115/88092",
+      "task": "DNS tunnel tool recognition",
+      "domain": "DNS / DoH",
+      "data": [
+        "PCAP",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Mitsuhashi, Jin, Iida, Shinagawa & Takai, IEEE TNSM 2023",
+        "title": "Malicious DNS Tunnel Tool Recognition Using Persistent DoH Traffic Analysis",
+        "doi": "10.1109/TNSM.2022.3215681"
+      },
+      "notes": "Hokkaido University. DNS over HTTPS traffic of DNS tunnel tools, for the recognition of the tool that generates a malicious DoH tunnel; also distributed merged with CIRA-CIC-DoHBrw-2020 (209 MB). 485 MB. Open access on the HUSCAP repository.",
+      "category": "web",
+      "year": "2023",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "exfiltration"
+      ],
+      "size": {
+        "gb": "0.49"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "doh-dga-malware-traffic-hkd",
+      "name": "DoH-DGA-Malware-Traffic-HKD",
+      "url": "https://hdl.handle.net/2115/86574",
+      "task": "DGA malware detection in DoH traffic",
+      "domain": "DNS / DoH",
+      "data": [
+        "PCAP",
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Mitsuhashi, Jin, Iida, Shinagawa & Takai, IEEE CCNC 2023",
+        "title": "Detection of DGA-based Malware Communications from DoH Traffic Using Machine Learning Analysis",
+        "doi": "10.1109/CCNC51644.2023.10059835"
+      },
+      "notes": "Hokkaido University. DNS over HTTPS traffic of malware that uses domain generation algorithms, as packet captures and CSV features; also distributed merged with CIRA-CIC-DoHBrw-2020 (158 MB). 844 MB of captures. Open access on the HUSCAP repository.",
+      "category": "web",
+      "year": "2022",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "malware",
+        "botnet-c2"
+      ],
+      "size": {
+        "gb": "0.84"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cnr-ieiit-dns-tunneling",
+      "name": "CNR-IEIIT DNS Tunneling",
+      "url": "https://github.com/mopamopa/DNS-tunneling",
+      "task": "DNS tunneling detection",
+      "domain": "DNS",
+      "data": [
+        "Window statistics (TXT)"
+      ],
+      "paper": {
+        "cite": "Aiello, Mongelli & Papaleo, International Journal of Communication Systems 2014",
+        "title": "DNS tunneling detection through statistical fingerprints of protocol messages and machine learning",
+        "doi": "10.1002/dac.2836"
+      },
+      "notes": "CNR-IEIIT, Genoa, Italy. DNS tunneling (dns2tcp carrying SSH and peer-to-peer applications) inside real DNS traffic collected at the CNR-IEIIT premises. Tables of statistical features per window (mean, variance, skewness and kurtosis of inter-arrival times and of query and answer sizes), with a binary label in the last column; about 4.9 MB per tunnelled application. The repository also holds the rule-based detection models and the code to generate mixtures from 1% to 50% of tunnelled traffic; the raw traffic dumps are linked from the repository. No licence is stated.",
+      "category": "web",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "exfiltration"
+      ],
+      "size": {
+        "gb": "0.01"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "unified-packet-flow-ids",
+      "name": "Unified Packet-Flow IDS Datasets",
+      "aliases": [
+        "Pre-processed Public IDS Datasets in a Unified Packet-Flow Representation"
+      ],
+      "url": "https://zenodo.org/records/20778180",
+      "task": "Early intrusion detection",
+      "domain": "Network / Merged benchmarks",
+      "data": [
+        "Packet sequences per flow (NPY)"
+      ],
+      "paper": {
+        "cite": "Ahmad & Truscan, Zenodo 2026",
+        "title": "Pre-processed Public IDS Datasets in a Unified Packet-Flow Representation",
+        "doi": "10.5281/zenodo.20778180"
+      },
+      "notes": "Åbo Akademi University. Four public IDS datasets (CICIDS2017, MQTT-IoT-IDS2020, MQTTset, USTC-TFC2016) repackaged in one representation, in which each sample is a labelled flow given as the ordered sequence of its packets, aligned with the labels of the original releases. 8.5 GB of NumPy arrays, with a document describing the release. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "8.5"
+      },
+      "parents": [
+        "cicids2017",
+        "mqtt-iot-ids2020",
+        "mqttset",
+        "ustc-tfc2016"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ssh-username-enumeration",
+      "name": "SSH Username Enumeration Attack Detection Dataset",
+      "url": "https://zenodo.org/records/5564663",
+      "task": "Attack detection (SSH username enumeration)",
+      "domain": "Network / SSH",
+      "data": [
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Agghey et al., Symmetry 2021",
+        "title": "Detection of Username Enumeration Attack on SSH Protocol: Machine Learning Approach",
+        "doi": "10.3390/sym13112192"
+      },
+      "notes": "Collected in a closed network: SSH username enumeration traffic generated with the public exploit of CVE-2018-15473, and normal traffic from a public capture (email, DNS, HTTP and other services). 36,273 instances in two classes, username enumeration and non-username enumeration, in a label-encoded and a one-hot-encoded version. 525 MB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2021",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "exploitation",
+        "scanning"
+      ],
+      "size": {
+        "gb": "0.53",
+        "count": "36,273 instances"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "guard-lorawan-attacks",
+      "name": "GUARD LoRaWAN Network Attacks",
+      "url": "https://zenodo.org/records/6637445",
+      "task": "Intrusion detection",
+      "domain": "LoRaWAN",
+      "data": [
+        "LoRaWAN message dump (TXT)"
+      ],
+      "paper": {
+        "cite": "Hopmann (Cornelio), Zenodo 2022",
+        "title": "LoRaWAN Network Attacks",
+        "doi": "10.5281/zenodo.6637445"
+      },
+      "notes": "Validation of the EU project GUARD. Dump of the messages of a real LoRaWAN network of devices installed on city buses, with attacks generated by replaying or altering messages. 70 MB. No accompanying paper. Licence CC BY 4.0.",
+      "category": "wireless",
+      "year": "2022",
+      "representation": "Bus / V2X msgs",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "hybrid",
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "replay",
+        "spoofing"
+      ],
+      "size": {
+        "gb": "0.07"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ait-netflow",
+      "name": "AIT Netflow Data Set",
+      "url": "https://zenodo.org/records/13168643",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Attack scenarios",
+      "data": [
+        "NetFlow (CSV)"
+      ],
+      "paper": {
+        "cite": "Soro, Landauer, Skopik, Hotwagner & Wurzenberger, Zenodo 2024",
+        "title": "AIT Netflow Data Set",
+        "doi": "10.5281/zenodo.13168643"
+      },
+      "notes": "AIT Austrian Institute of Technology. Labelled TCP and UDP netflows generated from the packet captures of the eight testbeds of AIT-LDSv2 (small enterprise networks with simulated users over 4 to 6 days), with the multi-step attacks of that dataset: scans (nmap, WPScan, dirb), webshell upload (CVE-2020-24186), password cracking, privilege escalation, remote command execution and DNS exfiltration. Suited to intrusion detection, federated learning and alert aggregation. 274 MB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "scanning",
+        "exploitation",
+        "bruteforce",
+        "lateral",
+        "exfiltration"
+      ],
+      "size": {
+        "gb": "0.27"
+      },
+      "parents": [
+        "ait-log-dataset"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "x-iomt",
+      "name": "X-IoMT",
+      "aliases": [
+        "IoMT Cross Layer Dataset"
+      ],
+      "url": "https://zenodo.org/records/18598934",
+      "task": "IoMT anomaly and intrusion detection",
+      "domain": "IoMT",
+      "data": [
+        "CSV cross-layer features"
+      ],
+      "paper": {
+        "cite": "Pinto, Silva & Inácio, IEEE Internet of Things Journal 2026",
+        "title": "X-IoMT: A Cross-Layer IoMT Dataset for Anomaly Detection With FGSM- and PGD-Based Adversarial Augmentation",
+        "doi": "10.1109/JIOT.2026.3664373"
+      },
+      "notes": "University of Beira Interior, Portugal. Cross-layer dataset of an Internet of Medical Things network for anomaly detection and federated learning, with original and augmented records and the processing scripts. Version 1.1; 708 MB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "0.71"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "odesa-ssh-honeypot",
+      "name": "Odesa SSH Honeypot Dataset",
+      "aliases": [
+        "A 4-Month Dataset of SSH Botnet Interactions and Command Payloads"
+      ],
+      "url": "https://zenodo.org/records/20435481",
+      "task": "SSH attack and botnet analysis",
+      "domain": "Honeypot / SSH",
+      "data": [
+        "Honeypot event logs (CSV, SQLite)"
+      ],
+      "paper": {
+        "cite": "Boiko & Niiakyi, Data in Brief 2026",
+        "title": "A 4-month dataset of interactive SSH honeypot logs and command payloads",
+        "doi": "10.1016/j.dib.2026.112860"
+      },
+      "notes": "National University Odesa Law Academy, Ukraine. 145,425 events recorded by a custom SSH honeypot from 27 July to 14 November 2025: automated and manual attacks against Linux systems, with the commands sent by the attackers; transport-layer noise and application-layer interactions are told apart. Includes the geolocation of the source addresses. Version 2.3; 15.7 MB. Licence CC BY 4.0.",
+      "category": "backbone",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": false,
+        "attack": null
+      },
+      "attack_families": [
+        "bruteforce",
+        "botnet-c2"
+      ],
+      "size": {
+        "gb": "0.02",
+        "count": "145,425 events"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "shield-i46",
+      "name": "SHIELD-i46",
+      "url": "https://github.com/i46-projects/SHIELD-i46",
+      "task": "Intrusion detection and prevention",
+      "domain": "Enterprise / 5G",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "i46, GitHub 2025",
+        "title": "SHIELD-i46: CyberSecDome Network Traffic Dataset",
+        "url": "https://github.com/i46-projects/SHIELD-i46"
+      },
+      "notes": "i46 (EU project CyberSecDome). 13 packet captures of benign traffic (LAN, VPN, 5G, operating system updates) and attack scenarios: DDoS on a 5G network, DDoS from inside and from outside, port scanning, ping floods and suspicious email (phishing and spam); labels by file. 38 MB. No accompanying paper. No licence file in the repository; the authors ask to acknowledge the source.",
+      "category": "enterprise",
+      "year": "2025",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "other"
+      ],
+      "size": {
+        "gb": "0.04"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "pandacap-ssh-honeypot",
+      "name": "PANDAcap SSH Honeypot Dataset",
+      "url": "https://zenodo.org/records/3759652",
+      "task": "SSH brute force analysis",
+      "domain": "Honeypot / SSH",
+      "data": [
+        "PCAP",
+        "PANDA execution traces"
+      ],
+      "paper": {
+        "cite": "Stamatogiannakis, Bos & Groth, EuroSec 2020",
+        "title": "PANDAcap: A Framework for Streamlining Collection of Full-System Traces",
+        "doi": "10.1145/3380786.3391396"
+      },
+      "notes": "Vrije Universiteit Amsterdam and University of Amsterdam. A honeypot virtual machine that accepted every password for root, recorded for three days (21 to 23 February 2020): 63 full-system PANDA execution traces of SSH brute force sessions, with the disk images and 1.1 GB of packet captures. 22.4 GB in total. Licence CC BY 4.0.",
+      "category": "backbone",
+      "year": "2020",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": false,
+        "attack": null
+      },
+      "attack_families": [
+        "bruteforce"
+      ],
+      "size": {
+        "gb": "22.4"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "sdn-tcp-syn-ddos",
+      "name": "SDN TCP-SYN Attack DDoS Dataset",
+      "url": "https://data.mendeley.com/datasets/236bd4cjmk/2",
+      "task": "DDoS detection",
+      "domain": "SDN",
+      "data": [
+        "PCAP",
+        "CSV (84 features)"
+      ],
+      "paper": {
+        "cite": "Kumar & Gupta, Mendeley Data 2022",
+        "title": "SDN-TCP-SYN ATTACK-DDOS DATASET",
+        "doi": "10.17632/236bd4cjmk.2"
+      },
+      "notes": "TCP SYN flood DDoS simulated in an SDN emulated with Mininet and a RYU controller: a normal and an attack packet capture, and a CSV of 6,234 rows and 84 columns. Version 2; 786 MB. Licence CC BY 4.0.",
+      "category": "sdn",
+      "year": "2022",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "0.79",
+        "count": "6,234 rows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "wifi-association-disassociation",
+      "name": "Wi-Fi Association/Disassociation Dataset",
+      "url": "https://github.com/samsonkg/Wi-Fi-Association_Disassociation-Dataset",
+      "task": "Wi-Fi intrusion detection (deauthentication)",
+      "domain": "Wi-Fi (802.11)",
+      "data": [
+        "CSV (parsed 802.11 events)"
+      ],
+      "paper": {
+        "cite": "Gebresilassie et al., Electronics 2023",
+        "title": "Transfer and CNN-Based De-Authentication (Disassociation) DoS Attack Detection in IoT Wi-Fi Networks",
+        "doi": "10.3390/electronics12173731"
+      },
+      "notes": "Real Wi-Fi testbed of 16 devices with an OpenWrt access point: normal traffic of user devices and de-authentication and disassociation attacks launched from Kali Linux and from a NodeMCU Deauther, for durations from minutes to a whole day. The traffic was parsed with Logstash and stored in Elasticsearch to produce a structured CSV. 22 MB. No licence is stated.",
+      "category": "wireless",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "Logstash",
+      "size": {
+        "gb": "0.02"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "nitsdn",
+      "name": "NITSDN",
+      "url": "https://github.com/bipalbika/NITSDN_Dataset",
+      "task": "Intrusion detection",
+      "domain": "SDN",
+      "data": [
+        "Flows (CICFlowMeter, CSV)"
+      ],
+      "paper": {
+        "cite": "Khanal, Kumar & Ansari, ICACCP 2023",
+        "title": "NITSDN: Development of SDN Dataset for ML-Based Intrusion Detection System",
+        "doi": "10.1007/978-981-99-4284-8_8"
+      },
+      "notes": "Traffic of a simulated SDN captured with Wireshark and processed with CICFlowMeter: normal traffic, DDoS, DoS, botnet and port scan, one CSV per traffic type. The packet captures are not distributed. 712 MB. No licence is stated.",
+      "category": "sdn",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "dos",
+        "botnet-c2",
+        "scanning"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.71"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "pdmfc-ai4cyber",
+      "name": "PDMFC Dataset (AI4CYBER)",
+      "url": "https://zenodo.org/records/16943481",
+      "task": "Intrusion detection",
+      "domain": "Enterprise / Attack scenarios",
+      "data": [
+        "PCAP",
+        "Flows (CICFlowMeter, CSV)"
+      ],
+      "paper": {
+        "cite": "PDMFC, Zenodo 2025",
+        "title": "PDMFC Dataset",
+        "doi": "10.5281/zenodo.16943481"
+      },
+      "notes": "PDMFC (Portugal), EU project AI4CYBER. Traffic collected with pfSense during normal operation and while an attack script was run, as a packet capture and as labelled CICFlowMeter flows, with the analysis of the results. 155 MB. No accompanying paper. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2025",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.15"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "safesurf-darknet-2025",
+      "name": "SafeSurf Darknet 2025",
+      "url": "https://data.mendeley.com/datasets/kcrnj6z4rm/2",
+      "task": "Darknet traffic detection and classification",
+      "domain": "Encrypted / Darknet (Tor, I2P, Freenet, ZeroNet, VPN)",
+      "data": [
+        "CSV flow features"
+      ],
+      "paper": {
+        "cite": "Abu Al-Haija, Obaidat, Al-Syouf, Awawdeh & Masa'deh, Cluster Computing 2025",
+        "title": "SafeSurf Darknet 2025: A novel dataset for darknet traffic detection and analysis",
+        "doi": "10.1007/s10586-025-05868-y"
+      },
+      "notes": "Traffic generated and labelled by hand in a controlled environment, across anonymity technologies (Tor, Freenet, I2P, ZeroNet) and VPN, organised by behaviour (browsing, email, chat, VoIP, file transfer, audio and video streaming, peer-to-peer) and against normal traffic. Three labelling layers: darknet or normal (91,404 and 360,358 flows), technology, and behaviour. The task is the detection of anonymiser traffic, a security monitoring task, as in CIC-Darknet2020. Version 2; 28 MB. Licence CC BY 4.0.",
+      "category": "encrypted",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0",
+        "benign_subclasses": "5 / 8"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "size": {
+        "gb": "0.03",
+        "count": "451,762 flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "lsnm2024",
+      "name": "LSNM2024",
+      "aliases": [
+        "Large-Scale Network Cyberattacks Multiclass Dataset 2024"
+      ],
+      "url": "https://data.mendeley.com/datasets/7pzyfvv9jn/2",
+      "task": "Intrusion detection",
+      "domain": "Network",
+      "data": [
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Abu Al-Haija, Masoud, Yasin, Alesawi & Alkarnawi, ICICS 2024",
+        "title": "Revolutionizing Threat Hunting in Communication Networks: Introducing a Cutting-Edge Large-Scale Multiclass Dataset",
+        "doi": "10.1109/ICICS63486.2024.10638287"
+      },
+      "notes": "6 million samples with 60 features, balanced between normal traffic and 15 attacks: ARP spoofing man-in-the-middle, SSH and FTP brute force, ICMP, raw-IP and UDP DDoS, DoS, FTP exploitation, fuzzing, ICMP and SYN floods, port scanning, remote code execution, SQL injection and XSS. Features only, no packet captures; the generation method is described only in the papers (ICICS 2024 and the TechRxiv preprint of 2025, DOI 10.36227/techrxiv.175459955.56010835/v1). Version 2; 224 MB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "15"
+      },
+      "attack_families": [
+        "spoofing",
+        "bruteforce",
+        "dos",
+        "exploitation",
+        "fuzzing",
+        "scanning",
+        "web"
+      ],
+      "size": {
+        "gb": "0.22",
+        "count": "6M samples"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "adddosdn",
+      "name": "AdDDoSDN",
+      "aliases": [
+        "Adversarial DDoS Attacks Dataset for Software-Defined Networks"
+      ],
+      "url": "https://data.mendeley.com/datasets/9jp6r68y98/1",
+      "task": "DDoS detection (adversarial)",
+      "domain": "SDN",
+      "data": [
+        "Packet header features CSV",
+        "SDN controller flow statistics",
+        "Flows (CICFlowMeter)"
+      ],
+      "paper": {
+        "cite": "Mokti, Mendeley Data 2025",
+        "title": "AdDDoSDN: Adversarial DDoS Attacks Dataset for Software-Defined Networks",
+        "doi": "10.17632/9jp6r68y98.1"
+      },
+      "notes": "Mininet emulation of a four-subnet enterprise with a remote Ryu controller: benign ICMP, Telnet, SSH, FTP, HTTP(S) and DNS traffic, traditional SYN, UDP and ICMP floods, and adversarial attacks (TCP state exhaustion with human-like timing, application-layer mimicry, slow read). Three synchronised products per run: packet header features, controller flow statistics from the Ryu REST API and 85 CICFlowMeter features; about 3.5 million records with seven labels and a binary label. Same testbed and author as DDOSDN2025. The generation code is public (github.com/nqmn/adddosdn). 551 MB. Licence MIT.",
+      "category": "sdn",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "6"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "CICFlowMeter, Ryu",
+      "size": {
+        "gb": "0.55",
+        "count": "3.5M records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ddosdn2025",
+      "name": "DDOSDN2025",
+      "url": "https://data.mendeley.com/datasets/9c5yjbk354/2",
+      "task": "DDoS detection",
+      "domain": "SDN",
+      "data": [
+        "Flows (CICFlowMeter, CSV)"
+      ],
+      "paper": {
+        "cite": "Mokti, Mendeley Data 2026",
+        "title": "DDOSDN2025",
+        "doi": "10.17632/9c5yjbk354.2"
+      },
+      "notes": "SDN testbed emulating a segmented enterprise network (attacker host, client subnet, demilitarised zone with the victim web server) behind one OpenFlow 1.3 switch and a Ryu controller, the same testbed and author as AdDDoSDN. Benign TCP and UDP flows from several clients, and TCP SYN, UDP and ICMP flood DDoS. CICFlowMeter flows in two versions: all features, and a reduced set of eight. Version 2; 104 MB. Licence CC BY 4.0.",
+      "category": "sdn",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.1"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "lspr25",
+      "name": "LSPR25",
+      "aliases": [
+        "Locked Shields Partners Run 25"
+      ],
+      "url": "https://zenodo.org/records/17093949",
+      "task": "Intrusion detection (temporal distribution shift)",
+      "domain": "Enterprise / Cyber exercise",
+      "data": [
+        "Flows (CICFlowMeter)"
+      ],
+      "family": "Locked Shields Partners Run",
+      "paper": {
+        "cite": "Dijk, Vaarandi, Meier & Pihelgas, Zenodo 2025",
+        "title": "Locked Shields Partners Run 25 (LSPR25)",
+        "doi": "10.5281/zenodo.17093949"
+      },
+      "notes": "Netherlands Defence Academy, Tallinn University of Technology and armasuisse. Third release of the Locked Shields Partners Run series (NATO CCDCOE exercise): over 30 million flows with more than 80 CICFlowMeter features and binary labels (about 2.2% malicious), from IT and OT infrastructure (enterprise services, SCADA/ICS, 5G, military systems); labels derived from the exercise role metadata and the red-team infrastructure. Companion of a paper in Computer Networks on cross-year evaluation with LSPR23 and LSPR24. Restricted access on Zenodo: the files are released on request. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "30M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "apex-ids2026",
+      "name": "APEX-IDS2026",
+      "url": "https://github.com/ju4700/APEX-IDS2026",
+      "task": "Intrusion detection",
+      "domain": "ISP / Perimeter honeypot",
+      "data": [
+        "NetFlow (Parquet)",
+        "Zeek logs"
+      ],
+      "paper": {
+        "cite": "Uddin, Zenodo 2026",
+        "title": "APEX-IDS2026: A Large-Scale Real-World Network Perimeter Threat Dataset",
+        "doi": "10.5281/zenodo.22013914"
+      },
+      "notes": "Live production ISP infrastructure over 44 consecutive days, with a MikroTik router honeypot and a continuous collection pipeline: about 141 million flows from 13,638 attacker addresses in 60 countries, mostly reconnaissance and scanning against exposed services (Redis, MongoDB, Elasticsearch, SSH, databases, HTTP(S), SMTP, FTP, VNC, RDP, Telnet, SIP, WinRM). Labels in five confidence tiers, from flows verified by the honeypot to unverified ones, with a MITRE ATT&CK mapping and Zeek inspection. Data on Zenodo (DOI 10.5281/zenodo.22013914); 5.7 GB. Licence CC BY 4.0.",
+      "category": "backbone",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null,
+        "attck": true
+      },
+      "attack_families": [
+        "scanning",
+        "bruteforce",
+        "exploitation"
+      ],
+      "derivation_tool": "Zeek",
+      "size": {
+        "gb": "5.7",
+        "count": "141M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "witfoo-precinct6",
+      "name": "WitFoo Precinct6 Cybersecurity 100M",
+      "url": "https://huggingface.co/datasets/witfoo/precinct6-cybersecurity-100m",
+      "task": "Incident and intrusion detection (provenance graphs)",
+      "domain": "Enterprise / SOC security logs",
+      "data": [
+        "Security event logs (Parquet)",
+        "Provenance graphs",
+        "Attack reports"
+      ],
+      "paper": {
+        "cite": "WitFoo, Hugging Face 2026",
+        "title": "Precinct6 Cybersecurity 100M",
+        "url": "https://huggingface.co/datasets/witfoo/precinct6-cybersecurity-100m"
+      },
+      "notes": "Production security operations centre data processed by WitFoo Precinct 6.x: 114,421,340 sanitised security events (firewall, endpoint and identity signals) from five organisations (July to August 2024), 51,371 incident provenance graphs with their triggering signals, natural-language attack reports and a merged provenance graph, with MITRE ATT&CK mapping. Security logs, not packet captures, as LANL and OTRF. Version 2.1.0; 38.6 GB. A smaller version with 2 million signals is also published. Licence Apache 2.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null,
+        "attck": true
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "38.6",
+        "count": "114M events"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cesnet-os-fingerprinting",
+      "name": "CESNET TCP/IP OS Fingerprinting Datasets",
+      "aliases": [
+        "Transferability of TCP/IP-based OS fingerprinting models"
+      ],
+      "url": "https://zenodo.org/records/14703490",
+      "task": "OS identification",
+      "domain": "Backbone / Research network",
+      "data": [
+        "Flows (ipfixprobe)"
+      ],
+      "paper": {
+        "cite": "Hulák, Bartoš & Čejka, IFIP Networking 2025",
+        "title": "Transferability of TCP/IP-based OS fingerprinting models",
+        "url": "https://dl.ifip.org/db/conf/networking/networking2025/1571127729.pdf"
+      },
+      "notes": "CESNET. Network flows annotated with the operating system of the device, exported with ipfixprobe: four datasets captured on the same day of September 2024 in subnets of the CESNET3 research network (small institutions and three large universities), annotated from HTTP user agents and host names, TLS and QUIC SNI, reverse DNS, Shodan and manual checks, and one from a local private network annotated from DHCP logs. Device and OS identification, a task already in the catalogue; there are no attacks. 281 MB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0"
+      },
+      "attack_families": null,
+      "derivation_tool": "ipfixprobe",
+      "size": {
+        "gb": "0.28"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "stealthy-goose",
+      "name": "Stealthy GOOSE",
+      "url": "https://github.com/akamranbee19/Stealthy_GOOSE",
+      "task": "ICS intrusion detection (GOOSE spoofing)",
+      "domain": "ICS / Digital substation (IEC 61850 GOOSE)",
+      "data": [
+        "PCAPNG",
+        "Features (XLSX)"
+      ],
+      "paper": {
+        "cite": "KTH Royal Institute of Technology, GitHub 2026",
+        "title": "Stealthy GOOSE: IEC 61850 GOOSE Dataset",
+        "url": "https://github.com/akamranbee19/Stealthy_GOOSE"
+      },
+      "notes": "Master's thesis at KTH Royal Institute of Technology with Omexom Sweden. GOOSE traffic captured on a physical hardware-in-the-loop testbed with real IEDs (ABB REF615 and two Siemens SIPROTEC 5): benign training and testing captures and three escalating spoofing attacks (naive, state-aware, stealthy), with raw and preprocessed features, the injection scripts and a one-class SVM baseline. About 8 MB. Licence MIT.",
+      "category": "industrial",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "spoofing",
+        "injection"
+      ],
+      "size": {
+        "gb": "0.01"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "trust-lab",
+      "name": "TRUST Lab Dataset",
+      "url": "https://github.com/trustlabupct/trustlab_dataset",
+      "task": "Intrusion detection",
+      "domain": "IoT / Network",
+      "data": [
+        "Flows (CICFlowMeter, CSV)"
+      ],
+      "paper": {
+        "cite": "Villafranca, Tasic & Cano, Frontiers in Computer Science 2026",
+        "title": "TRUSTLab dataset: a real-world CICFlowMeter dataset for IoT/edge intrusion detection",
+        "doi": "10.3389/fcomp.2026.1803271"
+      },
+      "notes": "TRUST Lab, Technical University of Cartagena (UPCT), Spain. Traffic generated in a controlled virtualised environment and processed with CICFlowMeter (over 80 features per flow, addresses randomised): benign traffic and attack families including API attacks, brute force, buffer overflow, C2 beaconing, DoS, DDoS and Slowloris, DNS attacks, evasion, exfiltration, exploitation, man-in-the-middle, port scanning, TLS/SSL attacks and web attacks, with the generation scripts. About 677 MB. Also archived in the UPCT repository (DOI 10.82432/10317/21203). No licence file in the repository.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "15"
+      },
+      "attack_families": [
+        "bruteforce",
+        "dos",
+        "web",
+        "botnet-c2",
+        "exfiltration",
+        "exploitation",
+        "scanning",
+        "spoofing",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.68"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "kis-2019",
+      "name": "KIS 2019",
+      "url": "https://nil.uniza.sk/en/dataset-kis-2019_en/",
+      "task": "Intrusion detection",
+      "domain": "Enterprise",
+      "data": [
+        "PCAP",
+        "Victim host logs",
+        "Features"
+      ],
+      "paper": {
+        "cite": "Uramová, Mokoš, Rodina, Seemann & Kohútik, University of Žilina 2019",
+        "title": "KIS 2019 network traffic dataset",
+        "url": "https://nil.uniza.sk/en/dataset-kis-2019_en/"
+      },
+      "notes": "Department of Information Networks, University of Žilina. One 12 GB packet capture recorded on 23 April 2019 over six hours, with attack and benign traffic tagged in the capture and each attack tagged individually (Nmap, Patator, SQL injection, XSS, DoS/DDoS, Ares botnet, Metasploit), five operating systems, and the victims' log files. Access on request by email; no licence is stated.",
+      "category": "enterprise",
+      "year": "2019",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "scanning",
+        "bruteforce",
+        "web",
+        "dos",
+        "botnet-c2",
+        "exploitation"
+      ],
+      "size": {
+        "gb": "12.0"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "navbot25",
+      "name": "NavBot25",
+      "url": "https://zenodo.org/records/18210878",
+      "task": "Intrusion detection (ROS robots)",
+      "domain": "IoT / Robotics (ROS)",
+      "data": [
+        "PCAP",
+        "Flows (CICFlowMeter, CSV)"
+      ],
+      "paper": {
+        "cite": "Zailan, Ong & Lim, Data in Brief 2026",
+        "title": "NAVBOT25: Dataset for ROS-based autonomous robot navigation",
+        "doi": "10.1016/j.dib.2026.112617"
+      },
+      "notes": "Multimedia University, Malaysia. Network traffic of a ROS Noetic autonomous navigation robot (TurtleBot3 over Wi-Fi), seven minutes per scenario repeated in twelve rounds: normal navigation and seven attacks (port scanning, SSH brute force, DoS, reverse shell, unauthorised topic subscription, subscriber flood, publisher flood). Raw packet captures per scenario, CICFlowMeter flows per class and a merged labelled CSV, with the attack scripts. The 2026 record replaces that of 2025 (Zenodo 15336304) and adds the captures of normal traffic. 693 MB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "7"
+      },
+      "attack_families": [
+        "dos",
+        "scanning",
+        "bruteforce",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.69"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "tls-fingerprints-os-identification",
+      "name": "TLS Fingerprints for OS Identification",
+      "aliases": [
+        "Dataset Using TLS Fingerprints for OS Identification in Encrypted Traffic"
+      ],
+      "url": "https://zenodo.org/records/3461771",
+      "task": "OS identification in encrypted traffic",
+      "domain": "Encrypted traffic / TLS (campus)",
+      "data": [
+        "Flows (CSV)",
+        "DHCP and RADIUS log data"
+      ],
+      "paper": {
+        "cite": "Laštovička, Špaček, Velan & Čeleda, Zenodo 2019",
+        "title": "Dataset Using TLS Fingerprints for OS Identification in Encrypted Traffic",
+        "doi": "10.5281/zenodo.3461771"
+      },
+      "notes": "Masaryk University. Flow records of the university uplink from 12 to 16 July 2019, limited to the wireless (eduroam) networks, enriched with the operating system of each device derived from DHCP logs and with RADIUS session identifiers; TCP/IP, HTTP user-agent and TLS fields (SNI, cipher suites and other handshake parameters) for OS identification. Anonymised. Device and OS identification, as the CESNET OS fingerprinting datasets; there are no attacks. 701 MB. Licence CC BY 4.0.",
+      "category": "encrypted",
+      "year": "2019",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "0"
+      },
+      "attack_families": [
+        "app"
+      ],
+      "size": {
+        "gb": "0.7"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "knx-bacs-security",
+      "name": "KNX BACS Security Dataset Bundle",
+      "url": "https://github.com/vgraveto/knx-datasets",
+      "task": "Intrusion detection (building automation)",
+      "domain": "ICS / Building automation (KNX)",
+      "data": [
+        "PCAPNG",
+        "CSV (decimal and hexadecimal fields)"
+      ],
+      "paper": {
+        "cite": "Graveto, Cruz & Simões, IEEE Access 2023",
+        "title": "A Network Intrusion Detection System for Building Automation and Control Systems",
+        "doi": "10.1109/ACCESS.2023.3238874"
+      },
+      "notes": "University of Coimbra. KNX traffic captured in a real house with a complete building automation and control system: normal operation and four attacks performed in the real installation and injected into the normal capture (line scan, device information requests, message injection at slow and high rate, invalid context), each as a packet capture and as CSV files; the attacks are a small fraction of the messages. About 2.1 GB on GitHub; also on IEEE DataPort (DOI 10.21227/16a5-m134), which needs a subscription. Licence CC BY 4.0 (repository code MIT).",
+      "category": "industrial",
+      "year": "2022",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "4"
+      },
+      "attack_families": [
+        "scanning",
+        "injection",
+        "dos",
+        "other"
+      ],
+      "size": {
+        "gb": "2.1"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "meta-ids-validation",
+      "name": "Meta-IDS Federated Learning Validation Dataset",
+      "aliases": [
+        "Federated Learning for Distributed Intrusion Detection Systems in Public Networks - Validation Dataset"
+      ],
+      "url": "https://zenodo.org/records/7956304",
+      "task": "Intrusion detection (federated learning)",
+      "domain": "Public networks / Edge and fog",
+      "data": [
+        "Packet-level features CSV"
+      ],
+      "paper": {
+        "cite": "Bakhshi Zadi Mahmoodi et al., IEEE Access 2023",
+        "title": "Autonomous Federated Learning for Distributed Intrusion Detection Systems in Public Networks",
+        "doi": "10.1109/ACCESS.2023.3327922"
+      },
+      "notes": "University of Oulu. Validation set of the Meta-IDS evaluation: traffic of real public networks (panOULU) at the edge and fog layers, with packet-level features labelled benign or malicious and anonymised addresses. Very large: 16.6 GB compressed (bz2) in three batches, about 800 GB uncompressed and 2.79 billion records. The three batches are a partition for distribution, not independent federated clients. Licence CC BY 4.0.",
+      "category": "backbone",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "scanning"
+      ],
+      "size": {
+        "gb": "800",
+        "count": "2.79 billion records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "smart-grid-modbus-mms-mitm",
+      "name": "Smart Grid Modbus/MMS MITM Datasets",
+      "aliases": [
+        "Datasets of Man-in-the-middle Attacks Targeting Modbus TCP/IP and MMS protocols in the Smart Grid"
+      ],
+      "url": "https://zenodo.org/records/8375657",
+      "task": "MITM detection",
+      "domain": "ICS / Smart grid (Modbus/TCP, IEC 61850 MMS)",
+      "data": [
+        "CSV flow features"
+      ],
+      "paper": {
+        "cite": "Elrawy, Hadjidemetriou, Laoudias & Michael, Sustainable Energy, Grids and Networks 2023",
+        "title": "Detecting and classifying man-in-the-middle attacks in the private area network of smart grids",
+        "doi": "10.1016/j.segan.2023.101167"
+      },
+      "notes": "KIOS Research and Innovation Center of Excellence, University of Cyprus. Man-in-the-middle attacks in eavesdropping mode (ARP poisoning) against Modbus TCP/IP and IEC 61850 MMS in the private area network of a site with distributed energy resources. Five flow-based timing features per connection and an ARP poisoning indicator; the indicator alone may make the classification trivial. Very small (1 MB). Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "spoofing"
+      ],
+      "size": {
+        "gb": "0.001"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cesnet-miner22",
+      "name": "CESNET-MINER22",
+      "url": "https://zenodo.org/records/7189293",
+      "task": "Cryptominer detection",
+      "domain": "Backbone (CESNET2)",
+      "data": [
+        "Flows (ipfixprobe, CSV)"
+      ],
+      "paper": {
+        "cite": "Plný, Hynek & Čejka, NordSec 2022",
+        "title": "DeCrypto: Finding Cryptocurrency Miners on ISP Networks",
+        "doi": "10.1007/978-3-031-22295-5_8"
+      },
+      "notes": "Czech Technical University in Prague and CESNET. Anonymised extended bidirectional flows exported with ipfixprobe on the CESNET2 national research network, with per-packet information of the first 30 packets, labelled Miner or Other: 2,024,903 flows for design (December 2021 to February 2022) and 1,075,576 for evaluation (March 2022). 350 MB. Licence CC BY 4.0.",
+      "category": "malware",
+      "year": "2022",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "derivation_tool": "ipfixprobe",
+      "size": {
+        "gb": "0.35",
+        "count": "3.1M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cesnet-miner22-ts",
+      "name": "CESNET-MINER22-TS",
+      "url": "https://zenodo.org/records/8033351",
+      "task": "Cryptominer detection (periodicity)",
+      "domain": "Backbone (CESNET2)",
+      "data": [
+        "Flows (CSV)",
+        "Flow time series",
+        "Periodicity features CSV"
+      ],
+      "paper": {
+        "cite": "Koumar, Plný & Čejka, CNSM 2023",
+        "title": "Enhancing DeCrypto: Finding Cryptocurrency Miners Based on Periodic Behavior",
+        "doi": "10.23919/CNSM59352.2023.10327904"
+      },
+      "notes": "Czech Technical University in Prague and CESNET. The flows of CESNET-MINER22 grouped into network dependencies, with flow time series, periodic behaviour features for machine learning and the periodicity probability given by the analysis, labelled Miner or Other. 1.6 GB. Licence CC BY 4.0.",
+      "category": "malware",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "size": {
+        "gb": "1.6"
+      },
+      "parents": [
+        "cesnet-miner22"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "nettisa-flow-datasets",
+      "name": "NetTiSA Flow Datasets",
+      "aliases": [
+        "Network traffic datasets with novel extended IP flow called NetTiSA flow"
+      ],
+      "url": "https://zenodo.org/records/8301043",
+      "task": "Network traffic classification (security tasks)",
+      "domain": "Network / Merged benchmarks",
+      "data": [
+        "Extended flows (NetTiSA, CSV)"
+      ],
+      "paper": {
+        "cite": "Koumar, Hynek, Pešek & Čejka, Computer Networks 2024",
+        "title": "NetTiSA: Extended IP flow with time-series features for universal bandwidth-constrained high-speed network traffic classification",
+        "doi": "10.1016/j.comnet.2023.110147"
+      },
+      "notes": "Czech Technical University in Prague and CESNET. 24 datasets re-extracted in the NetTiSA extended flow format (flows with time-series features) from 15 public datasets, each for one detection problem: botnet (CTU-13), cryptomining (CESNET-MINER22), malware DNS (CIC-Bell-DNS2021), DoH (CIRA-CIC-DoHBrw-2020 and a real-world DoH collection), DoS (BoT-IoT), IoT malware (Edge-IIoTset, IoT-23, ToN-IoT), HTTPS brute force, intrusion detection (CICIDS2017, UNSW-NB15), Tor (ISCXTor2016) and VPN (ISCXVPN2016, VNAT); binary and multiclass versions. 12.6 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware",
+        "dos",
+        "bruteforce",
+        "app",
+        "other"
+      ],
+      "size": {
+        "gb": "12.6"
+      },
+      "parents": [
+        "ctu-13",
+        "cesnet-miner22",
+        "cic-bell-dns2021",
+        "cira-cic-dohbrw2020",
+        "bot-iot",
+        "edge-iiotset",
+        "cicids2017",
+        "unsw-nb15",
+        "iot-23",
+        "ton-iot",
+        "iscxtor2016",
+        "iscxvpn2016"
+      ],
+      "parents_text": [
+        {
+          "name": "DoH real-world (Jeřábek et al.)",
+          "title": "Collection of datasets with DNS over HTTPS traffic",
+          "doi": "10.1016/j.dib.2022.108310"
+        },
+        "HTTPS Brute-force dataset (Luxemburk et al.)",
+        "VNAT VPN dataset (Jorgensen et al.)"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "attackmate-evaluation-data",
+      "name": "AttackMate Evaluation Data",
+      "url": "https://zenodo.org/records/19810174",
+      "task": "Attack detection (kill chain)",
+      "domain": "Enterprise / Attack emulation",
+      "data": [
+        "PCAP (tcpdump)",
+        "Host and execution logs"
+      ],
+      "paper": {
+        "cite": "Landauer, Hotwagner, Boenke, Skopik & Wurzenberger, Digital Threats: Research and Practice 2026",
+        "title": "AttackMate: Realistic Emulation and Automation of Cyber Attack Scenarios across the Kill Chain",
+        "doi": "10.1145/3845806"
+      },
+      "notes": "AIT Austrian Institute of Technology. Log data and network traffic collected while the same scenarios were emulated with AttackMate, MITRE Caldera and Atomic Red Team on the AIT AttackBed: privilege escalation, information gathering (tcpdump captures) and lateral movement, with the playbooks and execution logs of each tool. Version 4; 791 MB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3",
+        "attck": true
+      },
+      "attack_families": [
+        "lateral",
+        "scanning",
+        "exploitation"
+      ],
+      "size": {
+        "gb": "0.79"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "bh-ksu23",
+      "name": "BH-KSU23",
+      "url": "https://data.mendeley.com/datasets/wjxc69xj3n/1",
+      "task": "C2 traffic detection",
+      "domain": "Malware / C2 frameworks",
+      "data": [
+        "Flows (CICFlowMeter, 76 features)"
+      ],
+      "paper": {
+        "cite": "Binsaeed & Hafez, Mendeley Data 2023",
+        "title": "BH-KSU23: A Novel Dataset for Evaluating and Enhancing Intrusion Detection Systems Targeting Command-and-Control Traffic",
+        "doi": "10.17632/wjxc69xj3n.1"
+      },
+      "notes": "Traffic of seven command-and-control frameworks in an environment that imitates real infrastructure, with enumeration, exploitation and post-exploitation: 142 GB of raw traffic reduced to about 400,000 CICFlowMeter records with 76 features, nearly balanced between benign and malicious. The packet captures are not distributed. 31 MB. Licence CC BY 4.0.",
+      "category": "malware",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2",
+        "scanning",
+        "exploitation"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.03",
+        "count": "400k records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "tuwien-smart-factory-malware",
+      "name": "TU Wien Smart Factory Malware Communication",
+      "aliases": [
+        "Malware Communication in Smart Factories: A Network Traffic Data Set"
+      ],
+      "url": "https://researchdata.tuwien.at/records/ghdc6-45k78",
+      "task": "ICS intrusion detection",
+      "domain": "ICS / Smart factory (MQTT, OPC UA, Modbus/TCP)",
+      "data": [
+        "PCAP",
+        "Flows"
+      ],
+      "paper": {
+        "cite": "Brenner, Fabini, Offermanns, Semper & Zseby, Computer Networks 2024",
+        "title": "Malware communication in smart factories: A network traffic data set",
+        "doi": "10.1016/j.comnet.2024.110804"
+      },
+      "notes": "TU Wien and TÜV Austria. Labelled traffic of a real smart factory in Vienna over 16 days (395 hours) of operation, with MQTT, OPC UA and Modbus/TCP, during normal operation and during penetration tests by a professional tester with aggressive and stealthy attacks. 173 GB of packet captures and extracted flows, with packet and flow labels by attack. Version 1.0.1; 136.6 GiB compressed. Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2025",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "173"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ncsrd-ds-5gddos",
+      "name": "NCSRD-DS-5GDDoS",
+      "url": "https://zenodo.org/records/13900057",
+      "task": "DDoS detection (5G radio and core metrics)",
+      "domain": "5G",
+      "data": [
+        "Radio and core metrics CSV"
+      ],
+      "paper": {
+        "cite": "Christopoulou et al., IEEE CSCN 2024",
+        "title": "User Terminals as Attackers: An Open Dataset Analysis of DDoS Attacks in 5G Networks",
+        "doi": "10.1109/CSCN63874.2024.10849694"
+      },
+      "notes": "NCSR Demokritos and Space Hellas. Real 5G testbed aligned with 3GPP (Amarisoft, three cells, nine user devices of several types), with flooding DDoS attacks from five malicious user devices. The data are radio and core metrics (eNB and MME counters, per-device data), not packet captures, with a summary of the attacks. Version 3.0; 620 MB. Licence CC BY 4.0.",
+      "category": "5g",
+      "year": "2024",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "0.62"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "kubernetes-misuse-detection",
+      "name": "Misuse Detection in Containers (Kubernetes)",
+      "url": "https://aperta.ulakbim.gov.tr/records/273835",
+      "task": "Misuse detection in containers",
+      "domain": "Cloud / Kubernetes",
+      "data": [
+        "Flows (CICFlowMeter, CSV)"
+      ],
+      "paper": {
+        "cite": "Sever & Dogan, ITU Journal on Future and Evolving Technologies 2023",
+        "title": "A Kubernetes dataset for misuse detection",
+        "doi": "10.52953/FPLR8631"
+      },
+      "notes": "Middle East Technical University. Network flows of a Kubernetes cluster running microservices, generated from packet captures with a fork of CICFlowMeter: benign traffic and ten attack scenarios (Node-RED reconnaissance, remote code execution and container escape, and exploits of seven CVEs). Dataset DOI 10.48623/aperta.273834; also on GitHub (github.com/yigitsever/kubernetes-dataset). 579 MB. Licence CC BY-NC 4.0 (non-commercial).",
+      "category": "sdn",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "scanning",
+        "exploitation",
+        "other"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "gb": "0.58"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "itu-ml5g-ps-006",
+      "name": "ITU-ML5G-PS-006 SDN Intrusion Dataset",
+      "url": "https://zenodo.org/records/15303565",
+      "task": "Intrusion detection",
+      "domain": "SDN",
+      "data": [
+        "CSV features (78)"
+      ],
+      "paper": {
+        "cite": "Chatzimiltis, Zenodo 2025",
+        "title": "ITU-ML5G-PS-006: Intrusion and Vulnerability Detection in Software-Defined Networks (SDN)",
+        "doi": "10.5281/zenodo.15303565"
+      },
+      "notes": "Dataset of the ITU AI/ML in 5G challenge ITU-ML5G-PS-006, organised by ITU and ULAK, published by the University of Surrey. Real traffic of users of a software-defined network combined with known benchmark datasets that are not named: about 2.3 million records with 78 features, benign traffic and 14 attack types. The real part and the benchmark part are not told apart. Version 3; 984 MB. Licence CC BY 4.0.",
+      "category": "sdn",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "14"
+      },
+      "attack_families": null,
+      "size": {
+        "gb": "0.98",
+        "count": "2.3M records"
+      },
+      "derived": true,
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "en2025",
+      "name": "EN2025",
+      "url": "https://zenodo.org/records/18218588",
+      "task": "Malware detection (traffic and API calls)",
+      "domain": "Malware",
+      "data": [
+        "Network traffic",
+        "Endpoint API call logs"
+      ],
+      "paper": {
+        "cite": "Chen, Zenodo 2026",
+        "title": "EN2025",
+        "doi": "10.5281/zenodo.18218588"
+      },
+      "notes": "919 benign software samples, 733 ransomware variants, 816 remote access trojans and 792 spyware instances, each with its network traffic and endpoint API call logs (some samples generated no traffic); no executable binaries are included. 2.6 GB compressed (7z), 77.9 GB uncompressed. Licence MIT.",
+      "category": "malware",
+      "year": "2026",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "size": {
+        "gb": "77.9"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "bccc-dllayer-ids-2025",
+      "name": "BCCC-DLLayer-IDS-2025",
+      "aliases": [
+        "Data Link Layer Intrusion Detection Dataset"
+      ],
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/data-link-layer-intrusion-detection-dataset-bccc-dllayer-ids-2025/",
+      "task": "Intrusion detection (Layer 2)",
+      "domain": "Enterprise / Data link layer",
+      "data": [
+        "PCAP",
+        "Layer-2 flows (DLLFlowLyzer, 352 features)"
+      ],
+      "paper": {
+        "cite": "Ahmadnejad Roudsari, York University 2025",
+        "title": "A CNN–LSTM–Attention Hybrid Architecture for Real-Time Intrusion Detection at the Data Link Layer",
+        "url": "https://hdl.handle.net/10315/43577"
+      },
+      "notes": "Behaviour-Centric Cybersecurity Center (BCCC), York University. Physical small-to-medium enterprise testbed (Cisco switches, six workstations, wireless): one week of benign traffic and about three weeks of attack campaigns (July to August 2025) with ten Layer-2 attack classes (ARP spoofing and poisoning, switch spoofing, impersonation, CAM flooding, VLAN, CDP, DHCP spoofing and starvation, STP). 503.4 GB of packet captures and more than 4.6 million labelled flows with 352 features. Access on request; no licence is stated.",
+      "category": "enterprise",
+      "year": "2026",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "10"
+      },
+      "attack_families": [
+        "spoofing",
+        "dos",
+        "other"
+      ],
+      "derivation_tool": "DLLFlowLyzer",
+      "size": {
+        "gb": "503.4",
+        "count": "4.6M flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "bccc-iot-apt-zwave-2026",
+      "name": "BCCC-IoT-APT-ZWave-2026",
+      "aliases": [
+        "Multi-Source IoT APT Detection Dataset"
+      ],
+      "url": "https://www.yorku.ca/research/bccc/ucs-technical/cybersecurity-datasets-cds/multi-source-iot-apt-detection-dataset-bccc-iot-apt-zwave-2026/",
+      "task": "APT detection",
+      "domain": "IoT / Smart home (Z-Wave, MQTT)",
+      "data": [
+        "Flows (NTLFlowLyzer)",
+        "MQTT sessions (MQTTFlowLyzer)",
+        "Z-Wave packets",
+        "Device telemetry",
+        "Service logs"
+      ],
+      "paper": {
+        "cite": "Shafi et al., Technologies 2026",
+        "title": "Multi-Source IoT APT Detection Using a Two-Expert Dynamic Fusion Model: The BCCC-IoT-APT-ZWave-2026 Dataset",
+        "doi": "10.3390/technologies14110774"
+      },
+      "notes": "Behaviour-Centric Cybersecurity Center (BCCC), York University. Z-Wave smart-home testbed (that of BCCC-IoT-IDS-ZWave-2025) with 11 multi-stage APT episodes over about one month (April to May 2025): initial compromise, persistence, reconnaissance, remote access, lateral movement and unauthorised control. Five labelled sources: 1,671,258 endpoint and hub flows, 18,907,777 MQTT session records, 15,296,371 Z-Wave packets, device telemetry and service logs. Access on request.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "11"
+      },
+      "attack_families": [
+        "scanning",
+        "lateral",
+        "botnet-c2",
+        "other"
+      ],
+      "derivation_tool": "NTLFlowLyzer, MQTTFlowLyzer",
+      "size": {
+        "count": "36M records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "hornet-40",
+      "name": "Hornet 40",
+      "url": "https://zenodo.org/records/7761397",
+      "task": "Attack analysis (honeypots)",
+      "domain": "Honeypot / Cloud",
+      "data": [
+        "Argus",
+        "NetFlow v5 (CSV)",
+        "Extended flows (CSV)"
+      ],
+      "family": "Hornet",
+      "paper": {
+        "cite": "Valeros & Garcia, Data in Brief 2022",
+        "title": "Hornet 40: Network dataset of geographically placed honeypots",
+        "doi": "10.1016/j.dib.2022.107795"
+      },
+      "notes": "Stratosphere Laboratory, Czech Technical University in Prague. 40 days (April to June 2021) of network attacks on eight cloud servers used as honeypots in Amsterdam, London, Frankfurt, San Francisco, New York, Singapore, Toronto and Bangalore, configured identically with only SSH on a non-standard port. Bidirectional flows captured with Argus, in Argus binary format, NetFlow v5 CSV and extended CSV. Not an update of Hornet 15 but a separate dataset of the same family. Version 3 (also on Mendeley Data, DOI 10.17632/tcfzkbpw46.3); 1.5 GB. Licence CC BY 4.0.",
+      "category": "backbone",
+      "year": "2021",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "none"
+      ],
+      "classes": {
+        "benign": false,
+        "attack": null
+      },
+      "attack_families": [
+        "scanning",
+        "bruteforce"
+      ],
+      "derivation_tool": "Argus",
+      "size": {
+        "gb": "1.5"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "uia-iot-ids",
+      "name": "UIA-IOT-IDS",
+      "url": "https://data.mendeley.com/datasets/h23z8f9h3y/2",
+      "task": "IoT intrusion detection and sensor anomaly detection",
+      "domain": "IoT / Smart home",
+      "data": [
+        "Bidirectional flow features CSV",
+        "Sensor readings"
+      ],
+      "paper": {
+        "cite": "Zhang, Sechi & Noori, Mendeley Data 2026",
+        "title": "UIA-IOT-IDS dataset: Comprehensive IoT network intrusion detection and sensor-anomaly",
+        "doi": "10.17632/h23z8f9h3y.2"
+      },
+      "notes": "University of Agder, Norway. Physical smart-home testbed (Raspberry Pi gateway, five ESP8266 temperature and humidity nodes, a Flask IoT server, three Kali Linux attackers) with flows computed on the device in real time; no packet captures are stored. Intrusion detection part: 3,637,408 labelled bidirectional flows with 69 features (46 compatible with CICIoT2023) in 54 classes, 51 attack sub-types in nine categories (reconnaissance, DoS, DDoS, brute force, web, Mirai, spoofing, false data injection, backdoor/C2) and three benign types, plus a SMOTE-balanced version. Sensor anomaly detection part with the sensor readings. Version 2; 598 MB. Licence CC BY 4.0.",
+      "category": "iot",
+      "year": "2026",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "51",
+        "benign_subclasses": "3"
+      },
+      "attack_families": [
+        "scanning",
+        "dos",
+        "bruteforce",
+        "web",
+        "botnet-c2",
+        "spoofing",
+        "injection"
+      ],
+      "size": {
+        "gb": "0.6",
+        "count": "3,637,408 flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "gambit",
+      "name": "GAMBiT",
+      "aliases": [
+        "Guarding Against Malicious Biased Threats"
+      ],
+      "url": "https://doi.org/10.21227/dwkg-n940",
+      "task": "Attacker behaviour analysis",
+      "domain": "Enterprise / Cyber range (red team)",
+      "data": [
+        "Network telemetry",
+        "Keystroke logs",
+        "Terminal histories",
+        "Questionnaires"
+      ],
+      "paper": {
+        "cite": "Beltz et al., Data in Brief 2026",
+        "title": "Guarding against malicious biased threats (GAMBiT) datasets: Revealing cognitive bias in human-subjects red-team cyber range operations",
+        "doi": "10.1016/j.dib.2026.112476"
+      },
+      "notes": "New York University. Two-day cyber range experiment on the SimSpace Cyber Force platform: 19 human red-team participants tasked with finding valuable targets and exfiltrating data in a simulated enterprise network of about 40 virtual devices with embedded triggers of cognitive biases. Network telemetry, keystroke logs, terminal histories and psychometric questionnaires; about 610 GB over three experiments (Experiment 1, DOI 10.21227/dwkg-n940; also 10.21227/39z8-w554 and 10.21227/xdw9-3677). Open access on IEEE DataPort with a free account. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2025",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "access": "registration",
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": null,
+        "attack": null
+      },
+      "attack_families": [
+        "scanning",
+        "lateral",
+        "exfiltration",
+        "exploitation"
+      ],
+      "size": {
+        "gb": "610"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "ics-scada-cyber-kit",
+      "name": "ICS SCADA Cyber Kit Testbed",
+      "url": "https://data.mendeley.com/datasets/k76xhm22yj/1",
+      "task": "ICS anomaly detection",
+      "domain": "ICS / SCADA (Siemens S7, Modbus)",
+      "data": [
+        "Packet records with DPI fields"
+      ],
+      "paper": {
+        "cite": "Mubarak, Habaebi, Islam & Khan, ICCCE 2021",
+        "title": "ICS Cyber Attack Detection with Ensemble Machine Learning and DPI using Cyber-kit Datasets",
+        "doi": "10.1109/ICCCE50029.2021.9467162"
+      },
+      "notes": "Portable real ICS testbed (Siemens S7-1200 PLC, HMI panel, Scalance switch with mirror port, passive OT sensor) attacked from Kali Linux: stable operation and three scenarios (ARP man-in-the-middle with Ettercap, Telnet to the switch, HTTP access to the PLC web server). Packet records with timestamp, addresses, OT protocol and deep-packet-inspection summary. 14 MB. Licence CC BY 4.0.",
+      "category": "industrial",
+      "year": "2021",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "spoofing",
+        "other"
+      ],
+      "size": {
+        "gb": "0.01",
+        "count": "156,076 records"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "single-flow-time-series",
+      "name": "Single Flow Time Series Analysis Datasets",
+      "aliases": [
+        "Network traffic datasets created by Single Flow Time Series Analysis"
+      ],
+      "url": "https://zenodo.org/records/8035724",
+      "task": "Network traffic classification (security tasks)",
+      "domain": "Network / Merged benchmarks",
+      "data": [
+        "Flow time-series features (CSV)"
+      ],
+      "paper": {
+        "cite": "Koumar, Hynek & Čejka, CNSM 2023",
+        "title": "Network Traffic Classification Based on Single Flow Time Series Analysis",
+        "doi": "10.23919/CNSM59352.2023.10327876"
+      },
+      "notes": "Czech Technical University in Prague and CESNET. 23 datasets created from 15 public datasets, the same sources as the NetTiSA datasets (CTU-13, CESNET-MINER22, CIC-Bell-DNS2021, DoH, BoT-IoT, Edge-IIoTset, HTTPS brute force, CICIDS2017, UNSW-NB15, IoT-23, ToN-IoT, ISCXTor2016, ISCXVPN2016, VNAT), each flow described by 69 features computed from its single-flow time series; binary and multiclass versions. 36.7 GB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2023",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware",
+        "dos",
+        "bruteforce",
+        "app",
+        "other"
+      ],
+      "size": {
+        "gb": "36.7"
+      },
+      "parents": [
+        "ctu-13",
+        "cesnet-miner22",
+        "cic-bell-dns2021",
+        "cira-cic-dohbrw2020",
+        "bot-iot",
+        "edge-iiotset",
+        "cicids2017",
+        "unsw-nb15",
+        "iot-23",
+        "ton-iot",
+        "iscxtor2016",
+        "iscxvpn2016"
+      ],
+      "parents_text": [
+        {
+          "name": "DoH real-world (Jeřábek et al.)",
+          "title": "Collection of datasets with DNS over HTTPS traffic",
+          "doi": "10.1016/j.dib.2022.108310"
+        },
+        "HTTPS Brute-force dataset (Luxemburk et al.)",
+        "VNAT VPN dataset (Jorgensen et al.)"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cadesh",
+      "name": "CADeSH",
+      "aliases": [
+        "Collaborative Anomaly Detection for Smart Homes"
+      ],
+      "url": "https://zenodo.org/records/6406052",
+      "task": "IoT anomaly detection (collaborative)",
+      "domain": "IoT / Smart home",
+      "data": [
+        "Flows (IPFIX)",
+        "DNS records",
+        "IP reputation"
+      ],
+      "paper": {
+        "cite": "Meidan, Avraham, Libhaber & Shabtai, IEEE Internet of Things Journal 2023",
+        "title": "CADeSH: Collaborative Anomaly Detection for Smart Homes",
+        "doi": "10.1109/JIOT.2022.3194813"
+      },
+      "notes": "Ben-Gurion University of the Negev. Outbound IPFIX flows of one IoT device model (Amazon Fire TV streamer) captured for 21 days in five real home networks subscribed to a smart-home security service and in the authors' lab, with the related DNS records and destination reputation. In the lab the device ran a cryptominer and the network was scanned with Nmap; all other flows are labelled assumed benign. Restricted access on Zenodo: the files are released on request.",
+      "category": "iot",
+      "year": "2022",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "access": "request",
+      "acquisition": "hybrid",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "malware",
+        "scanning"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "etf-iot-botnet",
+      "name": "ETF IoT Botnet Dataset",
+      "url": "https://data.mendeley.com/datasets/nbs66kvx6n/1",
+      "task": "IoT botnet detection",
+      "domain": "IoT / Malware",
+      "data": [
+        "PCAP",
+        "Malware sample descriptions (CSV)"
+      ],
+      "paper": {
+        "cite": "Jovanović & Vuletić, Computer Science and Information Systems 2024",
+        "title": "PI-BODE: Programmable Intraflow-based IoT Botnet Detection system",
+        "doi": "10.2298/CSIS211116064J"
+      },
+      "notes": "School of Electrical Engineering, University of Belgrade. Traffic of real IoT malware samples collected from URLhaus (2019 to 2021) run on Raspberry Pi devices with restricted network access, recorded with tcpdump, with a description of each sample (URLhaus link, bot and malware addresses, presence of attacks, tags); benign traffic of a personal computer over several hours. Local addresses anonymised. 2.9 GB. Licence CC BY 4.0.",
+      "category": "malware",
+      "year": "2021",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "real",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "botnet-c2",
+        "malware",
+        "dos"
+      ],
+      "size": {
+        "gb": "2.9"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "cyber-attack-evaluation-dpi",
+      "name": "Cyber Attack Evaluation Dataset for Deep Packet Inspection",
+      "url": "https://data.mendeley.com/datasets/3szjvt3w78/1",
+      "task": "Attack detection",
+      "domain": "Enterprise / Docker network",
+      "data": [
+        "PCAP"
+      ],
+      "paper": {
+        "cite": "Shandilya, Ganguli, Izonin & Nagar, Data in Brief 2023",
+        "title": "Cyber attack evaluation dataset for deep packet inspection and analysis",
+        "doi": "10.1016/j.dib.2022.108771"
+      },
+      "notes": "Network traffic captured with Wireshark and tcpdump while ten virtual machines on a Docker bridge network exploited each other and an Apache server on a second VLAN: DDoS, SQL injection, exploitation of FTP and SSH services, download of malicious packages, on outdated and updated software versions. 630 MB. Also on IEEE DataPort (DOI 10.21227/A8M1-X573). Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2022",
+      "representation": "PCAP",
+      "artifact": {
+        "traces": true,
+        "derived": false
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "weak"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "dos",
+        "web",
+        "exploitation",
+        "bruteforce",
+        "malware"
+      ],
+      "size": {
+        "gb": "0.63"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "sdn-ddos-hirsi",
+      "name": "SDN-DDoS Traffic Dataset (Hirsi et al.)",
+      "url": "https://data.mendeley.com/datasets/b7vw628825/1",
+      "task": "DDoS detection",
+      "domain": "SDN",
+      "data": [
+        "CSV flow features"
+      ],
+      "paper": {
+        "cite": "Hirsi, Audah & Salh, Mendeley Data 2024",
+        "title": "SDN-DDoS Traffic Dataset",
+        "doi": "10.17632/b7vw628825.1"
+      },
+      "notes": "DDoS attack scenarios in an emulated SDN with two topologies of 12 switches and 24 hosts and a Ryu controller: 1,048,575 labelled rows with addresses, packet and byte counts, durations, protocols, ports, rates, delay, jitter and packet loss. 204 MB. Licence CC BY 4.0.",
+      "category": "sdn",
+      "year": "2024",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "size": {
+        "gb": "0.2",
+        "count": "1,048,575 rows"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "spedia",
+      "name": "SPEDIA",
+      "aliases": [
+        "System for Prediction and Early Detection of Insider Attacks"
+      ],
+      "url": "https://zenodo.org/records/15525713",
+      "task": "Insider threat detection",
+      "domain": "Enterprise / Insider threat",
+      "data": [
+        "Annotated event logs (CSV)"
+      ],
+      "paper": {
+        "cite": "Álvarez Muñiz et al., Computers & Security 2026",
+        "title": "Design and generation of a dataset for training insider threat prevention and detection models: The SPEDIA dataset",
+        "doi": "10.1016/j.cose.2025.104743"
+      },
+      "notes": "Universidad Politécnica de Madrid. A 30-day cyber exercise in which real users with technical backgrounds performed insider attacks based on MITRE ATT&CK, combined with non-malicious activity simulated by a role-based behavioural model and synthetic events derived from the CERT Insider Threat dataset. Annotated event logs (SSH and FTP connections, command execution, HTTP and email activity, file changes) with 25 key fields, balanced between malicious and non-malicious events. Logs, not packet captures, as OTRF. 46 MB. Licence CC BY 4.0.",
+      "category": "enterprise",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null,
+        "attck": true
+      },
+      "attack_families": [
+        "exfiltration",
+        "lateral",
+        "other"
+      ],
+      "size": {
+        "gb": "0.05"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "dns-threats",
+      "name": "DNS Threats Dataset",
+      "url": "https://zenodo.org/records/6508640",
+      "task": "DGA and DNS tunneling detection",
+      "domain": "DNS",
+      "data": [
+        "Domain names (CSV)"
+      ],
+      "paper": {
+        "cite": "Palau, Catania, Guerra, García & Rigaki, ASAI 2019",
+        "title": "Detecting DNS Threats: A Deep Learning Model to Rule Them All",
+        "url": "http://sedici.unlp.edu.ar/handle/10915/87859"
+      },
+      "notes": "National University of Cuyo (UNCuyo), Argentina, and Czech Technical University in Prague. Multiclass set of domain names: normal domains (Alexa top million and other feeds), DGA domains of 51 malware families (Abakumov and Bambenek repositories) and 8,000 DNS tunneling domains generated in the lab with iodine, dnscat2 and DNSExfiltrator. Training and test splits; 29 MB. Licence CC BY 3.0 US.",
+      "category": "web",
+      "year": "2022",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "2"
+      },
+      "attack_families": [
+        "malware",
+        "exfiltration"
+      ],
+      "size": {
+        "gb": "0.03"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "encrypted-traffic-feature-wang-thing",
+      "name": "Encrypted Traffic Feature Dataset (Wang & Thing)",
+      "url": "https://data.mendeley.com/datasets/xw7r4tt54g/1",
+      "task": "Encrypted malicious traffic detection",
+      "domain": "Encrypted traffic / Merged benchmarks",
+      "data": [
+        "CSV features"
+      ],
+      "paper": {
+        "cite": "Wang & Thing, arXiv 2023",
+        "title": "Feature Mining for Encrypted Malicious Traffic Detection with Deep Learning and Other Machine Learning Algorithms",
+        "url": "https://arxiv.org/abs/2304.03691"
+      },
+      "notes": "Features of encrypted malicious and legitimate traffic combined from six public datasets, among them the Stratosphere Malware Capture Facility and datasets of the Canadian Institute for Cybersecurity, balanced at about 50% malicious and 50% legitimate traffic, with training and test samples and a statistics document. 5.7 GB. Licence CC BY 4.0.",
+      "category": "encrypted",
+      "year": "2022",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "mix",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": null
+      },
+      "attack_families": [
+        "malware",
+        "botnet-c2"
+      ],
+      "size": {
+        "gb": "5.7"
+      },
+      "parents": [
+        "stratosphere-malware-capture-facility",
+        "cicids2017",
+        "cic-iscx-2012",
+        "cira-cic-dohbrw2020"
+      ],
+      "notify": true,
+      "new_since": "2026-11-30"
+    },
+    {
+      "evidence": "verified",
+      "id": "upna-ransomware-traffic",
+      "name": "UPNA Crypto-Ransomware Traffic Samples",
+      "aliases": [
+        "Ransomware and user samples for training and validating ML models"
+      ],
+      "url": "https://data.mendeley.com/datasets/yhg5wk39kf/2",
+      "task": "Ransomware detection (file-sharing traffic)",
+      "domain": "Malware / Ransomware (SMB, NFS)",
+      "data": [
+        "CSV window features"
+      ],
+      "paper": {
+        "cite": "Berrueta, Morató, Magaña & Izal, Mendeley Data 2021",
+        "title": "Ransomware and user samples for training and validating ML models",
+        "doi": "10.17632/yhg5wk39kf.2"
+      },
+      "notes": "Public University of Navarre (UPNA), Spain. Samples of file-sharing traffic (SMB and NFS) to a shared server, infected by more than 70 ransomware binaries of 26 families and not infected from more than 2,500 hours of real users, for detection even with encrypted traffic. The published files are feature samples over 1-second intervals with several window and step configurations, with the trained models; no packet captures. Version 2; 5 GB. Raw traces are listed on IEEE DataPort (DOI 10.21227/D8TY-Q091). Licence CC BY 4.0.",
+      "category": "malware",
+      "year": "2021",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "hybrid",
+      "labeling": [
+        "binary"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "26"
+      },
+      "attack_families": [
+        "malware"
+      ],
+      "size": {
+        "gb": "5.0"
+      },
+      "notify": true,
+      "new_since": "2026-11-30"
     }
   ],
   "model_intro": "Each dataset of the Observatory is described by the same entity model as the paper: the dataset at the centre, linked to ten entities. The five above it describe where the dataset comes from (dashed lines are optional associations: not every dataset has a family, a paper or a derivation tool); the five below describe what it contains and how to get it. Every value is also a filter of the catalogue: select one to see the datasets that have it.",
