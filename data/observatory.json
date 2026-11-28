@@ -1635,7 +1635,7 @@
     {
       "id": "hikari-2021",
       "name": "HIKARI-2021",
-      "url": "https://zenodo.org/records/5111946",
+      "url": "https://zenodo.org/records/6463389",
       "task": "Encrypted-traffic IDS",
       "domain": "TLS;encrypted traffic;network",
       "data": [
@@ -1648,7 +1648,7 @@
         "title": "Generating Network Intrusion Detection Dataset Based on Real and Encrypted Synthetic Attack Traffic",
         "doi": "10.3390/app11177868"
       },
-      "notes": "Benign traffic plus encrypted synthetic attack traffic; not operational attacks. 4 attacks plus benign and background.",
+      "notes": "Benign traffic plus encrypted synthetic attack traffic; not operational attacks. 4 attacks plus benign and background. Version 1.4.0 (15 April 2022) adds 2022 captures (four HTTPS and XML brute-force packet captures of April 2022) and the ALLFLOWMETER_HIKARI2022 files (CSV and PKL); the count of 555k flows refers to the 2021 part, the size of the 2022 part is not stated. Licence CC BY 4.0.",
       "category": "encrypted",
       "year": "2021",
       "artifact": {
@@ -1672,8 +1672,8 @@
       ],
       "derivation_tool": "Zeek",
       "size": {
-        "gb": "11.7",
-        "count": "555k flows"
+        "gb": "27.42",
+        "count": "555k flows (2021 part)"
       },
       "evidence": "verified"
     },
@@ -5207,7 +5207,7 @@
       ],
       "paper": {
         "cite": "Valeros & Garcia, Data in Brief 2022",
-        "title": "Hornet 15: Network dataset of geographically placed honeypots",
+        "title": "Hornet 40: Network dataset of geographically placed honeypots",
         "doi": "10.1016/j.dib.2022.107795"
       },
       "family": "Hornet",
@@ -5229,9 +5229,10 @@
       "attack_families": null,
       "derivation_tool": "Argus",
       "size": {
-        "count": "2.1M flows (15 days)"
+        "count": "2.1M flows (15 days)",
+        "gb": "0.56"
       },
-      "notes": "8 cloud honeypots in 8 cities; released as Argus bidirectional flows and CSV, no PCAP. All traffic is unsolicited, so it has no labels.",
+      "notes": "8 cloud honeypots in 8 cities; released as Argus bidirectional flows and CSV, no PCAP. All traffic is unsolicited, so it has no labels. The Data in Brief paper describes Hornet 40; Hornet 15 has no paper of its own. Version 2 on Mendeley Data (18 May 2021, DOI 10.17632/rry7bhc2f2.2); 562 MB.",
       "evidence": "verified"
     },
     {
@@ -12412,7 +12413,6 @@
       "data": [
         "Zeek logs"
       ],
-      "family": "Hornet",
       "paper": {
         "cite": "Stratosphere Laboratory, 2024",
         "title": "CTU Hornet 65 Niner",
@@ -12685,7 +12685,7 @@
       "evidence": "verified",
       "id": "multi-source-cybersecurity-lan",
       "name": "Multi-source Cybersecurity LAN dataset",
-      "url": "https://zenodo.org/records/24394558",
+      "url": "https://zenodo.org/records/24562314",
       "task": "Intrusion detection",
       "domain": "Enterprise / LAN",
       "data": [
@@ -12696,9 +12696,9 @@
       "paper": {
         "cite": "Corățu, Apostol, Toma & Aciobanitei, Zenodo 2026",
         "title": "Multi-source Cybersecurity LAN dataset",
-        "doi": "10.5281/zenodo.24394558"
+        "doi": "10.5281/zenodo.24562314"
       },
-      "notes": "Military Technical Academy, Bucharest; version 2.0. Virtualised network with benign activity and nine attack scenarios (not named in the documentation): 113 packet capture files (93 benign, 20 attack) and 1,355,676 flows (1,114,057 benign, 241,619 malicious), with system and service logs; 6.3 GB. Licence CC BY 4.0.",
+      "notes": "Military Technical Academy, Bucharest; version 5.0 (26 November 2026). Virtualised network with benign activity and nine attack scenarios (not named in the documentation): 113 packet capture files (93 benign, 20 attack) and 1,355,676 flows (1,114,057 benign, 241,619 malicious), with system and service logs. Version 5.0 adds Experimental_Datasets_Grouped, a cross-source manifest and data dictionary v1.3, with the packet captures and flows unchanged in structure. 6.33 GB. Licence CC BY 4.0.",
       "category": "enterprise",
       "year": "2026",
       "representation": "PCAP + derived",
@@ -14660,7 +14660,7 @@
         "title": "Real-Traffic Enrichment for Improved Minority Web Attack Detection in Network Intrusion Detection",
         "doi": "10.3390/info17090922"
       },
-      "notes": "University of Blida, Algeria. 32,670 web attack flows captured in a testbed (Apache XAMPP server with DVWA; sqlmap, Hydra, Wfuzz and manual obfuscated vectors, with normal background traffic), to enrich the scarce web attack classes of CICIDS2017: SQL injection, cross-site scripting (reflected and stored) and web brute force. Flows extracted with CICFlowMeter on the 78 features of CICIDS2017, for direct combination with it. 21.8 MB. Licence CC BY 4.0.",
+      "notes": "University of Blida, Algeria. Standalone dataset of 32,670 web attack flows captured by the authors in a testbed (Apache XAMPP server with DVWA; sqlmap, Hydra, Wfuzz and manual obfuscated vectors): SQL injection, cross-site scripting (reflected and stored) and web brute force. Flows extracted with CICFlowMeter on the 78 features of CICIDS2017, so that they can be combined with it; no CICIDS2017 data is included. 21.8 MB. Licence CC BY 4.0.",
       "category": "enterprise",
       "year": "2026",
       "representation": "Derived only",
@@ -14673,7 +14673,7 @@
         "multiclass"
       ],
       "classes": {
-        "benign": true,
+        "benign": false,
         "attack": "3"
       },
       "attack_families": [
@@ -14685,9 +14685,6 @@
         "gb": "0.02",
         "count": "32,670 flows"
       },
-      "parents": [
-        "cicids2017"
-      ],
       "notify": true,
       "new_since": "2026-11-28"
     },
@@ -16461,7 +16458,7 @@
       "aliases": [
         "Malware Communication in Smart Factories: A Network Traffic Data Set"
       ],
-      "url": "https://researchdata.tuwien.at/records/ghdc6-45k78",
+      "url": "https://researchdata.tuwien.ac.at/records/ghdc6-45k78",
       "task": "ICS intrusion detection",
       "domain": "ICS / Smart factory (MQTT, OPC UA, Modbus/TCP)",
       "data": [
@@ -16777,7 +16774,7 @@
         "title": "Hornet 40: Network dataset of geographically placed honeypots",
         "doi": "10.1016/j.dib.2022.107795"
       },
-      "notes": "Stratosphere Laboratory, Czech Technical University in Prague. 40 days (April to June 2021) of network attacks on eight cloud servers used as honeypots in Amsterdam, London, Frankfurt, San Francisco, New York, Singapore, Toronto and Bangalore, configured identically with only SSH on a non-standard port. Bidirectional flows captured with Argus, in Argus binary format, NetFlow v5 CSV and extended CSV. Not an update of Hornet 15 but a separate dataset of the same family. Version 3 (also on Mendeley Data, DOI 10.17632/tcfzkbpw46.3); 1.5 GB. Licence CC BY 4.0.",
+      "notes": "Stratosphere Laboratory, Czech Technical University in Prague. 40 days (April to June 2021) of network attacks on eight cloud servers used as honeypots in Amsterdam, London, Frankfurt, San Francisco, New York, Singapore, Toronto and Bangalore, with only SSH on a non-standard port: the same configuration as Hornet 15 (15 days, April to May 2021). Bidirectional flows captured with Argus, in Argus binary format, NetFlow v5 CSV and extended CSV; no labels. Version 3 (also on Mendeley Data, DOI 10.17632/tcfzkbpw46.3); 1.5 GB. Licence CC BY 4.0.",
       "category": "backbone",
       "year": "2021",
       "representation": "Derived only",
@@ -17361,6 +17358,177 @@
       ],
       "size": {
         "gb": "5.0"
+      },
+      "notify": true,
+      "new_since": "2026-11-28"
+    },
+    {
+      "evidence": "verified",
+      "id": "s3id",
+      "name": "S3ID",
+      "aliases": [
+        "SDN-based Space System Simulation Intrusion Detection dataset"
+      ],
+      "url": "https://github.com/UniSACyber/S3ID",
+      "task": "Intrusion detection (SDN, space systems)",
+      "domain": "SDN / Space systems",
+      "data": [
+        "Flows (CICFlowMeter, 84 features, CSV)"
+      ],
+      "paper": {
+        "cite": "Uhongora, Thinyane & Law, IEEE CSR 2025",
+        "title": "Development of an SDN-based Space System Simulation Framework for Intrusion Detection",
+        "doi": "10.1109/CSR64739.2025.11130072"
+      },
+      "notes": "Traffic of a simulated SDN-based space system (MATLAB with Mininet and a POX controller), not captured on a real network. Four CSV files with 84 CICFlowMeter features: benign (3,129 rows), port scan (817), SYN flood (94,141) and SYN flow flood (2,854). The classes are imbalanced: SYN flood is 93% of the rows. Packet captures are not distributed. Licence GPL-3.0.",
+      "category": "sdn",
+      "year": "2025",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "scanning",
+        "dos"
+      ],
+      "derivation_tool": "CICFlowMeter",
+      "size": {
+        "count": "100,941 flows"
+      },
+      "notify": true,
+      "new_since": "2026-11-28"
+    },
+    {
+      "evidence": "verified",
+      "id": "ukmddosdn",
+      "name": "UKMDDoSDN v2",
+      "aliases": [
+        "UKMDDoSDN: A DDoS Attacks Dataset for Software-Defined Networks"
+      ],
+      "url": "https://data.mendeley.com/datasets/43nfv26gpk/2",
+      "task": "DDoS detection",
+      "domain": "SDN",
+      "data": [
+        "PCAP",
+        "Packet features CSV",
+        "SDN controller flow statistics",
+        "Flows (CICFlowMeter)"
+      ],
+      "paper": {
+        "cite": "Mokti, Mendeley Data 2025",
+        "title": "UKMDDoSDN: A DDoS Attacks Dataset for Software-Defined Networks",
+        "doi": "10.17632/43nfv26gpk.2"
+      },
+      "notes": "Mininet emulation of four subnets behind an OpenFlow 1.3 switch with a Ryu L3 controller, generated in a batch run of about 52 hours: benign traffic and SYN, UDP and ICMP floods, with multiclass and binary labels. Raw packet captures with packet features, controller flow statistics and CICFlowMeter features. Same author as AdDDoSDN and DDOSDN2025, with different generation parameters and classes. Code at github.com/nqmn/ukmddosdn. Version 2. Licence CC BY 4.0.",
+      "category": "sdn",
+      "year": "2025",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "emulated",
+      "labeling": [
+        "binary",
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "3"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "derivation_tool": "CICFlowMeter, Ryu",
+      "notify": true,
+      "new_since": "2026-11-28"
+    },
+    {
+      "evidence": "verified",
+      "id": "natwork-dost-prometheus",
+      "name": "Denial-of-Sustainability Prometheus TimeSeries Dataset",
+      "aliases": [
+        "NATWORK DoST"
+      ],
+      "url": "https://natwork-data-portal.iti.gr/dataset/denial-of-sustainability-prometheus-timeseries-dataset",
+      "task": "Attack detection (Kubernetes services)",
+      "domain": "Cloud / Kubernetes",
+      "data": [
+        "Prometheus time series (CSV)"
+      ],
+      "paper": {
+        "cite": "University of Essex, NATWORK data portal",
+        "title": "Denial-of-Sustainability Prometheus TimeSeries Dataset",
+        "url": "https://natwork-data-portal.iti.gr/dataset/denial-of-sustainability-prometheus-timeseries-dataset"
+      },
+      "notes": "University of Essex, EU project NATWORK. Prometheus metrics at a 60-second step over three weeks for services on Kubernetes under an oscillating Denial of Sustainability attack: CPU and memory of proxy and service, transmitted and received traffic, benign and attack requests per second, and a label, in one CSV file (DOST_Prometheus_TSBD.csv). Aggregated metrics only, with no packet captures or flows. The number of rows and the size are not stated. No licence is stated.",
+      "category": "sdn",
+      "representation": "Derived only",
+      "artifact": {
+        "traces": false,
+        "derived": true
+      },
+      "classes": {
+        "benign": true,
+        "attack": "1"
+      },
+      "attack_families": [
+        "dos"
+      ],
+      "notify": true,
+      "new_since": "2026-11-28"
+    },
+    {
+      "evidence": "verified",
+      "id": "uq-iot-ids2021",
+      "name": "UQ-IoT-IDS2021",
+      "url": "https://doi.org/10.48610/6acdb93",
+      "task": "IoT intrusion detection",
+      "domain": "IoT",
+      "data": [
+        "PCAP",
+        "Kitsune features (100)"
+      ],
+      "paper": {
+        "cite": "He, Kim & Zhang, UQ eSpace 2022",
+        "title": "UQ-IoT-IDS2021",
+        "doi": "10.48610/6acdb93"
+      },
+      "notes": "School of Information Technology and Electrical Engineering, University of Queensland. Packet captures from a real network with smartphones, a smart TV, an IP camera, a smart speaker and Raspberry Pi devices, with 100 temporal statistical features extracted with Kitsune. Benign traffic over one week (seven files: five weekdays, Saturday and Sunday) and nine attacks captured separately by device type and attack: host discovery, port scanning, service detection, ARP spoofing, Telnet brute force, and SYN, UDP, HTTP and ACK flooding. 41,404,983 records; 70.8 GB. Open access; re-use permitted with acknowledgement (University of Queensland terms).",
+      "category": "iot",
+      "year": "2022",
+      "representation": "PCAP + derived",
+      "artifact": {
+        "traces": true,
+        "derived": true
+      },
+      "acquisition": "real",
+      "labeling": [
+        "multiclass"
+      ],
+      "classes": {
+        "benign": true,
+        "attack": "9"
+      },
+      "attack_families": [
+        "scanning",
+        "spoofing",
+        "bruteforce",
+        "dos"
+      ],
+      "derivation_tool": "Kitsune",
+      "size": {
+        "gb": "70.8",
+        "count": "41,404,983 records"
       },
       "notify": true,
       "new_since": "2026-11-28"
